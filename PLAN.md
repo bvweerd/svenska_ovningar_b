@@ -73,8 +73,8 @@ Nieuw in deze repo:
 - [x] **Fase 0** – niveaus, luisteren, sort, transform, nieuwe repo
 - [x] **Fase 1** – proefhoofdstuk 13 (werk en solliciteren)
 - [ ] Testen of de browserstemmen goed genoeg zijn (oordelen in GoatCounter: `/b/luisteren/oordeel/…`)
-- [ ] **Fase 2** – hoofdstuk 14–24, één voor één
-- [ ] **Fase 3** – hoofdstuk 25–30 en eindtoetsen per niveau
+- [x] **Fase 2** – hoofdstuk 14–24, één voor één (met eindtoets B1 in hoofdstuk 24)
+- [x] **Fase 3** – hoofdstuk 25–30 (met herhaling en eindtoets B2 in hoofdstuk 30)
 - [ ] Werkwoordtrainer uitbreiden met B1-werkwoorden en partikelwerkwoorden
 
 ## 5. Kanttekeningen
