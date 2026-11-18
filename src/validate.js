@@ -95,6 +95,13 @@ export function validateChapter(ch, extraTopics = []) {
     if (!ex.title || !ex.instruction) errors.push(`${where}: title en instruction zijn verplicht`);
     if (ex.topic && !topics.has(ex.topic)) errors.push(`${where}: onbekend topic "${ex.topic}"`);
     if (!ex.items?.length) errors.push(`${where}: geen items`);
+    // Elke vraag heeft een vaste id (npm run ids); daar hangt de voortgang van gebruikers aan.
+    const itemIds = new Set();
+    ex.items?.forEach((it, i) => {
+      if (it.id === undefined || it.id === null || it.id === '') errors.push(`${where} #${i + 1}: vraag zonder id (draai npm run ids)`);
+      else if (itemIds.has(it.id)) errors.push(`${where} #${i + 1}: dubbele vraag-id "${it.id}"`);
+      else itemIds.add(it.id);
+    });
     ex.items?.forEach((it, i) => checkItem(it, `${where} #${i + 1}`, errors, topics));
   }
   return errors;

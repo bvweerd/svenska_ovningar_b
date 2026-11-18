@@ -8,7 +8,8 @@
     "dev": "vite",
     "build": "vite build",
     "preview": "vite preview",
-    "test": "vitest run"
+    "test": "vitest run",
+    "ids": "node scripts/add-ids.mjs"
   },
   "devDependencies": {
     "js-yaml": "4.1.0",

@@ -71,12 +71,12 @@ sections:
 
           Men alla svenskar byter också språk efter situationen. Samma person som skriver ”tja, ses sen?” till en kompis skriver ”Hej! Jag återkommer så snart som möjligt” till en kund. Att kunna växla mellan olika register är en viktig del av att behärska ett språk – kanske den svåraste.
         items:
-          - { type: truefalse, statement: "Svenska låter likadant i hela Sverige.", answer: false, correction: { answers: ["Svenska låter inte likadant överallt."] } }
-          - { type: mc, prompt: "Hur många procent av befolkningen i Finland har svenska som modersmål?", options: ["omkring fem procent", "omkring femtio procent", "ingen", "alla"], answer: 0 }
-          - { type: mc, prompt: "Vad betyder *len* på förortssvenska?", options: ["kompis", "skynda dig", "hej", "pengar"], answer: 0 }
-          - { type: truefalse, statement: "Bara unga med föräldrar från andra länder använder förortssvenska ord.", answer: false, correction: { answers: ["Många unga använder dem[,] oavsett var deras föräldrar kommer ifrån."] } }
-          - { type: mc, prompt: "Hur många nationella minoritetsspråk har Sverige?", options: ["fem", "tre", "två", "tio"], answer: 0 }
-          - { type: mc, prompt: "Vad är enligt texten kanske det svåraste med att behärska ett språk?", options: ["att växla mellan olika register", "att förstå dialekter", "att lära sig slang", "att stava rätt"], answer: 0 }
+          - { id: fab2, type: truefalse, statement: "Svenska låter likadant i hela Sverige.", answer: false, correction: { answers: ["Svenska låter inte likadant överallt."] } }
+          - { id: tab9, type: mc, prompt: "Hur många procent av befolkningen i Finland har svenska som modersmål?", options: ["omkring fem procent", "omkring femtio procent", "ingen", "alla"], answer: 0 }
+          - { id: zvdy, type: mc, prompt: "Vad betyder *len* på förortssvenska?", options: ["kompis", "skynda dig", "hej", "pengar"], answer: 0 }
+          - { id: rrkk, type: truefalse, statement: "Bara unga med föräldrar från andra länder använder förortssvenska ord.", answer: false, correction: { answers: ["Många unga använder dem[,] oavsett var deras föräldrar kommer ifrån."] } }
+          - { id: uaye, type: mc, prompt: "Hur många nationella minoritetsspråk har Sverige?", options: ["fem", "tre", "två", "tio"], answer: 0 }
+          - { id: wjx7, type: mc, prompt: "Vad är enligt texten kanske det svåraste med att behärska ett språk?", options: ["att växla mellan olika register", "att förstå dialekter", "att lära sig slang", "att stava rätt"], answer: 0 }
 
   - id: ord
     title: Ord och fraser · woorden en uitdrukkingen
@@ -86,7 +86,8 @@ sections:
         instruction: Koppel het formele woord aan het gewone woord.
         topic: register
         items:
-          - type: match
+          - id: q6zb
+            type: match
             pairs:
               - ["erhålla", "få"]
               - ["meddela", "säga, berätta"]
@@ -100,7 +101,8 @@ sections:
         instruction: Koppel de uitdrukking aan de betekenis.
         topic: idiom
         items:
-          - type: match
+          - id: s4rq
+            type: match
             pairs:
               - ["Det är ingen ko på isen.", "Er is geen haast."]
               - ["glida in på en räkmacka", "zonder moeite succes hebben"]
@@ -117,7 +119,8 @@ sections:
         instruction: In welk register staat de zin?
         topic: register
         items:
-          - type: sort
+          - id: dh3v
+            type: sort
             categories: ["formeel", "neutraal", "informeel"]
             items:
               - { text: "Tja, läget?", cat: 2 }
@@ -135,22 +138,22 @@ sections:
         topic: register
         shuffle: true
         items:
-          - { type: gap, text: "___ kommer i morgon.", gaps: [{ answers: ["De"], options: ["De", "Dem"], shuffle: false }] }
-          - { type: gap, text: "Jag såg ___ på stationen.", gaps: [{ answers: ["dem"], options: ["de", "dem"], shuffle: false, feedback: [{ match: "de", tip: "Jag såg oss → dem." }] }] }
-          - { type: gap, text: "Har du pratat med ___?", gaps: [{ answers: ["dem"], options: ["de", "dem"], shuffle: false, tip: "Na een voorzetsel: dem (med oss)." }] }
-          - { type: gap, text: "Jag vet inte vad ___ vill.", gaps: [{ answers: ["de"], options: ["de", "dem"], shuffle: false, feedback: [{ match: "dem", tip: "vad vi vill → de." }] }] }
-          - { type: gap, text: "___ här skorna är för små.", gaps: [{ answers: ["De"], options: ["De", "Dem"], shuffle: false, tip: "Aanwijzend vóór een zelfstandig naamwoord: de här." }] }
+          - { id: n5ed, type: gap, text: "___ kommer i morgon.", gaps: [{ answers: ["De"], options: ["De", "Dem"], shuffle: false }] }
+          - { id: f7hn, type: gap, text: "Jag såg ___ på stationen.", gaps: [{ answers: ["dem"], options: ["de", "dem"], shuffle: false, feedback: [{ match: "de", tip: "Jag såg oss → dem." }] }] }
+          - { id: be58, type: gap, text: "Har du pratat med ___?", gaps: [{ answers: ["dem"], options: ["de", "dem"], shuffle: false, tip: "Na een voorzetsel: dem (med oss)." }] }
+          - { id: 6jwa, type: gap, text: "Jag vet inte vad ___ vill.", gaps: [{ answers: ["de"], options: ["de", "dem"], shuffle: false, feedback: [{ match: "dem", tip: "vad vi vill → de." }] }] }
+          - { id: 7a4c, type: gap, text: "___ här skorna är för små.", gaps: [{ answers: ["De"], options: ["De", "Dem"], shuffle: false, tip: "Aanwijzend vóór een zelfstandig naamwoord: de här." }] }
 
       - id: standaard
         title: Schrijf het netjes
         instruction: Schrijf het sms'je in standaard Zweeds.
         topic: register
         items:
-          - { type: transform, prompt: "Jag vet inte vad dom vill.", answers: ["Jag vet inte vad de vill."], feedback: [{ contains: "vad dem", tip: "vad vi vill → de." }] }
-          - { type: transform, prompt: "Kan du hjälpa mej med nåt?", answers: ["Kan du hjälpa mig med något?"] }
-          - { type: transform, prompt: "Jag såg dom i går.", answers: ["Jag såg dem {i går|igår}."], feedback: [{ contains: "såg de", tip: "Jag såg oss → dem." }] }
-          - { type: transform, prompt: "Va gör du sen?", answers: ["Vad gör du {sedan|senare|sen}?"] }
-          - { type: transform, prompt: "Har nån sett mina nycklar?", answers: ["Har någon sett mina nycklar?"] }
+          - { id: d3cw, type: transform, prompt: "Jag vet inte vad dom vill.", answers: ["Jag vet inte vad de vill."], feedback: [{ contains: "vad dem", tip: "vad vi vill → de." }] }
+          - { id: ry7v, type: transform, prompt: "Kan du hjälpa mej med nåt?", answers: ["Kan du hjälpa mig med något?"] }
+          - { id: bch5, type: transform, prompt: "Jag såg dom i går.", answers: ["Jag såg dem {i går|igår}."], feedback: [{ contains: "såg de", tip: "Jag såg oss → dem." }] }
+          - { id: ubzd, type: transform, prompt: "Va gör du sen?", answers: ["Vad gör du {sedan|senare|sen}?"] }
+          - { id: rcgj, type: transform, prompt: "Har nån sett mina nycklar?", answers: ["Har någon sett mina nycklar?"] }
 
       - id: formeler
         title: Formeler
@@ -158,9 +161,9 @@ sections:
         topic: register
         shuffle: true
         items:
-          - { type: gap, text: "Vi har ___ din ansökan.", gaps: [{ answers: ["erhållit"], options: ["erhållit", "fått tag på", "kollat"], shuffle: false }] }
-          - { type: gap, text: "Vi vill ___ att kontoret är stängt i morgon.", gaps: [{ answers: ["meddela"], options: ["meddela", "snacka om", "säga till dig"], shuffle: false }] }
-          - { type: gap, text: "Tack för din ansökan. Vi har ___ redan anställt en person.", gaps: [{ answers: ["dock"], options: ["dock", "typ", "liksom"], shuffle: false }] }
+          - { id: vtfd, type: gap, text: "Vi har ___ din ansökan.", gaps: [{ answers: ["erhållit"], options: ["erhållit", "fått tag på", "kollat"], shuffle: false }] }
+          - { id: ukfj, type: gap, text: "Vi vill ___ att kontoret är stängt i morgon.", gaps: [{ answers: ["meddela"], options: ["meddela", "snacka om", "säga till dig"], shuffle: false }] }
+          - { id: pce2, type: gap, text: "Tack för din ansökan. Vi har ___ redan anställt en person.", gaps: [{ answers: ["dock"], options: ["dock", "typ", "liksom"], shuffle: false }] }
 
   - id: idiom
     title: "Grammatik: uitdrukkingen"
@@ -171,12 +174,12 @@ sections:
         topic: idiom
         shuffle: true
         items:
-          - { type: mc, prompt: "*Förlåt, jag blir tio minuter sen!* – *___ Vi väntar.*", options: ["Det är ingen ko på isen.", "Kasta yxan i sjön!", "Inte för allt smör i Småland!", "Jag anar ugglor i mossen."], answer: 0 }
-          - { type: mc, prompt: "*Han fick jobbet tack vare sin pappa. Han ___.*", options: ["gled in på en räkmacka", "kastade yxan i sjön", "hade is i magen", "gick som katten kring het gröt"], answer: 0 }
-          - { type: mc, prompt: "*Skulle du hoppa fallskärm? – ___!*", options: ["Aldrig, inte för allt smör i Småland", "Ja, det är ingen ko på isen", "Jag har is i magen", "Jag tar det med en nypa salt"], answer: 0 }
-          - { type: mc, prompt: "*Hon var lugn under hela intervjun. Hon ___.*", options: ["hade is i magen", "fick skägg i brevlådan", "gled in på en räkmacka", "anade ugglor i mossen"], answer: 0 }
-          - { type: mc, prompt: "*Säg vad du menar, i stället för att ___!*", options: ["gå som katten kring het gröt", "ha is i magen", "kasta yxan i sjön", "glida in på en räkmacka"], answer: 0 }
-          - { type: mc, prompt: "*Det var svårt, men vi ___. Vi fortsatte.*", options: ["kastade inte yxan i sjön", "hade inte is i magen", "anade inte ugglor i mossen", "tog det inte med en nypa salt"], answer: 0, tip: "Ze gaven niet op: de bijl niet in het meer gooien." }
+          - { id: 3p7z, type: mc, prompt: "*Förlåt, jag blir tio minuter sen!* – *___ Vi väntar.*", options: ["Det är ingen ko på isen.", "Kasta yxan i sjön!", "Inte för allt smör i Småland!", "Jag anar ugglor i mossen."], answer: 0 }
+          - { id: 6ycw, type: mc, prompt: "*Han fick jobbet tack vare sin pappa. Han ___.*", options: ["gled in på en räkmacka", "kastade yxan i sjön", "hade is i magen", "gick som katten kring het gröt"], answer: 0 }
+          - { id: fdmj, type: mc, prompt: "*Skulle du hoppa fallskärm? – ___!*", options: ["Aldrig, inte för allt smör i Småland", "Ja, det är ingen ko på isen", "Jag har is i magen", "Jag tar det med en nypa salt"], answer: 0 }
+          - { id: fcp5, type: mc, prompt: "*Hon var lugn under hela intervjun. Hon ___.*", options: ["hade is i magen", "fick skägg i brevlådan", "gled in på en räkmacka", "anade ugglor i mossen"], answer: 0 }
+          - { id: naeq, type: mc, prompt: "*Säg vad du menar, i stället för att ___!*", options: ["gå som katten kring het gröt", "ha is i magen", "kasta yxan i sjön", "glida in på en räkmacka"], answer: 0 }
+          - { id: bhv6, type: mc, prompt: "*Det var svårt, men vi ___. Vi fortsatte.*", options: ["kastade inte yxan i sjön", "hade inte is i magen", "anade inte ugglor i mossen", "tog det inte med en nypa salt"], answer: 0, tip: "Ze gaven niet op: de bijl niet in het meer gooien." }
 
   - id: lyssna
     title: Lyssna · luisteren
@@ -194,9 +197,9 @@ sections:
 
           Vissa har föreslagit att man ska skriva dom i alla lägen, men än så länge är det inte standard i formell text.
         items:
-          - { type: truefalse, statement: "Många svenskar uttalar både de och dem som dom.", answer: true }
-          - { type: truefalse, statement: "Om man kan säga oss, ska man skriva de.", answer: false, correction: { answers: ["Om man kan säga oss[,] ska man skriva dem."] } }
-          - { type: truefalse, statement: "Dom är standard i formell text.", answer: false, correction: { answers: ["Dom är inte standard i formell text[ än så länge].", "Det är inte standard[ i formell text]."] } }
+          - { id: 7y7p, type: truefalse, statement: "Många svenskar uttalar både de och dem som dom.", answer: true }
+          - { id: 69zt, type: truefalse, statement: "Om man kan säga oss, ska man skriva de.", answer: false, correction: { answers: ["Om man kan säga oss[,] ska man skriva dem."] } }
+          - { id: yv8g, type: truefalse, statement: "Dom är standard i formell text.", answer: false, correction: { answers: ["Dom är inte standard i formell text[ än så länge].", "Det är inte standard[ i formell text]."] } }
 
       - id: lyssna-dictee
         title: Dictee
@@ -204,10 +207,10 @@ sections:
         topic: idiom
         shuffle: true
         items:
-          - { type: listen, say: "Det är ingen ko på isen." }
-          - { type: listen, say: "Jag träffade dem i går.", answers: ["Jag träffade dem {i går|igår}."] }
-          - { type: listen, say: "Hon hade is i magen under hela intervjun." }
-          - { type: listen, say: "Vi har erhållit din ansökan." }
+          - { id: gwy5, type: listen, say: "Det är ingen ko på isen." }
+          - { id: d7mf, type: listen, say: "Jag träffade dem i går.", answers: ["Jag träffade dem {i går|igår}."] }
+          - { id: 2n34, type: listen, say: "Hon hade is i magen under hela intervjun." }
+          - { id: xb5t, type: listen, say: "Vi har erhållit din ansökan." }
 
   - id: praktiskt
     title: Praktiskt · het juiste register kiezen
@@ -218,10 +221,10 @@ sections:
         topic: register
         shuffle: true
         items:
-          - { type: mc, prompt: "Je beantwoordt de mail van een klant.", options: ["Hej! Tack för ditt mejl. Jag återkommer så snart som möjligt.", "Tja! Fett kul att du hörde av dig!", "Ses sen, len!", "Ok."], answer: 0 }
-          - { type: mc, prompt: "Je stuurt een berichtje aan een goede vriend.", options: ["Tja! Ska vi ses i helgen?", "Bästa vän, härmed föreslår jag ett möte.", "Vi ber dig vänligen att återkomma.", "Med vänlig hälsning, din vän"], answer: 0 }
-          - { type: mc, prompt: "Je schrijft aan een gemeente.", options: ["Hej! Jag skulle vilja veta när ansökan ska vara inne.", "Yo, när ska grejen vara klar?", "Tja kommunen!", "Kram och hörs!"], answer: 0 }
-          - { type: mc, prompt: "Je sluit een formele mail af.", options: ["Med vänlig hälsning", "Kram!", "Ses!", "Hörs, mvh typ"], answer: 0 }
+          - { id: xcct, type: mc, prompt: "Je beantwoordt de mail van een klant.", options: ["Hej! Tack för ditt mejl. Jag återkommer så snart som möjligt.", "Tja! Fett kul att du hörde av dig!", "Ses sen, len!", "Ok."], answer: 0 }
+          - { id: fjfv, type: mc, prompt: "Je stuurt een berichtje aan een goede vriend.", options: ["Tja! Ska vi ses i helgen?", "Bästa vän, härmed föreslår jag ett möte.", "Vi ber dig vänligen att återkomma.", "Med vänlig hälsning, din vän"], answer: 0 }
+          - { id: 55t6, type: mc, prompt: "Je schrijft aan een gemeente.", options: ["Hej! Jag skulle vilja veta när ansökan ska vara inne.", "Yo, när ska grejen vara klar?", "Tja kommunen!", "Kram och hörs!"], answer: 0 }
+          - { id: 9qbz, type: mc, prompt: "Je sluit een formele mail af.", options: ["Med vänlig hälsning", "Kram!", "Ses!", "Hörs, mvh typ"], answer: 0 }
 
   - id: skriva
     title: Skriva · schrijven
@@ -232,7 +235,8 @@ sections:
         instruction: Schrijf dezelfde boodschap in twee registers.
         topic: register
         items:
-          - type: free
+          - id: 76wd
+            type: free
             prompt: "Je moet een afspraak voor morgen afzeggen omdat je ziek bent. Schrijf (1) een korte, formele mail aan een klant (40–60 woorden) en (2) een sms'je aan een vriend (15–30 woorden). Gebruik in de mail *tyvärr* en een nieuwe datum, in het sms'je informele woorden."
             minWords: 60
             require:
@@ -250,12 +254,12 @@ sections:
         instruction: Gemengde vragen.
         shuffle: true
         items:
-          - { type: gap, topic: nagon-ingen, text: "Jag har inte sett ___ (nån) här.", gaps: [{ answers: ["någon"] }] }
-          - { type: gap, topic: man-en-ens, text: "Det är skönt när ___ vänner förstår en.", gaps: [{ answers: ["ens"], options: ["man", "en", "ens"], shuffle: false }] }
-          - { type: gap, topic: nominalisering, text: "meddela → ___", gaps: [{ answers: ["ett meddelande"] }] }
-          - { type: transform, topic: utbrytning, prompt: "**Dialekterna** gör svenskan rik.", answers: ["Det är dialekterna som gör svenskan rik."] }
-          - { type: gap, topic: argumentation, text: "___ låter förortssvenska annorlunda, ___ grammatiken är densamma.", gaps: [{ answers: ["Visserligen"], options: ["Visserligen", "Därför"], shuffle: false }, { answers: ["men"], options: ["men", "utan"], shuffle: false }] }
-          - { type: gap, topic: register, text: "Har du pratat med ___?", gaps: [{ answers: ["dem"], options: ["de", "dem"], shuffle: false }] }
+          - { id: y243, type: gap, topic: nagon-ingen, text: "Jag har inte sett ___ (nån) här.", gaps: [{ answers: ["någon"] }] }
+          - { id: dhnd, type: gap, topic: man-en-ens, text: "Det är skönt när ___ vänner förstår en.", gaps: [{ answers: ["ens"], options: ["man", "en", "ens"], shuffle: false }] }
+          - { id: vn5h, type: gap, topic: nominalisering, text: "meddela → ___", gaps: [{ answers: ["ett meddelande"] }] }
+          - { id: 6bty, type: transform, topic: utbrytning, prompt: "**Dialekterna** gör svenskan rik.", answers: ["Det är dialekterna som gör svenskan rik."] }
+          - { id: n8ey, type: gap, topic: argumentation, text: "___ låter förortssvenska annorlunda, ___ grammatiken är densamma.", gaps: [{ answers: ["Visserligen"], options: ["Visserligen", "Därför"], shuffle: false }, { answers: ["men"], options: ["men", "utan"], shuffle: false }] }
+          - { id: d7vp, type: gap, topic: register, text: "Har du pratat med ___?", gaps: [{ answers: ["dem"], options: ["de", "dem"], shuffle: false }] }
 
   - id: zoek-de-fout
     title: Zoek de fout
@@ -266,11 +270,11 @@ sections:
         topic: register
         shuffle: true
         items:
-          - { type: findError, sentence: "Jag träffade de i går.", wrong: [2], answers: ["Jag träffade dem {i går|igår}."], tip: "Jag träffade oss → ?" }
-          - { type: findError, sentence: "Dem kommer i morgon.", wrong: [0], answers: ["De kommer {i morgon|imorgon}."], tip: "Vi kommer → ?" }
-          - { type: findError, sentence: "Vi har erhållit din ansökan och den är fett bra.", wrong: [8], answers: ["Vi har erhållit din ansökan och den är mycket bra."], tip: "Past dit woord in een formele brief?" }
-          - { type: findError, topic: idiom, sentence: "Det är ingen häst på isen.", wrong: [3], answers: ["Det är ingen ko på isen."], tip: "Welk dier staat er op het ijs?" }
-          - { type: findError, topic: idiom, sentence: "Hon hade eld i magen under intervjun.", wrong: [2], answers: ["Hon hade is i magen under intervjun."], tip: "Kalm blijven: … i magen." }
+          - { id: 8uhd, type: findError, sentence: "Jag träffade de i går.", wrong: [2], answers: ["Jag träffade dem {i går|igår}."], tip: "Jag träffade oss → ?" }
+          - { id: yak9, type: findError, sentence: "Dem kommer i morgon.", wrong: [0], answers: ["De kommer {i morgon|imorgon}."], tip: "Vi kommer → ?" }
+          - { id: qrjc, type: findError, sentence: "Vi har erhållit din ansökan och den är fett bra.", wrong: [8], answers: ["Vi har erhållit din ansökan och den är mycket bra."], tip: "Past dit woord in een formele brief?" }
+          - { id: s862, type: findError, topic: idiom, sentence: "Det är ingen häst på isen.", wrong: [3], answers: ["Det är ingen ko på isen."], tip: "Welk dier staat er op het ijs?" }
+          - { id: 9hwv, type: findError, topic: idiom, sentence: "Hon hade eld i magen under intervjun.", wrong: [2], answers: ["Hon hade is i magen under intervjun."], tip: "Kalm blijven: … i magen." }
 
 vocab:
   - { sv: "en dialekt", nl: "een dialect", def: "dialekten" }

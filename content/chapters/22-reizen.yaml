@@ -77,13 +77,14 @@ sections:
 
           Ändå var det värt det. Fjällen var fantastiska, och vi såg både renar och midnattssol. När vi kom hem skrev jag ett klagomål till tågbolaget. Två veckor senare fick vi tillbaka en del av pengarna.
         items:
-          - { type: mc, prompt: "Varför åkte de till Abisko?", options: ["för att vandra", "för att hälsa på släkt", "för att jobba", "för att åka skidor"], answer: 0 }
-          - { type: truefalse, statement: "De bokade biljetterna i sista minuten.", answer: false, correction: { answers: ["De bokade {biljetterna|dem} två månader i förväg."] } }
-          - { type: mc, prompt: "Varför stannade tåget utanför Umeå?", options: ["på grund av ett signalfel", "på grund av snö", "på grund av en älg", "för att byta förare"], answer: 0 }
-          - { type: truefalse, statement: "De kom fram fem timmar för sent.", answer: true }
-          - { type: mc, prompt: "Vad hände med bussen till vandringsleden?", options: ["De hade missat den.", "Den var inställd.", "Den var full.", "Den var gratis."], answer: 0 }
-          - { type: truefalse, statement: "Skribenten tycker att resan inte var värd det.", answer: false, correction: { answers: ["{Hon|Skribenten|Han} tycker att resan var värd det.", "{Hon|Skribenten|Han} tycker att det var värt det.", "Det var värt det."] } }
-          - type: multi
+          - { id: s65v, type: mc, prompt: "Varför åkte de till Abisko?", options: ["för att vandra", "för att hälsa på släkt", "för att jobba", "för att åka skidor"], answer: 0 }
+          - { id: 4d7c, type: truefalse, statement: "De bokade biljetterna i sista minuten.", answer: false, correction: { answers: ["De bokade {biljetterna|dem} två månader i förväg."] } }
+          - { id: 2qfe, type: mc, prompt: "Varför stannade tåget utanför Umeå?", options: ["på grund av ett signalfel", "på grund av snö", "på grund av en älg", "för att byta förare"], answer: 0 }
+          - { id: 76hu, type: truefalse, statement: "De kom fram fem timmar för sent.", answer: true }
+          - { id: pd3e, type: mc, prompt: "Vad hände med bussen till vandringsleden?", options: ["De hade missat den.", "Den var inställd.", "Den var full.", "Den var gratis."], answer: 0 }
+          - { id: ahpn, type: truefalse, statement: "Skribenten tycker att resan inte var värd det.", answer: false, correction: { answers: ["{Hon|Skribenten|Han} tycker att resan var värd det.", "{Hon|Skribenten|Han} tycker att det var värt det.", "Det var värt det."] } }
+          - id: h6bd
+            type: multi
             prompt: "Welke verbindingswoorden in de tekst geven een gevolg?"
             options: ["därför", "så", "dessutom", "ändå", "först"]
             answers: [0, 1]
@@ -97,7 +98,8 @@ sections:
         instruction: Koppel het woord aan de betekenis.
         topic: partikelverb-2
         items:
-          - type: match
+          - id: uykf
+            type: match
             pairs:
               - ["stiga på", "instappen"]
               - ["stiga av", "uitstappen"]
@@ -105,7 +107,8 @@ sections:
               - ["hinna med", "halen (op tijd)"]
               - ["åka iväg", "vertrekken"]
               - ["köra om", "inhalen"]
-          - type: match
+          - id: 43sv
+            type: match
             pairs:
               - ["en försening", "een vertraging"]
               - ["ett spår", "een spoor (spoornummer)"]
@@ -123,11 +126,11 @@ sections:
         topic: partikelverb-2
         shuffle: true
         items:
-          - { type: gap, text: "Vi måste skynda oss om vi ska ___ tåget.", gaps: [{ answers: ["hinna med"], options: ["hinna med", "komma fram", "stiga av"] }] }
-          - { type: gap, text: "Hotellet ligger precis vid Centralstationen, så där ska du ___.", gaps: [{ answers: ["stiga av"], options: ["stiga av", "stiga på", "åka iväg"] }] }
-          - { type: gap, text: "När kom ni ___ till hotellet?", gaps: [{ answers: ["fram"], options: ["fram", "av", "på", "iväg"], shuffle: false }] }
-          - { type: gap, text: "Glöm inte att ta med ___ passet!", gaps: [{ answers: ["dig"], options: ["dig", "sig", "du"], shuffle: false, feedback: [{ match: "sig", tip: "Tegen jou (du): ta med dig." }] }] }
-          - { type: gap, text: "Bussen ___ klockan sju i morse, så vi missade den.", gaps: [{ answers: ["åkte iväg"], options: ["åkte iväg", "kom fram", "steg på"], tip: "Vertrekken: åka iväg." }] }
+          - { id: m7p9, type: gap, text: "Vi måste skynda oss om vi ska ___ tåget.", gaps: [{ answers: ["hinna med"], options: ["hinna med", "komma fram", "stiga av"] }] }
+          - { id: 9cqu, type: gap, text: "Hotellet ligger precis vid Centralstationen, så där ska du ___.", gaps: [{ answers: ["stiga av"], options: ["stiga av", "stiga på", "åka iväg"] }] }
+          - { id: cjk8, type: gap, text: "När kom ni ___ till hotellet?", gaps: [{ answers: ["fram"], options: ["fram", "av", "på", "iväg"], shuffle: false }] }
+          - { id: bvra, type: gap, text: "Glöm inte att ta med ___ passet!", gaps: [{ answers: ["dig"], options: ["dig", "sig", "du"], shuffle: false, feedback: [{ match: "sig", tip: "Tegen jou (du): ta med dig." }] }] }
+          - { id: ygrq, type: gap, text: "Bussen ___ klockan sju i morse, så vi missade den.", gaps: [{ answers: ["åkte iväg"], options: ["åkte iväg", "kom fram", "steg på"], tip: "Vertrekken: åka iväg." }] }
 
       - id: partikel-deelwoord
         title: Het partikel vooraan
@@ -135,11 +138,11 @@ sections:
         topic: partikelverb-2
         shuffle: true
         items:
-          - { type: gap, text: "ställa in → Flyget är ___.", gaps: [{ answers: ["inställt"], feedback: [{ match: ["ställt in", "inställd"], tip: "flyg is een ett-woord en het partikel komt vooraan: inställt." }] }] }
-          - { type: gap, text: "boka om → Biljetten är ___.", gaps: [{ answers: ["ombokad"], feedback: [{ match: "bokad om", tip: "Het partikel komt vooraan: ombokad." }] }] }
-          - { type: gap, text: "packa upp → Väskorna är ___.", gaps: [{ answers: ["uppackade"], feedback: [{ match: ["upppackade", "uppackad"], tip: "Meervoud: uppackade (met twee p's)." }] }] }
-          - { type: gap, text: "stänga av → Mobilen är ___.", gaps: [{ answers: ["avstängd"], feedback: [{ match: "stängd av", tip: "Het partikel komt vooraan: avstängd." }] }] }
-          - { type: gap, text: "låsa upp → Dörren är ___.", gaps: [{ answers: ["upplåst"], feedback: [{ match: "låst upp", tip: "Het partikel komt vooraan: upplåst." }] }] }
+          - { id: yztf, type: gap, text: "ställa in → Flyget är ___.", gaps: [{ answers: ["inställt"], feedback: [{ match: ["ställt in", "inställd"], tip: "flyg is een ett-woord en het partikel komt vooraan: inställt." }] }] }
+          - { id: wts2, type: gap, text: "boka om → Biljetten är ___.", gaps: [{ answers: ["ombokad"], feedback: [{ match: "bokad om", tip: "Het partikel komt vooraan: ombokad." }] }] }
+          - { id: 5afn, type: gap, text: "packa upp → Väskorna är ___.", gaps: [{ answers: ["uppackade"], feedback: [{ match: ["upppackade", "uppackad"], tip: "Meervoud: uppackade (met twee p's)." }] }] }
+          - { id: 6bq9, type: gap, text: "stänga av → Mobilen är ___.", gaps: [{ answers: ["avstängd"], feedback: [{ match: "stängd av", tip: "Het partikel komt vooraan: avstängd." }] }] }
+          - { id: 2hka, type: gap, text: "låsa upp → Dörren är ___.", gaps: [{ answers: ["upplåst"], feedback: [{ match: "låst upp", tip: "Het partikel komt vooraan: upplåst." }] }] }
 
   - id: sambandsord
     title: "Grammatik: verbindingswoorden"
@@ -150,12 +153,12 @@ sections:
         topic: sambandsord
         shuffle: true
         items:
-          - { type: gap, text: "Tåget var försenat. ___ missade vi bussen.", gaps: [{ answers: ["Därför"], options: ["Därför", "Dessutom", "Däremot"], shuffle: false }] }
-          - { type: gap, text: "Hotellet var dyrt. ___ var det smutsigt.", gaps: [{ answers: ["Dessutom"], options: ["Därför", "Dessutom", "Däremot"], shuffle: false }] }
-          - { type: gap, text: "Tåget var försenat, ___ vi missade bussen.", gaps: [{ answers: ["så"], options: ["så", "därför", "dessutom"], shuffle: false, feedback: [{ match: ["därför", "dessutom"], tip: "Na een komma met gewone woordvolgorde (vi missade): het voegwoord så." }] }] }
-          - { type: gap, text: "Bussen var full. Tåget ___ var nästan tomt.", gaps: [{ answers: ["däremot"], options: ["däremot", "därför", "dessutom"], shuffle: false, tip: "Een tegenstelling: däremot." }] }
-          - { type: gap, text: "Det regnade hela veckan. ___ hade vi roligt.", gaps: [{ answers: ["Ändå"], options: ["Ändå", "Därför", "Dessutom"], shuffle: false, tip: "Toch: ändå." }] }
-          - { type: gap, text: "___ åkte vi till Kiruna, och sedan vidare till Abisko.", gaps: [{ answers: ["Först"], options: ["Först", "Till slut", "Däremot"], shuffle: false }] }
+          - { id: eyfk, type: gap, text: "Tåget var försenat. ___ missade vi bussen.", gaps: [{ answers: ["Därför"], options: ["Därför", "Dessutom", "Däremot"], shuffle: false }] }
+          - { id: tq2e, type: gap, text: "Hotellet var dyrt. ___ var det smutsigt.", gaps: [{ answers: ["Dessutom"], options: ["Därför", "Dessutom", "Däremot"], shuffle: false }] }
+          - { id: jfkt, type: gap, text: "Tåget var försenat, ___ vi missade bussen.", gaps: [{ answers: ["så"], options: ["så", "därför", "dessutom"], shuffle: false, feedback: [{ match: ["därför", "dessutom"], tip: "Na een komma met gewone woordvolgorde (vi missade): het voegwoord så." }] }] }
+          - { id: 8byx, type: gap, text: "Bussen var full. Tåget ___ var nästan tomt.", gaps: [{ answers: ["däremot"], options: ["däremot", "därför", "dessutom"], shuffle: false, tip: "Een tegenstelling: däremot." }] }
+          - { id: 4mcn, type: gap, text: "Det regnade hela veckan. ___ hade vi roligt.", gaps: [{ answers: ["Ändå"], options: ["Ändå", "Därför", "Dessutom"], shuffle: false, tip: "Toch: ändå." }] }
+          - { id: c54n, type: gap, text: "___ åkte vi till Kiruna, och sedan vidare till Abisko.", gaps: [{ answers: ["Först"], options: ["Först", "Till slut", "Däremot"], shuffle: false }] }
 
       - id: samband-zinsbouw
         title: Let op de woordvolgorde
@@ -163,18 +166,19 @@ sections:
         topic: sambandsord
         shuffle: true
         items:
-          - { type: order, start: "Därför", tokens: ["kom", "vi", "fram", "sent"], answers: ["Därför kom vi fram sent."] }
-          - { type: order, start: "Dessutom", tokens: ["hade", "vi", "missat", "bussen"], answers: ["Dessutom hade vi missat bussen."] }
-          - { type: order, start: "Tåget var sent, så", tokens: ["vi", "missade", "bussen"], answers: ["Tåget var sent, så vi missade bussen."] }
-          - { type: order, start: "Till slut", tokens: ["kom", "vi", "fram", "till Abisko"], answers: ["Till slut kom vi fram till Abisko."] }
-          - { type: order, start: "Vi kom sent eftersom", tokens: ["tåget", "inte", "gick", "i tid"], answers: ["Vi kom sent eftersom tåget inte gick i tid."] }
+          - { id: vwdq, type: order, start: "Därför", tokens: ["kom", "vi", "fram", "sent"], answers: ["Därför kom vi fram sent."] }
+          - { id: peev, type: order, start: "Dessutom", tokens: ["hade", "vi", "missat", "bussen"], answers: ["Dessutom hade vi missat bussen."] }
+          - { id: 7jtb, type: order, start: "Tåget var sent, så", tokens: ["vi", "missade", "bussen"], answers: ["Tåget var sent, så vi missade bussen."] }
+          - { id: xdqr, type: order, start: "Till slut", tokens: ["kom", "vi", "fram", "till Abisko"], answers: ["Till slut kom vi fram till Abisko."] }
+          - { id: 4u9b, type: order, start: "Vi kom sent eftersom", tokens: ["tåget", "inte", "gick", "i tid"], answers: ["Vi kom sent eftersom tåget inte gick i tid."] }
 
       - id: samband-sorteren
         title: Inversie of niet?
         instruction: Komt er na het woord vooraan in de zin **inversie** (werkwoord vóór onderwerp)?
         topic: sambandsord
         items:
-          - type: sort
+          - id: xswn
+            type: sort
             categories: ["inversie: Därför kom vi …", "geen inversie: … så vi kom"]
             items:
               - { text: "därför", cat: 0 }
@@ -200,11 +204,11 @@ sections:
 
           Observera att tåget avgår från spår tolv i stället för spår fjorton. Resenärer som ska byta till bussen i Boden ombeds kontakta personalen på tåget. Vi ber om ursäkt för förseningen.
         items:
-          - { type: truefalse, statement: "Tåget går till Kiruna.", answer: true }
-          - { type: truefalse, statement: "Tåget är försenat cirka en timme.", answer: false, correction: { answers: ["{Tåget|Det} är försenat {cirka|ungefär} fyrtio minuter."] } }
-          - { type: truefalse, statement: "Förseningen beror på ett signalfel.", answer: true }
-          - { type: truefalse, statement: "Tåget avgår från spår fjorton.", answer: false, correction: { answers: ["{Tåget|Det} avgår från spår tolv[ i stället]."] } }
-          - { type: truefalse, statement: "Den som ska byta till bussen i Boden ska kontakta personalen.", answer: true }
+          - { id: 5mz5, type: truefalse, statement: "Tåget går till Kiruna.", answer: true }
+          - { id: 74ty, type: truefalse, statement: "Tåget är försenat cirka en timme.", answer: false, correction: { answers: ["{Tåget|Det} är försenat {cirka|ungefär} fyrtio minuter."] } }
+          - { id: ukby, type: truefalse, statement: "Förseningen beror på ett signalfel.", answer: true }
+          - { id: 5j44, type: truefalse, statement: "Tåget avgår från spår fjorton.", answer: false, correction: { answers: ["{Tåget|Det} avgår från spår tolv[ i stället]."] } }
+          - { id: jkse, type: truefalse, statement: "Den som ska byta till bussen i Boden ska kontakta personalen.", answer: true }
 
       - id: lyssna-dictee
         title: Dictee
@@ -212,10 +216,10 @@ sections:
         topic: sambandsord
         shuffle: true
         items:
-          - { type: listen, say: "Därför kom vi fram fem timmar för sent." }
-          - { type: listen, say: "Flyget är inställt på grund av dimma." }
-          - { type: listen, say: "Glöm inte att ta med dig passet." }
-          - { type: listen, say: "Dessutom hade vi missat bussen." }
+          - { id: fdg2, type: listen, say: "Därför kom vi fram fem timmar för sent." }
+          - { id: 65ec, type: listen, say: "Flyget är inställt på grund av dimma." }
+          - { id: 2yca, type: listen, say: "Glöm inte att ta med dig passet." }
+          - { id: w28r, type: listen, say: "Dessutom hade vi missat bussen." }
 
   - id: praktiskt
     title: Praktiskt · een reis plannen en klagen
@@ -225,7 +229,8 @@ sections:
         instruction: Zet het gesprek in de goede volgorde.
         topic: partikelverb-2
         items:
-          - type: dialogue
+          - id: phem
+            type: dialogue
             lines:
               - "Mirjam: Hej! Jag skulle vilja boka två biljetter till Abisko i juli."
               - "Personalen: Vill ni åka nattåg eller flyga till Kiruna?"
@@ -241,9 +246,9 @@ sections:
         topic: partikelverb-2
         shuffle: true
         items:
-          - { type: mc, prompt: "Je wilt je kaartje omboeken.", options: ["Kan jag boka om min biljett?", "Kan jag boka in min biljett?", "Kan jag boka av min biljett?", "Kan jag boka upp min biljett?"], answer: 0 }
-          - { type: mc, prompt: "Je wilt weten waar je moet overstappen.", options: ["Var ska jag byta?", "Var ska jag stiga på?", "Var ska jag komma fram?", "Var ska jag åka om?"], answer: 0 }
-          - { type: mc, prompt: "Je wilt compensatie voor de vertraging.", options: ["Jag vill ansöka om ersättning för förseningen.", "Jag vill betala för förseningen.", "Jag vill boka en försening.", "Jag vill hinna med förseningen."], answer: 0 }
+          - { id: nrg5, type: mc, prompt: "Je wilt je kaartje omboeken.", options: ["Kan jag boka om min biljett?", "Kan jag boka in min biljett?", "Kan jag boka av min biljett?", "Kan jag boka upp min biljett?"], answer: 0 }
+          - { id: 6tzy, type: mc, prompt: "Je wilt weten waar je moet overstappen.", options: ["Var ska jag byta?", "Var ska jag stiga på?", "Var ska jag komma fram?", "Var ska jag åka om?"], answer: 0 }
+          - { id: s9fh, type: mc, prompt: "Je wilt compensatie voor de vertraging.", options: ["Jag vill ansöka om ersättning för förseningen.", "Jag vill betala för förseningen.", "Jag vill boka en försening.", "Jag vill hinna med förseningen."], answer: 0 }
 
   - id: skriva
     title: Skriva · schrijven
@@ -254,7 +259,8 @@ sections:
         instruction: Schrijf een klachtmail aan het treinbedrijf.
         topic: sambandsord
         items:
-          - type: free
+          - id: emrk
+            type: free
             prompt: "Je trein was vijf uur te laat en je hebt daardoor een bus en een overnachting gemist. Schrijf een klachtmail (80–120 woorden): wanneer en waar je reisde, wat er gebeurde, wat de gevolgen waren en wat je wilt. Gebruik minstens drie verbindingswoorden, waaronder **därför** en **dessutom**."
             minWords: 75
             require:
@@ -274,12 +280,12 @@ sections:
         instruction: Gemengde vragen.
         shuffle: true
         items:
-          - { type: gap, topic: passiv-s, text: "Biljetterna ___ (sälja) bara på nätet.", gaps: [{ answers: ["säljs"] }] }
-          - { type: gap, topic: dar-dit-vars, text: "Abisko är platsen ___ vi åkte förra sommaren.", gaps: [{ answers: ["dit"], options: ["där", "dit", "vars"], shuffle: false }] }
-          - { type: gap, topic: framtid, text: "Tåget ___ att vara försenat i kväll också.", gaps: [{ answers: ["kommer"], options: ["kommer", "ska", "tänker"], shuffle: false }] }
-          - { type: gap, topic: nagon-ingen, text: "Vi har inte sett ___ renar än.", gaps: [{ answers: ["några"], options: ["några", "inga", "något"], shuffle: false }] }
-          - { type: gap, topic: bestamd-utan-artikel, text: "Vi vandrade hela ___.", gaps: [{ answers: ["dagen"], options: ["dag", "dagen"], shuffle: false }] }
-          - { type: order, topic: sambandsord, start: "Därför", tokens: ["tog", "vi", "bussen"], answers: ["Därför tog vi bussen."] }
+          - { id: 8dk6, type: gap, topic: passiv-s, text: "Biljetterna ___ (sälja) bara på nätet.", gaps: [{ answers: ["säljs"] }] }
+          - { id: djqv, type: gap, topic: dar-dit-vars, text: "Abisko är platsen ___ vi åkte förra sommaren.", gaps: [{ answers: ["dit"], options: ["där", "dit", "vars"], shuffle: false }] }
+          - { id: fbmu, type: gap, topic: framtid, text: "Tåget ___ att vara försenat i kväll också.", gaps: [{ answers: ["kommer"], options: ["kommer", "ska", "tänker"], shuffle: false }] }
+          - { id: re9s, type: gap, topic: nagon-ingen, text: "Vi har inte sett ___ renar än.", gaps: [{ answers: ["några"], options: ["några", "inga", "något"], shuffle: false }] }
+          - { id: u3vz, type: gap, topic: bestamd-utan-artikel, text: "Vi vandrade hela ___.", gaps: [{ answers: ["dagen"], options: ["dag", "dagen"], shuffle: false }] }
+          - { id: zut5, type: order, topic: sambandsord, start: "Därför", tokens: ["tog", "vi", "bussen"], answers: ["Därför tog vi bussen."] }
 
   - id: zoek-de-fout
     title: Zoek de fout
@@ -290,11 +296,11 @@ sections:
         topic: sambandsord
         shuffle: true
         items:
-          - { type: findError, sentence: "Därför vi missade bussen.", wrong: [1, 2], answers: ["Därför missade vi bussen."], tip: "Inversie na därför." }
-          - { type: findError, sentence: "Dessutom hotellet var dyrt.", wrong: [1, 2], answers: ["Dessutom var hotellet dyrt."], tip: "Inversie na dessutom." }
-          - { type: findError, topic: partikelverb-2, sentence: "Flyget är ställt in.", wrong: [2, 3], answers: ["Flyget är inställt."], tip: "Bij een deelwoord komt het partikel vooraan." }
-          - { type: findError, topic: partikelverb-2, sentence: "Ta med sig passet!", wrong: [2], answers: ["Ta med dig passet!"], tip: "Tegen wie praat je?" }
-          - { type: findError, sentence: "Tåget var sent, så missade vi bussen.", wrong: [4, 5], answers: ["Tåget var sent, så vi missade bussen."], tip: "Na het voegwoord så (= dus): geen inversie. In spreektaal hoor je ook så missade vi, maar schrijf så vi missade." }
+          - { id: qyqg, type: findError, sentence: "Därför vi missade bussen.", wrong: [1, 2], answers: ["Därför missade vi bussen."], tip: "Inversie na därför." }
+          - { id: kx95, type: findError, sentence: "Dessutom hotellet var dyrt.", wrong: [1, 2], answers: ["Dessutom var hotellet dyrt."], tip: "Inversie na dessutom." }
+          - { id: gf78, type: findError, topic: partikelverb-2, sentence: "Flyget är ställt in.", wrong: [2, 3], answers: ["Flyget är inställt."], tip: "Bij een deelwoord komt het partikel vooraan." }
+          - { id: ahuu, type: findError, topic: partikelverb-2, sentence: "Ta med sig passet!", wrong: [2], answers: ["Ta med dig passet!"], tip: "Tegen wie praat je?" }
+          - { id: butj, type: findError, sentence: "Tåget var sent, så missade vi bussen.", wrong: [4, 5], answers: ["Tåget var sent, så vi missade bussen."], tip: "Na het voegwoord så (= dus): geen inversie. In spreektaal hoor je ook så missade vi, maar schrijf så vi missade." }
 
 vocab:
   - { sv: "ett nattåg", nl: "een nachttrein", def: "nattåget" }

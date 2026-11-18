@@ -72,13 +72,14 @@ sections:
 
           Till slut kom ett brev med hennes nya personnummer. Nu trivs hon i Göteborg och hoppas att hon kan stanna längre än tre år.
         items:
-          - { type: mc, prompt: "Varför är personnumret så viktigt?", options: ["Man behöver det för nästan allt.", "Man får inte bo i Sverige utan det.", "Det är gratis.", "Man får det på flygplatsen."], answer: 0 }
-          - { type: truefalse, statement: "Marloes skulle stanna i Sverige i minst tre år.", answer: true }
-          - { type: mc, prompt: "Vad visade Marloes för handläggaren?", options: ["sitt pass och sitt anställningsavtal", "sitt bankkort", "sitt körkort och sitt hyreskontrakt", "ingenting"], answer: 0 }
-          - { type: truefalse, statement: "Handläggningstiden var ungefär sex månader.", answer: false, correction: { answers: ["{Handläggningstiden|Den} var ungefär sex veckor."] } }
-          - { type: truefalse, statement: "Veckorna utan personnummer kändes korta.", answer: false, correction: { answers: ["{Veckorna|De} kändes [väldigt ]långa."] } }
-          - { type: mc, prompt: "Hur mår Marloes nu?", options: ["Hon trivs i Göteborg.", "Hon längtar hem.", "Hon vill flytta till Stockholm.", "Hon är arg på Skatteverket."], answer: 0 }
-          - type: multi
+          - { id: tvh3, type: mc, prompt: "Varför är personnumret så viktigt?", options: ["Man behöver det för nästan allt.", "Man får inte bo i Sverige utan det.", "Det är gratis.", "Man får det på flygplatsen."], answer: 0 }
+          - { id: mzug, type: truefalse, statement: "Marloes skulle stanna i Sverige i minst tre år.", answer: true }
+          - { id: qx6y, type: mc, prompt: "Vad visade Marloes för handläggaren?", options: ["sitt pass och sitt anställningsavtal", "sitt bankkort", "sitt körkort och sitt hyreskontrakt", "ingenting"], answer: 0 }
+          - { id: kjwh, type: truefalse, statement: "Handläggningstiden var ungefär sex månader.", answer: false, correction: { answers: ["{Handläggningstiden|Den} var ungefär sex veckor."] } }
+          - { id: 7gyq, type: truefalse, statement: "Veckorna utan personnummer kändes korta.", answer: false, correction: { answers: ["{Veckorna|De} kändes [väldigt ]långa."] } }
+          - { id: 39up, type: mc, prompt: "Hur mår Marloes nu?", options: ["Hon trivs i Göteborg.", "Hon längtar hem.", "Hon vill flytta till Stockholm.", "Hon är arg på Skatteverket."], answer: 0 }
+          - id: rrzs
+            type: multi
             prompt: "Welke werkwoorden in de tekst eindigen altijd op -s?"
             options: ["kändes", "minns", "trivs", "hoppas", "ansökte", "visade"]
             answers: [0, 1, 2, 3]
@@ -91,7 +92,8 @@ sections:
         instruction: Koppel het woord aan de betekenis.
         topic: myndighetssprak
         items:
-          - type: match
+          - id: qy2k
+            type: match
             pairs:
               - ["ett ärende", "een zaak, dossier"]
               - ["en handläggare", "een behandelend ambtenaar"]
@@ -99,7 +101,8 @@ sections:
               - ["ett beslut", "een besluit"]
               - ["överklaga", "in beroep gaan"]
               - ["senast", "uiterlijk"]
-          - type: match
+          - id: 993n
+            type: match
             pairs:
               - ["inkomma", "komma in"]
               - ["erhålla", "få"]
@@ -113,10 +116,10 @@ sections:
         topic: myndighetssprak
         shuffle: true
         items:
-          - { type: mc, prompt: "*Ansökan ska ha inkommit senast den 1 mars.*", options: ["De aanvraag moet uiterlijk 1 maart binnen zijn.", "Je mag de aanvraag pas na 1 maart sturen.", "De aanvraag is op 1 maart binnengekomen.", "Op 1 maart krijg je antwoord."], answer: 0 }
-          - { type: mc, prompt: "*Du kan överklaga beslutet inom tre veckor.*", options: ["Je kunt binnen drie weken in beroep gaan tegen het besluit.", "Het besluit wordt over drie weken genomen.", "Je krijgt het besluit binnen drie weken.", "Het besluit geldt drie weken."], answer: 0 }
-          - { type: mc, prompt: "*Ange ärendenummer vid kontakt med oss.*", options: ["Noem je dossiernummer als je contact opneemt.", "Bel ons niet.", "Je krijgt een nummer als je belt.", "Neem contact op met de behandelaar."], answer: 0 }
-          - { type: mc, prompt: "*Handläggningstiden är för närvarande cirka åtta veckor.*", options: ["Het duurt op dit moment ongeveer acht weken.", "Je moet binnen acht weken reageren.", "Het loket is acht weken dicht.", "De afspraak duurt acht minuten."], answer: 0 }
+          - { id: 9k5v, type: mc, prompt: "*Ansökan ska ha inkommit senast den 1 mars.*", options: ["De aanvraag moet uiterlijk 1 maart binnen zijn.", "Je mag de aanvraag pas na 1 maart sturen.", "De aanvraag is op 1 maart binnengekomen.", "Op 1 maart krijg je antwoord."], answer: 0 }
+          - { id: ye5x, type: mc, prompt: "*Du kan överklaga beslutet inom tre veckor.*", options: ["Je kunt binnen drie weken in beroep gaan tegen het besluit.", "Het besluit wordt over drie weken genomen.", "Je krijgt het besluit binnen drie weken.", "Het besluit geldt drie weken."], answer: 0 }
+          - { id: tu8y, type: mc, prompt: "*Ange ärendenummer vid kontakt med oss.*", options: ["Noem je dossiernummer als je contact opneemt.", "Bel ons niet.", "Je krijgt een nummer als je belt.", "Neem contact op met de behandelaar."], answer: 0 }
+          - { id: a4er, type: mc, prompt: "*Handläggningstiden är för närvarande cirka åtta veckor.*", options: ["Het duurt op dit moment ongeveer acht weken.", "Je moet binnen acht weken reageren.", "Het loket is acht weken dicht.", "De afspraak duurt acht minuten."], answer: 0 }
 
   - id: deponens
     title: "Grammatik: werkwoorden op -s"
@@ -126,7 +129,8 @@ sections:
         instruction: Vul de ontbrekende vormen in.
         topic: deponens
         items:
-          - type: table
+          - id: 8ms8
+            type: table
             columns: ["infinitief", "presens", "preteritum", "supinum"]
             rows:
               - ["hoppas", "hoppas", { answers: ["hoppades"] }, { answers: ["hoppats"] }]
@@ -141,13 +145,13 @@ sections:
         topic: deponens
         shuffle: true
         items:
-          - { type: gap, text: "Jag ___ (hoppas) att du mår bättre nu.", gaps: [{ answers: ["hoppas"], feedback: [{ match: "hoppar", tip: "hoppa = springen. Hopen is altijd hoppas." }] }] }
-          - { type: gap, text: "Hon ___ (trivas) inte på sitt förra jobb.", gaps: [{ answers: ["trivdes"], feedback: [{ match: "trivs", tip: "förra jobb: verleden tijd, trivdes." }] }] }
-          - { type: gap, text: "Det ___ (finnas) inga lediga tider i går.", gaps: [{ answers: ["fanns"], feedback: [{ match: "finns", tip: "i går: verleden tijd, fanns." }] }] }
-          - { type: gap, text: "___ (minnas) du när vi träffades första gången?", gaps: [{ answers: ["Minns"], feedback: [{ match: ["Minnas", "Minnes"], tip: "Presens van minnas: minns." }] }] }
-          - { type: gap, text: "Jag har aldrig ___ (lyckas) lära mig åka skidor.", gaps: [{ answers: ["lyckats"], feedback: [{ match: "lyckat", tip: "Ook het supinum houdt de -s: lyckats." }] }] }
-          - { type: gap, text: "Hur ___ (kännas) det i dag?", gaps: [{ answers: ["känns"], feedback: [{ match: "kännes", tip: "kännes is ouderwets; gewoon Zweeds is känns." }] }] }
-          - { type: gap, text: "Vi ___ (umgås) mycket när vi bodde i samma stad.", gaps: [{ answers: ["umgicks"], feedback: [{ match: ["umgåddes", "umgåtts"], tip: "umgås gaat als gå: umgicks." }] }] }
+          - { id: s9sm, type: gap, text: "Jag ___ (hoppas) att du mår bättre nu.", gaps: [{ answers: ["hoppas"], feedback: [{ match: "hoppar", tip: "hoppa = springen. Hopen is altijd hoppas." }] }] }
+          - { id: 7wz6, type: gap, text: "Hon ___ (trivas) inte på sitt förra jobb.", gaps: [{ answers: ["trivdes"], feedback: [{ match: "trivs", tip: "förra jobb: verleden tijd, trivdes." }] }] }
+          - { id: 9d7g, type: gap, text: "Det ___ (finnas) inga lediga tider i går.", gaps: [{ answers: ["fanns"], feedback: [{ match: "finns", tip: "i går: verleden tijd, fanns." }] }] }
+          - { id: dc8p, type: gap, text: "___ (minnas) du när vi träffades första gången?", gaps: [{ answers: ["Minns"], feedback: [{ match: ["Minnas", "Minnes"], tip: "Presens van minnas: minns." }] }] }
+          - { id: brty, type: gap, text: "Jag har aldrig ___ (lyckas) lära mig åka skidor.", gaps: [{ answers: ["lyckats"], feedback: [{ match: "lyckat", tip: "Ook het supinum houdt de -s: lyckats." }] }] }
+          - { id: bg2n, type: gap, text: "Hur ___ (kännas) det i dag?", gaps: [{ answers: ["känns"], feedback: [{ match: "kännes", tip: "kännes is ouderwets; gewoon Zweeds is känns." }] }] }
+          - { id: 4c5n, type: gap, text: "Vi ___ (umgås) mycket när vi bodde i samma stad.", gaps: [{ answers: ["umgicks"], feedback: [{ match: ["umgåddes", "umgåtts"], tip: "umgås gaat als gå: umgicks." }] }] }
 
       - id: elkaar
         title: Elkaar
@@ -155,17 +159,18 @@ sections:
         topic: deponens
         shuffle: true
         items:
-          - { type: gap, text: "Hej då! Vi ___ i morgon!", gaps: [{ answers: ["ses"], options: ["ses", "ser", "seende"] }] }
-          - { type: gap, text: "Ska vi ___ på lunchen och prata om det?", gaps: [{ answers: ["träffas"], options: ["träffas", "träffa", "träffar"], feedback: [{ match: "träffa", tip: "Zonder voorwerp en met de betekenis elkaar: träffas." }] }] }
-          - { type: gap, text: "Vi ___ på telefon i går kväll.", gaps: [{ answers: ["hördes"], options: ["hördes", "hörde", "hör"] }] }
-          - { type: gap, text: "Barnen ___ alltid när de ses.", gaps: [{ answers: ["kramas"], options: ["kramas", "kramar", "kramade"] }] }
+          - { id: ug78, type: gap, text: "Hej då! Vi ___ i morgon!", gaps: [{ answers: ["ses"], options: ["ses", "ser", "seende"] }] }
+          - { id: 4vde, type: gap, text: "Ska vi ___ på lunchen och prata om det?", gaps: [{ answers: ["träffas"], options: ["träffas", "träffa", "träffar"], feedback: [{ match: "träffa", tip: "Zonder voorwerp en met de betekenis elkaar: träffas." }] }] }
+          - { id: tybn, type: gap, text: "Vi ___ på telefon i går kväll.", gaps: [{ answers: ["hördes"], options: ["hördes", "hörde", "hör"] }] }
+          - { id: hwyq, type: gap, text: "Barnen ___ alltid när de ses.", gaps: [{ answers: ["kramas"], options: ["kramas", "kramar", "kramade"] }] }
 
       - id: s-sorteren
         title: Welke -s is het?
         instruction: Is het een lijdende vorm, een werkwoord dat altijd op -s eindigt, of *elkaar*?
         topic: deponens
         items:
-          - type: sort
+          - id: nu3w
+            type: sort
             categories: ["lijdend", "altijd -s", "elkaar"]
             items:
               - { text: "Ansökan **skickas** via e-post.", cat: 0 }
@@ -191,10 +196,10 @@ sections:
 
           Just nu är väntetiden ungefär tjugo minuter. Du kan också hitta svar på många frågor på vår webbplats. Om du redan har ett ärende hos oss, ha ditt ärendenummer redo när du pratar med en handläggare.
         items:
-          - { type: truefalse, statement: "Frågor om id-kort: tryck ett.", answer: false, correction: { answers: ["{Frågor om id-kort|Då}: tryck två.", "Man trycker två[ för id-kort]."] } }
-          - { type: truefalse, statement: "Väntetiden är ungefär tjugo minuter.", answer: true }
-          - { type: truefalse, statement: "Man kan hitta svar på webbplatsen.", answer: true }
-          - { type: truefalse, statement: "Man ska ha sitt passnummer redo.", answer: false, correction: { answers: ["Man ska ha sitt ärendenummer redo.", "Du ska ha ditt ärendenummer redo."] } }
+          - { id: jur3, type: truefalse, statement: "Frågor om id-kort: tryck ett.", answer: false, correction: { answers: ["{Frågor om id-kort|Då}: tryck två.", "Man trycker två[ för id-kort]."] } }
+          - { id: 4dzu, type: truefalse, statement: "Väntetiden är ungefär tjugo minuter.", answer: true }
+          - { id: faj2, type: truefalse, statement: "Man kan hitta svar på webbplatsen.", answer: true }
+          - { id: fc9j, type: truefalse, statement: "Man ska ha sitt passnummer redo.", answer: false, correction: { answers: ["Man ska ha sitt ärendenummer redo.", "Du ska ha ditt ärendenummer redo."] } }
 
       - id: lyssna-dictee
         title: Dictee
@@ -202,10 +207,10 @@ sections:
         topic: deponens
         shuffle: true
         items:
-          - { type: listen, say: "Jag hoppas att du trivs här." }
-          - { type: listen, say: "Det fanns inga lediga tider." }
-          - { type: listen, say: "Vi ses på måndag!" }
-          - { type: listen, say: "Ansökan ska ha inkommit senast den första mars." }
+          - { id: pag6, type: listen, say: "Jag hoppas att du trivs här." }
+          - { id: dmef, type: listen, say: "Det fanns inga lediga tider." }
+          - { id: baku, type: listen, say: "Vi ses på måndag!" }
+          - { id: mhdv, type: listen, say: "Ansökan ska ha inkommit senast den första mars." }
 
   - id: praktiskt
     title: Praktiskt · bij het loket
@@ -215,7 +220,8 @@ sections:
         instruction: Zet het gesprek in de goede volgorde.
         topic: myndighetssprak
         items:
-          - type: dialogue
+          - id: wchw
+            type: dialogue
             lines:
               - "Handläggaren: Hej, välkommen fram. Vad gäller det?"
               - "Daan: Hej! Jag vill ansöka om ett id-kort."
@@ -231,10 +237,10 @@ sections:
         topic: myndighetssprak
         shuffle: true
         items:
-          - { type: mc, prompt: "Je wilt weten hoe lang het duurt.", options: ["Hur lång är handläggningstiden?", "Hur lång är du?", "Hur länge har ni öppet?", "Hur långt är det dit?"], answer: 0 }
-          - { type: mc, prompt: "Je hebt al een lopende zaak.", options: ["Jag har redan ett ärende hos er.", "Jag har redan ett beslut.", "Jag har redan överklagat.", "Jag har redan en handläggare hemma."], answer: 0 }
-          - { type: mc, prompt: "Je begrijpt de brief niet.", options: ["Jag förstår inte riktigt brevet. Kan du förklara?", "Brevet är fel.", "Jag vill överklaga brevet.", "Jag har inte fått något brev."], answer: 0 }
-          - { type: mc, prompt: "Je bent het niet eens met het besluit.", options: ["Hur gör jag för att överklaga beslutet?", "Hur gör jag för att bifoga beslutet?", "Var kan jag hämta beslutet?", "När kommer beslutet?"], answer: 0 }
+          - { id: 492m, type: mc, prompt: "Je wilt weten hoe lang het duurt.", options: ["Hur lång är handläggningstiden?", "Hur lång är du?", "Hur länge har ni öppet?", "Hur långt är det dit?"], answer: 0 }
+          - { id: qdy3, type: mc, prompt: "Je hebt al een lopende zaak.", options: ["Jag har redan ett ärende hos er.", "Jag har redan ett beslut.", "Jag har redan överklagat.", "Jag har redan en handläggare hemma."], answer: 0 }
+          - { id: zmcs, type: mc, prompt: "Je begrijpt de brief niet.", options: ["Jag förstår inte riktigt brevet. Kan du förklara?", "Brevet är fel.", "Jag vill överklaga brevet.", "Jag har inte fått något brev."], answer: 0 }
+          - { id: jy85, type: mc, prompt: "Je bent het niet eens met het besluit.", options: ["Hur gör jag för att överklaga beslutet?", "Hur gör jag för att bifoga beslutet?", "Var kan jag hämta beslutet?", "När kommer beslutet?"], answer: 0 }
 
   - id: skriva
     title: Skriva · schrijven
@@ -245,7 +251,8 @@ sections:
         instruction: Schrijf een mail aan een instantie.
         topic: myndighetssprak
         items:
-          - type: free
+          - id: ugy4
+            type: free
             prompt: "Je hebt zes weken geleden een persoonsnummer aangevraagd en nog niets gehoord. Schrijf een korte mail (60–100 woorden) aan de instantie: wie je bent, wanneer je het aangevraagd hebt, je dossiernummer, en wat je wilt weten."
             minWords: 55
             require:
@@ -264,12 +271,12 @@ sections:
         instruction: Gemengde vragen.
         shuffle: true
         items:
-          - { type: gap, topic: passiv-s, text: "Blanketten ___ (fylla i) av den sökande.", hint: "fylla i = invullen.", gaps: [{ answers: ["fylls i", "ifylls"] }] }
-          - { type: gap, topic: passiv-bli, text: "Ansökan blev ___ (godkänna) efter sex veckor.", gaps: [{ answers: ["godkänd"] }] }
-          - { type: gap, topic: dar-dit-vars, text: "Det är kontoret ___ jag ska gå i morgon.", gaps: [{ answers: ["dit"], options: ["där", "dit", "vars"], shuffle: false, tip: "gå = beweging naartoe: dit." }] }
-          - { type: translate, topic: partikelverb, prompt: "Ik herkende de ambtenaar niet.", answers: ["Jag kände inte igen {handläggaren|tjänstemannen|tjänstepersonen}."] }
-          - { type: gap, topic: deponens, text: "Vi ___ (träffas) på en kurs för tre år sedan.", gaps: [{ answers: ["träffades"] }] }
-          - { type: transform, topic: relativ-som, prompt: "Jag fick ett brev. Jag förstod inte brevet.", answers: ["Jag fick ett brev [som ]jag inte förstod."], feedback: [{ contains: "förstod inte", tip: "In de bijzin staat inte vóór het werkwoord: som jag inte förstod." }] }
+          - { id: jdwy, type: gap, topic: passiv-s, text: "Blanketten ___ (fylla i) av den sökande.", hint: "fylla i = invullen.", gaps: [{ answers: ["fylls i", "ifylls"] }] }
+          - { id: b6hq, type: gap, topic: passiv-bli, text: "Ansökan blev ___ (godkänna) efter sex veckor.", gaps: [{ answers: ["godkänd"] }] }
+          - { id: zjd4, type: gap, topic: dar-dit-vars, text: "Det är kontoret ___ jag ska gå i morgon.", gaps: [{ answers: ["dit"], options: ["där", "dit", "vars"], shuffle: false, tip: "gå = beweging naartoe: dit." }] }
+          - { id: xsma, type: translate, topic: partikelverb, prompt: "Ik herkende de ambtenaar niet.", answers: ["Jag kände inte igen {handläggaren|tjänstemannen|tjänstepersonen}."] }
+          - { id: xgpc, type: gap, topic: deponens, text: "Vi ___ (träffas) på en kurs för tre år sedan.", gaps: [{ answers: ["träffades"] }] }
+          - { id: mdv9, type: transform, topic: relativ-som, prompt: "Jag fick ett brev. Jag förstod inte brevet.", answers: ["Jag fick ett brev [som ]jag inte förstod."], feedback: [{ contains: "förstod inte", tip: "In de bijzin staat inte vóór het werkwoord: som jag inte förstod." }] }
 
   - id: zoek-de-fout
     title: Zoek de fout
@@ -280,11 +287,11 @@ sections:
         topic: deponens
         shuffle: true
         items:
-          - { type: findError, sentence: "Jag hoppar att du kan komma.", wrong: [1], answers: ["Jag hoppas att du kan komma."], tip: "Springen of hopen?" }
-          - { type: findError, sentence: "Det finnas många blanketter här.", wrong: [1], answers: ["Det finns många blanketter här."], tip: "Presens van finnas." }
-          - { type: findError, sentence: "Vi träffar i morgon klockan tio.", wrong: [1], answers: ["Vi {träffas|ses} {i morgon|imorgon} klockan tio."], tip: "We zien elkaar." }
-          - { type: findError, sentence: "Jag har aldrig lyckat med det.", wrong: [3], answers: ["Jag har aldrig lyckats med det."], tip: "lyckas houdt altijd de -s." }
-          - { type: findError, sentence: "Hon trivs inte på jobbet förra året.", wrong: [1], answers: ["Hon trivdes inte på jobbet förra året."], tip: "Kijk naar förra året." }
+          - { id: 5ebe, type: findError, sentence: "Jag hoppar att du kan komma.", wrong: [1], answers: ["Jag hoppas att du kan komma."], tip: "Springen of hopen?" }
+          - { id: vjaa, type: findError, sentence: "Det finnas många blanketter här.", wrong: [1], answers: ["Det finns många blanketter här."], tip: "Presens van finnas." }
+          - { id: acnk, type: findError, sentence: "Vi träffar i morgon klockan tio.", wrong: [1], answers: ["Vi {träffas|ses} {i morgon|imorgon} klockan tio."], tip: "We zien elkaar." }
+          - { id: gemj, type: findError, sentence: "Jag har aldrig lyckat med det.", wrong: [3], answers: ["Jag har aldrig lyckats med det."], tip: "lyckas houdt altijd de -s." }
+          - { id: hhae, type: findError, sentence: "Hon trivs inte på jobbet förra året.", wrong: [1], answers: ["Hon trivdes inte på jobbet förra året."], tip: "Kijk naar förra året." }
 
 vocab:
   - { sv: "ett personnummer", nl: "een persoonsnummer (BSN)", def: "personnumret" }

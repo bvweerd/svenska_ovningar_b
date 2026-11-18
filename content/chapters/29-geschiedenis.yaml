@@ -66,12 +66,12 @@ sections:
 
           Under mer än trehundra år låg Vasa kvar på botten. Först 1956 hittades vraket, och 1961 bärgades det. I dag kan man se skeppet på Vasamuseet i Stockholm, som har blivit ett av Sveriges mest besökta museer.
         items:
-          - { type: mc, prompt: "När sjönk Vasa?", options: ["den 10 augusti 1628", "år 1956", "år 1961", "den 10 augusti 1728"], answer: 0 }
-          - { type: truefalse, statement: "Kungen såg när skeppet sjönk.", answer: false, correction: { answers: ["Kungen var inte på plats[ eftersom han var i krig i Polen].", "{Kungen|Han} var i Polen."] } }
-          - { type: mc, prompt: "Hur långt hade Vasa seglat?", options: ["omkring 1 300 meter", "omkring 13 kilometer", "till Polen", "några hundra meter ut på havet"], answer: 0 }
-          - { type: mc, prompt: "Hur kom vattnet in?", options: ["genom de öppna kanonportarna", "genom ett hål i botten", "över däcket", "genom fönstren"], answer: 0 }
-          - { type: truefalse, statement: "Man visste inte före avfärden att skeppet var instabilt.", answer: false, correction: { answers: ["Man hade [redan ]märkt att skeppet var instabilt[ före avfärden]."] } }
-          - { type: mc, prompt: "När bärgades Vasa?", options: ["1961", "1956", "1628", "1990"], answer: 0 }
+          - { id: baxz, type: mc, prompt: "När sjönk Vasa?", options: ["den 10 augusti 1628", "år 1956", "år 1961", "den 10 augusti 1728"], answer: 0 }
+          - { id: fj3p, type: truefalse, statement: "Kungen såg när skeppet sjönk.", answer: false, correction: { answers: ["Kungen var inte på plats[ eftersom han var i krig i Polen].", "{Kungen|Han} var i Polen."] } }
+          - { id: fbq6, type: mc, prompt: "Hur långt hade Vasa seglat?", options: ["omkring 1 300 meter", "omkring 13 kilometer", "till Polen", "några hundra meter ut på havet"], answer: 0 }
+          - { id: sj3k, type: mc, prompt: "Hur kom vattnet in?", options: ["genom de öppna kanonportarna", "genom ett hål i botten", "över däcket", "genom fönstren"], answer: 0 }
+          - { id: 5bnu, type: truefalse, statement: "Man visste inte före avfärden att skeppet var instabilt.", answer: false, correction: { answers: ["Man hade [redan ]märkt att skeppet var instabilt[ före avfärden]."] } }
+          - { id: 7rvp, type: mc, prompt: "När bärgades Vasa?", options: ["1961", "1956", "1628", "1990"], answer: 0 }
 
   - id: ord
     title: Ord och fraser · woorden en uitdrukkingen
@@ -81,7 +81,8 @@ sections:
         instruction: Koppel het woord aan de betekenis.
         topic: woordenschat
         items:
-          - type: match
+          - id: sc9w
+            type: match
             pairs:
               - ["ett krig", "een oorlog"]
               - ["ett vrak", "een wrak"]
@@ -89,7 +90,8 @@ sections:
               - ["omkomma", "omkomen"]
               - ["en jungfruresa", "een eerste reis (van een schip)"]
               - ["en avfärd", "een vertrek"]
-          - type: match
+          - id: pzz5
+            type: match
             pairs:
               - ["ett århundrade", "een eeuw"]
               - ["medeltiden", "de middeleeuwen"]
@@ -107,20 +109,20 @@ sections:
         topic: bisats-adverb
         shuffle: true
         items:
-          - { type: order, start: "Han sa att", tokens: ["han", "kanske", "inte", "längre", "ville", "segla"], answers: ["Han sa att han kanske inte längre ville segla."] }
-          - { type: order, start: "Det är synd att", tokens: ["vi", "aldrig", "har", "varit", "på Vasamuseet"], answers: ["Det är synd att vi aldrig har varit på Vasamuseet."] }
-          - { type: order, start: "Eftersom", tokens: ["skeppet", "redan", "var", "instabilt,", "sjönk", "det", "snabbt"], answers: ["Eftersom skeppet redan var instabilt, sjönk det snabbt."] }
-          - { type: order, start: "Jag tror att", tokens: ["de", "nog", "inte", "hade", "märkt", "något"], answers: ["Jag tror att de nog inte hade märkt något."] }
+          - { id: f7er, type: order, start: "Han sa att", tokens: ["han", "kanske", "inte", "längre", "ville", "segla"], answers: ["Han sa att han kanske inte längre ville segla."] }
+          - { id: ur6r, type: order, start: "Det är synd att", tokens: ["vi", "aldrig", "har", "varit", "på Vasamuseet"], answers: ["Det är synd att vi aldrig har varit på Vasamuseet."] }
+          - { id: wnxk, type: order, start: "Eftersom", tokens: ["skeppet", "redan", "var", "instabilt,", "sjönk", "det", "snabbt"], answers: ["Eftersom skeppet redan var instabilt, sjönk det snabbt."] }
+          - { id: msvx, type: order, start: "Jag tror att", tokens: ["de", "nog", "inte", "hade", "märkt", "något"], answers: ["Jag tror att de nog inte hade märkt något."] }
 
       - id: bisats-omvormen
         title: Hoofdzin wordt bijzin
         instruction: Maak van de hoofdzin een bijzin na het gegeven begin.
         topic: bisats-adverb
         items:
-          - { type: transform, prompt: "Kungen var inte i Stockholm.", task: "Vi vet att …", answers: ["Vi vet att kungen inte var i Stockholm."], feedback: [{ contains: "var inte", tip: "In de bijzin: inte vóór het werkwoord." }] }
-          - { type: transform, prompt: "Han kom inte heller.", task: "Hon sa att …", answers: ["Hon sa att han inte heller kom."], feedback: [{ contains: "kom inte", tip: "In de bijzin: inte heller vóór het werkwoord." }] }
-          - { type: transform, prompt: "Skeppet var kanske för smalt.", task: "Forskarna tror att …", answers: ["Forskarna tror att skeppet kanske var för smalt."], feedback: [{ contains: "var kanske", tip: "In de bijzin: kanske vóór het werkwoord." }] }
-          - { type: transform, prompt: "Man hade redan märkt problemet.", task: "Det är känt att …", answers: ["Det är känt att man redan [hade ]märkt problemet."], feedback: [{ contains: "hade redan", tip: "In de bijzin: redan vóór het werkwoord." }] }
+          - { id: trmp, type: transform, prompt: "Kungen var inte i Stockholm.", task: "Vi vet att …", answers: ["Vi vet att kungen inte var i Stockholm."], feedback: [{ contains: "var inte", tip: "In de bijzin: inte vóór het werkwoord." }] }
+          - { id: xvad, type: transform, prompt: "Han kom inte heller.", task: "Hon sa att …", answers: ["Hon sa att han inte heller kom."], feedback: [{ contains: "kom inte", tip: "In de bijzin: inte heller vóór het werkwoord." }] }
+          - { id: z8a2, type: transform, prompt: "Skeppet var kanske för smalt.", task: "Forskarna tror att …", answers: ["Forskarna tror att skeppet kanske var för smalt."], feedback: [{ contains: "var kanske", tip: "In de bijzin: kanske vóór het werkwoord." }] }
+          - { id: rjbc, type: transform, prompt: "Man hade redan märkt problemet.", task: "Det är känt att …", answers: ["Det är känt att man redan [hade ]märkt problemet."], feedback: [{ contains: "hade redan", tip: "In de bijzin: redan vóór het werkwoord." }] }
 
       - id: hade-weg
         title: Mag hade weg?
@@ -128,8 +130,8 @@ sections:
         topic: bisats-adverb
         shuffle: true
         items:
-          - { type: mc, prompt: "Kies de zin waarin *hade* mag wegvallen.", options: ["När skeppet hade sjunkit, samlades folk vid stranden.", "Skeppet hade sjunkit på några minuter.", "Folk hade samlats vid stranden.", "Kungen hade beställt skeppet."], answer: 0, tip: "Alleen in een bijzin (hier na när)." }
-          - { type: mc, prompt: "Kies de zin waarin *hade* mag wegvallen.", options: ["Han berättade att han hade hittat vraket.", "Han hade hittat vraket.", "Då hade han hittat vraket.", "Hade han hittat vraket?"], answer: 0, tip: "Alleen in een bijzin (hier na att)." }
+          - { id: 4f77, type: mc, prompt: "Kies de zin waarin *hade* mag wegvallen.", options: ["När skeppet hade sjunkit, samlades folk vid stranden.", "Skeppet hade sjunkit på några minuter.", "Folk hade samlats vid stranden.", "Kungen hade beställt skeppet."], answer: 0, tip: "Alleen in een bijzin (hier na när)." }
+          - { id: jwtr, type: mc, prompt: "Kies de zin waarin *hade* mag wegvallen.", options: ["Han berättade att han hade hittat vraket.", "Han hade hittat vraket.", "Då hade han hittat vraket.", "Hade han hittat vraket?"], answer: 0, tip: "Alleen in een bijzin (hier na att)." }
 
       - id: pluskvamperfekt
         title: Voltooid verleden tijd
@@ -137,10 +139,10 @@ sections:
         topic: bisats-adverb
         shuffle: true
         items:
-          - { type: gap, text: "Vasa ___ (segla) bara 1 300 meter när det sjönk.", gaps: [{ answers: ["hade seglat"], feedback: [{ match: "seglade", tip: "Het zeilen was al gebeurd vóór het zinken: hade seglat." }] }] }
-          - { type: gap, text: "Man ___ (märka) redan före avfärden att skeppet var instabilt.", gaps: [{ answers: ["hade märkt"] }] }
-          - { type: gap, text: "Kungen ___ (beställa) skeppet några år tidigare.", gaps: [{ answers: ["hade beställt"], feedback: [{ match: "hade beställd", tip: "Na hade: het supinum, beställt." }] }] }
-          - { type: gap, text: "När vraket ___ (hitta), började man planera bärgningen.", hint: "Lijdend: hade + supinum + s.", gaps: [{ answers: ["hade hittats", "hittats"] }] }
+          - { id: 6g4h, type: gap, text: "Vasa ___ (segla) bara 1 300 meter när det sjönk.", gaps: [{ answers: ["hade seglat"], feedback: [{ match: "seglade", tip: "Het zeilen was al gebeurd vóór het zinken: hade seglat." }] }] }
+          - { id: hzj9, type: gap, text: "Man ___ (märka) redan före avfärden att skeppet var instabilt.", gaps: [{ answers: ["hade märkt"] }] }
+          - { id: zwzg, type: gap, text: "Kungen ___ (beställa) skeppet några år tidigare.", gaps: [{ answers: ["hade beställt"], feedback: [{ match: "hade beställd", tip: "Na hade: het supinum, beställt." }] }] }
+          - { id: 8ctz, type: gap, text: "När vraket ___ (hitta), började man planera bärgningen.", hint: "Lijdend: hade + supinum + s.", gaps: [{ answers: ["hade hittats", "hittats"] }] }
 
   - id: fundament
     title: "Grammatik: wat zet je vooraan?"
@@ -150,11 +152,11 @@ sections:
         instruction: Herschrijf de zin met **det** vooraan.
         topic: fundament
         items:
-          - { type: transform, prompt: "En man står vid dörren.", answers: ["Det står en man vid dörren."] }
-          - { type: transform, prompt: "Många turister finns på museet.", answers: ["Det finns många turister på museet."], feedback: [{ contains: "det finnas", tip: "Het werkwoord blijft in de presens: det finns." }] }
-          - { type: transform, prompt: "Ett skepp ligger på botten.", answers: ["Det ligger ett skepp på botten."] }
-          - { type: transform, prompt: "En vindby kom plötsligt.", answers: ["Det kom plötsligt en vindby.", "Det kom en vindby plötsligt."] }
-          - { type: transform, prompt: "Något konstigt hände i går.", answers: ["Det hände något konstigt {i går|igår}."] }
+          - { id: 9yt3, type: transform, prompt: "En man står vid dörren.", answers: ["Det står en man vid dörren."] }
+          - { id: 23te, type: transform, prompt: "Många turister finns på museet.", answers: ["Det finns många turister på museet."], feedback: [{ contains: "det finnas", tip: "Het werkwoord blijft in de presens: det finns." }] }
+          - { id: t72f, type: transform, prompt: "Ett skepp ligger på botten.", answers: ["Det ligger ett skepp på botten."] }
+          - { id: sy32, type: transform, prompt: "En vindby kom plötsligt.", answers: ["Det kom plötsligt en vindby.", "Det kom en vindby plötsligt."] }
+          - { id: zuvv, type: transform, prompt: "Något konstigt hände i går.", answers: ["Det hände något konstigt {i går|igår}."] }
 
       - id: fundament-zinsbouw
         title: Tijd vooraan
@@ -162,9 +164,9 @@ sections:
         topic: fundament
         shuffle: true
         items:
-          - { type: order, start: "År 1961", tokens: ["bärgades", "skeppet"], answers: ["År 1961 bärgades skeppet."] }
-          - { type: order, start: "Under mer än trehundra år", tokens: ["låg", "Vasa", "kvar", "på botten"], answers: ["Under mer än trehundra år låg Vasa kvar på botten."] }
-          - { type: order, start: "I dag", tokens: ["kan", "man", "se", "skeppet", "på museet"], answers: ["I dag kan man se skeppet på museet."] }
+          - { id: aafd, type: order, start: "År 1961", tokens: ["bärgades", "skeppet"], answers: ["År 1961 bärgades skeppet."] }
+          - { id: 6ju4, type: order, start: "Under mer än trehundra år", tokens: ["låg", "Vasa", "kvar", "på botten"], answers: ["Under mer än trehundra år låg Vasa kvar på botten."] }
+          - { id: t3hj, type: order, start: "I dag", tokens: ["kan", "man", "se", "skeppet", "på museet"], answers: ["I dag kan man se skeppet på museet."] }
 
       - id: bekend-nieuw
         title: Bekend vooraan
@@ -172,8 +174,8 @@ sections:
         topic: fundament
         shuffle: true
         items:
-          - { type: mc, prompt: "*Kungen beställde ett nytt krigsskepp.* …", options: ["Skeppet skulle bli världens mäktigaste.", "Världens mäktigaste skulle skeppet bli.", "Bli världens mäktigaste skulle skeppet.", "Mäktigaste i världen blev skeppet skulle."], answer: 0, tip: "Begin met wat al bekend is (skeppet)." }
-          - { type: mc, prompt: "*1956 hittade en amatörforskare vraket.* …", options: ["Fem år senare bärgades det.", "Det bärgades, fem år senare, som skett.", "Bärgades fem år senare det.", "Senare fem år bärgades det."], answer: 0 }
+          - { id: numc, type: mc, prompt: "*Kungen beställde ett nytt krigsskepp.* …", options: ["Skeppet skulle bli världens mäktigaste.", "Världens mäktigaste skulle skeppet bli.", "Bli världens mäktigaste skulle skeppet.", "Mäktigaste i världen blev skeppet skulle."], answer: 0, tip: "Begin met wat al bekend is (skeppet)." }
+          - { id: 6mnj, type: mc, prompt: "*1956 hittade en amatörforskare vraket.* …", options: ["Fem år senare bärgades det.", "Det bärgades, fem år senare, som skett.", "Bärgades fem år senare det.", "Senare fem år bärgades det."], answer: 0 }
 
   - id: lyssna
     title: Lyssna · luisteren
@@ -191,10 +193,10 @@ sections:
 
           Det finns fortfarande problem. Träet bryts långsamt ner, och därför är det alltid ganska mörkt och svalt här inne. Det är också därför som man inte får röra skeppet.
         items:
-          - { type: truefalse, statement: "Skeppet är till största delen original.", answer: true }
-          - { type: truefalse, statement: "Träet besprutades i sju år.", answer: false, correction: { answers: ["{Träet|Det} besprutades i sjutton år."] } }
-          - { type: truefalse, statement: "Det är varmt och ljust i museet.", answer: false, correction: { answers: ["Det är [alltid ]ganska mörkt och svalt.", "Det är [alltid ]ganska mörkt och svalt {i museet|här inne}."] } }
-          - { type: truefalse, statement: "Man får inte röra skeppet.", answer: true }
+          - { id: ges2, type: truefalse, statement: "Skeppet är till största delen original.", answer: true }
+          - { id: 9fwb, type: truefalse, statement: "Träet besprutades i sju år.", answer: false, correction: { answers: ["{Träet|Det} besprutades i sjutton år."] } }
+          - { id: y4z7, type: truefalse, statement: "Det är varmt och ljust i museet.", answer: false, correction: { answers: ["Det är [alltid ]ganska mörkt och svalt.", "Det är [alltid ]ganska mörkt och svalt {i museet|här inne}."] } }
+          - { id: skws, type: truefalse, statement: "Man får inte röra skeppet.", answer: true }
 
       - id: lyssna-dictee
         title: Dictee
@@ -202,10 +204,10 @@ sections:
         topic: bisats-adverb
         shuffle: true
         items:
-          - { type: listen, say: "År sextonhundratjugoåtta sjönk Vasa.", answers: ["År {1628|sextonhundratjugoåtta} sjönk Vasa."] }
-          - { type: listen, say: "Det kom plötsligt en vindby." }
-          - { type: listen, say: "Han sa att han kanske inte längre ville segla." }
-          - { type: listen, say: "När vraket hade bärgats började arbetet." }
+          - { id: 4zxx, type: listen, say: "År sextonhundratjugoåtta sjönk Vasa.", answers: ["År {1628|sextonhundratjugoåtta} sjönk Vasa."] }
+          - { id: ryke, type: listen, say: "Det kom plötsligt en vindby." }
+          - { id: s7w5, type: listen, say: "Han sa att han kanske inte längre ville segla." }
+          - { id: 3dsy, type: listen, say: "När vraket hade bärgats började arbetet." }
 
   - id: praktiskt
     title: Praktiskt · een verhaal vertellen
@@ -216,10 +218,10 @@ sections:
         topic: fundament
         shuffle: true
         items:
-          - { type: mc, prompt: "Je begint een verhaal.", options: ["Det hela började med att …", "Det hela slutade med att …", "Till slut började det …", "Efteråt började det …"], answer: 0 }
-          - { type: mc, prompt: "Er gebeurt iets onverwachts.", options: ["Plötsligt hände något oväntat.", "Långsamt hände något oväntat.", "Som vanligt hände något oväntat.", "Oväntat hände plötsligt vanligt."], answer: 0 }
-          - { type: mc, prompt: "Je vertelt hoe het afliep.", options: ["Till slut …", "Först …", "Det hela började med …", "Plötsligt …"], answer: 0 }
-          - { type: mc, prompt: "Je springt naar veel later.", options: ["Mer än trehundra år senare …", "Trehundra år tidigare senare …", "Efter trehundra år förut …", "Trehundra senare år …"], answer: 0 }
+          - { id: 3wr8, type: mc, prompt: "Je begint een verhaal.", options: ["Det hela började med att …", "Det hela slutade med att …", "Till slut började det …", "Efteråt började det …"], answer: 0 }
+          - { id: wr5b, type: mc, prompt: "Er gebeurt iets onverwachts.", options: ["Plötsligt hände något oväntat.", "Långsamt hände något oväntat.", "Som vanligt hände något oväntat.", "Oväntat hände plötsligt vanligt."], answer: 0 }
+          - { id: amxq, type: mc, prompt: "Je vertelt hoe het afliep.", options: ["Till slut …", "Först …", "Det hela började med …", "Plötsligt …"], answer: 0 }
+          - { id: 4jft, type: mc, prompt: "Je springt naar veel later.", options: ["Mer än trehundra år senare …", "Trehundra år tidigare senare …", "Efter trehundra år förut …", "Trehundra senare år …"], answer: 0 }
 
   - id: skriva
     title: Skriva · schrijven
@@ -230,7 +232,8 @@ sections:
         instruction: Schrijf een verhalende tekst.
         topic: fundament
         items:
-          - type: free
+          - id: ksav
+            type: free
             prompt: "Vertel over een historische gebeurtenis uit Nederland of België (bijvoorbeeld de watersnood van 1953 of de bouw van de Afsluitdijk), of over een gebeurtenis uit je familie. Schrijf 120–160 woorden. Gebruik de verleden tijd, minstens één keer **hade** + supinum, tijdsbepalingen vooraan en een zin met **det** + werkwoord (*det kom, det fanns …*)."
             minWords: 110
             require:
@@ -248,12 +251,12 @@ sections:
         instruction: Gemengde vragen.
         shuffle: true
         items:
-          - { type: gap, topic: passiv-s, text: "Vraket ___ (hitta) år 1956.", gaps: [{ answers: ["hittades"] }] }
-          - { type: gap, topic: bestamd-utan-artikel, text: "Det var första ___ skeppet seglade.", gaps: [{ answers: ["gången"], options: ["gång", "gången"], shuffle: false }] }
-          - { type: gap, topic: particip-konstruktion, text: "det år 1961 ___ (bärga) skeppet", gaps: [{ answers: ["bärgade"] }] }
-          - { type: transform, topic: utbrytning, prompt: "**Kungen** ville ha skeppet klart snabbt.", answers: ["Det var kungen som ville ha skeppet klart snabbt."] }
-          - { type: gap, topic: sambandsord, text: "Skeppet var instabilt. ___ sjönk det.", gaps: [{ answers: ["Därför"], options: ["Därför", "Dessutom", "Däremot"], shuffle: false }] }
-          - { type: transform, topic: fundament, prompt: "En kanon ligger fortfarande på botten.", answers: ["Det ligger fortfarande en kanon på botten.", "Det ligger en kanon på botten fortfarande."] }
+          - { id: a82j, type: gap, topic: passiv-s, text: "Vraket ___ (hitta) år 1956.", gaps: [{ answers: ["hittades"] }] }
+          - { id: wu3s, type: gap, topic: bestamd-utan-artikel, text: "Det var första ___ skeppet seglade.", gaps: [{ answers: ["gången"], options: ["gång", "gången"], shuffle: false }] }
+          - { id: k5pr, type: gap, topic: particip-konstruktion, text: "det år 1961 ___ (bärga) skeppet", gaps: [{ answers: ["bärgade"] }] }
+          - { id: ys8v, type: transform, topic: utbrytning, prompt: "**Kungen** ville ha skeppet klart snabbt.", answers: ["Det var kungen som ville ha skeppet klart snabbt."] }
+          - { id: qd95, type: gap, topic: sambandsord, text: "Skeppet var instabilt. ___ sjönk det.", gaps: [{ answers: ["Därför"], options: ["Därför", "Dessutom", "Däremot"], shuffle: false }] }
+          - { id: dc83, type: transform, topic: fundament, prompt: "En kanon ligger fortfarande på botten.", answers: ["Det ligger fortfarande en kanon på botten.", "Det ligger en kanon på botten fortfarande."] }
 
   - id: zoek-de-fout
     title: Zoek de fout
@@ -264,11 +267,11 @@ sections:
         topic: bisats-adverb
         shuffle: true
         items:
-          - { type: findError, sentence: "Vi vet att kungen var inte i Stockholm.", wrong: [4, 5], answers: ["Vi vet att kungen inte var i Stockholm."], tip: "Bijzinvolgorde." }
-          - { type: findError, sentence: "Hon sa att han kom inte heller.", wrong: [4, 5, 6], answers: ["Hon sa att han inte heller kom."], tip: "Bijzinvolgorde, met twee bijwoorden." }
-          - { type: findError, topic: fundament, sentence: "År 1961 skeppet bärgades.", wrong: [2, 3], answers: ["År 1961 bärgades skeppet."], tip: "V2." }
-          - { type: findError, topic: fundament, sentence: "Det finnas många turister här.", wrong: [1], answers: ["Det finns många turister här."], tip: "Welke vorm van finnas?" }
-          - { type: findError, sentence: "Skeppet sjunkit inom några minuter.", wrong: [1], answers: ["Skeppet {hade sjunkit|sjönk} inom några minuter."], tip: "In een hoofdzin mag hade niet wegvallen." }
+          - { id: h4fe, type: findError, sentence: "Vi vet att kungen var inte i Stockholm.", wrong: [4, 5], answers: ["Vi vet att kungen inte var i Stockholm."], tip: "Bijzinvolgorde." }
+          - { id: gpst, type: findError, sentence: "Hon sa att han kom inte heller.", wrong: [4, 5, 6], answers: ["Hon sa att han inte heller kom."], tip: "Bijzinvolgorde, met twee bijwoorden." }
+          - { id: vq9r, type: findError, topic: fundament, sentence: "År 1961 skeppet bärgades.", wrong: [2, 3], answers: ["År 1961 bärgades skeppet."], tip: "V2." }
+          - { id: crkt, type: findError, topic: fundament, sentence: "Det finnas många turister här.", wrong: [1], answers: ["Det finns många turister här."], tip: "Welke vorm van finnas?" }
+          - { id: z6z2, type: findError, sentence: "Skeppet sjunkit inom några minuter.", wrong: [1], answers: ["Skeppet {hade sjunkit|sjönk} inom några minuter."], tip: "In een hoofdzin mag hade niet wegvallen." }
 
 vocab:
   - { sv: "ett skepp", nl: "een schip", def: "skeppet" }

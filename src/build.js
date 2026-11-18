@@ -41,7 +41,7 @@ export function vocabExercises(vocab, chapterNo) {
       const pool = shuffle(vocab.filter((o) => o.nl !== v.nl), rand);
       const same = pool.filter((o) => kind(o) === kind(v));
       const others = [...same, ...pool.filter((o) => kind(o) !== kind(v))].slice(0, 3).map((o) => o.nl);
-      return { type: 'mc', prompt: v.sv, say: v.sv, options: [v.nl, ...others], answer: 0 };
+      return { id: v.sv, type: 'mc', prompt: v.sv, say: v.sv, options: [v.nl, ...others], answer: 0 };
     }),
   });
 
@@ -65,7 +65,7 @@ export function vocabExercises(vocab, chapterNo) {
       if (v.sv.startsWith('att ')) {
         feedback.push({ match: bare(v.sv), tip: 'Zet „att” voor de infinitief, net als „te” in het Nederlands.' });
       }
-      return { type: 'translate', prompt: v.nl, answers: [v.sv, ...(v.alt ?? [])], feedback };
+      return { id: v.sv, type: 'translate', prompt: v.nl, answers: [v.sv, ...(v.alt ?? [])], feedback };
     }),
   });
 
@@ -79,6 +79,7 @@ export function vocabExercises(vocab, chapterNo) {
       generated: true,
       shuffle: true,
       items: nouns.map((v) => ({
+        id: v.sv,
         type: 'steps',
         steps: [
           {

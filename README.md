@@ -63,6 +63,18 @@ Een hoofdstuk verschijnt automatisch zodra het bestand bestaat (het nummer moet 
 `content/index.yaml` staan, met `level`). Zie `PLAN.md` voor de opzet en `content/chapters/13-werk.yaml`
 voor een volledig hoofdstuk.
 
+### Vraag-id's en voortgang
+
+Elke vraag heeft een vaste `id` (bijvoorbeeld `id: k7q2`). De voortgang van gebruikers hangt aan
+hoofdstuk + oefening-`id` + vraag-`id`, niet aan de plek van de vraag.
+
+- Nieuwe vragen: schrijf ze zonder id en draai `npm run ids`. `npm test` faalt zolang er een vraag zonder id is.
+- Vragen invoegen, verwijderen of van volgorde veranderen: de voortgang blijft staan.
+- Een vraagtekst, tip of uitleg verbeteren: de voortgang blijft staan.
+- De **goede antwoorden** veranderen: die vraag telt voor gebruikers weer als nieuw.
+- **Verander nooit een id**, en hernoem geen oefening-`id` of hoofdstuknummer: dan is de voortgang daarvan weg.
+- Woordenschatvragen worden gegenereerd; hun id is het Zweedse woord. Een woord toevoegen raakt de rest niet.
+
 | Type | Wat |
 |---|---|
 | `mc` | meerkeuze (één goed) |

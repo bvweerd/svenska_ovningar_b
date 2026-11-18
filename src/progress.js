@@ -2,12 +2,16 @@
 //
 // state = {
 //   v: 2,
-//   items: { "<hoofdstuk>/<oefening>/<index>": { s: 'good'|'wrong'|'revealed'|'free', at, h } },
+//   items: { "<hoofdstuk>/<oefening>/<vraag-id>": { s: 'good'|'wrong'|'revealed'|'free', at, h } },
 //   ex:    { "<hoofdstuk>/<oefening>": { best, score, total, completedAt?, runStart? } },
 //   last:  { href, title, at }
 // }
 // - 'good' = in één keer goed, 'wrong' = goed na fouten, 'revealed' = antwoord bekeken.
-// - h is een hash van de vraag; verandert de vraag in de inhoud, dan telt het oude resultaat niet meer.
+// - Elke vraag heeft een vaste id (content/…yaml, of het Zweedse woord bij woordenschat), zodat
+//   invoegen, verwijderen of verschuiven van vragen de voortgang niet raakt. Zonder id: de plek in de lijst.
+// - h is een hash van de goede antwoorden; verandert wat goed is, dan telt het oude resultaat niet meer.
+//   Een andere tip, uitleg of vraagformulering laat de voortgang staan.
+// - ids: true betekent dat oude voortgang (op plek) is omgezet naar ids (zie migrateToIds).
 // - Een "ronde" van een oefening begint bij runStart; vragen met at >= runStart zijn in deze ronde gedaan.
 
 const KEY = 'svensk-ovningar-b:progress:v2';
@@ -64,14 +68,40 @@ export function hashItem(item) {
   return h.toString(36);
 }
 
+/** Het deel van een vraag dat bepaalt wat goed is. */
+function answerPart(item) {
+  if (!item || typeof item !== 'object') return item ?? null;
+  const cells = (rows) => (rows ?? []).map((r) => r.map((c) => (c && typeof c === 'object' ? c.answers : c)));
+  switch (item.type) {
+    case 'mc': return ['mc', item.options?.[item.answer]];
+    case 'multi': return ['multi', (item.answers ?? []).map((i) => item.options?.[i]).sort()];
+    case 'gap': return ['gap', (item.gaps ?? []).map((g) => g.answers)];
+    case 'table': return ['table', cells(item.rows)];
+    case 'truefalse': return ['truefalse', item.statement, item.answer, item.correction?.answers ?? null];
+    case 'findError': return ['findError', item.sentence, item.wrong, item.answers];
+    case 'match': return ['match', item.pairs];
+    case 'dialogue': return ['dialogue', item.lines];
+    case 'sort': return ['sort', item.categories, (item.items ?? []).map((x) => [x.text, x.cat])];
+    case 'clock': return ['clock', item.time];
+    case 'listen': return ['listen', item.say, item.options ? item.options[item.answer] : item.answers ?? null];
+    case 'steps': return ['steps', (item.steps ?? []).map(answerPart)];
+    case 'free': return ['free'];
+    default: return [item.type, item.answers ?? null];
+  }
+}
+
+/** Vingerafdruk van de goede antwoorden van een vraag. */
+export const answerHash = (item) => hashItem(answerPart(item));
+
 const exKey = (ch, exId) => `${ch}/${exId}`;
-const itemKey = (ch, exId, idx) => `${ch}/${exId}/${idx}`;
+const itemId = (ex, idx) => ex.items[idx]?.id ?? idx;
+const itemKey = (ch, ex, idx) => `${ch}/${ex.id}/${itemId(ex, idx)}`;
 const gradable = (ex) => ex.items.map((it, idx) => ({ it, idx })).filter(({ it }) => it.type !== 'free');
 
 /** Status van één vraag, of null als die (nog) niet of in een oudere versie gemaakt is. */
 function itemRecord(state, ch, ex, idx) {
-  const r = state.items[itemKey(ch, ex.id, idx)];
-  return r && r.h === hashItem(ex.items[idx]) ? r : null;
+  const r = state.items[itemKey(ch, ex, idx)];
+  return r && r.h === answerHash(ex.items[idx]) ? r : null;
 }
 
 // ---------- Herhaling met intervallen (Leitner-dozen) ----------
@@ -101,8 +131,8 @@ function markDay(state) {
 
 export function recordItem(ch, ex, idx, status) {
   const state = load();
-  const key = itemKey(ch, ex.id, idx);
-  const h = hashItem(ex.items[idx]);
+  const key = itemKey(ch, ex, idx);
+  const h = answerHash(ex.items[idx]);
   state.items[key] = { s: status, at: Date.now(), h };
   state.srs = state.srs ?? {};
   const prev = state.srs[key]?.h === h ? state.srs[key] : null;
@@ -119,8 +149,8 @@ export function recordItem(ch, ex, idx, status) {
 export function dueItems(entries, date = today()) {
   const srs = load().srs ?? {};
   return entries
-    .map((e) => ({ ...e, rec: srs[itemKey(e.chapter.chapter, e.ex.id, e.idx)] }))
-    .filter((e) => e.rec && e.rec.h === hashItem(e.item) && e.rec.due <= date)
+    .map((e) => ({ ...e, rec: srs[itemKey(e.chapter.chapter, e.ex, e.idx)] }))
+    .filter((e) => e.rec && e.rec.h === answerHash(e.item) && e.rec.due <= date)
     .sort((a, b) => (a.rec.due < b.rec.due ? -1 : a.rec.due > b.rec.due ? 1 : a.rec.box - b.rec.box));
 }
 
@@ -129,8 +159,8 @@ export function srsStats(entries) {
   const srs = load().srs ?? {};
   const boxes = Array(INTERVALS.length).fill(0);
   for (const e of entries) {
-    const r = srs[itemKey(e.chapter.chapter, e.ex.id, e.idx)];
-    if (r && r.h === hashItem(e.item)) boxes[r.box]++;
+    const r = srs[itemKey(e.chapter.chapter, e.ex, e.idx)];
+    if (r && r.h === answerHash(e.item)) boxes[r.box]++;
   }
   return boxes;
 }
@@ -267,7 +297,44 @@ export function getLast() {
 }
 
 export function resetProgress() {
-  save(empty());
+  save({ ...empty(), ids: true });
+}
+
+/**
+ * Zet oude voortgang (opgeslagen op de plek van een vraag) om naar vraag-id's.
+ * Werkt voor vragen die nog dezelfde inhoud hebben als toen ze gemaakt werden.
+ * Draait één keer; daarna staat ids: true in de opslag.
+ * @returns het aantal omgezette vragen, of null als er niets te doen was
+ */
+export function migrateToIds(chapters) {
+  const state = load();
+  if (state.ids) return null;
+  const items = {};
+  const srs = {};
+  let moved = 0;
+  for (const ch of chapters) {
+    for (const ex of ch.exercises ?? []) {
+      ex.items.forEach((item, idx) => {
+        const oldKey = `${ch.chapter}/${ex.id}/${idx}`;
+        const newKey = itemKey(ch.chapter, ex, idx);
+        const { id, ...withoutId } = item;
+        const oldHash = hashItem(withoutId);
+        const h = answerHash(item);
+        const r = state.items[oldKey];
+        if (r && r.h === oldHash) {
+          items[newKey] = { ...r, h };
+          moved++;
+        }
+        const q = state.srs?.[oldKey];
+        if (q && q.h === oldHash) srs[newKey] = { ...q, h };
+      });
+    }
+  }
+  state.items = items;
+  state.srs = srs;
+  state.ids = true;
+  save(state);
+  return moved;
 }
 
 export function exportProgress() {

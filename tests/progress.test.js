@@ -61,11 +61,18 @@ describe('voortgang', () => {
     expect(P.weakItems(chapter)).toEqual([]);
   });
 
-  it('negeert resultaten van een gewijzigde vraag', () => {
+  it('negeert resultaten als de goede antwoorden veranderd zijn', () => {
     P.recordItem(1, ex, 0, 'wrong');
-    const changed = { ...ex, items: [{ ...ex.items[0], text: 'anders ___' }, ex.items[1], ex.items[2]] };
+    const changed = { ...ex, items: [{ ...ex.items[0], gaps: [{ answers: ['z'] }] }, ex.items[1], ex.items[2]] };
     expect(P.weakItems({ chapter: 1, exercises: [changed] })).toEqual([]);
   });
+
+  it('houdt resultaten bij een andere vraagtekst of tip', () => {
+    P.recordItem(1, ex, 0, 'wrong');
+    const changed = { ...ex, items: [{ ...ex.items[0], text: 'anders ___', tip: 'nieuw' }, ex.items[1], ex.items[2]] };
+    expect(P.weakItems({ chapter: 1, exercises: [changed] }).length).toBe(1);
+  });
+
 
   it('export en import', () => {
     P.recordItem(1, ex, 0, 'good');
@@ -114,5 +121,44 @@ describe('voortgang', () => {
     P.saveTest(1, 15, 20, {});
     P.saveTest(1, 10, 20, {});
     expect(P.getTest(1)).toMatchObject({ best: 0.75, last: 0.5 });
+  });
+});
+
+describe('vraag-id', () => {
+  const withIds = {
+    id: 'oef',
+    items: [
+      { id: 'aaaa', type: 'gap', text: 'a ___', gaps: [{ answers: ['x'] }] },
+      { id: 'bbbb', type: 'gap', text: 'b ___', gaps: [{ answers: ['y'] }] },
+    ],
+  };
+
+  it('voortgang blijft staan als er een vraag vóór wordt ingevoegd', () => {
+    P.recordItem(1, withIds, 1, 'good');
+    const inserted = { ...withIds, items: [{ id: 'nieuw', type: 'gap', text: 'n ___', gaps: [{ answers: ['n'] }] }, ...withIds.items] };
+    expect(P.chapterProgress({ chapter: 1, exercises: [inserted] }).itemsDone).toBe(1);
+    expect(P.runState(1, inserted).total).toBe(3);
+  });
+
+  it('zet oude voortgang op plek om naar ids', () => {
+    // Oude opslag: sleutel met index, hash van de hele vraag zonder id.
+    const { id: _a, ...first } = withIds.items[0];
+    const { id: _b, ...second } = withIds.items[1];
+    store.set('svensk-ovningar-b:progress:v2', JSON.stringify({
+      v: 2,
+      items: {
+        '1/oef/0': { s: 'good', at: 1, h: P.hashItem(first) },
+        '1/oef/1': { s: 'wrong', at: 1, h: 'verouderd' },
+      },
+      ex: {},
+      srs: { '1/oef/0': { box: 2, due: '2099-01-01', h: P.hashItem(second) } },
+    }));
+    const moved = P.migrateToIds([{ chapter: 1, exercises: [withIds] }]);
+    expect(moved).toBe(1);
+    const state = JSON.parse(store.get('svensk-ovningar-b:progress:v2'));
+    expect(Object.keys(state.items)).toEqual(['1/oef/aaaa']);
+    expect(state.srs).toEqual({});
+    expect(state.ids).toBe(true);
+    expect(P.migrateToIds([{ chapter: 1, exercises: [withIds] }])).toBe(null);
   });
 });
