@@ -75,6 +75,7 @@ function openDialog({ item, ref, number, card }) {
   const answer = currentAnswer(card);
   let token = '';
   let widgetId = null;
+  let waiting = false; // op Versturen geklikt voordat Turnstile klaar was: verstuur zodra het token er is
 
   const textarea = h('textarea', {
     class: 'answer-input', rows: 4, maxlength: 2000, required: true,
@@ -111,9 +112,12 @@ function openDialog({ item, ref, number, card }) {
       return;
     }
     if (!token) {
-      setStatus('info', 'Even wachten: de controle tegen spam is nog bezig.');
+      waiting = true;
+      send.disabled = true;
+      setStatus('info', 'Even controleren of je geen robot bent…');
       return;
     }
+    waiting = false;
     send.disabled = true;
     setStatus('info', 'Bezig met versturen…');
     try {
@@ -157,12 +161,24 @@ function openDialog({ item, ref, number, card }) {
         sitekey: TURNSTILE_SITEKEY,
         language: 'nl',
         appearance: 'interaction-only',
-        callback: (t) => { token = t; if (status.textContent.startsWith('Even wachten')) setStatus('', ''); },
+        callback: (t) => {
+          token = t;
+          if (waiting) form.requestSubmit();
+        },
         'expired-callback': () => { token = ''; },
-        'error-callback': () => { token = ''; setStatus('bad', 'De controle tegen spam lukte niet. Probeer het later nog eens.'); },
+        'error-callback': () => {
+          token = '';
+          waiting = false;
+          send.disabled = false;
+          setStatus('bad', 'De controle tegen spam lukte niet. Probeer het later nog eens.');
+        },
       });
     })
-    .catch(() => setStatus('bad', 'De controle tegen spam kon niet laden. Staat er een blocker aan?'));
+    .catch(() => {
+      waiting = false;
+      send.disabled = false;
+      setStatus('bad', 'De controle tegen spam kon niet laden. Staat er een blocker aan?');
+    });
 }
 
 /** Knopje voor in de kop van een vraag; null als meldingen niet zijn ingesteld. */
