@@ -335,7 +335,7 @@ vocab:
   - { sv: "en tenta", nl: "een tentamen", def: "tentan" }
   - { sv: "en föreläsning", nl: "een hoorcollege", def: "föreläsningen" }
   - { sv: "en uppsats", nl: "een scriptie, een werkstuk", def: "uppsatsen" }
-  - { sv: "ett betyg", nl: "een cijfer, een beoordeling (ook: cijferlijst); diploma = ett examensbevis", def: "betyget" }
+  - { sv: "ett betyg", nl: "een cijfer, een beoordeling", def: "betyget" }
   - { sv: "en examen", nl: "een diploma (afsluiting van een opleiding)", def: "examen" }
   - { sv: "en lärare", nl: "een leraar, een docent", def: "läraren" }
   - { sv: "en student", nl: "een student", def: "studenten" }
