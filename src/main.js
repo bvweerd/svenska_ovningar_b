@@ -477,36 +477,30 @@ function charBar() {
       },
     }, c));
   }
-  // Onderaan het zichtbare deel van het scherm (boven het toetsenbord op een telefoon),
-  // en zo dat het invoerveld er niet achter verdwijnt.
-  const place = () => {
+  // De balk staat direct onder het invoerveld (in de pagina, niet zwevend), zodat hij nooit
+  // achter het schermtoetsenbord verdwijnt. Als het toetsenbord opent, scrollt de pagina mee.
+  const keepVisible = () => {
     if (bar.hidden) return;
     const vv = window.visualViewport;
-    const height = bar.offsetHeight || 54;
     const bottom = vv ? vv.offsetTop + vv.height : window.innerHeight;
-    bar.style.top = `${Math.round(bottom - height - 8)}px`;
-    bar.style.bottom = 'auto';
-    if (target) {
-      const r = target.getBoundingClientRect();
-      const limit = bottom - height - 16;
-      if (r.bottom > limit) window.scrollBy({ top: r.bottom - limit, behavior: 'smooth' });
-    }
+    const r = bar.getBoundingClientRect();
+    if (r.bottom > bottom - 8) window.scrollBy({ top: r.bottom - bottom + 8 });
   };
-  window.visualViewport?.addEventListener('resize', place);
-  window.visualViewport?.addEventListener('scroll', place);
+  window.visualViewport?.addEventListener('resize', () => setTimeout(keepVisible, 50));
   document.addEventListener('focusin', (e) => {
-    if (e.target.matches('input[type="text"], textarea')) {
-      target = e.target;
-      bar.hidden = false;
-      requestAnimationFrame(place);
-    }
+    if (!e.target.matches('input[type="text"], textarea')) return;
+    target = e.target;
+    // Onder de hele zin of het zinsveld; in een tabelcel direct onder het veld.
+    const anchor = target.closest('td') ? target : target.closest('.sentence-input, .gap-text') ?? target;
+    if (bar.previousElementSibling !== anchor) anchor.after(bar);
+    bar.hidden = false;
+    setTimeout(keepVisible, 300);
   });
-  document.addEventListener('focusout', (e) => {
+  document.addEventListener('focusout', () => {
     setTimeout(() => {
       if (!document.activeElement?.matches('input[type="text"], textarea')) bar.hidden = true;
     }, 150);
   });
-  document.body.append(bar);
 }
 
 // ---------- Thema ----------

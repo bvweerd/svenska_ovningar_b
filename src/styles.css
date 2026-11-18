@@ -486,7 +486,8 @@ main.wide { max-width: 1240px; }
 .chip-group-label { min-width: 2em; font-weight: 700; color: var(--muted); font-size: 0.85rem; }
 .chip-link.num { min-width: 2.6em; justify-content: center; }
 
-/* Letterbalk: positie wordt in JS gezet (boven het toetsenbord) */
-.charbar { bottom: auto; top: calc(100vh - 66px); }
+/* Letterbalk: direct onder het invoerveld, in de pagina (nooit achter het toetsenbord) */
+.charbar { position: static; transform: none; width: fit-content; margin: 6px 0; box-shadow: none; }
+.charbar button { width: 44px; height: 40px; }
 .settings > summary { cursor: pointer; }
 .dialogue.tap li.placeholder { counter-increment: none; } .dialogue.tap li.placeholder::before { content: none; }
