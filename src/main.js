@@ -479,14 +479,21 @@ function charBar() {
   }
   // De balk staat direct onder het invoerveld (in de pagina, niet zwevend), zodat hij nooit
   // achter het schermtoetsenbord verdwijnt. Als het toetsenbord opent, scrollt de pagina mee.
+  let settleUntil = 0; // alleen kort na focus of toetsenbord bijsturen, nooit tijdens gewoon scrollen
   const keepVisible = () => {
-    if (bar.hidden) return;
+    if (bar.hidden || Date.now() > settleUntil) return;
     const vv = window.visualViewport;
     const bottom = vv ? vv.offsetTop + vv.height : window.innerHeight;
     const r = bar.getBoundingClientRect();
     if (r.bottom > bottom - 8) window.scrollBy({ top: r.bottom - bottom + 8 });
   };
-  window.visualViewport?.addEventListener('resize', () => setTimeout(keepVisible, 50));
+  // Het toetsenbord schuift de eerste keer met een animatie omhoog en de browser scrollt zelf
+  // naar het veld: daarom een paar keer kort na elkaar controleren.
+  const settle = () => {
+    settleUntil = Date.now() + 1200;
+    [60, 250, 500, 900].forEach((ms) => setTimeout(keepVisible, ms));
+  };
+  window.visualViewport?.addEventListener('resize', settle);
   document.addEventListener('focusin', (e) => {
     if (!e.target.matches('input[type="text"], textarea')) return;
     target = e.target;
@@ -494,7 +501,7 @@ function charBar() {
     const anchor = target.closest('td') ? target : target.closest('.sentence-input, .gap-text') ?? target;
     if (bar.previousElementSibling !== anchor) anchor.after(bar);
     bar.hidden = false;
-    setTimeout(keepVisible, 300);
+    settle();
   });
   document.addEventListener('focusout', () => {
     setTimeout(() => {
