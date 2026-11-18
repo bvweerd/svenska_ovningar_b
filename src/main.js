@@ -3,7 +3,7 @@ import { h } from './dom.js';
 import { markdown, inline } from './md.js';
 import { course, levels } from './content.js';
 import { A_SITE } from './config.js';
-import { speakButton } from './render/speak.js';
+import { speakButton, speedSelect } from './render/speak.js';
 import { speechSupported } from './speech.js';
 import { viewListenSettings, viewDictation, reportSpeechStatus } from './views/listen.js';
 import { itemCard } from './render/item-card.js';
@@ -203,7 +203,8 @@ function passage(ex) {
   const listenMode = ex.listen && speechSupported();
   const body = h('div', { class: 'passage-body', html: markdown(ex.text) });
   const read = speakButton(ex.text, { label: listenMode ? 'Luister naar de tekst' : 'Lees voor', className: listenMode ? 'big' : '' });
-  const head = h('div', { class: 'passage-head' }, ex.textTitle ? h('h2', {}, ex.textTitle) : null, read);
+  const head = h('div', { class: 'passage-head' }, ex.textTitle ? h('h2', {}, ex.textTitle) : null,
+    read ? h('div', { class: 'passage-controls', lang: 'nl' }, read, speedSelect()) : null);
   if (!listenMode) return h('section', { class: 'passage', lang: 'sv' }, head, body);
   return h('section', { class: 'passage listen', lang: 'sv' }, head,
     h('details', { class: 'passage-toggle' }, h('summary', { lang: 'nl' }, 'Toon de tekst'), body),

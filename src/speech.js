@@ -44,6 +44,17 @@ export function voiceScore(v) {
   return s;
 }
 
+// De Web Speech API zegt niet of een stem een man of een vrouw is; we herkennen bekende namen.
+const FEMALE = /alva|klara|sofie|hillevi|astrid|elin|ingrid|karin|female|kvinna|woman/i;
+const MALE = /oskar|mattias|bengt|erik|\bmale\b|\bman\b/i;
+
+/** 'v' (vrouw), 'm' (man) of null (onbekend). */
+export function voiceGender(v) {
+  if (FEMALE.test(v.name)) return 'v';
+  if (MALE.test(v.name)) return 'm';
+  return null;
+}
+
 export function swedishVoices() {
   return loadVoices().filter(isSwedish).sort((a, b) => voiceScore(b) - voiceScore(a));
 }
@@ -57,6 +68,15 @@ export function chosenVoice() {
 export const setVoice = (v) => setPref('voice', v ? v.voiceURI || v.name : null);
 export const getRate = () => getPref('rate', 0.9);
 export const setRate = (r) => setPref('rate', r);
+export const getPitch = () => getPref('pitch', 1);
+export const setPitch = (p) => setPref('pitch', p);
+
+/** Kiest de beste stem van een geslacht. Geeft de stem terug, of null als die er niet is. */
+export function chooseGender(g) {
+  const v = swedishVoices().find((x) => voiceGender(x) === g) ?? null;
+  if (v) setVoice(v);
+  return v;
+}
 
 /**
  * Status voor de gebruiker:
@@ -130,6 +150,7 @@ export function speak(text, opts = {}) {
       u.lang = voice?.lang ?? 'sv-SE';
       if (voice) u.voice = voice;
       u.rate = rate;
+      u.pitch = opts.pitch ?? getPitch();
       opts.onSentence?.(i);
       u.onend = () => { i++; next(); };
       u.onerror = (e) => {

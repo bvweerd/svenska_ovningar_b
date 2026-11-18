@@ -6,6 +6,7 @@ import { shuffle } from '../build.js';
 import { displayAnswer } from '../check/normalize.js';
 import {
   speechSupported, speechStatus, swedishVoices, chosenVoice, setVoice, getRate, setRate, speak, stop, onVoicesChanged,
+  voiceGender, chooseGender, getPitch, setPitch,
 } from '../speech.js';
 import { speakButton } from '../render/speak.js';
 import { trackEvent } from '../analytics.js';
@@ -133,34 +134,96 @@ function statusBox() {
   return { box, draw };
 }
 
+const GENDER_LABEL = { v: 'vrouw', m: 'man' };
+const NO_MALE = 'Er is geen mannenstem gevonden. In Edge heet die Mattias, op Mac en iPhone Oskar (downloaden bij de stemmen), op Windows Bengt. Zie de uitleg hieronder.';
+const NO_FEMALE = 'Er is geen vrouwenstem gevonden. In Edge heet die Sofie of Hillevi, op Mac en iPhone Alva of Klara. Zie de uitleg hieronder.';
+
 function voicePicker(onChange) {
   const select = h('select', { class: 'answer-input', 'aria-label': 'Zweedse stem' });
-  const draw = () => {
+  const note = h('p', { class: 'muted small', 'aria-live': 'polite' });
+  const genderBtn = (g, label) => h('button', {
+    type: 'button',
+    class: 'btn ghost small toggle',
+    onclick: () => {
+      const v = chooseGender(g);
+      note.textContent = v ? '' : g === 'm' ? NO_MALE : NO_FEMALE;
+      draw();
+      onChange?.();
+      if (v) speak('Hej! Så här låter jag.');
+    },
+  }, label);
+  const buttons = { v: genderBtn('v', 'Vrouwenstem'), m: genderBtn('m', 'Mannenstem') };
+  function draw() {
     const voices = swedishVoices();
     const cur = chosenVoice();
     select.replaceChildren(...(voices.length
-      ? voices.map((v) => h('option', { value: v.voiceURI || v.name, selected: v === cur }, `${v.name} (${v.lang}${v.localService ? '' : ', online'})`))
+      ? voices.map((v) => {
+          const g = GENDER_LABEL[voiceGender(v)];
+          return h('option', { value: v.voiceURI || v.name, selected: v === cur }, `${v.name} (${[g, v.lang, v.localService ? '' : 'online'].filter(Boolean).join(', ')})`);
+        })
       : [h('option', { value: '' }, 'Geen Zweedse stemmen')]));
     select.disabled = !voices.length;
-  };
+    const g = cur ? voiceGender(cur) : null;
+    for (const [k, b] of Object.entries(buttons)) {
+      b.setAttribute('aria-pressed', String(g === k));
+      b.disabled = !voices.length;
+    }
+  }
   select.addEventListener('change', () => {
     const v = swedishVoices().find((x) => (x.voiceURI || x.name) === select.value);
     setVoice(v);
+    note.textContent = '';
+    draw();
     onChange?.();
     speak('Hej! Så här låter jag.');
   });
   draw();
-  return { select, draw };
+  const el = h('div', { class: 'voice-picker' }, h('div', { class: 'actions' }, buttons.v, buttons.m), select, note);
+  return { el, draw };
 }
+
+const RATE_PRESETS = [['Langzaam', 0.7], ['Normaal', 0.9], ['Snel', 1.1]];
 
 function rateSlider() {
   const value = h('span', { class: 'muted' });
-  const input = h('input', { type: 'range', min: '0.5', max: '1.3', step: '0.1', value: String(getRate()), 'aria-label': 'Snelheid' });
-  const label = () => { value.textContent = `${Math.round(Number(input.value) * 100)}%`; };
+  const input = h('input', { type: 'range', min: '0.5', max: '1.5', step: '0.05', value: String(getRate()), 'aria-label': 'Snelheid' });
+  const presets = RATE_PRESETS.map(([label, r]) => h('button', {
+    type: 'button',
+    class: 'btn ghost small toggle',
+    onclick: () => {
+      input.value = String(r);
+      apply();
+      speak('Så här snabbt pratar jag nu.');
+    },
+  }, label));
+  const sync = () => {
+    const r = Number(input.value);
+    value.textContent = `${Math.round(r * 100)}%`;
+    presets.forEach((b, i) => b.setAttribute('aria-pressed', String(Math.abs(RATE_PRESETS[i][1] - r) < 0.01)));
+  };
+  const apply = () => {
+    setRate(Number(input.value));
+    sync();
+  };
+  input.addEventListener('input', sync);
+  input.addEventListener('change', apply);
+  sync();
+  return h('div', {}, h('div', { class: 'actions' }, presets), h('span', { class: 'rate' }, input, value));
+}
+
+function pitchSlider() {
+  const value = h('span', { class: 'muted' });
+  const input = h('input', { type: 'range', min: '0.5', max: '1.5', step: '0.05', value: String(getPitch()), 'aria-label': 'Toonhoogte' });
+  const label = () => { value.textContent = Number(input.value) === 1 ? 'normaal' : Number(input.value) < 1 ? 'lager' : 'hoger'; };
   input.addEventListener('input', label);
-  input.addEventListener('change', () => setRate(Number(input.value)));
+  input.addEventListener('change', () => {
+    setPitch(Number(input.value));
+    speak('Hej! Så här låter jag.');
+  });
   label();
-  return h('span', { class: 'rate' }, input, value);
+  const reset = h('button', { type: 'button', class: 'btn ghost small', onclick: () => { input.value = '1'; setPitch(1); label(); } }, 'Normaal');
+  return h('div', {}, h('span', { class: 'rate' }, input, value, reset),
+    h('p', { class: 'muted small' }, 'Lager klinkt zwaarder, maar maakt van een vrouwenstem geen echte mannenstem. Niet alle stemmen (vooral online stemmen) passen de toonhoogte aan.'));
 }
 
 function ratingBox() {
@@ -218,8 +281,9 @@ export function viewListenSettings() {
             speakButton(TEST_SENTENCE, { label: 'Speel de testzin af', className: 'big' }),
             h('button', { type: 'button', class: 'btn ghost', onclick: stop }, 'Stop')),
           h('div', { class: 'form-grid' },
-            h('label', {}, h('span', {}, 'Stem'), picker.select),
-            h('label', {}, h('span', {}, 'Snelheid'), rateSlider())),
+            h('div', { class: 'field' }, h('span', { class: 'field-label' }, 'Stem'), picker.el),
+            h('div', { class: 'field' }, h('span', { class: 'field-label' }, 'Snelheid'), rateSlider()),
+            h('div', { class: 'field' }, h('span', { class: 'field-label' }, 'Toonhoogte'), pitchSlider())),
           ratingBox())
       : null,
     h('section', { class: 'block prose' },

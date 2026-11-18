@@ -1,5 +1,5 @@
 import { describe, it, expect } from 'vitest';
-import { splitSentences, voiceScore } from '../src/speech.js';
+import { splitSentences, voiceScore, voiceGender } from '../src/speech.js';
 import { spokenText } from '../src/render/speak.js';
 import { gradeSort } from '../src/check/grade.js';
 
@@ -50,5 +50,16 @@ describe('gradeSort', () => {
     expect(r.correct).toBe(false);
     expect(r.fields).toEqual([true, false]);
     expect(r.tip).toContain('denk na');
+  });
+});
+
+describe('voiceGender', () => {
+  it('herkent bekende Zweedse stemmen', () => {
+    expect(voiceGender({ name: 'Microsoft Mattias Online (Natural) - Swedish (Sweden)' })).toBe('m');
+    expect(voiceGender({ name: 'Microsoft Sofie Online (Natural) - Swedish (Sweden)' })).toBe('v');
+    expect(voiceGender({ name: 'Microsoft Bengt - Swedish (Sweden)' })).toBe('m');
+    expect(voiceGender({ name: 'Oskar (Enhanced)' })).toBe('m');
+    expect(voiceGender({ name: 'Alva' })).toBe('v');
+    expect(voiceGender({ name: 'Google svenska' })).toBe(null);
   });
 });

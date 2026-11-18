@@ -9,7 +9,7 @@ import {
   gradeText, gradeMc, gradeMulti, gradeTrueFalse, gradeOrder,
   gradeDialogue, gradeMatch, gradeFields, clockSpec, checkFree, gradeSort,
 } from '../check/grade.js';
-import { speakButton } from './speak.js';
+import { speakButton, speedSelect } from './speak.js';
 import { speak, speechStatus } from '../speech.js';
 
 // replaceChildren met geneste arrays en lege waarden
@@ -204,6 +204,7 @@ function listenPlayer(item) {
   const el = h('div', { class: 'listen-player' },
     speakButton(item.say, { label: 'Luister', className: 'big' }),
     speakButton(item.say, { label: 'Langzaam', rate: 0.6 }),
+    speedSelect(),
     status === 'no-voice' ? h('p', { class: 'muted small' }, 'Er is geen Zweedse stem gevonden, dus het kan vreemd klinken. ', h('a', { href: '#/luisteren' }, 'Luisteren instellen')) : null,
   );
   return { el, play: () => speak(item.say) };
