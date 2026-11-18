@@ -15,7 +15,7 @@ import { initAnalytics, trackPage, trackEvent, scoreBucket, analyticsConfigured,
 import {
   viewPracticeHub, viewDaily, viewVerbTrainer, viewFlashcards, viewTest, viewGames, viewGame, GAMES, dueCount, streakText,
 } from './views/practice.js';
-import { chapterByNo, findTopic, crumbs, progressBar, exerciseRunner, practiceView } from './ui.js';
+import { chapterByNo, findTopic, crumbs, progressBar, exerciseRunner, practiceView, splitTheme, plural } from './ui.js';
 import { shuffle } from './build.js';
 import {
   getResult, chapterProgress, resetProgress, recordItem, runState, startRun, completeRun,
@@ -53,12 +53,16 @@ function viewHome() {
       h('ol', { class: 'chapters', start: course.find((c) => !lv.id || c.level === lv.id)?.chapter },
       course.filter((c) => !lv.id || c.level === lv.id).map((ch) => {
         const p = ch.available ? chapterProgress(ch) : null;
+        const { name, topics } = splitTheme(ch.theme);
         const inner = [
-          h('span', { class: 'ch-title' }, ch.title),
-          h('span', { class: 'ch-theme' }, ch.theme),
+          h('span', { class: 'ch-num' }, ch.title),
+          h('span', { class: 'ch-title' }, name),
+          topics ? h('span', { class: 'ch-theme' }, topics) : null,
           ch.available
-            ? [progressBar(p.itemsDone, p.itemsTotal, `${p.itemsDone} van ${p.itemsTotal} vragen gemaakt`),
-               h('span', { class: 'ch-stats' }, `${p.completed} van ${p.exercises} oefeningen afgerond`)]
+            ? (p.itemsDone
+                ? [progressBar(p.itemsDone, p.itemsTotal, `${p.itemsDone} van ${p.itemsTotal} vragen gemaakt`),
+                   h('span', { class: 'ch-stats' }, `${p.completed} van ${p.exercises} oefeningen afgerond`)]
+                : h('span', { class: 'ch-stats' }, plural(p.exercises, 'oefening', 'oefeningen')))
             : h('span', { class: 'soon' }, 'Binnenkort'),
         ];
         return h('li', { class: `ch-card${ch.available ? '' : ' disabled'}` },
@@ -82,19 +86,32 @@ function viewChapter(ch) {
   document.title = `${ch.title} · Svenska övningar`;
   const p = chapterProgress(ch);
   const weak = weakItems(ch);
+  const { name, topics } = splitTheme(ch.theme);
+  // Waar ga je verder? De oefening die bezig is, anders de eerste die nog niet af is.
+  const next = ch.exercises.find((ex) => { const r = runState(ch.chapter, ex); return r.started && r.done.size > 0 && r.done.size < r.total; })
+    ?? ch.exercises.find((ex) => !getResult(ch.chapter, ex.id)?.completedAt);
   return h('div', {},
     crumbs({ label: 'Start', href: '#/' }, { label: ch.title }),
     h('header', { class: 'page-head' },
-      h('h1', {}, ch.title),
-      h('p', { class: 'lead' }, ch.theme),
+      h('p', { class: 'eyebrow' }, ch.title),
+      h('h1', {}, name),
+      topics ? h('p', { class: 'lead' }, topics) : null,
       ch.goal || ch.writing
         ? h('ul', { class: 'goals' },
             ch.goal ? h('li', {}, h('strong', {}, 'Doel: '), ch.goal) : null,
             ch.writing ? h('li', {}, h('strong', {}, 'Schrijven: '), ch.writing) : null)
         : null,
-      h('div', { class: 'chapter-progress' },
-        progressBar(p.itemsDone, p.itemsTotal, `${p.itemsDone} van ${p.itemsTotal} vragen gemaakt`),
-        h('span', { class: 'muted' }, `${p.itemsDone} van ${p.itemsTotal} vragen gemaakt · ${p.completed} van ${p.exercises} oefeningen afgerond`)),
+      p.itemsDone
+        ? h('div', { class: 'chapter-progress' },
+            progressBar(p.itemsDone, p.itemsTotal, `${p.itemsDone} van ${p.itemsTotal} vragen gemaakt`),
+            h('span', { class: 'muted' }, `${p.itemsDone} van ${p.itemsTotal} vragen gemaakt · ${p.completed} van ${p.exercises} oefeningen afgerond`))
+        : null,
+      h('div', { class: 'actions chapter-actions' },
+        next ? h('a', { class: 'btn primary', href: `#/k/${ch.chapter}/o/${next.id}` }, p.itemsDone ? `Verder: ${next.title}` : `Begin: ${next.title}`) : null,
+        weak.length ? h('a', { class: 'btn ghost', href: `#/k/${ch.chapter}/fouten` }, `Oefen je fouten (${weak.length})`) : null,
+        h('a', { class: 'btn ghost', href: `#/k/${ch.chapter}/mix` }, 'Mix'),
+        h('a', { class: 'btn ghost', href: `#/k/${ch.chapter}/toets` }, 'Toets'),
+        ch.vocab?.length ? h('a', { class: 'btn ghost', href: `#/k/${ch.chapter}/kaarten` }, 'Flitskaarten') : null),
     ),
     ch.grammar.length
       ? h('section', { class: 'block' },
@@ -112,25 +129,11 @@ function viewChapter(ch) {
           return h('li', {},
             h('a', { href: `#/k/${ch.chapter}/o/${ex.id}` },
               h('span', { class: 'ex-title' }, ex.title),
-              h('span', { class: 'ex-meta' }, `${ex.items.length} vragen · ${types.map(typeName).join(', ')}`),
+              h('span', { class: 'ex-meta' }, `${plural(ex.items.length, 'vraag', 'vragen')} · ${types.map(typeName).join(', ')}`),
               exerciseBadge(ch, ex),
             ));
         })),
       ),
-    ),
-    h('section', { class: 'block mix' },
-      h('h2', {}, 'Herhalen'),
-      h('div', { class: 'actions' },
-        weak.length
-          ? h('a', { class: 'btn primary', href: `#/k/${ch.chapter}/fouten` }, `Oefen je fouten (${weak.length})`)
-          : null,
-        h('a', { class: weak.length ? 'btn ghost' : 'btn primary', href: `#/k/${ch.chapter}/mix` }, 'Mix: 10 willekeurige vragen'),
-        h('a', { class: 'btn ghost', href: `#/k/${ch.chapter}/toets` }, 'Toets (20 vragen)'),
-        ch.vocab?.length ? h('a', { class: 'btn ghost', href: `#/k/${ch.chapter}/kaarten` }, 'Flitskaarten') : null,
-      ),
-      h('p', { class: 'muted' }, weak.length
-        ? 'Vragen die je fout had of waarvan je het antwoord hebt bekeken, blijven in de foutenlijst tot je ze in één keer goed hebt.'
-        : 'Nog geen fouten om te herhalen. Vragen die je fout hebt, verschijnen hier vanzelf.'),
     ),
   );
 }
@@ -196,8 +199,9 @@ function viewExercise(ch, ex, query) {
           h('span', {}, `Je gaat verder waar je gebleven was: ${run.done.size} van ${run.total} vragen al gedaan.`),
           h('a', { href: `${href}?opnieuw` }, 'Opnieuw beginnen'))
       : null,
-    ex.text ? passage(ex) : null,
-    score, list, summary,
+    ex.text && !ex.listen
+      ? h('div', { class: 'reading-layout' }, passage(ex), h('div', { class: 'reading-questions' }, score, list, summary), textButton(ex))
+      : [ex.text ? passage(ex) : null, score, list, summary],
   );
 }
 
@@ -212,6 +216,27 @@ function passage(ex) {
   return h('section', { class: 'passage listen', lang: 'sv' }, head,
     h('details', { class: 'passage-toggle' }, h('summary', { lang: 'nl' }, 'Toon de tekst'), body),
     h('p', { class: 'muted small', lang: 'nl' }, 'Werkt het voorlezen niet goed? ', h('a', { href: '#/luisteren' }, 'Luisteren instellen')));
+}
+
+/**
+ * Telefoon: een zwevende knop „Tekst” zodra de leestekst uit beeld is.
+ * Opent de tekst in een paneel, zodat je niet hoeft terug te scrollen.
+ */
+function textButton(ex) {
+  const sheet = h('dialog', { class: 'text-sheet', 'aria-label': ex.textTitle ?? 'Tekst' },
+    h('div', { class: 'text-sheet-head' },
+      h('strong', {}, ex.textTitle ?? 'Tekst'),
+      h('button', { type: 'button', class: 'btn ghost small', onclick: () => sheet.close() }, 'Sluiten')),
+    h('div', { class: 'passage-body', lang: 'sv', html: markdown(ex.text) }));
+  sheet.addEventListener('click', (e) => { if (e.target === sheet) sheet.close(); });
+  const btn = h('button', { type: 'button', class: 'text-fab', hidden: true, onclick: () => sheet.showModal() }, '📄 Tekst');
+  // Pas tonen als de tekst zelf uit beeld is.
+  setTimeout(() => {
+    const target = btn.parentElement?.querySelector('.passage');
+    if (!target || typeof IntersectionObserver !== 'function') return;
+    new IntersectionObserver(([entry]) => { btn.hidden = entry.isIntersecting; }).observe(target);
+  }, 0);
+  return [btn, sheet];
 }
 
 function viewMix(ch) {
@@ -424,6 +449,8 @@ function route() {
     else if (parts[2] === 'kaarten') view = viewFlashcards(ch);
     else view = notFound();
   } else view = notFound();
+  // Leesoefeningen krijgen op brede schermen tekst en vragen naast elkaar.
+  app.classList.toggle('wide', !!view.querySelector?.('.reading-layout'));
   app.replaceChildren(view);
   updateMenu(path);
   trackPage(path, document.title);
@@ -450,10 +477,28 @@ function charBar() {
       },
     }, c));
   }
+  // Onderaan het zichtbare deel van het scherm (boven het toetsenbord op een telefoon),
+  // en zo dat het invoerveld er niet achter verdwijnt.
+  const place = () => {
+    if (bar.hidden) return;
+    const vv = window.visualViewport;
+    const height = bar.offsetHeight || 54;
+    const bottom = vv ? vv.offsetTop + vv.height : window.innerHeight;
+    bar.style.top = `${Math.round(bottom - height - 8)}px`;
+    bar.style.bottom = 'auto';
+    if (target) {
+      const r = target.getBoundingClientRect();
+      const limit = bottom - height - 16;
+      if (r.bottom > limit) window.scrollBy({ top: r.bottom - limit, behavior: 'smooth' });
+    }
+  };
+  window.visualViewport?.addEventListener('resize', place);
+  window.visualViewport?.addEventListener('scroll', place);
   document.addEventListener('focusin', (e) => {
     if (e.target.matches('input[type="text"], textarea')) {
       target = e.target;
       bar.hidden = false;
+      requestAnimationFrame(place);
     }
   });
   document.addEventListener('focusout', (e) => {

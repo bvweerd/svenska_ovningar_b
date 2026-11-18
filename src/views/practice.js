@@ -38,6 +38,21 @@ export function streakText() {
   return s.today ? `${base}. Goed bezig!` : `${base}. Oefen vandaag om je reeks vast te houden.`;
 }
 
+/** Compacte hoofdstukknoppen (alleen het nummer), per niveau op één regel. */
+function chapterChips(chapters, href, extra = () => null) {
+  const groups = new Map();
+  for (const c of chapters) {
+    const key = c.level ?? '';
+    if (!groups.has(key)) groups.set(key, []);
+    groups.get(key).push(c);
+  }
+  return h('div', { class: 'chip-groups' }, [...groups].map(([level, list]) =>
+    h('div', { class: 'chip-group' },
+      level ? h('span', { class: 'chip-group-label' }, level) : null,
+      h('div', { class: 'chip-links' }, list.map((c) =>
+        h('a', { class: 'chip-link num', href: href(c), title: `${c.title}: ${c.theme.split(' · ')[0]}`, 'aria-label': `${c.title}: ${c.theme.split(' · ')[0]}` }, String(c.chapter), extra(c)))))));
+}
+
 // ---------- Overzicht ----------
 export function viewPracticeHub() {
   document.title = 'Oefenen · Svenska övningar';
@@ -67,15 +82,14 @@ export function viewPracticeHub() {
     h('section', { class: 'block' },
       h('h2', {}, 'Flitskaarten'),
       h('p', { class: 'muted' }, 'De woordenlijst van een hoofdstuk: omdraaien en zelf aangeven of je het wist.'),
-      h('div', { class: 'chip-links' }, available().filter((c) => c.vocab?.length).map((c) =>
-        h('a', { class: 'chip-link', href: `#/k/${c.chapter}/kaarten` }, c.title)))),
+      chapterChips(available().filter((c) => c.vocab?.length), (c) => `#/k/${c.chapter}/kaarten`)),
     h('section', { class: 'block' },
       h('h2', {}, 'Toetsen'),
       h('p', { class: 'muted' }, 'Twintig vragen per hoofdstuk, zonder tips, met een rapport per onderwerp.'),
-      h('div', { class: 'chip-links' }, available().map((c) => {
+      chapterChips(available(), (c) => `#/k/${c.chapter}/toets`, (c) => {
         const t = getTest(c.chapter);
-        return h('a', { class: 'chip-link', href: `#/k/${c.chapter}/toets` }, c.title, t ? h('span', { class: 'chip-score' }, `${Math.round(t.best * 100)}%`) : null);
-      }))),
+        return t ? h('span', { class: 'chip-score' }, `${Math.round(t.best * 100)}%`) : null;
+      })),
   );
 }
 
@@ -152,6 +166,14 @@ export function viewVerbTrainer() {
     [...list.children].slice(1).forEach((c) => c.classList.add('previous'));
     card.focusFirst({ scroll: false });
   };
+  // Samenvatting van de instellingen, zodat het paneel op de telefoon dicht kan blijven.
+  let settingsBox;
+  const settingsSummary = h('summary', {});
+  const summarize = () => {
+    const tenses = settings.tenses.map((t) => TENSES[t]?.label.replace(/ \(.*\)/, '')).join(', ') || 'geen tijden';
+    const kinds = settings.kinds.length === Object.keys(KINDS).length ? 'alle soorten' : `${settings.kinds.length} van ${Object.keys(KINDS).length} soorten`;
+    settingsSummary.replaceChildren(h('strong', {}, 'Instellingen'), h('span', { class: 'muted' }, ` · ${tenses} · ${kinds}`));
+  };
   const checkbox = (group, key, label) => {
     const box = h('input', {
       type: 'checkbox',
@@ -159,6 +181,7 @@ export function viewVerbTrainer() {
       onchange: () => {
         settings[group] = box.checked ? [...new Set([...settings[group], key])] : settings[group].filter((k) => k !== key);
         setPref('verbs', settings);
+        summarize();
         list.replaceChildren();
         next();
       },
@@ -170,12 +193,13 @@ export function viewVerbTrainer() {
     h('header', { class: 'page-head' },
       h('h1', {}, 'Werkwoordtrainer'),
       h('p', { class: 'instruction' }, `Typ de gevraagde vorm en druk op Enter. Er zijn ${verbs.length} werkwoorden; de vragen gaan door zolang je wilt.`)),
-    h('details', { class: 'settings', open: true },
-      h('summary', {}, 'Instellingen'),
+    settingsBox = h('details', { class: 'settings', open: !matchMedia('(pointer: coarse)').matches },
+      settingsSummary,
       h('fieldset', {}, h('legend', {}, 'Tijden'), h('div', { class: 'options row' }, Object.entries(TENSES).map(([k, t]) => checkbox('tenses', k, t.label)))),
       h('fieldset', {}, h('legend', {}, 'Soorten werkwoorden'), h('div', { class: 'options row' }, Object.entries(KINDS).map(([k, l]) => checkbox('kinds', k, l))))),
     stats, list,
   );
+  summarize();
   updateStats();
   setTimeout(next, 0);
   return view;
@@ -408,7 +432,7 @@ export function viewGames() {
       return h('a', { class: 'tool-card', href: `#/oefenen/spel/${id}` },
         h('span', { class: 'tool-title' }, g.title),
         h('span', { class: 'tool-text' }, g.intro),
-        h('span', { class: 'tool-text' }, best ? `Record: ${best}` : 'Nog geen record'));
+        best ? h('span', { class: 'tool-text' }, `Record: ${best}`) : null);
     })),
   );
 }

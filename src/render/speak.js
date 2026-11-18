@@ -15,7 +15,12 @@ export function speedSelect() {
     setRate(Number(sel.value));
     document.querySelectorAll('.speed-select').forEach((s) => { if (s !== sel) s.value = sel.value; });
   });
-  return h('label', { class: 'speed' }, h('span', {}, 'Snelheid'), sel);
+  const label = h('span', { class: 'speed-now' }, `${Math.round(nearest * 100)}%`);
+  sel.addEventListener('change', () => { label.textContent = `${Math.round(Number(sel.value) * 100)}%`; });
+  // Klein uitklapmenu, zodat de snelheid niet bij elke tekst ruimte inneemt.
+  return h('details', { class: 'speed-menu' },
+    h('summary', { title: 'Voorleessnelheid', 'aria-label': 'Voorleessnelheid' }, h('span', { 'aria-hidden': 'true' }, '⚙'), label),
+    h('label', { class: 'speed' }, h('span', {}, 'Snelheid'), sel));
 }
 
 const ICON_PLAY = '<svg viewBox="0 0 24 24" aria-hidden="true" width="18" height="18"><path d="M4 9v6h4l5 4V5L8 9H4z" fill="currentColor"/><path d="M16 8.5a4.5 4.5 0 0 1 0 7M18.5 6a8 8 0 0 1 0 12" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>';

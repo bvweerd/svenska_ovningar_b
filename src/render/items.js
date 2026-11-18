@@ -7,10 +7,11 @@ import { displayAnswer } from '../check/normalize.js';
 import { shuffle } from '../build.js';
 import {
   gradeText, gradeMc, gradeMulti, gradeTrueFalse, gradeOrder,
-  gradeDialogue, gradeMatch, gradeFields, clockSpec, checkFree, gradeSort,
+  gradeFields, clockSpec, checkFree, gradeSort,
 } from '../check/grade.js';
 import { speakButton, speedSelect } from './speak.js';
 import { sentenceInput } from './tiles.js';
+import { match, dialogue } from './tap.js';
 import { speak, speechStatus } from '../speech.js';
 
 // replaceChildren met geneste arrays en lege waarden
@@ -350,74 +351,7 @@ function order(item, ctx) {
   };
 }
 
-function dialogue(item) {
-  let orderIdx = item.lines.map((_, i) => i);
-  while (orderIdx.every((v, i) => v === i)) orderIdx = shuffle(orderIdx);
-  const list = h('ol', { class: 'dialogue', lang: 'sv' });
-  const draw = () => {
-    list.replaceChildren(
-      ...orderIdx.map((lineNo, pos) =>
-        h('li', {},
-          h('span', { class: 'line-text' }, item.lines[lineNo]),
-          h('span', { class: 'moves' },
-            h('button', { type: 'button', class: 'move', 'aria-label': 'Omhoog', disabled: pos === 0, onclick: () => { [orderIdx[pos - 1], orderIdx[pos]] = [orderIdx[pos], orderIdx[pos - 1]]; draw(); } }, '▲'),
-            h('button', { type: 'button', class: 'move', 'aria-label': 'Omlaag', disabled: pos === orderIdx.length - 1, onclick: () => { [orderIdx[pos + 1], orderIdx[pos]] = [orderIdx[pos], orderIdx[pos + 1]]; draw(); } }, '▼'),
-          ),
-        ),
-      ),
-    );
-  };
-  draw();
-  const el = h('div', {}, prompt(item.prompt ?? 'Zet de dialoog in de goede volgorde.'), list);
-  return {
-    el,
-    check() {
-      const res = gradeDialogue(orderIdx, item);
-      [...list.children].forEach((li, pos) => li.classList.toggle('ok', orderIdx[pos] === pos));
-      return res;
-    },
-    reveal() {
-      orderIdx = item.lines.map((_, i) => i);
-      draw();
-      [...list.children].forEach((li) => li.classList.add('ok'));
-    },
-    lock: () => lockInputs(el),
-  };
-}
 
-function match(item, ctx) {
-  const rightOrder = shuffle(item.pairs.map((_, i) => i));
-  const selects = item.pairs.map(([left], i) =>
-    h('select', {
-      class: 'answer-input',
-      'aria-label': `Koppeling voor ${left}`,
-      onchange: () => {
-        if (selects.every((s) => s.value !== '')) ctx.auto?.();
-      },
-    },
-      h('option', { value: '' }, '…'),
-      rightOrder.map((r) => h('option', { value: String(r) }, item.pairs[r][1])),
-    ),
-  );
-  const el = h('div', {}, prompt(item.prompt),
-    h('div', { class: 'match' }, item.pairs.map(([left], i) => h('div', { class: 'match-row' }, h('span', { lang: 'sv' }, left), selects[i]))),
-  );
-  return {
-    el,
-    check() {
-      const res = gradeMatch(selects.map((s) => (s.value === '' ? null : Number(s.value))), item);
-      markFields(selects, res.fields);
-      return res;
-    },
-    reveal() {
-      selects.forEach((s, i) => {
-        s.value = String(i);
-        s.classList.add('revealed');
-      });
-    },
-    lock: () => lockInputs(el),
-  };
-}
 
 function table(item, ctx) {
   const specs = [];
@@ -428,9 +362,9 @@ function table(item, ctx) {
         const inp = textInput(cell, { label: item.columns[c] });
         specs.push(cell);
         inputs.push(inp);
-        return h('td', {}, inp);
+        return h('td', { 'data-label': item.columns[c] }, inp);
       }
-      return h(c === 0 ? 'th' : 'td', { lang: 'sv', scope: c === 0 ? 'row' : undefined }, String(cell ?? ''));
+      return h(c === 0 ? 'th' : 'td', { lang: 'sv', scope: c === 0 ? 'row' : undefined, 'data-label': c === 0 ? undefined : item.columns[c] }, String(cell ?? ''));
     })),
   );
   const el = h('div', {}, prompt(item.prompt),

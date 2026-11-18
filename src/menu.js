@@ -1,6 +1,7 @@
 // Menubalk bovenaan: hoofdstukken (uitklapmenu), grammatica, herhalen, over.
 // Op smalle schermen klapt alles in achter één menuknop.
 import { h } from './dom.js';
+import { splitTheme } from './ui.js';
 import { dueItems } from './progress.js';
 import { practiceEntries, levels } from './content.js';
 
@@ -16,8 +17,8 @@ export function createMenu(course) {
       h('li', {},
         ch.available
           ? h('a', { href: `#/k/${ch.chapter}`, 'data-chapter': ch.chapter },
-              h('strong', {}, ch.title), h('span', {}, ch.theme))
-          : h('span', { class: 'disabled' }, h('strong', {}, ch.title), h('span', {}, `${ch.theme} · binnenkort`)),
+              h('strong', {}, `${ch.chapter} · ${splitTheme(ch.theme).name}`), h('span', {}, splitTheme(ch.theme).topics))
+          : h('span', { class: 'disabled' }, h('strong', {}, `${ch.chapter} · ${splitTheme(ch.theme).name}`), h('span', {}, 'binnenkort')),
       ),
     ]),
   );

@@ -16,6 +16,14 @@ export function findTopic(topic, preferChapter) {
   return null;
 }
 
+/** "Werk en solliciteren · lijdende vorm …" → { name: 'Werk en solliciteren', topics: 'lijdende vorm …' } */
+export function splitTheme(theme = '') {
+  const [name, ...rest] = String(theme).split(' · ');
+  return { name, topics: rest.join(' · ') };
+}
+
+export const plural = (n, one, more) => `${n} ${n === 1 ? one : more}`;
+
 export function crumbs(...parts) {
   return h('nav', { class: 'crumbs', 'aria-label': 'Kruimelpad' },
     parts.map((p, i) => [i ? h('span', { class: 'sep', 'aria-hidden': 'true' }, '›') : null, p.href ? h('a', { href: p.href }, p.label) : h('span', {}, p.label)]),

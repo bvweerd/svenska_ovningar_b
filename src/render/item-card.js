@@ -8,6 +8,20 @@ import { reportButton } from '../report.js';
 const GENERIC_WRONG = 'Nog niet goed. Probeer het nog eens.';
 
 /**
+ * Vragen die zichzelf nakijken zodra je kiest: daar is de knop Controleer overbodig.
+ * (Enter blijft werken.) Bij een vervolgstap met typen of tegels komt de knop wel tevoorschijn.
+ */
+export function selfChecking(item) {
+  switch (item.type) {
+    case 'mc': case 'truefalse': case 'sort': case 'match': case 'dialogue': case 'findError': return true;
+    case 'listen': return !!item.options;
+    case 'gap': return (item.gaps ?? []).every((g) => g.options);
+    case 'steps': return selfChecking(item.steps?.[0] ?? {});
+    default: return false;
+  }
+}
+
+/**
  * @param item    de vraag
  * @param ctx     { topic, findTopic(topic) → {card, href}, ref?: { ch, ex, idx } (voor foutmeldingen) }
  * @param onDone  callback({ firstTry: boolean, revealed: boolean, neutral: boolean })
@@ -22,7 +36,7 @@ export function itemCard(item, ctx, number, onDone, label) {
     else check();
   } });
   const feedback = h('div', { class: 'feedback', 'aria-live': 'polite' });
-  const checkBtn = h('button', { type: 'button', class: 'btn primary' }, 'Controleer');
+  const checkBtn = h('button', { type: 'button', class: 'btn primary', hidden: selfChecking(item) }, 'Controleer');
   const revealBtn = h('button', { type: 'button', class: 'btn ghost', hidden: true }, 'Toon antwoord');
   const actions = h('div', { class: 'actions' }, checkBtn, revealBtn);
   const card = h('article', { class: `item type-${item.type}` },
@@ -88,6 +102,7 @@ export function itemCard(item, ctx, number, onDone, label) {
     if (res.correct && res.advance) {
       attempts = 0;
       revealBtn.hidden = true;
+      checkBtn.hidden = false; // de volgende stap (typen, tegels) heeft de knop wel nodig
       show('good', h('p', {}, 'Goed! Nu de volgende stap.'));
       return;
     }

@@ -406,3 +406,87 @@ details.howto ol { margin: 8px 0 4px; }
 .report-status:empty { display: none; }
 .report-status.bad { color: var(--bad); }
 .report-status.info { color: var(--muted); }
+
+/* ---------- UX-verbeteringen ---------- */
+/* Hoofdstukkaarten: onderwerp als titel, nummer klein erboven */
+.ch-num { font-size: 0.78rem; font-weight: 700; letter-spacing: 0.04em; text-transform: uppercase; color: var(--accent); }
+.page-head .eyebrow { margin: 0 0 2px; font-size: 0.8rem; font-weight: 700; letter-spacing: 0.04em; text-transform: uppercase; color: var(--accent); }
+.chapter-actions { margin-top: 14px; }
+@media (min-width: 700px) {
+  .exercise-list { display: grid; grid-template-columns: 1fr 1fr; }
+}
+@media (max-width: 600px) {
+  .chapters { gap: 8px; }
+  .ch-card > a, .ch-card > div { padding: 12px 14px; gap: 2px; }
+  .ch-theme { font-size: 0.85rem; }
+}
+
+/* Lezen: tekst en vragen naast elkaar op brede schermen */
+main.wide { max-width: 1240px; }
+@media (min-width: 1000px) {
+  .reading-layout { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 24px; align-items: start; }
+  .reading-layout .passage { position: sticky; top: 76px; max-height: calc(100vh - 96px); overflow: auto; margin-bottom: 0; }
+  .text-fab, .text-sheet { display: none; }
+}
+@media (max-width: 999px) {
+  main.wide { max-width: 860px; }
+}
+.text-fab { position: fixed; right: 16px; bottom: 16px; z-index: 9; padding: 10px 16px; border-radius: 999px; border: none; background: var(--accent); color: var(--accent-ink); font: inherit; font-weight: 600; box-shadow: 0 4px 16px rgb(0 0 0 / 0.2); cursor: pointer; }
+.text-fab[hidden] { display: none; }
+.text-sheet { width: min(640px, calc(100vw - 24px)); max-height: 80vh; padding: 0; border: 1px solid var(--line); border-radius: var(--radius); background: var(--surface); color: var(--text); }
+.text-sheet::backdrop { background: rgb(0 0 0 / 0.4); }
+.text-sheet-head { position: sticky; top: 0; display: flex; justify-content: space-between; align-items: center; gap: 12px; padding: 12px 16px; background: var(--surface); border-bottom: 1px solid var(--line); }
+.text-sheet .passage-body { padding: 4px 16px 16px; }
+
+/* Rätt/Fel even groot als meerkeuze-opties */
+.options.row .option.inline { flex: 1 1 0; justify-content: center; padding: 10px 12px; }
+
+/* Snelheid onder een klein uitklapmenu */
+.speed-menu { position: relative; display: inline-block; }
+.speed-menu > summary { list-style: none; display: inline-flex; align-items: center; gap: 6px; padding: 6px 10px; border: 1px solid var(--line); border-radius: 999px; background: var(--surface-2); color: var(--muted); font-size: 0.88rem; cursor: pointer; }
+.speed-menu > summary::-webkit-details-marker { display: none; }
+.speed-menu[open] > summary { border-color: var(--accent); color: var(--accent); }
+.speed-menu > .speed { position: absolute; z-index: 5; top: calc(100% + 6px); left: 0; padding: 8px 10px; background: var(--surface); border: 1px solid var(--line); border-radius: 10px; box-shadow: 0 6px 20px rgb(0 0 0 / 0.12); white-space: nowrap; }
+
+/* Koppelen door te tikken */
+.tap-match { display: flex; flex-direction: column; gap: 6px; margin: 4px 0 10px; }
+.tap-match .match-row { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); align-items: center; gap: 10px; padding: 6px 8px; border: 1.5px solid var(--line); border-radius: 10px; background: var(--surface-2); }
+.tap-match .match-row.ok { border-color: var(--good); background: var(--good-soft); }
+.tap-match .match-row.bad { border-color: var(--bad); background: var(--bad-soft); }
+.match-slot { font: inherit; text-align: left; padding: 8px 10px; border-radius: 8px; border: 1.5px solid var(--line); background: var(--surface); color: var(--text); cursor: pointer; min-height: 40px; }
+.match-slot.empty { color: var(--muted); border-style: dashed; }
+.match-slot.active { border-color: var(--accent); box-shadow: 0 0 0 2px var(--accent-soft); }
+.match-slot:disabled { cursor: default; }
+
+/* Dialoog ordenen door te tikken */
+.dialogue.tap li { padding: 0; }
+.dialogue.tap li.placeholder { padding: 12px; color: var(--muted); border-style: dashed; background: none; }
+.dialogue.tap li.bad { border-color: var(--bad); background: var(--bad-soft); }
+.dialogue-bank { display: flex; flex-direction: column; gap: 6px; margin: 10px 0; }
+.line-btn { width: 100%; font: inherit; text-align: left; padding: 10px 12px; border-radius: 10px; border: 1.5px solid var(--line); background: var(--surface); color: var(--text); cursor: pointer; }
+.dialogue.tap .line-btn { border: none; background: none; }
+.line-btn:hover:not(:disabled) { border-color: var(--accent); }
+.line-btn:disabled { cursor: default; }
+
+/* Tabel invullen: op de telefoon één kaartje per rij */
+@media (max-width: 600px) {
+  .table-wrap { overflow: visible; }
+  table.fill, table.fill tbody, table.fill tr, table.fill th, table.fill td { display: block; width: 100%; }
+  table.fill thead { display: none; }
+  table.fill tr { border: 1px solid var(--line); border-radius: 10px; padding: 8px 10px; margin-bottom: 8px; background: var(--surface-2); }
+  table.fill th[scope="row"] { border: none; padding: 2px 0 6px; font-size: 1.05rem; background: none; }
+  table.fill td { display: grid; grid-template-columns: 7.5em 1fr; align-items: center; gap: 8px; border: none; padding: 3px 0; }
+  table.fill td::before { content: attr(data-label); color: var(--muted); font-size: 0.85rem; }
+  table.fill td .answer-input { width: 100%; }
+}
+
+/* Hoofdstukknoppen per niveau */
+.chip-groups { display: flex; flex-direction: column; gap: 8px; }
+.chip-group { display: flex; align-items: baseline; gap: 10px; }
+.chip-group-label { min-width: 2em; font-weight: 700; color: var(--muted); font-size: 0.85rem; }
+.chip-link.num { min-width: 2.6em; justify-content: center; }
+
+/* Letterbalk: positie wordt in JS gezet (boven het toetsenbord) */
+.charbar { bottom: auto; top: calc(100vh - 66px); }
+.settings > summary { cursor: pointer; }
+.dialogue.tap li.placeholder { counter-increment: none; } .dialogue.tap li.placeholder::before { content: none; }
