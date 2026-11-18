@@ -1,10 +1,11 @@
 # Cloudflare Worker voor foutmeldingen. Zie worker/README.md.
-name = "svensk-ovningar-meldingen"
+name = "svensk-ovningar-b"
 main = "src/index.js"
 compatibility_date = "2025-06-01"
 
 [vars]
-GITHUB_REPO = "bvweerd/svensk_ovningar_b"
+# Eerste = standaard. De A1–A2-site stuurt repo: bvweerd/svensk_ovningar mee.
+GITHUB_REPO = "bvweerd/svensk_ovningar_b,bvweerd/svensk_ovningar"
 ALLOWED_ORIGINS = "https://bvweerd.github.io,http://localhost:5173"
 ISSUE_LABELS = "melding"
 

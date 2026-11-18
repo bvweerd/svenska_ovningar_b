@@ -1,5 +1,5 @@
 import { describe, it, expect, vi } from 'vitest';
-import { buildIssue, handle, neutralize } from '../worker/src/index.js';
+import { buildIssue, handle, neutralize, pickRepo } from '../worker/src/index.js';
 import { reportPayload } from '../src/report.js';
 
 const env = {
@@ -68,7 +68,26 @@ describe('buildIssue', () => {
   });
 });
 
+describe('pickRepo', () => {
+  const multi = { GITHUB_REPO: 'bvweerd/svensk_ovningar_b, bvweerd/svensk_ovningar' };
+  it('kiest een repo van de lijst', () => {
+    expect(pickRepo('bvweerd/svensk_ovningar', multi)).toBe('bvweerd/svensk_ovningar');
+    expect(pickRepo('BVWEERD/Svensk_Ovningar', multi)).toBe('bvweerd/svensk_ovningar');
+  });
+  it('valt terug op de eerste bij een onbekende of lege repo', () => {
+    expect(pickRepo('iemand/anders', multi)).toBe('bvweerd/svensk_ovningar_b');
+    expect(pickRepo(undefined, multi)).toBe('bvweerd/svensk_ovningar_b');
+    expect(pickRepo('x/y', { GITHUB_REPO: 'eigenaar/repo' })).toBe('eigenaar/repo');
+  });
+});
+
 describe('handle', () => {
+  it('maakt het issue in de gevraagde repo als die is toegestaan', async () => {
+    const f = fakeFetch();
+    await handle(request({ ...payload, repo: 'eigenaar/a' }), { ...env, GITHUB_REPO: 'eigenaar/repo,eigenaar/a' }, f);
+    expect(f.mock.calls[1][0]).toBe('https://api.github.com/repos/eigenaar/a/issues');
+  });
+
   it('maakt een issue bij een geldige melding', async () => {
     const f = fakeFetch();
     const res = await handle(request(payload), env, f);
@@ -114,7 +133,7 @@ describe('reportPayload', () => {
   it('neemt de plaats van de vraag over', () => {
     const item = { type: 'gap', text: 'a ___' };
     const p = reportPayload({ item, ref: { ch: 19, ex: { id: 'x', title: 'X' }, idx: 0 }, number: 4, message: ' fout ', answer: 'b', token: 't', page: 'p' });
-    expect(p).toMatchObject({ message: 'fout', shownNumber: 4, chapter: 19, exercise: 'x', exerciseTitle: 'X', itemIndex: 0, itemType: 'gap', token: 't' });
+    expect(p).toMatchObject({ repo: 'bvweerd/svensk_ovningar_b', message: 'fout', shownNumber: 4, chapter: 19, exercise: 'x', exerciseTitle: 'X', itemIndex: 0, itemType: 'gap', token: 't' });
     expect(JSON.parse(p.item)).toEqual(item);
   });
   it('werkt ook zonder plaats (snelle rondes)', () => {

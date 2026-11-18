@@ -1,6 +1,6 @@
 # Foutmeldingen via een Cloudflare Worker
 
-Bij elke vraag op de site staat een knop **Fout gezien?**. Een gebruiker schrijft kort wat er niet klopt, en deze Worker maakt er een issue van in `bvweerd/svensk_ovningar_b`. Gebruikers hebben geen GitHub-account nodig.
+Bij elke vraag op beide oefensites staat een knop **Fout gezien?**. Een gebruiker schrijft kort wat er niet klopt, en deze Worker maakt er een issue van: meldingen van de B1–B2-site in `bvweerd/svensk_ovningar_b`, van de A1–A2-site in `bvweerd/svensk_ovningar`. Elke site stuurt zijn repo mee (`REPORT_REPO` in `src/config.js`); de Worker accepteert alleen repo's uit `GITHUB_REPO`. Gebruikers hebben geen GitHub-account nodig.
 
 ```
 site (GitHub Pages) ──POST──▶ Worker ──▶ Turnstile: is dit een mens?
@@ -8,7 +8,7 @@ site (GitHub Pages) ──POST──▶ Worker ──▶ Turnstile: is dit een m
 ```
 
 - De vraag (als JSON), het antwoord van de gebruiker, het hoofdstuk en de oefening worden automatisch meegestuurd.
-- Het GitHub-token staat alleen in de Worker, als secret. Het kan alleen issues aanmaken in deze ene repo.
+- Het GitHub-token staat alleen in de Worker, als secret. Het kan alleen issues aanmaken in de repo's die het token toestaat.
 - Turnstile (gratis, van Cloudflare) houdt bots tegen. De Worker accepteert alleen verzoeken van de origins in `ALLOWED_ORIGINS`.
 - `@naam` in een melding wordt onschadelijk gemaakt, zodat niemand ongewild gepingd wordt.
 
@@ -17,11 +17,11 @@ Zolang `REPORT_URL` en `TURNSTILE_SITEKEY` niet zijn ingesteld, blijft de knop v
 ## Eenmalig instellen
 
 ### 1. Label in GitHub
-Maak in de repo een label `melding` aan (Issues → Labels → New label). Het token mag zelf geen labels aanmaken.
+Maak in beide repo's een label `melding` aan (Issues → Labels → New label). Het token mag zelf geen labels aanmaken.
 
 ### 2. GitHub-token
 GitHub → Settings → Developer settings → Fine-grained personal access tokens → *Generate new token*:
-- **Repository access:** *Only select repositories* → `svensk_ovningar_b`
+- **Repository access:** *Only select repositories* → `svensk_ovningar_b` en `svensk_ovningar`
 - **Permissions:** *Issues: Read and write* (de rest blijft *No access*)
 - Kies een vervaldatum en zet een herinnering om hem te vernieuwen.
 
@@ -40,10 +40,10 @@ npx wrangler secret put GITHUB_TOKEN
 npx wrangler secret put TURNSTILE_SECRET
 npx wrangler deploy
 ```
-Wrangler vraagt bij `secret put` om de waarde. Na `deploy` toont het het adres, bijvoorbeeld `https://svensk-ovningar-meldingen.<account>.workers.dev`.
+Wrangler vraagt bij `secret put` om de waarde. Na `deploy` toont het het adres, bijvoorbeeld `https://svensk-ovningar-b.<account>.workers.dev`. `wrangler deploy` zet ook de variabelen uit `wrangler.toml` (de secrets blijven staan).
 
 ### 5. Site koppelen
-GitHub → repo → Settings → Secrets and variables → Actions → tabblad **Variables**:
+In **beide** repo's: GitHub → repo → Settings → Secrets and variables → Actions → tabblad **Variables** → *New repository variable*:
 - `REPORT_URL` = het Worker-adres uit stap 4
 - `TURNSTILE_SITEKEY` = de sitekey uit stap 3
 
@@ -60,5 +60,5 @@ GITHUB_TOKEN=<token, of een token voor een testrepo>
 ```
 
 ## Aanpassen
-- Andere repo of extra site (bijv. de A1–A2-site): pas `GITHUB_REPO` en `ALLOWED_ORIGINS` aan in `wrangler.toml`. Geef het token dan ook toegang tot die repo.
+- Extra site of repo: voeg de repo toe aan `GITHUB_REPO` (komma-gescheiden; de eerste is de standaard) en zo nodig de origin aan `ALLOWED_ORIGINS`. Geef het token toegang tot die repo en maak daar het label `melding` aan. Zet in de site `REPORT_REPO` op die repo.
 - De opbouw van het issue staat in `buildIssue()` in `src/index.js`. De tests staan in `tests/report.test.js` in de hoofdmap.

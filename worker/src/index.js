@@ -3,10 +3,11 @@
 // staat alleen hier, als secret, en kan alleen issues aanmaken in de ingestelde repo.
 //
 // Instellingen (wrangler.toml / secrets):
-//   GITHUB_REPO       "eigenaar/repo", bijv. bvweerd/svensk_ovningar_b
+//   GITHUB_REPO       "eigenaar/repo", of een komma-gescheiden lijst. De eerste is de standaard;
+//                     een site kiest een andere uit de lijst met het veld "repo" in de melding.
 //   ALLOWED_ORIGINS   komma-gescheiden lijst, bijv. https://bvweerd.github.io,http://localhost:5173
 //   ISSUE_LABELS      optioneel, komma-gescheiden, bijv. melding
-//   GITHUB_TOKEN      secret: fine-grained token met alleen "Issues: Read and write" op GITHUB_REPO
+//   GITHUB_TOKEN      secret: fine-grained token met alleen "Issues: Read and write" op de repo's in GITHUB_REPO
 //   TURNSTILE_SECRET  secret: geheime sleutel van de Turnstile-widget
 
 export const LIMITS = { message: 2000, answer: 1000, item: 6000, short: 200 };
@@ -77,11 +78,20 @@ function cors(origin) {
   };
 }
 
+const list = (v) => String(v ?? '').split(',').map((s) => s.trim()).filter(Boolean);
+
+/** De repo voor deze melding: de gevraagde als die op de lijst staat, anders de eerste. */
+export function pickRepo(requested, env) {
+  const repos = list(env.GITHUB_REPO);
+  const want = String(requested ?? '').trim().toLowerCase();
+  return repos.find((r) => r.toLowerCase() === want) ?? repos[0];
+}
+
 const json = (status, data, headers) => new Response(JSON.stringify(data), { status, headers: { 'Content-Type': 'application/json', ...headers } });
 
 export async function handle(request, env, fetchImpl = fetch) {
   const origin = request.headers.get('Origin') ?? '';
-  const allowed = String(env.ALLOWED_ORIGINS ?? '').split(',').map((s) => s.trim()).filter(Boolean);
+  const allowed = list(env.ALLOWED_ORIGINS);
   if (!allowed.includes(origin)) return json(403, { ok: false, error: 'origin' });
   const headers = cors(origin);
 
@@ -110,8 +120,9 @@ export async function handle(request, env, fetchImpl = fetch) {
   const verdict = await ts.json().catch(() => ({}));
   if (!verdict.success) return json(403, { ok: false, error: 'turnstile' }, headers);
 
-  const labels = String(env.ISSUE_LABELS ?? '').split(',').map((s) => s.trim()).filter(Boolean);
-  const gh = await fetchImpl(`https://api.github.com/repos/${env.GITHUB_REPO}/issues`, {
+  const labels = list(env.ISSUE_LABELS);
+  const repo = pickRepo(payload.repo, env);
+  const gh = await fetchImpl(`https://api.github.com/repos/${repo}/issues`, {
     method: 'POST',
     headers: {
       Authorization: `Bearer ${env.GITHUB_TOKEN}`,
@@ -123,7 +134,7 @@ export async function handle(request, env, fetchImpl = fetch) {
     body: JSON.stringify({ ...issue, ...(labels.length ? { labels } : {}) }),
   });
   if (!gh.ok) {
-    console.error('GitHub', gh.status, await gh.text().catch(() => ''));
+    console.error('GitHub', repo, gh.status, await gh.text().catch(() => ''));
     return json(502, { ok: false, error: 'github' }, headers);
   }
   const created = await gh.json();
