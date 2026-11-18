@@ -393,3 +393,16 @@ details.howto ol { margin: 8px 0 4px; }
 .tiles .chips.bank { padding-left: 0; }
 .link-btn { background: none; border: none; padding: 2px 0; font: inherit; font-size: 0.85rem; color: var(--accent); text-decoration: underline; cursor: pointer; }
 @media (pointer: coarse) { .tiles .chip { padding: 9px 14px; font-size: 1.02rem; } }
+
+/* Foutmelding */
+.item-head .report-btn { margin-left: auto; color: var(--muted); text-decoration: none; font-size: 0.8rem; }
+.item-head .report-btn:hover, .item-head .report-btn:focus-visible { color: var(--accent); text-decoration: underline; }
+.report-dialog { width: min(520px, calc(100vw - 32px)); max-height: calc(100vh - 32px); padding: 20px; border: 1px solid var(--line); border-radius: var(--radius); background: var(--surface); color: var(--text); box-shadow: 0 10px 40px rgb(0 0 0 / 0.25); }
+.report-dialog::backdrop { background: rgb(0 0 0 / 0.45); }
+.report-form h2 { margin: 0 0 6px; font-size: 1.2rem; }
+.report-form label { display: flex; flex-direction: column; gap: 4px; margin: 12px 0 8px; font-weight: 600; }
+.report-form textarea { font-weight: 400; }
+.report-form .turnstile:empty { display: none; }
+.report-status:empty { display: none; }
+.report-status.bad { color: var(--bad); }
+.report-status.info { color: var(--muted); }

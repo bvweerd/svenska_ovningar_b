@@ -10,3 +10,8 @@ export const PATH_PREFIX = '/b';
 export const A_SITE = 'https://bvweerd.github.io/svensk_ovningar/';
 
 export const GOATCOUNTER_CODE = import.meta.env?.VITE_GOATCOUNTER || 'bvweerd';
+
+// Foutmeldingen: adres van de Cloudflare Worker (zie worker/README.md) en de openbare
+// sitekey van Turnstile. Laat een van beide leeg om de knop „Meld een fout” te verbergen.
+export const REPORT_URL = import.meta.env?.VITE_REPORT_URL || '';
+export const TURNSTILE_SITEKEY = import.meta.env?.VITE_TURNSTILE_SITEKEY || '';

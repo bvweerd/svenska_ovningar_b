@@ -51,7 +51,7 @@ export function exerciseRunner(items, { onFinish, offset = { done: 0, good: 0, t
   let finished = 0;
   const list = h('div', { class: 'items' },
     items.map(({ item, ctx, label, ref }, i) => {
-      const card = itemCard(item, ctx, offset.done + i + 1, (r) => {
+      const card = itemCard(item, ref ? { ...ctx, ref } : ctx, offset.done + i + 1, (r) => {
         if (ref) {
           const status = statusOf(r);
           recordItem(ref.ch, ref.ex, ref.idx, status);

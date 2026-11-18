@@ -26,6 +26,10 @@ jobs:
       - run: npm ci
       - run: npm test
       - run: npm run build
+        env:
+          # Foutmeldingen (zie worker/README.md). Zonder deze variabelen blijft de meldknop verborgen.
+          VITE_REPORT_URL: ${{ vars.REPORT_URL }}
+          VITE_TURNSTILE_SITEKEY: ${{ vars.TURNSTILE_SITEKEY }}
       - uses: actions/upload-pages-artifact@v3
         with:
           path: dist

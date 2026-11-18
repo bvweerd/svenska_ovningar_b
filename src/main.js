@@ -3,6 +3,7 @@ import { h } from './dom.js';
 import { markdown, inline } from './md.js';
 import { course, levels } from './content.js';
 import { A_SITE } from './config.js';
+import { reportConfigured } from './report.js';
 import { speakButton, speedSelect } from './render/speak.js';
 import { speechSupported } from './speech.js';
 import { setKnownWords, getInputMode, setInputMode } from './render/tiles.js';
@@ -322,6 +323,10 @@ function viewAbout() {
       h('li', {}, 'Flitskaarten: woorden omdraaien en zelf aangeven of je ze wist.'),
       h('li', {}, 'Snelle rondes: zoveel mogelijk goede antwoorden in 60 seconden.'),
     ),
+    reportConfigured() ? [
+      h('h2', {}, 'Een fout melden'),
+      h('p', {}, 'Klopt er iets niet in een vraag, of wordt een goed antwoord fout gerekend? Klik bij de vraag op „Fout gezien?” en schrijf kort wat er mis is. De vraag en je antwoord worden automatisch meegestuurd. Je hebt geen account nodig. Je melding wordt een openbaar issue op GitHub, dus zet er geen persoonlijke gegevens in. Tegen spam controleert Cloudflare Turnstile of je een mens bent.'),
+    ] : null,
     h('h2', {}, 'Antwoorden invoeren'),
     h('p', {}, 'Bij langere antwoorden kun je typen of woordtegels in de goede volgorde aantikken. Op een telefoon of tablet staan standaard de tegels aan.'),
     (() => {

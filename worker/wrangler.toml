@@ -1,0 +1,13 @@
+# Cloudflare Worker voor foutmeldingen. Zie worker/README.md.
+name = "svensk-ovningar-meldingen"
+main = "src/index.js"
+compatibility_date = "2025-06-01"
+
+[vars]
+GITHUB_REPO = "bvweerd/svensk_ovningar_b"
+ALLOWED_ORIGINS = "https://bvweerd.github.io,http://localhost:5173"
+ISSUE_LABELS = "melding"
+
+# Secrets (niet hier invullen, maar met wrangler):
+#   npx wrangler secret put GITHUB_TOKEN
+#   npx wrangler secret put TURNSTILE_SECRET
