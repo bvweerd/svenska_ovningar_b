@@ -40,7 +40,7 @@ Wat er geteld wordt:
 | Pad | Betekenis |
 |---|---|
 | `/k/1/o/presens-invullen` enz. | paginabezoek |
-| `vraag/<hoofdstuk>/<oefening>/<nr>/goed\|fout\|bekeken` | per vraag: in één keer goed, goed na fouten, of antwoord bekeken |
+| `vraag/<hoofdstuk>/<oefening>/<vraag-id>/goed\|fout\|bekeken` | per vraag (vaste id uit de YAML; bij woordenschat het Zweedse woord met - in plaats van spaties): in één keer goed, goed na fouten, of antwoord bekeken |
 | `oefening/<hoofdstuk>/<oefening>/klaar/<score>` | oefening afgerond, score in groepen (0-39, 40-59, 60-79, 80-100) |
 | `werkwoord/<tijd>/<werkwoord>/goed\|fout\|bekeken` | werkwoordtrainer |
 | `toets/<hoofdstuk>/klaar/<score>` en `spel/<naam>/klaar` | toetsen en snelle rondes |

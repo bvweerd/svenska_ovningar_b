@@ -34,13 +34,14 @@ export function buildIssue(p) {
   const exercise = clip(p.exercise, LIMITS.short);
   const exerciseTitle = clip(p.exerciseTitle, LIMITS.short);
   const idx = Number.isInteger(p.itemIndex) ? p.itemIndex : null;
+  const itemId = clip(p.itemId, 60).replace(/[`|\n]/g, '') || null;
   const shown = Number.isInteger(p.shownNumber) ? p.shownNumber : null;
   const page = clip(p.page, 500);
 
   const where = [
     chapter !== null ? `H${chapter}` : null,
     exerciseTitle || exercise || null,
-    idx !== null ? `items[${idx}]` : null,
+    itemId ? `id ${itemId}` : idx !== null ? `items[${idx}]` : null,
   ].filter(Boolean).join(' · ');
   const summary = message.split('\n')[0].slice(0, 60);
   const title = `Melding${where ? ` ${where}` : ''}: ${summary}${message.length > summary.length ? '…' : ''}`;
@@ -48,8 +49,8 @@ export function buildIssue(p) {
   const rows = [
     chapter !== null ? `| Hoofdstuk | ${chapter} |` : null,
     exercise ? `| Oefening | \`${exercise.replace(/`/g, '')}\`${exerciseTitle ? ` (${neutralize(exerciseTitle)})` : ''} |` : null,
-    idx !== null || shown !== null
-      ? `| Vraag | ${[idx !== null ? `\`items[${idx}]\`` : null, shown !== null ? `nr. ${shown} op het scherm` : null].filter(Boolean).join(', ')} |`
+    itemId || idx !== null || shown !== null
+      ? `| Vraag | ${[itemId ? `id \`${neutralize(itemId)}\`` : null, idx !== null ? `\`items[${idx}]\`` : null, shown !== null ? `nr. ${shown} op het scherm` : null].filter(Boolean).join(', ')} |`
       : null,
     p.itemType ? `| Type | ${neutralize(clip(p.itemType, 30))} |` : null,
     page && /^https?:\/\//.test(page) ? `| Pagina | ${page} |` : null,

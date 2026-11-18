@@ -45,6 +45,12 @@ describe('buildIssue', () => {
     expect(body).toContain('> Ook vem som is hier goed.');
     expect(body).toContain('`gram-vem`');
     expect(body).toContain('`items[3]`, nr. 2 op het scherm');
+  });
+
+  it('noemt de vraag-id in titel en tabel', () => {
+    const { title, body } = buildIssue({ ...payload, itemId: 'k7q2' });
+    expect(title).toBe('Melding H19 · Vem som of vem? · id k7q2: Ook vem som is hier goed.');
+    expect(body).toContain('id `k7q2`, `items[3]`, nr. 2 op het scherm');
     expect(body).toContain('vem som');
   });
   it('weigert een lege melding', () => {
@@ -133,8 +139,12 @@ describe('reportPayload', () => {
   it('neemt de plaats van de vraag over', () => {
     const item = { type: 'gap', text: 'a ___' };
     const p = reportPayload({ item, ref: { ch: 19, ex: { id: 'x', title: 'X' }, idx: 0 }, number: 4, message: ' fout ', answer: 'b', token: 't', page: 'p' });
-    expect(p).toMatchObject({ repo: 'bvweerd/svenska_ovningar_b', message: 'fout', shownNumber: 4, chapter: 19, exercise: 'x', exerciseTitle: 'X', itemIndex: 0, itemType: 'gap', token: 't' });
+    expect(p).toMatchObject({ repo: 'bvweerd/svenska_ovningar_b', message: 'fout', shownNumber: 4, chapter: 19, exercise: 'x', exerciseTitle: 'X', itemIndex: 0, itemId: null, itemType: 'gap', token: 't' });
     expect(JSON.parse(p.item)).toEqual(item);
+  });
+  it('geeft de vraag-id mee', () => {
+    const p = reportPayload({ item: { id: 'k7q2', type: 'gap' }, ref: { ch: 19, ex: { id: 'x', title: 'X' }, idx: 5 }, message: 'fout' });
+    expect(p).toMatchObject({ itemId: 'k7q2', itemIndex: 5 });
   });
   it('werkt ook zonder plaats (snelle rondes)', () => {
     const p = reportPayload({ item: { type: 'mc' }, message: 'x' });

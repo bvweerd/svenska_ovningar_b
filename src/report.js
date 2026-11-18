@@ -43,6 +43,7 @@ export function reportPayload({ item, ref, number, message, answer, token, page 
     exercise: ref?.ex?.id ?? null,
     exerciseTitle: ref?.ex?.title ?? null,
     itemIndex: Number.isInteger(ref?.idx) ? ref.idx : null,
+    itemId: item?.id !== undefined && item?.id !== null ? String(item.id) : null,
     itemType: item?.type ?? null,
     item: JSON.stringify(item, null, 2),
     token,

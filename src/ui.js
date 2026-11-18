@@ -55,7 +55,9 @@ export function exerciseRunner(items, { onFinish, offset = { done: 0, good: 0, t
         if (ref) {
           const status = statusOf(r);
           recordItem(ref.ch, ref.ex, ref.idx, status);
-          trackEvent(`vraag/${ref.ch}/${ref.ex.id}/${ref.idx + 1}/${STATUS_LABEL[status]}`, `H${ref.ch} · ${ref.ex.title} · ${itemSummary(item)}`);
+          // De vaste vraag-id (spaties → -), zodat tellingen bij een vraag blijven als de volgorde verandert.
+          const qid = String(ref.ex.items[ref.idx]?.id ?? ref.idx + 1).replace(/\s+/g, '-');
+          trackEvent(`vraag/${ref.ch}/${ref.ex.id}/${qid}/${STATUS_LABEL[status]}`, `H${ref.ch} · ${ref.ex.title} · ${itemSummary(item)}`);
         }
         onItem?.(items[i], r);
         done++;
