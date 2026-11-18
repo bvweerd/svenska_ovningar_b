@@ -1,0 +1,292 @@
+chapter: 25
+
+grammar:
+  - id: nominalisering
+    title: Nominalisatie
+    summary: "In zakelijke teksten wordt een werkwoord vaak een zelfstandig naamwoord: *Priserna ökade kraftigt* → *en kraftig **ökning** av priserna*. Met **-ning/-ing** (en-woord) of zonder uitgang (vaak ett-woord): *besluta → ett **beslut***."
+    body: |
+      Op B2-niveau lees en schrijf je veel **nominale stijl**: wat in een gewone zin een werkwoord is, wordt een zelfstandig naamwoord. Dat maakt een tekst korter en formeler.
+
+      | gewone zin | nominaal |
+      |---|---|
+      | *Priserna **ökade** kraftigt.* | *en kraftig **ökning** av priserna* |
+      | *Arbetslösheten **minskade**.* | ***minskningen** av arbetslösheten* |
+      | *Företaget **beslutade** att stänga.* | *företagets **beslut** att stänga* |
+      | *Man **förbättrade** arbetsmiljön.* | ***förbättringen** av arbetsmiljön* |
+
+      ### Vormen
+      | uitgang | voorbeelden |
+      |---|---|
+      | **-ning / -ing** (en) | *öka → ökning, minska → minskning, utveckla → utveckling, förändra → förändring, sälja → försäljning* |
+      | geen uitgang (meestal ett) | *besluta → ett beslut, köpa → ett köp, falla → ett fall* |
+      | **-else** (en/ett) | *betyda → en betydelse, uppleva → en upplevelse* |
+      | eigen woord | *stiga → en uppgång, sjunka → en nedgång* |
+
+      ### Bijvoeglijk naamwoord in plaats van bijwoord
+      Het bijwoord bij het werkwoord wordt een bijvoeglijk naamwoord bij het zelfstandig naamwoord: *öka **kraftigt** → en **kraftig** ökning*, *minska **gradvis** → en **gradvis** minskning*.
+
+      ### Welk voorzetsel?
+      - **av**: wát verandert: *en ökning **av** försäljningen*
+      - **med**: hoeveel: *en ökning **med** tio procent*
+      - **från … till**: *en minskning **från** tolv **till** åtta procent*
+
+  - id: trender
+    title: Ontwikkelingen beschrijven
+    summary: "*öka/stiga, minska/sjunka, ligga still, nå en topp*, met *kraftigt, svagt, gradvis, stadigt*. Let op: van 5 naar 7 procent is een stijging met **två procentenheter**, niet *två procent*."
+    body: |
+      | richting | werkwoord | zelfstandig naamwoord |
+      |---|---|---|
+      | omhoog | *öka, stiga, gå upp* | *en ökning, en uppgång* |
+      | omlaag | *minska, sjunka, falla, gå ner* | *en minskning, en nedgång, ett ras (sterk)* |
+      | gelijk | *ligga still, vara oförändrad* | |
+      | hoogste punt | *nå en topp* | *en topp* |
+      | laagste punt | *nå en botten* | *en bottennivå* |
+
+      **Hoe snel?** *kraftigt* (sterk), *svagt* (licht), *gradvis* (geleidelijk), *stadigt* (gestaag), *plötsligt* (plotseling), *marginellt* (nauwelijks).
+
+      **Ongeveer:** *drygt* (iets meer dan), *knappt* (iets minder dan), *omkring / cirka* (ongeveer). *drygt hälften* = iets meer dan de helft.
+
+      **Procent of procentpunt?** Stijgt de werkloosheid van 5 naar 7 procent, dan is dat een stijging met *två **procentenheter*** (en met 40 *procent*).
+
+      **Vergelijken:** *jämfört med i fjol*, *under samma period*, *under perioden 2019–2024*.
+
+sections:
+  - id: lasa
+    title: Läsa · lezen
+    exercises:
+      - id: lasa-hemarbete
+        title: "Lezen: thuiswerken"
+        instruction: Lees het verslag en beantwoord de vragen.
+        topic: trender
+        textTitle: Hemarbete – en bestående förändring?
+        text: |
+          På försäkringsbolaget Norrsken arbetade knappt tio procent av de anställda hemifrån minst en dag i veckan år 2019. Under pandemin skedde en kraftig ökning, och år 2021 nådde andelen en topp på drygt åttio procent. Därefter följde en gradvis minskning, men andelen har aldrig återgått till den tidigare nivån. I dag ligger den stadigt på omkring femtio procent.
+
+          Ledningen ser både för- och nackdelar med utvecklingen. Sjukfrånvaron har minskat med två procentenheter, och företaget har kunnat spara pengar genom en minskning av kontorsytan. Samtidigt uppger många chefer att samarbetet och introduktionen av nyanställda har försvårats.
+
+          Företagets beslut att erbjuda flexibla arbetsplatser har därför kombinerats med ett krav: alla medarbetare ska vara på kontoret minst två dagar i veckan.
+        items:
+          - { type: mc, prompt: "Hur stor andel arbetade hemifrån år 2019?", options: ["knappt tio procent", "drygt tio procent", "omkring femtio procent", "drygt åttio procent"], answer: 0 }
+          - { type: mc, prompt: "När nådde andelen en topp?", options: ["2021", "2019", "2020", "i dag"], answer: 0 }
+          - { type: truefalse, statement: "Andelen har återgått till samma nivå som före pandemin.", answer: false, correction: { answers: ["{Andelen|Den} har aldrig återgått till den tidigare nivån.", "{Andelen|Den} ligger [i dag ]på omkring femtio procent."] } }
+          - { type: mc, prompt: "Vad har hänt med sjukfrånvaron?", options: ["Den har minskat med två procentenheter.", "Den har ökat med två procent.", "Den är oförändrad.", "Den har minskat med två procent."], answer: 0 }
+          - { type: mc, prompt: "Vilken nackdel nämner cheferna?", options: ["Samarbetet och introduktionen av nyanställda har försvårats.", "Lönerna har ökat.", "Kontoren är för små.", "Ingen vill jobba hemma."], answer: 0 }
+          - { type: mc, prompt: "Wat betekent *drygt åttio procent*?", options: ["iets meer dan tachtig procent", "iets minder dan tachtig procent", "precies tachtig procent", "ongeveer acht procent"], answer: 0 }
+          - type: multi
+            prompt: "Welke woorden in de tekst zijn nominalisaties (een werkwoord dat een zelfstandig naamwoord is geworden)?"
+            options: ["ökning", "minskning", "utvecklingen", "beslut", "introduktionen", "andelen"]
+            answers: [0, 1, 2, 3, 4]
+            tip: "andel (aandeel) komt niet van een werkwoord."
+
+  - id: ord
+    title: Ord och fraser · woorden en uitdrukkingen
+    exercises:
+      - id: ord-trender
+        title: Ontwikkelingen
+        instruction: Koppel het woord aan de betekenis.
+        topic: trender
+        items:
+          - type: match
+            pairs:
+              - ["kraftigt", "sterk"]
+              - ["svagt", "licht, zwak"]
+              - ["gradvis", "geleidelijk"]
+              - ["stadigt", "gestaag"]
+              - ["drygt", "iets meer dan"]
+              - ["knappt", "iets minder dan"]
+          - type: match
+            pairs:
+              - ["en andel", "een aandeel"]
+              - ["en ledning", "een directie"]
+              - ["sjukfrånvaro", "ziekteverzuim"]
+              - ["uppge", "verklaren, opgeven"]
+              - ["försvåra", "bemoeilijken"]
+              - ["en procentenhet", "een procentpunt"]
+
+  - id: nominal
+    title: "Grammatik: nominalisatie"
+    exercises:
+      - id: nominal-vormen
+        title: Van werkwoord naar zelfstandig naamwoord
+        instruction: Schrijf het zelfstandig naamwoord met **en** of **ett**.
+        topic: nominalisering
+        shuffle: true
+        items:
+          - { type: gap, text: "öka → ___", gaps: [{ answers: ["en ökning"], feedback: [{ match: "ökning", tip: "Schrijf het lidwoord erbij: en ökning." }] }] }
+          - { type: gap, text: "minska → ___", gaps: [{ answers: ["en minskning"], feedback: [{ match: "minskning", tip: "Schrijf het lidwoord erbij: en minskning." }] }] }
+          - { type: gap, text: "förbättra → ___", gaps: [{ answers: ["en förbättring"], feedback: [{ match: "förbättring", tip: "Schrijf het lidwoord erbij." }] }] }
+          - { type: gap, text: "utveckla → ___", gaps: [{ answers: ["en utveckling"], feedback: [{ match: "utveckling", tip: "Schrijf het lidwoord erbij." }] }] }
+          - { type: gap, text: "besluta → ___", gaps: [{ answers: ["ett beslut"], feedback: [{ match: "en beslut", tip: "beslut is een ett-woord." }, { match: "en beslutning", tip: "Zonder uitgang: ett beslut." }] }] }
+          - { type: gap, text: "sälja → ___", gaps: [{ answers: ["en försäljning"], feedback: [{ match: ["en säljning", "säljning"], tip: "Het zelfstandig naamwoord is försäljning." }] }] }
+          - { type: gap, text: "förändra → ___", gaps: [{ answers: ["en förändring"], feedback: [{ match: "förändring", tip: "Schrijf het lidwoord erbij." }] }] }
+          - { type: gap, text: "köpa → ___", gaps: [{ answers: ["ett köp"], feedback: [{ match: "en köp", tip: "köp is een ett-woord." }, { match: ["en köpning", "köpning"], tip: "Zonder uitgang: ett köp." }] }] }
+
+      - id: nominal-omvormen
+        title: Maak het nominaal
+        instruction: Herschrijf de zin als woordgroep met een zelfstandig naamwoord.
+        topic: nominalisering
+        items:
+          - { type: transform, prompt: "Priserna ökade kraftigt.", task: "Begin met: en kraftig …", answers: ["en kraftig ökning av priserna"], feedback: [{ contains: "ökning med priserna", tip: "Wát stijgt: av. en kraftig ökning av priserna." }, { contains: "kraftigt ökning", tip: "Bij een zelfstandig naamwoord: bijvoeglijk naamwoord zonder -t, en kraftig ökning." }] }
+          - { type: transform, prompt: "Arbetslösheten minskade.", task: "Begin met: minskningen …", answers: ["minskningen av arbetslösheten"] }
+          - { type: transform, prompt: "Företaget beslutade att stänga kontoret.", task: "Begin met: företagets …", answers: ["företagets beslut att stänga kontoret"] }
+          - { type: transform, prompt: "Man förbättrade arbetsmiljön.", task: "Begin met: förbättringen …", answers: ["förbättringen av arbetsmiljön"] }
+          - { type: transform, prompt: "Försäljningen ökade med tio procent.", task: "Begin met: en ökning …", answers: ["en ökning av försäljningen med tio procent", "en ökning med tio procent av försäljningen"], feedback: [{ contains: "ökning med försäljningen", tip: "Wát stijgt: av försäljningen. Hoeveel: med tio procent." }] }
+
+      - id: nominal-voorzetsel
+        title: av, med, från of till?
+        instruction: Kies het voorzetsel.
+        topic: nominalisering
+        shuffle: true
+        items:
+          - { type: gap, text: "en ökning ___ försäljningen", gaps: [{ answers: ["av"], options: ["av", "med", "till"], shuffle: false, tip: "Wát stijgt: av." }] }
+          - { type: gap, text: "en ökning ___ tio procent", gaps: [{ answers: ["med"], options: ["av", "med", "till"], shuffle: false, tip: "Hoeveel: med." }] }
+          - { type: gap, text: "en minskning från tolv ___ åtta procent", gaps: [{ answers: ["till"], options: ["av", "med", "till"], shuffle: false }] }
+          - { type: gap, text: "en förbättring ___ arbetsmiljön", gaps: [{ answers: ["av"], options: ["av", "med", "från"], shuffle: false }] }
+
+  - id: trender
+    title: "Grammatik: ontwikkelingen beschrijven"
+    exercises:
+      - id: trend-kiezen
+        title: Beschrijf de ontwikkeling
+        instruction: Kies wat past.
+        topic: trender
+        shuffle: true
+        items:
+          - { type: gap, text: "Andelen ___ från tio till åttio procent.", gaps: [{ answers: ["ökade"], options: ["ökade", "minskade", "låg still"], shuffle: false }] }
+          - { type: gap, text: "Under 2022 och 2023 ___ priserna på samma nivå.", gaps: [{ answers: ["låg"], options: ["låg", "steg", "föll"], shuffle: false, tip: "Op hetzelfde niveau blijven: ligga still / ligga på samma nivå." }] }
+          - { type: gap, text: "Arbetslösheten steg från fem till sju procent, alltså med två ___.", gaps: [{ answers: ["procentenheter"], options: ["procent", "procentenheter"], shuffle: false, feedback: [{ match: "procent", tip: "Het verschil tussen twee percentages: procentenheter." }] }] }
+          - { type: gap, text: "År 2021 nådde andelen en ___ på 82 procent.", gaps: [{ answers: ["topp"], options: ["topp", "botten", "minskning"], shuffle: false }] }
+          - { type: gap, text: "Försäljningen ökade ___, från 100 till 103 miljoner.", gaps: [{ answers: ["svagt"], options: ["svagt", "kraftigt", "plötsligt"], shuffle: false, tip: "Drie procent is een kleine stijging: svagt (of marginellt)." }] }
+          - { type: gap, text: "51 procent är ___ hälften.", gaps: [{ answers: ["drygt"], options: ["drygt", "knappt", "exakt"], shuffle: false }] }
+
+      - id: trend-sorteren
+        title: Omhoog, omlaag of gelijk?
+        instruction: Deel de woorden in.
+        topic: trender
+        items:
+          - type: sort
+            categories: ["omhoog", "omlaag", "gelijk"]
+            items:
+              - { text: "en uppgång", cat: 0 }
+              - { text: "ett ras", cat: 1 }
+              - { text: "oförändrad", cat: 2 }
+              - { text: "stiga", cat: 0 }
+              - { text: "en nedgång", cat: 1 }
+              - { text: "ligga still", cat: 2 }
+
+  - id: lyssna
+    title: Lyssna · luisteren
+    exercises:
+      - id: lyssna-kvartal
+        title: "Luisteren: een kwartaalrapport"
+        instruction: Luister naar de samenvatting van het kwartaalrapport. Is de bewering **rätt** of **fel**?
+        topic: trender
+        listen: true
+        textTitle: Kvartalsrapport
+        text: |
+          Under årets tredje kvartal ökade Lindhems försäljning med åtta procent jämfört med samma period i fjol. Ökningen beror främst på en kraftig tillväxt inom e-handeln.
+
+          Däremot minskade försäljningen i de fysiska butikerna med tre procent. Antalet anställda var i stort sett oförändrat.
+
+          Inför fjärde kvartalet räknar ledningen med en fortsatt, men svagare, ökning. Ett beslut om att stänga två butiker väntas under våren.
+        items:
+          - { type: truefalse, statement: "Försäljningen ökade med åtta procent.", answer: true }
+          - { type: truefalse, statement: "Ökningen beror främst på butikerna.", answer: false, correction: { answers: ["{Ökningen|Den} beror främst på e-handeln.", "{Ökningen|Den} beror [främst ]på en kraftig tillväxt inom e-handeln."] } }
+          - { type: truefalse, statement: "Antalet anställda ökade kraftigt.", answer: false, correction: { answers: ["Antalet anställda var [i stort sett ]oförändrat."] } }
+          - { type: truefalse, statement: "Ledningen räknar med en starkare ökning nästa kvartal.", answer: false, correction: { answers: ["{Ledningen|Den} räknar med en [fortsatt, men ]svagare ökning."] } }
+
+      - id: lyssna-dictee
+        title: Dictee
+        instruction: Luister en schrijf de zin op.
+        topic: nominalisering
+        shuffle: true
+        items:
+          - { type: listen, say: "Under pandemin skedde en kraftig ökning." }
+          - { type: listen, say: "Sjukfrånvaron har minskat med två procentenheter." }
+          - { type: listen, say: "Antalet anställda var oförändrat." }
+          - { type: listen, say: "Företagets beslut kom i maj." }
+
+  - id: praktiskt
+    title: Praktiskt · een grafiek presenteren
+    exercises:
+      - id: presentatie
+        title: Wat zeg je?
+        instruction: Je presenteert een grafiek op een vergadering. Kies wat je zegt.
+        topic: trender
+        shuffle: true
+        items:
+          - { type: mc, prompt: "Je begint je uitleg.", options: ["Som ni ser i diagrammet …", "Som ni hör i diagrammet …", "Diagrammet säger mig …", "Titta på mig …"], answer: 0 }
+          - { type: mc, prompt: "Je noemt het hoogste punt.", options: ["År 2021 nådde siffran sin högsta nivå.", "År 2021 var siffran mest hög.", "År 2021 toppade siffran ner.", "År 2021 var siffran på botten."], answer: 0 }
+          - { type: mc, prompt: "Je vergelijkt met vorig jaar.", options: ["Jämfört med i fjol är det en ökning med fem procent.", "Jämfört av i fjol är det en ökning av fem procent.", "Mot i fjol ökar det fem procent på.", "I fjol jämför vi fem procent."], answer: 0 }
+          - { type: mc, prompt: "Je sluit af.", options: ["Sammanfattningsvis kan man säga att trenden är positiv.", "Sammanfattningsvis tack.", "Det var allt jag vet.", "Nu är diagrammet slut."], answer: 0 }
+
+  - id: skriva
+    title: Skriva · schrijven
+    intro: "Schrijfdoel: een kort verslag."
+    exercises:
+      - id: skriva-rapport
+        title: Beschrijf de cijfers
+        instruction: Schrijf een kort verslag.
+        topic: trender
+        items:
+          - type: free
+            prompt: "Bezoekers van de stadsbibliotheek per jaar: 2020: 12 000 · 2021: 9 000 · 2022: 15 000 · 2023: 18 000 · 2024: 18 300. Beschrijf de ontwikkeling in 80–120 woorden, in zakelijke stijl. Noem het laagste en het hoogste punt, gebruik minstens twee nominalisaties (*ökning, minskning* …) en woorden als *kraftigt, svagt, drygt, jämfört med*. Geef een mogelijke verklaring."
+            minWords: 75
+            require:
+              - { any: ["ökning", "minskning", "uppgång", "nedgång", "förändring"], label: "Je gebruikt een nominalisatie" }
+              - { any: ["kraftig", "kraftigt", "svag", "svagt", "gradvis", "stadigt", "marginell", "marginellt"], label: "Je zegt hoe snel het ging (kraftigt, svagt …)" }
+              - { any: ["jämfört med", "jämfört"], label: "Je vergelijkt (jämfört med)" }
+              - { any: ["beror", "förklaring", "eftersom", "på grund av"], label: "Je geeft een verklaring" }
+            model: "Under perioden 2020–2024 förändrades antalet besökare på stadsbiblioteket kraftigt. År 2020 hade biblioteket 12 000 besökare. Året därpå skedde en minskning till 9 000, vilket troligen berodde på pandemin och begränsade öppettider. Därefter följde en kraftig ökning: 2022 kom 15 000 besökare och 2023 drygt 18 000, vilket är den högsta nivån under perioden. Jämfört med 2023 ökade antalet bara svagt under 2024, till 18 300. En möjlig förklaring till uppgången är bibliotekets nya kafé och de populära språkcaféerna."
+
+  - id: herhaling
+    title: Herhaling
+    exercises:
+      - id: herhaling-b1-25
+        title: B1 en hoofdstuk 25 door elkaar
+        instruction: Gemengde vragen.
+        shuffle: true
+        items:
+          - { type: gap, topic: passiv-s, text: "Ett beslut ___ (fatta) i maj.", gaps: [{ answers: ["fattades"] }] }
+          - { type: gap, topic: framtid, text: "Ledningen tror att försäljningen ___ att öka.", gaps: [{ answers: ["kommer"], options: ["kommer", "ska", "tänker"], shuffle: false }] }
+          - { type: transform, topic: indirekt-tal-b1, prompt: "Chefen: ”Vi har ökat försäljningen.”", task: "Chefen sa att …", answers: ["Chefen sa att de hade ökat försäljningen."] }
+          - { type: gap, topic: jamforelse, text: "Försäljningen var ___ hög som i fjol.", gaps: [{ answers: ["lika"], options: ["lika", "mer", "så"], shuffle: false }] }
+          - { type: gap, topic: sambandsord, text: "E-handeln växte. ___ minskade butiksförsäljningen.", gaps: [{ answers: ["Däremot"], options: ["Däremot", "Dessutom", "Därför"], shuffle: false }] }
+          - { type: gap, topic: nominalisering, text: "minska → ___", gaps: [{ answers: ["en minskning"] }] }
+
+  - id: zoek-de-fout
+    title: Zoek de fout
+    exercises:
+      - id: zoek-de-fout
+        title: Zoek de fout
+        instruction: Klik op het woord dat niet klopt en verbeter de zin.
+        topic: nominalisering
+        shuffle: true
+        items:
+          - { type: findError, sentence: "Det skedde en kraftigt ökning av priserna.", wrong: [3], answers: ["Det skedde en kraftig ökning av priserna."], tip: "Voor een zelfstandig naamwoord: bijvoeglijk naamwoord." }
+          - { type: findError, sentence: "Vi såg en ökning med försäljningen.", wrong: [4], answers: ["Vi såg en ökning av försäljningen."], tip: "Wát stijgt?" }
+          - { type: findError, sentence: "Ledningen fattade en beslut i maj.", wrong: [2], answers: ["Ledningen fattade ett beslut i maj."], tip: "beslut is een ett-woord." }
+          - { type: findError, topic: trender, sentence: "Räntan steg från två till tre procent, alltså med en procent.", wrong: [10], answers: ["Räntan steg från två till tre procent, alltså med en procentenhet."], tip: "Het verschil tussen twee percentages." }
+          - { type: findError, topic: trender, sentence: "Andelen nådde en botten på 82 procent.", wrong: [3], answers: ["Andelen nådde en topp på 82 procent."], tip: "82 procent was het hoogste punt." }
+
+vocab:
+  - { sv: "en ökning", nl: "stijging, toename", def: "ökningen" }
+  - { sv: "en minskning", nl: "daling, afname", def: "minskningen" }
+  - { sv: "en utveckling", nl: "ontwikkeling", def: "utvecklingen" }
+  - { sv: "en förändring", nl: "verandering", def: "förändringen" }
+  - { sv: "en försäljning", nl: "verkoop, omzet", def: "försäljningen" }
+  - { sv: "en andel", nl: "aandeel", def: "andelen" }
+  - { sv: "en nivå", nl: "niveau", def: "nivån" }
+  - { sv: "en ledning", nl: "directie, leiding", def: "ledningen" }
+  - { sv: "ett kvartal", nl: "kwartaal", def: "kvartalet" }
+  - { sv: "en tillväxt", nl: "groei", def: "tillväxten" }
+  - { sv: "en procentenhet", nl: "procentpunt", def: "procentenheten" }
+  - { sv: "ett diagram", nl: "grafiek", def: "diagrammet" }
+  - { sv: "att öka", nl: "toenemen, stijgen" }
+  - { sv: "att minska", nl: "afnemen, dalen" }
+  - { sv: "att uppge", nl: "verklaren, opgeven" }
+  - { sv: "att försvåra", nl: "bemoeilijken" }
+  - { sv: "kraftigt", nl: "sterk" }
+  - { sv: "gradvis", nl: "geleidelijk" }
+  - { sv: "drygt", nl: "iets meer dan" }
+  - { sv: "knappt", nl: "iets minder dan" }
