@@ -1,0 +1,285 @@
+chapter: 27
+
+grammar:
+  - id: utbrytning
+    title: "Nadruk: det är … som"
+    summary: "Met ***det är/var X som*** leg je nadruk op X: *Det är **mobilerna** som är problemet.* *Det var **i Göteborg** (som) vi träffades.* In het *som*-deel: bijzinvolgorde (*som **inte** vill*)."
+    body: |
+      Wil je één zinsdeel benadrukken, dan zet je het tussen **det är / det var** en **som**. In het Nederlands: *het is … die/dat*.
+
+      | gewone zin | met nadruk |
+      |---|---|
+      | *Min bror ringde.* | *Det var **min bror** som ringde.* |
+      | *Mobilerna är problemet.* | *Det är **mobilerna** som är problemet.* |
+      | *Vi träffades i Göteborg.* | *Det var **i Göteborg** (som) vi träffades.* |
+      | *Jag vill ha kaffe.* | *Det är **kaffe** (som) jag vill ha.* |
+
+      - **det är** voor nu, **det var** voor het verleden.
+      - *som* mag weg als het benadrukte deel **niet** het onderwerp is (net als in hoofdstuk 13).
+      - Het *som*-deel is een bijzin: ***inte** vóór het werkwoord*: *Det är eleverna som **inte vill** ha ett förbud.*
+
+      ### In vragen
+      In vragen is deze constructie heel gewoon:
+
+      - *Vem **är det som** ringer?* – Wie belt er?
+      - *Vad **var det som** hände?* – Wat is er gebeurd?
+      - *Är det **du som** har skrivit det här?* – Heb jij dit geschreven?
+
+      En voor contrast: *Det är inte eleverna som är problemet, **utan** mobilerna.*
+
+  - id: argumentation
+    title: Een betoog opbouwen
+    summary: "**Tes** (standpunt) → **argument** (*för det första, för det andra*) → **motargument** (*Kritiker menar att …*) → **bemötande** (*Visserligen …, men …*) → **slutsats** (*Därför anser jag att …*)."
+    body: |
+      Een Zweedse *debattartikel* of *insändare* heeft meestal deze opbouw:
+
+      | deel | functie | zinnen |
+      |---|---|---|
+      | **tes** | je standpunt, meteen aan het begin | *Jag anser att …* · *X borde …* |
+      | **argument** | redenen voor je standpunt | *För det första …* · *För det andra …* · *Dessutom …* · *Slutligen …* |
+      | **motargument** | wat de andere kant zegt | *Kritiker menar att …* · *Vissa hävdar att …* · *Man kan invända att …* |
+      | **bemötande** | waarom dat niet klopt | *Visserligen …, men …* · *Det argumentet håller inte, eftersom …* · *Det stämmer att …, men …* |
+      | **slutsats** | herhaal je standpunt | *Därför anser jag att …* · *Sammanfattningsvis …* · *Kort sagt …* |
+
+      In een gesprek:
+      - *Får jag avbryta?* – Mag ik even onderbreken?
+      - *Låt mig tala till punkt.* – Laat me even uitpraten.
+      - *Det är en bra poäng, men …*
+
+sections:
+  - id: lasa
+    title: Läsa · lezen
+    exercises:
+      - id: lasa-mobil
+        title: "Lezen: een opiniestuk"
+        instruction: Lees het opiniestuk en beantwoord de vragen.
+        topic: argumentation
+        textTitle: Mobilen hör inte hemma i klassrummet
+        text: |
+          *Karin Sjöberg, lärare på en högstadieskola*
+
+          Det är inte eleverna som är problemet, det är mobilerna. Efter tjugo år som lärare har jag sett hur koncentrationen i klassrummet har försämrats. För det första är det omöjligt att konkurrera med sociala medier. Varje gång en mobil plingar tappar hela klassen fokus. För det andra påverkas rasterna: i stället för att prata och leka sitter eleverna tysta med var sin skärm.
+
+          Kritiker menar att mobilen är ett viktigt verktyg för lärande och att ett förbud är omodernt. Visserligen kan mobilen användas i undervisningen, men skolan har redan datorer för det. Andra hävdar att föräldrar måste kunna nå sina barn. Det argumentet håller inte: skolan har en telefon, och i en nödsituation når man barnen den vägen.
+
+          Därför anser jag att mobilerna ska samlas in när skoldagen börjar och lämnas tillbaka när den slutar. Det är inte ett straff, utan en möjlighet för eleverna att vara närvarande.
+        items:
+          - { type: mc, prompt: "Vad är Karins tes?", options: ["Mobilerna ska samlas in under skoldagen.", "Eleverna är problemet.", "Skolan behöver fler datorer.", "Föräldrar ska kunna ringa sina barn."], answer: 0 }
+          - { type: mc, prompt: "Vad är hennes första argument?", options: ["Det går inte att konkurrera med sociala medier.", "Mobiler är dyra.", "Eleverna fuskar på proven.", "Föräldrarna vill ha ett förbud."], answer: 0 }
+          - { type: truefalse, statement: "Enligt Karin pratar eleverna mer med varandra på rasterna nu.", answer: false, correction: { answers: ["{Eleverna|De} sitter tysta med var sin skärm[ på rasterna]."] } }
+          - { type: mc, prompt: "Hur bemöter Karin argumentet att föräldrar måste nå sina barn?", options: ["Skolan har en telefon som föräldrarna kan ringa.", "Föräldrar behöver inte nå sina barn.", "Barnen kan använda datorerna.", "Hon håller med."], answer: 0 }
+          - { type: mc, prompt: "Wat betekent *Det argumentet håller inte*?", options: ["Dat argument klopt niet.", "Dat argument houdt nooit op.", "Dat argument houd ik.", "Dat argument is te lang."], answer: 0 }
+          - { type: mc, prompt: "Wat betekent *med var sin skärm*?", options: ["ieder met een eigen scherm", "met hun scherm uit", "met één scherm samen", "zonder scherm"], answer: 0 }
+
+      - id: opbouw-sorteren
+        title: De opbouw van het betoog
+        instruction: Welk deel van het betoog is deze zin?
+        topic: argumentation
+        items:
+          - type: sort
+            categories: ["tes", "argument", "motargument", "bemötande"]
+            items:
+              - { text: "Mobilerna ska samlas in när skoldagen börjar.", cat: 0 }
+              - { text: "För det första är det omöjligt att konkurrera med sociala medier.", cat: 1 }
+              - { text: "Kritiker menar att ett förbud är omodernt.", cat: 2 }
+              - { text: "Visserligen kan mobilen användas i undervisningen, men skolan har redan datorer.", cat: 3 }
+              - { text: "För det andra påverkas rasterna.", cat: 1 }
+              - { text: "Andra hävdar att föräldrar måste kunna nå sina barn.", cat: 2 }
+              - { text: "Det argumentet håller inte: skolan har en telefon.", cat: 3 }
+
+  - id: ord
+    title: Ord och fraser · woorden en uitdrukkingen
+    exercises:
+      - id: ord-debat
+        title: Debatteren
+        instruction: Koppel het woord aan de betekenis.
+        topic: argumentation
+        items:
+          - type: match
+            pairs:
+              - ["hävda", "beweren"]
+              - ["invända", "tegenwerpen"]
+              - ["bemöta", "weerleggen, reageren op"]
+              - ["ett förbud", "een verbod"]
+              - ["en kritiker", "een criticus"]
+              - ["ett verktyg", "een instrument, hulpmiddel"]
+          - type: match
+            pairs:
+              - ["för det första", "ten eerste"]
+              - ["slutligen", "ten slotte"]
+              - ["kort sagt", "kortom"]
+              - ["med andra ord", "met andere woorden"]
+              - ["tala till punkt", "uitpraten"]
+              - ["avbryta", "onderbreken"]
+
+  - id: utbrytning
+    title: "Grammatik: det är … som"
+    exercises:
+      - id: utbrytning-omvormen
+        title: Leg de nadruk
+        instruction: Leg nadruk op het **vetgedrukte** deel met *det är/var … som*.
+        topic: utbrytning
+        items:
+          - { type: transform, prompt: "**Min bror** ringde i går.", answers: ["Det var min bror som ringde {i går|igår}."], feedback: [{ contains: "det är min bror", tip: "Het gebeurde gisteren: det var." }] }
+          - { type: transform, prompt: "**Mobilerna** är problemet.", answers: ["Det är mobilerna som är problemet."] }
+          - { type: transform, prompt: "Vi träffades **i Göteborg**.", answers: ["Det var i Göteborg [som ]vi träffades."], feedback: [{ contains: "som träffades vi", tip: "Na som: bijzinvolgorde, som vi träffades." }] }
+          - { type: transform, prompt: "Jag vill ha **kaffe**.", answers: ["Det är kaffe [som ]jag vill ha."] }
+          - { type: transform, prompt: "**Eleverna** vill inte ha ett förbud.", answers: ["Det är eleverna som inte vill ha [ett ]förbud."], feedback: [{ contains: "som vill inte", tip: "Het som-deel is een bijzin: som inte vill." }] }
+          - { type: transform, prompt: "**Regeringen** fattar beslutet.", answers: ["Det är regeringen som fattar beslutet."] }
+
+      - id: utbrytning-vragen
+        title: Vragen met nadruk
+        instruction: Vertaal naar het Zweeds met *är/var det som*.
+        topic: utbrytning
+        items:
+          - { type: translate, prompt: "Wie belt er?", answers: ["Vem är det som ringer?"], feedback: [{ match: "Vem ringer?", tip: "Ook goed Zweeds, maar oefen hier: Vem är det som ringer?" }] }
+          - { type: translate, prompt: "Wat is er gebeurd?", answers: ["Vad var det som hände?", "Vad är det som har hänt?"], feedback: [{ match: ["Vad hände?", "Vad har hänt?"], tip: "Ook goed, maar oefen hier: Vad var det som hände?" }] }
+          - { type: translate, prompt: "Heb jij dit geschreven?", answers: ["Är det du som har skrivit det här?", "Var det du som skrev det här?"], feedback: [{ match: "Har du skrivit det här?", tip: "Ook goed, maar oefen hier met nadruk: Är det du som har skrivit det här?" }] }
+
+  - id: argument
+    title: "Grammatik: argumenteren"
+    exercises:
+      - id: argument-kiezen
+        title: Verbindingen in een betoog
+        instruction: Kies het woord dat past.
+        topic: argumentation
+        shuffle: true
+        items:
+          - { type: gap, text: "___ är det omöjligt att konkurrera med sociala medier.", gaps: [{ answers: ["För det första"], options: ["För det första", "Slutligen", "Däremot"], shuffle: false }] }
+          - { type: gap, text: "___ kan mobilen användas i undervisningen, men skolan har redan datorer.", gaps: [{ answers: ["Visserligen"], options: ["Visserligen", "Därför", "Slutligen"], shuffle: false }] }
+          - { type: gap, text: "Kritiker ___ att ett förbud är omodernt.", gaps: [{ answers: ["menar"], options: ["menar", "betyder", "säger om"], shuffle: false, feedback: [{ match: "betyder", tip: "betyda = betekenen. Een mening hebben: mena." }] }] }
+          - { type: gap, text: "Det argumentet ___ inte.", gaps: [{ answers: ["håller"], options: ["håller", "stannar", "går"], shuffle: false }] }
+          - { type: gap, text: "___ anser jag att mobilerna ska samlas in.", gaps: [{ answers: ["Därför"], options: ["Därför", "Visserligen", "För det första"], shuffle: false }] }
+          - { type: gap, text: "Det är inte ett straff, ___ en möjlighet.", gaps: [{ answers: ["utan"], options: ["utan", "men", "eller"], shuffle: false, feedback: [{ match: "men", tip: "Na een ontkenning (inte X, maar Y): utan." }] }] }
+
+  - id: lyssna
+    title: Lyssna · luisteren
+    exercises:
+      - id: lyssna-debatt
+        title: "Luisteren: een debat samengevat"
+        instruction: Luister naar de samenvatting van het debat. Is de bewering **rätt** of **fel**?
+        topic: argumentation
+        listen: true
+        textTitle: Kvällens debatt
+        text: |
+          I kvällens debatt möttes läraren Karin Sjöberg och elevrådets ordförande Amir Hassan. Frågan var om mobiler ska förbjudas i skolan.
+
+          Karin menade att det är mobilerna som stör koncentrationen, och att eleverna mår bättre utan dem. Amir höll inte med. Han hävdade att eleverna själva borde få vara med och bestämma reglerna. Visserligen kan mobilen störa, sa han, men ett totalförbud lär inte eleverna att ta ansvar.
+
+          Båda var dock överens om en sak: det är vuxna som måste vara bra förebilder.
+        items:
+          - { type: truefalse, statement: "Amir är elevrådets ordförande.", answer: true }
+          - { type: truefalse, statement: "Amir höll med Karin.", answer: false, correction: { answers: ["{Amir|Han} höll inte med {Karin|henne}.", "{Amir|Han} höll inte med."] } }
+          - { type: truefalse, statement: "Amir vill att eleverna ska vara med och bestämma reglerna.", answer: true }
+          - { type: truefalse, statement: "De var överens om att det är eleverna som måste vara förebilder.", answer: false, correction: { answers: ["Det är vuxna som måste vara [bra ]förebilder."] } }
+
+      - id: lyssna-dictee
+        title: Dictee
+        instruction: Luister en schrijf de zin op.
+        topic: utbrytning
+        shuffle: true
+        items:
+          - { type: listen, say: "Det är inte eleverna som är problemet." }
+          - { type: listen, say: "Vem var det som ringde?" }
+          - { type: listen, say: "Det argumentet håller inte." }
+          - { type: listen, say: "Visserligen kan mobilen störa, men ett förbud är fel." }
+
+  - id: praktiskt
+    title: Praktiskt · argumenteren in een gesprek
+    exercises:
+      - id: dialoog-debatt
+        title: Een discussie in de klas
+        instruction: Zet de discussie in de goede volgorde.
+        topic: argumentation
+        items:
+          - type: dialogue
+            lines:
+              - "Läraren: Ska vi ha kortare sommarlov? Vad tycker ni?"
+              - "Sofia: Jag är för. Det är under sommaren som många glömmer det de har lärt sig."
+              - "Erik: Får jag avbryta? Det är också då man vilar och hinner jobba extra."
+              - "Sofia: Låt mig tala till punkt. Jag menar inte att vi ska ta bort lovet, bara korta det."
+              - "Erik: Okej, det är en bra poäng. Men hur lång tid tänker du dig?"
+              - "Sofia: Kanske sex veckor i stället för tio."
+
+      - id: wat-zeg-je
+        title: Wat zeg je?
+        instruction: Kies wat je zegt.
+        topic: argumentation
+        shuffle: true
+        items:
+          - { type: mc, prompt: "Je wilt iemand beleefd onderbreken.", options: ["Får jag avbryta?", "Var tyst nu!", "Sluta prata!", "Du har fel, punkt."], answer: 0 }
+          - { type: mc, prompt: "Je wilt uitpraten.", options: ["Låt mig tala till punkt.", "Låt mig avbryta.", "Låt mig hålla med.", "Låt mig sluta."], answer: 0 }
+          - { type: mc, prompt: "Je geeft iets toe, maar houdt je standpunt.", options: ["Det är en bra poäng, men jag tycker ändå att …", "Du har helt rätt, jag ger upp.", "Det där är dumt.", "Jag vet inte."], answer: 0 }
+
+  - id: skriva
+    title: Skriva · schrijven
+    intro: "Schrijfdoel: een betoog."
+    exercises:
+      - id: skriva-debattartikel
+        title: Schrijf een opiniestuk
+        instruction: Schrijf een korte *debattartikel*.
+        topic: argumentation
+        items:
+          - type: free
+            prompt: "Kies een stelling, bijvoorbeeld *Mobiler borde förbjudas i skolan*, *Kollektivtrafiken borde vara gratis* of *Alla borde lära sig svenska innan de får medborgarskap*. Schrijf een betoog van 150–200 woorden met tes, twee argumenten, een motargument met bemötande en een slutsats. Gebruik minstens één keer *det är … som*."
+            minWords: 140
+            require:
+              - { any: ["anser", "tycker", "menar"], label: "Je geeft je standpunt (tes)" }
+              - { any: ["för det första", "för det andra", "dessutom", "slutligen"], label: "Je ordent je argumenten" }
+              - { any: ["kritiker", "vissa", "andra hävdar", "invända", "motståndare"], label: "Je noemt een motargument" }
+              - { any: ["visserligen", "håller inte", "stämmer att"], label: "Je weerlegt het motargument" }
+              - { any: ["därför", "sammanfattningsvis", "kort sagt"], label: "Je sluit af met een conclusie" }
+              - { any: ["det är", "det var"], label: "Je gebruikt det är … som" }
+            model: "Jag anser att kollektivtrafiken i våra städer borde vara gratis. För det första är det bilarna som står för en stor del av utsläppen i staden. Om bussar och spårvagnar vore gratis skulle fler lämna bilen hemma. För det andra skulle gratis kollektivtrafik göra det lättare för personer med låga inkomster att ta sig till jobb och skola. Kritiker menar att det skulle bli för dyrt för kommunerna. Visserligen kostar det pengar, men biljettintäkterna täcker redan i dag bara en del av kostnaderna. Dessutom sparar samhället pengar på färre olyckor och mindre köer. Andra hävdar att bussarna skulle bli överfulla. Det argumentet håller inte, eftersom man kan sätta in fler avgångar. Det är alltså inte kostnaden som är det stora problemet, utan bristen på politisk vilja. Därför anser jag att vi borde testa gratis kollektivtrafik i några städer under ett par år."
+
+  - id: herhaling
+    title: Herhaling
+    exercises:
+      - id: herhaling-b2-27
+        title: Door elkaar
+        instruction: Gemengde vragen.
+        shuffle: true
+        items:
+          - { type: gap, topic: villkor, text: "Om mobilerna ___ (förbjuda), skulle eleverna koncentrera sig bättre.", gaps: [{ answers: ["förbjöds", "blev förbjudna"] }] }
+          - { type: gap, topic: subjunktioner-b1, text: "___ mobilen kan vara användbar, stör den ofta.", gaps: [{ answers: ["Även om", "Trots att"], options: ["Även om", "Trots att", "Innan"], shuffle: false }] }
+          - { type: gap, topic: nominalisering, text: "förbjuda → ___", gaps: [{ answers: ["ett förbud"] }] }
+          - { type: gap, topic: particip-konstruktion, text: "den av regeringen ___ (föreslå) lagen", gaps: [{ answers: ["föreslagna"] }] }
+          - { type: gap, topic: asikt, text: "Jag håller inte med ___ det.", gaps: [{ answers: ["om"], options: ["om", "på", "för"], shuffle: false }] }
+          - { type: transform, topic: utbrytning, prompt: "**Föräldrarna** bestämmer.", answers: ["Det är föräldrarna som bestämmer."] }
+
+  - id: zoek-de-fout
+    title: Zoek de fout
+    exercises:
+      - id: zoek-de-fout
+        title: Zoek de fout
+        instruction: Klik op het woord dat niet klopt en verbeter de zin.
+        topic: utbrytning
+        shuffle: true
+        items:
+          - { type: findError, sentence: "Det är eleverna som vill inte ha förbud.", wrong: [4, 5], answers: ["Det är eleverna som inte vill ha [ett ]förbud."], tip: "Het som-deel is een bijzin." }
+          - { type: findError, sentence: "Det är min bror som ringde i går.", wrong: [1], answers: ["Det var min bror som ringde {i går|igår}."], tip: "Kijk naar de tijd." }
+          - { type: findError, sentence: "Vem är det som ringer du?", wrong: [5], answers: ["Vem är det som ringer?"], tip: "Er staat een woord te veel." }
+          - { type: findError, topic: argumentation, sentence: "Det är inte ett straff men en möjlighet.", wrong: [5], answers: ["Det är inte ett straff utan en möjlighet."], tip: "Na een ontkenning: niet men." }
+          - { type: findError, topic: argumentation, sentence: "Kritiker betyder att förbudet är omodernt.", wrong: [1], answers: ["Kritiker menar att förbudet är omodernt.", "Kritiker hävdar att förbudet är omodernt."], tip: "Welk werkwoord betekent een mening hebben?" }
+
+vocab:
+  - { sv: "en debatt", nl: "debat", def: "debatten" }
+  - { sv: "en debattartikel", nl: "opiniestuk", def: "debattartikeln" }
+  - { sv: "en tes", nl: "stelling, standpunt", def: "tesen" }
+  - { sv: "ett argument", nl: "argument", def: "argumentet" }
+  - { sv: "ett motargument", nl: "tegenargument", def: "motargumentet" }
+  - { sv: "ett förbud", nl: "verbod", def: "förbudet" }
+  - { sv: "en kritiker", nl: "criticus", def: "kritikern" }
+  - { sv: "ett verktyg", nl: "instrument, hulpmiddel", def: "verktyget" }
+  - { sv: "ett straff", nl: "straf", def: "straffet" }
+  - { sv: "en förebild", nl: "voorbeeld, rolmodel", def: "förebilden" }
+  - { sv: "ett elevråd", nl: "leerlingenraad", def: "elevrådet" }
+  - { sv: "att hävda", nl: "beweren" }
+  - { sv: "att invända", nl: "tegenwerpen" }
+  - { sv: "att bemöta", nl: "weerleggen" }
+  - { sv: "att avbryta", nl: "onderbreken" }
+  - { sv: "att förbjuda", nl: "verbieden" }
+  - { sv: "överens", nl: "het eens" }
+  - { sv: "närvarande", nl: "aanwezig" }
+  - { sv: "slutligen", nl: "ten slotte" }
+  - { sv: "kort sagt", nl: "kortom" }
