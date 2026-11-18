@@ -1,0 +1,302 @@
+chapter: 24
+
+grammar:
+  - id: asikt
+    title: Je mening geven
+    summary: "*Jag tycker/anser/menar att …*, *Jag håller med (dig) / Jag håller inte med*, *Å ena sidan … å andra sidan …*, *Visserligen … men …*, *Det beror på*."
+    body: |
+      | doel | Zweeds |
+      |---|---|
+      | mening geven | *Jag tycker att …* · *Jag anser att …* (formeler) · *Enligt min mening …* · *Jag är för/emot …* |
+      | het eens zijn | *Jag håller med (dig).* · *Där har du rätt.* · *Precis!* |
+      | het oneens zijn | *Jag håller inte med.* · *Det tycker inte jag.* · *Det stämmer inte riktigt.* |
+      | nuanceren | *Å ena sidan … å andra sidan …* · *Visserligen …, men …* · *Det beror på.* |
+      | toegeven | *Det stämmer att …, men …* · *Du har en poäng, men …* |
+      | afsluiten | *Sammanfattningsvis …* · *Därför anser jag att …* |
+
+      *hålla med* is een partikelwerkwoord: *Jag håller **med** dig.* – *Det håller jag inte **med** om.*
+
+      Na *tycker att, anser att, menar att* volgt een bijzin: *Jag anser att vi **inte borde** göra det.*
+
+  - id: subjunktioner-b1
+    title: Trots att, även om, medan
+    summary: "*trots att* = hoewel (feit), *även om* = ook al, zelfs als, *medan* = terwijl, *innan* = voordat, *sedan* = sinds. Bijzin vooraan → **inversie**: *Trots att det regnade **gick vi** ut.* Met infinitief: *för att / utan att + infinitief*."
+    body: |
+      | voegwoord | betekenis | voorbeeld |
+      |---|---|---|
+      | **trots att** | hoewel (iets wat zo is) | *Han gick till jobbet **trots att** han var sjuk.* |
+      | **även om** | ook al, zelfs als | *Jag går på festen **även om** det blir sent.* |
+      | **medan** | terwijl (tijd of tegenstelling) | *Hon lagade mat **medan** han dukade. Hon pratar mycket, **medan** han är tyst.* |
+      | **innan** | voordat | *Tvätta händerna **innan** du äter!* |
+      | **sedan** | sinds | ***Sedan** jag flyttade hit har jag lärt mig mycket.* |
+      | **så att** | zodat | *Prata högre **så att** alla hör!* |
+
+      Na **trots** zonder *att* komt een zelfstandig naamwoord: ***trots** regnet* (ondanks de regen).
+
+      ### Woordvolgorde
+      Het zijn bijzinnen: *inte* vóór het werkwoord. Staat de bijzin **vooraan**, dan begint de hoofdzin met het **werkwoord** (V2):
+
+      - ***Trots att** hon inte hade tid, **hjälpte hon** mig.*
+      - ***Även om** det kostar pengar, **tror jag** att det är värt det.*
+
+      ### Met een infinitief
+      - **för att** + infinitief = om te: *Jag flyttade hit **för att** jobba.*
+      - **utan att** + infinitief = zonder te: *Han gick **utan att** säga hej då.*
+
+sections:
+  - id: lasa
+    title: Läsa · lezen
+    exercises:
+      - id: lasa-arbetsvecka
+        title: "Lezen: een vierdaagse werkweek?"
+        instruction: Lees de twee meningen en beantwoord de vragen.
+        topic: asikt
+        textTitle: Ska vi införa fyra dagars arbetsvecka?
+        text: |
+          **Ja, säger Lina Ek, 34, sjuksköterska.** Jag tycker att vi borde testa det. Många är utbrända och sjukskrivna, och med en extra ledig dag skulle vi hinna vila. Dessutom visar försök i andra länder att folk jobbar mer effektivt när de är utvilade. Även om det kostar pengar i början, tror jag att samhället tjänar på det i längden.
+
+          **Nej, säger Per Holm, 58, företagare.** Visserligen låter det trevligt, men jag håller inte med. Trots att det kanske fungerar på kontor, är det omöjligt inom vården och i butiker, där någon alltid måste finnas på plats. Medan vissa får mer fritid, måste andra jobba mer. Jag anser att det är bättre att låta folk själva välja hur mycket de vill jobba.
+        items:
+          - { type: mc, prompt: "Vad jobbar Lina med?", options: ["Hon är sjuksköterska.", "Hon är företagare.", "Hon är lärare.", "Hon är politiker."], answer: 0 }
+          - { type: truefalse, statement: "Lina tycker att man borde testa fyra dagars arbetsvecka.", answer: true }
+          - { type: mc, prompt: "Varför tror Lina att folk skulle jobba mer effektivt?", options: ["för att de skulle vara utvilade", "för att de skulle få högre lön", "för att de skulle jobba hemifrån", "för att chefen skulle bestämma mer"], answer: 0 }
+          - { type: truefalse, statement: "Per håller med Lina.", answer: false, correction: { answers: ["{Per|Han} håller inte med {Lina|henne}.", "{Per|Han} håller inte med."] } }
+          - { type: mc, prompt: "Var fungerar fyra dagars arbetsvecka inte, enligt Per?", options: ["inom vården och i butiker", "på kontor", "på universitet", "överallt"], answer: 0 }
+          - { type: mc, prompt: "Vad föreslår Per i stället?", options: ["att folk själva får välja hur mycket de jobbar", "att alla jobbar sex dagar", "att lönen höjs", "att butikerna stänger"], answer: 0 }
+          - type: multi
+            prompt: "Welke uitdrukkingen in de tekst nuanceren of geven iets toe?"
+            options: ["Visserligen låter det trevligt, men …", "Även om det kostar pengar …", "Trots att det kanske fungerar på kontor …", "Jag tycker att vi borde testa det.", "Dessutom visar försök …"]
+            answers: [0, 1, 2]
+
+  - id: ord
+    title: Ord och fraser · woorden en uitdrukkingen
+    exercises:
+      - id: ord-samhalle
+        title: Samenleving
+        instruction: Koppel het woord aan de betekenis.
+        topic: woordenschat
+        items:
+          - type: match
+            pairs:
+              - ["ett samhälle", "een samenleving"]
+              - ["införa", "invoeren"]
+              - ["en fördel", "een voordeel"]
+              - ["en nackdel", "een nadeel"]
+              - ["utbränd", "opgebrand (burn-out)"]
+              - ["i längden", "op den duur"]
+          - type: match
+            pairs:
+              - ["hålla med", "het eens zijn"]
+              - ["anse", "vinden, menen (formeel)"]
+              - ["visserligen", "weliswaar"]
+              - ["en åsikt", "een mening"]
+              - ["en debatt", "een debat"]
+              - ["tjäna på", "baat hebben bij"]
+
+      - id: asikt-sorteren
+        title: Eens of oneens?
+        instruction: Is de spreker het eens, oneens, of zie je beide kanten?
+        topic: asikt
+        items:
+          - type: sort
+            categories: ["eens", "oneens", "beide kanten"]
+            items:
+              - { text: "Jag håller helt med dig.", cat: 0 }
+              - { text: "Där har du rätt.", cat: 0 }
+              - { text: "Jag håller inte alls med.", cat: 1 }
+              - { text: "Det tycker inte jag.", cat: 1 }
+              - { text: "Å ena sidan är det dyrt, å andra sidan är det bra.", cat: 2 }
+              - { text: "Det beror på.", cat: 2 }
+
+      - id: asikt-vertalen
+        title: Vertaal
+        instruction: Vertaal naar het Zweeds.
+        topic: asikt
+        items:
+          - { type: translate, prompt: "Ik ben het met je eens.", answers: ["Jag håller med dig.", "Jag håller med."], feedback: [{ contains: "är enig", tip: "Het eens zijn = hålla med." }] }
+          - { type: translate, prompt: "Daar ben ik het niet mee eens.", answers: ["Det håller jag inte med om.", "Jag håller inte med om det."], feedback: [{ contains: "håller inte med det", tip: "Het eens zijn met iets: hålla med om. Det håller jag inte med om." }] }
+          - { type: translate, prompt: "Volgens mij is dat te duur.", answers: ["Jag tycker att det är för dyrt.", "Enligt mig är det för dyrt.", "Enligt min mening är det för dyrt."], feedback: [{ contains: "för dyr ", tip: "det is een ett-vorm: för dyrt." }, { contains: "enligt mig det är", tip: "Na enligt mig: inversie, enligt mig är det." }] }
+
+  - id: subjunktioner
+    title: "Grammatik: trots att, även om, medan"
+    exercises:
+      - id: subj-kiezen
+        title: Het goede voegwoord
+        instruction: Kies wat past.
+        topic: subjunktioner-b1
+        shuffle: true
+        items:
+          - { type: gap, text: "___ det regnade, gick vi ut.", gaps: [{ answers: ["Trots att"], options: ["Trots att", "Medan", "Innan"], shuffle: false }] }
+          - { type: gap, text: "Jag tänker gå på festen ___ det blir sent.", gaps: [{ answers: ["även om"], options: ["även om", "medan", "sedan"], shuffle: false, tip: "Zelfs als (het nog moet gebeuren): även om." }] }
+          - { type: gap, text: "Hon lagade mat ___ han dukade bordet.", gaps: [{ answers: ["medan"], options: ["medan", "innan", "trots att"], shuffle: false }] }
+          - { type: gap, text: "Tvätta händerna ___ du äter!", gaps: [{ answers: ["innan"], options: ["innan", "medan", "sedan"], shuffle: false, feedback: [{ match: "sedan", tip: "sedan = sinds of daarna. Voordat = innan." }] }] }
+          - { type: gap, text: "___ jag flyttade hit, har jag lärt mig mycket.", gaps: [{ answers: ["Sedan"], options: ["Sedan", "Innan", "Medan"], shuffle: false }] }
+          - { type: gap, text: "Hon pratar mycket, ___ han är tyst.", gaps: [{ answers: ["medan"], options: ["medan", "trots att", "innan"], shuffle: false, tip: "Een tegenstelling tussen twee mensen: medan." }] }
+          - { type: gap, text: "Jag flyttade till Sverige ___ jobba.", gaps: [{ answers: ["för att"], options: ["för att", "utan att", "så att"], shuffle: false }] }
+          - { type: gap, text: "Han gick ___ säga hej då.", gaps: [{ answers: ["utan att"], options: ["för att", "utan att", "så att"], shuffle: false }] }
+
+      - id: subj-combineren
+        title: Twee zinnen worden één
+        instruction: Maak één zin met het voegwoord tussen haakjes. Begin met het voegwoord.
+        topic: subjunktioner-b1
+        items:
+          - { type: transform, prompt: "Det regnade. Vi gick ut ändå. (trots att)", answers: ["Trots att det regnade[,] gick vi ut."], feedback: [{ contains: "regnade vi gick", tip: "Na de bijzin vooraan: eerst het werkwoord, gick vi." }, { contains: "ändå", tip: "trots att zegt al ondanks: laat ändå weg." }] }
+          - { type: transform, prompt: "Han var sjuk. Han gick till jobbet ändå. (trots att)", answers: ["Trots att han var sjuk[,] gick han till jobbet."], feedback: [{ contains: "sjuk han gick", tip: "Inversie in de hoofdzin: gick han." }] }
+          - { type: transform, prompt: "Jag åt frukost. Sedan gick jag. (innan)", answers: ["Innan jag gick[,] åt jag frukost."], feedback: [{ contains: "gick jag åt", tip: "In de innan-zin: bijzinvolgorde, innan jag gick." }] }
+          - { type: transform, prompt: "Hon hade inte tid. Hon hjälpte mig ändå. (trots att)", answers: ["Trots att hon inte hade tid[,] hjälpte hon mig."], feedback: [{ contains: "hade inte tid", tip: "In de bijzin staat inte vóór het werkwoord: hon inte hade." }] }
+
+      - id: subj-zinsbouw
+        title: Zinnen bouwen
+        instruction: Zet de woorden in de goede volgorde.
+        topic: subjunktioner-b1
+        shuffle: true
+        items:
+          - { type: order, start: "Även om det kostar pengar,", tokens: ["tror", "jag", "att", "det", "är", "värt det"], answers: ["Även om det kostar pengar, tror jag att det är värt det."] }
+          - { type: order, start: "Jag anser att", tokens: ["vi", "inte", "borde", "införa", "det"], answers: ["Jag anser att vi inte borde införa det."] }
+          - { type: order, start: "Medan vissa får mer fritid,", tokens: ["måste", "andra", "jobba", "mer"], answers: ["Medan vissa får mer fritid, måste andra jobba mer."] }
+
+  - id: lyssna
+    title: Lyssna · luisteren
+    exercises:
+      - id: lyssna-enkat
+        title: "Luisteren: een enquête"
+        instruction: Luister naar het fragment uit een podcast. Is de bewering **rätt** of **fel**?
+        topic: asikt
+        listen: true
+        textTitle: Vad tycker svenskarna?
+        text: |
+          Välkommen till veckans avsnitt. Vi har frågat tusen personer vad de tycker om fyra dagars arbetsvecka. Sex av tio svarade att de skulle vilja jobba fyra dagar i veckan, även om lönen blev något lägre.
+
+          De yngre var mest positiva. Bland personer över sextio var däremot bara var tredje positiv. Många av dem menade att det skulle bli svårt för företagen.
+
+          Trots att många är positiva, tror bara ett fåtal att det kommer att införas inom de närmaste tio åren.
+        items:
+          - { type: truefalse, statement: "Man har frågat tusen personer.", answer: true }
+          - { type: truefalse, statement: "Fyra av tio vill jobba fyra dagar i veckan.", answer: false, correction: { answers: ["Sex av tio vill jobba fyra dagar i veckan.", "Sex av tio svarade att de skulle vilja jobba fyra dagar[ i veckan]."] } }
+          - { type: truefalse, statement: "De äldre var mest positiva.", answer: false, correction: { answers: ["De yngre var mest positiva."] } }
+          - { type: truefalse, statement: "Många tror att det kommer att införas snart.", answer: false, correction: { answers: ["Bara ett fåtal tror att det kommer att införas[ inom de närmaste tio åren]."] } }
+
+      - id: lyssna-dictee
+        title: Dictee
+        instruction: Luister en schrijf de zin op.
+        topic: subjunktioner-b1
+        shuffle: true
+        items:
+          - { type: listen, say: "Jag håller inte med dig." }
+          - { type: listen, say: "Trots att det regnade gick vi ut." }
+          - { type: listen, say: "Å ena sidan är det dyrt, å andra sidan är det bra." }
+          - { type: listen, say: "Jag anser att vi borde testa det." }
+
+  - id: praktiskt
+    title: Praktiskt · discussiëren
+    exercises:
+      - id: dialoog-diskussion
+        title: Een discussie
+        instruction: Zet de discussie in de goede volgorde.
+        topic: asikt
+        items:
+          - type: dialogue
+            lines:
+              - "Anna: Vad tycker du om att förbjuda bilar i stadens centrum?"
+              - "Jonas: Jag är faktiskt för. Luften skulle bli renare och det skulle bli tystare."
+              - "Anna: Visserligen, men hur ska äldre människor ta sig till affärerna?"
+              - "Jonas: Bra fråga. Man kunde ha fler bussar och gratis färdtjänst."
+              - "Anna: Det låter dyrt. Vem ska betala för det?"
+              - "Jonas: Det beror på. Kanske kommunen, med pengar från parkeringsavgifter."
+              - "Anna: Okej, du har en poäng. Men jag är fortfarande inte helt övertygad."
+
+      - id: wat-zeg-je
+        title: Wat zeg je?
+        instruction: Kies wat past.
+        topic: asikt
+        shuffle: true
+        items:
+          - { type: mc, prompt: "Je bent het gedeeltelijk eens.", options: ["Du har en poäng, men …", "Du har helt fel.", "Precis, helt rätt!", "Jag vet inte vad du menar."], answer: 0 }
+          - { type: mc, prompt: "Je vraagt naar de mening van iemand.", options: ["Vad anser du om det?", "Vad håller du med?", "Vad tycker du det?", "Vem tycker du?"], answer: 0 }
+          - { type: mc, prompt: "Je vat je mening samen aan het eind.", options: ["Sammanfattningsvis anser jag att …", "Först och främst anser jag att …", "Å ena sidan anser jag att …", "Dessutom anser jag att …"], answer: 0 }
+
+  - id: skriva
+    title: Skriva · schrijven
+    intro: "Schrijfdoel: je mening in 150 woorden."
+    exercises:
+      - id: skriva-asikt
+        title: Geef je mening
+        instruction: Schrijf een betoogje.
+        topic: asikt
+        items:
+          - type: free
+            prompt: "Moet de vierdaagse werkweek worden ingevoerd? Schrijf je mening in 120–160 woorden. Begin met je standpunt, geef twee argumenten, noem een tegenargument en sluit af met een conclusie. Gebruik **anser/tycker att**, **trots att** of **även om**, **dessutom** en **sammanfattningsvis**."
+            minWords: 110
+            require:
+              - { any: ["anser", "tycker", "menar"], label: "Je geeft je mening (anser/tycker att)" }
+              - { any: ["trots att", "även om"], label: "Je gebruikt trots att of även om" }
+              - { any: ["dessutom"], label: "Je gebruikt dessutom" }
+              - { any: ["visserligen", "å andra sidan", "däremot", "men"], label: "Je noemt een tegenargument" }
+              - { any: ["sammanfattningsvis", "därför"], label: "Je sluit af met een conclusie" }
+            model: "Jag anser att vi borde införa fyra dagars arbetsvecka, åtminstone som ett försök. För det första är många människor stressade och utbrända. Med en extra ledig dag skulle de hinna vila, träna och umgås med familjen. Dessutom visar försök i flera länder att folk jobbar mer effektivt när de är utvilade, så att företagen inte förlorar på det. Visserligen fungerar det inte lika enkelt överallt. Inom vården och i butiker måste någon alltid finnas på plats, och det kan bli dyrt att anställa fler. Men även om det kostar pengar i början, tror jag att samhället tjänar på det i längden, eftersom färre blir sjukskrivna. Sammanfattningsvis anser jag att fördelarna är större än nackdelarna. Därför borde vi testa det."
+
+  - id: eindtoets
+    title: Eindtoets B1
+    intro: Twintig vragen over alles wat je op B1-niveau hebt geleerd. Ga je hier vlot doorheen, dan ben je klaar voor B2.
+    exercises:
+      - id: eindtoets-b1
+        title: Eindtoets B1
+        instruction: Gemengde vragen uit hoofdstuk 13 tot en met 24.
+        items:
+          - { type: gap, topic: passiv-s, text: "Huset ___ (bygga) 1912.", gaps: [{ answers: ["byggdes"] }] }
+          - { type: transform, topic: passiv-s, prompt: "Man måste betala hyran före den sista.", answers: ["Hyran måste betalas före den sista."] }
+          - { type: transform, topic: relativ-som, prompt: "Jag har en kollega. Hon talar fem språk.", answers: ["Jag har en kollega som talar fem språk."] }
+          - { type: gap, topic: passiv-bli, text: "Böckerna blev ___ (stjäla).", gaps: [{ answers: ["stulna"] }] }
+          - { type: gap, topic: particip, text: "Den ___ (måla) väggen är grön.", gaps: [{ answers: ["målade"] }] }
+          - { type: translate, topic: partikelverb, prompt: "Zet hem uit!", answers: ["Stäng av den!"] }
+          - { type: gap, topic: dar-dit-vars, text: "Hon har en vän ___ pappa är pilot.", gaps: [{ answers: ["vars"], options: ["där", "dit", "vars"], shuffle: false }] }
+          - { type: gap, topic: deponens, text: "Vi ___ (träffas) i går.", gaps: [{ answers: ["träffades", "sågs"] }] }
+          - { type: gap, topic: framtid, text: "Det ___ att bli kallt i natt.", gaps: [{ answers: ["kommer"], options: ["kommer", "ska", "tänker"], shuffle: false }] }
+          - { type: gap, topic: prep-verb, text: "Jag är rädd ___ hundar.", gaps: [{ answers: ["för"] }] }
+          - { type: gap, topic: villkor, text: "Om jag ___ (ha) tid, skulle jag följa med.", gaps: [{ answers: ["hade"] }] }
+          - { type: transform, topic: indirekt-tal-b1, prompt: "Erik: ”Jag kan inte komma.”", task: "Erik sa att …", answers: ["Erik sa att han inte kunde komma."] }
+          - { type: gap, topic: indirekt-fraga, text: "Jag vet inte ___ har tagit min cykel.", gaps: [{ answers: ["vem som"], options: ["vem som", "vem", "vad"], shuffle: false }] }
+          - { type: transform, topic: nagon-ingen, prompt: "Jag har sett något.", answers: ["Jag har inte sett {något|någonting}."] }
+          - { type: gap, topic: man-en-ens, text: "Det är skönt när någon hjälper ___.", gaps: [{ answers: ["en"], options: ["man", "en", "ens"], shuffle: false }] }
+          - { type: gap, topic: bestamd-utan-artikel, text: "Vi ses nästa ___.", gaps: [{ answers: ["vecka"], options: ["vecka", "veckan"], shuffle: false }] }
+          - { type: gap, topic: sammansattning, text: "tidning + artikel → ___", gaps: [{ answers: ["tidningsartikel"] }] }
+          - { type: order, topic: sambandsord, start: "Därför", tokens: ["missade", "vi", "tåget"], answers: ["Därför missade vi tåget."] }
+          - { type: gap, topic: jamforelse, text: "Ju mer man läser, ___ mer lär man sig.", gaps: [{ answers: ["desto"], options: ["desto", "ju", "så"], shuffle: false }] }
+          - { type: transform, topic: subjunktioner-b1, prompt: "Det var kallt. Vi badade ändå. (trots att)", answers: ["Trots att det var kallt[,] badade vi."] }
+
+  - id: zoek-de-fout
+    title: Zoek de fout
+    exercises:
+      - id: zoek-de-fout
+        title: Zoek de fout
+        instruction: Klik op het woord dat niet klopt en verbeter de zin.
+        topic: subjunktioner-b1
+        shuffle: true
+        items:
+          - { type: findError, sentence: "Trots att det regnade vi gick ut.", wrong: [4, 5], answers: ["Trots att det regnade gick vi ut."], tip: "Bijzin vooraan: daarna inversie." }
+          - { type: findError, sentence: "Trots regnade det gick vi ut.", wrong: [0, 1], answers: ["Trots att det regnade gick vi ut.", "Trots regnet gick vi ut."], tip: "trots + bijzin: trots att." }
+          - { type: findError, topic: asikt, sentence: "Jag håller inte med det.", wrong: [3, 4], answers: ["Jag håller inte med om det.", "Det håller jag inte med om."], tip: "Het eens zijn met iets: hålla med om." }
+          - { type: findError, sentence: "Tvätta händerna sedan du äter!", wrong: [2], answers: ["Tvätta händerna innan du äter!"], tip: "Voordat …" }
+          - { type: findError, topic: asikt, sentence: "Jag anser att vi borde inte göra det.", wrong: [4, 5], answers: ["Jag anser att vi inte borde göra det."], tip: "Na anser att volgt een bijzin." }
+
+vocab:
+  - { sv: "ett samhälle", nl: "samenleving", def: "samhället" }
+  - { sv: "en åsikt", nl: "mening", def: "åsikten" }
+  - { sv: "en debatt", nl: "debat", def: "debatten" }
+  - { sv: "en fördel", nl: "voordeel", def: "fördelen" }
+  - { sv: "en nackdel", nl: "nadeel", def: "nackdelen" }
+  - { sv: "ett argument", nl: "argument", def: "argumentet" }
+  - { sv: "ett försök", nl: "proef, poging", def: "försöket" }
+  - { sv: "en företagare", nl: "ondernemer", def: "företagaren" }
+  - { sv: "vården", nl: "de zorg(sector)" }
+  - { sv: "en lön", nl: "salaris", def: "lönen" }
+  - { sv: "att anse", nl: "vinden, menen" }
+  - { sv: "att hålla med", nl: "het eens zijn" }
+  - { sv: "att införa", nl: "invoeren" }
+  - { sv: "att tjäna på", nl: "baat hebben bij" }
+  - { sv: "att förbjuda", nl: "verbieden" }
+  - { sv: "visserligen", nl: "weliswaar" }
+  - { sv: "trots att", nl: "hoewel" }
+  - { sv: "även om", nl: "ook al, zelfs als" }
+  - { sv: "medan", nl: "terwijl" }
+  - { sv: "sammanfattningsvis", nl: "samenvattend" }
