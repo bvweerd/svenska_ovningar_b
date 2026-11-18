@@ -1,6 +1,6 @@
 # Foutmeldingen via een Cloudflare Worker
 
-Bij elke vraag op beide oefensites staat een knop **Fout gezien?**. Een gebruiker schrijft kort wat er niet klopt, en deze Worker maakt er een issue van: meldingen van de B1–B2-site in `bvweerd/svensk_ovningar_b`, van de A1–A2-site in `bvweerd/svensk_ovningar`. Elke site stuurt zijn repo mee (`REPORT_REPO` in `src/config.js`); de Worker accepteert alleen repo's uit `GITHUB_REPO`. Gebruikers hebben geen GitHub-account nodig.
+Bij elke vraag op beide oefensites staat een knop **Fout gezien?**. Een gebruiker schrijft kort wat er niet klopt, en deze Worker maakt er een issue van: meldingen van de B1–B2-site in `bvweerd/svenska_ovningar_b`, van de A1–A2-site in `bvweerd/svenska_ovningar`. Elke site stuurt zijn repo mee (`REPORT_REPO` in `src/config.js`); de Worker accepteert alleen repo's uit `GITHUB_REPO`. Gebruikers hebben geen GitHub-account nodig.
 
 ```
 site (GitHub Pages) ──POST──▶ Worker ──▶ Turnstile: is dit een mens?
@@ -21,7 +21,7 @@ Maak in beide repo's een label `melding` aan (Issues → Labels → New label). 
 
 ### 2. GitHub-token
 GitHub → Settings → Developer settings → Fine-grained personal access tokens → *Generate new token*:
-- **Repository access:** *Only select repositories* → `svensk_ovningar_b` en `svensk_ovningar`
+- **Repository access:** *Only select repositories* → `svenska_ovningar_b` en `svenska_ovningar`
 - **Permissions:** *Issues: Read and write* (de rest blijft *No access*)
 - Kies een vervaldatum en zet een herinnering om hem te vernieuwen.
 

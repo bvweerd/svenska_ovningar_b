@@ -13,7 +13,7 @@ const env = {
 const payload = {
   message: 'Ook vem som is hier goed.',
   answer: 'vem som',
-  page: 'https://bvweerd.github.io/svensk_ovningar_b/#/k/19/o/gram-vem',
+  page: 'https://bvweerd.github.io/svenska_ovningar_b/#/k/19/o/gram-vem',
   chapter: 19,
   exercise: 'gram-vem',
   exerciseTitle: 'Vem som of vem?',
@@ -69,14 +69,14 @@ describe('buildIssue', () => {
 });
 
 describe('pickRepo', () => {
-  const multi = { GITHUB_REPO: 'bvweerd/svensk_ovningar_b, bvweerd/svensk_ovningar' };
+  const multi = { GITHUB_REPO: 'bvweerd/svenska_ovningar_b, bvweerd/svenska_ovningar' };
   it('kiest een repo van de lijst', () => {
-    expect(pickRepo('bvweerd/svensk_ovningar', multi)).toBe('bvweerd/svensk_ovningar');
-    expect(pickRepo('BVWEERD/Svensk_Ovningar', multi)).toBe('bvweerd/svensk_ovningar');
+    expect(pickRepo('bvweerd/svenska_ovningar', multi)).toBe('bvweerd/svenska_ovningar');
+    expect(pickRepo('BVWEERD/Svenska_Ovningar', multi)).toBe('bvweerd/svenska_ovningar');
   });
   it('valt terug op de eerste bij een onbekende of lege repo', () => {
-    expect(pickRepo('iemand/anders', multi)).toBe('bvweerd/svensk_ovningar_b');
-    expect(pickRepo(undefined, multi)).toBe('bvweerd/svensk_ovningar_b');
+    expect(pickRepo('iemand/anders', multi)).toBe('bvweerd/svenska_ovningar_b');
+    expect(pickRepo(undefined, multi)).toBe('bvweerd/svenska_ovningar_b');
     expect(pickRepo('x/y', { GITHUB_REPO: 'eigenaar/repo' })).toBe('eigenaar/repo');
   });
 });
@@ -133,7 +133,7 @@ describe('reportPayload', () => {
   it('neemt de plaats van de vraag over', () => {
     const item = { type: 'gap', text: 'a ___' };
     const p = reportPayload({ item, ref: { ch: 19, ex: { id: 'x', title: 'X' }, idx: 0 }, number: 4, message: ' fout ', answer: 'b', token: 't', page: 'p' });
-    expect(p).toMatchObject({ repo: 'bvweerd/svensk_ovningar_b', message: 'fout', shownNumber: 4, chapter: 19, exercise: 'x', exerciseTitle: 'X', itemIndex: 0, itemType: 'gap', token: 't' });
+    expect(p).toMatchObject({ repo: 'bvweerd/svenska_ovningar_b', message: 'fout', shownNumber: 4, chapter: 19, exercise: 'x', exerciseTitle: 'X', itemIndex: 0, itemType: 'gap', token: 't' });
     expect(JSON.parse(p.item)).toEqual(item);
   });
   it('werkt ook zonder plaats (snelle rondes)', () => {

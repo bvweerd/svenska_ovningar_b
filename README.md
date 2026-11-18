@@ -1,7 +1,7 @@
 # Svenska övningar B1–B2
 
 Interactieve oefensite voor Zweeds op B1- en B2-niveau, voor Nederlandstaligen.
-Vervolg op [svensk_ovningar](https://github.com/bvweerd/svensk_ovningar) (A1–A2, hoofdstuk 0–12):
+Vervolg op [svenska_ovningar](https://github.com/bvweerd/svenska_ovningar) (A1–A2, hoofdstuk 0–12):
 hoofdstuk 13–24 (B1) en 25–30 (B2), elk met een thema, een praktisch doel en een schrijfdoel.
 Alle vragen worden automatisch nagekeken, met gerichte tips bij fouten.
 Zweeds wordt voorgelezen met de spraakfunctie van de browser.

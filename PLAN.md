@@ -1,6 +1,6 @@
 # Plan: Svenska övningar B1–B2
 
-Vervolg op de A1–A2-site ([svensk_ovningar](https://github.com/bvweerd/svensk_ovningar), hoofdstuk 0–12).
+Vervolg op de A1–A2-site ([svenska_ovningar](https://github.com/bvweerd/svenska_ovningar), hoofdstuk 0–12).
 Deze repo bevat hoofdstuk 13–30. De A1–A2-site blijft ongewijzigd.
 
 ## 0. Uitgangspunt: auteursrecht

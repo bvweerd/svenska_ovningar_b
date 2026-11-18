@@ -4,8 +4,8 @@ main = "src/index.js"
 compatibility_date = "2025-06-01"
 
 [vars]
-# Eerste = standaard. De A1–A2-site stuurt repo: bvweerd/svensk_ovningar mee.
-GITHUB_REPO = "bvweerd/svensk_ovningar_b,bvweerd/svensk_ovningar"
+# Eerste = standaard. De A1–A2-site stuurt repo: bvweerd/svenska_ovningar mee.
+GITHUB_REPO = "bvweerd/svenska_ovningar_b,bvweerd/svenska_ovningar"
 ALLOWED_ORIGINS = "https://bvweerd.github.io,http://localhost:5173"
 ISSUE_LABELS = "melding"
 
