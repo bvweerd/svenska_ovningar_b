@@ -1,0 +1,277 @@
+chapter: 26
+
+grammar:
+  - id: particip-konstruktion
+    title: Deelwoordconstructies
+    summary: "In formele teksten staat veel informatie **vóór** het zelfstandig naamwoord: *den **av forskarna utvecklade** metoden* = *metoden **som forskarna utvecklade***. *de **i studien deltagande** personerna* = *personerna **som deltog i studien***."
+    body: |
+      In wetenschappelijke en ambtelijke teksten wordt een *som*-zin vaak ingepakt in een **deelwoord vóór het zelfstandig naamwoord**. Het Nederlands kent dat ook: *de door de onderzoekers ontwikkelde methode*.
+
+      | ingepakt (formeel) | uitgepakt (gewoon) |
+      |---|---|
+      | *den nyligen **publicerade** studien* | *studien som nyligen **publicerades*** |
+      | *den av forskarna **utvecklade** metoden* | *metoden som forskarna **utvecklade*** |
+      | *de i studien **deltagande** personerna* | *personerna som **deltog** i studien* |
+      | *ett snabbt **växande** problem* | *ett problem som **växer** snabbt* |
+      | *den **gällande** regeln* | *regeln som **gäller*** |
+
+      - **Voltooid deelwoord** (*publicerad, utvecklad, föreslagen*): lijdend, iets is gedaan. Na *den/det/de*: de vorm op *-e/-a* (*publicerade, föreslagna*).
+      - **Tegenwoordig deelwoord** (*deltagande, växande, gällande*): actief, iets doet of gebeurt nu. Dat verandert nooit.
+
+      **Leestip:** zoek eerst het zelfstandig naamwoord achteraan (*studien, metoden*), en lees dan wat ervoor staat als een *som*-zin.
+
+  - id: nominalfras
+    title: Lange naamwoordgroepen en voorzichtig formuleren
+    summary: "Zoek de **kern**: *en ny **studie** från Lunds universitet om sömnens betydelse för minnet*. Wetenschappers formuleren voorzichtig: *tyder på att, verkar, kan, det är möjligt att* in plaats van *bevisar att*."
+    body: |
+      ### De kern vinden
+      Een lange naamwoordgroep heeft één **kern** (het belangrijkste zelfstandig naamwoord). Alles ervoor en erachter zegt iets over die kern:
+
+      *en ny **studie** | från Lunds universitet | om sömnens betydelse | för minnet*
+
+      - vóór de kern: lidwoord, bijvoeglijke naamwoorden, deelwoorden, genitief (*forskarnas, studiens*)
+      - na de kern: voorzetselgroepen (*från, om, för, av*) en *som*-zinnen
+
+      De genitief op **-s** maakt het nog compacter: *studiens resultat* (de resultaten van de studie), *forskarnas slutsats* (de conclusie van de onderzoekers).
+
+      ### Voorzichtig formuleren
+      Een goede wetenschappelijke tekst is voorzichtig. Let op het verschil:
+
+      | zeker | voorzichtig |
+      |---|---|
+      | *Studien **visar** att …* | *Resultaten **tyder på** att …* |
+      | *Det **bevisar** att …* | *Det **verkar** som att …* |
+      | *Sömn **förbättrar** minnet.* | *Sömn **kan** förbättra minnet.* |
+      | | ***Det är möjligt att** …* · ***troligen*** · ***sannolikt*** |
+
+sections:
+  - id: lasa
+    title: Läsa · lezen
+    exercises:
+      - id: lasa-somn
+        title: "Lezen: slaap en geheugen"
+        instruction: Lees de tekst en beantwoord de vragen.
+        topic: particip-konstruktion
+        textTitle: Sömnen och minnet
+        text: |
+          I en nyligen publicerad studie undersökte forskare vid ett svenskt universitet hur sömn påverkar förmågan att lära sig nya ord. De i studien deltagande 120 studenterna fick på kvällen lära sig 40 ord på ett påhittat språk.
+
+          Hälften av deltagarna sov sedan en hel natt, medan den andra hälften fick hålla sig vakna. Nästa dag mindes de utvilade deltagarna i genomsnitt 30 procent fler ord än de sömnberövade.
+
+          Forskarna drar slutsatsen att sömnen sannolikt spelar en avgörande roll för långtidsminnet. Den av forskarna föreslagna förklaringen är att hjärnan under natten ”spelar upp” dagens intryck och sparar det viktigaste. Resultaten tyder också på att en kort tupplur kan ha en liknande, men svagare, effekt. Fler studier behövs dock innan man kan dra några säkra slutsatser.
+        items:
+          - { type: mc, prompt: "Vad undersökte forskarna?", options: ["hur sömn påverkar förmågan att lära sig nya ord", "hur många ord studenter kan", "varför studenter sover dåligt", "hur man lär sig språk snabbast"], answer: 0 }
+          - { type: mc, prompt: "Hur många deltog i studien?", options: ["120 studenter", "40 studenter", "30 studenter", "60 studenter"], answer: 0 }
+          - { type: truefalse, statement: "Alla deltagare sov en hel natt.", answer: false, correction: { answers: ["[Bara ]hälften av deltagarna sov en hel natt.", "Den andra hälften fick hålla sig vakna."] } }
+          - { type: mc, prompt: "Vad var resultatet?", options: ["De utvilade mindes i genomsnitt 30 procent fler ord.", "De sömnberövade mindes fler ord.", "Det fanns ingen skillnad.", "De utvilade mindes alla 40 ord."], answer: 0 }
+          - { type: truefalse, statement: "Forskarna säger att resultaten är helt säkra.", answer: false, correction: { answers: ["Fler studier behövs[ innan man kan dra säkra slutsatser]."] } }
+          - { type: mc, prompt: "Wat betekent *De i studien deltagande 120 studenterna*?", options: ["de 120 studenten die aan het onderzoek deelnamen", "de 120 studenten die het onderzoek leidden", "de studenten die niet meededen", "de studenten die in het onderzoek werden genoemd"], answer: 0 }
+          - { type: mc, prompt: "Wat betekent *Den av forskarna föreslagna förklaringen*?", options: ["de verklaring die de onderzoekers voorstellen", "de verklaring die de onderzoekers afwijzen", "de verklaring van andere onderzoekers", "de verklaring die voor de onderzoekers bedoeld is"], answer: 0 }
+
+  - id: ord
+    title: Ord och fraser · woorden en uitdrukkingen
+    exercises:
+      - id: ord-forskning
+        title: Onderzoek
+        instruction: Koppel het woord aan de betekenis.
+        topic: woordenschat
+        items:
+          - type: match
+            pairs:
+              - ["en studie", "een studie, onderzoek"]
+              - ["en forskare", "een onderzoeker"]
+              - ["en deltagare", "een deelnemer"]
+              - ["en slutsats", "een conclusie"]
+              - ["ett resultat", "een resultaat"]
+              - ["en hypotes", "een hypothese"]
+          - type: match
+            pairs:
+              - ["i genomsnitt", "gemiddeld"]
+              - ["påverka", "beïnvloeden"]
+              - ["avgörande", "beslissend"]
+              - ["sannolikt", "waarschijnlijk"]
+              - ["tyda på", "erop wijzen"]
+              - ["dra en slutsats", "een conclusie trekken"]
+
+      - id: zeker-voorzichtig
+        title: Zeker of voorzichtig?
+        instruction: Is de formulering zeker of voorzichtig?
+        topic: nominalfras
+        items:
+          - type: sort
+            categories: ["zeker", "voorzichtig"]
+            items:
+              - { text: "Studien bevisar att …", cat: 0 }
+              - { text: "Resultaten tyder på att …", cat: 1 }
+              - { text: "Det verkar som att …", cat: 1 }
+              - { text: "Sömn förbättrar minnet.", cat: 0 }
+              - { text: "Sömn kan förbättra minnet.", cat: 1 }
+              - { text: "Det är helt klart att …", cat: 0 }
+              - { text: "Det är möjligt att …", cat: 1 }
+
+  - id: particip
+    title: "Grammatik: deelwoordconstructies"
+    exercises:
+      - id: particip-uitpakken
+        title: Pak het uit
+        instruction: Herschrijf de woordgroep met een **som**-zin.
+        topic: particip-konstruktion
+        items:
+          - { type: transform, prompt: "den nyligen publicerade studien", task: "Begin met: studien som …", answers: ["studien som nyligen {publicerades|har publicerats}", "studien som publicerades nyligen"] }
+          - { type: transform, prompt: "de i studien deltagande studenterna", task: "Begin met: studenterna som …", answers: ["studenterna som {deltog|deltar} i studien"] }
+          - { type: transform, prompt: "den av forskarna föreslagna förklaringen", task: "Begin met: förklaringen som …", answers: ["förklaringen som forskarna {föreslog|föreslår|har föreslagit}", "förklaringen som föreslogs av forskarna"] }
+          - { type: transform, prompt: "ett snabbt växande problem", task: "Begin met: ett problem som …", answers: ["ett problem som växer snabbt", "ett problem som snabbt växer"] }
+          - { type: transform, prompt: "den gällande regeln", task: "Begin met: regeln som …", answers: ["regeln som gäller[ nu]"] }
+
+      - id: particip-inpakken
+        title: Pak het in
+        instruction: Maak van de **som**-zin een deelwoord vóór het zelfstandig naamwoord.
+        topic: particip-konstruktion
+        items:
+          - { type: transform, prompt: "metoden som forskarna utvecklade", task: "Begin met: den av forskarna …", answers: ["den av forskarna utvecklade metoden"], feedback: [{ contains: "utvecklad metoden", tip: "Na den: de vorm op -e, utvecklade." }] }
+          - { type: transform, prompt: "personerna som deltar", task: "Begin met: de …", answers: ["de deltagande personerna"] }
+          - { type: transform, prompt: "ett problem som växer", task: "Begin met: ett …", answers: ["ett växande problem"] }
+          - { type: transform, prompt: "rapporten som publicerades i går", task: "Begin met: den i går …", answers: ["den {i går|igår} publicerade rapporten"], feedback: [{ contains: "publicerad rapporten", tip: "Na den: publicerade." }] }
+
+      - id: particip-vormen
+        title: De goede vorm
+        instruction: Vul het deelwoord in.
+        topic: particip-konstruktion
+        shuffle: true
+        items:
+          - { type: gap, text: "ett ___ (växa) problem", gaps: [{ answers: ["växande"] }] }
+          - { type: gap, text: "de ___ (delta) personerna", gaps: [{ answers: ["deltagande"], feedback: [{ match: "deltande", tip: "delta komt van deltaga: deltagande." }] }] }
+          - { type: gap, text: "under ___ (komma) år", gaps: [{ answers: ["kommande"] }] }
+          - { type: gap, text: "den nyligen ___ (publicera) rapporten", gaps: [{ answers: ["publicerade"], feedback: [{ match: "publicerad", tip: "Na den: publicerade." }] }] }
+          - { type: gap, text: "ett ofta ___ (citera) exempel", gaps: [{ answers: ["citerat"], feedback: [{ match: ["citerad", "citerade"], tip: "Na ett (onbepaald): citerat." }] }] }
+          - { type: gap, text: "de av regeringen ___ (föreslå) reglerna", gaps: [{ answers: ["föreslagna"], feedback: [{ match: ["föreslådda", "föreslagen"], tip: "föreslå is sterk: föreslagen, föreslaget, föreslagna." }] }] }
+
+      - id: kern-vinden
+        title: Vind de kern
+        instruction: Wat is de kern van de naamwoordgroep?
+        topic: nominalfras
+        shuffle: true
+        items:
+          - { type: mc, prompt: "*en ny studie från Lunds universitet om sömnens betydelse för minnet*", options: ["studie", "universitet", "betydelse", "minnet"], answer: 0 }
+          - { type: mc, prompt: "*de av regeringen föreslagna reglerna för hyror i storstäderna*", options: ["reglerna", "regeringen", "hyror", "storstäderna"], answer: 0 }
+          - { type: mc, prompt: "*forskarnas slutsats om effekten av korta tupplurar*", options: ["slutsats", "forskarnas", "effekten", "tupplurar"], answer: 0 }
+          - { type: mc, prompt: "*en för många människor helt okänd sjukdom*", options: ["sjukdom", "människor", "okänd", "många"], answer: 0 }
+
+  - id: lyssna
+    title: Lyssna · luisteren
+    exercises:
+      - id: lyssna-natur
+        title: "Luisteren: wandelen in de natuur"
+        instruction: Luister naar het wetenschapsbericht. Is de bewering **rätt** of **fel**?
+        topic: nominalfras
+        listen: true
+        textTitle: Natur och stress
+        text: |
+          Ny forskning tyder på att promenader i naturen kan minska stress. I en mindre studie fick fyrtio deltagare antingen promenera i en park eller längs en trafikerad gata i trettio minuter.
+
+          De som gick i parken hade efteråt i genomsnitt lägre puls och sa att de kände sig lugnare. Forskarna betonar dock att studien är liten, och att man inte kan säga hur länge effekten varar.
+
+          – Det verkar som att även korta stunder i naturen kan göra skillnad, säger en av forskarna. Men vi behöver större studier för att kunna dra säkra slutsatser.
+        items:
+          - { type: truefalse, statement: "Studien hade fyrahundra deltagare.", answer: false, correction: { answers: ["{Studien|Den} hade fyrtio deltagare.", "Fyrtio [personer ]deltog[ i studien]."] } }
+          - { type: truefalse, statement: "Deltagarna promenerade i trettio minuter.", answer: true }
+          - { type: truefalse, statement: "De som gick längs gatan hade lägst puls.", answer: false, correction: { answers: ["De som gick i parken hade lägst puls.", "De som gick i parken hade [i genomsnitt ]lägre puls."] } }
+          - { type: truefalse, statement: "Forskarna säger att effekten varar länge.", answer: false, correction: { answers: ["Man kan inte säga hur länge effekten varar."] } }
+          - { type: mc, prompt: "Hoe formuleren de onderzoekers hun resultaat?", options: ["voorzichtig: het lijkt erop dat korte momenten in de natuur kunnen helpen", "zeker: de natuur geneest stress", "negatief: wandelen helpt niet", "ze geven geen resultaat"], answer: 0 }
+
+      - id: lyssna-dictee
+        title: Dictee
+        instruction: Luister en schrijf de zin op.
+        topic: particip-konstruktion
+        shuffle: true
+        items:
+          - { type: listen, say: "Resultaten tyder på att sömnen är viktig." }
+          - { type: listen, say: "Den nyligen publicerade studien väckte stort intresse." }
+          - { type: listen, say: "Fler studier behövs innan man kan dra säkra slutsatser." }
+          - { type: listen, say: "Det är ett snabbt växande problem." }
+
+  - id: praktiskt
+    title: Praktiskt · een onderzoek samenvatten
+    exercises:
+      - id: sammanfatta-fraser
+        title: Zinnen voor een samenvatting
+        instruction: Kies de zin die past.
+        topic: nominalfras
+        shuffle: true
+        items:
+          - { type: mc, prompt: "Je zegt waar het onderzoek over gaat.", options: ["Studien handlar om …", "Studien säger om …", "Studien går på …", "Studien tänker att …"], answer: 0 }
+          - { type: mc, prompt: "Je noemt het doel van het onderzoek.", options: ["Syftet med studien var att …", "Målet av studien var att …", "Studiens mening var att …", "Studien ville göra att …"], answer: 0 }
+          - { type: mc, prompt: "Je noemt de conclusie.", options: ["Forskarna kom fram till att …", "Forskarna kom till fram att …", "Forskarna slutade att …", "Forskarna drog att …"], answer: 0 }
+          - { type: mc, prompt: "Je noemt een beperking.", options: ["En begränsning är att studien är liten.", "En gräns är att studien är liten.", "Studien är dåligt liten.", "Studien är begränsad stor."], answer: 0 }
+
+  - id: skriva
+    title: Skriva · schrijven
+    intro: "Schrijfdoel: een samenvatting van een artikel."
+    exercises:
+      - id: skriva-sammanfattning
+        title: Vat het onderzoek samen
+        instruction: Schrijf een samenvatting van de tekst *Sömnen och minnet*.
+        topic: nominalfras
+        items:
+          - type: free
+            prompt: "Vat de tekst over slaap en geheugen samen in 80–110 woorden. Noem het doel, de methode, het resultaat, de conclusie en een beperking. Formuleer voorzichtig (*tyder på, verkar, kan, sannolikt*)."
+            minWords: 75
+            require:
+              - { any: ["syftet", "handlar om", "undersökte"], label: "Je noemt het doel of onderwerp" }
+              - { any: ["deltagare", "studenter", "deltog"], label: "Je beschrijft de deelnemers of methode" }
+              - { any: ["procent", "fler ord", "mindes"], label: "Je noemt het resultaat" }
+              - { any: ["tyder på", "verkar", "kan", "sannolikt", "troligen"], label: "Je formuleert voorzichtig" }
+              - { any: ["fler studier", "begränsning", "dock", "men"], label: "Je noemt een beperking" }
+            model: "Studien handlar om hur sömn påverkar förmågan att lära sig nya ord. 120 studenter fick på kvällen lära sig 40 ord på ett påhittat språk. Hälften sov sedan en hel natt, medan den andra hälften fick vara vaken. Nästa dag mindes de utvilade deltagarna i genomsnitt 30 procent fler ord. Forskarna drar slutsatsen att sömnen sannolikt är avgörande för långtidsminnet, och resultaten tyder på att även en kort tupplur kan hjälpa. En begränsning är dock att fler studier behövs innan man kan dra säkra slutsatser."
+
+  - id: herhaling
+    title: Herhaling
+    exercises:
+      - id: herhaling-b1-26
+        title: Door elkaar
+        instruction: Gemengde vragen.
+        shuffle: true
+        items:
+          - { type: gap, topic: passiv-s, text: "Studien ___ (publicera) förra månaden.", gaps: [{ answers: ["publicerades"] }] }
+          - { type: gap, topic: particip, text: "Det var en mycket ___ (spänna) föreläsning.", gaps: [{ answers: ["spännande"] }] }
+          - { type: gap, topic: indirekt-fraga, text: "Forskarna vet inte ___ orsakar sjukdomen.", gaps: [{ answers: ["vad som"], options: ["vad som", "vad", "vem"], shuffle: false }] }
+          - { type: gap, topic: nominalisering, text: "förbättra → ___", gaps: [{ answers: ["en förbättring"] }] }
+          - { type: gap, topic: subjunktioner-b1, text: "___ studien är liten, är resultaten intressanta.", gaps: [{ answers: ["Även om", "Trots att"], options: ["Även om", "Trots att", "Innan"], shuffle: false }] }
+          - { type: transform, topic: particip-konstruktion, prompt: "metoden som används", task: "Begin met: den …", answers: ["den använda metoden"] }
+
+  - id: zoek-de-fout
+    title: Zoek de fout
+    exercises:
+      - id: zoek-de-fout
+        title: Zoek de fout
+        instruction: Klik op het woord dat niet klopt en verbeter de zin.
+        topic: particip-konstruktion
+        shuffle: true
+        items:
+          - { type: findError, sentence: "Den nyligen publicerad studien väckte intresse.", wrong: [2], answers: ["Den nyligen publicerade studien väckte intresse."], tip: "Na den: welke vorm van het deelwoord?" }
+          - { type: findError, sentence: "Det är ett snabbt växt problem.", wrong: [4], answers: ["Det är ett snabbt växande problem."], tip: "Het probleem groeit nu: tegenwoordig deelwoord." }
+          - { type: findError, sentence: "De i studien deltagna personerna var friska.", wrong: [3], answers: ["De i studien deltagande personerna var friska."], tip: "Ze namen zelf deel: tegenwoordig deelwoord." }
+          - { type: findError, topic: nominalfras, sentence: "Studien bevisar kanske att sömn hjälper.", wrong: [1, 2], answers: ["Studien tyder på att sömn hjälper.", "Studien visar kanske att sömn hjälper."], tip: "bevisar en kanske passen niet bij elkaar." }
+          - { type: findError, sentence: "Den av forskarna föreslådda förklaringen är enkel.", wrong: [3], answers: ["Den av forskarna föreslagna förklaringen är enkel."], tip: "föreslå is een sterk werkwoord." }
+
+vocab:
+  - { sv: "en studie", nl: "studie, onderzoek", def: "studien" }
+  - { sv: "en forskare", nl: "onderzoeker", def: "forskaren" }
+  - { sv: "forskning", nl: "onderzoek (wetenschap)" }
+  - { sv: "en deltagare", nl: "deelnemer", def: "deltagaren" }
+  - { sv: "en slutsats", nl: "conclusie", def: "slutsatsen" }
+  - { sv: "ett resultat", nl: "resultaat", def: "resultatet" }
+  - { sv: "en metod", nl: "methode", def: "metoden" }
+  - { sv: "ett syfte", nl: "doel", def: "syftet" }
+  - { sv: "en förklaring", nl: "verklaring", def: "förklaringen" }
+  - { sv: "en begränsning", nl: "beperking", def: "begränsningen" }
+  - { sv: "ett minne", nl: "geheugen, herinnering", def: "minnet" }
+  - { sv: "en hjärna", nl: "hersenen", def: "hjärnan" }
+  - { sv: "att undersöka", nl: "onderzoeken" }
+  - { sv: "att påverka", nl: "beïnvloeden" }
+  - { sv: "att tyda på", nl: "erop wijzen" }
+  - { sv: "att publicera", nl: "publiceren" }
+  - { sv: "avgörande", nl: "beslissend" }
+  - { sv: "sannolikt", nl: "waarschijnlijk" }
+  - { sv: "i genomsnitt", nl: "gemiddeld" }
+  - { sv: "dock", nl: "echter" }
