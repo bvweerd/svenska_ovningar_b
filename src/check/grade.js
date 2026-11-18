@@ -18,8 +18,10 @@ export function gradeText(input, spec, ctx = {}) {
     const hitContains = asList(f.contains).some((c) => ` ${n} `.includes(` ${normalize(c, opts)} `));
     if (hitMatch || hitContains) return { correct: false, kind: 'feedback', tip: f.tip };
   }
+  // Bij een keuzelijst is een vaste tip zinvoller dan een spellingsdiagnose.
+  if (spec.options && spec.tip) return { correct: false, kind: 'feedback', tip: spec.tip };
   const d = diagnose(n, expected, ctx);
-  return { correct: false, kind: d?.kind ?? 'unknown', tip: d?.tip };
+  return { correct: false, kind: d?.kind ?? 'unknown', tip: d?.tip ?? spec.tip };
 }
 
 export function gradeMc(index, item) {
