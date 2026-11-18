@@ -10,6 +10,7 @@ import {
   gradeDialogue, gradeMatch, gradeFields, clockSpec, checkFree, gradeSort,
 } from '../check/grade.js';
 import { speakButton, speedSelect } from './speak.js';
+import { sentenceInput } from './tiles.js';
 import { speak, speechStatus } from '../speech.js';
 
 // replaceChildren met geneste arrays en lege waarden
@@ -40,6 +41,22 @@ function textInput(spec, { size, label, wide } = {}) {
 
 function lockInputs(root) {
   root.querySelectorAll('input, select, button.chip, button.move, textarea').forEach((e) => (e.disabled = true));
+}
+
+/** Zinsveld (typen of woordtegels) met nakijken; gedeeld door vertalen, omvormen, luisteren enz. */
+function sentenceField(spec, ctx, { label, source, prefill, topic } = {}) {
+  const field = sentenceInput(spec, { label, source, prefill, textInput, onComplete: () => ctx.auto?.() });
+  return {
+    field,
+    check() {
+      const res = gradeText(field.value(), spec, topic ? { ...ctx, topic } : ctx);
+      field.mark(res.empty ? undefined : res.correct);
+      return res;
+    },
+    reveal() {
+      field.reveal(displayAnswer(spec.answers));
+    },
+  };
 }
 
 // ---------- Meerkeuze ----------
@@ -149,43 +166,19 @@ function gap(item, ctx) {
 }
 
 function translate(item, ctx) {
-  const input = textInput(item, { wide: true, label: 'Jouw vertaling' });
-  const el = h('div', {}, h('p', { class: 'prompt source' }, item.prompt), input);
-  return {
-    el,
-    check() {
-      const res = gradeText(input.value, item, ctx);
-      markFields([input], [res.empty ? undefined : res.correct]);
-      return res;
-    },
-    reveal() {
-      input.value = displayAnswer(item.answers);
-      input.classList.add('revealed');
-    },
-    lock: () => lockInputs(el),
-  };
+  const f = sentenceField(item, ctx, { label: 'Jouw vertaling' });
+  const el = h('div', {}, h('p', { class: 'prompt source' }, item.prompt), f.field.el);
+  return { el, check: f.check, reveal: f.reveal, lock: () => { f.field.lock(); lockInputs(el); } };
 }
 
 // ---------- Omvormen: een Zweedse zin herschrijven (actief → passief, twee zinnen → één) ----------
 function transform(item, ctx) {
-  const input = textInput(item, { wide: true, label: 'Jouw zin' });
+  const f = sentenceField(item, ctx, { label: 'Jouw zin', source: item.prompt });
   const el = h('div', {},
     item.task ? h('p', { class: 'task', html: inline(item.task) }) : null,
     h('p', { class: 'prompt source', lang: 'sv', html: inline(item.prompt) }),
-    input);
-  return {
-    el,
-    check() {
-      const res = gradeText(input.value, item, ctx);
-      markFields([input], [res.empty ? undefined : res.correct]);
-      return res;
-    },
-    reveal() {
-      input.value = displayAnswer(item.answers);
-      input.classList.add('revealed');
-    },
-    lock: () => lockInputs(el),
-  };
+    f.field.el);
+  return { el, check: f.check, reveal: f.reveal, lock: () => { f.field.lock(); lockInputs(el); } };
 }
 
 // ---------- Luisteren: dictee of „wat hoor je?” ----------
@@ -216,31 +209,19 @@ function listen(item, ctx) {
     const inner = mc({ ...item, type: 'mc', prompt: item.prompt ?? 'Wat hoor je?' }, ctx);
     return { ...inner, el: h('div', {}, player.el, inner.el) };
   }
-  const answers = item.answers ?? [item.say];
-  const input = textInput({ answers }, { wide: true, label: 'Wat hoor je?' });
-  // Enter in een leeg veld: nog een keer afspelen.
-  input.addEventListener('keydown', (e) => {
-    if (e.key === 'Enter' && !input.value.trim()) {
+  const spec = { ...item, answers: item.answers ?? [item.say] };
+  const f = sentenceField(spec, ctx, { label: 'Wat hoor je?' });
+  // Enter in een leeg typveld: nog een keer afspelen.
+  f.field.el.addEventListener('keydown', (e) => {
+    if (e.key === 'Enter' && e.target.matches('input') && !e.target.value.trim()) {
       e.preventDefault();
       e.stopPropagation();
       player.play();
     }
   });
-  const el = h('div', {}, player.el, prompt(item.prompt ?? 'Schrijf op wat je hoort.'), input,
-    h('p', { class: 'hint' }, 'Tip: druk op Enter in het lege veld om het nog eens te horen.'));
-  return {
-    el,
-    check() {
-      const res = gradeText(input.value, { ...item, answers }, ctx);
-      markFields([input], [res.empty ? undefined : res.correct]);
-      return res;
-    },
-    reveal() {
-      input.value = displayAnswer(answers);
-      input.classList.add('revealed');
-    },
-    lock: () => lockInputs(el),
-  };
+  const el = h('div', {}, player.el, prompt(item.prompt ?? (f.field.kind === 'tiles' ? 'Zet de woorden in de volgorde die je hoort.' : 'Schrijf op wat je hoort.')), f.field.el,
+    f.field.kind === 'tiles' ? null : h('p', { class: 'hint' }, 'Tip: druk op Enter in het lege veld om het nog eens te horen.'));
+  return { el, check: f.check, reveal: f.reveal, lock: () => { f.field.lock(); lockInputs(el); } };
 }
 
 // ---------- Sorteren: elk woord of elke zin in een categorie ----------
@@ -322,21 +303,9 @@ function clockSvg(time) {
 
 function clock(item, ctx) {
   const spec = clockSpec(item);
-  const input = textInput(spec, { wide: true, label: 'Hoe laat is het?' });
-  const el = h('div', { class: 'clock-item' }, clockSvg(item.time), h('div', {}, prompt(item.prompt ?? 'Hoe laat is het?'), input));
-  return {
-    el,
-    check() {
-      const res = gradeText(input.value, spec, { ...ctx, topic: 'klockan' });
-      markFields([input], [res.empty ? undefined : res.correct]);
-      return res;
-    },
-    reveal() {
-      input.value = displayAnswer(spec.answers);
-      input.classList.add('revealed');
-    },
-    lock: () => lockInputs(el),
-  };
+  const f = sentenceField(spec, ctx, { label: 'Hoe laat is het?', topic: 'klockan' });
+  const el = h('div', { class: 'clock-item' }, clockSvg(item.time), h('div', {}, prompt(item.prompt ?? 'Hoe laat is het?'), f.field.el));
+  return { el, check: f.check, reveal: f.reveal, lock: () => { f.field.lock(); lockInputs(el); } };
 }
 
 // ---------- Zinsbouw ----------
@@ -495,7 +464,13 @@ function truefalse(item, ctx) {
   const yes = mk('Rätt', true);
   const no = mk('Fel', false);
   const correctionBox = h('div', { class: 'correction', hidden: true });
-  let input = null;
+  let fix = null;
+  const showFix = (label) => {
+    fix = sentenceField(item.correction, ctx, { label: 'Verbeterde zin', source: item.statement });
+    const text = fix.field.kind === 'tiles' && label.endsWith('op:') ? label.replace('Schrijf de juiste zin op:', 'Maak de juiste zin:') : label;
+    correctionBox.replaceChildren(h('p', { class: 'prompt' }, text), fix.field.el);
+    correctionBox.hidden = false;
+  };
   const el = h('div', {},
     h('p', { class: 'prompt', lang: 'sv' }, item.statement),
     h('div', { class: 'options row' }, yes.label, no.label),
@@ -512,32 +487,23 @@ function truefalse(item, ctx) {
         if (res.correct && item.correction) {
           phase = 'correct';
           yes.r.disabled = no.r.disabled = true;
-          input = textInput(item.correction, { wide: true, label: 'Verbeterde zin' });
-          correctionBox.replaceChildren(h('p', { class: 'prompt' }, item.correction.prompt ?? 'Goed, het klopt niet. Schrijf de juiste zin op:'), input);
-          correctionBox.hidden = false;
-          input.focus();
+          showFix(item.correction.prompt ?? 'Goed, het klopt niet. Schrijf de juiste zin op:');
+          fix.field.focus();
           return { correct: true, advance: true };
         }
         return res;
       }
-      const res = gradeText(input.value, item.correction, ctx);
-      markFields([input], [res.empty ? undefined : res.correct]);
-      return res;
+      return fix.check();
     },
     reveal() {
       (item.answer ? yes : no).label.classList.add('ok');
       (item.answer ? yes : no).r.checked = true;
       if (item.correction) {
-        if (!input) {
-          input = textInput(item.correction, { wide: true });
-          correctionBox.replaceChildren(h('p', { class: 'prompt' }, 'Juiste zin:'), input);
-          correctionBox.hidden = false;
-        }
-        input.value = displayAnswer(item.correction.answers);
-        input.classList.add('revealed');
+        if (!fix) showFix('Juiste zin:');
+        fix.reveal();
       }
     },
-    lock: () => lockInputs(el),
+    lock: () => { fix?.field.lock(); lockInputs(el); },
   };
 }
 
@@ -568,7 +534,7 @@ function findError(item, ctx) {
   const words = item.sentence.split(' ');
   let phase = 'find';
   let chosen = null;
-  let input = null;
+  let fixField = null;
   const buttons = words.map((w, i) =>
     h('button', {
       type: 'button',
@@ -593,9 +559,8 @@ function findError(item, ctx) {
     fix,
   );
   const showFix = (label) => {
-    input = textInput(item, { wide: true, label: 'Verbeterde zin' });
-    input.value = item.sentence;
-    fix.replaceChildren(h('p', { class: 'prompt' }, label), input);
+    fixField = sentenceField(item, ctx, { label: 'Verbeterde zin', source: item.sentence, prefill: item.sentence });
+    fix.replaceChildren(h('p', { class: 'prompt' }, fixField.field.kind === 'tiles' ? label.replace('Verbeter nu de zin:', 'Maak nu de goede zin:') : label), fixField.field.el);
     fix.hidden = false;
   };
   return {
@@ -608,24 +573,20 @@ function findError(item, ctx) {
           phase = 'fix';
           buttons.forEach((b) => (b.disabled = true));
           showFix('Goed gevonden! Verbeter nu de zin:');
-          input.focus();
-          input.setSelectionRange(input.value.length, input.value.length);
+          fixField.field.focus();
           return { correct: true, advance: true };
         }
         buttons[chosen].classList.add('bad');
         return { correct: false, kind: 'find', tip: `„${words[chosen]}” is goed. ${item.tip ?? 'Zoek nog eens.'}` };
       }
-      const res = gradeText(input.value, item, ctx);
-      markFields([input], [res.empty ? undefined : res.correct]);
-      return res;
+      return fixField.check();
     },
     reveal() {
       item.wrong.forEach((i) => buttons[i].classList.add('ok'));
-      if (!input) showFix('Goede zin:');
-      input.value = displayAnswer(item.answers);
-      input.classList.add('revealed');
+      if (!fixField) showFix('Goede zin:');
+      fixField.reveal();
     },
-    lock: () => lockInputs(el),
+    lock: () => { fixField?.field.lock(); lockInputs(el); },
   };
 }
 

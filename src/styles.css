@@ -386,3 +386,10 @@ details.howto ol { margin: 8px 0 4px; }
 .speed-select { font: inherit; font-size: 0.88rem; padding: 4px 6px; border-radius: 8px; border: 1px solid var(--line); background: var(--surface); color: var(--text); }
 .passage-controls { display: flex; flex-wrap: wrap; align-items: center; gap: 10px; }
 .rate { flex-wrap: wrap; } .rate input { min-width: 120px; }
+
+/* ---------- Woordtegels ---------- */
+.sentence-input { display: flex; flex-direction: column; align-items: flex-start; gap: 4px; width: 100%; }
+.tiles { width: 100%; }
+.tiles .chips.bank { padding-left: 0; }
+.link-btn { background: none; border: none; padding: 2px 0; font: inherit; font-size: 0.85rem; color: var(--accent); text-decoration: underline; cursor: pointer; }
+@media (pointer: coarse) { .tiles .chip { padding: 9px 14px; font-size: 1.02rem; } }
