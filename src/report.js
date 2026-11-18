@@ -130,8 +130,9 @@ function openDialog({ item, ref, number, card }) {
         h('div', { class: 'actions' }, h('button', { type: 'button', class: 'btn primary', onclick: () => dialog.close() }, 'Sluiten')),
       );
       form.querySelector('.btn.primary').focus();
-    } catch {
-      setStatus('bad', 'Versturen is niet gelukt. Probeer het later nog eens.');
+    } catch (err) {
+      // De foutcode van de Worker (bijv. turnstile, github) helpt bij het zoeken naar de oorzaak.
+      setStatus('bad', `Versturen is niet gelukt (${err.message || 'netwerk'}). Probeer het later nog eens.`);
       send.disabled = false;
       token = '';
       if (widgetId !== null) window.turnstile?.reset(widgetId);
