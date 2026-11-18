@@ -100,7 +100,7 @@ sections:
           - { type: mc, prompt: "Vad är meriterande?", options: ["att kunna ett tredje språk", "att bo i Örebro", "att ha egen bil", "att ha jobbat på Lindhem förut"], answer: 0, tip: "Zoek het woord meriterande in de tekst." }
           - { type: truefalse, statement: "Man måste ha minst ett års erfarenhet av kundservice.", answer: true }
           - { type: truefalse, statement: "Tjänsten är på deltid.", answer: false, tip: "Lees de tweede alinea nog eens.", correction: { answers: ["{Tjänsten|Den|Jobbet} är på heltid."] } }
-          - { type: truefalse, statement: "Man ska vänta till den 15 maj med att skicka sin ansökan.", answer: false, tip: "Wanneer worden de gesprekken gehouden?", correction: { answers: ["{Man ska|Man bör|Du ska|Du bör} skicka {sin|din} ansökan så snart [som ]möjligt[, dock senast den 15 maj]."] } }
+          - { type: truefalse, statement: "Man ska vänta till den 15 maj med att skicka sin ansökan.", answer: false, tip: "Wanneer worden de gesprekken gehouden?", correction: { answers: ["{Man ska|Man bör} skicka sin ansökan så snart [som ]möjligt[, dock senast den 15 maj].", "{Du ska|Du bör} skicka din ansökan så snart [som ]möjligt[, dock senast den 15 maj]."] } }
           - { type: mc, prompt: "Wat betekent *Lön enligt överenskommelse*?", options: ["Het salaris wordt in overleg bepaald.", "Het salaris staat vast in de cao.", "Er is geen salaris.", "Het salaris is voor iedereen gelijk."], answer: 0 }
           - { type: mc, prompt: "Wat is een *tillsvidareanställning*?", options: ["een vaste aanstelling", "een tijdelijk contract", "een stage", "een oproepcontract"], answer: 0, tip: "tills vidare = tot nader order, dus zonder einddatum." }
           - type: multi
@@ -146,7 +146,7 @@ sections:
           - { type: gap, text: "Hur hög är ___? – 32 000 kronor i månaden.", gaps: [{ answers: ["lönen"], options: ["lönen", "tjänsten", "chefen", "kravet"] }] }
           - { type: gap, text: "Vi har ___ varje måndag klockan nio.", gaps: [{ answers: ["möte"], options: ["möte", "intervju", "kollega", "lön"] }] }
           - { type: gap, text: "Jag har jobbat här i fem år och jag ___ jättebra.", gaps: [{ answers: ["trivs"], options: ["trivs", "söker", "anställs", "slutar"], feedback: [{ match: "anställs", tip: "anställs = wordt aangenomen. Hier gaat het om je prettig voelen: trivs." }] }] }
-          - { type: gap, text: "Företaget ska ___ tre nya säljare i höst.", gaps: [{ answers: ["anställa"], options: ["anställa", "söka", "trivas", "säga upp sig"], feedback: [{ match: "söka", tip: "Het bedrijf zoekt ook, maar „nieuwe verkopers in dienst nemen” is anställa." }] }] }
+          - { type: gap, text: "Företaget ska ___ tre nya säljare i höst.", gaps: [{ answers: ["anställa"], options: ["anställa", "arbeta", "trivas", "säga upp sig"], feedback: [{ match: "säga upp sig", tip: "säga upp sig = zelf ontslag nemen. Nieuwe verkopers in dienst nemen: anställa." }] }] }
 
   - id: passiv
     title: "Grammatik: de lijdende vorm"
@@ -267,7 +267,7 @@ sections:
         text: |
           Hej! Jag heter Sanne och jag kommer från Utrecht. I måndags var min första dag som sjuksköterska på vårdcentralen i Västerås. Jag var ganska nervös, men alla var väldigt trevliga.
 
-          Först visades jag runt av min chef, Ulla. Sedan fick jag träffa kollegorna som jobbar i samma team. Vi fikade tillsammans klockan tio, och det gör man nästan varje dag här.
+          Först visade min chef Ulla mig runt. Sedan fick jag träffa kollegorna som jobbar i samma team. Vi fikade tillsammans klockan tio, och det gör man nästan varje dag här.
 
           Det som var svårast var alla förkortningar som används i journalerna. Men jag fick en lista av en kollega som också har flyttat hit från ett annat land. Efter lunch fick jag följa med en läkare som träffade patienter. Jag trivs redan jättebra!
         items:
@@ -357,7 +357,7 @@ sections:
         instruction: Kies het woord dat past.
         topic: formell-mail
         items:
-          - { type: gap, text: "Jag vill ___ om tjänsten som kundtjänstmedarbetare.", gaps: [{ answers: ["ansöka"], options: ["ansöka", "söka", "leta"], feedback: [{ match: "söka", tip: "söka heeft geen om nodig: söka tjänsten. Met om: ansöka om tjänsten." }] }] }
+          - { type: gap, text: "Jag vill ___ om tjänsten som kundtjänstmedarbetare.", gaps: [{ answers: ["ansöka"], options: ["ansöka", "söka", "leta"], feedback: [{ match: "söka", tip: "Een baan: söka tjänsten (zonder om) of ansöka om tjänsten. söka om gebruik je bij bijv. een vergunning of toelage (söka om bidrag), of in de betekenis opnieuw solliciteren." }] }] }
           - { type: gap, text: "Jag har arbetat med kundservice ___ fyra år.", gaps: [{ answers: ["i"], options: ["i", "för", "på", "sedan"], feedback: [{ match: "för", tip: "för fyra år sedan = vier jaar geleden. Voor hoe lang iets duurt: i fyra år." }] }] }
           - { type: gap, text: "Jag är intresserad ___ att arbeta hos er.", gaps: [{ answers: ["av"], options: ["av", "för", "på", "i"], tip: "intresserad av = geïnteresseerd in." }] }
           - { type: gap, text: "Jag ___ mitt cv och mitt personliga brev.", gaps: [{ answers: ["bifogar"], options: ["bifogar", "bifogas", "bifogades"], feedback: [{ match: ["bifogas", "bifogades"], tip: "Dat is de lijdende vorm. Jij voegt het toe: jag bifogar." }] }] }
@@ -378,7 +378,7 @@ sections:
               - { any: ["erfarenhet", "arbetat", "jobbat"], label: "Je vertelt over je ervaring" }
               - { any: ["som"], label: "Je gebruikt een bijzin met som" }
               - { any: ["hälsningar"], label: "Je sluit af met (Med) vänliga hälsningar" }
-            model: "Hej Petra! Jag skriver angående tjänsten som kundtjänstmedarbetare som jag såg på er webbplats. Jag har arbetat med kundservice i fyra år på ett företag som säljer cyklar. Där svarade jag på frågor från kunder via telefon och chatt. Jag talar svenska, engelska och nederländska. Jag tycker om att lösa problem och jag är lugn och noggrann. Jag är särskilt intresserad av att arbeta på ett företag som växer. Jag bifogar mitt cv och ser fram emot att höra från er. Med vänliga hälsningar, Lotte de Vries"
+            model: "Hej Petra! Jag skriver angående tjänsten som kundtjänstmedarbetare. Jag såg annonsen på er webbplats. Jag har arbetat med kundservice i fyra år på ett företag som säljer cyklar. Där svarade jag på frågor från kunder via telefon och chatt. Jag talar svenska, engelska och nederländska. Jag tycker om att lösa problem och jag är lugn och noggrann. Jag är särskilt intresserad av att arbeta på ett företag som växer. Jag bifogar mitt cv och ser fram emot att höra från er. Med vänliga hälsningar, Lotte de Vries"
 
   - id: zoek-de-fout
     title: Zoek de fout
@@ -393,7 +393,7 @@ sections:
           - { type: findError, sentence: "Mötet hålls i går klockan tre.", wrong: [1], answers: ["Mötet hölls {i går|igår} klockan tre."], tip: "Wanneer was de vergadering?" }
           - { type: findError, sentence: "Ansökan måste skickar före fredag.", wrong: [2], answers: ["Ansökan måste skickas före fredag."], tip: "Na måste komt een infinitief, hier in de lijdende vorm." }
           - { type: findError, sentence: "Huset byggs år 1925.", wrong: [1], answers: ["Huset byggdes år 1925."], tip: "Kijk naar het jaartal." }
-          - { type: findError, topic: relativ-som, sentence: "Jobbet som jag sökte det var på heltid.", wrong: [4], answers: ["Jobbet [som ]jag sökte var på heltid."], tip: "som vervangt al een woord." }
+          - { type: findError, topic: relativ-som, sentence: "Jobbet som jag sökte det var på heltid.", wrong: [4], answers: ["Jobbet [som ]jag sökte var på heltid."], tip: "Jobbet is al het onderwerp van de hoofdzin: herhaal het niet met det." }
 
 vocab:
   - { sv: "en arbetsgivare", nl: "werkgever", def: "arbetsgivaren" }

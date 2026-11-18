@@ -15,8 +15,8 @@ grammar:
       | *ett snabbt **växande** problem* | *ett problem som **växer** snabbt* |
       | *den **gällande** regeln* | *regeln som **gäller*** |
 
-      - **Voltooid deelwoord** (*publicerad, utvecklad, föreslagen*): lijdend, iets is gedaan. Na *den/det/de*: de vorm op *-e/-a* (*publicerade, föreslagna*).
-      - **Tegenwoordig deelwoord** (*deltagande, växande, gällande*): actief, iets doet of gebeurt nu. Dat verandert nooit.
+      - **Voltooid deelwoord** (*publicerad, utvecklad, föreslagen*): meestal lijdend, iets is gedaan (uitzondering: *en nyligen anländ gäst*). Na *den/det/de*: de vorm op *-e/-a* (*publicerade, föreslagna*).
+      - **Tegenwoordig deelwoord** (*deltagande, växande, gällande*): actief, iets doet of gebeurt tegelijk met de rest van de zin. Dat verandert nooit.
 
       **Leestip:** zoek eerst het zelfstandig naamwoord achteraan (*studien, metoden*), en lees dan wat ervoor staat als een *som*-zin.
 
@@ -54,7 +54,7 @@ sections:
         topic: particip-konstruktion
         textTitle: Sömnen och minnet
         text: |
-          I en nyligen publicerad studie undersökte forskare vid ett svenskt universitet hur sömn påverkar förmågan att lära sig nya ord. De i studien deltagande 120 studenterna fick på kvällen lära sig 40 ord på ett påhittat språk.
+          I en nyligen publicerad studie undersökte forskare vid ett svenskt universitet hur sömn påverkar förmågan att lära sig nya ord. De 120 i studien deltagande studenterna fick på kvällen lära sig 40 ord på ett påhittat språk.
 
           Hälften av deltagarna sov sedan en hel natt, medan den andra hälften fick hålla sig vakna. Nästa dag mindes de utvilade deltagarna i genomsnitt 30 procent fler ord än de sömnberövade.
 
@@ -64,8 +64,8 @@ sections:
           - { type: mc, prompt: "Hur många deltog i studien?", options: ["120 studenter", "40 studenter", "30 studenter", "60 studenter"], answer: 0 }
           - { type: truefalse, statement: "Alla deltagare sov en hel natt.", answer: false, correction: { answers: ["[Bara ]hälften av deltagarna sov en hel natt.", "Den andra hälften fick hålla sig vakna."] } }
           - { type: mc, prompt: "Vad var resultatet?", options: ["De utvilade mindes i genomsnitt 30 procent fler ord.", "De sömnberövade mindes fler ord.", "Det fanns ingen skillnad.", "De utvilade mindes alla 40 ord."], answer: 0 }
-          - { type: truefalse, statement: "Forskarna säger att resultaten är helt säkra.", answer: false, correction: { answers: ["Fler studier behövs[ innan man kan dra säkra slutsatser]."] } }
-          - { type: mc, prompt: "Wat betekent *De i studien deltagande 120 studenterna*?", options: ["de 120 studenten die aan het onderzoek deelnamen", "de 120 studenten die het onderzoek leidden", "de studenten die niet meededen", "de studenten die in het onderzoek werden genoemd"], answer: 0 }
+          - { type: truefalse, statement: "Forskarna säger att resultaten är helt säkra.", answer: false, correction: { answers: ["Fler studier behövs[ innan man kan dra [några ]säkra slutsatser]."] } }
+          - { type: mc, prompt: "Wat betekent *De 120 i studien deltagande studenterna*?", options: ["de 120 studenten die aan het onderzoek deelnamen", "de 120 studenten die het onderzoek leidden", "de studenten die niet meededen", "de studenten die in het onderzoek werden genoemd"], answer: 0 }
           - { type: mc, prompt: "Wat betekent *Den av forskarna föreslagna förklaringen*?", options: ["de verklaring die de onderzoekers voorstellen", "de verklaring die de onderzoekers afwijzen", "de verklaring van andere onderzoekers", "de verklaring die voor de onderzoekers bedoeld is"], answer: 0 }
 
   - id: ord
@@ -117,7 +117,7 @@ sections:
         instruction: Herschrijf de woordgroep met een **som**-zin.
         topic: particip-konstruktion
         items:
-          - { type: transform, prompt: "den nyligen publicerade studien", task: "Begin met: studien som …", answers: ["studien som nyligen {publicerades|har publicerats}", "studien som publicerades nyligen"] }
+          - { type: transform, prompt: "den nyligen publicerade studien", task: "Begin met: studien som …", answers: ["studien som nyligen {publicerades|har publicerats|publicerats}", "studien som {publicerades|har publicerats} nyligen"] }
           - { type: transform, prompt: "de i studien deltagande studenterna", task: "Begin met: studenterna som …", answers: ["studenterna som {deltog|deltar} i studien"] }
           - { type: transform, prompt: "den av forskarna föreslagna förklaringen", task: "Begin met: förklaringen som …", answers: ["förklaringen som forskarna {föreslog|föreslår|har föreslagit}", "förklaringen som föreslogs av forskarna"] }
           - { type: transform, prompt: "ett snabbt växande problem", task: "Begin met: ett problem som …", answers: ["ett problem som växer snabbt", "ett problem som snabbt växer"] }
@@ -175,7 +175,7 @@ sections:
         items:
           - { type: truefalse, statement: "Studien hade fyrahundra deltagare.", answer: false, correction: { answers: ["{Studien|Den} hade fyrtio deltagare.", "Fyrtio [personer ]deltog[ i studien]."] } }
           - { type: truefalse, statement: "Deltagarna promenerade i trettio minuter.", answer: true }
-          - { type: truefalse, statement: "De som gick längs gatan hade lägst puls.", answer: false, correction: { answers: ["De som gick i parken hade lägst puls.", "De som gick i parken hade [i genomsnitt ]lägre puls."] } }
+          - { type: truefalse, statement: "De som gick längs gatan hade lägre puls.", answer: false, correction: { answers: ["De som gick i parken hade [i genomsnitt ]{lägre|lägst} puls."] } }
           - { type: truefalse, statement: "Forskarna säger att effekten varar länge.", answer: false, correction: { answers: ["Man kan inte säga hur länge effekten varar."] } }
           - { type: mc, prompt: "Hoe formuleren de onderzoekers hun resultaat?", options: ["voorzichtig: het lijkt erop dat korte momenten in de natuur kunnen helpen", "zeker: de natuur geneest stress", "negatief: wandelen helpt niet", "ze geven geen resultaat"], answer: 0 }
 
@@ -251,7 +251,7 @@ sections:
           - { type: findError, sentence: "Den nyligen publicerad studien väckte intresse.", wrong: [2], answers: ["Den nyligen publicerade studien väckte intresse."], tip: "Na den: welke vorm van het deelwoord?" }
           - { type: findError, sentence: "Det är ett snabbt växt problem.", wrong: [4], answers: ["Det är ett snabbt växande problem."], tip: "Het probleem groeit nu: tegenwoordig deelwoord." }
           - { type: findError, sentence: "De i studien deltagna personerna var friska.", wrong: [3], answers: ["De i studien deltagande personerna var friska."], tip: "Ze namen zelf deel: tegenwoordig deelwoord." }
-          - { type: findError, topic: nominalfras, sentence: "Studien bevisar kanske att sömn hjälper.", wrong: [1, 2], answers: ["Studien tyder på att sömn hjälper.", "Studien visar kanske att sömn hjälper."], tip: "bevisar en kanske passen niet bij elkaar." }
+          - { type: findError, topic: nominalfras, sentence: "Resultaten tyder om att sömn är viktig.", wrong: [2], answers: ["Resultaten tyder på att sömn är viktig."], tip: "Het vaste voorzetsel: tyda på (erop wijzen)." }
           - { type: findError, sentence: "Den av forskarna föreslådda förklaringen är enkel.", wrong: [3], answers: ["Den av forskarna föreslagna förklaringen är enkel."], tip: "föreslå is een sterk werkwoord." }
 
 vocab:

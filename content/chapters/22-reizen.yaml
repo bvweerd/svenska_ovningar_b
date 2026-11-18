@@ -19,7 +19,7 @@ grammar:
       | ställa **in** | afgelasten |
       | boka **om** | omboeken |
 
-      Bij een wederkerend werkwoord staat *sig* na het partikel: *Ta **med dig** passet!* *Jag tog **med mig** kameran.*
+      Bij *ta med sig* en *ha med sig* staat *sig* na het partikel: *Ta **med dig** passet!* *Jag tog **med mig** kameran.* Bij de meeste andere wederkerende partikelwerkwoorden staat *sig* vóór het partikel: *sätta **sig ner***, *ge **sig iväg***.
 
       ### Deelwoord: partikel vooraan
       Maak je een deelwoord van een partikelwerkwoord, dan komt het partikel **ervoor** en plak je het eraan:
@@ -52,6 +52,8 @@ grammar:
 
       - *Tåget var sent, **så vi missade** bussen.*
 
+      In spreektaal hoor je ook *så missade vi* (dan werkt *så* als bijwoord, 'toen'). In geschreven tekst is *så vi missade* de norm.
+
       **Bijwoorden** (*därför, dessutom, däremot, ändå, sedan, alltså, till slut*) zijn een zinsdeel. Staan ze vooraan, dan volgt **inversie** (V2):
 
       - ***Därför missade vi** bussen.* (niet ~~*Därför vi missade*~~)
@@ -80,7 +82,7 @@ sections:
           - { type: mc, prompt: "Varför stannade tåget utanför Umeå?", options: ["på grund av ett signalfel", "på grund av snö", "på grund av en älg", "för att byta förare"], answer: 0 }
           - { type: truefalse, statement: "De kom fram fem timmar för sent.", answer: true }
           - { type: mc, prompt: "Vad hände med bussen till vandringsleden?", options: ["De hade missat den.", "Den var inställd.", "Den var full.", "Den var gratis."], answer: 0 }
-          - { type: truefalse, statement: "Skribenten tycker att resan inte var värd det.", answer: false, correction: { answers: ["{Hon|Skribenten} tycker att resan var värd det.", "{Hon|Skribenten} tycker att det var värt det.", "Det var värt det."] } }
+          - { type: truefalse, statement: "Skribenten tycker att resan inte var värd det.", answer: false, correction: { answers: ["{Hon|Skribenten|Han} tycker att resan var värd det.", "{Hon|Skribenten|Han} tycker att det var värt det.", "Det var värt det."] } }
           - type: multi
             prompt: "Welke verbindingswoorden in de tekst geven een gevolg?"
             options: ["därför", "så", "dessutom", "ändå", "först"]
@@ -106,7 +108,7 @@ sections:
           - type: match
             pairs:
               - ["en försening", "een vertraging"]
-              - ["ett spår", "een spoor (perron)"]
+              - ["ett spår", "een spoor (spoornummer)"]
               - ["en avgång", "een vertrek"]
               - ["en ankomst", "een aankomst"]
               - ["ett byte", "een overstap"]
@@ -122,10 +124,10 @@ sections:
         shuffle: true
         items:
           - { type: gap, text: "Vi måste skynda oss om vi ska ___ tåget.", gaps: [{ answers: ["hinna med"], options: ["hinna med", "komma fram", "stiga av"] }] }
-          - { type: gap, text: "Du ska ___ vid Centralstationen.", gaps: [{ answers: ["stiga av"], options: ["stiga av", "stiga på", "åka iväg"] }] }
+          - { type: gap, text: "Hotellet ligger precis vid Centralstationen, så där ska du ___.", gaps: [{ answers: ["stiga av"], options: ["stiga av", "stiga på", "åka iväg"] }] }
           - { type: gap, text: "När kom ni ___ till hotellet?", gaps: [{ answers: ["fram"], options: ["fram", "av", "på", "iväg"], shuffle: false }] }
           - { type: gap, text: "Glöm inte att ta med ___ passet!", gaps: [{ answers: ["dig"], options: ["dig", "sig", "du"], shuffle: false, feedback: [{ match: "sig", tip: "Tegen jou (du): ta med dig." }] }] }
-          - { type: gap, text: "Bussen ___ klockan sju i morse.", gaps: [{ answers: ["åkte iväg"], options: ["åkte iväg", "kom fram", "steg på"], tip: "Vertrekken: åka iväg." }] }
+          - { type: gap, text: "Bussen ___ klockan sju i morse, så vi missade den.", gaps: [{ answers: ["åkte iväg"], options: ["åkte iväg", "kom fram", "steg på"], tip: "Vertrekken: åka iväg." }] }
 
       - id: partikel-deelwoord
         title: Het partikel vooraan
@@ -292,7 +294,7 @@ sections:
           - { type: findError, sentence: "Dessutom hotellet var dyrt.", wrong: [1, 2], answers: ["Dessutom var hotellet dyrt."], tip: "Inversie na dessutom." }
           - { type: findError, topic: partikelverb-2, sentence: "Flyget är ställt in.", wrong: [2, 3], answers: ["Flyget är inställt."], tip: "Bij een deelwoord komt het partikel vooraan." }
           - { type: findError, topic: partikelverb-2, sentence: "Ta med sig passet!", wrong: [2], answers: ["Ta med dig passet!"], tip: "Tegen wie praat je?" }
-          - { type: findError, sentence: "Tåget var sent, så missade vi bussen.", wrong: [4, 5], answers: ["Tåget var sent, så vi missade bussen."], tip: "Na het voegwoord så: geen inversie." }
+          - { type: findError, sentence: "Tåget var sent, så missade vi bussen.", wrong: [4, 5], answers: ["Tåget var sent, så vi missade bussen."], tip: "Na het voegwoord så (= dus): geen inversie. In spreektaal hoor je ook så missade vi, maar schrijf så vi missade." }
 
 vocab:
   - { sv: "ett nattåg", nl: "nachttrein", def: "nattåget" }

@@ -14,7 +14,7 @@ grammar:
       | *Vi träffades i Göteborg.* | *Det var **i Göteborg** (som) vi träffades.* |
       | *Jag vill ha kaffe.* | *Det är **kaffe** (som) jag vill ha.* |
 
-      - **det är** voor nu, **det var** voor het verleden.
+      - **det är** voor nu; bij een afgerond voorval meestal **det var**. *Det är* + verleden tijd komt ook voor: *Det är min bror som ringde.*
       - *som* mag weg als het benadrukte deel **niet** het onderwerp is (net als in hoofdstuk 13).
       - Het *som*-deel is een bijzin: ***inte** vóór het werkwoord*: *Det är eleverna som **inte vill** ha ett förbud.*
 
@@ -120,7 +120,7 @@ sections:
         instruction: Leg nadruk op het **vetgedrukte** deel met *det är/var … som*.
         topic: utbrytning
         items:
-          - { type: transform, prompt: "**Min bror** ringde i går.", answers: ["Det var min bror som ringde {i går|igår}."], feedback: [{ contains: "det är min bror", tip: "Het gebeurde gisteren: det var." }] }
+          - { type: transform, prompt: "**Min bror** ringde i går.", answers: ["Det {var|är} min bror som ringde {i går|igår}."] }
           - { type: transform, prompt: "**Mobilerna** är problemet.", answers: ["Det är mobilerna som är problemet."] }
           - { type: transform, prompt: "Vi träffades **i Göteborg**.", answers: ["Det var i Göteborg [som ]vi träffades."], feedback: [{ contains: "som träffades vi", tip: "Na som: bijzinvolgorde, som vi träffades." }] }
           - { type: transform, prompt: "Jag vill ha **kaffe**.", answers: ["Det är kaffe [som ]jag vill ha."] }
@@ -134,7 +134,7 @@ sections:
         items:
           - { type: translate, prompt: "Wie belt er?", answers: ["Vem är det som ringer?"], feedback: [{ match: "Vem ringer?", tip: "Ook goed Zweeds, maar oefen hier: Vem är det som ringer?" }] }
           - { type: translate, prompt: "Wat is er gebeurd?", answers: ["Vad var det som hände?", "Vad är det som har hänt?"], feedback: [{ match: ["Vad hände?", "Vad har hänt?"], tip: "Ook goed, maar oefen hier: Vad var det som hände?" }] }
-          - { type: translate, prompt: "Heb jij dit geschreven?", answers: ["Är det du som har skrivit det här?", "Var det du som skrev det här?"], feedback: [{ match: "Har du skrivit det här?", tip: "Ook goed, maar oefen hier met nadruk: Är det du som har skrivit det här?" }] }
+          - { type: translate, prompt: "Heb jij dit geschreven?", answers: ["{Är|Var} det du som {har skrivit|skrev} det här?"], feedback: [{ match: "Har du skrivit det här?", tip: "Ook goed, maar oefen hier met nadruk: Är det du som har skrivit det här?" }] }
 
   - id: argument
     title: "Grammatik: argumenteren"
@@ -197,7 +197,7 @@ sections:
               - "Läraren: Ska vi ha kortare sommarlov? Vad tycker ni?"
               - "Sofia: Jag är för. Det är under sommaren som många glömmer det de har lärt sig."
               - "Erik: Får jag avbryta? Det är också då man vilar och hinner jobba extra."
-              - "Sofia: Låt mig tala till punkt. Jag menar inte att vi ska ta bort lovet, bara korta det."
+              - "Sofia: Låt mig tala till punkt. Jag menar inte att vi ska ta bort lovet, bara förkorta det."
               - "Erik: Okej, det är en bra poäng. Men hur lång tid tänker du dig?"
               - "Sofia: Kanske sex veckor i stället för tio."
 
@@ -230,7 +230,7 @@ sections:
               - { any: ["visserligen", "håller inte", "stämmer att"], label: "Je weerlegt het motargument" }
               - { any: ["därför", "sammanfattningsvis", "kort sagt"], label: "Je sluit af met een conclusie" }
               - { any: ["det är", "det var"], label: "Je gebruikt det är … som" }
-            model: "Jag anser att kollektivtrafiken i våra städer borde vara gratis. För det första är det bilarna som står för en stor del av utsläppen i staden. Om bussar och spårvagnar vore gratis skulle fler lämna bilen hemma. För det andra skulle gratis kollektivtrafik göra det lättare för personer med låga inkomster att ta sig till jobb och skola. Kritiker menar att det skulle bli för dyrt för kommunerna. Visserligen kostar det pengar, men biljettintäkterna täcker redan i dag bara en del av kostnaderna. Dessutom sparar samhället pengar på färre olyckor och mindre köer. Andra hävdar att bussarna skulle bli överfulla. Det argumentet håller inte, eftersom man kan sätta in fler avgångar. Det är alltså inte kostnaden som är det stora problemet, utan bristen på politisk vilja. Därför anser jag att vi borde testa gratis kollektivtrafik i några städer under ett par år."
+            model: "Jag anser att kollektivtrafiken i våra städer borde vara gratis. För det första är det bilarna som står för en stor del av utsläppen i staden. Om bussar och spårvagnar vore gratis skulle fler lämna bilen hemma. För det andra skulle gratis kollektivtrafik göra det lättare för personer med låga inkomster att ta sig till jobb och skola. Kritiker menar att det skulle bli för dyrt för kommunerna. Visserligen kostar det pengar, men biljettintäkterna täcker redan i dag bara en del av kostnaderna. Dessutom sparar samhället pengar på färre olyckor och kortare köer. Andra hävdar att bussarna skulle bli överfulla. Det argumentet håller inte, eftersom man kan sätta in fler avgångar. Det är alltså inte kostnaden som är det stora problemet, utan bristen på politisk vilja. Därför anser jag att vi borde testa gratis kollektivtrafik i några städer under ett par år."
 
   - id: herhaling
     title: Herhaling
@@ -240,7 +240,7 @@ sections:
         instruction: Gemengde vragen.
         shuffle: true
         items:
-          - { type: gap, topic: villkor, text: "Om mobilerna ___ (förbjuda), skulle eleverna koncentrera sig bättre.", gaps: [{ answers: ["förbjöds", "blev förbjudna"] }] }
+          - { type: gap, topic: villkor, text: "Om mobilerna ___ (förbjuda), skulle eleverna koncentrera sig bättre.", gaps: [{ answers: ["förbjöds", "blev förbjudna", "skulle förbjudas"] }] }
           - { type: gap, topic: subjunktioner-b1, text: "___ mobilen kan vara användbar, stör den ofta.", gaps: [{ answers: ["Även om", "Trots att"], options: ["Även om", "Trots att", "Innan"], shuffle: false }] }
           - { type: gap, topic: nominalisering, text: "förbjuda → ___", gaps: [{ answers: ["ett förbud"] }] }
           - { type: gap, topic: particip-konstruktion, text: "den av regeringen ___ (föreslå) lagen", gaps: [{ answers: ["föreslagna"] }] }
@@ -257,7 +257,7 @@ sections:
         shuffle: true
         items:
           - { type: findError, sentence: "Det är eleverna som vill inte ha förbud.", wrong: [4, 5], answers: ["Det är eleverna som inte vill ha [ett ]förbud."], tip: "Het som-deel is een bijzin." }
-          - { type: findError, sentence: "Det är min bror som ringde i går.", wrong: [1], answers: ["Det var min bror som ringde {i går|igår}."], tip: "Kijk naar de tijd." }
+          - { type: findError, sentence: "Det var min bror som ringer i går.", wrong: [5], answers: ["Det {var|är} min bror som ringde {i går|igår}."], tip: "Kijk naar de tijd." }
           - { type: findError, sentence: "Vem är det som ringer du?", wrong: [5], answers: ["Vem är det som ringer?"], tip: "Er staat een woord te veel." }
           - { type: findError, topic: argumentation, sentence: "Det är inte ett straff men en möjlighet.", wrong: [5], answers: ["Det är inte ett straff utan en möjlighet."], tip: "Na een ontkenning: niet men." }
           - { type: findError, topic: argumentation, sentence: "Kritiker betyder att förbudet är omodernt.", wrong: [1], answers: ["Kritiker menar att förbudet är omodernt.", "Kritiker hävdar att förbudet är omodernt."], tip: "Welk werkwoord betekent een mening hebben?" }
@@ -276,7 +276,7 @@ vocab:
   - { sv: "ett elevråd", nl: "leerlingenraad", def: "elevrådet" }
   - { sv: "att hävda", nl: "beweren" }
   - { sv: "att invända", nl: "tegenwerpen" }
-  - { sv: "att bemöta", nl: "weerleggen" }
+  - { sv: "att bemöta", nl: "reageren op, ingaan op" }
   - { sv: "att avbryta", nl: "onderbreken" }
   - { sv: "att förbjuda", nl: "verbieden" }
   - { sv: "överens", nl: "het eens" }

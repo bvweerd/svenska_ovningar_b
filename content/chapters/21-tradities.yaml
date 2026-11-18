@@ -3,7 +3,7 @@ chapter: 21
 grammar:
   - id: bestamd-utan-artikel
     title: Bepaalde vorm zonder lidwoord
-    summary: "Na **förra, hela, halva, båda, själva, första** komt de **bepaalde** vorm zonder *den/det*: *förra veckan, hela dagen, första gången*. Maar na **nästa, samma, följande** de **onbepaalde**: *nästa vecka, samma dag*."
+    summary: "Na **förra, hela, halva, båda, själva** komt de **bepaalde** vorm zonder *den/det*: *förra veckan, hela dagen*. Na **första** mag *den*, maar het hoeft niet: *(den) första gången*. Maar na **nästa, samma, följande** de **onbepaalde**: *nästa vecka, samma dag*."
     body: |
       In hoofdstuk 12 leerde je *den nya bilen*: lidwoord + bijvoeglijk naamwoord + bepaalde vorm. Na een paar woorden valt *den/det/de* weg, maar het zelfstandig naamwoord blijft **bepaald**:
 
@@ -14,7 +14,9 @@ grammar:
       | **halva** | *halva **tiden*** | de helft van de tijd |
       | **båda** | *båda **barnen*** | beide kinderen |
       | **själva** | *själva **festen*** | het feest zelf |
-      | **första, andra …** | *första **gången**, andra **året*** | de eerste keer |
+      | **första, andra …** | *(den) första **gången**, andra **året*** | de eerste keer |
+
+      Bij **första, andra …** mag *den* er ook staan (*den första gången*), maar het hoeft niet.
 
       Pas op: deze woorden krijgen juist de **onbepaalde** vorm:
 
@@ -42,7 +44,7 @@ grammar:
       |---|---|
       | gewoon aan elkaar | *jul + gran → julgran*, *mat + affär → mataffär* |
       | **-s-** na *-ing, -het, -tion, -dom* | *tidning**s**artikel, säkerhet**s**bälte, station**s**hus, barndom**s**vän* |
-      | **-s-** na een woord dat al samengesteld is | *fotboll**s**match* |
+      | vaak **-s-** na een woord dat al samengesteld is | *fotboll**s**match* |
       | **-a valt weg** | *skol(a) + väska → skolväska*, *flick(a) + vän → flickvän* |
       | **-a wordt -o- of -u-** | *kyrk**o**gård*, *gat**u**kök* |
       | **-e valt weg + s** | *arbet(e) + plats → arbet**s**plats* |
@@ -59,9 +61,9 @@ sections:
         topic: bestamd-utan-artikel
         textTitle: Ett år med svenska bakverk
         text: |
-          I Sverige har nästan varje årstid sitt eget bakverk. Redan i januari dyker semlorna upp i bageriernas fönster. Egentligen ska man äta semla på fettisdagen, dagen före askonsdagen i februari, men i dag säljs de ofta hela vintern.
+          I Sverige har nästan varje årstid sitt eget bakverk. Redan i januari dyker semlorna upp i bageriernas fönster. Egentligen ska man äta semla på fettisdagen, dagen före askonsdagen i februari eller mars, men i dag säljs de ofta hela vintern.
 
-          Den 25 mars är det våffeldagen. Namnet kommer från *Vårfrudagen*, en gammal kyrklig helgdag, men eftersom det låter som *våffeldagen* började man äta våfflor den dagen. Samma sak hände med kanelbullen: den fjärde oktober firas kanelbullens dag, och då säljs flera miljoner bullar på en enda dag.
+          Den 25 mars är det våffeldagen. Namnet kommer från *Vårfrudagen*, en gammal kyrklig helgdag, men eftersom det låter som *våffeldagen* började man äta våfflor den dagen. Kanelbullen har också en egen dag, men den är mycket nyare: kanelbullens dag hittades på 1999 för att göra reklam för bullen. Den firas den fjärde oktober, och då säljs flera miljoner bullar på en enda dag.
 
           – Första gången jag hörde talas om kanelbullens dag trodde jag att det var ett skämt, säger Sanne från Utrecht, som har bott i Örebro i två år. Men förra året bakade jag själv, och båda mina grannar kom på fika. Nästa år ska jag prova att baka lussekatter till Lucia.
         items:
@@ -126,12 +128,12 @@ sections:
         topic: bestamd-utan-artikel
         shuffle: true
         items:
-          - { type: translate, prompt: "vorig jaar", answers: ["förra året", "i fjol"], feedback: [{ match: "förra år", tip: "Na förra: bepaald, året." }] }
+          - { type: translate, prompt: "vorig jaar", answers: ["förra året", "{i fjol|ifjol}"], feedback: [{ match: "förra år", tip: "Na förra: bepaald, året." }] }
           - { type: translate, prompt: "volgend jaar", answers: ["nästa år"], feedback: [{ match: "nästa året", tip: "Na nästa: onbepaald, år." }] }
           - { type: translate, prompt: "de hele zomer", answers: ["hela sommaren"], feedback: [{ match: "hela sommar", tip: "Na hela: bepaald, sommaren." }, { match: "den hela sommaren", tip: "Zonder den: hela sommaren." }] }
           - { type: translate, prompt: "de eerste keer", answers: ["[den ]första gången"], feedback: [{ match: "första gång", tip: "Na första: bepaald, gången." }] }
           - { type: translate, prompt: "dezelfde dag", answers: ["samma dag"], feedback: [{ match: ["samma dagen", "den samma dagen"], tip: "Na samma: onbepaald, en zonder den: samma dag." }] }
-          - { type: translate, prompt: "beide ouders", answers: ["båda föräldrarna"], feedback: [{ match: "båda föräldrar", tip: "Na båda: bepaald, föräldrarna." }] }
+          - { type: translate, prompt: "beide ouders", answers: ["{båda|bägge} föräldrarna", "de {båda|bägge} föräldrarna"], feedback: [{ match: "båda föräldrar", tip: "Na båda: bepaald, föräldrarna." }] }
 
   - id: sammansattning
     title: "Grammatik: samenstellingen"
@@ -149,7 +151,7 @@ sections:
           - { type: gap, text: "säkerhet + bälte → ___", gaps: [{ answers: ["säkerhetsbälte", "ett säkerhetsbälte"], feedback: [{ match: "säkerhetbälte", tip: "Na -het komt een -s-: säkerhetsbälte." }] }] }
           - { type: gap, text: "kanel + bulle → ___", gaps: [{ answers: ["kanelbulle", "en kanelbulle"] }] }
           - { type: gap, text: "barndom + vän → ___", gaps: [{ answers: ["barndomsvän", "en barndomsvän"], feedback: [{ match: "barndomvän", tip: "Na -dom komt een -s-: barndomsvän." }] }] }
-          - { type: gap, text: "fotboll + match → ___", gaps: [{ answers: ["fotbollsmatch", "en fotbollsmatch"], feedback: [{ match: "fotbollmatch", tip: "fotboll is al samengesteld: er komt een -s-, fotbollsmatch." }] }] }
+          - { type: gap, text: "fotboll + match → ___", gaps: [{ answers: ["fotbollsmatch", "en fotbollsmatch"], feedback: [{ match: "fotbollmatch", tip: "fotboll is al samengesteld: dan komt er vaak een -s-, fotbollsmatch." }] }] }
 
       - id: samenstelling-geslacht
         title: En of ett?
@@ -257,7 +259,7 @@ sections:
         shuffle: true
         items:
           - { type: gap, topic: passiv-s, text: "Kanelbullens dag ___ (fira) den fjärde oktober.", gaps: [{ answers: ["firas"] }] }
-          - { type: gap, topic: particip, text: "Vi åt ___ (baka) bröd till frukost.", gaps: [{ answers: ["bakat", "nybakat"] }] }
+          - { type: gap, topic: particip, text: "Vi åt ___ (koka) ägg till frukost.", gaps: [{ answers: ["kokta", "nykokta"] }] }
           - { type: gap, topic: man-en-ens, text: "På Valborg tänder ___ stora brasor.", gaps: [{ answers: ["man"], options: ["man", "en", "ens"], shuffle: false }] }
           - { type: gap, topic: nagon-ingen, text: "Jag har aldrig ätit ___ semla.", gaps: [{ answers: ["någon"], options: ["någon", "ingen", "något"], shuffle: false, tip: "Na aldrig: någon (aldrig is al ontkennend)." }] }
           - { type: transform, topic: indirekt-tal-b1, prompt: "Sanne: ”Jag har bakat bullar.”", task: "Sanne sa att …", answers: ["Sanne sa att hon hade bakat bullar."] }
@@ -273,7 +275,7 @@ sections:
         shuffle: true
         items:
           - { type: findError, sentence: "Vi ses nästa veckan.", wrong: [3], answers: ["Vi ses nästa vecka."], tip: "Na nästa: onbepaald." }
-          - { type: findError, sentence: "Förra år var vi i Kiruna.", wrong: [1], answers: ["Förra året var vi i Kiruna.", "I fjol var vi i Kiruna."], tip: "Na förra: bepaald." }
+          - { type: findError, sentence: "Förra år var vi i Kiruna.", wrong: [1], answers: ["Förra året var vi i Kiruna.", "{I fjol|Ifjol} var vi i Kiruna."], tip: "Na förra: bepaald." }
           - { type: findError, sentence: "Det regnade den hela dagen.", wrong: [2], answers: ["Det regnade hela dagen."], tip: "Na hela: geen den." }
           - { type: findError, sentence: "Vi föddes samma året.", wrong: [3], answers: ["Vi föddes samma år."], tip: "Na samma: onbepaald." }
           - { type: findError, topic: sammansattning, sentence: "Jag läste en tidningartikel om Lucia.", wrong: [3], answers: ["Jag läste en tidningsartikel om Lucia."], tip: "Wat komt er na -ing?" }

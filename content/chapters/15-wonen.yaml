@@ -15,7 +15,7 @@ grammar:
       | *gå* (lopen) | *gå **sönder*** (kapotgaan) |
       | *hälsa* (groeten) | *hälsa **på*** (op bezoek gaan) |
       | *byta* (ruilen) | *byta **ut*** (vervangen) |
-      | *glömma* (vergeten) | *glömma **bort*** (helemaal vergeten) |
+      | *glömma* (vergeten) | *glömma **bort*** (vergeten; vaak hetzelfde als *glömma*) |
 
       ### Waar staat het partikel?
       Anders dan in het Nederlands staat het partikel **direct na het werkwoord**, vóór het lijdend voorwerp, ook als dat een voornaamwoord is:
@@ -24,10 +24,15 @@ grammar:
       - *Stäng **av** den!* – Zet hem uit! (niet ~~*Stäng den av*~~)
       - *Kan du sätta **på** radion?*
 
-      **inte** en andere bijwoorden staan tussen werkwoord en partikel:
+      Is het partikelwerkwoord zelf de persoonsvorm in een hoofdzin, dan staan **inte** en andere bijwoorden tussen werkwoord en partikel:
 
       - *Jag kände **inte igen** henne.* – Ik herkende haar niet.
       - *Han stängde **aldrig av** datorn.*
+
+      Met een hulpwerkwoord of in een bijzin blijven werkwoord en partikel bij elkaar en staat *inte* ervóór:
+
+      - *Jag **kunde inte känna igen** henne.*
+      - *Jag tror att hon **inte har flyttat in** än.*
 
       ### Let op de klemtoon
       *Vi hälsar **PÅ** mormor* = we gaan bij oma op bezoek. *Vi **HÄLSAR** på mormor* = we groeten oma. In geschreven tekst blijkt het uit de context.
@@ -45,7 +50,7 @@ grammar:
       | **vars** | wiens, waarvan | *Jag har en granne **vars** hund skäller hela natten.* |
       | **när / då** | waarop (tijd) | *Minns du dagen **när** vi flyttade in?* |
 
-      Net als bij *hem/hemma* (hoofdstuk 5) en *där/dit*: is er een beweging naartoe (*flytta, åka, gå*), dan gebruik je **dit**.
+      Net als bij *hemma/hem* (hoofdstuk 5) en *här/hit*: is er een beweging naartoe (*flytta, åka, gå*), dan gebruik je **dit**.
 
       In plaats van *där* kun je ook *som … i/på* gebruiken: *staden som jag bor i* = *staden där jag bor*.
 
@@ -63,7 +68,7 @@ sections:
         text: |
           När Femke flyttade in i sin lägenhet i Malmö visste hon inte mycket om svenska hyreshus. Den första veckan lärde hon sig ett viktigt ord: tvättstuga. I huset där hon bor finns det inga tvättmaskiner i lägenheterna. I stället delar alla hyresgäster på en tvättstuga i källaren, dit man går med sin tvätt.
 
-          Man måste boka en tid i förväg. Femke bokade en tid på lördag förmiddag, men när hon kom ner var maskinerna redan upptagna. En granne, vars tid egentligen var slut, hade inte tagit ut sin tvätt. Femke väntade i tjugo minuter. Sedan skrev hon en lapp och satte upp den på dörren.
+          Man måste boka en tid i förväg. Femke bokade en tid på lördagsförmiddagen, men när hon kom ner var maskinerna redan upptagna. En granne, vars tid egentligen var slut, hade inte tagit ut sin tvätt. Femke väntade i tjugo minuter. Sedan skrev hon en lapp och satte upp den på dörren.
 
           Dagen efter hittade hon ett svar under sin lapp: ”Förlåt! Jag glömde bort tiden. Du får gärna låna min tid på onsdag. Ingrid, lägenhet 4B.” Nu hälsar Femke på Ingrid i trapphuset varje dag, och ibland fikar de tillsammans.
         items:
@@ -113,11 +118,11 @@ sections:
         topic: partikelverb
         shuffle: true
         items:
-          - { type: gap, text: "Kan du ___ teven? Jag försöker sova.", gaps: [{ answers: ["stänga av"], options: ["stänga av", "sätta på", "stänga"], feedback: [{ match: "stänga", tip: "Een apparaat uitzetten: stänga av. stänga = dichtdoen." }] }] }
+          - { type: gap, text: "Kan du ___ teven? Jag försöker sova.", gaps: [{ answers: ["stänga av"], options: ["stänga av", "sätta på", "stänga"], feedback: [{ match: "stänga", tip: "stäng teven zonder av hoor je in de spreektaal, maar de standaardvorm voor een apparaat uitzetten is stänga av. stänga alleen = dichtdoen." }] }] }
           - { type: gap, text: "Det är mörkt. Kan du ___ lampan?", gaps: [{ answers: ["tända"], options: ["tända", "stänga av", "känna igen"], tip: "Een lamp aandoen: tända (of sätta på, slå på)." }] }
           - { type: gap, text: "Diskmaskinen har ___. Vi måste ringa hyresvärden.", gaps: [{ answers: ["gått sönder"], options: ["gått sönder", "gått ut", "gått bort"], feedback: [{ match: "gått bort", tip: "gå bort = overlijden (of: uitgaan naar een feest). Kapotgaan: gå sönder." }] }] }
           - { type: gap, text: "Vi ska ___ mormor på söndag.", gaps: [{ answers: ["hälsa på"], options: ["hälsa på", "hälsa", "besöka på"], feedback: [{ match: "hälsa", tip: "hälsa alleen = groeten. Op bezoek gaan: hälsa på." }] }] }
-          - { type: gap, text: "Hyresvärden ska ___ alla fönster i huset.", gaps: [{ answers: ["byta ut"], options: ["byta ut", "byta", "byta in"], tip: "Iets vervangen door iets nieuws: byta ut." }] }
+          - { type: gap, text: "Hyresvärden ska ___ alla fönster i huset.", gaps: [{ answers: ["byta ut"], options: ["byta ut", "byta om", "byta in"], tip: "Iets vervangen door iets nieuws: byta ut." }] }
           - { type: gap, text: "Förlåt, jag ___ helt att du skulle komma.", gaps: [{ answers: ["glömde bort"], options: ["glömde bort", "glömde av", "glömde ut"] }] }
 
       - id: partikel-zinsbouw
@@ -137,11 +142,11 @@ sections:
         instruction: Vertaal naar het Zweeds.
         topic: partikelverb
         items:
-          - { type: translate, prompt: "Zet de tv uit!", answers: ["Stäng av {teven|tv:n}!"], feedback: [{ contains: "stäng teven av", tip: "Het partikel komt direct na het werkwoord: Stäng av teven!" }, { contains: "stäng tv:n av", tip: "Het partikel komt direct na het werkwoord: Stäng av tv:n!" }] }
-          - { type: translate, prompt: "Zet hem uit!", answers: ["Stäng av den!"], feedback: [{ match: "Stäng den av!", tip: "In het Zweeds komt het partikel ook vóór den: Stäng av den!" }] }
+          - { type: translate, prompt: "Zet de tv uit!", answers: ["{Stäng|Slå} av {teven|tv:n}!"], feedback: [{ contains: "stäng teven av", tip: "Het partikel komt direct na het werkwoord: Stäng av teven!" }, { contains: "stäng tv:n av", tip: "Het partikel komt direct na het werkwoord: Stäng av tv:n!" }] }
+          - { type: translate, prompt: "Zet hem uit!", answers: ["{Stäng|Slå} av den!"], feedback: [{ match: "Stäng den av!", tip: "In het Zweeds komt het partikel ook vóór den: Stäng av den!" }] }
           - { type: translate, prompt: "Ik herkende haar niet.", answers: ["Jag kände inte igen henne."], feedback: [{ match: "Jag kände henne inte igen.", tip: "Het partikel staat direct na inte, vóór het voorwerp: kände inte igen henne." }, { match: "Jag kände igen inte henne.", tip: "inte staat tussen werkwoord en partikel: kände inte igen." }] }
-          - { type: translate, prompt: "Wanneer trekken jullie in?", answers: ["När flyttar ni in?"] }
-          - { type: translate, prompt: "De wasmachine is kapotgegaan.", answers: ["Tvättmaskinen har gått sönder."] }
+          - { type: translate, prompt: "Wanneer trekken jullie in?", answers: ["När flyttar ni in?", "När ska ni flytta in?"] }
+          - { type: translate, prompt: "De wasmachine is kapotgegaan.", answers: ["Tvättmaskinen har gått sönder.", "Tvättmaskinen gick sönder."] }
 
   - id: dar-dit-vars
     title: "Grammatik: där, dit en vars"
@@ -165,7 +170,7 @@ sections:
         instruction: Maak van twee zinnen één zin met **där**, **dit** of **vars**.
         topic: dar-dit-vars
         items:
-          - { type: transform, prompt: "Det är en stad. Jag vill bo i staden.", answers: ["Det är en stad där jag vill bo.", "Det är en stad som jag vill bo i."] }
+          - { type: transform, prompt: "Det är en stad. Jag vill bo i staden.", answers: ["Det är en stad där jag vill bo.", "Det är en stad [som ]jag vill bo i."] }
           - { type: transform, prompt: "Jag har en kompis. Hans lägenhet har två balkonger.", answers: ["Jag har en kompis vars lägenhet har två balkonger."], feedback: [{ contains: "vars lägenheten", tip: "Na vars staat het woord onbepaald: vars lägenhet." }] }
           - { type: transform, prompt: "Vi åker till Gotland. Där har vi ett sommarhus.", answers: ["Vi åker till Gotland, där vi har ett sommarhus."], feedback: [{ contains: "där har vi", tip: "In de bijzin komt het onderwerp direct na där: där vi har." }] }
           - { type: transform, prompt: "Hon träffade en man. Mannens dotter går i samma klass.", answers: ["Hon träffade en man vars dotter går i samma klass[ som hennes]."] }
@@ -229,7 +234,7 @@ sections:
         shuffle: true
         items:
           - { type: mc, prompt: "Je wilt een storing melden.", options: ["Jag vill göra en felanmälan.", "Jag vill säga upp lägenheten.", "Jag vill boka tvättstugan.", "Jag vill hyra i andra hand."], answer: 0 }
-          - { type: mc, prompt: "Je buren maken 's nachts veel lawaai. Je spreekt ze vriendelijk aan.", options: ["Ursäkta, skulle ni kunna vara lite tystare på kvällarna?", "Var tysta!", "Jag ringer polisen nu.", "Ni är jättedåliga grannar."], answer: 0 }
+          - { type: mc, prompt: "Je buren maken 's avonds veel lawaai. Je spreekt ze vriendelijk aan.", options: ["Ursäkta, skulle ni kunna vara lite tystare på kvällarna?", "Var tysta!", "Jag ringer polisen nu.", "Ni är jättedåliga grannar."], answer: 0 }
           - { type: mc, prompt: "Je vraagt of de monteur een sleutel heeft.", options: ["Har reparatören en egen nyckel?", "Har du sett min nyckel?", "Kan jag låna din nyckel?", "Var är nyckeln till tvättstugan?"], answer: 0 }
           - { type: mc, prompt: "Je wilt je huur opzeggen.", options: ["Jag vill säga upp mitt hyreskontrakt.", "Jag vill förlänga mitt hyreskontrakt.", "Jag vill flytta in.", "Jag vill betala hyran."], answer: 0 }
 
@@ -263,9 +268,9 @@ sections:
         items:
           - { type: gap, topic: passiv-s, text: "Hyran ___ (betala) den sista varje månad.", gaps: [{ answers: ["betalas"] }] }
           - { type: gap, topic: passiv-bli, text: "Fönstren blev ___ (byta ut) i fjol.", gaps: [{ answers: ["utbytta"], feedback: [{ match: ["bytta ut", "bytt ut"], tip: "Als deelwoord komt het partikel vooraan: utbytt, utbytta." }] }], hint: "Bij een deelwoord komt het partikel ervoor: byta ut → utbytt." }
-          - { type: gap, topic: particip, text: "Vi hittade en ___ (glömma) jacka i tvättstugan.", gaps: [{ answers: ["glömd"] }] }
+          - { type: gap, topic: particip, text: "Vi hittade en ___ (glömma bort) jacka i tvättstugan.", hint: "Bij een deelwoord komt het partikel ervoor: glömma bort → bortglömd.", gaps: [{ answers: ["bortglömd"], feedback: [{ match: "glömd", tip: "Voor een vergeten voorwerp zeg je bortglömd (of kvarglömd)." }] }] }
           - { type: transform, topic: relativ-som, prompt: "Jag har en granne. Han spelar trummor.", answers: ["Jag har en granne som spelar trummor."] }
-          - { type: gap, topic: dar-dit-vars, text: "Det är parken ___ vi brukar gå med hunden.", gaps: [{ answers: ["dit"], options: ["där", "dit", "vars"], shuffle: false, tip: "gå med hunden: ga je ernaartoe? Dan dit." }] }
+          - { type: gap, topic: dar-dit-vars, text: "Det är parken ___ vi brukar ta hunden på morgonen.", gaps: [{ answers: ["dit"], options: ["där", "dit", "vars"], shuffle: false, tip: "ta hunden (dit): je brengt de hond ernaartoe, een beweging, dus dit." }] }
           - { type: translate, topic: partikelverb, prompt: "Ik zet de radio aan.", answers: ["Jag sätter på radion.", "Jag slår på radion."] }
 
   - id: zoek-de-fout
@@ -281,7 +286,7 @@ sections:
           - { type: findError, topic: dar-dit-vars, sentence: "Det är staden dit jag bor.", wrong: [3], answers: ["Det är staden där jag bor."], tip: "bo is geen beweging." }
           - { type: findError, topic: dar-dit-vars, sentence: "Jag har en granne vem hund skäller.", wrong: [4], answers: ["Jag har en granne vars hund skäller."], tip: "Wiens hond?" }
           - { type: findError, sentence: "Jag kände igen inte henne.", wrong: [2, 3], answers: ["Jag kände inte igen henne."], tip: "Waar staat inte bij een partikelwerkwoord?" }
-          - { type: findError, sentence: "Vi ska hälsa till mormor i helgen.", wrong: [3], answers: ["Vi ska hälsa på mormor i helgen."], tip: "Op bezoek gaan = hälsa …?" }
+          - { type: findError, sentence: "Vi ska hälsa hos mormor i helgen.", wrong: [3], answers: ["Vi ska hälsa på mormor i helgen."], tip: "Op bezoek gaan = hälsa …?" }
 
 vocab:
   - { sv: "en hyresvärd", nl: "verhuurder", def: "hyresvärden" }

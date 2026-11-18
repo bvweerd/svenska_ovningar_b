@@ -16,6 +16,8 @@ grammar:
       - *Om jag **hade** mer tid, **skulle** jag **träna** mer.* – Als ik meer tijd had, zou ik meer sporten.
       - *Vad **skulle** du **göra** om du **vann** en miljon?*
 
+      In spreektaal hoor je ook de verleden tijd in beide delen: *Om jag hade tid, **hjälpte** jag dig.* Na de om-zin mag ook *så* staan: *Om jag hade tid, **så** skulle jag hjälpa dig.*
+
       ### Denkbeeldig in het verleden
       Het is niet gebeurd: **hade + supinum** in de om-zin, **skulle ha + supinum** (of *hade + supinum*) in de hoofdzin.
 
@@ -37,21 +39,23 @@ grammar:
       | *Du **borde** prata med honom.* | Je zou met hem moeten praten. |
       | *Om jag var du **skulle** jag prata med honom.* | Als ik jou was, zou ik met hem praten. |
       | *Du **kanske skulle** prata med honom?* | Misschien moet je met hem praten? (voorzichtig) |
-      | *Har du **tänkt på** att …?* | Heb je erover nagedacht dat …? |
+      | *Har du **tänkt på** att …?* | Heb je eraan gedacht dat …? |
       | *Det **vore** bra om du …* | Het zou goed zijn als je … |
 
-      *borde* is de verleden tijd van *böra* (moeten, horen te) en wordt bijna alleen in deze vorm gebruikt.
+      *borde* is de verleden tijd van *böra* (moeten, horen te). In persoonlijk advies gebruik je meestal *borde*. De presens *bör* is ook heel gewoon, vooral in formele tekst en regels: *Man **bör** boka tid i förväg.*
 
       ### Beleefd vragen
       - ***Skulle** du kunna hjälpa mig?* – Zou je me kunnen helpen?
       - *Jag **skulle vilja** ha en kopp kaffe.* – Ik zou graag …
 
       ### Wensen
-      Na *önska att* en *tänk om* komt de **verleden tijd**, net als bij een denkbeeldige voorwaarde:
+      Gaat het om een **onwerkelijke** wens, dan komt na *önska att* en *tänk om* de **verleden tijd**, net als bij een denkbeeldige voorwaarde:
 
       - *Jag **önskar** att jag **hade** mer tid.* – Ik wou dat ik meer tijd had.
       - ***Tänk om** vi **kunde** åka till Island!* – Stel je voor dat we naar IJsland konden!
       - *Om jag **ändå** **hade** lyssnat!* – Had ik maar geluisterd!
+
+      Kan de wens echt uitkomen, dan blijft de presens: *Jag **önskar** att du **får** en fin dag.* *Tänk om det **regnar** i morgon?* (en als het morgen regent?)
 
 sections:
   - id: lasa
@@ -125,10 +129,10 @@ sections:
         instruction: Maak de voorwaarde denkbeeldig (met **hade/-de** en **skulle**).
         topic: villkor
         items:
-          - { type: transform, prompt: "Om jag har tid, hjälper jag dig.", answers: ["Om jag hade tid, skulle jag hjälpa dig.", "Om jag hade tid, hjälpte jag dig."], feedback: [{ contains: "skulle jag hjälpte", tip: "Na skulle komt de infinitief: skulle jag hjälpa." }, { contains: "jag skulle hjälpa", tip: "Na de om-zin komt eerst het werkwoord: skulle jag hjälpa." }] }
-          - { type: transform, prompt: "Om det regnar, stannar vi hemma.", answers: ["Om det regnade, skulle vi stanna hemma.", "Om det regnade, stannade vi hemma."], feedback: [{ contains: "vi skulle", tip: "Na de om-zin komt eerst het werkwoord: skulle vi." }] }
-          - { type: transform, prompt: "Om du frågar, svarar hon.", answers: ["Om du frågade, skulle hon svara.", "Om du frågade, svarade hon."] }
-          - { type: transform, prompt: "Jag visste det inte, så jag kom inte. (Begin met: Om jag hade …)", answers: ["Om jag hade vetat det, skulle jag ha kommit.", "Om jag hade vetat det, hade jag kommit."], feedback: [{ contains: "skulle jag kommit", tip: "Vergeet ha niet: skulle jag ha kommit." }] }
+          - { type: transform, prompt: "Om jag har tid, hjälper jag dig.", answers: ["Om jag hade tid, skulle jag hjälpa dig.", "Om jag hade tid, hjälpte jag dig.", "Om jag hade tid, så {skulle jag hjälpa|hjälpte jag} dig."], feedback: [{ contains: "skulle jag hjälpte", tip: "Na skulle komt de infinitief: skulle jag hjälpa." }, { contains: "jag skulle hjälpa", tip: "Na de om-zin komt eerst het werkwoord: skulle jag hjälpa." }] }
+          - { type: transform, prompt: "Om det regnar, stannar vi hemma.", answers: ["Om det regnade, skulle vi stanna hemma.", "Om det regnade, stannade vi hemma.", "Om det regnade, så {skulle vi stanna|stannade vi} hemma."], feedback: [{ contains: "vi skulle", tip: "Na de om-zin komt eerst het werkwoord: skulle vi." }] }
+          - { type: transform, prompt: "Om du frågar, svarar hon.", answers: ["Om du frågade, skulle hon svara.", "Om du frågade, svarade hon.", "Om du frågade, så {skulle hon svara|svarade hon}."] }
+          - { type: transform, prompt: "Jag visste det inte, så jag kom inte. (Begin met: Om jag hade …)", answers: ["Om jag hade vetat det, skulle jag ha kommit.", "Om jag hade vetat det, hade jag kommit.", "Om jag hade vetat det, så {skulle jag ha kommit|hade jag kommit}."], feedback: [{ contains: "skulle jag kommit", tip: "In spreektaal valt ha vaak weg, maar schrijf: skulle jag ha kommit." }] }
 
       - id: villkor-sorteren
         title: Echt of denkbeeldig?
@@ -154,8 +158,8 @@ sections:
         topic: rad-onskan
         items:
           - { type: translate, prompt: "Als ik jou was, zou ik met hem praten.", answers: ["Om jag {var|vore} du, skulle jag prata med honom.", "Om jag {var|vore} du, hade jag pratat med honom."], feedback: [{ contains: "jag skulle prata", tip: "Na de om-zin komt eerst het werkwoord: skulle jag prata." }, { contains: "om jag är du", tip: "Denkbeeldig: om jag var du." }] }
-          - { type: translate, prompt: "Je zou meer moeten slapen.", answers: ["Du borde sova mer."], feedback: [{ contains: "skulle måste", tip: "Moeten (advies) = borde: Du borde sova mer." }] }
-          - { type: translate, prompt: "Ik wou dat ik meer tijd had.", answers: ["Jag önskar att jag hade mer tid."], feedback: [{ contains: "att jag har", tip: "Na önskar att: verleden tijd, hade." }] }
+          - { type: translate, prompt: "Je zou meer moeten slapen.", answers: ["Du borde sova mer.", "Du skulle behöva sova mer."], feedback: [{ contains: "skulle måste", tip: "Moeten (advies) = borde: Du borde sova mer." }] }
+          - { type: translate, prompt: "Ik wou dat ik meer tijd had.", answers: ["Jag önskar [att ]jag hade mer tid."], feedback: [{ contains: "att jag har", tip: "Na önskar att: verleden tijd, hade." }] }
           - { type: translate, prompt: "Zou je me kunnen helpen?", answers: ["Skulle du kunna hjälpa mig?"] }
           - { type: translate, prompt: "Stel je voor dat we naar IJsland konden gaan!", answers: ["Tänk om vi kunde {åka|resa} till Island!"] }
 
@@ -181,7 +185,7 @@ sections:
         text: |
           Hej, det är Sara! Jag behöver ditt råd. Min bästa vän Linnea har glömt min födelsedag för andra året i rad. Hon skickade inte ens ett sms. Jag är faktiskt ganska ledsen.
 
-          Om det bara hade hänt en gång, skulle jag inte bry mig. Men nu känns det som att hon inte tycker att vår vänskap är viktig. Skulle jag säga något till henne, eller borde jag bara glömma det? Ring mig när du hör det här!
+          Om det bara hade hänt en gång, skulle jag inte bry mig. Men nu känns det som att hon inte tycker att vår vänskap är viktig. Ska jag säga något till henne, eller borde jag bara glömma det? Ring mig när du hör det här!
         items:
           - { type: truefalse, statement: "Linnea har glömt Saras födelsedag två år i rad.", answer: true }
           - { type: truefalse, statement: "Linnea skickade ett sms.", answer: false, correction: { answers: ["{Linnea|Hon} skickade inte [ens ]ett sms."] } }
@@ -236,7 +240,7 @@ sections:
               - { any: ["skulle"], label: "Je gebruikt skulle" }
               - { any: ["om"], label: "Je gebruikt een om-zin" }
               - { any: ["kram", "hälsningar", "hörs"], label: "Je sluit persoonlijk af" }
-            model: "Hej Sara! Vad tråkigt att höra. Jag förstår verkligen att du är ledsen, det skulle jag också vara. Om jag var du skulle jag prata med Linnea, men inte via sms. Ni borde träffas och ta en fika. Säg lugnt hur du känner dig, utan att anklaga henne. Kanske har hon haft det jobbigt och glömt allt annat också? Om hon blir ledsen och ber om ursäkt, vet du att vänskapen är viktig för henne. Om hon inte bryr sig, kanske du borde lägga mer tid på andra vänner. Ring mig när du vill! Kram, Emma"
+            model: "Hej Sara! Vad tråkigt att höra. Jag förstår verkligen att du är ledsen, det skulle jag också vara. Om jag var du skulle jag prata med Linnea, men inte via sms. Ni borde träffas och ta en fika. Säg lugnt hur du känner dig, utan att anklaga henne. Kanske har hon haft det jobbigt och glömt allt annat också? Om hon blir ledsen och ber om ursäkt, vet du att vänskapen är viktig för henne. Om hon inte bryr sig, borde du kanske lägga mer tid på andra vänner. Ring mig när du vill! Kram, Emma"
 
   - id: herhaling
     title: Herhaling
@@ -250,7 +254,7 @@ sections:
           - { type: gap, topic: deponens, text: "De ___ (träffas) på en fest för tio år sedan.", gaps: [{ answers: ["träffades"] }] }
           - { type: gap, topic: prep-verb, text: "Hon är kär ___ sin granne.", gaps: [{ answers: ["i"], feedback: [{ match: "på", tip: "Verliefd op = kär i." }] }] }
           - { type: gap, topic: framtid, text: "Ni ___ att bli så lyckliga tillsammans!", gaps: [{ answers: ["kommer"], options: ["kommer", "ska", "tänker"], shuffle: false }] }
-          - { type: transform, topic: relativ-som, prompt: "Jag har en kompis. Hon har just gift sig.", answers: ["Jag har en kompis som just har gift sig.", "Jag har en kompis som har gift sig just."] }
+          - { type: transform, topic: relativ-som, prompt: "Jag har en kompis. Hon har just gift sig.", answers: ["Jag har en kompis som {just|precis|nyss} har gift sig."] }
           - { type: gap, topic: villkor, text: "Om jag ___ (vara) du, skulle jag ringa henne.", gaps: [{ answers: ["var", "vore"] }] }
 
   - id: zoek-de-fout
@@ -265,7 +269,7 @@ sections:
           - { type: findError, sentence: "Om jag har pengar skulle jag resa jorden runt.", wrong: [2], answers: ["Om jag hade pengar skulle jag resa jorden runt."], tip: "Het is denkbeeldig." }
           - { type: findError, sentence: "Om jag hade tid jag skulle hjälpa dig.", wrong: [4, 5], answers: ["Om jag hade tid skulle jag hjälpa dig."], tip: "V2: na de om-zin komt eerst het werkwoord." }
           - { type: findError, topic: rad-onskan, sentence: "Jag önskar att jag har mer tid.", wrong: [4], answers: ["Jag önskar att jag hade mer tid."], tip: "Na önskar att: verleden tijd." }
-          - { type: findError, sentence: "Om jag hade vetat det skulle jag kommit.", wrong: [6, 7], answers: ["Om jag hade vetat det skulle jag ha kommit."], tip: "Er ontbreekt een woordje: skulle … kommit." }
+          - { type: findError, sentence: "Om jag hade vetat det skulle jag kommit.", wrong: [6, 7], answers: ["Om jag hade vetat det skulle jag ha kommit."], tip: "In spreektaal valt ha vaak weg, maar schrijf het wel: skulle … kommit." }
           - { type: findError, topic: rad-onskan, sentence: "Du borde att sova mer.", wrong: [2], answers: ["Du borde sova mer."], tip: "Na borde komt geen att." }
 
 vocab:

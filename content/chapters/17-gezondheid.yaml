@@ -16,12 +16,14 @@ grammar:
 
       Een handige test: kan iemand het **beslissen**? Dan *ska* (of *tänker*). Gaat het **vanzelf**, zoals het weer, de toekomst of gevoelens? Dan *kommer att*.
 
-      - ~~*Det ska regna i morgon.*~~ → *Det **kommer att** regna i morgon.*
+      - *Det **kommer att** regna i morgon.* (voorspelling)
       - *Vi **ska** träffas klockan tre.* (afspraak)
 
       In spreektaal valt *att* vaak weg: *Det kommer regna.* In geschreven tekst schrijf je meestal *kommer att*.
 
       **ska** kan ook betekenen *moeten volgens iemand anders*: *Du **ska** ta tabletterna tre gånger om dagen.*
+
+      En **ska** kan betekenen *naar verluidt, volgens de verwachting*: je geeft door wat een ander zegt. *Det **ska** regna i morgon, enligt SMHI.* – Volgens de weerdienst gaat het morgen regenen. Dat is gewoon goed Zweeds.
 
   - id: prep-verb
     title: Vaste voorzetsels
@@ -39,13 +41,14 @@ grammar:
       | prata **om** | praten **over** |
       | bry sig **om** | geven **om** |
       | vara rädd **för** | bang zijn **voor** |
-      | vara orolig **för** | ongerust zijn **over** |
+      | vara orolig **för** | ongerust zijn **over** (iemand, iets wat kan gebeuren) |
+      | vara orolig **över** | ongerust zijn **over** (een situatie) |
       | vara intresserad **av** | geïnteresseerd zijn **in** |
       | vara beroende **av** | afhankelijk zijn **van** |
       | vara nöjd **med** | tevreden zijn **met** |
       | vara arg **på** | boos zijn **op** |
 
-      Pas op: *tänka **om*** betekent *opnieuw nadenken, van mening veranderen*, niet *denken aan*.
+      Pas op: *tänka **om*** (klemtoon op *om*) betekent *opnieuw nadenken, van mening veranderen*. Met onbeklemtoond *om* betekent het *vinden van*: *Vad tänker du om det?* Geen van beide is *denken aan*.
 
       In een vraag of bijzin blijft het voorzetsel achteraan: *Vad tänker du **på**? Det är något jag är rädd **för**.*
 
@@ -61,7 +64,7 @@ sections:
         text: |
           Ruud har sprungit varje morgon i två år. Men en dag i oktober fick han plötsligt ont i knät. Han tänkte först att det skulle gå över, men efter några dagar var det fortfarande svullet.
 
-          Han ringde 1177, där en sjuksköterska svarade. Hon frågade hur det hade hänt och om han kunde gå normalt. ”Vila knät och lägg is på det”, sa hon. ”Om det inte blir bättre inom en vecka ska du boka en tid på vårdcentralen.”
+          Han ringde 1177 och fick prata med en sjuksköterska. Hon frågade hur det hade hänt och om han kunde gå normalt. ”Vila knät och lägg is på det”, sa hon. ”Om det inte blir bättre inom en vecka ska du boka en tid på vårdcentralen.”
 
           Knät blev inte bättre, så Ruud bokade en tid i vårdcentralens app. Läkaren undersökte honom och trodde inte att det var något allvarligt. ”Du kommer att bli bra, men det kommer att ta tid”, sa hon. Nu ska Ruud träffa en fysioterapeut två gånger i veckan.
 
@@ -93,7 +96,7 @@ sections:
               - ["utslag", "uitslag"]
           - type: match
             pairs:
-              - ["en vårdcentral", "een huisartsenpost, gezondheidscentrum"]
+              - ["en vårdcentral", "een huisartsenpraktijk, gezondheidscentrum"]
               - ["akuten", "de spoedeisende hulp"]
               - ["ett recept", "een recept (van de arts)"]
               - ["en remiss", "een verwijzing"]
@@ -107,7 +110,7 @@ sections:
         shuffle: true
         items:
           - { type: translate, prompt: "Ik ben duizelig.", answers: ["Jag är yr.", "Jag känner mig yr."] }
-          - { type: translate, prompt: "Ik heb sinds gisteren koorts.", answers: ["Jag har haft feber sedan {i går|igår}.", "Jag har feber sedan {i går|igår}."], feedback: [{ contains: "sedan gisteren", tip: "Gisteren = i går." }] }
+          - { type: translate, prompt: "Ik heb sinds gisteren koorts.", answers: ["Jag har haft feber {sedan|sen} {i går|igår}."], feedback: [{ contains: "jag har feber", tip: "Het duurt tot nu toe: perfectum, jag har haft feber sedan i går." }, { contains: "gisteren", tip: "Gisteren = i går." }] }
           - { type: translate, prompt: "Mijn knie doet pijn.", answers: ["Jag har ont i knät.", "Knät gör ont.", "Mitt knä gör ont."] }
           - { type: translate, prompt: "Ik ben misselijk.", answers: ["Jag mår illa.", "Jag känner mig illamående.", "Jag är illamående."] }
 
@@ -120,12 +123,12 @@ sections:
         topic: framtid
         shuffle: true
         items:
-          - { type: gap, text: "Titta på molnen! Det ___ regna snart.", gaps: [{ answers: ["kommer att"], options: ["ska", "kommer att", "tänker"], shuffle: false, feedback: [{ match: "ska", tip: "Niemand beslist over het weer: kommer att." }] }] }
+          - { type: gap, text: "Titta på molnen! Det ___ regna snart.", gaps: [{ answers: ["kommer att"], options: ["ska", "kommer att", "tänker"], shuffle: false, feedback: [{ match: "ska", tip: "Je voorspelt het zelf (je ziet de wolken): kommer att." }] }] }
           - { type: gap, text: "Vi har bestämt det: jag ___ ringa vårdcentralen i morgon bitti.", gaps: [{ answers: ["ska"], options: ["ska", "kommer att", "tänker"], shuffle: false, feedback: [{ match: "kommer att", tip: "Het is een plan: ska." }] }] }
           - { type: gap, text: "Oroa dig inte. Du ___ må bättre om några dagar.", gaps: [{ answers: ["kommer att"], options: ["ska", "kommer att", "tänker"], shuffle: false, feedback: [{ match: "ska", tip: "Beter worden kun je niet beslissen: kommer att." }] }] }
-          - { type: gap, text: "Jag ___ inte ta den medicinen, vad läkaren än säger!", gaps: [{ answers: ["tänker"], options: ["ska", "kommer att", "tänker"], shuffle: false, tip: "Een eigen, vast besluit: tänker." }] }
+          - { type: gap, text: "Jag ___ inte ta den medicinen, vad läkaren än säger!", gaps: [{ answers: ["tänker", "ska"], options: ["ska", "kommer att", "tänker"], shuffle: false, tip: "Een eigen, vast besluit: tänker (ska kan hier ook)." }] }
           - { type: gap, text: "Vi ___ träffas klockan tre, eller hur?", gaps: [{ answers: ["ska"], options: ["ska", "kommer att", "tänker"], shuffle: false, feedback: [{ match: "kommer att", tip: "Een afspraak: ska." }] }] }
-          - { type: gap, text: "Om tio år ___ fler människor jobba hemifrån.", gaps: [{ answers: ["kommer att"], options: ["ska", "kommer att", "tänker"], shuffle: false, feedback: [{ match: "ska", tip: "Een voorspelling over de toekomst: kommer att." }] }] }
+          - { type: gap, text: "Forskarna tror att fler människor ___ jobba hemifrån om tio år.", gaps: [{ answers: ["kommer att"], options: ["ska", "kommer att", "tänker"], shuffle: false, feedback: [{ match: "ska", tip: "Een voorspelling (tror att): kommer att." }] }] }
           - { type: gap, text: "Läkaren säger att du ___ ta tabletterna tre gånger om dagen.", gaps: [{ answers: ["ska"], options: ["ska", "kommer att", "tänker"], shuffle: false, tip: "ska = moeten volgens iemand anders (hier de arts)." }] }
 
       - id: framtid-sorteren
@@ -148,10 +151,10 @@ sections:
         instruction: Vertaal naar het Zweeds.
         topic: framtid
         items:
-          - { type: translate, prompt: "Het gaat morgen regenen.", answers: ["Det kommer att regna {i morgon|imorgon}.", "{I morgon|Imorgon} kommer det att regna."], feedback: [{ contains: "ska regna", tip: "Het weer plant niets: kommer att." }, { contains: "går att regna", tip: "gå betekent hier niet gaan: gebruik kommer att." }] }
+          - { type: translate, prompt: "Het gaat morgen regenen.", answers: ["Det kommer att regna {i morgon|imorgon}.", "{I morgon|Imorgon} kommer det att regna.", "Det ska regna {i morgon|imorgon}.", "{I morgon|Imorgon} ska det regna."], feedback: [{ contains: "går att regna", tip: "gå betekent hier niet gaan: gebruik kommer att." }] }
           - { type: translate, prompt: "Ik ga morgen naar de dokter. (Ik heb een afspraak.)", answers: ["Jag ska [gå ]till {läkaren|doktorn|vårdcentralen} {i morgon|imorgon}.", "{I morgon|Imorgon} ska jag [gå ]till {läkaren|doktorn|vårdcentralen}.", "Jag går till {läkaren|doktorn|vårdcentralen} {i morgon|imorgon}."], feedback: [{ contains: "går att", tip: "Nederlands gaan + infinitief is geen gå in het Zweeds: gebruik ska." }] }
           - { type: translate, prompt: "Je zult je snel beter voelen.", answers: ["Du kommer att må bättre snart.", "Du kommer snart att må bättre.", "Du kommer att känna dig bättre snart.", "Du kommer snart att känna dig bättre."], feedback: [{ contains: "du ska", tip: "Een voorspelling: kommer att." }] }
-          - { type: translate, prompt: "Ik ben van plan te stoppen met roken.", answers: ["Jag tänker sluta röka.", "Jag ska sluta röka."] }
+          - { type: translate, prompt: "Ik ben van plan te stoppen met roken.", answers: ["Jag tänker sluta röka.", "Jag ska sluta röka.", "Jag har tänkt sluta röka.", "Jag planerar att sluta röka.", "Jag har planer på att sluta röka."] }
 
   - id: prep
     title: "Grammatik: vaste voorzetsels"
@@ -162,14 +165,14 @@ sections:
         topic: prep-verb
         shuffle: true
         items:
-          - { type: gap, text: "Jag tänker ofta ___ dig.", gaps: [{ answers: ["på"], feedback: [{ match: "om", tip: "tänka om = opnieuw nadenken. Denken aan = tänka på." }, { match: "åt", tip: "Denken aan = tänka på." }] }] }
+          - { type: gap, text: "Jag tänker ofta ___ dig.", gaps: [{ answers: ["på"], feedback: [{ match: "om", tip: "tänka om = opnieuw nadenken (of: vinden van). Denken aan = tänka på." }, { match: "åt", tip: "Denken aan = tänka på." }] }] }
           - { type: gap, text: "Vi väntar ___ läkaren.", gaps: [{ answers: ["på"], feedback: [{ match: ["för", "efter"], tip: "Wachten op = vänta på." }] }] }
           - { type: gap, text: "Hon är rädd ___ sprutor.", gaps: [{ answers: ["för"], feedback: [{ match: ["av", "från"], tip: "Bang voor = rädd för." }] }] }
           - { type: gap, text: "Jag litar inte ___ honom.", gaps: [{ answers: ["på"] }] }
           - { type: gap, text: "Han är intresserad ___ medicin.", gaps: [{ answers: ["av"], feedback: [{ match: "i", tip: "Geïnteresseerd in = intresserad av." }] }] }
           - { type: gap, text: "Jag är nöjd ___ behandlingen.", gaps: [{ answers: ["med"] }] }
           - { type: gap, text: "Hon bryr sig inte ___ vad andra tycker.", gaps: [{ answers: ["om"] }] }
-          - { type: gap, text: "Jag är orolig ___ min mamma.", gaps: [{ answers: ["för"], feedback: [{ match: "över", tip: "Ongerust over iemand = orolig för." }] }] }
+          - { type: gap, text: "Jag är orolig ___ min mamma.", gaps: [{ answers: ["för"], feedback: [{ match: "över", tip: "Ongerust over iemand = orolig för. orolig över gebruik je eerder voor een situatie: orolig över läget." }] }] }
           - { type: gap, text: "Barnet drömmer ___ en hund.", gaps: [{ answers: ["om"], feedback: [{ match: "av", tip: "Dromen van = drömma om." }] }] }
           - { type: gap, text: "Vad pratade ni ___?", gaps: [{ answers: ["om"], feedback: [{ match: "över", tip: "Praten over = prata om." }] }] }
 
@@ -210,7 +213,7 @@ sections:
     title: Praktiskt · een afspraak maken
     exercises:
       - id: dialoog-vardcentral
-        title: Bellen met de huisartsenpost
+        title: Bellen met de huisartsenpraktijk
         instruction: Zet het gesprek in de goede volgorde.
         topic: framtid
         items:
@@ -237,11 +240,11 @@ sections:
 
   - id: skriva
     title: Skriva · schrijven
-    intro: "Schrijfdoel: een ziekmelding en een verzoek."
+    intro: "Schrijfdoel: een afspraak verzetten met een beleefd verzoek."
     exercises:
       - id: skriva-verzoek
         title: Een afspraak verzetten
-        instruction: Schrijf een bericht aan de huisartsenpost.
+        instruction: Schrijf een bericht aan de huisartsenpraktijk.
         topic: framtid
         items:
           - type: free
@@ -279,14 +282,14 @@ sections:
         topic: framtid
         shuffle: true
         items:
-          - { type: findError, sentence: "Det ska regna hela helgen.", wrong: [1], answers: ["Det kommer att regna hela helgen."], tip: "Kan iemand dit beslissen?" }
+          - { type: findError, sentence: "Det tänker regna hela helgen.", wrong: [1], answers: ["Det kommer att regna hela helgen.", "Det ska regna hela helgen."], tip: "Het weer neemt geen besluit." }
           - { type: findError, topic: prep-verb, sentence: "Jag är rädd av hundar.", wrong: [3], answers: ["Jag är rädd för hundar."], tip: "Bang voor …" }
           - { type: findError, topic: prep-verb, sentence: "Hon är intresserad i medicin.", wrong: [3], answers: ["Hon är intresserad av medicin."], tip: "Welk voorzetsel hoort bij intresserad?" }
           - { type: findError, topic: prep-verb, sentence: "Vi väntar för bussen.", wrong: [2], answers: ["Vi väntar på bussen."], tip: "Wachten op …" }
-          - { type: findError, sentence: "Jag går att ringa läkaren i morgon.", wrong: [1, 2], answers: ["Jag ska ringa läkaren {i morgon|imorgon}."], tip: "Nederlands gaan + infinitief." }
+          - { type: findError, sentence: "Jag går att ringa läkaren i morgon.", wrong: [1, 2], answers: ["Jag ska ringa läkaren {i morgon|imorgon}.", "Jag tänker ringa läkaren {i morgon|imorgon}."], tip: "Nederlands gaan + infinitief." }
 
 vocab:
-  - { sv: "en vårdcentral", nl: "gezondheidscentrum, huisartsenpost", def: "vårdcentralen" }
+  - { sv: "en vårdcentral", nl: "huisartsenpraktijk, gezondheidscentrum", def: "vårdcentralen" }
   - { sv: "en läkare", nl: "arts", def: "läkaren" }
   - { sv: "en sjuksköterska", nl: "verpleegkundige", def: "sjuksköterskan" }
   - { sv: "ett apotek", nl: "apotheek", def: "apoteket" }

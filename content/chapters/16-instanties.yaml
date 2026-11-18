@@ -194,7 +194,7 @@ sections:
           - { type: truefalse, statement: "Frågor om id-kort: tryck ett.", answer: false, correction: { answers: ["{Frågor om id-kort|Då}: tryck två.", "Man trycker två[ för id-kort]."] } }
           - { type: truefalse, statement: "Väntetiden är ungefär tjugo minuter.", answer: true }
           - { type: truefalse, statement: "Man kan hitta svar på webbplatsen.", answer: true }
-          - { type: truefalse, statement: "Man ska ha sitt passnummer redo.", answer: false, correction: { answers: ["{Man|Du} ska ha {sitt|ditt} ärendenummer redo."] } }
+          - { type: truefalse, statement: "Man ska ha sitt passnummer redo.", answer: false, correction: { answers: ["Man ska ha sitt ärendenummer redo.", "Du ska ha ditt ärendenummer redo."] } }
 
       - id: lyssna-dictee
         title: Dictee
@@ -267,7 +267,7 @@ sections:
           - { type: gap, topic: passiv-s, text: "Blanketten ___ (fylla i) av den sökande.", hint: "fylla i = invullen.", gaps: [{ answers: ["fylls i", "ifylls"] }] }
           - { type: gap, topic: passiv-bli, text: "Ansökan blev ___ (godkänna) efter sex veckor.", gaps: [{ answers: ["godkänd"] }] }
           - { type: gap, topic: dar-dit-vars, text: "Det är kontoret ___ jag ska gå i morgon.", gaps: [{ answers: ["dit"], options: ["där", "dit", "vars"], shuffle: false, tip: "gå = beweging naartoe: dit." }] }
-          - { type: translate, topic: partikelverb, prompt: "Ik herkende de ambtenaar niet.", answers: ["Jag kände inte igen handläggaren."] }
+          - { type: translate, topic: partikelverb, prompt: "Ik herkende de ambtenaar niet.", answers: ["Jag kände inte igen {handläggaren|tjänstemannen|tjänstepersonen}."] }
           - { type: gap, topic: deponens, text: "Vi ___ (träffas) på en kurs för tre år sedan.", gaps: [{ answers: ["träffades"] }] }
           - { type: transform, topic: relativ-som, prompt: "Jag fick ett brev. Jag förstod inte brevet.", answers: ["Jag fick ett brev [som ]jag inte förstod."], feedback: [{ contains: "förstod inte", tip: "In de bijzin staat inte vóór het werkwoord: som jag inte förstod." }] }
 
@@ -293,7 +293,7 @@ vocab:
   - { sv: "en handläggare", nl: "behandelend ambtenaar", def: "handläggaren" }
   - { sv: "ett ärende", nl: "zaak, dossier", def: "ärendet" }
   - { sv: "ett beslut", nl: "besluit", def: "beslutet" }
-  - { sv: "en avgift", nl: "vergoeding, kosten", def: "avgiften" }
+  - { sv: "en avgift", nl: "kosten, tarief, leges", def: "avgiften" }
   - { sv: "ett id-kort", nl: "identiteitskaart", def: "id-kortet" }
   - { sv: "ett bankkonto", nl: "bankrekening", def: "bankkontot" }
   - { sv: "ett kvitto", nl: "bon, kwitantie", def: "kvittot" }

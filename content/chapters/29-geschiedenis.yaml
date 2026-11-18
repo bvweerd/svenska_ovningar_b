@@ -3,7 +3,7 @@ chapter: 29
 grammar:
   - id: bisats-adverb
     title: Lange bijzinnen
-    summary: "In een bijzin staan **alle** zinsbijwoorden vóór het werkwoord: *att han **kanske inte längre** ville segla*. In de hoofdzin erna: *Han ville **kanske inte längre** segla.* In geschreven Zweeds mag **hade** in een bijzin wegvallen: *när skeppet (hade) sjunkit*."
+    summary: "In een bijzin staan **alle** zinsbijwoorden vóór het werkwoord: *att han **kanske inte längre** ville segla*. In de hoofdzin erna: *Han ville **kanske inte längre** segla.* In geschreven Zweeds mag **hade** (en ook **har**) in een bijzin wegvallen: *när skeppet (hade) sjunkit*."
     body: |
       ### Meerdere bijwoorden
       Zinsbijwoorden zoals *inte, aldrig, kanske, nog, ju, redan, längre, heller, alltid* staan:
@@ -17,11 +17,13 @@ grammar:
       - *att hon **inte heller** kom*
       - *om man **kanske aldrig** får veta sanningen*
 
-      ### Hade mag wegvallen
+      ### Hade (en har) mag wegvallen
       In een **bijzin** in de voltooid verleden tijd laten Zweden in geschreven taal vaak *hade* weg:
 
       - *När skeppet **(hade) sjunkit**, samlades folk vid stranden.*
       - *Han berättade att han **(hade) hittat** vraket.*
+
+      Dat geldt ook voor **har** in de voltooid tegenwoordige tijd: *Jag är glad att du **(har) kommit**.*
 
       In de **hoofdzin** mag dat niet: *Skeppet **hade** sjunkit.*
 
@@ -44,7 +46,7 @@ grammar:
       | *Många turister finns på museet.* | ***Det finns** många turister på museet.* |
       | *En vindby kom plötsligt.* | ***Det kom** plötsligt en vindby.* |
 
-      Het werkwoord blijft enkelvoud, ook bij een meervoud: *Det **finns** många turister.*
+      Zweedse werkwoorden hebben geen meervoudsvorm, dus *det finns* blijft gewoon *det finns*. Let op het verschil met het Nederlands, waar *er is* bij meervoud *er zijn* wordt: *Det **finns** många turister.* = Er **zijn** veel toeristen.
 
 sections:
   - id: lasa
@@ -200,7 +202,7 @@ sections:
         topic: bisats-adverb
         shuffle: true
         items:
-          - { type: listen, say: "År sextonhundratjugoåtta sjönk Vasa." }
+          - { type: listen, say: "År sextonhundratjugoåtta sjönk Vasa.", answers: ["År {1628|sextonhundratjugoåtta} sjönk Vasa."] }
           - { type: listen, say: "Det kom plötsligt en vindby." }
           - { type: listen, say: "Han sa att han kanske inte längre ville segla." }
           - { type: listen, say: "När vraket hade bärgats började arbetet." }
@@ -263,7 +265,7 @@ sections:
         shuffle: true
         items:
           - { type: findError, sentence: "Vi vet att kungen var inte i Stockholm.", wrong: [4, 5], answers: ["Vi vet att kungen inte var i Stockholm."], tip: "Bijzinvolgorde." }
-          - { type: findError, sentence: "Hon sa att han kom inte heller.", wrong: [4, 5], answers: ["Hon sa att han inte heller kom."], tip: "Bijzinvolgorde, met twee bijwoorden." }
+          - { type: findError, sentence: "Hon sa att han kom inte heller.", wrong: [4, 5, 6], answers: ["Hon sa att han inte heller kom."], tip: "Bijzinvolgorde, met twee bijwoorden." }
           - { type: findError, topic: fundament, sentence: "År 1961 skeppet bärgades.", wrong: [2, 3], answers: ["År 1961 bärgades skeppet."], tip: "V2." }
           - { type: findError, topic: fundament, sentence: "Det finnas många turister här.", wrong: [1], answers: ["Det finns många turister här."], tip: "Welke vorm van finnas?" }
           - { type: findError, sentence: "Skeppet sjunkit inom några minuter.", wrong: [1], answers: ["Skeppet {hade sjunkit|sjönk} inom några minuter."], tip: "In een hoofdzin mag hade niet wegvallen." }

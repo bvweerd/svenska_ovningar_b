@@ -131,7 +131,7 @@ sections:
           - { type: transform, prompt: "Anna: ”Jag är trött.”", task: "Anna sa att …", answers: ["Anna sa att hon var trött."], feedback: [{ match: "Anna sa att hon är trött.", tip: "Schuif de tijd terug: är → var." }] }
           - { type: transform, prompt: "Erik: ”Jag har köpt en ny bil.”", task: "Erik sa att …", answers: ["Erik sa att han hade köpt en ny bil."], feedback: [{ match: "Erik sa att han har köpt en ny bil.", tip: "har köpt → hade köpt." }] }
           - { type: transform, prompt: "Läraren: ”Ni ska läsa kapitel tre.”", task: "Läraren sa att vi …", answers: ["Läraren sa att vi skulle läsa kapitel tre."], feedback: [{ contains: "att vi ska", tip: "ska → skulle." }] }
-          - { type: transform, prompt: "Mamma: ”Jag kan inte komma i morgon.”", task: "Mamma sa att …", answers: ["Mamma sa att hon inte kunde komma {dagen efter|nästa dag|i morgon|imorgon}."], feedback: [{ contains: "kunde inte", tip: "Het is een bijzin: inte vóór het werkwoord, inte kunde." }, { contains: "att hon inte kan", tip: "kan → kunde." }] }
+          - { type: transform, prompt: "Mamma: ”Jag kan inte komma i morgon.”", task: "Mamma sa att …", answers: ["Mamma sa att hon inte kunde komma {dagen efter|nästa dag|dagen därpå|följande dag|i morgon|imorgon}."], feedback: [{ contains: "kunde inte", tip: "Het is een bijzin: inte vóór het werkwoord, inte kunde." }, { contains: "att hon inte kan", tip: "kan → kunde." }] }
           - { type: transform, prompt: "Polisen: ”Ingen har skadats.”", task: "Polisen sa att …", answers: ["Polisen sa att ingen hade skadats.", "Polisen sa att ingen skadades."] }
           - { type: transform, prompt: "Meteorologen: ”Det kommer att snöa i helgen.”", task: "Meteorologen sa att …", answers: ["Meteorologen sa att det skulle snöa i helgen."], feedback: [{ contains: "kommer att", tip: "kommer att → skulle." }] }
 
@@ -154,8 +154,8 @@ sections:
           - { type: gap, text: "Jag vet inte ___ har ringt.", gaps: [{ answers: ["vem som"], options: ["vem som", "vem", "vad som", "vad"], shuffle: false, feedback: [{ match: "vem", tip: "vem is hier het onderwerp (wie heeft gebeld?): vem som." }] }] }
           - { type: gap, text: "Berätta ___ hände!", gaps: [{ answers: ["vad som"], options: ["vem som", "vem", "vad som", "vad"], shuffle: false, feedback: [{ match: "vad", tip: "vad is het onderwerp (wat gebeurde er?): vad som." }] }] }
           - { type: gap, text: "Vet du ___ hon träffade i går?", gaps: [{ answers: ["vem"], options: ["vem som", "vem", "vad som", "vad"], shuffle: false, feedback: [{ match: "vem som", tip: "hon is het onderwerp; vem is lijdend voorwerp: geen som." }] }] }
-          - { type: gap, text: "Jag undrar ___ du tänker på.", gaps: [{ answers: ["vad"], options: ["vem som", "vem", "vad som", "vad"], shuffle: false, feedback: [{ match: "vad som", tip: "du is het onderwerp: geen som." }] }] }
-          - { type: gap, text: "Ingen vet ___ orsakade branden.", gaps: [{ answers: ["vad som"], options: ["vem som", "vem", "vad som", "vad"], shuffle: false }] }
+          - { type: gap, text: "Jag undrar ___ du tänker göra i sommar.", gaps: [{ answers: ["vad"], options: ["vem som", "vem", "vad som", "vad"], shuffle: false, feedback: [{ match: "vad som", tip: "du is het onderwerp: geen som." }] }] }
+          - { type: gap, text: "Ingen vet ___ orsakade branden – kanske spisen?", gaps: [{ answers: ["vad som"], options: ["vem som", "vem", "vad som", "vad"], shuffle: false, feedback: [{ match: "vad", tip: "vad is het onderwerp (wat veroorzaakte de brand?): vad som." }] }] }
           - { type: gap, text: "Kan du säga ___ jag ska ringa?", gaps: [{ answers: ["vem"], options: ["vem som", "vem", "vad som", "vad"], shuffle: false }] }
 
       - id: indirekt-zinsbouw
@@ -183,7 +183,7 @@ sections:
 
           Enligt meteorologerna kommer det att fortsätta snöa under natten, men i morgon förmiddag väntas vädret bli bättre. Trafikverket uppmanar alla att undvika onödiga resor.
 
-          Och så sporten: Sverige vann mot Norge med tre–ett i handboll i går kväll.
+          Och så sporten: Sverige vann mot Norge med tre–ett i ishockey i går kväll.
         items:
           - { type: truefalse, statement: "Det har snöat mycket i södra Sverige.", answer: false, correction: { answers: ["Det har snöat mycket i norra Sverige.", "Snöfallet är i norra Sverige."] } }
           - { type: truefalse, statement: "Flera tåg mellan Umeå och Luleå är inställda.", answer: true }
@@ -215,7 +215,7 @@ sections:
               - "Maja: Har du hört om älgen i Uppsala?"
               - "Tom: Nej, vad hände?"
               - "Maja: Det stod i tidningen att en älg gick rakt genom centrum i tisdags."
-              - "Tom: Allvarligt? Skadades någon?"
+              - "Tom: På riktigt? Skadades någon?"
               - "Maja: Nej, enligt polisen skadades ingen. Men trafiken stod still i en timme."
               - "Tom: Vad hände med älgen sedan?"
               - "Maja: Polisen sa att de hade lett den tillbaka till skogen."
@@ -228,7 +228,7 @@ sections:
         items:
           - { type: mc, prompt: "Je begint over een nieuwtje.", options: ["Har du hört att …?", "Har du sagt att …?", "Har du frågat att …?", "Har du läst om att du …?"], answer: 0 }
           - { type: mc, prompt: "Je noemt je bron.", options: ["Det stod i tidningen att …", "Det sa i tidningen att …", "Det skrev i tidningen att …", "Tidningen stod att …"], answer: 0, tip: "In het Zweeds: det stod i tidningen (het stond in de krant)." }
-          - { type: mc, prompt: "Je twijfelt of het nieuws klopt.", options: ["Är det verkligen sant? Vilken källa är det?", "Det är sant eftersom jag läste det.", "Alla nyheter är falska.", "Jag vet inte vem som är sant."], answer: 0 }
+          - { type: mc, prompt: "Je twijfelt of het nieuws klopt.", options: ["Är det verkligen sant? Vad är källan?", "Det är sant eftersom jag läste det.", "Alla nyheter är falska.", "Jag vet inte vem som är sant."], answer: 0 }
 
   - id: skriva
     title: Skriva · schrijven
@@ -259,7 +259,7 @@ sections:
         shuffle: true
         items:
           - { type: gap, topic: passiv-s, text: "Älgen ___ (se) först vid stationen.", gaps: [{ answers: ["sågs"], feedback: [{ match: ["sedes", "såg"], tip: "se → såg; lijdend: sågs." }] }] }
-          - { type: gap, topic: dar-dit-vars, text: "Det var parken ___ älgen gick.", gaps: [{ answers: ["dit"], options: ["där", "dit", "vars"], shuffle: false, tip: "gå naar een plek: dit." }] }
+          - { type: gap, topic: dar-dit-vars, text: "Det var skogen ___ polisen ledde älgen.", gaps: [{ answers: ["dit"], options: ["där", "dit", "vars"], shuffle: false, tip: "leda naar een plek (beweging): dit." }] }
           - { type: gap, topic: framtid, text: "Det ___ att bli varmare i morgon.", gaps: [{ answers: ["kommer"], options: ["kommer", "ska", "tänker"], shuffle: false }] }
           - { type: gap, topic: villkor, text: "Om jag ___ (se) en älg, skulle jag bli rädd.", gaps: [{ answers: ["såg"] }] }
           - { type: gap, topic: prep-verb, text: "Jag är inte intresserad ___ sport.", gaps: [{ answers: ["av"] }] }
@@ -292,7 +292,7 @@ vocab:
   - { sv: "en brand", nl: "brand", def: "branden" }
   - { sv: "en älg", nl: "eland", def: "älgen" }
   - { sv: "ett snöfall", nl: "sneeuwval", def: "snöfallet" }
-  - { sv: "en uppståndelse", nl: "opschudding", def: "uppståndelsen" }
+  - { sv: "(stor) uppståndelse", nl: "(grote) opschudding" }
   - { sv: "att orsaka", nl: "veroorzaken" }
   - { sv: "att skadas", nl: "gewond raken" }
   - { sv: "att spärra av", nl: "afsluiten (een weg)" }

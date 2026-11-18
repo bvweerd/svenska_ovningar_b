@@ -22,13 +22,13 @@ grammar:
 
   - id: jamforelse
     title: Vergelijken, gevorderd
-    summary: "*lika dyr **som***, *inte lika dyr som*, ***ju** mer man äter, **desto** tröttare blir man*, *allt dyrare* (steeds duurder), *så billigt **som** möjligt*, *mycket billigare*. Lange woorden: *mer praktisk, mest känd*."
+    summary: "*lika dyr **som***, *inte lika dyr som*, ***ju** mer man äter, **desto** tröttare blir man*, *allt dyrare* (steeds duurder), *så billigt **som** möjligt*, *mycket billigare*. Lange woorden: *mer praktisk, mest omtyckt*."
     body: |
       | constructie | betekenis | voorbeeld |
       |---|---|---|
       | **lika … som** | even … als | *Kasse B kostar **lika** mycket **som** vanlig mat.* |
       | **inte lika … som** | minder … dan | *A är **inte lika** dyr **som** C.* |
-      | **ju … desto** | hoe … hoe | ***Ju** mer man lagar själv, **desto** billigare blir det.* |
+      | **ju … desto** | hoe … hoe | ***Ju** mer man lagar mat själv, **desto** billigare blir det.* |
       | **allt** + vergrotende trap | steeds … | *Maten blir **allt** dyrare.* |
       | **mycket** + vergrotende trap | veel … | *Den är **mycket** billigare.* |
       | **så … som möjligt** | zo … mogelijk | *Köp **så** billigt **som** möjligt.* |
@@ -38,11 +38,13 @@ grammar:
 
       - *Ju mer **man tränar**, desto starkare **blir man**.*
 
+      In informele taal hoor je ook *ju … ju*: *Ju förr, **ju** bättre.* Dat is correct, maar *ju … desto* is de standaard.
+
       ### Mer en mest
-      Bij lange woorden, woorden op *-isk* en deelwoorden gebruik je **mer / mest**:
+      Bij lange woorden, woorden op *-isk* en deelwoorden gebruik je meestal **mer / mest**:
 
       - *mer **praktisk**, mest **praktisk***
-      - *mer **känd**, mest **omtyckt***
+      - *mer **känd**, mest **omtyckt*** (maar *känd* heeft ook *kändare, kändast*)
       - Het tegendeel: **mindre / minst**: *mindre dyr, minst populär*
 
 sections:
@@ -144,7 +146,7 @@ sections:
         items:
           - { type: gap, text: "Kasse B kostar ___ mycket som vanlig mat.", gaps: [{ answers: ["lika"], options: ["lika", "så", "mer"], shuffle: false }] }
           - { type: gap, text: "Kasse A är inte lika dyr ___ kasse C.", gaps: [{ answers: ["som"], options: ["som", "än", "så"], shuffle: false, feedback: [{ match: "än", tip: "Na lika: som. än hoort bij een vergrotende trap (dyrare än)." }] }] }
-          - { type: gap, text: "Ju mer man lagar själv, ___ billigare blir det.", gaps: [{ answers: ["desto"], options: ["desto", "ju", "så"], shuffle: false }] }
+          - { type: gap, text: "Ju mer man lagar mat själv, ___ billigare blir det.", gaps: [{ answers: ["desto"], options: ["desto", "än", "så"], shuffle: false, tip: "ju … desto (informeel ook ju … ju)." }] }
           - { type: gap, text: "Maten blir ___ dyrare.", gaps: [{ answers: ["allt"], options: ["allt", "alla", "helt"], shuffle: false, tip: "Steeds duurder: allt dyrare." }] }
           - { type: gap, text: "Vi försöker handla så billigt ___ möjligt.", gaps: [{ answers: ["som"], options: ["som", "än", "så"], shuffle: false }] }
           - { type: gap, text: "Den här tröjan är ___ billigare än den där.", gaps: [{ answers: ["mycket"], options: ["mycket", "mer", "mest"], shuffle: false, feedback: [{ match: "mer", tip: "billigare is al een vergrotende trap. Veel goedkoper: mycket billigare." }] }] }
@@ -155,9 +157,9 @@ sections:
         instruction: Maak één zin met **ju … desto**.
         topic: jamforelse
         items:
-          - { type: transform, prompt: "Man tränar mer. Man blir starkare.", answers: ["Ju mer man tränar, desto starkare blir man."], feedback: [{ contains: "desto man blir", tip: "Na desto + vergrotende trap: inversie, desto starkare blir man." }, { contains: "ju mer tränar man", tip: "Het ju-deel is een bijzin: ju mer man tränar." }] }
-          - { type: transform, prompt: "Man sover mindre. Man blir tröttare.", answers: ["Ju mindre man sover, desto tröttare blir man."], feedback: [{ contains: "desto man blir", tip: "Na desto + vergrotende trap: inversie, desto tröttare blir man." }] }
-          - { type: transform, prompt: "Man handlar tidigare. Det blir billigare.", answers: ["Ju tidigare man handlar, desto billigare blir det."], feedback: [{ contains: "desto det blir", tip: "Inversie na desto: desto billigare blir det." }] }
+          - { type: transform, prompt: "Man tränar mer. Man blir starkare.", answers: ["Ju mer man tränar, desto starkare blir man.", "Ju mer man tränar, ju starkare blir man."], feedback: [{ contains: "desto man blir", tip: "Na desto + vergrotende trap: inversie, desto starkare blir man." }, { contains: "ju mer tränar man", tip: "Het ju-deel is een bijzin: ju mer man tränar." }] }
+          - { type: transform, prompt: "Man sover mindre. Man blir tröttare.", answers: ["Ju mindre man sover, desto tröttare blir man.", "Ju mindre man sover, ju tröttare blir man."], feedback: [{ contains: "desto man blir", tip: "Na desto + vergrotende trap: inversie, desto tröttare blir man." }] }
+          - { type: transform, prompt: "Man handlar tidigare. Det blir billigare.", answers: ["Ju tidigare man handlar, desto billigare blir det.", "Ju tidigare man handlar, ju billigare blir det."], feedback: [{ contains: "desto det blir", tip: "Inversie na desto: desto billigare blir det." }] }
 
       - id: jamfor-vertalen
         title: Vertaal
@@ -165,7 +167,7 @@ sections:
         topic: jamforelse
         items:
           - { type: translate, prompt: "Deze koffie is even duur als die.", answers: ["Det här kaffet är lika dyrt som det där.", "Det här kaffet kostar lika mycket som det där."], feedback: [{ contains: "lika dyr ", tip: "kaffe is een ett-woord: lika dyrt." }, { contains: "lika dyrt än", tip: "Na lika: som." }] }
-          - { type: translate, prompt: "Alles wordt steeds duurder.", answers: ["Allt blir allt dyrare."] }
+          - { type: translate, prompt: "Alles wordt steeds duurder.", answers: ["{Allt|Allting} blir allt dyrare.", "{Allt|Allting} blir dyrare och dyrare."] }
           - { type: translate, prompt: "Het is veel goedkoper online.", answers: ["Det är mycket billigare på nätet.", "Det är mycket billigare online."], feedback: [{ contains: "mer billigare", tip: "billigare is al vergrotend: mycket billigare." }] }
 
   - id: lyssna
@@ -180,11 +182,11 @@ sections:
         text: |
           Hej och välkommen till butiken! Den här veckan har vi flera bra erbjudanden. Köp två paket kaffe för åttionio kronor, det är mycket billigare än vanligt. Ekologiska bananer kostar bara nitton och nittio per kilo.
 
-          I brödavdelningen hittar du nybakat surdegsbröd, lika gott som i går men till halva priset efter klockan sex. Och glöm inte att lämna dina pantflaskor vid entrén. Tack för att du handlar hos oss!
+          I brödavdelningen hittar du gårdagens surdegsbröd till halva priset. Det är nästan lika gott som nybakat! Och glöm inte att lämna dina pantflaskor vid entrén. Tack för att du handlar hos oss!
         items:
           - { type: truefalse, statement: "Två paket kaffe kostar åttionio kronor.", answer: true }
           - { type: truefalse, statement: "Bananerna kostar nittio kronor per kilo.", answer: false, correction: { answers: ["{Bananerna|De} kostar nitton och nittio[ kronor] per kilo.", "{Bananerna|De} kostar 19,90 per kilo."] } }
-          - { type: truefalse, statement: "Brödet kostar halva priset efter klockan sex.", answer: true }
+          - { type: truefalse, statement: "Gårdagens bröd kostar halva priset.", answer: true }
           - { type: truefalse, statement: "Man lämnar pantflaskor i kassan.", answer: false, correction: { answers: ["Man lämnar {dem|pantflaskorna|pantflaskor} vid entrén."] } }
 
       - id: lyssna-dictee

@@ -23,7 +23,7 @@ grammar:
       | eigen woord | *stiga → en uppgång, sjunka → en nedgång* |
 
       ### Bijvoeglijk naamwoord in plaats van bijwoord
-      Het bijwoord bij het werkwoord wordt een bijvoeglijk naamwoord bij het zelfstandig naamwoord: *öka **kraftigt** → en **kraftig** ökning*, *minska **gradvis** → en **gradvis** minskning*.
+      Het bijwoord bij het werkwoord wordt een bijvoeglijk naamwoord bij het zelfstandig naamwoord: *öka **kraftigt** → en **kraftig** ökning*, *öka **svagt** → en **svag** ökning*.
 
       ### Welk voorzetsel?
       - **av**: wát verandert: *en ökning **av** försäljningen*
@@ -40,9 +40,9 @@ grammar:
       | omlaag | *minska, sjunka, falla, gå ner* | *en minskning, en nedgång, ett ras (sterk)* |
       | gelijk | *ligga still, vara oförändrad* | |
       | hoogste punt | *nå en topp* | *en topp* |
-      | laagste punt | *nå en botten* | *en bottennivå* |
+      | laagste punt | *nå botten, nå sin lägsta nivå* | *en bottennivå* |
 
-      **Hoe snel?** *kraftigt* (sterk), *svagt* (licht), *gradvis* (geleidelijk), *stadigt* (gestaag), *plötsligt* (plotseling), *marginellt* (nauwelijks).
+      **Hoe snel?** *kraftigt* (sterk), *svagt* (licht), *gradvis* (geleidelijk), *stadigt* (gestaag), *plötsligt* (plotseling), *marginellt* (marginaal, minimaal).
 
       **Ongeveer:** *drygt* (iets meer dan), *knappt* (iets minder dan), *omkring / cirka* (ongeveer). *drygt hälften* = iets meer dan de helft.
 
@@ -126,9 +126,9 @@ sections:
         instruction: Herschrijf de zin als woordgroep met een zelfstandig naamwoord.
         topic: nominalisering
         items:
-          - { type: transform, prompt: "Priserna ökade kraftigt.", task: "Begin met: en kraftig …", answers: ["en kraftig ökning av priserna"], feedback: [{ contains: "ökning med priserna", tip: "Wát stijgt: av. en kraftig ökning av priserna." }, { contains: "kraftigt ökning", tip: "Bij een zelfstandig naamwoord: bijvoeglijk naamwoord zonder -t, en kraftig ökning." }] }
+          - { type: transform, prompt: "Priserna ökade kraftigt.", task: "Begin met: en kraftig …", answers: ["en kraftig ökning av priserna", "en kraftig prisökning"], feedback: [{ contains: "ökning med priserna", tip: "Wát stijgt: av. en kraftig ökning av priserna." }, { contains: "kraftigt ökning", tip: "Bij een zelfstandig naamwoord: bijvoeglijk naamwoord zonder -t, en kraftig ökning." }] }
           - { type: transform, prompt: "Arbetslösheten minskade.", task: "Begin met: minskningen …", answers: ["minskningen av arbetslösheten"] }
-          - { type: transform, prompt: "Företaget beslutade att stänga kontoret.", task: "Begin met: företagets …", answers: ["företagets beslut att stänga kontoret"] }
+          - { type: transform, prompt: "Företaget beslutade att stänga kontoret.", task: "Begin met: företagets …", answers: ["företagets beslut [om ]att stänga kontoret"] }
           - { type: transform, prompt: "Man förbättrade arbetsmiljön.", task: "Begin met: förbättringen …", answers: ["förbättringen av arbetsmiljön"] }
           - { type: transform, prompt: "Försäljningen ökade med tio procent.", task: "Begin met: en ökning …", answers: ["en ökning av försäljningen med tio procent", "en ökning med tio procent av försäljningen"], feedback: [{ contains: "ökning med försäljningen", tip: "Wát stijgt: av försäljningen. Hoeveel: med tio procent." }] }
 
@@ -155,7 +155,7 @@ sections:
           - { type: gap, text: "Andelen ___ från tio till åttio procent.", gaps: [{ answers: ["ökade"], options: ["ökade", "minskade", "låg still"], shuffle: false }] }
           - { type: gap, text: "Under 2022 och 2023 ___ priserna på samma nivå.", gaps: [{ answers: ["låg"], options: ["låg", "steg", "föll"], shuffle: false, tip: "Op hetzelfde niveau blijven: ligga still / ligga på samma nivå." }] }
           - { type: gap, text: "Arbetslösheten steg från fem till sju procent, alltså med två ___.", gaps: [{ answers: ["procentenheter"], options: ["procent", "procentenheter"], shuffle: false, feedback: [{ match: "procent", tip: "Het verschil tussen twee percentages: procentenheter." }] }] }
-          - { type: gap, text: "År 2021 nådde andelen en ___ på 82 procent.", gaps: [{ answers: ["topp"], options: ["topp", "botten", "minskning"], shuffle: false }] }
+          - { type: gap, text: "År 2021 nådde andelen en ___ på 82 procent.", gaps: [{ answers: ["topp"], options: ["topp", "nedgång", "minskning"], shuffle: false }] }
           - { type: gap, text: "Försäljningen ökade ___, från 100 till 103 miljoner.", gaps: [{ answers: ["svagt"], options: ["svagt", "kraftigt", "plötsligt"], shuffle: false, tip: "Drie procent is een kleine stijging: svagt (of marginellt)." }] }
           - { type: gap, text: "51 procent är ___ hälften.", gaps: [{ answers: ["drygt"], options: ["drygt", "knappt", "exakt"], shuffle: false }] }
 
@@ -237,7 +237,7 @@ sections:
               - { any: ["kraftig", "kraftigt", "svag", "svagt", "gradvis", "stadigt", "marginell", "marginellt"], label: "Je zegt hoe snel het ging (kraftigt, svagt …)" }
               - { any: ["jämfört med", "jämfört"], label: "Je vergelijkt (jämfört med)" }
               - { any: ["beror", "förklaring", "eftersom", "på grund av"], label: "Je geeft een verklaring" }
-            model: "Under perioden 2020–2024 förändrades antalet besökare på stadsbiblioteket kraftigt. År 2020 hade biblioteket 12 000 besökare. Året därpå skedde en minskning till 9 000, vilket troligen berodde på pandemin och begränsade öppettider. Därefter följde en kraftig ökning: 2022 kom 15 000 besökare och 2023 drygt 18 000, vilket är den högsta nivån under perioden. Jämfört med 2023 ökade antalet bara svagt under 2024, till 18 300. En möjlig förklaring till uppgången är bibliotekets nya kafé och de populära språkcaféerna."
+            model: "Under perioden 2020–2024 förändrades antalet besökare på stadsbiblioteket kraftigt. År 2020 hade biblioteket 12 000 besökare. Året därpå skedde en minskning till 9 000, vilket troligen berodde på pandemin och begränsade öppettider. Därefter följde en kraftig ökning: 2022 kom 15 000 besökare och 2023 hela 18 000. Jämfört med 2023 ökade antalet bara marginellt under 2024, till 18 300, vilket är den högsta nivån under perioden. En möjlig förklaring till uppgången är bibliotekets nya kafé och de populära språkcaféerna."
 
   - id: herhaling
     title: Herhaling
@@ -249,8 +249,8 @@ sections:
         items:
           - { type: gap, topic: passiv-s, text: "Ett beslut ___ (fatta) i maj.", gaps: [{ answers: ["fattades"] }] }
           - { type: gap, topic: framtid, text: "Ledningen tror att försäljningen ___ att öka.", gaps: [{ answers: ["kommer"], options: ["kommer", "ska", "tänker"], shuffle: false }] }
-          - { type: transform, topic: indirekt-tal-b1, prompt: "Chefen: ”Vi har ökat försäljningen.”", task: "Chefen sa att …", answers: ["Chefen sa att de hade ökat försäljningen."] }
-          - { type: gap, topic: jamforelse, text: "Försäljningen var ___ hög som i fjol.", gaps: [{ answers: ["lika"], options: ["lika", "mer", "så"], shuffle: false }] }
+          - { type: transform, topic: indirekt-tal-b1, prompt: "Chefen: ”Vi har ökat försäljningen.”", task: "Chefen sa att …", answers: ["Chefen {sa|sade} att de {hade|har} ökat försäljningen."] }
+          - { type: gap, topic: jamforelse, text: "Försäljningen var ___ hög som i fjol.", gaps: [{ answers: ["lika"], options: ["lika", "mer", "än"], shuffle: false }] }
           - { type: gap, topic: sambandsord, text: "E-handeln växte. ___ minskade butiksförsäljningen.", gaps: [{ answers: ["Däremot"], options: ["Däremot", "Dessutom", "Därför"], shuffle: false }] }
           - { type: gap, topic: nominalisering, text: "minska → ___", gaps: [{ answers: ["en minskning"] }] }
 
@@ -267,7 +267,7 @@ sections:
           - { type: findError, sentence: "Vi såg en ökning med försäljningen.", wrong: [4], answers: ["Vi såg en ökning av försäljningen."], tip: "Wát stijgt?" }
           - { type: findError, sentence: "Ledningen fattade en beslut i maj.", wrong: [2], answers: ["Ledningen fattade ett beslut i maj."], tip: "beslut is een ett-woord." }
           - { type: findError, topic: trender, sentence: "Räntan steg från två till tre procent, alltså med en procent.", wrong: [10], answers: ["Räntan steg från två till tre procent, alltså med en procentenhet."], tip: "Het verschil tussen twee percentages." }
-          - { type: findError, topic: trender, sentence: "Andelen nådde en botten på 82 procent.", wrong: [3], answers: ["Andelen nådde en topp på 82 procent."], tip: "82 procent was het hoogste punt." }
+          - { type: findError, topic: trender, sentence: "Andelen nådde botten på 82 procent.", wrong: [2], answers: ["Andelen nådde {toppen|en topp|sin högsta nivå} på 82 procent."], tip: "82 procent was het hoogste punt." }
 
 vocab:
   - { sv: "en ökning", nl: "stijging, toename", def: "ökningen" }

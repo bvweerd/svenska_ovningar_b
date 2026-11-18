@@ -14,11 +14,13 @@ grammar:
       ### Verwachtingen
       | vorm | betekenis | voorbeeld |
       |---|---|---|
-      | **lär** + infinitief | zal wel, schijnt | *Det **lär** bli kallt i helgen.* |
+      | **lär** + infinitief | zal wel (verwachting) | *Det **lär** bli kallt i helgen.* |
+      | **lär** + infinitief | schijnt, naar verluidt | *Han **lär** vara mycket rik.* |
+      | **ska** + infinitief | naar verluidt, volgens de verwachting | *Det **ska** bli kallt i helgen, enligt SMHI.* |
       | **torde** + infinitief | zal waarschijnlijk (formeel) | *Kostnaden **torde** bli hög.* |
       | **väntas** + infinitief | wordt verwacht | *Priserna **väntas** stiga.* |
       | **beräknas** + infinitief | wordt berekend/geschat | *Befolkningen **beräknas** öka.* |
-      | **förväntas** + infinitief | wordt verwacht | *Tåget **förväntas** komma klockan tre.* |
+      | **förväntas** + infinitief | wordt verwacht | *Efterfrågan **förväntas** öka.* |
       | **kan komma att** + infinitief | zou kunnen gaan | *Reglerna **kan komma att** ändras.* |
 
       De vormen op **-s** (*väntas, beräknas, förväntas*) zijn lijdend: wie verwacht, wordt niet gezegd. Dat is typisch voor nieuws en rapporten. Vergelijk: *Man väntar sig att priserna stiger.* → *Priserna **väntas stiga**.*
@@ -95,7 +97,7 @@ sections:
         topic: framtid-b2
         shuffle: true
         items:
-          - { type: gap, text: "Det ___ bli kallt i helgen, enligt prognosen.", gaps: [{ answers: ["lär"], options: ["lär", "tänker", "ska"], shuffle: false, tip: "Zal wel (verwachting): lär." }] }
+          - { type: gap, text: "Det ___ bli kallt i helgen, enligt prognosen.", gaps: [{ answers: ["lär"], options: ["lär", "tänker", "vill"], shuffle: false, tip: "Zal wel (verwachting): lär." }] }
           - { type: gap, text: "Priserna ___ stiga under nästa år.", gaps: [{ answers: ["väntas"], options: ["väntas", "väntar", "vänta"], shuffle: false, feedback: [{ match: "väntar", tip: "De prijzen wachten niet zelf: lijdend, väntas." }] }] }
           - { type: gap, text: "Befolkningen ___ öka med två procent.", gaps: [{ answers: ["beräknas"], options: ["beräknas", "beräknar", "räknar"], shuffle: false }] }
           - { type: gap, text: "Reglerna kan ___ att ändras.", gaps: [{ answers: ["komma"], options: ["komma", "kommer", "kommit"], shuffle: false, tip: "kan komma att = zou kunnen gaan." }] }
@@ -107,7 +109,7 @@ sections:
         items:
           - { type: transform, prompt: "Man väntar sig att priserna stiger.", answers: ["Priserna väntas stiga."], feedback: [{ contains: "väntas att", tip: "Zonder att: Priserna väntas stiga." }, { contains: "väntas stiger", tip: "Na väntas: infinitief, stiga." }] }
           - { type: transform, prompt: "Man beräknar att befolkningen ökar.", answers: ["Befolkningen beräknas öka."], feedback: [{ contains: "beräknas ökar", tip: "Na beräknas: infinitief, öka." }] }
-          - { type: transform, prompt: "Man förväntar sig att tåget kommer klockan tre.", answers: ["Tåget förväntas komma klockan tre.", "Tåget väntas komma klockan tre."] }
+          - { type: transform, prompt: "Man förväntar sig att efterfrågan ökar.", answers: ["Efterfrågan förväntas öka.", "Efterfrågan väntas öka."] }
           - { type: transform, prompt: "Man tror att arbetslösheten sjunker.", task: "Begin met: Arbetslösheten väntas …", answers: ["Arbetslösheten väntas sjunka."] }
 
   - id: lyssna
@@ -152,7 +154,7 @@ sections:
         shuffle: true
         items:
           - { type: mc, prompt: "Je vertelt over een vast plan.", options: ["Nästa år ska jag börja plugga igen.", "Nästa år lär jag börja plugga igen.", "Nästa år väntas jag börja plugga igen.", "Nästa år beräknas jag plugga."], answer: 0 }
-          - { type: mc, prompt: "Je doet een voorzichtige voorspelling.", options: ["Det kommer nog att bli svårt, men vi får se.", "Det ska bli svårt.", "Det tänker bli svårt.", "Det har blivit svårt i morgon."], answer: 0 }
+          - { type: mc, prompt: "Je doet een voorzichtige voorspelling.", options: ["Det kommer nog att bli svårt, men vi får se.", "Det har blivit svårt.", "Det tänker bli svårt.", "Det blev svårt i morgon."], answer: 0 }
           - { type: mc, prompt: "Je vraagt naar iemands plannen.", options: ["Vad har du för planer inför framtiden?", "Vad lär du i framtiden?", "Vad väntas du?", "Vad beräknas du göra?"], answer: 0 }
           - { type: mc, prompt: "Je zegt wat je hoopt.", options: ["Jag hoppas att jag har ett jobb som jag trivs med.", "Jag hoppar att jag har ett jobb.", "Jag hoppas jag trivs jobbet.", "Jag hoppas att jag trivs ett jobb."], answer: 0 }
 
@@ -189,10 +191,10 @@ sections:
           - { type: translate, topic: partikelverb, prompt: "Ik herkende hem niet.", answers: ["Jag kände inte igen honom."] }
           - { type: gap, topic: deponens, text: "Hon ___ (trivas) bra på sitt förra jobb.", gaps: [{ answers: ["trivdes"] }] }
           - { type: gap, topic: prep-verb, text: "Vi väntar ___ svar.", gaps: [{ answers: ["på"] }] }
-          - { type: transform, topic: villkor, prompt: "Om jag har tid, kommer jag.", task: "Maak het denkbeeldig.", answers: ["Om jag hade tid, skulle jag komma.", "Om jag hade tid, kom jag."] }
+          - { type: transform, topic: villkor, prompt: "Om jag har tid, kommer jag.", task: "Maak het denkbeeldig.", answers: ["Om jag hade tid[,] skulle jag komma.", "Hade jag tid[,] skulle jag komma."] }
           - { type: gap, topic: indirekt-fraga, text: "Berätta ___ hände!", gaps: [{ answers: ["vad som"], options: ["vad som", "vad", "vem"], shuffle: false }] }
           - { type: gap, topic: nagon-ingen, text: "Jag har inte hört ___.", gaps: [{ answers: ["något", "någonting"] }] }
-          - { type: gap, topic: jamforelse, text: "Ju äldre man blir, ___ klokare blir man.", gaps: [{ answers: ["desto"] }] }
+          - { type: gap, topic: jamforelse, text: "Ju äldre man blir, ___ klokare blir man.", gaps: [{ answers: ["desto", "ju"] }] }
           - { type: gap, topic: nominalisering, text: "utveckla → ___", gaps: [{ answers: ["en utveckling"] }] }
           - { type: transform, topic: utbrytning, prompt: "**Klimatet** är den största frågan.", answers: ["Det är klimatet som är den största frågan."] }
 
@@ -222,7 +224,7 @@ sections:
           - { type: gap, topic: bisats-adverb, text: "Vasa ___ (segla) bara 1 300 meter när det sjönk.", gaps: [{ answers: ["hade seglat"] }] }
           - { type: transform, topic: framtid-b2, prompt: "Man väntar sig att priserna stiger.", answers: ["Priserna väntas stiga."] }
           - { type: gap, topic: framtid-b2, text: "Om tio år kommer jag ___ flyttat.", gaps: [{ answers: ["att ha"] }] }
-          - { type: transform, topic: subjunktioner-b1, prompt: "Det regnade. Vi gick ut ändå. (trots att)", answers: ["Trots att det regnade[,] gick vi ut."] }
+          - { type: transform, topic: subjunktioner-b1, prompt: "Det regnade. Vi gick ut ändå. (trots att)", answers: ["Trots att det regnade[,] gick vi ut.", "Vi gick ut[,] trots att det regnade."] }
           - { type: gap, topic: bestamd-utan-artikel, text: "Vi ses nästa ___.", gaps: [{ answers: ["vecka"], options: ["vecka", "veckan"], shuffle: false }] }
 
   - id: zoek-de-fout
@@ -237,7 +239,7 @@ sections:
           - { type: findError, sentence: "Priserna väntas att stiga.", wrong: [2], answers: ["Priserna väntas stiga."], tip: "Na väntas komt geen att." }
           - { type: findError, sentence: "Befolkningen beräknar öka.", wrong: [1], answers: ["Befolkningen beräknas öka."], tip: "De bevolking rekent niet zelf." }
           - { type: findError, sentence: "Om tio år kommer jag att har flyttat.", wrong: [6], answers: ["Om tio år kommer jag att ha flyttat."], tip: "Na att: infinitief." }
-          - { type: findError, sentence: "Det tänker bli kallt i helgen.", wrong: [1], answers: ["Det {lär|kommer att} bli kallt i helgen."], tip: "Het weer heeft geen plannen." }
+          - { type: findError, sentence: "Det tänker bli kallt i helgen.", wrong: [1], answers: ["Det {lär|kommer att|ska} bli kallt i helgen."], tip: "Het weer heeft geen plannen." }
           - { type: findError, topic: bisats-adverb, sentence: "Jag tror att det blir inte lätt.", wrong: [4, 5], answers: ["Jag tror att det inte blir lätt."], tip: "Bijzinvolgorde." }
 
 vocab:

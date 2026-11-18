@@ -39,10 +39,10 @@ grammar:
       | kort (sy) | sydd | sytt | sydda |
       | sterk (skriva) | skriven | skrivet | skrivna |
 
-      - *en **glömd** väska*, *ett **renoverat** hus*, *de **stulna** cyklarna*
-      - Bepaald: *den **skrivna** tentan*, *det **inställda** mötet* – de meervoudsvorm, zoals bij gewone bijvoeglijke naamwoorden.
+      - *en **bortglömd** väska*, *ett **renoverat** hus*, *de **stulna** cyklarna*
+      - Bepaald: *den **målade** väggen*, *det **inställda** mötet* – de meervoudsvorm, zoals bij gewone bijvoeglijke naamwoorden.
 
-      Veel sterke werkwoorden: *anta → antagen*, *bjuda → bjuden*, *stjäla → stulen*, *sälja → såld*, *skriva → skriven*.
+      Sterke werkwoorden hebben een deelwoord op *-en*: *anta → antagen*, *bjuda → bjuden*, *stjäla → stulen*, *skriva → skriven*. Let ook op het onregelmatige *sälja → såld*.
 
       ### Tegenwoordig deelwoord (presens particip)
       Op **-ande** (meestal) of **-ende** (na een lange klinker, bijv. *le → leende*, *gå → gående*). Het verandert nooit:
@@ -65,7 +65,7 @@ sections:
 
           För två år sedan sökte han till lärarprogrammet på universitetet. Hans utbildning från Nederländerna måste först bedömas av en myndighet, och det tog flera månader. Men i juli kom beskedet: han hade blivit antagen!
 
-          Nu läser Joost andra året. Han har föreläsningar tre dagar i veckan, och resten av tiden pluggar han hemma eller på biblioteket. Det svåraste är de skrivna tentorna, eftersom man måste skriva snabbt på svenska. Han får studiemedel från CSN, men han jobbar också extra på ett café på helgerna.
+          Nu läser Joost andra året. Han har föreläsningar tre dagar i veckan, och resten av tiden pluggar han hemma eller på biblioteket. Det svåraste är de skriftliga tentorna, eftersom man måste skriva snabbt på svenska. Han får studiemedel från CSN, men han jobbar också extra på ett café på helgerna.
 
           – Det bästa med att plugga i Sverige är att man får säga emot läraren, säger Joost. Ingen blir arg om man har en annan åsikt.
         items:
@@ -73,14 +73,14 @@ sections:
           - { type: truefalse, statement: "Joost läste samhällskunskap på Komvux.", answer: true }
           - { type: truefalse, statement: "Hans utbildning från Nederländerna bedömdes på en vecka.", answer: false, tip: "Hoe lang duurde het?", correction: { answers: ["Det tog flera månader[ att bedöma {den|hans utbildning}]."] } }
           - { type: mc, prompt: "Vad hände i juli?", options: ["Han blev antagen till lärarprogrammet.", "Han flyttade till Umeå.", "Han började på SFI.", "Han fick jobb på ett café."], answer: 0 }
-          - { type: truefalse, statement: "Joost tycker att de skrivna tentorna är lätta.", answer: false, correction: { answers: ["{Joost|Han} tycker att {de skrivna tentorna|tentorna|de} är svåra[st]."] } }
+          - { type: truefalse, statement: "Joost tycker att de skriftliga tentorna är lätta.", answer: false, correction: { answers: ["{Joost|Han} tycker att {de skriftliga tentorna|tentorna|de} är svåra[st]."] } }
           - { type: mc, prompt: "Hur försörjer sig Joost?", options: ["med studiemedel och ett extrajobb", "bara med studiemedel", "hans föräldrar betalar", "han jobbar heltid"], answer: 0 }
           - { type: mc, prompt: "Wat vindt Joost het beste aan studeren in Zweden?", options: ["Je mag het oneens zijn met de docent.", "De tentamens zijn makkelijk.", "Je hoeft niet naar college.", "Er is gratis koffie."], answer: 0, tip: "säga emot = tegenspreken." }
           - type: multi
             prompt: "Welke vormen in de tekst zijn een lijdende vorm of een voltooid deelwoord?"
-            options: ["bedömas", "antagen", "skrivna", "engagerade", "flyttade", "pluggar"]
-            answers: [0, 1, 2, 3]
-            tip: "engagerade (betrokken) is een deelwoord als bijvoeglijk naamwoord. flyttade is gewoon preteritum."
+            options: ["bedömas", "antagen", "engagerade", "skriftliga", "flyttade", "pluggar"]
+            answers: [0, 1, 2]
+            tip: "engagerade (betrokken) is een deelwoord als bijvoeglijk naamwoord. skriftliga (schriftelijk) is een gewoon bijvoeglijk naamwoord en flyttade is gewoon preteritum."
 
   - id: ord
     title: Ord och fraser · woorden en uitdrukkingen
@@ -95,7 +95,7 @@ sections:
               - ["en tenta", "een tentamen"]
               - ["en föreläsning", "een hoorcollege"]
               - ["en uppsats", "een scriptie, werkstuk"]
-              - ["ett betyg", "een cijfer, diploma"]
+              - ["ett betyg", "een cijfer, beoordeling"]
               - ["en examen", "een diploma (einde opleiding)"]
               - ["studiemedel", "studiefinanciering"]
           - type: match
@@ -113,10 +113,10 @@ sections:
         topic: woordenschat
         shuffle: true
         items:
-          - { type: gap, text: "Jag ___ juridik på universitetet.", gaps: [{ answers: ["läser"], options: ["läser", "lär", "lär mig"], feedback: [{ match: "lär", tip: "lära = onderwijzen (iemand iets leren). Een studie volgen: läsa of studera." }] }] }
+          - { type: gap, text: "Jag är student och ___ juridik på universitetet.", gaps: [{ answers: ["läser"], options: ["läser", "lär", "undervisar i"], feedback: [{ match: "lär", tip: "lära = onderwijzen (iemand iets leren). Een studie volgen: läsa of studera." }] }] }
           - { type: gap, text: "I kväll måste jag ___ inför tentan.", gaps: [{ answers: ["plugga"], options: ["plugga", "lära", "undervisa"] }] }
           - { type: gap, text: "Hon ___ sig att köra bil förra sommaren.", gaps: [{ answers: ["lärde"], options: ["lärde", "läste", "pluggade"], tip: "lära sig = (zelf) leren." }] }
-          - { type: gap, text: "Han ___ matematik på en gymnasieskola.", gaps: [{ answers: ["undervisar i"], options: ["undervisar i", "läser", "pluggar"], feedback: [{ match: "läser", tip: "Hier is hij de docent: undervisa i (lesgeven in)." }] }] }
+          - { type: gap, text: "Han är lärare och ___ matematik på en gymnasieskola.", gaps: [{ answers: ["undervisar i"], options: ["undervisar i", "läser", "pluggar"], feedback: [{ match: "läser", tip: "Hier is hij de docent: undervisa i (lesgeven in)." }] }] }
           - { type: gap, text: "Jag gick på en ___ om svensk historia i går.", gaps: [{ answers: ["föreläsning"], options: ["föreläsning", "uppsats", "examen"] }] }
 
   - id: bli-passiv
@@ -187,11 +187,11 @@ sections:
         topic: particip
         shuffle: true
         items:
-          - { type: gap, text: "Jag hittade en ___ (glömma) väska på bussen.", gaps: [{ answers: ["glömd"], feedback: [{ match: ["glömt", "glömda"], tip: "väska is een en-woord, onbepaald: glömd." }] }] }
+          - { type: gap, text: "Jag hittade en ___ (glömma bort) väska på bussen.", hint: "Bij een deelwoord komt het partikel ervoor: glömma bort → bortglömd.", gaps: [{ answers: ["bortglömd"], feedback: [{ match: ["bortglömt", "bortglömda"], tip: "väska is een en-woord, onbepaald: bortglömd." }, { match: "glömd", tip: "Voor een vergeten voorwerp zeg je bortglömd (of kvarglömd)." }] }] }
           - { type: gap, text: "Vi bor i ett nyligen ___ (renovera) hus.", gaps: [{ answers: ["renoverat"], feedback: [{ match: "renoverad", tip: "hus is een ett-woord: renoverat." }] }] }
           - { type: gap, text: "De ___ (stjäla) cyklarna hittades i skogen.", gaps: [{ answers: ["stulna"], feedback: [{ match: ["stulen", "stulet"], tip: "Na de en voor een meervoud: stulna." }] }] }
-          - { type: gap, text: "Den ___ (skriva) tentan är på fredag.", gaps: [{ answers: ["skrivna"], feedback: [{ match: "skriven", tip: "Na den (bepaald) krijgt het deelwoord dezelfde vorm als het meervoud: skrivna." }] }] }
-          - { type: gap, text: "Det ___ (ställa in) mötet hålls i stället på måndag.", gaps: [{ answers: ["inställda"], feedback: [{ match: "inställt", tip: "Na det (bepaald): de -a-vorm, inställda." }] }] }
+          - { type: gap, text: "Den ___ (skriva) uppsatsen ska lämnas in på fredag.", gaps: [{ answers: ["skrivna"], feedback: [{ match: "skriven", tip: "Na den (bepaald) krijgt het deelwoord dezelfde vorm als het meervoud: skrivna." }] }] }
+          - { type: gap, text: "Det ___ (ställa in) mötet ersätts av ett mejl.", gaps: [{ answers: ["inställda"], feedback: [{ match: "inställt", tip: "Na det (bepaald): de -a-vorm, inställda." }] }] }
           - { type: gap, text: "Hon har ett ___ (måla) porträtt av sin mormor.", gaps: [{ answers: ["målat"] }] }
 
       - id: presens-particip
@@ -246,7 +246,7 @@ sections:
         items:
           - { type: listen, say: "Han blev antagen till lärarprogrammet." }
           - { type: listen, say: "Kursen ges på distans." }
-          - { type: listen, say: "De skrivna tentorna är svårast." }
+          - { type: listen, say: "De skriftliga tentorna är svårast." }
           - { type: listen, say: "Mötet blev inställt i sista minuten." }
 
   - id: praktiskt
@@ -297,7 +297,7 @@ sections:
               - { any: ["distans"], label: "Je noemt dat je op afstand wilt studeren" }
               - { any: ["när", "hur", "vad", "kostar", "finns"], label: "Je stelt een vraag" }
               - { any: ["hälsningar"], label: "Je sluit af met (Med) vänliga hälsningar" }
-            model: "Hej! Jag heter Eva Jansen och jag kommer från Nederländerna. Jag har bott i Sverige i två år och jag har läst SFI. Nu skulle jag vilja anmäla mig till kursen Svenska som andraspråk 2 på distans, eftersom jag jobbar heltid på dagarna. Jag har två frågor: När startar nästa kurs, och hur mycket tid tar kursen i veckan? Måste man köpa böcker själv? Tack på förhand! Med vänliga hälsningar, Eva Jansen"
+            model: "Hej! Jag heter Eva Jansen och jag kommer från Nederländerna. Jag har bott i Sverige i två år och jag har läst SFI. Nu skulle jag vilja anmäla mig till kursen Svenska som andraspråk 2 på distans, eftersom jag jobbar heltid på dagarna. Jag har två frågor: När startar nästa kurs, och måste man köpa kurslitteraturen själv? Tack på förhand! Med vänliga hälsningar, Eva Jansen"
 
   - id: herhaling
     title: Herhaling
@@ -325,7 +325,7 @@ sections:
         items:
           - { type: findError, sentence: "Huset blev såld förra året.", wrong: [2], answers: ["Huset blev sålt förra året."], tip: "hus is een ett-woord." }
           - { type: findError, sentence: "Böckerna blev stulen i natt.", wrong: [2], answers: ["Böckerna blev stulna i natt."], tip: "Hoeveel boeken?" }
-          - { type: findError, topic: particip, sentence: "Den skriven tentan var svår.", wrong: [1], answers: ["Den skrivna tentan var svår."], tip: "Na den: de bepaalde vorm van het deelwoord." }
+          - { type: findError, topic: particip, sentence: "Den stulen cykeln hittades i skogen.", wrong: [1], answers: ["Den stulna cykeln hittades i skogen."], tip: "Na den: de bepaalde vorm van het deelwoord." }
           - { type: findError, topic: particip, sentence: "Det var en spänd film.", wrong: [3], answers: ["Det var en spännande film."], tip: "Een film die spanning geeft." }
           - { type: findError, sentence: "Hon blev antaget till kursen.", wrong: [2], answers: ["Hon blev antagen till kursen."], tip: "Het onderwerp is hon." }
 
@@ -335,7 +335,7 @@ vocab:
   - { sv: "en tenta", nl: "tentamen", def: "tentan" }
   - { sv: "en föreläsning", nl: "hoorcollege", def: "föreläsningen" }
   - { sv: "en uppsats", nl: "scriptie, werkstuk", def: "uppsatsen" }
-  - { sv: "ett betyg", nl: "cijfer, diploma", def: "betyget" }
+  - { sv: "ett betyg", nl: "cijfer, beoordeling (ook: cijferlijst); diploma = ett examensbevis", def: "betyget" }
   - { sv: "en examen", nl: "diploma (afsluiting van een opleiding)", def: "examen" }
   - { sv: "en lärare", nl: "leraar, docent", def: "läraren" }
   - { sv: "en student", nl: "student", def: "studenten" }

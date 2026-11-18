@@ -3,7 +3,7 @@ chapter: 28
 grammar:
   - id: register
     title: Formeel, neutraal en informeel
-    summary: "Formeel: *erhålla, meddela, dock, vänligen*, lijdende vormen. Informeel: *tja, typ, sjukt kul, ses!* en spreektaalspelling (*dom, mej, nåt*). Schrijf **de** (onderwerp, = vi) en **dem** (voorwerp, = oss), ook al zeg je *dom*."
+    summary: "Formeel: *erhålla, meddela, dock, vänligen*, lijdende vormen. Informeel: *tja, typ, sjukt kul, ses!* en spreektaalspelling (*dom, mej, nåt*). Schrijf **de** (onderwerp, = vi) en **dem** (voorwerp, = oss), ook al zeg je *dom*. Vóór een zelfstandig naamwoord altijd **de**: *de här skorna*."
     body: |
       | | formeel | neutraal | informeel |
       |---|---|---|---|
@@ -28,7 +28,11 @@ grammar:
       | sen | sedan / senare |
       | va | vad / var |
 
+      *Sen* is ook in gewone geschreven tekst heel gangbaar (*Vad gör du sen?*). Alleen in een echt formele tekst kies je *sedan* of *senare*.
+
       **de of dem?** Kun je het vervangen door *vi*, dan **de**. Door *oss*, dan **dem**. *De (vi) kommer i morgon. Jag såg dem (oss) i går.*
+
+      Die test werkt alleen als *de/dem* los staat. Vóór een zelfstandig naamwoord is *de* een lidwoord of aanwijzend woord en schrijf je altijd **de**, ook als voorwerp: *Jag köpte **de** här skorna. Jag träffade **de** nya grannarna.*
 
   - id: idiom
     title: Zweedse uitdrukkingen
@@ -145,7 +149,7 @@ sections:
           - { type: transform, prompt: "Jag vet inte vad dom vill.", answers: ["Jag vet inte vad de vill."], feedback: [{ contains: "vad dem", tip: "vad vi vill → de." }] }
           - { type: transform, prompt: "Kan du hjälpa mej med nåt?", answers: ["Kan du hjälpa mig med något?"] }
           - { type: transform, prompt: "Jag såg dom i går.", answers: ["Jag såg dem {i går|igår}."], feedback: [{ contains: "såg de", tip: "Jag såg oss → dem." }] }
-          - { type: transform, prompt: "Va gör du sen?", answers: ["Vad gör du sedan?", "Vad gör du senare?"] }
+          - { type: transform, prompt: "Va gör du sen?", answers: ["Vad gör du {sedan|senare|sen}?"] }
           - { type: transform, prompt: "Har nån sett mina nycklar?", answers: ["Har någon sett mina nycklar?"] }
 
       - id: formeler
@@ -156,7 +160,7 @@ sections:
         items:
           - { type: gap, text: "Vi har ___ din ansökan.", gaps: [{ answers: ["erhållit"], options: ["erhållit", "fått tag på", "kollat"], shuffle: false }] }
           - { type: gap, text: "Vi vill ___ att kontoret är stängt i morgon.", gaps: [{ answers: ["meddela"], options: ["meddela", "snacka om", "säga till dig"], shuffle: false }] }
-          - { type: gap, text: "Tjänsten är intressant. Vi har ___ redan anställt en person.", gaps: [{ answers: ["dock"], options: ["dock", "typ", "liksom"], shuffle: false }] }
+          - { type: gap, text: "Tack för din ansökan. Vi har ___ redan anställt en person.", gaps: [{ answers: ["dock"], options: ["dock", "typ", "liksom"], shuffle: false }] }
 
   - id: idiom
     title: "Grammatik: uitdrukkingen"
@@ -172,7 +176,7 @@ sections:
           - { type: mc, prompt: "*Skulle du hoppa fallskärm? – ___!*", options: ["Aldrig, inte för allt smör i Småland", "Ja, det är ingen ko på isen", "Jag har is i magen", "Jag tar det med en nypa salt"], answer: 0 }
           - { type: mc, prompt: "*Hon var lugn under hela intervjun. Hon ___.*", options: ["hade is i magen", "fick skägg i brevlådan", "gled in på en räkmacka", "anade ugglor i mossen"], answer: 0 }
           - { type: mc, prompt: "*Säg vad du menar, i stället för att ___!*", options: ["gå som katten kring het gröt", "ha is i magen", "kasta yxan i sjön", "glida in på en räkmacka"], answer: 0 }
-          - { type: mc, prompt: "*Det var svårt, men vi ___ inte. Vi fortsatte.*", options: ["kastade yxan i sjön", "hade is i magen", "anade ugglor i mossen", "tog det med en nypa salt"], answer: 0, tip: "Ze gaven niet op: de bijl niet in het meer gooien." }
+          - { type: mc, prompt: "*Det var svårt, men vi ___. Vi fortsatte.*", options: ["kastade inte yxan i sjön", "hade inte is i magen", "anade inte ugglor i mossen", "tog det inte med en nypa salt"], answer: 0, tip: "Ze gaven niet op: de bijl niet in het meer gooien." }
 
   - id: lyssna
     title: Lyssna · luisteren
@@ -201,7 +205,7 @@ sections:
         shuffle: true
         items:
           - { type: listen, say: "Det är ingen ko på isen." }
-          - { type: listen, say: "Jag träffade dem i går." }
+          - { type: listen, say: "Jag träffade dem i går.", answers: ["Jag träffade dem {i går|igår}."] }
           - { type: listen, say: "Hon hade is i magen under hela intervjun." }
           - { type: listen, say: "Vi har erhållit din ansökan." }
 
@@ -288,4 +292,4 @@ vocab:
   - { sv: "likadant", nl: "hetzelfde, op dezelfde manier" }
   - { sv: "dock", nl: "echter" }
   - { sv: "således", nl: "dus (formeel)" }
-  - { sv: "vänligen", nl: "vriendelijk (verzoek)" }
+  - { sv: "vänligen", nl: "gelieve (formeel verzoek)" }
