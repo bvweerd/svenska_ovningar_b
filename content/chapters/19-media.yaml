@@ -281,17 +281,17 @@ sections:
           - { type: findError, topic: indirekt-tal-b1, sentence: "Det sa i tidningen att det skulle snöa.", wrong: [1], answers: ["Det stod i tidningen att det skulle snöa."], tip: "Wat zeg je over een tekst in de krant?" }
 
 vocab:
-  - { sv: "en nyhet", nl: "nieuwsbericht, nieuwtje", def: "nyheten" }
-  - { sv: "en tidning", nl: "krant", def: "tidningen" }
-  - { sv: "en artikel", nl: "artikel", def: "artikeln" }
-  - { sv: "en rubrik", nl: "kop", def: "rubriken" }
-  - { sv: "en källa", nl: "bron", def: "källan" }
-  - { sv: "en insändare", nl: "ingezonden brief", def: "insändaren" }
-  - { sv: "en journalist", nl: "journalist", def: "journalisten" }
-  - { sv: "en olycka", nl: "ongeluk", def: "olyckan" }
-  - { sv: "en brand", nl: "brand", def: "branden" }
-  - { sv: "en älg", nl: "eland", def: "älgen" }
-  - { sv: "ett snöfall", nl: "sneeuwval", def: "snöfallet" }
+  - { sv: "en nyhet", nl: "een nieuwsbericht, een nieuwtje", def: "nyheten" }
+  - { sv: "en tidning", nl: "een krant", def: "tidningen" }
+  - { sv: "en artikel", nl: "een artikel", def: "artikeln" }
+  - { sv: "en rubrik", nl: "een kop", def: "rubriken" }
+  - { sv: "en källa", nl: "een bron", def: "källan" }
+  - { sv: "en insändare", nl: "een ingezonden brief", def: "insändaren" }
+  - { sv: "en journalist", nl: "een journalist", def: "journalisten" }
+  - { sv: "en olycka", nl: "een ongeluk", def: "olyckan" }
+  - { sv: "en brand", nl: "een brand", def: "branden" }
+  - { sv: "en älg", nl: "een eland", def: "älgen" }
+  - { sv: "ett snöfall", nl: "een sneeuwval", def: "snöfallet" }
   - { sv: "(stor) uppståndelse", nl: "(grote) opschudding" }
   - { sv: "att orsaka", nl: "veroorzaken" }
   - { sv: "att skadas", nl: "gewond raken" }

@@ -271,18 +271,18 @@ sections:
           - { type: findError, sentence: "Skeppet sjunkit inom några minuter.", wrong: [1], answers: ["Skeppet {hade sjunkit|sjönk} inom några minuter."], tip: "In een hoofdzin mag hade niet wegvallen." }
 
 vocab:
-  - { sv: "ett skepp", nl: "schip", def: "skeppet" }
-  - { sv: "ett krigsskepp", nl: "oorlogsschip", def: "krigsskeppet" }
-  - { sv: "ett vrak", nl: "wrak", def: "vraket" }
-  - { sv: "ett krig", nl: "oorlog", def: "kriget" }
-  - { sv: "en kung", nl: "koning", def: "kungen" }
-  - { sv: "en drottning", nl: "koningin", def: "drottningen" }
-  - { sv: "en botten", nl: "bodem", def: "botten" }
-  - { sv: "en strand", nl: "strand, oever", def: "stranden" }
-  - { sv: "en kanon", nl: "kanon", def: "kanonen" }
-  - { sv: "ett århundrade", nl: "eeuw", def: "århundradet" }
-  - { sv: "en avfärd", nl: "vertrek", def: "avfärden" }
-  - { sv: "en vindby", nl: "windvlaag", def: "vindbyn" }
+  - { sv: "ett skepp", nl: "een schip", def: "skeppet" }
+  - { sv: "ett krigsskepp", nl: "een oorlogsschip", def: "krigsskeppet" }
+  - { sv: "ett vrak", nl: "een wrak", def: "vraket" }
+  - { sv: "ett krig", nl: "een oorlog", def: "kriget" }
+  - { sv: "en kung", nl: "een koning", def: "kungen" }
+  - { sv: "en drottning", nl: "een koningin", def: "drottningen" }
+  - { sv: "en botten", nl: "een bodem", def: "botten" }
+  - { sv: "en strand", nl: "een strand, een oever", def: "stranden" }
+  - { sv: "en kanon", nl: "een kanon", def: "kanonen" }
+  - { sv: "ett århundrade", nl: "een eeuw", def: "århundradet" }
+  - { sv: "en avfärd", nl: "een vertrek", def: "avfärden" }
+  - { sv: "en vindby", nl: "een windvlaag", def: "vindbyn" }
   - { sv: "att sjunka", nl: "zinken" }
   - { sv: "att bärga", nl: "bergen" }
   - { sv: "att omkomma", nl: "omkomen" }

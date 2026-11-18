@@ -20,6 +20,9 @@ export function shuffle(arr, rand = Math.random) {
 }
 
 const article = (sv) => (sv.match(/^(en|ett) /) ?? [])[1];
+// Soort woord, zodat de foute keuzes op het goede antwoord lijken (zelfstandig naamwoord met lidwoord, werkwoord …).
+const kind = (v) => (article(v.sv) ? 'noun' : v.sv.startsWith('att ') ? 'verb' : 'other');
+const nlBare = (nl) => nl.replace(/^(een|de|het) /, '');
 const bare = (sv) => sv.replace(/^(en|ett|att) /, '');
 
 export function vocabExercises(vocab, chapterNo) {
@@ -35,7 +38,9 @@ export function vocabExercises(vocab, chapterNo) {
     generated: true,
     shuffle: true,
     items: vocab.map((v) => {
-      const others = shuffle(vocab.filter((o) => o.nl !== v.nl), rand).slice(0, 3).map((o) => o.nl);
+      const pool = shuffle(vocab.filter((o) => o.nl !== v.nl), rand);
+      const same = pool.filter((o) => kind(o) === kind(v));
+      const others = [...same, ...pool.filter((o) => kind(o) !== kind(v))].slice(0, 3).map((o) => o.nl);
       return { type: 'mc', prompt: v.sv, say: v.sv, options: [v.nl, ...others], answer: 0 };
     }),
   });
@@ -78,7 +83,7 @@ export function vocabExercises(vocab, chapterNo) {
         steps: [
           {
             type: 'mc',
-            prompt: `„${bare(v.sv)}” (${v.nl}) is een …`,
+            prompt: `„${bare(v.sv)}” (${nlBare(v.nl)}) is een …`,
             options: ['en-woord', 'ett-woord'],
             answer: article(v.sv) === 'en' ? 0 : 1,
             shuffle: false,

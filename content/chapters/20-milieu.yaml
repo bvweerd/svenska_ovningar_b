@@ -271,17 +271,17 @@ sections:
           - { type: findError, sentence: "Eftersom jag har ingen bil cyklar jag.", wrong: [2, 3], answers: ["Eftersom jag inte har någon bil cyklar jag."], tip: "In een bijzin: inte … någon." }
 
 vocab:
-  - { sv: "en miljö", nl: "milieu, omgeving", def: "miljön" }
-  - { sv: "ett klimat", nl: "klimaat", def: "klimatet" }
-  - { sv: "en påse", nl: "zak", def: "påsen" }
-  - { sv: "en burk", nl: "blik, pot", def: "burken" }
-  - { sv: "en flaska", nl: "fles", def: "flaskan" }
-  - { sv: "ett batteri", nl: "batterij", def: "batteriet" }
-  - { sv: "en loppis", nl: "rommelmarkt", def: "loppisen" }
-  - { sv: "ett utsläpp", nl: "uitstoot", def: "utsläppet" }
-  - { sv: "ett kärl", nl: "container, bak", def: "kärlet" }
-  - { sv: "ett hushåll", nl: "huishouden", def: "hushållet" }
-  - { sv: "en kommun", nl: "gemeente", def: "kommunen" }
+  - { sv: "en miljö", nl: "het milieu, een omgeving", def: "miljön" }
+  - { sv: "ett klimat", nl: "het klimaat", def: "klimatet" }
+  - { sv: "en påse", nl: "een zak", def: "påsen" }
+  - { sv: "en burk", nl: "een blik, een pot", def: "burken" }
+  - { sv: "en flaska", nl: "een fles", def: "flaskan" }
+  - { sv: "ett batteri", nl: "een batterij", def: "batteriet" }
+  - { sv: "en loppis", nl: "een rommelmarkt", def: "loppisen" }
+  - { sv: "ett utsläpp", nl: "de uitstoot", def: "utsläppet" }
+  - { sv: "ett kärl", nl: "een container, een bak", def: "kärlet" }
+  - { sv: "ett hushåll", nl: "een huishouden", def: "hushållet" }
+  - { sv: "en kommun", nl: "een gemeente", def: "kommunen" }
   - { sv: "sopor", nl: "afval, vuilnis" }
   - { sv: "pant", nl: "statiegeld" }
   - { sv: "att sortera", nl: "sorteren, scheiden" }

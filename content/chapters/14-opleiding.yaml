@@ -330,18 +330,18 @@ sections:
           - { type: findError, sentence: "Hon blev antaget till kursen.", wrong: [2], answers: ["Hon blev antagen till kursen."], tip: "Het onderwerp is hon." }
 
 vocab:
-  - { sv: "en utbildning", nl: "opleiding", def: "utbildningen" }
-  - { sv: "en kurs", nl: "cursus", def: "kursen" }
-  - { sv: "en tenta", nl: "tentamen", def: "tentan" }
-  - { sv: "en föreläsning", nl: "hoorcollege", def: "föreläsningen" }
-  - { sv: "en uppsats", nl: "scriptie, werkstuk", def: "uppsatsen" }
-  - { sv: "ett betyg", nl: "cijfer, beoordeling (ook: cijferlijst); diploma = ett examensbevis", def: "betyget" }
-  - { sv: "en examen", nl: "diploma (afsluiting van een opleiding)", def: "examen" }
-  - { sv: "en lärare", nl: "leraar, docent", def: "läraren" }
-  - { sv: "en student", nl: "student", def: "studenten" }
-  - { sv: "ett bibliotek", nl: "bibliotheek", def: "biblioteket" }
-  - { sv: "en anmälan", nl: "aanmelding" }
-  - { sv: "en myndighet", nl: "overheidsinstantie", def: "myndigheten" }
+  - { sv: "en utbildning", nl: "een opleiding", def: "utbildningen" }
+  - { sv: "en kurs", nl: "een cursus", def: "kursen" }
+  - { sv: "en tenta", nl: "een tentamen", def: "tentan" }
+  - { sv: "en föreläsning", nl: "een hoorcollege", def: "föreläsningen" }
+  - { sv: "en uppsats", nl: "een scriptie, een werkstuk", def: "uppsatsen" }
+  - { sv: "ett betyg", nl: "een cijfer, een beoordeling (ook: cijferlijst); diploma = ett examensbevis", def: "betyget" }
+  - { sv: "en examen", nl: "een diploma (afsluiting van een opleiding)", def: "examen" }
+  - { sv: "en lärare", nl: "een leraar, een docent", def: "läraren" }
+  - { sv: "en student", nl: "een student", def: "studenten" }
+  - { sv: "ett bibliotek", nl: "een bibliotheek", def: "biblioteket" }
+  - { sv: "en anmälan", nl: "een aanmelding" }
+  - { sv: "en myndighet", nl: "een overheidsinstantie", def: "myndigheten" }
   - { sv: "att plugga", nl: "studeren, blokken" }
   - { sv: "att anmäla sig", nl: "zich aanmelden" }
   - { sv: "att bli antagen", nl: "toegelaten worden" }

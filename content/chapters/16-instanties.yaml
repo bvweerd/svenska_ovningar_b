@@ -94,7 +94,7 @@ sections:
           - type: match
             pairs:
               - ["ett ärende", "een zaak, dossier"]
-              - ["en handläggare", "behandelend ambtenaar"]
+              - ["en handläggare", "een behandelend ambtenaar"]
               - ["en blankett", "een formulier"]
               - ["ett beslut", "een besluit"]
               - ["överklaga", "in beroep gaan"]
@@ -287,16 +287,16 @@ sections:
           - { type: findError, sentence: "Hon trivs inte på jobbet förra året.", wrong: [1], answers: ["Hon trivdes inte på jobbet förra året."], tip: "Kijk naar förra året." }
 
 vocab:
-  - { sv: "ett personnummer", nl: "persoonsnummer (BSN)", def: "personnumret" }
-  - { sv: "en folkbokföring", nl: "inschrijving in de bevolkingsadministratie", def: "folkbokföringen" }
-  - { sv: "en blankett", nl: "formulier", def: "blanketten" }
-  - { sv: "en handläggare", nl: "behandelend ambtenaar", def: "handläggaren" }
-  - { sv: "ett ärende", nl: "zaak, dossier", def: "ärendet" }
-  - { sv: "ett beslut", nl: "besluit", def: "beslutet" }
-  - { sv: "en avgift", nl: "kosten, tarief, leges", def: "avgiften" }
-  - { sv: "ett id-kort", nl: "identiteitskaart", def: "id-kortet" }
-  - { sv: "ett bankkonto", nl: "bankrekening", def: "bankkontot" }
-  - { sv: "ett kvitto", nl: "bon, kwitantie", def: "kvittot" }
+  - { sv: "ett personnummer", nl: "een persoonsnummer (BSN)", def: "personnumret" }
+  - { sv: "en folkbokföring", nl: "de inschrijving in de bevolkingsadministratie", def: "folkbokföringen" }
+  - { sv: "en blankett", nl: "een formulier", def: "blanketten" }
+  - { sv: "en handläggare", nl: "een behandelend ambtenaar", def: "handläggaren" }
+  - { sv: "ett ärende", nl: "een zaak, een dossier", def: "ärendet" }
+  - { sv: "ett beslut", nl: "een besluit", def: "beslutet" }
+  - { sv: "en avgift", nl: "een tarief, een vergoeding", def: "avgiften" }
+  - { sv: "ett id-kort", nl: "een identiteitskaart", def: "id-kortet" }
+  - { sv: "ett bankkonto", nl: "een bankrekening", def: "bankkontot" }
+  - { sv: "ett kvitto", nl: "een bon, een kwitantie", def: "kvittot" }
   - { sv: "att ansöka om", nl: "aanvragen" }
   - { sv: "att överklaga", nl: "in beroep gaan" }
   - { sv: "att hoppas", nl: "hopen" }

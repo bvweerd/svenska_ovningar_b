@@ -282,16 +282,16 @@ sections:
           - { type: findError, topic: asikt, sentence: "Jag anser att vi borde inte göra det.", wrong: [4, 5], answers: ["Jag anser att vi inte borde göra det."], tip: "Na anser att volgt een bijzin." }
 
 vocab:
-  - { sv: "ett samhälle", nl: "samenleving", def: "samhället" }
-  - { sv: "en åsikt", nl: "mening", def: "åsikten" }
-  - { sv: "en debatt", nl: "debat", def: "debatten" }
-  - { sv: "en fördel", nl: "voordeel", def: "fördelen" }
-  - { sv: "en nackdel", nl: "nadeel", def: "nackdelen" }
-  - { sv: "ett argument", nl: "argument", def: "argumentet" }
-  - { sv: "ett försök", nl: "proef, poging", def: "försöket" }
-  - { sv: "en företagare", nl: "ondernemer", def: "företagaren" }
+  - { sv: "ett samhälle", nl: "een samenleving", def: "samhället" }
+  - { sv: "en åsikt", nl: "een mening", def: "åsikten" }
+  - { sv: "en debatt", nl: "een debat", def: "debatten" }
+  - { sv: "en fördel", nl: "een voordeel", def: "fördelen" }
+  - { sv: "en nackdel", nl: "een nadeel", def: "nackdelen" }
+  - { sv: "ett argument", nl: "een argument", def: "argumentet" }
+  - { sv: "ett försök", nl: "een proef, een poging", def: "försöket" }
+  - { sv: "en företagare", nl: "een ondernemer", def: "företagaren" }
   - { sv: "vården", nl: "de zorg(sector)" }
-  - { sv: "en lön", nl: "salaris", def: "lönen" }
+  - { sv: "en lön", nl: "een salaris", def: "lönen" }
   - { sv: "att anse", nl: "vinden, menen" }
   - { sv: "att hålla med", nl: "het eens zijn" }
   - { sv: "att införa", nl: "invoeren" }

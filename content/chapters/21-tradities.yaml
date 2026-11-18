@@ -281,18 +281,18 @@ sections:
           - { type: findError, topic: sammansattning, sentence: "Jag läste en tidningartikel om Lucia.", wrong: [3], answers: ["Jag läste en tidningsartikel om Lucia."], tip: "Wat komt er na -ing?" }
 
 vocab:
-  - { sv: "en tradition", nl: "traditie", def: "traditionen" }
-  - { sv: "en högtid", nl: "feestdag", def: "högtiden" }
-  - { sv: "en helgdag", nl: "vrije feestdag", def: "helgdagen" }
-  - { sv: "ett bakverk", nl: "gebak", def: "bakverket" }
-  - { sv: "ett bageri", nl: "bakkerij", def: "bageriet" }
-  - { sv: "en semla", nl: "semla (vastenavondbroodje)", def: "semlan" }
-  - { sv: "en våffla", nl: "wafel", def: "våfflan" }
-  - { sv: "en brasa", nl: "vreugdevuur, haardvuur", def: "brasan" }
-  - { sv: "en kör", nl: "koor", def: "kören" }
-  - { sv: "en sed", nl: "gewoonte, gebruik", def: "seden" }
-  - { sv: "ett skämt", nl: "grap", def: "skämtet" }
-  - { sv: "en årstid", nl: "seizoen", def: "årstiden" }
+  - { sv: "en tradition", nl: "een traditie", def: "traditionen" }
+  - { sv: "en högtid", nl: "een feestdag", def: "högtiden" }
+  - { sv: "en helgdag", nl: "een vrije feestdag", def: "helgdagen" }
+  - { sv: "ett bakverk", nl: "een gebakje", def: "bakverket" }
+  - { sv: "ett bageri", nl: "een bakkerij", def: "bageriet" }
+  - { sv: "en semla", nl: "een semla (vastenavondbroodje)", def: "semlan" }
+  - { sv: "en våffla", nl: "een wafel", def: "våfflan" }
+  - { sv: "en brasa", nl: "een vreugdevuur, een haardvuur", def: "brasan" }
+  - { sv: "en kör", nl: "een koor", def: "kören" }
+  - { sv: "en sed", nl: "een gewoonte, een gebruik", def: "seden" }
+  - { sv: "ett skämt", nl: "een grap", def: "skämtet" }
+  - { sv: "en årstid", nl: "een seizoen", def: "årstiden" }
   - { sv: "att fira", nl: "vieren" }
   - { sv: "att baka", nl: "bakken" }
   - { sv: "att tända", nl: "aansteken" }

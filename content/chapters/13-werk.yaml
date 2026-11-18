@@ -396,20 +396,20 @@ sections:
           - { type: findError, topic: relativ-som, sentence: "Jobbet som jag sökte det var på heltid.", wrong: [4], answers: ["Jobbet [som ]jag sökte var på heltid."], tip: "Jobbet is al het onderwerp van de hoofdzin: herhaal het niet met det." }
 
 vocab:
-  - { sv: "en arbetsgivare", nl: "werkgever", def: "arbetsgivaren" }
-  - { sv: "en tjänst", nl: "functie, betrekking", def: "tjänsten" }
-  - { sv: "en lön", nl: "salaris, loon", def: "lönen" }
-  - { sv: "en erfarenhet", nl: "ervaring", def: "erfarenheten" }
-  - { sv: "en utbildning", nl: "opleiding", def: "utbildningen" }
-  - { sv: "en intervju", nl: "sollicitatiegesprek, interview", def: "intervjun" }
-  - { sv: "ett krav", nl: "eis", def: "kravet" }
-  - { sv: "en kollega", nl: "collega", def: "kollegan" }
-  - { sv: "en chef", nl: "leidinggevende, baas", def: "chefen" }
-  - { sv: "ett företag", nl: "bedrijf", def: "företaget" }
-  - { sv: "ett möte", nl: "vergadering", def: "mötet" }
-  - { sv: "en ansökan", nl: "sollicitatie, aanvraag" }
-  - { sv: "en provanställning", nl: "proeftijd", def: "provanställningen" }
-  - { sv: "en tillsvidareanställning", nl: "vaste aanstelling", def: "tillsvidareanställningen" }
+  - { sv: "en arbetsgivare", nl: "een werkgever", def: "arbetsgivaren" }
+  - { sv: "en tjänst", nl: "een functie, een betrekking", def: "tjänsten" }
+  - { sv: "en lön", nl: "een salaris, een loon", def: "lönen" }
+  - { sv: "en erfarenhet", nl: "een ervaring", def: "erfarenheten" }
+  - { sv: "en utbildning", nl: "een opleiding", def: "utbildningen" }
+  - { sv: "en intervju", nl: "een sollicitatiegesprek, een interview", def: "intervjun" }
+  - { sv: "ett krav", nl: "een eis", def: "kravet" }
+  - { sv: "en kollega", nl: "een collega", def: "kollegan" }
+  - { sv: "en chef", nl: "een leidinggevende, een baas", def: "chefen" }
+  - { sv: "ett företag", nl: "een bedrijf", def: "företaget" }
+  - { sv: "ett möte", nl: "een vergadering", def: "mötet" }
+  - { sv: "en ansökan", nl: "een sollicitatie, een aanvraag" }
+  - { sv: "en provanställning", nl: "een proeftijd", def: "provanställningen" }
+  - { sv: "en tillsvidareanställning", nl: "een vaste aanstelling", def: "tillsvidareanställningen" }
   - { sv: "att anställa", nl: "aannemen, in dienst nemen" }
   - { sv: "att söka", nl: "solliciteren, zoeken" }
   - { sv: "att trivas", nl: "het naar je zin hebben" }

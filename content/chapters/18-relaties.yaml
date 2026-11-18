@@ -93,8 +93,8 @@ sections:
         items:
           - type: match
             pairs:
-              - ["en sambo", "samenwonende partner"]
-              - ["en särbo", "partner met wie je niet samenwoont"]
+              - ["en sambo", "een samenwonende partner"]
+              - ["en särbo", "een partner met wie je niet samenwoont"]
               - ["bli ihop", "verkering krijgen"]
               - ["göra slut", "het uitmaken"]
               - ["vara kär i", "verliefd zijn op"]
@@ -273,15 +273,15 @@ sections:
           - { type: findError, topic: rad-onskan, sentence: "Du borde att sova mer.", wrong: [2], answers: ["Du borde sova mer."], tip: "Na borde komt geen att." }
 
 vocab:
-  - { sv: "en sambo", nl: "samenwonende partner", def: "sambon" }
-  - { sv: "en särbo", nl: "LAT-partner", def: "särbon" }
-  - { sv: "ett förhållande", nl: "relatie", def: "förhållandet" }
-  - { sv: "en vänskap", nl: "vriendschap", def: "vänskapen" }
-  - { sv: "ett råd", nl: "advies, raad", def: "rådet" }
-  - { sv: "ett beslut", nl: "besluit", def: "beslutet" }
-  - { sv: "en kompromiss", nl: "compromis", def: "kompromissen" }
-  - { sv: "ett bröllop", nl: "bruiloft", def: "bröllopet" }
-  - { sv: "en svärmor", nl: "schoonmoeder", def: "svärmodern" }
+  - { sv: "en sambo", nl: "een samenwonende partner", def: "sambon" }
+  - { sv: "en särbo", nl: "een LAT-partner", def: "särbon" }
+  - { sv: "ett förhållande", nl: "een relatie", def: "förhållandet" }
+  - { sv: "en vänskap", nl: "een vriendschap", def: "vänskapen" }
+  - { sv: "ett råd", nl: "een advies, een raad", def: "rådet" }
+  - { sv: "ett beslut", nl: "een besluit", def: "beslutet" }
+  - { sv: "en kompromiss", nl: "een compromis", def: "kompromissen" }
+  - { sv: "ett bröllop", nl: "een bruiloft", def: "bröllopet" }
+  - { sv: "en svärmor", nl: "een schoonmoeder", def: "svärmodern" }
   - { sv: "att gifta sig", nl: "trouwen" }
   - { sv: "att skilja sig", nl: "scheiden" }
   - { sv: "att gräla", nl: "ruziemaken" }

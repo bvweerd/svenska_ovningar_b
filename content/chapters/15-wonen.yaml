@@ -289,19 +289,19 @@ sections:
           - { type: findError, sentence: "Vi ska hälsa hos mormor i helgen.", wrong: [3], answers: ["Vi ska hälsa på mormor i helgen."], tip: "Op bezoek gaan = hälsa …?" }
 
 vocab:
-  - { sv: "en hyresvärd", nl: "verhuurder", def: "hyresvärden" }
-  - { sv: "en hyresgäst", nl: "huurder", def: "hyresgästen" }
-  - { sv: "en hyra", nl: "huur", def: "hyran" }
-  - { sv: "ett hyreshus", nl: "huurflat", def: "hyreshuset" }
-  - { sv: "ett hyreskontrakt", nl: "huurcontract", def: "hyreskontraktet" }
-  - { sv: "en tvättstuga", nl: "gezamenlijke wasruimte", def: "tvättstugan" }
-  - { sv: "en källare", nl: "kelder", def: "källaren" }
-  - { sv: "ett trapphus", nl: "trappenhuis", def: "trapphuset" }
-  - { sv: "en granne", nl: "buurman, buurvrouw", def: "grannen" }
-  - { sv: "ett kvarter", nl: "buurt, blok", def: "kvarteret" }
-  - { sv: "ett element", nl: "radiator", def: "elementet" }
-  - { sv: "en kran", nl: "kraan", def: "kranen" }
-  - { sv: "en felanmälan", nl: "storingsmelding" }
+  - { sv: "en hyresvärd", nl: "een verhuurder", def: "hyresvärden" }
+  - { sv: "en hyresgäst", nl: "een huurder", def: "hyresgästen" }
+  - { sv: "en hyra", nl: "de huur", def: "hyran" }
+  - { sv: "ett hyreshus", nl: "een huurflat", def: "hyreshuset" }
+  - { sv: "ett hyreskontrakt", nl: "een huurcontract", def: "hyreskontraktet" }
+  - { sv: "en tvättstuga", nl: "een gezamenlijke wasruimte", def: "tvättstugan" }
+  - { sv: "en källare", nl: "een kelder", def: "källaren" }
+  - { sv: "ett trapphus", nl: "een trappenhuis", def: "trapphuset" }
+  - { sv: "en granne", nl: "een buurman, een buurvrouw", def: "grannen" }
+  - { sv: "ett kvarter", nl: "een buurt, een blok", def: "kvarteret" }
+  - { sv: "ett element", nl: "een radiator", def: "elementet" }
+  - { sv: "en kran", nl: "een kraan", def: "kranen" }
+  - { sv: "en felanmälan", nl: "een storingsmelding" }
   - { sv: "att flytta in", nl: "intrekken" }
   - { sv: "att stänga av", nl: "uitzetten" }
   - { sv: "att sätta på", nl: "aanzetten" }

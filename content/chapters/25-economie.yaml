@@ -270,18 +270,18 @@ sections:
           - { type: findError, topic: trender, sentence: "Andelen nådde botten på 82 procent.", wrong: [2], answers: ["Andelen nådde {toppen|en topp|sin högsta nivå} på 82 procent."], tip: "82 procent was het hoogste punt." }
 
 vocab:
-  - { sv: "en ökning", nl: "stijging, toename", def: "ökningen" }
-  - { sv: "en minskning", nl: "daling, afname", def: "minskningen" }
-  - { sv: "en utveckling", nl: "ontwikkeling", def: "utvecklingen" }
-  - { sv: "en förändring", nl: "verandering", def: "förändringen" }
-  - { sv: "en försäljning", nl: "verkoop, omzet", def: "försäljningen" }
-  - { sv: "en andel", nl: "aandeel", def: "andelen" }
-  - { sv: "en nivå", nl: "niveau", def: "nivån" }
-  - { sv: "en ledning", nl: "directie, leiding", def: "ledningen" }
-  - { sv: "ett kvartal", nl: "kwartaal", def: "kvartalet" }
-  - { sv: "en tillväxt", nl: "groei", def: "tillväxten" }
-  - { sv: "en procentenhet", nl: "procentpunt", def: "procentenheten" }
-  - { sv: "ett diagram", nl: "grafiek", def: "diagrammet" }
+  - { sv: "en ökning", nl: "een stijging, een toename", def: "ökningen" }
+  - { sv: "en minskning", nl: "een daling, een afname", def: "minskningen" }
+  - { sv: "en utveckling", nl: "een ontwikkeling", def: "utvecklingen" }
+  - { sv: "en förändring", nl: "een verandering", def: "förändringen" }
+  - { sv: "en försäljning", nl: "de verkoop, de omzet", def: "försäljningen" }
+  - { sv: "en andel", nl: "een aandeel", def: "andelen" }
+  - { sv: "en nivå", nl: "een niveau", def: "nivån" }
+  - { sv: "en ledning", nl: "de directie, de leiding", def: "ledningen" }
+  - { sv: "ett kvartal", nl: "een kwartaal", def: "kvartalet" }
+  - { sv: "en tillväxt", nl: "de groei", def: "tillväxten" }
+  - { sv: "en procentenhet", nl: "een procentpunt", def: "procentenheten" }
+  - { sv: "ett diagram", nl: "een grafiek", def: "diagrammet" }
   - { sv: "att öka", nl: "toenemen, stijgen" }
   - { sv: "att minska", nl: "afnemen, dalen" }
   - { sv: "att uppge", nl: "verklaren, opgeven" }

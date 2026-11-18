@@ -297,18 +297,18 @@ sections:
           - { type: findError, sentence: "Tåget var sent, så missade vi bussen.", wrong: [4, 5], answers: ["Tåget var sent, så vi missade bussen."], tip: "Na het voegwoord så (= dus): geen inversie. In spreektaal hoor je ook så missade vi, maar schrijf så vi missade." }
 
 vocab:
-  - { sv: "ett nattåg", nl: "nachttrein", def: "nattåget" }
-  - { sv: "en sovvagn", nl: "slaaprijtuig", def: "sovvagnen" }
-  - { sv: "en biljett", nl: "kaartje", def: "biljetten" }
-  - { sv: "en försening", nl: "vertraging", def: "förseningen" }
-  - { sv: "ett spår", nl: "spoor", def: "spåret" }
-  - { sv: "en avgång", nl: "vertrek", def: "avgången" }
-  - { sv: "en ankomst", nl: "aankomst", def: "ankomsten" }
-  - { sv: "ett byte", nl: "overstap", def: "bytet" }
-  - { sv: "ett klagomål", nl: "klacht", def: "klagomålet" }
-  - { sv: "en ersättning", nl: "vergoeding", def: "ersättningen" }
-  - { sv: "ett tält", nl: "tent", def: "tältet" }
-  - { sv: "en resenär", nl: "reiziger", def: "resenären" }
+  - { sv: "ett nattåg", nl: "een nachttrein", def: "nattåget" }
+  - { sv: "en sovvagn", nl: "een slaaprijtuig", def: "sovvagnen" }
+  - { sv: "en biljett", nl: "een kaartje", def: "biljetten" }
+  - { sv: "en försening", nl: "een vertraging", def: "förseningen" }
+  - { sv: "ett spår", nl: "een spoor", def: "spåret" }
+  - { sv: "en avgång", nl: "een vertrek", def: "avgången" }
+  - { sv: "en ankomst", nl: "een aankomst", def: "ankomsten" }
+  - { sv: "ett byte", nl: "een overstap", def: "bytet" }
+  - { sv: "ett klagomål", nl: "een klacht", def: "klagomålet" }
+  - { sv: "en ersättning", nl: "een vergoeding", def: "ersättningen" }
+  - { sv: "ett tält", nl: "een tent", def: "tältet" }
+  - { sv: "en resenär", nl: "een reiziger", def: "resenären" }
   - { sv: "att stiga på", nl: "instappen" }
   - { sv: "att stiga av", nl: "uitstappen" }
   - { sv: "att komma fram", nl: "aankomen" }

@@ -255,18 +255,18 @@ sections:
           - { type: findError, sentence: "Den av forskarna föreslådda förklaringen är enkel.", wrong: [3], answers: ["Den av forskarna föreslagna förklaringen är enkel."], tip: "föreslå is een sterk werkwoord." }
 
 vocab:
-  - { sv: "en studie", nl: "studie, onderzoek", def: "studien" }
-  - { sv: "en forskare", nl: "onderzoeker", def: "forskaren" }
+  - { sv: "en studie", nl: "een studie, een onderzoek", def: "studien" }
+  - { sv: "en forskare", nl: "een onderzoeker", def: "forskaren" }
   - { sv: "forskning", nl: "onderzoek (wetenschap)" }
-  - { sv: "en deltagare", nl: "deelnemer", def: "deltagaren" }
-  - { sv: "en slutsats", nl: "conclusie", def: "slutsatsen" }
-  - { sv: "ett resultat", nl: "resultaat", def: "resultatet" }
-  - { sv: "en metod", nl: "methode", def: "metoden" }
-  - { sv: "ett syfte", nl: "doel", def: "syftet" }
-  - { sv: "en förklaring", nl: "verklaring", def: "förklaringen" }
-  - { sv: "en begränsning", nl: "beperking", def: "begränsningen" }
-  - { sv: "ett minne", nl: "geheugen, herinnering", def: "minnet" }
-  - { sv: "en hjärna", nl: "hersenen", def: "hjärnan" }
+  - { sv: "en deltagare", nl: "een deelnemer", def: "deltagaren" }
+  - { sv: "en slutsats", nl: "een conclusie", def: "slutsatsen" }
+  - { sv: "ett resultat", nl: "een resultaat", def: "resultatet" }
+  - { sv: "en metod", nl: "een methode", def: "metoden" }
+  - { sv: "ett syfte", nl: "een doel", def: "syftet" }
+  - { sv: "en förklaring", nl: "een verklaring", def: "förklaringen" }
+  - { sv: "en begränsning", nl: "een beperking", def: "begränsningen" }
+  - { sv: "ett minne", nl: "een geheugen, een herinnering", def: "minnet" }
+  - { sv: "en hjärna", nl: "een brein, de hersenen", def: "hjärnan" }
   - { sv: "att undersöka", nl: "onderzoeken" }
   - { sv: "att påverka", nl: "beïnvloeden" }
   - { sv: "att tyda på", nl: "erop wijzen" }

@@ -289,17 +289,17 @@ sections:
           - { type: findError, sentence: "Jag går att ringa läkaren i morgon.", wrong: [1, 2], answers: ["Jag ska ringa läkaren {i morgon|imorgon}.", "Jag tänker ringa läkaren {i morgon|imorgon}."], tip: "Nederlands gaan + infinitief." }
 
 vocab:
-  - { sv: "en vårdcentral", nl: "huisartsenpraktijk, gezondheidscentrum", def: "vårdcentralen" }
-  - { sv: "en läkare", nl: "arts", def: "läkaren" }
-  - { sv: "en sjuksköterska", nl: "verpleegkundige", def: "sjuksköterskan" }
-  - { sv: "ett apotek", nl: "apotheek", def: "apoteket" }
-  - { sv: "ett recept", nl: "recept (van de arts)", def: "receptet" }
-  - { sv: "en remiss", nl: "verwijzing", def: "remissen" }
-  - { sv: "en feber", nl: "koorts", def: "febern" }
-  - { sv: "en förkylning", nl: "verkoudheid", def: "förkylningen" }
-  - { sv: "en spruta", nl: "injectie, spuit", def: "sprutan" }
-  - { sv: "ett knä", nl: "knie", def: "knät" }
-  - { sv: "en behandling", nl: "behandeling", def: "behandlingen" }
+  - { sv: "en vårdcentral", nl: "een huisartsenpraktijk, een gezondheidscentrum", def: "vårdcentralen" }
+  - { sv: "en läkare", nl: "een arts", def: "läkaren" }
+  - { sv: "en sjuksköterska", nl: "een verpleegkundige", def: "sjuksköterskan" }
+  - { sv: "ett apotek", nl: "een apotheek", def: "apoteket" }
+  - { sv: "ett recept", nl: "een recept (van de arts)", def: "receptet" }
+  - { sv: "en remiss", nl: "een verwijzing", def: "remissen" }
+  - { sv: "en feber", nl: "de koorts", def: "febern" }
+  - { sv: "en förkylning", nl: "een verkoudheid", def: "förkylningen" }
+  - { sv: "en spruta", nl: "een injectie, een spuit", def: "sprutan" }
+  - { sv: "ett knä", nl: "een knie", def: "knät" }
+  - { sv: "en behandling", nl: "een behandeling", def: "behandlingen" }
   - { sv: "yr", nl: "duizelig" }
   - { sv: "svullen", nl: "gezwollen" }
   - { sv: "allvarlig", nl: "ernstig" }

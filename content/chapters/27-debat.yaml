@@ -263,17 +263,17 @@ sections:
           - { type: findError, topic: argumentation, sentence: "Kritiker betyder att förbudet är omodernt.", wrong: [1], answers: ["Kritiker menar att förbudet är omodernt.", "Kritiker hävdar att förbudet är omodernt."], tip: "Welk werkwoord betekent een mening hebben?" }
 
 vocab:
-  - { sv: "en debatt", nl: "debat", def: "debatten" }
-  - { sv: "en debattartikel", nl: "opiniestuk", def: "debattartikeln" }
-  - { sv: "en tes", nl: "stelling, standpunt", def: "tesen" }
-  - { sv: "ett argument", nl: "argument", def: "argumentet" }
-  - { sv: "ett motargument", nl: "tegenargument", def: "motargumentet" }
-  - { sv: "ett förbud", nl: "verbod", def: "förbudet" }
-  - { sv: "en kritiker", nl: "criticus", def: "kritikern" }
-  - { sv: "ett verktyg", nl: "instrument, hulpmiddel", def: "verktyget" }
-  - { sv: "ett straff", nl: "straf", def: "straffet" }
-  - { sv: "en förebild", nl: "voorbeeld, rolmodel", def: "förebilden" }
-  - { sv: "ett elevråd", nl: "leerlingenraad", def: "elevrådet" }
+  - { sv: "en debatt", nl: "een debat", def: "debatten" }
+  - { sv: "en debattartikel", nl: "een opiniestuk", def: "debattartikeln" }
+  - { sv: "en tes", nl: "een stelling, een standpunt", def: "tesen" }
+  - { sv: "ett argument", nl: "een argument", def: "argumentet" }
+  - { sv: "ett motargument", nl: "een tegenargument", def: "motargumentet" }
+  - { sv: "ett förbud", nl: "een verbod", def: "förbudet" }
+  - { sv: "en kritiker", nl: "een criticus", def: "kritikern" }
+  - { sv: "ett verktyg", nl: "een instrument, een hulpmiddel", def: "verktyget" }
+  - { sv: "ett straff", nl: "een straf", def: "straffet" }
+  - { sv: "en förebild", nl: "een voorbeeld, een rolmodel", def: "förebilden" }
+  - { sv: "ett elevråd", nl: "een leerlingenraad", def: "elevrådet" }
   - { sv: "att hävda", nl: "beweren" }
   - { sv: "att invända", nl: "tegenwerpen" }
   - { sv: "att bemöta", nl: "reageren op, ingaan op" }

@@ -243,16 +243,16 @@ sections:
           - { type: findError, topic: bisats-adverb, sentence: "Jag tror att det blir inte lätt.", wrong: [4, 5], answers: ["Jag tror att det inte blir lätt."], tip: "Bijzinvolgorde." }
 
 vocab:
-  - { sv: "en framtid", nl: "toekomst", def: "framtiden" }
-  - { sv: "en trend", nl: "trend", def: "trenden" }
-  - { sv: "en befolkning", nl: "bevolking", def: "befolkningen" }
-  - { sv: "en prognos", nl: "prognose, verwachting", def: "prognosen" }
-  - { sv: "ett yrke", nl: "beroep", def: "yrket" }
-  - { sv: "en förmåga", nl: "vermogen, vaardigheid", def: "förmågan" }
-  - { sv: "en egenskap", nl: "eigenschap", def: "egenskapen" }
+  - { sv: "en framtid", nl: "de toekomst", def: "framtiden" }
+  - { sv: "en trend", nl: "een trend", def: "trenden" }
+  - { sv: "en befolkning", nl: "de bevolking", def: "befolkningen" }
+  - { sv: "en prognos", nl: "een prognose, een verwachting", def: "prognosen" }
+  - { sv: "ett yrke", nl: "een beroep", def: "yrket" }
+  - { sv: "en förmåga", nl: "een vermogen, een vaardigheid", def: "förmågan" }
+  - { sv: "en egenskap", nl: "een eigenschap", def: "egenskapen" }
   - { sv: "äldreomsorg", nl: "ouderenzorg" }
-  - { sv: "ett krav", nl: "eis", def: "kravet" }
-  - { sv: "en självklarhet", nl: "vanzelfsprekendheid", def: "självklarheten" }
+  - { sv: "ett krav", nl: "een eis", def: "kravet" }
+  - { sv: "en självklarhet", nl: "een vanzelfsprekendheid", def: "självklarheten" }
   - { sv: "att förvänta sig", nl: "verwachten" }
   - { sv: "att beräkna", nl: "berekenen" }
   - { sv: "att anpassa sig", nl: "zich aanpassen" }

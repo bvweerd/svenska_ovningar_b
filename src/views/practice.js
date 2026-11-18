@@ -376,7 +376,10 @@ export const GAMES = {
     make() {
       const pool = vocabPool();
       const v = pool[Math.floor(Math.random() * pool.length)];
-      const others = shuffle(pool.filter((o) => o.nl !== v.nl)).slice(0, 3).map((o) => o.nl);
+      // Foute keuzes van dezelfde soort (met lidwoord bij een zelfstandig naamwoord), zodat het lidwoord niets verraadt.
+      const kind = (x) => (/^(en|ett) /.test(x.sv) ? 'noun' : x.sv.startsWith('att ') ? 'verb' : 'other');
+      const rest = shuffle(pool.filter((o) => o.nl !== v.nl));
+      const others = [...rest.filter((o) => kind(o) === kind(v)), ...rest.filter((o) => kind(o) !== kind(v))].slice(0, 3).map((o) => o.nl);
       const options = shuffle([v.nl, ...others]);
       return { prompt: v.sv, options, answer: options.indexOf(v.nl), solution: `${v.sv} = ${v.nl}` };
     },
