@@ -1,0 +1,303 @@
+chapter: 19
+
+grammar:
+  - id: indirekt-tal-b1
+    title: Indirecte rede met tijdsverschuiving
+    summary: "Na *sa att* schuift de tijd een stap terug: *är → var*, *har köpt → hade köpt*, *ska → skulle*, *kan → kunde*. Bijzinvolgorde: *Hon sa att hon **inte var** trött.*"
+    body: |
+      Vertel je na wat iemand gezegd heeft (*sa att, berättade att, skrev att*), dan schuift de tijd een stap terug, net als in het Nederlands:
+
+      | direct | indirect |
+      |---|---|
+      | *”Jag **är** trött.”* | *Hon sa att hon **var** trött.* |
+      | *”Jag **har köpt** en bil.”* | *Han sa att han **hade köpt** en bil.* |
+      | *”Jag **köpte** en bil.”* | *Han sa att han **hade köpt** (of: **köpte**) en bil.* |
+      | *”Vi **ska** åka.”* | *De sa att de **skulle** åka.* |
+      | *”Det **kommer att** regna.”* | *De sa att det **skulle** regna.* |
+      | *”Jag **kan** inte.”* | *Hon sa att hon inte **kunde**.* |
+
+      Is iets nog steeds waar, dan mag de presens blijven: *Hon sa att hon **bor** i Malmö.*
+
+      ### Ook veranderen
+      - **voornaamwoorden**: *jag → hon/han*, *vi → de*
+      - **tijdswoorden**, als je het later vertelt: *i dag → den dagen*, *i går → dagen innan*, *i morgon → dagen efter*
+      - **woordvolgorde**: het is een bijzin, dus *inte* vóór het werkwoord: *Han sa att han **inte kunde** komma.*
+
+      In nieuwsberichten zie je ook **enligt** (volgens): ***Enligt** polisen skadades ingen.*
+
+  - id: indirekt-fraga
+    title: Indirecte vragen en vem som
+    summary: "Ja/nee-vraag: **om**: *Hon frågade **om** jag ville komma.* Vraagwoord: *Jag undrar **varför** han **inte** kom.* Is het vraagwoord het onderwerp, dan **som**: *Jag vet inte **vem som** ringde.*"
+    body: |
+      Een vraag in een bijzin (na *fråga, undra, veta, berätta* …) heeft **bijzinvolgorde**: onderwerp – (inte) – werkwoord.
+
+      | directe vraag | indirect |
+      |---|---|
+      | *Kommer du?* | *Hon frågade **om** jag kom.* |
+      | *Var bor du?* | *Han frågade **var jag bodde**.* |
+      | *Varför kom du inte?* | *Chefen undrade **varför jag inte** hade kommit.* |
+
+      Een ja/nee-vraag krijgt **om** (of): *Vet du **om** butiken är öppen?*
+
+      ### vem som, vad som, vilka som
+      Is het vraagwoord zelf het **onderwerp** van de bijzin, dan komt er **som** achter:
+
+      - *Vem ringde?* → *Jag vet inte **vem som** ringde.*
+      - *Vad hände?* → *Berätta **vad som** hände!*
+      - *Vilka kommer?* → *Vet du **vilka som** kommer?*
+
+      Is het vraagwoord het **lijdend voorwerp**, dan komt er geen *som*:
+
+      - *Vem ringde du?* → *Jag vet inte **vem du** ringde.*
+
+      Test: staat er na het vraagwoord al een onderwerp (*du, hon, Erik* …)? Dan geen *som*.
+
+sections:
+  - id: lasa
+    title: Läsa · lezen
+    exercises:
+      - id: lasa-alg
+        title: "Lezen: een eland in de stad"
+        instruction: Lees het nieuwsbericht en beantwoord de vragen.
+        topic: indirekt-tal-b1
+        textTitle: Älg på villovägar i centrala Uppsala
+        text: |
+          En älg orsakade stor uppståndelse i centrala Uppsala i tisdags morse. Älgen sågs först vid järnvägsstationen strax efter klockan sex. Sedan gick den lugnt genom stadsparken och vidare ner mot Fyrisån.
+
+          – Jag trodde inte mina ögon, säger Karin Lund, som var på väg till jobbet. Den stod bara där och åt av buskarna utanför min port.
+
+          Polisen spärrade av flera gator, och trafiken stod still i nästan en timme. Ingen människa skadades.
+
+          – Älgen var troligen ung och hade gått vilse, säger polisens presstalesperson Anders Berg. Till slut lyckades vi leda den ut ur staden mot skogen.
+
+          Enligt Berg är det inte ovanligt att älgar kommer in i städer på våren, när de unga djuren lämnar sina mödrar.
+        items:
+          - { type: mc, prompt: "Var sågs älgen först?", options: ["vid järnvägsstationen", "i stadsparken", "vid Fyrisån", "i skogen"], answer: 0 }
+          - { type: truefalse, statement: "Älgen sågs på kvällen.", answer: false, correction: { answers: ["{Älgen|Den} sågs [på morgonen ]strax efter klockan sex[ på morgonen].", "{Älgen|Den} sågs på morgonen."] } }
+          - { type: mc, prompt: "Vad gjorde älgen utanför Karin Lunds port?", options: ["Den åt av buskarna.", "Den sov.", "Den sprang in i huset.", "Den skadade en bil."], answer: 0 }
+          - { type: truefalse, statement: "En person skadades.", answer: false, correction: { answers: ["Ingen [människa ]skadades."] } }
+          - { type: mc, prompt: "Varför kom älgen in i staden, enligt polisen?", options: ["Den var ung och hade gått vilse.", "Den letade efter mat.", "Den var sjuk.", "Någon hade jagat den."], answer: 0 }
+          - { type: mc, prompt: "När kommer älgar ofta in i städer?", options: ["på våren", "på vintern", "på natten", "på hösten"], answer: 0 }
+          - { type: mc, prompt: "Wat betekent *spärrade av flera gator*?", options: ["sloot meerdere straten af", "maakte meerdere straten schoon", "reed door meerdere straten", "zocht in meerdere straten"], answer: 0 }
+
+  - id: ord
+    title: Ord och fraser · woorden en uitdrukkingen
+    exercises:
+      - id: ord-media
+        title: Media
+        instruction: Koppel het woord aan de betekenis.
+        topic: woordenschat
+        items:
+          - type: match
+            pairs:
+              - ["en rubrik", "een kop (boven een artikel)"]
+              - ["en nyhet", "een nieuwsbericht"]
+              - ["en ledare", "een hoofdredactioneel commentaar"]
+              - ["en insändare", "een ingezonden brief"]
+              - ["ett reportage", "een reportage"]
+              - ["en källa", "een bron"]
+          - type: match
+            pairs:
+              - ["enligt", "volgens"]
+              - ["orsaka", "veroorzaken"]
+              - ["skadas", "gewond raken"]
+              - ["en presstalesperson", "een woordvoerder"]
+              - ["prenumerera på", "een abonnement hebben op"]
+              - ["sprida", "verspreiden"]
+
+      - id: fakta-asikt
+        title: Feit of mening?
+        instruction: Is het een feit of een mening?
+        topic: woordenschat
+        items:
+          - type: sort
+            categories: ["feit", "mening"]
+            items:
+              - { text: "Älgen sågs vid stationen klockan sex.", cat: 0 }
+              - { text: "Det var det roligaste som hänt i Uppsala på länge.", cat: 1 }
+              - { text: "Trafiken stod still i nästan en timme.", cat: 0 }
+              - { text: "Polisen borde ha agerat snabbare.", cat: 1 }
+              - { text: "Ingen människa skadades.", cat: 0 }
+              - { text: "Älgar är de vackraste djuren i Sverige.", cat: 1 }
+
+  - id: indirekt-tal
+    title: "Grammatik: indirecte rede"
+    exercises:
+      - id: indirekt-omvormen
+        title: Wat zei hij?
+        instruction: Schrijf de zin als indirecte rede. Laat de tijd een stap terugschuiven.
+        topic: indirekt-tal-b1
+        items:
+          - { type: transform, prompt: "Anna: ”Jag är trött.”", task: "Anna sa att …", answers: ["Anna sa att hon var trött."], feedback: [{ match: "Anna sa att hon är trött.", tip: "Schuif de tijd terug: är → var." }] }
+          - { type: transform, prompt: "Erik: ”Jag har köpt en ny bil.”", task: "Erik sa att …", answers: ["Erik sa att han hade köpt en ny bil."], feedback: [{ match: "Erik sa att han har köpt en ny bil.", tip: "har köpt → hade köpt." }] }
+          - { type: transform, prompt: "Läraren: ”Ni ska läsa kapitel tre.”", task: "Läraren sa att vi …", answers: ["Läraren sa att vi skulle läsa kapitel tre."], feedback: [{ contains: "att vi ska", tip: "ska → skulle." }] }
+          - { type: transform, prompt: "Mamma: ”Jag kan inte komma i morgon.”", task: "Mamma sa att …", answers: ["Mamma sa att hon inte kunde komma {dagen efter|nästa dag|i morgon|imorgon}."], feedback: [{ contains: "kunde inte", tip: "Het is een bijzin: inte vóór het werkwoord, inte kunde." }, { contains: "att hon inte kan", tip: "kan → kunde." }] }
+          - { type: transform, prompt: "Polisen: ”Ingen har skadats.”", task: "Polisen sa att …", answers: ["Polisen sa att ingen hade skadats.", "Polisen sa att ingen skadades."] }
+          - { type: transform, prompt: "Meteorologen: ”Det kommer att snöa i helgen.”", task: "Meteorologen sa att …", answers: ["Meteorologen sa att det skulle snöa i helgen."], feedback: [{ contains: "kommer att", tip: "kommer att → skulle." }] }
+
+      - id: indirekt-vragen
+        title: Wat vroeg ze?
+        instruction: Schrijf de vraag als indirecte vraag.
+        topic: indirekt-fraga
+        items:
+          - { type: transform, prompt: "”Kommer du på festen?” frågade Lisa.", task: "Lisa frågade …", answers: ["Lisa frågade om jag {kom|skulle komma} på festen."], feedback: [{ contains: "frågade kom", tip: "Een ja/nee-vraag krijgt om: frågade om jag kom." }, { contains: "om kom jag", tip: "Bijzinvolgorde: om jag kom." }] }
+          - { type: transform, prompt: "”Var bor du?” frågade han.", task: "Han frågade …", answers: ["Han frågade var jag bodde."], feedback: [{ contains: "var bodde jag", tip: "Bijzinvolgorde: eerst het onderwerp, var jag bodde." }] }
+          - { type: transform, prompt: "”Varför kom du inte?” frågade chefen.", task: "Chefen frågade …", answers: ["Chefen frågade varför jag inte {hade kommit|kom}."], feedback: [{ contains: "jag kom inte", tip: "In de bijzin staat inte vóór het werkwoord: varför jag inte kom." }, { contains: "jag hade inte", tip: "In de bijzin staat inte vóór het werkwoord: varför jag inte hade kommit." }] }
+          - { type: transform, prompt: "”Vem ringde?” frågade hon.", task: "Hon frågade …", answers: ["Hon frågade vem som {hade ringt|ringde}."], feedback: [{ contains: "vem ringde", tip: "vem is het onderwerp: vem som ringde." }, { contains: "vem hade ringt", tip: "vem is het onderwerp: vem som hade ringt." }] }
+
+      - id: vem-som
+        title: Vem som of vem?
+        instruction: Kies wat past.
+        topic: indirekt-fraga
+        shuffle: true
+        items:
+          - { type: gap, text: "Jag vet inte ___ har ringt.", gaps: [{ answers: ["vem som"], options: ["vem som", "vem", "vad som", "vad"], shuffle: false, feedback: [{ match: "vem", tip: "vem is hier het onderwerp (wie heeft gebeld?): vem som." }] }] }
+          - { type: gap, text: "Berätta ___ hände!", gaps: [{ answers: ["vad som"], options: ["vem som", "vem", "vad som", "vad"], shuffle: false, feedback: [{ match: "vad", tip: "vad is het onderwerp (wat gebeurde er?): vad som." }] }] }
+          - { type: gap, text: "Vet du ___ hon träffade i går?", gaps: [{ answers: ["vem"], options: ["vem som", "vem", "vad som", "vad"], shuffle: false, feedback: [{ match: "vem som", tip: "hon is het onderwerp; vem is lijdend voorwerp: geen som." }] }] }
+          - { type: gap, text: "Jag undrar ___ du tänker på.", gaps: [{ answers: ["vad"], options: ["vem som", "vem", "vad som", "vad"], shuffle: false, feedback: [{ match: "vad som", tip: "du is het onderwerp: geen som." }] }] }
+          - { type: gap, text: "Ingen vet ___ orsakade branden.", gaps: [{ answers: ["vad som"], options: ["vem som", "vem", "vad som", "vad"], shuffle: false }] }
+          - { type: gap, text: "Kan du säga ___ jag ska ringa?", gaps: [{ answers: ["vem"], options: ["vem som", "vem", "vad som", "vad"], shuffle: false }] }
+
+      - id: indirekt-zinsbouw
+        title: Bijzinnen bouwen
+        instruction: Zet de woorden in de goede volgorde.
+        topic: indirekt-fraga
+        shuffle: true
+        items:
+          - { type: order, start: "Jag undrar", tokens: ["varför", "han", "inte", "svarar"], answers: ["Jag undrar varför han inte svarar."] }
+          - { type: order, start: "Hon frågade", tokens: ["om", "jag", "ville", "följa med"], answers: ["Hon frågade om jag ville följa med."] }
+          - { type: order, start: "Han sa att", tokens: ["han", "aldrig", "hade", "varit", "i Kiruna"], answers: ["Han sa att han aldrig hade varit i Kiruna."] }
+          - { type: order, start: "Vet du", tokens: ["vilka", "som", "kommer", "i kväll"], answers: ["Vet du vilka som kommer i kväll?"] }
+
+  - id: lyssna
+    title: Lyssna · luisteren
+    exercises:
+      - id: lyssna-nyheter
+        title: "Luisteren: het nieuws"
+        instruction: Luister naar het nieuwsbericht. Is de bewering **rätt** of **fel**?
+        topic: indirekt-tal-b1
+        listen: true
+        textTitle: Nyheterna
+        text: |
+          Här är nyheterna. Kraftigt snöfall i norra Sverige har lett till stora problem i trafiken. Flera tåg mellan Umeå och Luleå är inställda, och på E4:an har flera lastbilar kört av vägen. Ingen har skadats allvarligt.
+
+          Enligt meteorologerna kommer det att fortsätta snöa under natten, men i morgon förmiddag väntas vädret bli bättre. Trafikverket uppmanar alla att undvika onödiga resor.
+
+          Och så sporten: Sverige vann mot Norge med tre–ett i handboll i går kväll.
+        items:
+          - { type: truefalse, statement: "Det har snöat mycket i södra Sverige.", answer: false, correction: { answers: ["Det har snöat mycket i norra Sverige.", "Snöfallet är i norra Sverige."] } }
+          - { type: truefalse, statement: "Flera tåg mellan Umeå och Luleå är inställda.", answer: true }
+          - { type: truefalse, statement: "Flera personer skadades allvarligt.", answer: false, correction: { answers: ["Ingen har skadats allvarligt.", "Ingen skadades allvarligt."] } }
+          - { type: truefalse, statement: "Vädret väntas bli bättre i morgon förmiddag.", answer: true }
+          - { type: truefalse, statement: "Norge vann matchen.", answer: false, correction: { answers: ["Sverige vann[ matchen].", "Sverige vann mot Norge[ med {tre–ett|3–1}]."] } }
+
+      - id: lyssna-dictee
+        title: Dictee
+        instruction: Luister en schrijf de zin op.
+        topic: indirekt-fraga
+        shuffle: true
+        items:
+          - { type: listen, say: "Hon sa att hon inte kunde komma." }
+          - { type: listen, say: "Jag vet inte vem som ringde." }
+          - { type: listen, say: "Enligt polisen skadades ingen." }
+          - { type: listen, say: "Han frågade om jag ville följa med." }
+
+  - id: praktiskt
+    title: Praktiskt · nieuws navertellen
+    exercises:
+      - id: dialoog-nyhet
+        title: Heb je het gehoord?
+        instruction: Zet het gesprek in de goede volgorde.
+        topic: indirekt-tal-b1
+        items:
+          - type: dialogue
+            lines:
+              - "Maja: Har du hört om älgen i Uppsala?"
+              - "Tom: Nej, vad hände?"
+              - "Maja: Det stod i tidningen att en älg gick rakt genom centrum i tisdags."
+              - "Tom: Allvarligt? Skadades någon?"
+              - "Maja: Nej, enligt polisen skadades ingen. Men trafiken stod still i en timme."
+              - "Tom: Vad hände med älgen sedan?"
+              - "Maja: Polisen sa att de hade lett den tillbaka till skogen."
+
+      - id: wat-zeg-je
+        title: Wat zeg je?
+        instruction: Kies wat past.
+        topic: indirekt-tal-b1
+        shuffle: true
+        items:
+          - { type: mc, prompt: "Je begint over een nieuwtje.", options: ["Har du hört att …?", "Har du sagt att …?", "Har du frågat att …?", "Har du läst om att du …?"], answer: 0 }
+          - { type: mc, prompt: "Je noemt je bron.", options: ["Det stod i tidningen att …", "Det sa i tidningen att …", "Det skrev i tidningen att …", "Tidningen stod att …"], answer: 0, tip: "In het Zweeds: det stod i tidningen (het stond in de krant)." }
+          - { type: mc, prompt: "Je twijfelt of het nieuws klopt.", options: ["Är det verkligen sant? Vilken källa är det?", "Det är sant eftersom jag läste det.", "Alla nyheter är falska.", "Jag vet inte vem som är sant."], answer: 0 }
+
+  - id: skriva
+    title: Skriva · schrijven
+    intro: "Schrijfdoel: een samenvatting."
+    exercises:
+      - id: skriva-sammanfattning
+        title: Vat het nieuws samen
+        instruction: Schrijf een korte samenvatting van het nieuwsbericht over de eland.
+        topic: indirekt-tal-b1
+        items:
+          - type: free
+            prompt: "Vat het bericht *Älg på villovägar i centrala Uppsala* samen in 50–80 woorden, in je eigen woorden. Vertel wat er gebeurde, waar en wanneer, en wat de politie zei. Gebruik **enligt** en minstens één keer **sa att**."
+            minWords: 45
+            require:
+              - { any: ["älg", "älgen"], label: "Je noemt de eland" }
+              - { any: ["uppsala"], label: "Je noemt waar het gebeurde" }
+              - { any: ["enligt"], label: "Je gebruikt enligt" }
+              - { any: ["sa att", "berättade att"], label: "Je gebruikt sa att of berättade att" }
+              - { any: ["polisen"], label: "Je vertelt wat de politie zei of deed" }
+            model: "I tisdags morse gick en ung älg rakt genom centrala Uppsala. Den sågs först vid järnvägsstationen och gick sedan genom stadsparken. Polisen spärrade av flera gator, och trafiken stod still i nästan en timme. Ingen skadades. Polisens presstalesperson sa att älgen troligen hade gått vilse. Enligt polisen är det inte ovanligt att unga älgar kommer in i städer på våren."
+
+  - id: herhaling
+    title: Herhaling
+    exercises:
+      - id: herhaling-13-19
+        title: Hoofdstuk 13 tot en met 19 door elkaar
+        instruction: Gemengde vragen.
+        shuffle: true
+        items:
+          - { type: gap, topic: passiv-s, text: "Älgen ___ (se) först vid stationen.", gaps: [{ answers: ["sågs"], feedback: [{ match: ["sedes", "såg"], tip: "se → såg; lijdend: sågs." }] }] }
+          - { type: gap, topic: dar-dit-vars, text: "Det var parken ___ älgen gick.", gaps: [{ answers: ["dit"], options: ["där", "dit", "vars"], shuffle: false, tip: "gå naar een plek: dit." }] }
+          - { type: gap, topic: framtid, text: "Det ___ att bli varmare i morgon.", gaps: [{ answers: ["kommer"], options: ["kommer", "ska", "tänker"], shuffle: false }] }
+          - { type: gap, topic: villkor, text: "Om jag ___ (se) en älg, skulle jag bli rädd.", gaps: [{ answers: ["såg"] }] }
+          - { type: gap, topic: prep-verb, text: "Jag är inte intresserad ___ sport.", gaps: [{ answers: ["av"] }] }
+          - { type: transform, topic: indirekt-tal-b1, prompt: "Karin: ”Jag är rädd.”", task: "Karin sa att …", answers: ["Karin sa att hon var rädd."] }
+
+  - id: zoek-de-fout
+    title: Zoek de fout
+    exercises:
+      - id: zoek-de-fout
+        title: Zoek de fout
+        instruction: Klik op het woord dat niet klopt en verbeter de zin.
+        topic: indirekt-fraga
+        shuffle: true
+        items:
+          - { type: findError, sentence: "Jag vet inte vem ringde.", wrong: [3, 4], answers: ["Jag vet inte vem som ringde."], tip: "vem is hier het onderwerp." }
+          - { type: findError, sentence: "Hon frågade var bodde jag.", wrong: [3, 4], answers: ["Hon frågade var jag bodde."], tip: "Bijzinvolgorde." }
+          - { type: findError, topic: indirekt-tal-b1, sentence: "Han sa att han kunde inte komma.", wrong: [4, 5], answers: ["Han sa att han inte kunde komma."], tip: "Waar staat inte in een bijzin?" }
+          - { type: findError, sentence: "Jag undrar att du vill följa med.", wrong: [2], answers: ["Jag undrar om du vill följa med."], tip: "Een ja/nee-vraag in een bijzin." }
+          - { type: findError, topic: indirekt-tal-b1, sentence: "Det sa i tidningen att det skulle snöa.", wrong: [1], answers: ["Det stod i tidningen att det skulle snöa."], tip: "Wat zeg je over een tekst in de krant?" }
+
+vocab:
+  - { sv: "en nyhet", nl: "nieuwsbericht, nieuwtje", def: "nyheten" }
+  - { sv: "en tidning", nl: "krant", def: "tidningen" }
+  - { sv: "en artikel", nl: "artikel", def: "artikeln" }
+  - { sv: "en rubrik", nl: "kop", def: "rubriken" }
+  - { sv: "en källa", nl: "bron", def: "källan" }
+  - { sv: "en insändare", nl: "ingezonden brief", def: "insändaren" }
+  - { sv: "en journalist", nl: "journalist", def: "journalisten" }
+  - { sv: "en olycka", nl: "ongeluk", def: "olyckan" }
+  - { sv: "en brand", nl: "brand", def: "branden" }
+  - { sv: "en älg", nl: "eland", def: "älgen" }
+  - { sv: "ett snöfall", nl: "sneeuwval", def: "snöfallet" }
+  - { sv: "en uppståndelse", nl: "opschudding", def: "uppståndelsen" }
+  - { sv: "att orsaka", nl: "veroorzaken" }
+  - { sv: "att skadas", nl: "gewond raken" }
+  - { sv: "att spärra av", nl: "afsluiten (een weg)" }
+  - { sv: "att gå vilse", nl: "verdwalen" }
+  - { sv: "att undra", nl: "zich afvragen" }
+  - { sv: "att sprida", nl: "verspreiden" }
+  - { sv: "enligt", nl: "volgens" }
+  - { sv: "troligen", nl: "waarschijnlijk" }
