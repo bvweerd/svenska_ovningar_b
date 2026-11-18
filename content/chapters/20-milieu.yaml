@@ -1,0 +1,292 @@
+chapter: 20
+
+grammar:
+  - id: nagon-ingen
+    title: Någon en ingen
+    summary: "*någon/något/några* = (een) enig(e), iemand; *ingen/inget/inga* = geen. Bij een samengesteld werkwoord of in een bijzin gebruik je **inte någon**: *Jag har **inte** sett **någon**.* (niet ~~*har sett ingen*~~)"
+    body: |
+      | | en-woord | ett-woord | meervoud |
+      |---|---|---|---|
+      | iets, enig | någon | något | några |
+      | geen | ingen | inget | inga |
+
+      - *Har du **någon** penna? – Nej, jag har **ingen** penna.*
+      - *Finns det **något** bröd? – Nej, det finns **inget** bröd.*
+      - *Har du **några** syskon? – Nej, jag har **inga** syskon.*
+      - Als zelfstandig woord: *någon* = iemand, *ingen* = niemand, *något/någonting* = iets, *inget/ingenting* = niets.
+
+      ### Wanneer inte någon in plaats van ingen?
+      *ingen* kan alleen staan waar *inte* zou staan: direct na een enkelvoudig werkwoord in de hoofdzin. In andere gevallen gebruik je **inte … någon**:
+
+      | goed | fout |
+      |---|---|
+      | *Jag har **ingen** bil.* | |
+      | *Jag har **inte** sett **någon**.* | ~~*Jag har sett ingen.*~~ |
+      | *Jag kan **inte** se **något**.* | ~~*Jag kan se inget.*~~ |
+      | *… eftersom jag **inte** har **någon** bil.* | ~~*… eftersom jag har ingen bil.*~~ |
+
+      Als **onderwerp** vooraan mag *ingen* altijd: ***Ingen** kom på mötet.*
+
+  - id: man-en-ens
+    title: Man, en, ens
+    summary: "*man* = men (onderwerp), *en* = je/iemand (voorwerp), *ens* = je/iemands (bezit): *Man blir glad när någon hjälper **en**. Det är skönt när **ens** vänner ringer.* Wederkerend: *Man ska ta med **sig** **sitt** skräp.*"
+    body: |
+      *man* is algemeen: *men, je, iedereen*. Het heeft eigen vormen:
+
+      | functie | vorm | voorbeeld |
+      |---|---|---|
+      | onderwerp | **man** | ***Man** sorterar soporna.* |
+      | voorwerp | **en** | *Det är irriterande när någon stör **en**.* |
+      | bezit | **ens** | *Det är härligt när **ens** vänner hälsar på.* |
+      | wederkerend | **sig / sin, sitt, sina** | ***Man** ska ta med **sig** **sitt** skräp.* |
+
+      Verwijst het bezit naar *man* zelf als onderwerp in dezelfde zin, dan **sin/sitt/sina** (zoals bij *han, hon*): *Man ska ta hand om **sina** saker.*
+
+      Je kunt *man* in het Nederlands vaak vertalen met *je*: *Hier mag je niet roken* = *Här får **man** inte röka.* Gebruik dan geen *du*, tenzij je echt de ander bedoelt.
+
+sections:
+  - id: lasa
+    title: Läsa · lezen
+    exercises:
+      - id: lasa-sopor
+        title: "Lezen: afval scheiden"
+        instruction: Lees de tekst en beantwoord de vragen.
+        topic: man-en-ens
+        textTitle: Sopsortering – en svensk nationalsport?
+        text: |
+          När Bas flyttade till Linköping trodde han att han kunde mycket om miljö. Men ingen hade berättat för honom hur noga svenskarna är med att sortera sina sopor. I hans kök finns det nu fem olika påsar: matavfall, plast, papper, glas och metall.
+
+          Burkar och plastflaskor med pant lämnar man tillbaka i butiken, och då får man några kronor tillbaka. Tidningar, batterier och glas tar man till en återvinningsstation. Det finns nästan ingenting som man bara slänger.
+
+          – I början tyckte jag att det var lite överdrivet, säger Bas. Men nu känns det konstigt när någon slänger en burk bland de vanliga soporna. Man vänjer sig!
+
+          Många svenskar köper också allt mer begagnat. På loppisar och i appar kan man hitta nästan vad som helst, från barnkläder till soffor.
+        items:
+          - { type: mc, prompt: "Hur många olika påsar har Bas i köket?", options: ["fem", "tre", "två", "sju"], answer: 0 }
+          - { type: truefalse, statement: "Någon hade berättat för Bas hur man sorterar.", answer: false, correction: { answers: ["Ingen hade berättat för {honom|Bas}[ hur man sorterar].", "{Bas|Han} visste inte hur man sorterar."] } }
+          - { type: mc, prompt: "Vad gör man med burkar med pant?", options: ["Man lämnar tillbaka dem i butiken.", "Man slänger dem i soporna.", "Man tar dem till en loppis.", "Man behåller dem."], answer: 0 }
+          - { type: mc, prompt: "Vart tar man batterier?", options: ["till en återvinningsstation", "till butiken", "till posten", "till grannen"], answer: 0 }
+          - { type: truefalse, statement: "Bas tycker fortfarande att sorteringen är överdriven.", answer: false, correction: { answers: ["{Bas|Han} tyckte det [bara ]i början.", "Nu känns det konstigt när någon slänger en burk[ bland de vanliga soporna]."] } }
+          - { type: mc, prompt: "Wat betekent *begagnat*?", options: ["tweedehands", "nieuw", "duur", "kapot"], answer: 0 }
+
+  - id: ord
+    title: Ord och fraser · woorden en uitdrukkingen
+    exercises:
+      - id: ord-milieu
+        title: Milieu
+        instruction: Koppel het woord aan de betekenis.
+        topic: woordenschat
+        items:
+          - type: match
+            pairs:
+              - ["sopor", "afval, vuilnis"]
+              - ["matavfall", "gft-afval"]
+              - ["pant", "statiegeld"]
+              - ["en återvinningsstation", "een inzamelpunt voor recycling"]
+              - ["en loppis", "een rommelmarkt"]
+              - ["begagnad", "tweedehands"]
+          - type: match
+            pairs:
+              - ["klimatet", "het klimaat"]
+              - ["utsläpp", "uitstoot"]
+              - ["hållbar", "duurzaam"]
+              - ["källsortera", "afval scheiden"]
+              - ["slänga", "weggooien"]
+              - ["spara energi", "energie besparen"]
+
+  - id: nagon
+    title: "Grammatik: någon en ingen"
+    exercises:
+      - id: nagon-kiezen
+        title: Welke vorm?
+        instruction: Kies de goede vorm.
+        topic: nagon-ingen
+        shuffle: true
+        items:
+          - { type: gap, text: "Har du ___ syskon?", gaps: [{ answers: ["några"], options: ["någon", "något", "några"], shuffle: false, feedback: [{ match: "någon", tip: "syskon is hier meervoud: några." }] }] }
+          - { type: gap, text: "Nej, jag har ___ syskon.", gaps: [{ answers: ["inga"], options: ["ingen", "inget", "inga"], shuffle: false }] }
+          - { type: gap, text: "Finns det ___ mjölk kvar?", gaps: [{ answers: ["någon"], options: ["någon", "något", "några"], shuffle: false, feedback: [{ match: "något", tip: "mjölk is een en-woord: någon." }] }] }
+          - { type: gap, text: "Det finns ___ bröd kvar.", gaps: [{ answers: ["inget"], options: ["ingen", "inget", "inga"], shuffle: false, feedback: [{ match: "ingen", tip: "bröd is een ett-woord: inget." }] }] }
+          - { type: gap, text: "Är det ___ som vill ha kaffe?", gaps: [{ answers: ["någon"], options: ["någon", "något", "några"], shuffle: false }] }
+          - { type: gap, text: "___ visste vad som hade hänt.", gaps: [{ answers: ["Ingen"], options: ["Ingen", "Inget", "Inga"], shuffle: false, tip: "Niemand = ingen." }] }
+
+      - id: nagon-ontkennen
+        title: Maak de zin ontkennend
+        instruction: Maak de zin ontkennend. Let op **ingen** of **inte någon**.
+        topic: nagon-ingen
+        items:
+          - { type: transform, prompt: "Jag har en bil.", answers: ["Jag har ingen bil.", "Jag har inte någon bil."] }
+          - { type: transform, prompt: "Jag har sett någon.", answers: ["Jag har inte sett någon[ting]."], feedback: [{ match: "Jag har sett ingen.", tip: "Bij har + supinum: inte … någon. Jag har inte sett någon." }, { match: "Jag har ingen sett.", tip: "Gebruik inte … någon: Jag har inte sett någon." }] }
+          - { type: transform, prompt: "Vi kan köpa något.", answers: ["Vi kan inte köpa {något|någonting}."], feedback: [{ match: ["Vi kan köpa inget.", "Vi kan köpa ingenting."], tip: "Na een modaal werkwoord: inte … något." }] }
+          - { type: transform, prompt: "Det finns mat i kylen.", answers: ["Det finns ingen mat i kylen.", "Det finns inte någon mat i kylen."] }
+          - { type: transform, prompt: "Hon sa att hon hade några frågor.", answers: ["Hon sa att hon inte hade några frågor."], feedback: [{ match: "Hon sa att hon hade inga frågor.", tip: "In een bijzin: inte … några." }] }
+          - { type: transform, prompt: "Jag har hittat något.", answers: ["Jag har inte hittat {något|någonting}."], feedback: [{ match: ["Jag har hittat inget.", "Jag har hittat ingenting."], tip: "Bij har + supinum: inte … något." }] }
+
+      - id: nagon-goed-fout
+        title: Goed of fout?
+        instruction: Is de zin goed of fout?
+        topic: nagon-ingen
+        items:
+          - type: sort
+            categories: ["goed", "fout"]
+            items:
+              - { text: "Jag har ingen tid i dag.", cat: 0 }
+              - { text: "Jag har sett ingen.", cat: 1, tip: "Bij har + supinum: Jag har inte sett någon." }
+              - { text: "Jag kan inte se någon.", cat: 0 }
+              - { text: "Eftersom jag har ingen bil, cyklar jag.", cat: 1, tip: "In een bijzin: eftersom jag inte har någon bil." }
+              - { text: "Ingen kom på mötet.", cat: 0 }
+              - { text: "Hon har ätit ingenting.", cat: 1, tip: "Hon har inte ätit någonting." }
+
+  - id: man
+    title: "Grammatik: man, en, ens"
+    exercises:
+      - id: man-kiezen
+        title: Man, en of ens?
+        instruction: Kies de vorm die past.
+        topic: man-en-ens
+        shuffle: true
+        items:
+          - { type: gap, text: "___ ska sortera sina sopor.", gaps: [{ answers: ["Man"], options: ["Man", "En", "Ens"], shuffle: false }] }
+          - { type: gap, text: "Det är irriterande när någon stör ___ mitt i natten.", gaps: [{ answers: ["en"], options: ["man", "en", "ens"], shuffle: false, feedback: [{ match: "man", tip: "Hier is het voorwerp: en." }] }] }
+          - { type: gap, text: "Det är härligt när ___ vänner hälsar på.", gaps: [{ answers: ["ens"], options: ["man", "en", "ens"], shuffle: false }] }
+          - { type: gap, text: "Man ska ta med sig ___ skräp hem.", gaps: [{ answers: ["sitt"], options: ["sitt", "ens", "hans"], shuffle: false, feedback: [{ match: "ens", tip: "Het bezit hoort bij het onderwerp man in dezelfde zin: sitt." }] }] }
+          - { type: gap, text: "Det känns bra när någon hjälper ___.", gaps: [{ answers: ["en"], options: ["man", "en", "ens"], shuffle: false }] }
+
+      - id: man-vertalen
+        title: Vertaal met man
+        instruction: Vertaal naar het Zweeds. Gebruik **man**.
+        topic: man-en-ens
+        items:
+          - { type: translate, prompt: "Hier mag je niet roken.", answers: ["Här får man inte röka.", "Man får inte röka här."], feedback: [{ contains: "du", tip: "Je in algemene zin = man." }] }
+          - { type: translate, prompt: "Je moet je afval scheiden.", answers: ["Man måste {sortera|källsortera} sina sopor.", "Man ska {sortera|källsortera} sina sopor."], feedback: [{ contains: "ens sopor", tip: "Het bezit hoort bij man als onderwerp: sina sopor." }] }
+          - { type: translate, prompt: "Het is fijn als iemand je helpt.", answers: ["Det är skönt när någon hjälper en.", "Det är {trevligt|härligt|fint} när någon hjälper en."] }
+
+  - id: lyssna
+    title: Lyssna · luisteren
+    exercises:
+      - id: lyssna-kommun
+        title: "Luisteren: nieuwe regels in de gemeente"
+        instruction: Luister naar het bericht van de gemeente. Is de bewering **rätt** of **fel**?
+        topic: nagon-ingen
+        listen: true
+        textTitle: Information från kommunen
+        text: |
+          Från och med den första mars ändras sophämtningen i kommunen. Matavfallet hämtas varje vecka, men de vanliga soporna hämtas bara varannan vecka.
+
+          Alla hushåll får ett nytt, brunt kärl för matavfall. Ni behöver inte göra någonting själva, kärlet levereras till er under februari.
+
+          Glas, plast och papper ska ni som vanligt lämna på återvinningsstationen. Har ni frågor kan ni ringa kommunens kundtjänst eller läsa mer på vår webbplats.
+        items:
+          - { type: truefalse, statement: "Ändringen börjar den första mars.", answer: true }
+          - { type: truefalse, statement: "De vanliga soporna hämtas varje vecka.", answer: false, correction: { answers: ["De vanliga soporna hämtas [bara ]varannan vecka."] } }
+          - { type: truefalse, statement: "Man måste hämta det nya kärlet själv.", answer: false, correction: { answers: ["{Man|Ni} behöver inte göra någonting[ själv].", "Kärlet levereras[ under februari]."] } }
+          - { type: truefalse, statement: "Glas ska man lämna på återvinningsstationen.", answer: true }
+
+      - id: lyssna-dictee
+        title: Dictee
+        instruction: Luister en schrijf de zin op.
+        topic: nagon-ingen
+        shuffle: true
+        items:
+          - { type: listen, say: "Jag har inte sett någon." }
+          - { type: listen, say: "Man ska sortera sina sopor." }
+          - { type: listen, say: "Det finns inget bröd kvar." }
+          - { type: listen, say: "Ingen visste vad som hade hänt." }
+
+  - id: praktiskt
+    title: Praktiskt · over gewoontes en regels
+    exercises:
+      - id: dialoog-sortera
+        title: De nieuwe buurman
+        instruction: Zet het gesprek in de goede volgorde.
+        topic: man-en-ens
+        items:
+          - type: dialogue
+            lines:
+              - "Bas: Ursäkta, var slänger man glasburkar här?"
+              - "Grannen: Dem tar man till återvinningsstationen bakom affären."
+              - "Bas: Okej. Och mjölkpaketen?"
+              - "Grannen: De är papper, så de ska också dit. Man sköljer ur dem först."
+              - "Bas: Tack! Det finns ingen sådan station där jag bodde förut."
+              - "Grannen: Man vänjer sig snabbt. Fråga bara om det är något!"
+
+      - id: wat-zeg-je
+        title: Wat zeg je?
+        instruction: Kies wat past.
+        topic: man-en-ens
+        shuffle: true
+        items:
+          - { type: mc, prompt: "Je vraagt hoe iets hier gaat.", options: ["Hur gör man här?", "Hur gör du här?", "Hur gör en här?", "Hur gör ens här?"], answer: 0 }
+          - { type: mc, prompt: "Je legt een regel uit.", options: ["Man får inte grilla på balkongen.", "En får inte grilla på balkongen.", "Ens får inte grilla på balkongen.", "Ingen får inte grilla på balkongen."], answer: 0 }
+          - { type: mc, prompt: "Je zegt dat niemand het je heeft verteld.", options: ["Ingen har berättat det för mig.", "Någon har inte berättat det för mig.", "Inte någon har berättat det för mig inte.", "Ingen har inte berättat det för mig."], answer: 0 }
+
+  - id: skriva
+    title: Skriva · schrijven
+    intro: "Schrijfdoel: een reactie op een artikel."
+    exercises:
+      - id: skriva-insandare
+        title: Reageer op het artikel
+        instruction: Schrijf een ingezonden brief.
+        topic: man-en-ens
+        items:
+          - type: free
+            prompt: "Je hebt het artikel over afval scheiden gelezen. Schrijf een korte reactie voor de krant (70–110 woorden). Vertel hoe het bij jou is (in Nederland of Zweden), wat je goed of lastig vindt en wat *men* volgens jou zou moeten doen. Gebruik **man** en minstens één keer **ingen** of **inte någon**."
+            minWords: 65
+            require:
+              - { any: ["man"], label: "Je gebruikt man" }
+              - { any: ["ingen", "inget", "inga", "inte någon", "inte något", "inte några", "ingenting"], label: "Je gebruikt ingen/inget/inga of inte någon" }
+              - { any: ["tycker", "anser", "tror"], label: "Je geeft je mening" }
+              - { any: ["borde", "skulle", "måste"], label: "Je zegt wat men zou moeten doen" }
+            model: "Jag läste artikeln om sopsortering med stort intresse. I Nederländerna sorterar man också sina sopor, men inte lika noga som i Sverige. När jag flyttade hit visste jag ingenting om pant eller återvinningsstationer. Nu tycker jag att systemet är bra, men det är svårt för nya invånare. Ingen förklarar hur man gör. Jag tycker att kommunen borde skicka information på flera språk till alla som flyttar hit. Då skulle fler sortera rätt från början. Linda Bos, Linköping"
+
+  - id: herhaling
+    title: Herhaling
+    exercises:
+      - id: herhaling-13-20
+        title: Hoofdstuk 13 tot en met 20 door elkaar
+        instruction: Gemengde vragen.
+        shuffle: true
+        items:
+          - { type: gap, topic: passiv-s, text: "Matavfallet ___ (hämta) varje vecka.", gaps: [{ answers: ["hämtas"] }] }
+          - { type: gap, topic: partikelverb, text: "Glöm inte att ___ lampan när du går.", gaps: [{ answers: ["släcka"], options: ["släcka", "sätta på", "tända"], tip: "Een lamp uitdoen: släcka (of stänga av)." }] }
+          - { type: gap, topic: deponens, text: "Det ___ (finnas) ingen återvinningsstation i närheten.", gaps: [{ answers: ["finns"] }] }
+          - { type: gap, topic: villkor, text: "Om alla ___ (sortera) sina sopor, skulle vi spara mycket energi.", gaps: [{ answers: ["sorterade"] }] }
+          - { type: gap, topic: indirekt-fraga, text: "Vet du ___ hämtar soporna?", gaps: [{ answers: ["vem som"], options: ["vem som", "vem", "vad som"], shuffle: false }] }
+          - { type: transform, topic: nagon-ingen, prompt: "Jag har köpt något.", answers: ["Jag har inte köpt {något|någonting}."] }
+
+  - id: zoek-de-fout
+    title: Zoek de fout
+    exercises:
+      - id: zoek-de-fout
+        title: Zoek de fout
+        instruction: Klik op het woord dat niet klopt en verbeter de zin.
+        topic: nagon-ingen
+        shuffle: true
+        items:
+          - { type: findError, sentence: "Jag har sett ingen i parken.", wrong: [2, 3], answers: ["Jag har inte sett någon i parken."], tip: "Bij har + supinum." }
+          - { type: findError, sentence: "Det finns ingen bröd kvar.", wrong: [2], answers: ["Det finns inget bröd kvar."], tip: "bröd is een ett-woord." }
+          - { type: findError, sentence: "Har du någon syskon?", wrong: [2], answers: ["Har du några syskon?"], tip: "syskon is hier meervoud." }
+          - { type: findError, topic: man-en-ens, sentence: "Man ska ta med ens skräp hem.", wrong: [4], answers: ["Man ska ta med sig sitt skräp hem.", "Man ska ta med sitt skräp hem."], tip: "Het bezit hoort bij het onderwerp man." }
+          - { type: findError, sentence: "Eftersom jag har ingen bil cyklar jag.", wrong: [2, 3], answers: ["Eftersom jag inte har någon bil cyklar jag."], tip: "In een bijzin: inte … någon." }
+
+vocab:
+  - { sv: "en miljö", nl: "milieu, omgeving", def: "miljön" }
+  - { sv: "ett klimat", nl: "klimaat", def: "klimatet" }
+  - { sv: "en påse", nl: "zak", def: "påsen" }
+  - { sv: "en burk", nl: "blik, pot", def: "burken" }
+  - { sv: "en flaska", nl: "fles", def: "flaskan" }
+  - { sv: "ett batteri", nl: "batterij", def: "batteriet" }
+  - { sv: "en loppis", nl: "rommelmarkt", def: "loppisen" }
+  - { sv: "ett utsläpp", nl: "uitstoot", def: "utsläppet" }
+  - { sv: "ett kärl", nl: "container, bak", def: "kärlet" }
+  - { sv: "ett hushåll", nl: "huishouden", def: "hushållet" }
+  - { sv: "en kommun", nl: "gemeente", def: "kommunen" }
+  - { sv: "sopor", nl: "afval, vuilnis" }
+  - { sv: "pant", nl: "statiegeld" }
+  - { sv: "att sortera", nl: "sorteren, scheiden" }
+  - { sv: "att slänga", nl: "weggooien" }
+  - { sv: "att vänja sig", nl: "wennen" }
+  - { sv: "att spara", nl: "besparen, sparen" }
+  - { sv: "hållbar", nl: "duurzaam" }
+  - { sv: "begagnad", nl: "tweedehands" }
+  - { sv: "överdriven", nl: "overdreven" }
