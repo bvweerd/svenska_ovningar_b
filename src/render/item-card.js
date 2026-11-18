@@ -135,6 +135,15 @@ export function itemCard(item, ctx, number, onDone, label) {
     }
     if (e.key === 'Enter' && e.target.matches('input[type="text"], input[type="radio"], input[type="checkbox"]')) {
       e.preventDefault();
+      // Meerdere velden in één vraag: eerst naar het volgende lege veld, pas daarna nakijken.
+      if (e.target.matches('input[type="text"]') && e.target.value.trim()) {
+        const fields = [...card.querySelectorAll('input[type="text"]:not(:disabled)')];
+        const nextEmpty = fields.slice(fields.indexOf(e.target) + 1).find((f) => !f.value.trim());
+        if (nextEmpty) {
+          nextEmpty.focus();
+          return;
+        }
+      }
       check();
       return;
     }
@@ -149,6 +158,15 @@ export function itemCard(item, ctx, number, onDone, label) {
       }
     }
   });
+
+  // Telefoontoetsenbord: „Volgende” als er in deze vraag nog een veld na komt, anders „Klaar”.
+  // Zonder deze hint springt de knop naar het volgende veld op de pagina zonder dat er wordt nagekeken.
+  const labelEnterKeys = () => {
+    const fields = [...card.querySelectorAll('input[type="text"]')];
+    fields.forEach((f, i) => f.setAttribute('enterkeyhint', i < fields.length - 1 ? 'next' : 'done'));
+  };
+  labelEnterKeys();
+  new MutationObserver(labelEnterKeys).observe(card, { childList: true, subtree: true });
 
   /** Zet de focus op het eerste invulbare element van deze vraag. */
   card.focusFirst = ({ scroll = true } = {}) => {
