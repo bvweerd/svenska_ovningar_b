@@ -1,0 +1,54 @@
+import { describe, it, expect } from 'vitest';
+import { splitSentences, voiceScore } from '../src/speech.js';
+import { spokenText } from '../src/render/speak.js';
+import { gradeSort } from '../src/check/grade.js';
+
+describe('splitSentences', () => {
+  it('splitst op zinnen en haalt opmaak weg', () => {
+    expect(splitSentences('Hej! Jag heter **Sanne**. Bor du här?')).toEqual(['Hej!', 'Jag heter Sanne.', 'Bor du här?']);
+  });
+  it('houdt een zin zonder punt', () => {
+    expect(splitSentences('Med vänliga hälsningar')).toEqual(['Med vänliga hälsningar']);
+  });
+  it('leeg blijft leeg', () => expect(splitSentences('  ')).toEqual([]));
+  it('knipt heel lange zinnen bij komma’s', () => {
+    const long = Array.from({ length: 30 }, (_, i) => `ord${i} ord`).join(', ') + '.';
+    expect(splitSentences(long).length).toBeGreaterThan(1);
+  });
+});
+
+describe('voiceScore', () => {
+  it('geeft natuurlijke Zweedse stemmen voorrang', () => {
+    const a = voiceScore({ name: 'Microsoft Sofie Online (Natural) - Swedish (Sweden)', lang: 'sv-SE' });
+    const b = voiceScore({ name: 'espeak-ng Swedish', lang: 'sv' });
+    expect(a).toBeGreaterThan(b);
+  });
+});
+
+describe('spokenText', () => {
+  it('vult gaten in en laat hints weg', () => {
+    expect(spokenText({ type: 'gap', text: 'Huset ___ (bygga) 1925.', gaps: [{ answers: ['byggdes'] }] })).toBe('Huset byggdes 1925.');
+  });
+  it('knipt het label voor een dubbele punt weg', () => {
+    expect(spokenText({ type: 'mc', prompt: '**stanna** (blijven): Vi ___ hemma.', options: ['stannar', 'x'], answer: 0 })).toBe('Vi stannar hemma.');
+  });
+  it('kiest de eerste variant van een antwoord', () => {
+    expect(spokenText({ type: 'transform', prompt: 'x', answers: ['{I går|Igår} stals min cykel.'] })).toBe('I går stals min cykel.');
+  });
+  it('dialoog zonder namen', () => {
+    expect(spokenText({ type: 'dialogue', lines: ['Anna: Hej!', 'Olle: Hej då!', 'Anna: Ses!'] })).toBe('Hej! Hej då! Ses!');
+  });
+  it('niets bij koppelen', () => expect(spokenText({ type: 'match', pairs: [] })).toBe(null));
+});
+
+describe('gradeSort', () => {
+  const item = { categories: ['a', 'b'], items: [{ text: 'x', cat: 0 }, { text: 'y', cat: 1, tip: 'denk na' }] };
+  it('alles goed', () => expect(gradeSort([0, 1], item).correct).toBe(true));
+  it('leeg', () => expect(gradeSort([0, null], item).empty).toBe(true));
+  it('fout met tip', () => {
+    const r = gradeSort([0, 0], item);
+    expect(r.correct).toBe(false);
+    expect(r.fields).toEqual([true, false]);
+    expect(r.tip).toContain('denk na');
+  });
+});

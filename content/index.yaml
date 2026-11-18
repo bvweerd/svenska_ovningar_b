@@ -1,0 +1,27 @@
+# Overzicht van alle hoofdstukken (13–30), in het stramien van een B1+B2-cursus:
+# 12 hoofdstukken op B1 en 6 op B2. Hoofdstuk 0–12 (A1–A2) staan op de A1–A2-site.
+# Een hoofdstuk is beschikbaar zodra er een bestand content/chapters/NN-*.yaml bestaat.
+# "theme" is de ondertitel, "goal" het praktische doel en "writing" het schrijfdoel.
+levels:
+  - { id: B1, title: "B1 · Fortsättning", intro: "Zinnen combineren, je mening geven, formele situaties en langere teksten." }
+  - { id: B2, title: "B2 · Fördjupning", intro: "Abstracte onderwerpen, betogen, register en lange zinnen." }
+
+chapters:
+  - { chapter: 13, level: B1, theme: "Werk en solliciteren · lijdende vorm met -s, betrekkelijke bijzinnen met som", goal: "Een vacature begrijpen en over je werk vertellen", writing: "Een korte sollicitatiemail" }
+  - { chapter: 14, level: B1, theme: "Opleiding · lijdende vorm met bli, deelwoorden", goal: "Over je opleiding en cursussen vertellen", writing: "Een aanmelding voor een cursus" }
+  - { chapter: 15, level: B1, theme: "Wonen en buurt · werkwoorden met partikel (1), där/dit/vars", goal: "Een probleem met je woning melden", writing: "Een bericht aan de verhuurder" }
+  - { chapter: 16, level: B1, theme: "Instanties en regels · werkwoorden op -s, formeel taalgebruik", goal: "Informatie vragen bij een instantie", writing: "Een formele mail met een vraag" }
+  - { chapter: 17, level: B1, theme: "Gezondheid en zorg · ska, kommer att, tänker, voorzetsels bij werkwoorden", goal: "Een afspraak maken en klachten uitleggen", writing: "Een ziekmelding en een verzoek" }
+  - { chapter: 18, level: B1, theme: "Relaties · skulle, voorwaarde en wens", goal: "Advies geven en vragen", writing: "Een persoonlijke brief met advies" }
+  - { chapter: 19, level: B1, theme: "Media en nieuws · indirecte rede, vem som", goal: "Een nieuwsbericht navertellen", writing: "Een samenvatting" }
+  - { chapter: 20, level: B1, theme: "Natuur en milieu · någon, ingen, man, en, ens", goal: "Over gewoonten en regels praten", writing: "Een reactie op een artikel" }
+  - { chapter: 21, level: B1, theme: "Cultuur en tradities · bepaalde vorm zonder lidwoord, samenstellingen", goal: "Een traditie uitleggen", writing: "Een beschrijving van een feest" }
+  - { chapter: 22, level: B1, theme: "Reizen en verkeer · werkwoorden met partikel (2), verbindingswoorden", goal: "Een reis plannen en een klacht indienen", writing: "Een klachtmail" }
+  - { chapter: 23, level: B1, theme: "Eten en consumeren · woordvorming, vergelijken", goal: "Producten vergelijken en kiezen", writing: "Een recensie" }
+  - { chapter: 24, level: B1, theme: "Samenleving · mening geven, trots att, även om, medan", goal: "Discussiëren over een stelling", writing: "Een mening in 150 woorden" }
+  - { chapter: 25, level: B2, theme: "Werk en economie · nominalisatie", goal: "Een grafiek of ontwikkeling beschrijven", writing: "Een kort verslag" }
+  - { chapter: 26, level: B2, theme: "Wetenschap · deelwoordconstructies, lange naamwoordgroepen", goal: "Een onderzoek samenvatten", writing: "Een samenvatting van een artikel" }
+  - { chapter: 27, level: B2, theme: "Politiek en debat · betoog opbouwen, det är … som", goal: "Argumenteren en weerleggen", writing: "Een betoog" }
+  - { chapter: 28, level: B2, theme: "Taal en identiteit · register, uitdrukkingen", goal: "Je aanpassen aan de situatie", writing: "Dezelfde boodschap formeel en informeel" }
+  - { chapter: 29, level: B2, theme: "Geschiedenis · lange bijzinnen, keuze van het eerste zinsdeel", goal: "Een historische gebeurtenis vertellen", writing: "Een verhalende tekst" }
+  - { chapter: 30, level: B2, theme: "Toekomst · herhaling van B1 en B2", goal: "Plannen en verwachtingen bespreken", writing: "Een toekomstvisie" }

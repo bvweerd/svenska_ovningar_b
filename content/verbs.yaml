@@ -1,0 +1,72 @@
+# Werkwoorden voor de werkwoordtrainer en de snelle rondes.
+# kind: ar (jobba – jobbade), er (köpa – köpte / ringa – ringde), kort (bo – bodde), sterk (onregelmatig of sterk)
+# Meerdere goede vormen: als lijst. imp: null als er geen gebruikelijke gebiedende wijs is.
+verbs:
+  # -ar
+  - { inf: jobba, nl: werken, kind: ar, pres: jobbar, pret: jobbade, sup: jobbat, imp: jobba }
+  - { inf: tala, nl: spreken, kind: ar, pres: talar, pret: talade, sup: talat, imp: tala }
+  - { inf: prata, nl: praten, kind: ar, pres: pratar, pret: pratade, sup: pratat, imp: prata }
+  - { inf: titta, nl: kijken, kind: ar, pres: tittar, pret: tittade, sup: tittat, imp: titta }
+  - { inf: lyssna, nl: luisteren, kind: ar, pres: lyssnar, pret: lyssnade, sup: lyssnat, imp: lyssna }
+  - { inf: vänta, nl: wachten, kind: ar, pres: väntar, pret: väntade, sup: väntat, imp: vänta }
+  - { inf: öppna, nl: openen, kind: ar, pres: öppnar, pret: öppnade, sup: öppnat, imp: öppna }
+  - { inf: laga, nl: "koken, repareren", kind: ar, pres: lagar, pret: lagade, sup: lagat, imp: laga }
+  - { inf: städa, nl: schoonmaken, kind: ar, pres: städar, pret: städade, sup: städat, imp: städa }
+  - { inf: dansa, nl: dansen, kind: ar, pres: dansar, pret: dansade, sup: dansat, imp: dansa }
+  - { inf: fråga, nl: vragen, kind: ar, pres: frågar, pret: frågade, sup: frågat, imp: fråga }
+  - { inf: svara, nl: antwoorden, kind: ar, pres: svarar, pret: svarade, sup: svarat, imp: svara }
+  - { inf: börja, nl: beginnen, kind: ar, pres: börjar, pret: började, sup: börjat, imp: börja }
+  - { inf: sluta, nl: stoppen, kind: ar, pres: slutar, pret: slutade, sup: slutat, imp: sluta }
+  - { inf: flytta, nl: verhuizen, kind: ar, pres: flyttar, pret: flyttade, sup: flyttat, imp: flytta }
+  - { inf: handla, nl: boodschappen doen, kind: ar, pres: handlar, pret: handlade, sup: handlat, imp: handla }
+  - { inf: spela, nl: spelen, kind: ar, pres: spelar, pret: spelade, sup: spelat, imp: spela }
+  - { inf: cykla, nl: fietsen, kind: ar, pres: cyklar, pret: cyklade, sup: cyklat, imp: cykla }
+  - { inf: träffa, nl: ontmoeten, kind: ar, pres: träffar, pret: träffade, sup: träffat, imp: träffa }
+  # -er
+  - { inf: ringa, nl: bellen, kind: er, pres: ringer, pret: ringde, sup: ringt, imp: ring }
+  - { inf: stänga, nl: sluiten, kind: er, pres: stänger, pret: stängde, sup: stängt, imp: stäng }
+  - { inf: höra, nl: horen, kind: er, pres: hör, pret: hörde, sup: hört, imp: hör }
+  - { inf: köra, nl: rijden, kind: er, pres: kör, pret: körde, sup: kört, imp: kör }
+  - { inf: glömma, nl: vergeten, kind: er, pres: glömmer, pret: glömde, sup: glömt, imp: glöm }
+  - { inf: leva, nl: leven, kind: er, pres: lever, pret: levde, sup: levt, imp: lev }
+  - { inf: bygga, nl: bouwen, kind: er, pres: bygger, pret: byggde, sup: byggt, imp: bygg }
+  - { inf: ställa, nl: neerzetten, kind: er, pres: ställer, pret: ställde, sup: ställt, imp: ställ }
+  - { inf: köpa, nl: kopen, kind: er, pres: köper, pret: köpte, sup: köpt, imp: köp }
+  - { inf: läsa, nl: lezen, kind: er, pres: läser, pret: läste, sup: läst, imp: läs }
+  - { inf: åka, nl: gaan (met een voertuig), kind: er, pres: åker, pret: åkte, sup: åkt, imp: åk }
+  - { inf: resa, nl: reizen, kind: er, pres: reser, pret: reste, sup: rest, imp: res }
+  - { inf: tycka, nl: vinden, kind: er, pres: tycker, pret: tyckte, sup: tyckt, imp: null }
+  - { inf: leka, nl: spelen (van kinderen), kind: er, pres: leker, pret: lekte, sup: lekt, imp: lek }
+  - { inf: hjälpa, nl: helpen, kind: er, pres: hjälper, pret: hjälpte, sup: hjälpt, imp: hjälp }
+  - { inf: tänka, nl: denken, kind: er, pres: tänker, pret: tänkte, sup: tänkt, imp: tänk }
+  # kort
+  - { inf: bo, nl: wonen, kind: kort, pres: bor, pret: bodde, sup: bott, imp: bo }
+  - { inf: tro, nl: geloven, kind: kort, pres: tror, pret: trodde, sup: trott, imp: tro }
+  - { inf: må, nl: zich voelen, kind: kort, pres: mår, pret: mådde, sup: mått, imp: må }
+  # sterk en onregelmatig
+  - { inf: vara, nl: zijn, kind: sterk, pres: är, pret: var, sup: varit, imp: var }
+  - { inf: ha, nl: hebben, kind: sterk, pres: har, pret: hade, sup: haft, imp: ha }
+  - { inf: göra, nl: doen, kind: sterk, pres: gör, pret: gjorde, sup: gjort, imp: gör }
+  - { inf: säga, nl: zeggen, kind: sterk, pres: säger, pret: [sa, sade], sup: sagt, imp: säg }
+  - { inf: gå, nl: "gaan, lopen", kind: sterk, pres: går, pret: gick, sup: gått, imp: gå }
+  - { inf: komma, nl: komen, kind: sterk, pres: kommer, pret: kom, sup: kommit, imp: kom }
+  - { inf: äta, nl: eten, kind: sterk, pres: äter, pret: åt, sup: ätit, imp: ät }
+  - { inf: dricka, nl: drinken, kind: sterk, pres: dricker, pret: drack, sup: druckit, imp: drick }
+  - { inf: sova, nl: slapen, kind: sterk, pres: sover, pret: sov, sup: sovit, imp: sov }
+  - { inf: skriva, nl: schrijven, kind: sterk, pres: skriver, pret: skrev, sup: skrivit, imp: skriv }
+  - { inf: se, nl: zien, kind: sterk, pres: ser, pret: såg, sup: sett, imp: se }
+  - { inf: få, nl: krijgen, kind: sterk, pres: får, pret: fick, sup: fått, imp: null }
+  - { inf: ta, nl: nemen, kind: sterk, pres: tar, pret: tog, sup: tagit, imp: ta }
+  - { inf: ge, nl: geven, kind: sterk, pres: ger, pret: gav, sup: [gett, givit], imp: ge }
+  - { inf: bli, nl: worden, kind: sterk, pres: blir, pret: blev, sup: blivit, imp: bli }
+  - { inf: sjunga, nl: zingen, kind: sterk, pres: sjunger, pret: sjöng, sup: sjungit, imp: sjung }
+  - { inf: springa, nl: rennen, kind: sterk, pres: springer, pret: sprang, sup: sprungit, imp: spring }
+  - { inf: sitta, nl: zitten, kind: sterk, pres: sitter, pret: satt, sup: suttit, imp: sitt }
+  - { inf: ligga, nl: liggen, kind: sterk, pres: ligger, pret: låg, sup: legat, imp: ligg }
+  - { inf: stå, nl: staan, kind: sterk, pres: står, pret: stod, sup: stått, imp: stå }
+  - { inf: förstå, nl: begrijpen, kind: sterk, pres: förstår, pret: förstod, sup: förstått, imp: förstå }
+  - { inf: veta, nl: weten, kind: sterk, pres: vet, pret: visste, sup: vetat, imp: null }
+  - { inf: flyga, nl: vliegen, kind: sterk, pres: flyger, pret: flög, sup: flugit, imp: flyg }
+  - { inf: hålla, nl: houden, kind: sterk, pres: håller, pret: höll, sup: hållit, imp: håll }
+  - { inf: lägga, nl: leggen, kind: sterk, pres: lägger, pret: [la, lade], sup: lagt, imp: lägg }
+  - { inf: sätta, nl: zetten, kind: sterk, pres: sätter, pret: satte, sup: satt, imp: sätt }
