@@ -60,6 +60,7 @@ for (const ch of course) {
       for (const ex of ch.exercises) for (const item of allItems(ex)) for (const spec of textSpecs(item)) {
         for (const a of spec.answers) for (const v of expand(a)) {
           expect(gradeText(v, spec).correct, `${ex.id}: "${v}"`).toBe(true);
+          expect(v.includes('|') || v.includes('{') || v.includes('['), `${ex.id}: patroon niet goed uitgeklapt: "${v}"`).toBe(false);
         }
       }
     });

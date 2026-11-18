@@ -191,7 +191,7 @@ sections:
           - { type: truefalse, statement: "Elementet i sovrummet fungerar inte.", answer: true }
           - { type: truefalse, statement: "Det droppar från kranen i badrummet.", answer: false, correction: { answers: ["Det droppar från kranen i köket."] } }
           - { type: truefalse, statement: "Hyresvärden får komma in när Anouk inte är hemma.", answer: true }
-          - { type: truefalse, statement: "Hyresvärden behöver inte ringa innan.", answer: false, correction: { answers: ["{Hyresvärden|De|Ni} ska ringa [henne |Anouk ]först.", "{Anouk|Hon} vill att {de|hyresvärden} ringer först."] } }
+          - { type: truefalse, statement: "Hyresvärden behöver inte ringa innan.", answer: false, correction: { answers: ["{Hyresvärden|De|Ni} ska ringa [{henne|Anouk} ]först.", "{Anouk|Hon} vill att {de|hyresvärden} ringer först."] } }
 
       - id: lyssna-dictee
         title: Dictee
