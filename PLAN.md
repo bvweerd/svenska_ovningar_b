@@ -209,16 +209,25 @@ docent of taalpartner aanraden.
       tijdsbepaling getoetst; een `contains`-regel mag dus geen goede volgorde-variant raken.
       `difficulty-report` werkt nu ook op Windows.
 - [ ] **Fase 3 – schrijven, lezen en taken**
-  - [ ] Geleid schrijven: elke schrijfopdracht voorafgaan door 3–5 stappen die de app nakijkt
+  - [x] Geleid schrijven: elke schrijfopdracht voorafgaan door 3–5 stappen die de app nakijkt
         (openingszin kiezen, bijzin afmaken, tegenargument ordenen, signaalwoord kiezen). De vrije
         tekst blijft als laatste, optionele stap met voorbeeldantwoord, zonder vinkjes of oordeel;
         de `require`-controle heet voortaan „Hulp”. Stappen voor alle 30 schrijfopdrachten.
+        Gedaan (november 2026): 124 stappen vóór de 30 schrijfopdrachten (4–5 per opdracht); de vrije tekst
+        is het laatste item, zonder oordeel, met „Klaar”, „Toon voorbeeld” en de lijst „Hulp”
+        (`checkWriting` in `src/validate.js`: 3–5 stappen, `free` als laatste).
   - [ ] Langere leesteksten volgens de moeilijkheidslijn: A-site de bestaande tekst per hoofdstuk
         (nu 61–94 woorden, 6 vragen) met 8–10 vragen; B-site naar 200–350 (B1) en 350–500 (B2).
         Vaste personages, alleen stof uit dit en eerdere hoofdstukken. Eerst H1–H4 en H13–H16, dan meten.
-  - [ ] Taken met een doel (situatie + dialoog met keuzes), te beginnen met H2, H6, H11, H17, H22.
-  - [ ] H25–H30: een betoog in stappen bouwen (standpunt, argumenten, tegenargument, conclusie),
+        Eerste ronde gedaan (november 2026): H1–H4 naar 98–113 woorden en 9–10 vragen, H13–H16 naar
+        211–226 woorden en 10 vragen. Na het meten: H5–H12 en H17–H30.
+  - [x] Taken met een doel (situatie + dialoog met keuzes), te beginnen met H2, H6, H11, H17, H22.
+        Gedaan (november 2026): vijf taken van 6–7 beurten (sportafspraak, jeugdherberg, 112 bellen,
+        apotheek, geschrapte trein); op de A-site vlak vóór „Zoek de fout” (volgorde-test).
+  - [x] H25–H30: een betoog in stappen bouwen (standpunt, argumenten, tegenargument, conclusie),
         elke stap nagekeken; de vrije versie is optioneel.
+        Gedaan (november 2026): oefening `skriva-betoog` in H25–H30 met vier stappen (standpunt,
+        argumenten, tegenargument + weerlegging, conclusie), 9–10 nagekeken vragen; H27 zonder vrije tekst.
 - [ ] **Meten na elke fase** (`npm run stats -- --min 5`): behaalde kan-doen-doelen (fase 1);
       `difficulty-report` en fout/bekeken per hoofdstuk (fase 1b);
       fout/bekeken bij keuzeoefeningen en aandeel vragen in doos 4+ (fase 2); afgemaakte geleide
