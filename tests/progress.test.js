@@ -193,6 +193,20 @@ describe('rondes bij een lange oefening', () => {
     P.recordItem(1, long, 3, 'good');
     expect(P.pickRound(1, long, 3)).toEqual([1, 4, 5]);
   });
+  it('vult een ronde niet aan met vragen die al goed zijn', () => {
+    for (let i = 0; i < 5; i++) P.recordItem(1, long, i, 'good');
+    expect(P.pickRound(1, long, 3)).toEqual([5]);
+    P.recordItem(1, long, 5, 'good');
+    expect(P.pickRound(1, long, 3)).toHaveLength(3);
+  });
+  it('houdt bij hoeveel woorden je over alle rondes hebt gehad', () => {
+    expect(P.roundProgress(1, long)).toEqual({ total: 6, seen: 0, fresh: 6, wrong: 0 });
+    P.recordItem(1, long, 0, 'good');
+    P.recordItem(1, long, 1, 'wrong');
+    expect(P.roundProgress(1, long)).toEqual({ total: 6, seen: 2, fresh: 4, wrong: 1 });
+    for (let i = 1; i < 6; i++) P.recordItem(1, long, i, 'good');
+    expect(P.roundProgress(1, long)).toEqual({ total: 6, seen: 6, fresh: 0, wrong: 0 });
+  });
   it('de ronde telt alleen de gekozen vragen en de voortgang blijft bewaard', () => {
     P.startRun(1, long, [4, 5]);
     let run = P.runState(1, long);

@@ -282,7 +282,25 @@ export function pickRound(ch, ex, size, rand = Math.random) {
     }
     return a;
   };
-  return groups.flatMap(mix).slice(0, size).sort((a, b) => a - b);
+  // Alleen wat nieuw is of fout ging, ook als dat minder is dan een hele ronde. Pas als alles goed
+  // is, wordt het een herhaalronde met vragen die je al kende.
+  const due = [...mix(groups[0]), ...mix(groups[1])];
+  return (due.length ? due : mix(groups[2])).slice(0, size).sort((a, b) => a - b);
+}
+
+/** Voortgang over een hele lange oefening (alle rondes): gehad, nog nieuw, laatst fout of bekeken. */
+export function roundProgress(ch, ex) {
+  const state = load();
+  const all = gradable(ex);
+  let seen = 0;
+  let wrong = 0;
+  for (const { idx } of all) {
+    const r = itemRecord(state, ch, ex, idx);
+    if (!r) continue;
+    seen += 1;
+    if (r.s === 'wrong' || r.s === 'revealed') wrong += 1;
+  }
+  return { total: all.length, seen, fresh: all.length - seen, wrong };
 }
 
 /** Start een nieuwe ronde; pick (vraagnummers) beperkt de ronde tot die vragen. */

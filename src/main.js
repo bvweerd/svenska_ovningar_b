@@ -21,6 +21,7 @@ import { shuffle } from './build.js';
 import {
   getResult, chapterProgress, resetProgress, recordItem, runState, startRun, completeRun, pickRound,
   weakItems, setLast, getLast, exportProgress, importProgress, migrateToIds,
+  roundProgress,
 } from './progress.js';
 
 const app = document.getElementById('app');
@@ -147,6 +148,12 @@ const TYPE_NAMES = {
 const typeName = (t) => TYPE_NAMES[t] ?? t;
 
 // ---------- Oefening ----------
+/** Uitleg boven een ronde van een lange oefening. */
+function roundIntro(size, p) {
+  const start = `Een ronde van ${size} van de ${p.total} woorden: eerst wat nieuw is of fout ging.`;
+  return p.seen ? `${start} Je hebt er al ${p.seen} gehad.` : `${start} Daarna kies je „Volgende ronde”.`;
+}
+
 function viewExercise(ch, ex, query) {
   document.title = `${ex.title} · ${ch.title}`;
   const href = `#/k/${ch.chapter}/o/${ex.id}`;
@@ -180,16 +187,32 @@ function viewExercise(ch, ex, query) {
     onFinish: () => {
       const { score: good, total } = completeRun(ch.chapter, ex);
       trackEvent(`oefening/${ch.chapter}/${ex.id}/klaar/${total ? scoreBucket(good / total) : 'schrijven'}`, `H${ch.chapter} · ${ex.title}`);
+      const heading = h('h2', {}, total ? `Klaar! ${good} van ${total} in één keer goed.` : 'Klaar!');
+      const onward = (cls) => (next
+        ? h('a', { class: `btn ${cls}`, href: `#/k/${ch.chapter}/o/${next.id}` }, `Volgende: ${next.title}`)
+        : h('a', { class: `btn ${cls}`, href: `#/k/${ch.chapter}` }, 'Terug naar het hoofdstuk'));
+      if (!partial) {
+        return [
+          heading,
+          h('p', {}, !total || good / total >= 0.8 ? 'Knap gedaan.' : 'Wat je fout had, kun je straks herhalen via „Oefen je fouten” bij het hoofdstuk.'),
+          h('div', { class: 'actions' }, onward('primary'), h('a', { class: 'btn ghost', href: `${href}?opnieuw` }, 'Opnieuw')),
+        ];
+      }
+      // Lange oefening in rondes: laat zien hoe ver je bent, en wanneer de hele lijst af is.
+      const p = roundProgress(ch.chapter, ex);
+      if (!p.fresh && !p.wrong) {
+        return [
+          heading,
+          h('p', {}, `Je hebt alle ${p.total} woorden gehad, en de laatste keer had je ze allemaal goed. Deze oefening is af!`),
+          h('div', { class: 'actions' }, onward('primary'), h('a', { class: 'btn ghost', href: `${href}?opnieuw` }, 'Nog een ronde')),
+        ];
+      }
+      const todo = [p.fresh ? `${p.fresh} nog nieuw` : null, p.wrong ? `${p.wrong} om te herhalen` : null].filter(Boolean).join(', ');
       return [
-        h('h2', {}, total ? `Klaar! ${good} van ${total} in één keer goed.` : 'Klaar!'),
-        h('p', {}, !total || good / total >= 0.8 ? 'Knap gedaan.' : 'Wat je fout had, kun je straks herhalen via „Oefen je fouten” bij het hoofdstuk.'),
-        partial
-          ? h('div', { class: 'actions' },
-              h('a', { class: 'btn primary', href: `${href}?opnieuw` }, 'Volgende ronde'),
-              next ? h('a', { class: 'btn ghost', href: `#/k/${ch.chapter}/o/${next.id}` }, `Volgende: ${next.title}`) : h('a', { class: 'btn ghost', href: `#/k/${ch.chapter}` }, 'Terug naar het hoofdstuk'))
-          : h('div', { class: 'actions' },
-              next ? h('a', { class: 'btn primary', href: `#/k/${ch.chapter}/o/${next.id}` }, `Volgende: ${next.title}`) : h('a', { class: 'btn primary', href: `#/k/${ch.chapter}` }, 'Terug naar het hoofdstuk'),
-              h('a', { class: 'btn ghost', href: `${href}?opnieuw` }, 'Opnieuw')),
+        heading,
+        h('p', {}, `Je hebt nu ${p.seen} van de ${p.total} woorden gehad (${todo}).`),
+        progressBar(p.seen - p.wrong, p.total, `${p.seen - p.wrong} van ${p.total} woorden goed`),
+        h('div', { class: 'actions' }, h('a', { class: 'btn primary', href: `${href}?opnieuw` }, 'Volgende ronde'), onward('ghost')),
       ];
     },
   });
@@ -199,7 +222,7 @@ function viewExercise(ch, ex, query) {
       h('h1', {}, ex.title),
       h('p', { class: 'instruction', html: inline(ex.instruction) }),
       run.total < ex.items.length
-        ? h('p', { class: 'muted' }, `Een ronde van ${run.total} van de ${ex.items.length} vragen: eerst wat nieuw is of fout ging. Daarna kies je „Volgende ronde”.`)
+        ? h('p', { class: 'muted' }, roundIntro(run.total, roundProgress(ch.chapter, ex)))
         : null,
       topicCard ? h('p', { class: 'muted' }, 'Uitleg: ', h('a', { href: topicCard.href }, topicCard.card.title)) : null,
     ),
