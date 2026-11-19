@@ -150,7 +150,7 @@ function gap(item, ctx) {
         f = textInput(g, { label: `Gat ${i + 1}` });
         // Zo breed als het langste goede antwoord (net als het size-attribuut), in ch: dan blijft
         // de zin bij elkaar en breekt hij niet over regels zoals bij een breed veld.
-        f.style.width = `calc(${Math.min(fieldChars(g), 30)}ch + 22px)`;
+        f.style.width = `calc(${Math.min(fieldChars(g), 30)}ch + 18px)`;
       }
       fields.push(f);
       const hint = parts[i + 1].match(/^\s*\(([^()]{1,40})\)/);

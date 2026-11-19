@@ -602,3 +602,10 @@ del { text-decoration-color: var(--bad); text-decoration-thickness: 2px; color: 
 .chip-no { display: inline-grid; place-items: center; min-width: 1.8em; height: 1.8em; padding: 0 4px; border-radius: 999px; background: var(--accent-soft); color: var(--accent); font-weight: 700; font-size: 0.85rem; }
 .chip-group { align-items: flex-start; }
 .chip-group-label { padding-top: 8px; }
+
+/* Invullen in een zin: het veld krijgt zijn eigen, normale regelhoogte (anders erft het de ruime
+   regelafstand van de zin en wordt het twee regels hoog) en staat op de grondlijn van de tekst. */
+.gap-text { line-height: 2.1; }
+.gap-text .answer-input { line-height: 1.3; padding: 3px 8px; vertical-align: baseline; }
+.gap-text select.answer-input { padding: 3px 4px; }
+.gap-hint { font-size: 0.95em; }
