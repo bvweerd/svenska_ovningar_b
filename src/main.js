@@ -11,7 +11,7 @@ import { expand } from './check/normalize.js';
 import { viewListenSettings, viewDictation, reportSpeechStatus } from './views/listen.js';
 import { itemCard } from './render/item-card.js';
 import { createMenu } from './menu.js';
-import { initPwa, installSection } from './pwa.js';
+import { initPwa, installSection, isStandalone, syncThemeColor } from './pwa.js';
 import { initAnalytics, trackPage, trackEvent, scoreBucket, analyticsConfigured, optedOut, setOptOut } from './analytics.js';
 import {
   viewPracticeHub, viewDaily, viewVerbTrainer, viewFlashcards, viewTest, viewGames, viewGame, GAMES, dueCount, streakText,
@@ -377,7 +377,7 @@ function viewAbout() {
       : h('p', {}, 'Deze site verzamelt geen statistieken.'),
     installSection(),
     h('h2', {}, 'Voortgang'),
-    h('p', {}, 'Je voortgang wordt per vraag opgeslagen in deze browser. Ga je halverwege een oefening weg, dan ga je later verder waar je gebleven was. Wil je op een ander apparaat verder, exporteer dan je voortgang naar een bestand en importeer dat daar.'),
+    h('p', {}, `Je voortgang wordt per vraag opgeslagen ${isStandalone() ? 'in deze app' : 'in deze browser'}. Ga je halverwege een oefening weg, dan ga je later verder waar je gebleven was. Wil je op een ander apparaat verder, exporteer dan je voortgang naar een bestand en importeer dat daar.`),
     progressTools(),
   );
 }
@@ -526,6 +526,7 @@ function themeToggle() {
   const apply = (t) => {
     if (t) document.documentElement.dataset.theme = t;
     else delete document.documentElement.dataset.theme;
+    syncThemeColor();
   };
   let saved = null;
   try { saved = localStorage.getItem(THEME_KEY); } catch { /* */ }

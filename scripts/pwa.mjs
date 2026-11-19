@@ -12,7 +12,8 @@ import path from 'node:path';
 import { createHash } from 'node:crypto';
 import { APP, STORAGE_PREFIX } from '../src/config.js';
 
-const THEME = '#005b99';
+// Gelijk aan --surface (bovenbalk) en --bg in src/styles.css, licht en donker.
+const THEME = { light: '#ffffff', dark: '#1b2029' };
 const BACKGROUND = '#f7f6f2';
 
 function publicFiles(dir, base = dir) {
@@ -34,7 +35,7 @@ export function manifest() {
     scope: './',
     display: 'standalone',
     background_color: BACKGROUND,
-    theme_color: THEME,
+    theme_color: THEME.light,
     icons: [
       { src: 'icons/icon-192.png', sizes: '192x192', type: 'image/png', purpose: 'any' },
       { src: 'icons/icon-512.png', sizes: '512x512', type: 'image/png', purpose: 'any' },
@@ -74,8 +75,9 @@ self.addEventListener('message', (event) => {
 self.addEventListener('fetch', (event) => {
   const req = event.request;
   if (req.method !== 'GET' || !req.url.startsWith(SCOPE)) return;
-  if (req.mode === 'navigate') {
-    // De site gebruikt #-routes: elke pagina is index.html.
+  const page = req.url.split(/[?#]/)[0];
+  if (req.mode === 'navigate' && (page === SCOPE || page === INDEX)) {
+    // De site gebruikt #-routes: elke pagina is index.html. Andere adressen (een icoon, het manifest) gewoon als bestand.
     event.respondWith(caches.open(CACHE).then((c) => c.match(INDEX)).then((hit) => hit || fetch(req)));
     return;
   }
@@ -96,7 +98,9 @@ export function pwaPlugin() {
     transformIndexHtml() {
       return [
         { tag: 'link', attrs: { rel: 'manifest', href: './manifest.webmanifest' }, injectTo: 'head' },
-        { tag: 'meta', attrs: { name: 'theme-color', content: THEME }, injectTo: 'head' },
+        // src/pwa.js (syncThemeColor) zet dit bij het laden gelijk aan het gekozen thema.
+        { tag: 'meta', attrs: { name: 'theme-color', content: THEME.light, media: '(prefers-color-scheme: light)' }, injectTo: 'head' },
+        { tag: 'meta', attrs: { name: 'theme-color', content: THEME.dark, media: '(prefers-color-scheme: dark)' }, injectTo: 'head' },
         { tag: 'link', attrs: { rel: 'apple-touch-icon', href: './icons/apple-touch-icon.png' }, injectTo: 'head' },
         { tag: 'meta', attrs: { name: 'apple-mobile-web-app-title', content: APP.shortName }, injectTo: 'head' },
         { tag: 'meta', attrs: { name: 'mobile-web-app-capable', content: 'yes' }, injectTo: 'head' },
@@ -113,9 +117,11 @@ export function pwaPlugin() {
         hash.update(name).update('\0').update(content).update('\0');
       };
       for (const [name, out] of Object.entries(bundle).sort(([a], [b]) => a.localeCompare(b))) {
-        if (name.endsWith('.map')) continue;
+        // Het manifest staat er na emitFile soms al in; het komt hieronder er één keer bij.
+        if (name.endsWith('.map') || name === 'manifest.webmanifest') continue;
         add(name, out.type === 'chunk' ? out.code : out.source);
       }
+      add('manifest.webmanifest', manifestText);
       for (const name of publicFiles(publicDir).sort()) add(name, fs.readFileSync(path.join(publicDir, name)));
       if (!files.includes('index.html')) this.error('pwa: index.html ontbreekt in de build');
       const version = hash.digest('hex').slice(0, 12);

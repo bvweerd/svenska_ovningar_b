@@ -3,6 +3,8 @@
 import { h } from './dom.js';
 
 let installPrompt = null;
+// Waar: deze pagina heeft op „Bijwerken” geklikt en moet na de wissel opnieuw laden.
+let updateRequested = false;
 // De knop op de pagina Over (er is er hooguit één tegelijk).
 let onInstallChange = () => {};
 
@@ -26,6 +28,8 @@ export function initPwa() {
     onInstallChange();
   });
   persistStorage();
+  // Volgt het thema het systeem, dan verandert de kleur van de statusbalk mee.
+  matchMedia('(prefers-color-scheme: dark)').addEventListener?.('change', syncThemeColor);
   if (import.meta.env.PROD && 'serviceWorker' in navigator) registerWorker();
 }
 
@@ -39,11 +43,12 @@ function persistStorage() {
 
 async function registerWorker() {
   const sw = navigator.serviceWorker;
-  const hadController = !!sw.controller;
   let reloading = false;
-  // Na „Bijwerken” neemt de nieuwe versie het over: dan opnieuw laden. Bij de eerste installatie niet.
+  // Alleen opnieuw laden als deze pagina om de update vroeg. Niet bij de eerste installatie, en niet
+  // als een ander tabblad bijwerkt: daar kan nog een half getypt antwoord staan. Zo'n tabblad houdt de
+  // oude code (die al helemaal geladen is) tot je daar zelf op „Bijwerken” klikt.
   sw.addEventListener('controllerchange', () => {
-    if (!hadController || reloading) return;
+    if (!updateRequested || reloading) return;
     reloading = true;
     location.reload();
   });
@@ -74,10 +79,25 @@ function showUpdate(worker) {
   if (document.querySelector('.update-bar')) return;
   const bar = h('div', { class: 'update-bar', role: 'status' },
     h('span', {}, 'Er is een nieuwe versie van de oefeningen.'),
-    h('button', { type: 'button', class: 'btn primary small', onclick: () => worker.postMessage('skipWaiting') }, 'Bijwerken'),
+    h('button', { type: 'button', class: 'btn primary small', onclick: () => {
+      updateRequested = true;
+      // Al actief gemaakt vanuit een ander tabblad: dan is er geen wissel meer te wachten.
+      if (worker.state === 'activated' || worker.state === 'redundant') location.reload();
+      else worker.postMessage('skipWaiting');
+    } }, 'Bijwerken'),
     h('button', { type: 'button', class: 'btn ghost small', onclick: () => bar.remove() }, 'Later'),
   );
   document.body.append(bar);
+}
+
+/** Kleur van de statusbalk (Android) en titelbalk (app op de computer): gelijk aan de bovenbalk, ook in donker thema. */
+export function syncThemeColor() {
+  const color = getComputedStyle(document.documentElement).getPropertyValue('--surface').trim();
+  if (!color) return;
+  for (const meta of document.querySelectorAll('meta[name="theme-color"]')) {
+    meta.removeAttribute('media');
+    meta.content = color;
+  }
 }
 
 /** Uitleg en knop voor de pagina Over. */
