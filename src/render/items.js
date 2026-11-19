@@ -195,13 +195,24 @@ function listenPlayer(item) {
       play: () => {},
     };
   }
+  // Zonder Zweedse stem (klasse no-sv-voice op <html>) toont de CSS het blok listen-novoice in plaats
+  // van de knoppen: een andere stem leert de verkeerde uitspraak aan. „Toch voorlezen” zet ze terug.
+  const shown = h('p', { class: 'listen-text', lang: 'sv', hidden: true }, item.say);
   const el = h('div', { class: 'listen-player' },
-    speakButton(item.say, { label: 'Luister', className: 'big' }),
-    speakButton(item.say, { label: 'Langzaam', rate: 0.6 }),
-    speedSelect(),
-    status === 'no-voice' ? h('p', { class: 'muted small' }, 'Er is geen Zweedse stem gevonden, dus het kan vreemd klinken. ', h('a', { href: '#/luisteren' }, 'Luisteren instellen')) : null,
+    h('div', { class: 'listen-normal' },
+      speakButton(item.say, { label: 'Luister', className: 'big' }),
+      speakButton(item.say, { label: 'Langzaam', rate: 0.6 }),
+      speedSelect(),
+      status === 'no-voice' ? h('p', { class: 'muted small' }, 'Er is geen Zweedse stem gevonden, dus het kan vreemd klinken. ', h('a', { href: '#/luisteren' }, 'Luisteren instellen')) : null),
+    h('div', { class: 'listen-novoice' },
+      h('p', { class: 'muted' }, 'Op dit apparaat is geen Zweedse stem gevonden. ', h('a', { href: '#/luisteren' }, 'Installeer er een'), ', of lees de tekst.'),
+      h('button', { type: 'button', class: 'btn ghost small', onclick: (e) => { shown.hidden = false; e.currentTarget.remove(); } }, 'Toon de tekst'),
+      h('button', { type: 'button', class: 'btn ghost small', onclick: () => { el.classList.add('forced'); speak(item.say); } }, 'Toch voorlezen'),
+      shown),
   );
-  return { el, play: () => speak(item.say) };
+  // Enter in een leeg veld speelt alleen af als de knoppen ook zichtbaar zijn.
+  const audible = () => !document.documentElement.classList.contains('no-sv-voice') || el.classList.contains('forced');
+  return { el, play: () => { if (audible()) speak(item.say); } };
 }
 
 function listen(item, ctx) {
@@ -221,7 +232,7 @@ function listen(item, ctx) {
     }
   });
   const el = h('div', {}, player.el, prompt(item.prompt ?? (f.field.kind === 'tiles' ? 'Zet de woorden in de volgorde die je hoort.' : 'Schrijf op wat je hoort.')), f.field.el,
-    f.field.kind === 'tiles' ? null : h('p', { class: 'hint' }, 'Tip: druk op Enter in het lege veld om het nog eens te horen.'));
+    f.field.kind === 'tiles' ? null : h('p', { class: 'hint speech-extra' }, 'Tip: druk op Enter in het lege veld om het nog eens te horen.'));
   return { el, check: f.check, reveal: f.reveal, lock: () => { f.field.lock(); lockInputs(el); } };
 }
 

@@ -348,6 +348,13 @@ table.fill .answer-input { width: 100%; min-width: 90px; }
 .speak-icon { display: inline-flex; }
 .listen-player { display: flex; flex-wrap: wrap; align-items: center; gap: 10px; margin: 4px 0 12px; }
 .listen-player p { flex-basis: 100%; margin: 0; }
+.listen-normal, .listen-novoice { display: flex; flex-wrap: wrap; align-items: center; gap: 10px; flex-basis: 100%; }
+/* Geen Zweedse stem (speech.js zet no-sv-voice op <html>): extra luisterknoppen weg, bij luistervragen
+   een melding met „Toon de tekst” en „Toch voorlezen”. */
+.listen-novoice { display: none; }
+.no-sv-voice .speech-extra { display: none !important; }
+.no-sv-voice .listen-player:not(.forced) .listen-normal { display: none; }
+.no-sv-voice .listen-player:not(.forced) .listen-novoice { display: flex; }
 .listen-after { display: flex; flex-wrap: wrap; align-items: center; gap: 10px; margin: 8px 0 0; }
 .passage-head { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 10px; margin-bottom: 8px; }
 .passage-head h2 { margin: 0; }

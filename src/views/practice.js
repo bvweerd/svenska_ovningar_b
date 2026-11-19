@@ -257,7 +257,7 @@ export function viewFlashcards(ch) {
       ? [h('button', { type: 'button', class: 'btn primary', onclick: () => rate(true) }, 'Wist ik (1)'),
          h('button', { type: 'button', class: 'btn ghost', onclick: () => rate(false) }, 'Nog niet (2)')]
       : [h('button', { type: 'button', class: 'btn ghost', onclick: () => flip() }, 'Omdraaien (spatie)')]),
-      speechSupported() ? h('button', { type: 'button', class: 'btn ghost', onclick: () => speak(current.v.sv) }, 'Luister (L)') : '');
+      speechSupported() ? h('button', { type: 'button', class: 'btn ghost speech-extra', onclick: () => speak(current.v.sv) }, 'Luister (L)') : '');
   };
   const flip = () => {
     if (!current) return;

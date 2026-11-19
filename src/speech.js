@@ -6,24 +6,60 @@ const synth = () => (typeof window !== 'undefined' ? window.speechSynthesis : un
 
 export const speechSupported = () => !!synth() && typeof window.SpeechSynthesisUtterance === 'function';
 
+const isSwedish = (v) => /^sv([-_]|$)/i.test(v.lang ?? '');
+
 let voicesCache = [];
+let voicesReady = false; // de lijst is geladen (of we hebben lang genoeg gewacht)
 const listeners = new Set();
 
 function loadVoices() {
   const s = synth();
   if (!s) return [];
   const all = s.getVoices() ?? [];
-  if (all.length) voicesCache = all;
+  if (all.length) {
+    voicesCache = all;
+    voicesReady = true;
+  }
   return voicesCache;
+}
+
+/** Telefoon of tablet: daar leest de browser vaak Zweeds voor zonder dat er een stem in de lijst staat. */
+export function isMobileDevice(ua = globalThis.navigator?.userAgent ?? '', platform = globalThis.navigator?.platform ?? '', touch = globalThis.navigator?.maxTouchPoints ?? 0) {
+  return /Android|iPhone|iPad|iPod/.test(ua) || (/Mac/.test(platform) && touch > 1);
+}
+
+/**
+ * Moeten de extra luisterknoppen weg? Alleen als zeker is dat er geen Zweedse stem is:
+ * de lijst is geladen, er staat geen Zweedse stem in en het is geen telefoon of tablet.
+ * Anders leest een Nederlandse of Engelse stem het Zweeds voor, met de verkeerde uitspraak.
+ */
+export function noSwedishVoice({ ready = voicesReady, voices = voicesCache, mobile = isMobileDevice(), supported = speechSupported() } = {}) {
+  // Kan de browser helemaal niet voorlezen, dan zijn er geen knoppen (status 'unsupported').
+  return supported && ready && !mobile && !voices.some(isSwedish);
+}
+
+/** Zet de klasse no-sv-voice op <html>; de CSS verbergt daarmee de extra knoppen (zie styles.css). */
+function updateVoiceClass() {
+  if (typeof document === 'undefined') return;
+  document.documentElement.classList.toggle('no-sv-voice', noSwedishVoice());
 }
 
 if (speechSupported()) {
   loadVoices();
+  updateVoiceClass();
   // Chrome en Firefox laden de stemmen pas later in.
   synth().addEventListener?.('voiceschanged', () => {
     loadVoices();
+    voicesReady = true;
+    updateVoiceClass();
     listeners.forEach((fn) => fn());
   });
+  // Komt er geen voiceschanged (sommige browsers zonder stemmen), dan na even wachten beslissen.
+  setTimeout(() => {
+    loadVoices();
+    voicesReady = true;
+    updateVoiceClass();
+  }, 2000);
 }
 
 /** Roept fn aan als de lijst met stemmen verandert. Geeft een afmeldfunctie terug. */
@@ -32,7 +68,6 @@ export function onVoicesChanged(fn) {
   return () => listeners.delete(fn);
 }
 
-const isSwedish = (v) => /^sv([-_]|$)/i.test(v.lang ?? '');
 
 /** Hogere score = waarschijnlijk betere stem. */
 export function voiceScore(v) {

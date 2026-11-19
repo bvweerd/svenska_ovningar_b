@@ -1,5 +1,5 @@
 import { describe, it, expect } from 'vitest';
-import { splitSentences, voiceScore, voiceGender } from '../src/speech.js';
+import { splitSentences, voiceScore, voiceGender, noSwedishVoice, isMobileDevice } from '../src/speech.js';
 import { spokenText } from '../src/render/speak.js';
 import { gradeSort } from '../src/check/grade.js';
 
@@ -61,5 +61,25 @@ describe('voiceGender', () => {
     expect(voiceGender({ name: 'Oskar (Enhanced)' })).toBe('m');
     expect(voiceGender({ name: 'Alva' })).toBe('v');
     expect(voiceGender({ name: 'Google svenska' })).toBe(null);
+  });
+});
+
+describe('geen Zweedse stem', () => {
+  const sv = { name: 'Alva', lang: 'sv-SE' };
+  const nl = { name: 'Xander', lang: 'nl-NL' };
+  const base = { ready: true, mobile: false, supported: true };
+  it('alleen als de lijst geladen is en er geen Zweedse stem in staat', () => {
+    expect(noSwedishVoice({ ...base, voices: [nl] })).toBe(true);
+    expect(noSwedishVoice({ ...base, voices: [nl, sv] })).toBe(false);
+    expect(noSwedishVoice({ ...base, voices: [], ready: false })).toBe(false);
+  });
+  it('niet op telefoons en tablets, en niet als voorlezen helemaal niet kan', () => {
+    expect(noSwedishVoice({ ...base, voices: [], mobile: true })).toBe(false);
+    expect(noSwedishVoice({ ...base, voices: [nl], supported: false })).toBe(false);
+  });
+  it('herkent telefoons en tablets', () => {
+    expect(isMobileDevice('Mozilla/5.0 (Linux; Android 14) Chrome/130', 'Linux', 5)).toBe(true);
+    expect(isMobileDevice('Mozilla/5.0 (Macintosh)', 'MacIntel', 5)).toBe(true);
+    expect(isMobileDevice('Mozilla/5.0 (Windows NT 10.0) Chrome/130', 'Win32', 0)).toBe(false);
   });
 });

@@ -61,7 +61,7 @@ export function itemCard(item, ctx, number, onDone, label) {
     // Na afloop: de goede zin beluisteren (als de browser kan voorlezen).
     const say = spokenText(item);
     const btn = say ? speakButton(say, { label: 'Beluister de zin', className: 'after' }) : null;
-    if (btn) feedback.append(h('p', { class: 'listen-after' }, btn, h('span', { class: 'muted', lang: 'sv' }, say)));
+    if (btn) feedback.append(h('p', { class: 'listen-after speech-extra' }, btn, h('span', { class: 'muted', lang: 'sv' }, say)));
     onDone({ firstTry: !hadError && !revealed, revealed, neutral: !!r.neutral });
   };
 
