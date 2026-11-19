@@ -2,7 +2,7 @@
 //
 // state = {
 //   v: 2,
-//   items: { "<hoofdstuk>/<oefening>/<vraag-id>": { s: 'good'|'wrong'|'revealed'|'free', at, h } },
+//   items: { "<hoofdstuk>/<oefening>/<vraag-id>": { s: 'good'|'wrong'|'revealed'|'free', at, h, x? } },
 //   ex:    { "<hoofdstuk>/<oefening>": { best, score, total, completedAt?, runStart? } },
 //   last:  { href, title, at }
 // }
@@ -13,11 +13,18 @@
 //   Een andere tip, uitleg of vraagformulering laat de voortgang staan.
 // - ids: true betekent dat oude voortgang (op plek) is omgezet naar ids (zie migrateToIds).
 // - Een "ronde" van een oefening begint bij runStart; vragen met at >= runStart zijn in deze ronde gedaan.
+//   x: 1 = gemaakt buiten de oefening (toets, mix, herhaling, flitskaarten): telt wel als voortgang,
+//   maar niet als gedaan in de lopende ronde van de oefening.
 
-const KEY = 'svensk-ovningar-b:progress:v2';
-const OLD_KEY = 'svensk-ovningar-b:progress:v1';
+import { STORAGE_PREFIX } from './config.js';
+
+export const KEY = `${STORAGE_PREFIX}:progress:v2`;
+const OLD_KEY = `${STORAGE_PREFIX}:progress:v1`;
 const empty = () => ({ v: 2, items: {}, ex: {}, last: null, srs: {}, days: [], tests: {}, games: {}, prefs: {} });
 let memory = empty();
+// Laatst gelezen of geschreven opslag: zo wordt de JSON niet bij elke aanroep opnieuw ontleed.
+let cachedRaw = null;
+let cachedState = null;
 
 function migrate() {
   try {
@@ -37,9 +44,14 @@ function migrate() {
 function load() {
   try {
     const raw = localStorage.getItem(KEY);
+    if (raw && raw === cachedRaw) return cachedState;
     if (raw) {
       const s = JSON.parse(raw);
-      if (s?.v === 2) return { ...empty(), ...s };
+      if (s?.v === 2) {
+        cachedRaw = raw;
+        cachedState = { ...empty(), ...s };
+        return cachedState;
+      }
     }
     const migrated = migrate();
     if (migrated) {
@@ -55,7 +67,10 @@ function load() {
 function save(state) {
   memory = state;
   try {
-    localStorage.setItem(KEY, JSON.stringify(state));
+    const raw = JSON.stringify(state);
+    localStorage.setItem(KEY, raw);
+    cachedRaw = raw;
+    cachedState = state;
   } catch {
     /* geen opslag beschikbaar: alleen in het geheugen */
   }
@@ -90,8 +105,13 @@ function answerPart(item) {
   }
 }
 
-/** Vingerafdruk van de goede antwoorden van een vraag. */
-export const answerHash = (item) => hashItem(answerPart(item));
+/** Vingerafdruk van de goede antwoorden van een vraag (per vraag-object onthouden: de inhoud verandert niet). */
+const hashes = new WeakMap();
+export function answerHash(item) {
+  if (!item || typeof item !== 'object') return hashItem(answerPart(item));
+  if (!hashes.has(item)) hashes.set(item, hashItem(answerPart(item)));
+  return hashes.get(item);
+}
 
 const exKey = (ch, exId) => `${ch}/${exId}`;
 const itemId = (ex, idx) => ex.items[idx]?.id ?? idx;
@@ -129,11 +149,12 @@ function markDay(state) {
   if (state.days[state.days.length - 1] !== t) state.days = [...state.days.filter((d) => d !== t), t].slice(-400);
 }
 
-export function recordItem(ch, ex, idx, status) {
+/** @param opts { outside: true } als de vraag buiten de oefening zelf gemaakt is (toets, mix, herhaling). */
+export function recordItem(ch, ex, idx, status, { outside = false } = {}) {
   const state = load();
   const key = itemKey(ch, ex, idx);
   const h = answerHash(ex.items[idx]);
-  state.items[key] = { s: status, at: Date.now(), h };
+  state.items[key] = { s: status, at: Date.now(), h, ...(outside ? { x: 1 } : {}) };
   state.srs = state.srs ?? {};
   const prev = state.srs[key]?.h === h ? state.srs[key] : null;
   const next = nextSrs(prev, status);
@@ -224,7 +245,7 @@ export function runState(ch, ex) {
   if (start) {
     ex.items.forEach((_, idx) => {
       const r = itemRecord(state, ch, ex, idx);
-      if (r && r.at >= start) done.set(idx, r.s);
+      if (r && r.at >= start && !r.x) done.set(idx, r.s);
     });
   }
   return { started: !!start, done, total: ex.items.length };
@@ -344,7 +365,11 @@ export function exportProgress() {
 /** Importeert een export. Gooit een fout bij een ongeldig bestand. */
 export function importProgress(text) {
   const data = JSON.parse(text);
-  if (data?.v !== 2 || typeof data.items !== 'object' || typeof data.ex !== 'object') {
+  const isObj = (x) => x !== null && typeof x === 'object' && !Array.isArray(x);
+  const optional = (x) => x === undefined || x === null || isObj(x);
+  if (!isObj(data) || data.v !== 2 || !isObj(data.items) || !isObj(data.ex)
+    || !optional(data.srs) || !optional(data.tests) || !optional(data.games) || !optional(data.prefs)
+    || (data.days !== undefined && !Array.isArray(data.days))) {
     throw new Error('Dit is geen geldig voortgangsbestand.');
   }
   save({ ...empty(), ...data });

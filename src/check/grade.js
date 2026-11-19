@@ -1,5 +1,6 @@
 // Pure nakijkfuncties per vraagtype. Geven altijd { correct, tip?, kind? } terug.
-import { normalize, variants } from './normalize.js';
+import { normalize, variants, displayAnswer } from './normalize.js';
+import { movedAdverbials } from './adverbial.js';
 import { diagnose } from './diagnose.js';
 import { clockAnswers, clockFeedback } from './clock.js';
 
@@ -17,6 +18,10 @@ export function gradeText(input, spec, ctx = {}) {
     const hitMatch = asList(f.match).some((m) => variants([m], opts).includes(n));
     const hitContains = asList(f.contains).some((c) => ` ${n} `.includes(` ${normalize(c, opts)} `));
     if (hitMatch || hitContains) return { correct: false, kind: 'feedback', tip: f.tip };
+  }
+  // Tijdsbepaling vooraan of achteraan: ook goed (vastgelegde fouten hierboven gaan voor).
+  if (!spec.options && expected.some((e) => movedAdverbials(e).includes(n))) {
+    return { correct: true, moved: true, note: `Het voorbeeldantwoord zet de tijdsbepaling op een andere plek: „${displayAnswer(spec.answers)}”` };
   }
   // Bij een keuzelijst is een vaste tip zinvoller dan een spellingsdiagnose.
   if (spec.options && spec.tip) return { correct: false, kind: 'feedback', tip: spec.tip };

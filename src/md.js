@@ -29,6 +29,7 @@ export function markdown(src) {
       const cells = (r) => r.trim().replace(/^\||\|$/g, '').split('|').map((c) => c.trim());
       const body = rows.filter((r) => !/^\s*\|[\s:|-]+\|?\s*$/.test(r));
       const [first, ...rest] = body;
+      if (first === undefined) continue; // alleen een scheidingsregel: geen tabel
       out.push(
         '<div class="table-wrap"><table><thead><tr>' +
           cells(first).map((c) => `<th>${inline(c)}</th>`).join('') +

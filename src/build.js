@@ -25,7 +25,11 @@ const kind = (v) => (article(v.sv) ? 'noun' : v.sv.startsWith('att ') ? 'verb' :
 const nlBare = (nl) => nl.replace(/^(een|de|het) /, '');
 const bare = (sv) => sv.replace(/^(en|ett|att) /, '');
 
-export function vocabExercises(vocab, chapterNo) {
+/**
+ * @param nounTopic  grammatica-onderwerp voor de en/ett-oefening: "substantiv" als de cursus daar een
+ *                   uitlegkaart voor heeft (A1–A2), anders "woordenschat".
+ */
+export function vocabExercises(vocab, chapterNo, { nounTopic = 'woordenschat' } = {}) {
   if (!vocab?.length) return [];
   const rand = rng(chapterNo * 7919 + vocab.length);
   const exercises = [];
@@ -75,7 +79,7 @@ export function vocabExercises(vocab, chapterNo) {
       id: 'woorden-en-ett',
       title: 'En of ett? En de bepaalde vorm',
       instruction: 'Kies het lidwoord en schrijf daarna de bepaalde vorm.',
-      topic: 'woordenschat',
+      topic: nounTopic,
       generated: true,
       shuffle: true,
       items: nouns.map((v) => ({
@@ -102,9 +106,9 @@ export function vocabExercises(vocab, chapterNo) {
   return exercises;
 }
 
-export function buildChapter(raw) {
+export function buildChapter(raw, opts = {}) {
   const sections = (raw.sections ?? []).map((s) => ({ ...s, exercises: [...(s.exercises ?? [])] }));
-  const generated = vocabExercises(raw.vocab, raw.chapter);
+  const generated = vocabExercises(raw.vocab, raw.chapter, opts);
   if (generated.length) {
     let w = sections.find((s) => s.id === 'woordenschat');
     if (!w) {
@@ -118,7 +122,8 @@ export function buildChapter(raw) {
 }
 
 export function buildCourse(index, rawChapters) {
-  const byNo = new Map(rawChapters.map((c) => [c.chapter, buildChapter(c)]));
+  const nounTopic = rawChapters.some((c) => c.grammar?.some((g) => g.id === 'substantiv')) ? 'substantiv' : 'woordenschat';
+  const byNo = new Map(rawChapters.map((c) => [c.chapter, buildChapter(c, { nounTopic })]));
   return index.chapters.map((meta) => ({
     ...meta,
     ...(byNo.get(meta.chapter) ?? {}),

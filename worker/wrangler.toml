@@ -8,6 +8,8 @@ compatibility_date = "2025-06-01"
 GITHUB_REPO = "bvweerd/svenska_ovningar_b,bvweerd/svenska_ovningar"
 ALLOWED_ORIGINS = "https://bvweerd.github.io,http://localhost:5173"
 ISSUE_LABELS = "melding"
+# Optioneel: alleen Turnstile-tokens van deze hostnamen (zie README).
+# TURNSTILE_HOSTNAMES = "bvweerd.github.io"
 
 # Secrets (niet hier invullen, maar met wrangler):
 #   npx wrangler secret put GITHUB_TOKEN

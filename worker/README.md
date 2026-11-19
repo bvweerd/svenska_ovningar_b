@@ -60,5 +60,6 @@ GITHUB_TOKEN=<token, of een token voor een testrepo>
 ```
 
 ## Aanpassen
+- Alleen tokens van je eigen site: zet `TURNSTILE_HOSTNAMES = "bvweerd.github.io"` bij `[vars]`. Laat het leeg als je lokaal met de testsleutels van Turnstile werkt (die geven een andere hostnaam).
 - Extra site of repo: voeg de repo toe aan `GITHUB_REPO` (komma-gescheiden; de eerste is de standaard) en zo nodig de origin aan `ALLOWED_ORIGINS`. Geef het token toegang tot die repo en maak daar het label `melding` aan. Zet in de site `REPORT_REPO` op die repo.
 - De opbouw van het issue staat in `buildIssue()` in `src/index.js`. De tests staan in `tests/report.test.js` in de hoofdmap.

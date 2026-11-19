@@ -24,8 +24,13 @@ function newId(used) {
 let added = 0;
 for (const file of fs.readdirSync(dir).filter((f) => f.endsWith('.yaml')).sort()) {
   const full = path.join(dir, file);
-  const lines = fs.readFileSync(full, 'utf8').split('\n');
-  const used = new Set([...lines.join('\n').matchAll(/\bid: ([a-z0-9]{4})\b/g)].map((m) => m[1]));
+  const raw = fs.readFileSync(full, 'utf8');
+  // Windows-checkouts (core.autocrlf) hebben CRLF: los splitsen en hetzelfde regeleinde terugschrijven,
+  // anders matchen de regexen hieronder met $ niet en krijgt elke vraag een tweede id.
+  const eol = raw.includes('\r\n') ? '\r\n' : '\n';
+  const lines = raw.split(/\r?\n/);
+  const used = new Set([...raw.matchAll(/\bid: ([a-z0-9]{4})\b/g)].map((m) => m[1]));
+  const before = added;
   let inItems = false;
   const out = [];
   for (const line of lines) {
@@ -46,12 +51,12 @@ for (const file of fs.readdirSync(dir).filter((f) => f.endsWith('.yaml')).sort()
     }
     out.push(line);
   }
-  const text = out.join('\n');
+  const text = out.join(eol);
   // Controle: elke vraag van elke oefening heeft nu een id.
   const data = yaml.load(text);
   for (const s of data.sections ?? []) for (const ex of s.exercises ?? []) for (const it of ex.items ?? []) {
     if (!it.id) throw new Error(`${file} / ${ex.id}: vraag zonder id (onverwachte opmaak?)`);
   }
-  fs.writeFileSync(full, text);
+  if (added > before) fs.writeFileSync(full, text); // niets veranderd: bestand niet herschrijven
 }
 console.log(`${added} id's toegevoegd.`);

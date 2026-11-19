@@ -1,4 +1,5 @@
 import { describe, it, expect, beforeEach } from 'vitest';
+import { STORAGE_PREFIX } from '../src/config.js';
 
 const store = new Map();
 globalThis.localStorage = {
@@ -86,9 +87,9 @@ describe('voortgang', () => {
 
   it('neemt oude voortgang (v1) over', () => {
     store.clear();
-    store.set('svensk-ovningar-b:progress:v1', JSON.stringify({ '1/oef': { score: 2, total: 2, best: 1, at: 'x' } }));
+    store.set(`${STORAGE_PREFIX}:progress:v1`, JSON.stringify({ '1/oef': { score: 2, total: 2, best: 1, at: 'x' } }));
     expect(P.getResult(1, 'oef').best).toBe(1);
-    expect(store.has('svensk-ovningar-b:progress:v1')).toBe(false);
+    expect(store.has(`${STORAGE_PREFIX}:progress:v1`)).toBe(false);
   });
 
   it('herhaling: goed in één keer → doos hoger, fout → morgen terug', () => {
@@ -144,7 +145,7 @@ describe('vraag-id', () => {
     // Oude opslag: sleutel met index, hash van de hele vraag zonder id.
     const { id: _a, ...first } = withIds.items[0];
     const { id: _b, ...second } = withIds.items[1];
-    store.set('svensk-ovningar-b:progress:v2', JSON.stringify({
+    store.set(`${STORAGE_PREFIX}:progress:v2`, JSON.stringify({
       v: 2,
       items: {
         '1/oef/0': { s: 'good', at: 1, h: P.hashItem(first) },
@@ -155,10 +156,29 @@ describe('vraag-id', () => {
     }));
     const moved = P.migrateToIds([{ chapter: 1, exercises: [withIds] }]);
     expect(moved).toBe(1);
-    const state = JSON.parse(store.get('svensk-ovningar-b:progress:v2'));
+    const state = JSON.parse(store.get(`${STORAGE_PREFIX}:progress:v2`));
     expect(Object.keys(state.items)).toEqual(['1/oef/aaaa']);
     expect(state.srs).toEqual({});
     expect(state.ids).toBe(true);
     expect(P.migrateToIds([{ chapter: 1, exercises: [withIds] }])).toBe(null);
+  });
+});
+
+describe('vragen buiten de oefening', () => {
+  beforeEach(() => store.clear());
+  it('tellen niet als gedaan in de lopende ronde, wel als voortgang', () => {
+    P.resetProgress();
+    P.startRun(1, ex);
+    P.recordItem(1, ex, 0, 'good', { outside: true });
+    expect(P.runState(1, ex).done.size).toBe(0);
+    expect(P.chapterProgress({ chapter: 1, exercises: [ex] }).itemsDone).toBe(1);
+    P.recordItem(1, ex, 0, 'good');
+    expect(P.runState(1, ex).done.size).toBe(1);
+  });
+  it('importeren weigert een bestand met lege of foute onderdelen', () => {
+    expect(() => P.importProgress(JSON.stringify({ v: 2, items: null, ex: {} }))).toThrow();
+    expect(() => P.importProgress(JSON.stringify({ v: 2, items: {}, ex: {}, srs: [] }))).toThrow();
+    expect(() => P.importProgress(JSON.stringify({ v: 2, items: {}, ex: {}, days: 'x' }))).toThrow();
+    expect(() => P.importProgress(JSON.stringify({ v: 2, items: {}, ex: {} }))).not.toThrow();
   });
 });

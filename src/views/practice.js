@@ -138,12 +138,16 @@ export function viewVerbTrainer() {
   let run = 0;
   let bestRun = 0;
   let last = null;
+  let pendingNext = null; // de ingeplande volgende vraag na een antwoord
   const stats = h('div', { class: 'score', 'aria-live': 'polite' });
   const list = h('div', { class: 'items' });
   const updateStats = () => {
     stats.replaceChildren(h('span', {}, `${done} gedaan · ${good} in één keer goed · reeks ${run} (beste ${bestRun})`));
   };
   const next = () => {
+    clearTimeout(pendingNext);
+    pendingNext = null;
+    if (done > 0 && !list.isConnected) return; // pagina verlaten
     const q = pickVerbItem(verbs, settings, Math.random, last);
     if (!q) {
       list.replaceChildren(h('p', { class: 'muted' }, 'Kies minstens één tijd en één soort werkwoord.'));
@@ -159,7 +163,7 @@ export function viewVerbTrainer() {
         bestRun = Math.max(bestRun, run);
       } else run = 0;
       updateStats();
-      setTimeout(next, r.revealed ? 1800 : 600);
+      pendingNext = setTimeout(next, r.revealed ? 1800 : 600);
     });
     list.prepend(card);
     [...list.children].slice(3).forEach((c) => c.remove());
@@ -262,7 +266,7 @@ export function viewFlashcards(ch) {
   };
   const rate = (ok) => {
     if (!current || !flipped) return;
-    if (ex && !current.rated) recordItem(ch.chapter, ex, current.i, ok ? 'good' : 'wrong');
+    if (ex && !current.rated) recordItem(ch.chapter, ex, current.i, ok ? 'good' : 'wrong', { outside: true });
     current.rated = true;
     if (ok) known++;
     else {
@@ -327,7 +331,7 @@ export function viewTest(ch) {
   const results = [];
   const items = picked.map(({ item, ex, idx, chapter }) => ({
     item,
-    ref: { ch: chapter.chapter, ex, idx },
+    ref: { ch: chapter.chapter, ex, idx, outside: true },
     topic: item.topic ?? ex.topic ?? 'woordenschat',
     label: ex.instruction.replace(/\*\*|\*/g, ''),
     ctx: { topic: ex.topic, testMode: true, findTopic: (t) => findTopic(t, chapter) },
@@ -389,6 +393,7 @@ export const GAMES = {
     intro: 'Kies het lidwoord bij het zelfstandig naamwoord.',
     make() {
       const nouns = vocabPool().filter((v) => /^(en|ett) /.test(v.sv));
+      if (!nouns.length) return null;
       const v = nouns[Math.floor(Math.random() * nouns.length)];
       const isEtt = v.sv.startsWith('ett ');
       return { prompt: v.sv.replace(/^(en|ett) /, ''), sub: v.nl, options: ['en', 'ett'], answer: isEtt ? 1 : 0, solution: v.sv };
@@ -399,6 +404,7 @@ export const GAMES = {
     intro: 'Kies de juiste Nederlandse vertaling.',
     make() {
       const pool = vocabPool();
+      if (pool.length < 2) return null;
       const v = pool[Math.floor(Math.random() * pool.length)];
       // Foute keuzes van dezelfde soort (met lidwoord bij een zelfstandig naamwoord), zodat het lidwoord niets verraadt.
       const kind = (x) => (/^(en|ett) /.test(x.sv) ? 'noun' : x.sv.startsWith('att ') ? 'verb' : 'other');
@@ -412,6 +418,7 @@ export const GAMES = {
     title: 'Verleden tijd',
     intro: 'Kies de juiste preteritum.',
     make() {
+      if (!verbs.length) return null;
       const verb = verbs[Math.floor(Math.random() * verbs.length)];
       const { correct, options } = pretOptions(verb);
       const opts = shuffle(options);
@@ -468,7 +475,12 @@ export function viewGame(id) {
     if (Date.now() >= endAt) return; // tijd is op: de uitslag blijft staan
     let tries = 0;
     do q = game.make();
-    while (recent.includes(q.prompt) && tries++ < 10);
+    while (q && recent.includes(q.prompt) && tries++ < 10);
+    if (!q) {
+      stage.replaceChildren(h('p', {}, 'Voor dit spel is er nog te weinig oefenstof.'));
+      clearInterval(timer);
+      return;
+    }
     recent.push(q.prompt);
     if (recent.length > 8) recent.shift();
     locked = false;

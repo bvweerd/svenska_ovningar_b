@@ -32,7 +32,7 @@ function textSpecs(item) {
 const allTopics = course.flatMap((c) => c.grammar.map((g) => g.id));
 const allItems = (ex) => ex.items.flatMap((i) => (i.type === 'steps' ? [i, ...i.steps] : [i]));
 
-it('elk hoofdstuk in index.yaml heeft een bekend niveau', () => {
+it.runIf(index.levels)('elk hoofdstuk in index.yaml heeft een bekend niveau', () => {
   const ids = new Set(index.levels.map((l) => l.id));
   for (const c of index.chapters) expect(ids.has(c.level), `hoofdstuk ${c.chapter}`).toBe(true);
 });

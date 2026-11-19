@@ -14,15 +14,17 @@ function checkItem(item, where, errors, topics) {
       break;
     case 'multi':
       if (!Array.isArray(item.answers) || !item.answers.length) err('multi heeft antwoorden nodig');
-      if (item.answers?.some((a) => a < 0 || a >= item.options.length)) err('multi-antwoord buiten bereik');
+      if (!Array.isArray(item.options) || item.options.length < 2) err('multi heeft minstens 2 opties nodig');
+      if (item.answers?.some((a) => !Number.isInteger(a) || a < 0 || a >= (item.options?.length ?? 0))) err('multi-antwoord buiten bereik');
       break;
     case 'gap': {
+      if (typeof item.text !== 'string') { err('gap heeft een tekst nodig'); break; }
       const holes = (item.text.match(/___/g) ?? []).length;
       if (!holes) err('gap-tekst bevat geen ___');
       if (holes !== item.gaps?.length) err(`gap: ${holes} gaten maar ${item.gaps?.length ?? 0} antwoorden`);
       item.gaps?.forEach((g, i) => {
         if (!g.answers?.length) err(`gap ${i + 1} heeft geen antwoorden`);
-        if (g.options && !g.answers.every((a) => g.options.includes(a))) err(`gap ${i + 1}: antwoord staat niet tussen de opties`);
+        if (g.options && !g.answers?.every((a) => g.options.includes(a))) err(`gap ${i + 1}: antwoord staat niet tussen de opties`);
       });
       break;
     }
@@ -38,7 +40,8 @@ function checkItem(item, where, errors, topics) {
     case 'table':
       if (!item.columns?.length || !item.rows?.length) err('table heeft kolommen en rijen nodig');
       item.rows?.forEach((r, i) => {
-        if (r.length !== item.columns.length) err(`tabelrij ${i + 1} heeft ${r.length} cellen, verwacht ${item.columns.length}`);
+        if (!Array.isArray(r)) err(`tabelrij ${i + 1} is geen lijst`);
+        else if (r.length !== item.columns?.length) err(`tabelrij ${i + 1} heeft ${r.length} cellen, verwacht ${item.columns?.length ?? 0}`);
       });
       break;
     case 'truefalse':

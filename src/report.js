@@ -72,7 +72,7 @@ function loadTurnstile() {
 let dialog = null;
 
 function openDialog({ item, ref, number, card }) {
-  dialog?.remove();
+  if (dialog?.open) dialog.close(); // ruimt ook de Turnstile-widget op (zie het close-event hieronder)
   const answer = currentAnswer(card);
   let token = '';
   let widgetId = null;
@@ -84,7 +84,7 @@ function openDialog({ item, ref, number, card }) {
   });
   const status = h('p', { class: 'report-status', 'aria-live': 'polite' });
   const send = h('button', { type: 'submit', class: 'btn primary' }, 'Versturen');
-  const cancel = h('button', { type: 'button', class: 'btn ghost', onclick: () => dialog.close() }, 'Annuleren');
+  const cancel = h('button', { type: 'button', class: 'btn ghost', onclick: () => dlg.close() }, 'Annuleren');
   const widget = h('div', { class: 'turnstile' });
 
   const form = h('form', { method: 'dialog', class: 'report-form' },
@@ -133,7 +133,7 @@ function openDialog({ item, ref, number, card }) {
       form.replaceChildren(
         h('h2', {}, 'Bedankt!'),
         h('p', {}, 'Je melding is ontvangen. Ik kijk ernaar en pas de oefening aan als dat nodig is.'),
-        h('div', { class: 'actions' }, h('button', { type: 'button', class: 'btn primary', onclick: () => dialog.close() }, 'Sluiten')),
+        h('div', { class: 'actions' }, h('button', { type: 'button', class: 'btn primary', onclick: () => dlg.close() }, 'Sluiten')),
       );
       form.querySelector('.btn.primary').focus();
     } catch (err) {
@@ -145,19 +145,20 @@ function openDialog({ item, ref, number, card }) {
     }
   });
 
-  dialog = h('dialog', { class: 'report-dialog', 'aria-label': 'Meld een fout' }, form);
-  dialog.addEventListener('close', () => {
+  const dlg = h('dialog', { class: 'report-dialog', 'aria-label': 'Meld een fout' }, form);
+  dialog = dlg;
+  dlg.addEventListener('close', () => {
     if (widgetId !== null) window.turnstile?.remove(widgetId);
-    dialog.remove();
-    dialog = null;
+    dlg.remove();
+    if (dialog === dlg) dialog = null;
   });
-  document.body.append(dialog);
-  dialog.showModal();
+  document.body.append(dlg);
+  dlg.showModal();
   textarea.focus();
 
   loadTurnstile()
     .then((ts) => {
-      if (!dialog) return;
+      if (!dlg.isConnected) return; // al gesloten
       widgetId = ts.render(widget, {
         sitekey: TURNSTILE_SITEKEY,
         language: 'nl',

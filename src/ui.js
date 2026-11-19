@@ -42,7 +42,7 @@ export const statusOf = (r) => (r.neutral ? 'free' : r.revealed ? 'revealed' : r
 
 // ---------- Oefenronde ----------
 /**
- * @param items  [{ item, ctx, label?, ref?: { ch, ex, idx } }]
+ * @param items  [{ item, ctx, label?, ref?: { ch, ex, idx, outside? } }]
  * @param opts   { onFinish(good, total), offset?: { done, good, total } }
  */
 export function exerciseRunner(items, { onFinish, offset = { done: 0, good: 0, total: 0 }, onItem, advanceAfterReveal = false }) {
@@ -62,7 +62,7 @@ export function exerciseRunner(items, { onFinish, offset = { done: 0, good: 0, t
       const card = itemCard(item, ref ? { ...ctx, ref } : ctx, offset.done + i + 1, (r) => {
         if (ref) {
           const status = statusOf(r);
-          recordItem(ref.ch, ref.ex, ref.idx, status);
+          recordItem(ref.ch, ref.ex, ref.idx, status, { outside: !!ref.outside });
           // De vaste vraag-id (spaties → -), zodat tellingen bij een vraag blijven als de volgorde verandert.
           const qid = String(ref.ex.items[ref.idx]?.id ?? ref.idx + 1).replace(/\s+/g, '-');
           trackEvent(`vraag/${ref.ch}/${ref.ex.id}/${qid}/${STATUS_LABEL[status]}`, `H${ref.ch} · ${ref.ex.title} · ${itemSummary(item)}`);
@@ -114,7 +114,7 @@ export function practiceView(ch, { title, instruction, entries, again, empty }) 
     const owner = chapter ?? ch;
     return {
       item,
-      ref: { ch: owner.chapter, ex, idx },
+      ref: { ch: owner.chapter, ex, idx, outside: true },
       label: `${ch ? '' : `${owner.title} · `}${ex.instruction.replace(/\*\*|\*/g, '')}`,
       ctx: { topic: ex.topic, findTopic: (t) => findTopic(t, owner) },
     };

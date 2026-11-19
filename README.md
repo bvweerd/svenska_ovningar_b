@@ -105,6 +105,12 @@ Met `vocab:` in een hoofdstuk worden drie woordenschatoefeningen automatisch gem
 `npm test` controleert dat elk goed antwoord ook echt goed gerekend wordt en elke
 vastgelegde fout als fout.
 
+## Twee sites, één code
+
+Deze site en zijn zusterrepo (svenska_ovningar voor A1–A2, svenska_ovningar_b voor B1–B2) delen dezelfde code. `src/`, `tests/`, `scripts/`, `vite.config.js` en `package.json` zijn in beide repo's gelijk. Wat per site verschilt, staat in `src/config.js`: opslagsleutel, GoatCounter-voorvoegsel, issue-repo, teksten en de link naar de andere site. Daarnaast verschillen de inhoud (`content/`), `index.html` en de Worker (alleen in de B1–B2-repo).
+
+Pas je gedeelde code aan, kopieer die dan naar de andere repo en controleer met `npm run check-sync` (beide repo's naast elkaar uitgecheckt).
+
 ## Licentie
 
 - **Code**: [MIT](LICENSE).

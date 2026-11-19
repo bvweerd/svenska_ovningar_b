@@ -13,5 +13,5 @@ const yamlPlugin = {
 export default defineConfig({
   base: './',
   plugins: [yamlPlugin],
-  test: { include: ['tests/**/*.test.js'] },
+  test: { include: ['tests/**/*.test.js', 'worker/**/*.test.js'] },
 });

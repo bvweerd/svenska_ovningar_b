@@ -11,6 +11,14 @@ describe('normalize', () => {
     expect(normalize('Nej, jag talar inte finska.')).toBe('nej jag talar inte finska');
   });
   it('houdt å, ä en ö', () => expect(normalize('ÄPPLET')).toBe('äpplet'));
+  it('stelt i dag/idag, sade/sa en lade/la gelijk', () => {
+    expect(normalize('I dag jobbar jag')).toBe(normalize('Idag jobbar jag'));
+    expect(normalize('Vi ses i morgon!')).toBe(normalize('Vi ses imorgon'));
+    expect(normalize('Hon sade nej')).toBe(normalize('Hon sa nej'));
+    expect(normalize('Han lade boken där')).toBe(normalize('Han la boken där'));
+    expect(normalize('i dagens tidning')).toBe('i dagens tidning');
+    expect(gradeText('I går var jag sjuk.', { answers: ['Igår var jag sjuk.'] }).correct).toBe(true);
+  });
 });
 
 describe('expand', () => {
@@ -82,4 +90,35 @@ describe('klok', () => {
 describe('markdown', () => {
   it('escapet html', () => expect(markdown('<b>x</b>')).not.toContain('<b>'));
   it('tabellen', () => expect(markdown('| a | b |\n|---|---|\n| 1 | 2 |')).toContain('<td>1</td>'));
+});
+
+describe('tijdsbepaling vooraan of achteraan', () => {
+  const spec = { answers: ['{På kvällen|På kvällarna} tittar Bram på {tv|teve}.'] };
+  it('keurt de tijdsbepaling achteraan goed, met een opmerking', () => {
+    const r = gradeText('Bram tittar på tv på kvällen.', spec);
+    expect(r).toMatchObject({ correct: true, moved: true });
+    expect(r.note).toContain('På kvällen tittar Bram på tv.');
+  });
+  it('keurt de tijdsbepaling vooraan goed als het model hem achteraan heeft', () => {
+    expect(gradeText('I dag har jag inte tid.', { answers: ['Jag har inte tid idag.'] }).correct).toBe(true);
+    expect(gradeText('På lördag åker vi till Göteborg.', { answers: ['Vi åker till Göteborg på lördag.'] }).correct).toBe(true);
+  });
+  it('houdt „inte” op zijn plek', () => {
+    const s = { answers: ['På kvällen tittar Bram inte på tv.'] };
+    expect(gradeText('Bram tittar inte på tv på kvällen', s).correct).toBe(true);
+    expect(gradeText('Bram inte tittar på tv på kvällen', s).correct).toBe(false);
+  });
+  it('geen inversie vergeten en geen andere zinsdelen naar voren', () => {
+    expect(gradeText('I dag jag har inte tid', { answers: ['Jag har inte tid idag.'] }).correct).toBe(false);
+    expect(gradeText('På bussen väntar jag', { answers: ['Jag väntar på bussen.'] }).correct).toBe(false);
+    expect(gradeText('På tv tittar Bram på kvällen', spec).correct).toBe(false);
+  });
+  it('laat samengestelde zinnen met rust', () => {
+    expect(gradeText('Jag vet att han kommer på måndag på måndag', { answers: ['Jag vet att han kommer på måndag.'] }).correct).toBe(false);
+    expect(gradeText('På måndag vet jag att han kommer', { answers: ['Jag vet att han kommer på måndag.'] }).correct).toBe(false);
+  });
+  it('vastgelegde fouten gaan voor', () => {
+    const s = { answers: ['På kvällen tittar Bram på tv.'], feedback: [{ match: ['Bram tittar på tv på kvällen'], tip: 'Begin met de tijdsbepaling.' }] };
+    expect(gradeText('Bram tittar på tv på kvällen', s)).toMatchObject({ correct: false, tip: 'Begin met de tijdsbepaling.' });
+  });
 });

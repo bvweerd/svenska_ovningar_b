@@ -9,6 +9,7 @@
 //   ISSUE_LABELS      optioneel, komma-gescheiden, bijv. melding
 //   GITHUB_TOKEN      secret: fine-grained token met alleen "Issues: Read and write" op de repo's in GITHUB_REPO
 //   TURNSTILE_SECRET  secret: geheime sleutel van de Turnstile-widget
+//   TURNSTILE_HOSTNAMES optioneel, komma-gescheiden: Turnstile-tokens van andere hostnamen worden geweigerd
 
 export const LIMITS = { message: 2000, answer: 1000, item: 6000, short: 200 };
 
@@ -18,6 +19,9 @@ const clip = (v, n) => String(v ?? '').trim().slice(0, n);
 export function neutralize(text) {
   return String(text).replace(/@/g, '@​').replace(/</g, '&lt;');
 }
+
+/** Tekst voor in een tabelcel: geen | (breekt de tabel) en geen regeleinden. */
+const cell = (text) => neutralize(String(text).replace(/[|\r\n]+/g, ' '));
 
 /** Codeblok waarvan het hek langer is dan elke reeks backticks in de inhoud. */
 function fence(content, lang = '') {
@@ -48,12 +52,12 @@ export function buildIssue(p) {
 
   const rows = [
     chapter !== null ? `| Hoofdstuk | ${chapter} |` : null,
-    exercise ? `| Oefening | \`${exercise.replace(/`/g, '')}\`${exerciseTitle ? ` (${neutralize(exerciseTitle)})` : ''} |` : null,
+    exercise ? `| Oefening | \`${exercise.replace(/[`|]/g, '')}\`${exerciseTitle ? ` (${cell(exerciseTitle)})` : ''} |` : null,
     itemId || idx !== null || shown !== null
       ? `| Vraag | ${[itemId ? `id \`${neutralize(itemId)}\`` : null, idx !== null ? `\`items[${idx}]\`` : null, shown !== null ? `nr. ${shown} op het scherm` : null].filter(Boolean).join(', ')} |`
       : null,
-    p.itemType ? `| Type | ${neutralize(clip(p.itemType, 30))} |` : null,
-    page && /^https?:\/\//.test(page) ? `| Pagina | ${page} |` : null,
+    p.itemType ? `| Type | ${cell(clip(p.itemType, 30))} |` : null,
+    page && /^https?:\/\/\S+$/.test(page) ? `| Pagina | ${cell(page)} |` : null,
   ].filter(Boolean);
 
   const parts = [
@@ -120,6 +124,8 @@ export async function handle(request, env, fetchImpl = fetch) {
   const ts = await fetchImpl('https://challenges.cloudflare.com/turnstile/v0/siteverify', { method: 'POST', body: form });
   const verdict = await ts.json().catch(() => ({}));
   if (!verdict.success) return json(403, { ok: false, error: 'turnstile' }, headers);
+  const hostnames = list(env.TURNSTILE_HOSTNAMES);
+  if (hostnames.length && !hostnames.includes(verdict.hostname)) return json(403, { ok: false, error: 'turnstile' }, headers);
 
   const labels = list(env.ISSUE_LABELS);
   const repo = pickRepo(payload.repo, env);

@@ -2,7 +2,7 @@ import './styles.css';
 import { h } from './dom.js';
 import { markdown, inline } from './md.js';
 import { course, levels } from './content.js';
-import { A_SITE } from './config.js';
+import { SITE_TEXT, SIBLING } from './config.js';
 import { reportConfigured } from './report.js';
 import { speakButton, speedSelect } from './render/speak.js';
 import { speechSupported } from './speech.js';
@@ -31,8 +31,8 @@ function viewHome() {
   return h('div', { class: 'home' },
     h('section', { class: 'hero' },
       h('h1', {}, 'Svenska övningar'),
-      h('p', { class: 'lead' }, 'Zweeds op B1- en B2-niveau: lezen, luisteren, grammatica, woordenschat en schrijven, hoofdstuk voor hoofdstuk. Elke oefening wordt meteen nagekeken, en bij een fout krijg je een tip.'),
-      h('p', { class: 'muted' }, 'Nog niet zo ver? Hoofdstuk 0–12 (A1–A2) staan op ', h('a', { href: A_SITE }, 'de beginnerssite'), '.'),
+      h('p', { class: 'lead' }, SITE_TEXT.lead),
+      h('p', { class: 'muted' }, SIBLING.home[0], h('a', { href: SIBLING.href }, SIBLING.home[1]), SIBLING.home[2]),
     ),
     h('div', { class: 'today' },
       last
@@ -234,7 +234,11 @@ function textButton(ex) {
   setTimeout(() => {
     const target = btn.parentElement?.querySelector('.passage');
     if (!target || typeof IntersectionObserver !== 'function') return;
-    new IntersectionObserver(([entry]) => { btn.hidden = entry.isIntersecting; }).observe(target);
+    const watcher = new IntersectionObserver(([entry]) => {
+      if (!btn.isConnected) return watcher.disconnect(); // pagina is weg
+      btn.hidden = entry.isIntersecting;
+    });
+    watcher.observe(target);
   }, 0);
   return [btn, sheet];
 }
@@ -321,8 +325,8 @@ function viewAbout() {
   return h('div', { class: 'prose about' },
     crumbs({ label: 'Start', href: '#/' }, { label: 'Over deze site' }),
     h('h1', {}, 'Over deze site'),
-    h('p', {}, 'Svenska övningar B1–B2 is een gratis oefensite voor Nederlandstaligen die Zweeds leren op gevorderd niveau. Het vervolgt de beginnerssite (hoofdstuk 0–12) met twaalf hoofdstukken op B1 (13–24) en zes op B2 (25–30). Elk hoofdstuk heeft een thema, een praktisch doel en een schrijfdoel, met lezen, luisteren, grammatica, woordenschat en schrijven.'),
-    h('p', {}, 'De beginnersstof vind je op ', h('a', { href: A_SITE }, 'de A1–A2-site'), '. Je voortgang wordt per site apart bewaard.'),
+    h('p', {}, SITE_TEXT.about),
+    h('p', {}, SIBLING.about[0], h('a', { href: SIBLING.href }, SIBLING.about[1]), SIBLING.about[2]),
     h('h2', {}, 'Luisteren'),
     h('p', {}, 'De site leest Zweeds voor met de spraakfunctie van je eigen browser. Hoe goed dat klinkt, hangt af van de Zweedse stemmen op je apparaat. ', h('a', { href: '#/luisteren' }, 'Luisteren instellen'), ' legt per browser uit hoe je een goede stem krijgt.'),
     h('p', {}, 'Alle oefenzinnen, teksten en uitleg op deze site zijn zelf geschreven. De site is niet verbonden aan een uitgever of lesmethode.'),
@@ -511,6 +515,9 @@ function charBar() {
 }
 
 // ---------- Thema ----------
+// Gedeeld met de andere site (zelfde domein): één keuze voor licht of donker.
+const THEME_KEY = 'svensk-ovningar:theme';
+
 function themeToggle() {
   const btn = document.getElementById('theme');
   const apply = (t) => {
@@ -518,7 +525,7 @@ function themeToggle() {
     else delete document.documentElement.dataset.theme;
   };
   let saved = null;
-  try { saved = localStorage.getItem('svensk-ovningar:theme'); } catch { /* */ }
+  try { saved = localStorage.getItem(THEME_KEY); } catch { /* */ }
   apply(saved);
   btn?.addEventListener('click', () => {
     const dark = document.documentElement.dataset.theme
@@ -526,11 +533,11 @@ function themeToggle() {
       : matchMedia('(prefers-color-scheme: dark)').matches;
     const t = dark ? 'light' : 'dark';
     apply(t);
-    try { localStorage.setItem('svensk-ovningar:theme', t); } catch { /* */ }
+    try { localStorage.setItem(THEME_KEY, t); } catch { /* */ }
   });
 }
 
-// Woorden die in de oefenstof ergens midden in een zin staan (dus met kleine letter).
+// Woorden uit de oefenstof: met kleine letter midden in een zin, en namen (hoofdletter midden in een zin).
 function knownWords() {
   const out = new Set();
   const names = new Set();
