@@ -137,7 +137,13 @@ export function viewDaily() {
 // ---------- Werkwoordtrainer ----------
 export function viewVerbTrainer() {
   document.title = 'Werkwoordtrainer · Svenska övningar';
-  const settings = getPref('verbs', { tenses: ['pres', 'pret', 'sup'], kinds: Object.keys(KINDS) });
+  // Alleen soorten die in deze site voorkomen (partikelwerkwoorden alleen op B1–B2).
+  const kindKeys = Object.keys(KINDS).filter((k) => verbs.some((v) => v.kind === k));
+  const settings = getPref('verbs', { tenses: ['pres', 'pret', 'sup'], kinds: kindKeys });
+  // Een soort die er later bij kwam, staat ook bij bestaande instellingen aan.
+  const seen = settings.seen ?? ['ar', 'er', 'kort', 'sterk'];
+  settings.kinds = [...new Set([...settings.kinds, ...kindKeys.filter((k) => !seen.includes(k))])];
+  settings.seen = [...new Set([...seen, ...kindKeys])];
   let done = 0;
   let good = 0;
   let run = 0;
@@ -180,7 +186,8 @@ export function viewVerbTrainer() {
   const settingsSummary = h('summary', {});
   const summarize = () => {
     const tenses = settings.tenses.map((t) => TENSES[t]?.label.replace(/ \(.*\)/, '')).join(', ') || 'geen tijden';
-    const kinds = settings.kinds.length === Object.keys(KINDS).length ? 'alle soorten' : `${settings.kinds.length} van ${Object.keys(KINDS).length} soorten`;
+    const chosen = kindKeys.filter((k) => settings.kinds.includes(k)).length;
+    const kinds = chosen === kindKeys.length ? 'alle soorten' : `${chosen} van ${kindKeys.length} soorten`;
     settingsSummary.replaceChildren(h('strong', {}, 'Instellingen'), h('span', { class: 'muted' }, ` · ${tenses} · ${kinds}`));
   };
   const checkbox = (group, key, label) => {
@@ -205,7 +212,7 @@ export function viewVerbTrainer() {
     settingsBox = h('details', { class: 'settings', open: !matchMedia('(pointer: coarse)').matches },
       settingsSummary,
       h('fieldset', {}, h('legend', {}, 'Tijden'), h('div', { class: 'options row' }, Object.entries(TENSES).map(([k, t]) => checkbox('tenses', k, t.label)))),
-      h('fieldset', {}, h('legend', {}, 'Soorten werkwoorden'), h('div', { class: 'options row' }, Object.entries(KINDS).map(([k, l]) => checkbox('kinds', k, l))))),
+      h('fieldset', {}, h('legend', {}, 'Soorten werkwoorden'), h('div', { class: 'options row' }, kindKeys.map((k) => checkbox('kinds', k, KINDS[k]))))),
     stats, list,
   );
   summarize();

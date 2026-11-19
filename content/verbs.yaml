@@ -157,3 +157,49 @@ verbs:
   - { inf: ljuga, nl: liegen, kind: sterk, pres: ljuger, pret: ljög, sup: ljugit, imp: ljug }
   - { inf: skrika, nl: schreeuwen, kind: sterk, pres: skriker, pret: skrek, sup: skrikit, imp: skrik }
   - { inf: heta, nl: heten, kind: sterk, pres: heter, pret: hette, sup: hetat, imp: null }
+  # partikelwerkwoorden (B1–B2): alleen het eerste woord wordt vervoegd
+  - { inf: ta upp, nl: "ter sprake brengen, oppakken", kind: partikel, pres: tar upp, pret: tog upp, sup: tagit upp, imp: ta upp }
+  - { inf: ta över, nl: overnemen, kind: partikel, pres: tar över, pret: tog över, sup: tagit över, imp: ta över }
+  - { inf: ta reda på, nl: uitzoeken, kind: partikel, pres: tar reda på, pret: tog reda på, sup: tagit reda på, imp: ta reda på }
+  - { inf: ta slut, nl: opraken, kind: partikel, pres: tar slut, pret: tog slut, sup: tagit slut, imp: null }
+  - { inf: ta igen, nl: inhalen, kind: partikel, pres: tar igen, pret: tog igen, sup: tagit igen, imp: ta igen }
+  - { inf: ta efter, nl: nadoen, kind: partikel, pres: tar efter, pret: tog efter, sup: tagit efter, imp: null }
+  - { inf: komma överens, nl: het eens worden, kind: partikel, pres: kommer överens, pret: kom överens, sup: kommit överens, imp: null }
+  - { inf: komma fram, nl: aankomen, kind: partikel, pres: kommer fram, pret: kom fram, sup: kommit fram, imp: null }
+  - { inf: komma fram till, nl: tot een conclusie komen, kind: partikel, pres: kommer fram till, pret: kom fram till, sup: kommit fram till, imp: null }
+  - { inf: gå med på, nl: instemmen met, kind: partikel, pres: går med på, pret: gick med på, sup: gått med på, imp: null }
+  - { inf: gå sönder, nl: kapotgaan, kind: partikel, pres: går sönder, pret: gick sönder, sup: gått sönder, imp: null }
+  - { inf: gå över, nl: overgaan (pijn), kind: partikel, pres: går över, pret: gick över, sup: gått över, imp: null }
+  - { inf: hålla med, nl: het eens zijn (met iemand), kind: partikel, pres: håller med, pret: höll med, sup: hållit med, imp: null }
+  - { inf: hålla ihop, nl: bij elkaar blijven, kind: partikel, pres: håller ihop, pret: höll ihop, sup: hållit ihop, imp: håll ihop }
+  - { inf: stå ut med, nl: verdragen, kind: partikel, pres: står ut med, pret: stod ut med, sup: stått ut med, imp: null }
+  - { inf: dyka upp, nl: opduiken, kind: partikel, pres: dyker upp, pret: [dök upp, dykte upp], sup: dykt upp, imp: null }
+  - { inf: se fram emot, nl: uitkijken naar, kind: partikel, pres: ser fram emot, pret: såg fram emot, sup: sett fram emot, imp: null }
+  - { inf: lägga märke till, nl: opmerken, kind: partikel, pres: lägger märke till, pret: [lade märke till, la märke till], sup: lagt märke till, imp: lägg märke till }
+  - { inf: lägga ner, nl: "opheffen, sluiten (een bedrijf)", kind: partikel, pres: lägger ner, pret: [lade ner, la ner], sup: lagt ner, imp: lägg ner }
+  - { inf: sätta upp, nl: "ophangen, opzetten", kind: partikel, pres: sätter upp, pret: satte upp, sup: satt upp, imp: sätt upp }
+  - { inf: sätta på, nl: aanzetten, kind: partikel, pres: sätter på, pret: satte på, sup: satt på, imp: sätt på }
+  - { inf: stänga av, nl: uitzetten, kind: partikel, pres: stänger av, pret: stängde av, sup: stängt av, imp: stäng av }
+  - { inf: skriva under, nl: ondertekenen, kind: partikel, pres: skriver under, pret: skrev under, sup: skrivit under, imp: skriv under }
+  - { inf: skriva ut, nl: printen, kind: partikel, pres: skriver ut, pret: skrev ut, sup: skrivit ut, imp: skriv ut }
+  - { inf: känna igen, nl: herkennen, kind: partikel, pres: känner igen, pret: kände igen, sup: känt igen, imp: null }
+  - { inf: hälsa på, nl: op bezoek gaan, kind: partikel, pres: hälsar på, pret: hälsade på, sup: hälsat på, imp: hälsa på }
+  - { inf: fylla i, nl: invullen, kind: partikel, pres: fyller i, pret: fyllde i, sup: fyllt i, imp: fyll i }
+  - { inf: lämna in, nl: inleveren, kind: partikel, pres: lämnar in, pret: lämnade in, sup: lämnat in, imp: lämna in }
+  - { inf: lämna tillbaka, nl: teruggeven, kind: partikel, pres: lämnar tillbaka, pret: lämnade tillbaka, sup: lämnat tillbaka, imp: lämna tillbaka }
+  - { inf: byta ut, nl: vervangen, kind: partikel, pres: byter ut, pret: bytte ut, sup: bytt ut, imp: byt ut }
+  - { inf: ställa in, nl: afzeggen, kind: partikel, pres: ställer in, pret: ställde in, sup: ställt in, imp: ställ in }
+  - { inf: hyra ut, nl: verhuren, kind: partikel, pres: hyr ut, pret: hyrde ut, sup: hyrt ut, imp: hyr ut }
+  - { inf: bjuda in, nl: uitnodigen, kind: partikel, pres: bjuder in, pret: bjöd in, sup: bjudit in, imp: bjud in }
+  - { inf: hoppa av, nl: "afhaken, stoppen (met een opleiding)", kind: partikel, pres: hoppar av, pret: hoppade av, sup: hoppat av, imp: null }
+  - { inf: hänga med, nl: "meegaan, kunnen volgen", kind: partikel, pres: hänger med, pret: hängde med, sup: hängt med, imp: häng med }
+  - { inf: ringa på, nl: aanbellen, kind: partikel, pres: ringer på, pret: ringde på, sup: ringt på, imp: ring på }
+  - { inf: stiga på, nl: instappen, kind: partikel, pres: stiger på, pret: steg på, sup: stigit på, imp: stig på }
+  - { inf: stiga av, nl: uitstappen, kind: partikel, pres: stiger av, pret: steg av, sup: stigit av, imp: stig av }
+  - { inf: checka in, nl: inchecken, kind: partikel, pres: checkar in, pret: checkade in, sup: checkat in, imp: checka in }
+  - { inf: slå upp, nl: "opzoeken (in een woordenboek)", kind: partikel, pres: slår upp, pret: slog upp, sup: slagit upp, imp: slå upp }
+  - { inf: göra slut, nl: het uitmaken, kind: partikel, pres: gör slut, pret: gjorde slut, sup: gjort slut, imp: null }
+  - { inf: räkna med, nl: rekenen op, kind: partikel, pres: räknar med, pret: räknade med, sup: räknat med, imp: räkna med }
+  - { inf: lita på, nl: vertrouwen op, kind: partikel, pres: litar på, pret: litade på, sup: litat på, imp: lita på }
+  - { inf: hitta på, nl: verzinnen, kind: partikel, pres: hittar på, pret: hittade på, sup: hittat på, imp: hitta på }
+  - { inf: tycka till, nl: zijn mening geven, kind: partikel, pres: tycker till, pret: tyckte till, sup: tyckt till, imp: tyck till }

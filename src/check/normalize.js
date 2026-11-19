@@ -16,13 +16,14 @@ export function normalize(input, { caseSensitive = false } = {}) {
 }
 
 // Spellingsvarianten die allebei correct zijn (SAOL), zodat elk antwoordpatroon ze
-// automatisch allebei goedkeurt: "i dag" = "idag", "sade" = "sa", "lade" = "la".
+// automatisch allebei goedkeurt: "i dag" = "idag", "sade" = "sa", "lade" = "la", "ned" = "ner".
 const TIME_WORDS = 'dag|går|morgon|kväll|morse|natt|övermorgon|förrgår';
 const TIME_RE = new RegExp(`(^| )([iI]) (${TIME_WORDS})(?= |$)`, 'gu');
 const PRET_RE = /(^| )([sSlL])ade(?= |$)/gu;
+const NED_RE = /(^| )([nN])ed(?= |$)/gu;
 
 function foldVariants(s) {
-  return s.replace(TIME_RE, '$1$2$3').replace(PRET_RE, '$1$2a');
+  return s.replace(TIME_RE, '$1$2$3').replace(PRET_RE, '$1$2a').replace(NED_RE, '$1$2er');
 }
 
 /**

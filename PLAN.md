@@ -75,7 +75,8 @@ Nieuw in deze repo:
 - [ ] Testen of de browserstemmen goed genoeg zijn (oordelen in GoatCounter: `/b/luisteren/oordeel/…`)
 - [x] **Fase 2** – hoofdstuk 14–24, één voor één (met eindtoets B1 in hoofdstuk 24)
 - [x] **Fase 3** – hoofdstuk 25–30 (met herhaling en eindtoets B2 in hoofdstuk 30)
-- [ ] Werkwoordtrainer uitbreiden met B1-werkwoorden en partikelwerkwoorden
+- [x] Werkwoordtrainer uitbreiden met B1-werkwoorden en partikelwerkwoorden
+      (45 partikelwerkwoorden als eigen soort in de trainer, na **taalreview**)
 
 ## 5. Kanttekeningen
 

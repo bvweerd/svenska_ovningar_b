@@ -12,12 +12,25 @@ export const KINDS = {
   er: 'op -er (köpa, ringa)',
   kort: 'kort (bo, tro)',
   sterk: 'sterk en onregelmatig (gå, äta)',
+  partikel: 'partikelwerkwoorden (ta upp)',
 };
+
+// Partikelwerkwoorden (ta upp, komma överens): het werkwoord is het eerste woord, de rest
+// (partikel, voorzetsel, zelfstandig naamwoord) blijft onveranderd achter elke vorm staan.
+const head = (s) => s.split(' ')[0];
+const tail = (verb) => verb.inf.slice(head(verb.inf).length); // " upp", " överens", " reda på"
+const withoutTail = (verb, f) => (tail(verb) && f.endsWith(tail(verb)) ? f.slice(0, -tail(verb).length) : f);
 
 import { list } from './build.js';
 
 /** Vormen die een leerling vaak "regelmatig" raadt. */
 export function naiveForms(verb, tense) {
+  if (tail(verb)) {
+    // Dezelfde fouten als bij het werkwoord zelf, met het partikel erachter.
+    const base = { inf: head(verb.inf), [tense]: list(verb[tense]).map((f) => withoutTail(verb, f)) };
+    const correct = new Set(list(verb[tense]));
+    return naiveForms(base, tense).map((f) => f + tail(verb)).filter((f) => !correct.has(f));
+  }
   const stem = verb.inf.endsWith('a') ? verb.inf.slice(0, -1) : verb.inf;
   const forms = {
     pres: [`${verb.inf}r`, `${stem}er`, `${stem}ar`],
@@ -30,6 +43,7 @@ export function naiveForms(verb, tense) {
 }
 
 function kindTip(verb, tense) {
+  if (verb.kind === 'partikel') return `Bij een partikelwerkwoord vervoeg je alleen „${head(verb.inf)}” (sterk of zwak, zoals altijd); „${tail(verb).trim()}” blijft erachter staan.`;
   if (verb.kind === 'sterk') return `${verb.inf} is een sterk of onregelmatig werkwoord. Deze vorm moet je uit je hoofd leren.`;
   if (tense === 'pres') {
     return {
@@ -64,9 +78,14 @@ export function verbItem(verb, tense) {
   }
   const naive = naiveForms(verb, tense).filter((f) => !feedback.some((fb) => fb.match.includes(f)));
   if (naive.length) feedback.push({ match: naive, tip: kindTip(verb, tense) });
+  if (tail(verb)) {
+    // Alleen het werkwoord, zonder partikel: tagit in plaats van tagit upp.
+    const bare = forms.map((f) => withoutTail(verb, f)).filter((f) => f !== verb.inf && !forms.includes(f));
+    if (bare.length) feedback.push({ match: tense === 'sup' ? bare.map((f) => `[har ]${f}`) : bare, tip: `Vergeet „${tail(verb).trim()}” niet: dat hoort bij dit werkwoord.` });
+  }
   return {
     type: 'gap',
-    topic: verb.kind === 'sterk' && tense !== 'imp' ? (tense === 'sup' ? 'supinum' : 'starka-verb') : TENSES[tense].topic,
+    topic: verb.kind === 'partikel' ? 'partikelverb' : verb.kind === 'sterk' && tense !== 'imp' ? (tense === 'sup' ? 'supinum' : 'starka-verb') : TENSES[tense].topic,
     text: `**${verb.inf}** (${verb.nl}) → ${TENSES[tense].label}: ___`,
     gaps: [{ answers, feedback }],
   };
