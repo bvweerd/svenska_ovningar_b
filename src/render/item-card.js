@@ -96,7 +96,8 @@ export function itemCard(item, ctx, number, onDone, label) {
       return;
     }
 
-    if (res.empty) {
+    // Leeg, of goed Zweeds in een andere volgorde dan de opdracht vraagt: geen fout, nog een keer.
+    if (res.empty || res.retry) {
       show('info', h('p', {}, res.tip));
       return;
     }

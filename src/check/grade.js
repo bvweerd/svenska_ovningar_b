@@ -6,7 +6,11 @@ import { clockAnswers, clockFeedback } from './clock.js';
 
 const asList = (x) => (x === undefined ? [] : [].concat(x));
 
-/** Open tekstantwoord. spec: { answers, feedback?, caseSensitive? } */
+/**
+ * Open tekstantwoord. spec: { answers, feedback?, caseSensitive?, fixedOrder? }
+ * ctx.fixedOrder (of spec.fixedOrder): de opdracht schrijft de woordvolgorde voor (bijv. „begin met de
+ * tijdsbepaling”). Een andere goede volgorde is dan geen fout, maar ook nog niet goed: { retry, tip }.
+ */
 export function gradeText(input, spec, ctx = {}) {
   const opts = { caseSensitive: !!spec.caseSensitive };
   const n = normalize(input, opts);
@@ -21,6 +25,9 @@ export function gradeText(input, spec, ctx = {}) {
   }
   // Tijdsbepaling vooraan of achteraan: ook goed (vastgelegde fouten hierboven gaan voor).
   if (!spec.options && expected.some((e) => movedAdverbials(e).includes(n))) {
+    if (spec.fixedOrder || ctx.fixedOrder) {
+      return { correct: false, retry: true, kind: 'order', tip: 'Dat is goed Zweeds, maar de opdracht is anders: begin de zin met de tijdsbepaling, net als in het Nederlands. Let dan op de inversie.' };
+    }
     return { correct: true, moved: true, note: `Het voorbeeldantwoord zet de tijdsbepaling op een andere plek: „${displayAnswer(spec.answers)}”` };
   }
   // Bij een keuzelijst is een vaste tip zinvoller dan een spellingsdiagnose.

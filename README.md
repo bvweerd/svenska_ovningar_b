@@ -63,6 +63,14 @@ Een hoofdstuk verschijnt automatisch zodra het bestand bestaat (het nummer moet 
 `content/index.yaml` staan, met `level`). Zie `PLAN.md` voor de opzet en `content/chapters/13-werk.yaml`
 voor een volledig hoofdstuk.
 
+### Woordvolgorde: tijdsbepaling vooraan of achteraan
+
+De nakijker keurt een tijdsbepaling vooraan (met inversie) én achteraan goed, ook als het
+antwoord in de content maar één volgorde heeft: *På kvällen tittar Bram på tv* = *Bram tittar på tv
+på kvällen*. Een vastgelegde fout in `feedback` gaat voor. Vraagt de opdracht om een vaste volgorde
+(„Begin de zin met de tijdsbepaling”), zet dan `fixedOrder: true` bij de oefening (of bij één vraag).
+De andere volgorde telt dan niet als fout, maar de leerling krijgt de tip om de opdracht te volgen.
+
 ### Vraag-id's en voortgang
 
 Elke vraag heeft een vaste `id` (bijvoorbeeld `id: k7q2`). De voortgang van gebruikers hangt aan

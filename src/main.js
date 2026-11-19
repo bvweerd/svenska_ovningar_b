@@ -166,7 +166,7 @@ function viewExercise(ch, ex, query) {
   const items = ordered.map(({ item, idx }) => ({
     item,
     ref: { ch: ch.chapter, ex, idx },
-    ctx: { topic: ex.topic, findTopic: (t) => findTopic(t, ch) },
+    ctx: { topic: ex.topic, fixedOrder: !!ex.fixedOrder, findTopic: (t) => findTopic(t, ch) },
   }));
 
   const pos = ch.exercises.indexOf(ex);

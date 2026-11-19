@@ -122,3 +122,16 @@ describe('tijdsbepaling vooraan of achteraan', () => {
     expect(gradeText('Bram tittar på tv på kvällen', s)).toMatchObject({ correct: false, tip: 'Begin met de tijdsbepaling.' });
   });
 });
+
+describe('vaste volgorde (fixedOrder)', () => {
+  const spec = { answers: ['På kvällen tittar Bram på tv.'] };
+  it('andere goede volgorde: geen fout, wel de opdracht volgen', () => {
+    const r = gradeText('Bram tittar på tv på kvällen', spec, { fixedOrder: true });
+    expect(r).toMatchObject({ correct: false, retry: true });
+    expect(r.tip).toContain('tijdsbepaling');
+    expect(gradeText('Bram tittar på tv på kvällen', { ...spec, fixedOrder: true })).toMatchObject({ retry: true });
+  });
+  it('de gevraagde volgorde blijft goed', () => {
+    expect(gradeText('På kvällen tittar Bram på tv', spec, { fixedOrder: true }).correct).toBe(true);
+  });
+});

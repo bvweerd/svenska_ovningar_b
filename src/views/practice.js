@@ -334,7 +334,7 @@ export function viewTest(ch) {
     ref: { ch: chapter.chapter, ex, idx, outside: true },
     topic: item.topic ?? ex.topic ?? 'woordenschat',
     label: ex.instruction.replace(/\*\*|\*/g, ''),
-    ctx: { topic: ex.topic, testMode: true, findTopic: (t) => findTopic(t, chapter) },
+    ctx: { topic: ex.topic, fixedOrder: !!ex.fixedOrder, testMode: true, findTopic: (t) => findTopic(t, chapter) },
   }));
   const prev = getTest(ch.chapter);
   const [list, score, summary] = exerciseRunner(items, {

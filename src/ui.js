@@ -116,7 +116,7 @@ export function practiceView(ch, { title, instruction, entries, again, empty }) 
       item,
       ref: { ch: owner.chapter, ex, idx, outside: true },
       label: `${ch ? '' : `${owner.title} · `}${ex.instruction.replace(/\*\*|\*/g, '')}`,
-      ctx: { topic: ex.topic, findTopic: (t) => findTopic(t, owner) },
+      ctx: { topic: ex.topic, fixedOrder: !!ex.fixedOrder, findTopic: (t) => findTopic(t, owner) },
     };
   });
   const [list, score, summary] = exerciseRunner(items, {
