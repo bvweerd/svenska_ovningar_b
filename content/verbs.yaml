@@ -70,3 +70,90 @@ verbs:
   - { inf: hålla, nl: houden, kind: sterk, pres: håller, pret: höll, sup: hållit, imp: håll }
   - { inf: lägga, nl: leggen, kind: sterk, pres: lägger, pret: [la, lade], sup: lagt, imp: lägg }
   - { inf: sätta, nl: zetten, kind: sterk, pres: sätter, pret: satte, sup: satt, imp: sätt }
+  # Uitbreiding (fase 4 van het plan)
+  # -ar
+  - { inf: arbeta, nl: "werken (iets formeler dan jobba)", kind: ar, pres: arbetar, pret: arbetade, sup: arbetat, imp: arbeta }
+  - { inf: studera, nl: studeren, kind: ar, pres: studerar, pret: studerade, sup: studerat, imp: studera }
+  - { inf: plugga, nl: "studeren, blokken (informeel)", kind: ar, pres: pluggar, pret: pluggade, sup: pluggat, imp: plugga }
+  - { inf: baka, nl: bakken, kind: ar, pres: bakar, pret: bakade, sup: bakat, imp: baka }
+  - { inf: tvätta, nl: wassen, kind: ar, pres: tvättar, pret: tvättade, sup: tvättat, imp: tvätta }
+  - { inf: diska, nl: afwassen, kind: ar, pres: diskar, pret: diskade, sup: diskat, imp: diska }
+  - { inf: duscha, nl: douchen, kind: ar, pres: duschar, pret: duschade, sup: duschat, imp: duscha }
+  - { inf: vakna, nl: wakker worden, kind: ar, pres: vaknar, pret: vaknade, sup: vaknat, imp: vakna }
+  - { inf: hämta, nl: "(op)halen", kind: ar, pres: hämtar, pret: hämtade, sup: hämtat, imp: hämta }
+  - { inf: visa, nl: "tonen, laten zien", kind: ar, pres: visar, pret: visade, sup: visat, imp: visa }
+  - { inf: betala, nl: betalen, kind: ar, pres: betalar, pret: betalade, sup: betalat, imp: betala }
+  - { inf: boka, nl: "boeken, reserveren", kind: ar, pres: bokar, pret: bokade, sup: bokat, imp: boka }
+  - { inf: kosta, nl: kosten, kind: ar, pres: kostar, pret: kostade, sup: kostat, imp: null }
+  - { inf: fika, nl: koffiedrinken (met iets lekkers), kind: ar, pres: fikar, pret: fikade, sup: fikat, imp: fika }
+  - { inf: simma, nl: zwemmen, kind: ar, pres: simmar, pret: simmade, sup: simmat, imp: simma }
+  - { inf: promenera, nl: wandelen, kind: ar, pres: promenerar, pret: promenerade, sup: promenerat, imp: promenera }
+  - { inf: packa, nl: "(in)pakken", kind: ar, pres: packar, pret: packade, sup: packat, imp: packa }
+  - { inf: stanna, nl: "stoppen, blijven", kind: ar, pres: stannar, pret: stannade, sup: stannat, imp: stanna }
+  - { inf: skicka, nl: sturen, kind: ar, pres: skickar, pret: skickade, sup: skickat, imp: skicka }
+  - { inf: ändra, nl: "veranderen, wijzigen", kind: ar, pres: ändrar, pret: ändrade, sup: ändrat, imp: ändra }
+  - { inf: prova, nl: "proberen, passen (kleding)", kind: ar, pres: provar, pret: provade, sup: provat, imp: prova }
+  - { inf: planera, nl: plannen, kind: ar, pres: planerar, pret: planerade, sup: planerat, imp: planera }
+  - { inf: älska, nl: houden van, kind: ar, pres: älskar, pret: älskade, sup: älskat, imp: älska }
+  - { inf: lova, nl: beloven, kind: ar, pres: lovar, pret: lovade, sup: lovat, imp: lova }
+  - { inf: undra, nl: zich afvragen, kind: ar, pres: undrar, pret: undrade, sup: undrat, imp: null }
+  - { inf: skratta, nl: lachen, kind: ar, pres: skrattar, pret: skrattade, sup: skrattat, imp: skratta }
+  - { inf: spara, nl: "sparen, opslaan", kind: ar, pres: sparar, pret: sparade, sup: sparat, imp: spara }
+  - { inf: förklara, nl: uitleggen, kind: ar, pres: förklarar, pret: förklarade, sup: förklarat, imp: förklara }
+  - { inf: låna, nl: "lenen (van iemand)", kind: ar, pres: lånar, pret: lånade, sup: lånat, imp: låna }
+  - { inf: leta, nl: zoeken, kind: ar, pres: letar, pret: letade, sup: letat, imp: leta }
+  # -er
+  - { inf: använda, nl: gebruiken, kind: er, pres: använder, pret: använde, sup: använt, imp: använd }
+  - { inf: beställa, nl: bestellen, kind: er, pres: beställer, pret: beställde, sup: beställt, imp: beställ }
+  - { inf: försöka, nl: proberen, kind: er, pres: försöker, pret: försökte, sup: försökt, imp: försök }
+  - { inf: jämföra, nl: vergelijken, kind: er, pres: jämför, pret: jämförde, sup: jämfört, imp: jämför }
+  - { inf: behöva, nl: nodig hebben, kind: er, pres: behöver, pret: behövde, sup: behövt, imp: null }
+  - { inf: känna, nl: "voelen, kennen", kind: er, pres: känner, pret: kände, sup: känt, imp: känn }
+  - { inf: tända, nl: "aansteken, aandoen (licht)", kind: er, pres: tänder, pret: tände, sup: tänt, imp: tänd }
+  - { inf: lära, nl: "leren, onderwijzen (lära sig = leren)", kind: er, pres: lär, pret: lärde, sup: lärt, imp: lär }
+  - { inf: hyra, nl: huren, kind: er, pres: hyr, pret: hyrde, sup: hyrt, imp: hyr }
+  - { inf: byta, nl: "ruilen, wisselen", kind: er, pres: byter, pret: bytte, sup: bytt, imp: byt }
+  - { inf: möta, nl: "ontmoeten, tegenkomen", kind: er, pres: möter, pret: mötte, sup: mött, imp: möt }
+  - { inf: väcka, nl: wekken, kind: er, pres: väcker, pret: väckte, sup: väckt, imp: väck }
+  - { inf: släcka, nl: "uitdoen (licht), blussen", kind: er, pres: släcker, pret: släckte, sup: släckt, imp: släck }
+  - { inf: följa, nl: volgen, kind: er, pres: följer, pret: följde, sup: följt, imp: följ }
+  - { inf: kräva, nl: eisen, kind: er, pres: kräver, pret: krävde, sup: krävt, imp: kräv }
+  - { inf: äga, nl: bezitten, kind: er, pres: äger, pret: ägde, sup: ägt, imp: null }
+  - { inf: betyda, nl: betekenen, kind: er, pres: betyder, pret: betydde, sup: betytt, imp: null }
+  - { inf: röka, nl: roken, kind: er, pres: röker, pret: rökte, sup: rökt, imp: rök }
+  - { inf: tömma, nl: leegmaken, kind: er, pres: tömmer, pret: tömde, sup: tömt, imp: töm }
+  - { inf: höja, nl: verhogen, kind: er, pres: höjer, pret: höjde, sup: höjt, imp: höj }
+  # kort
+  - { inf: sy, nl: naaien, kind: kort, pres: syr, pret: sydde, sup: sytt, imp: sy }
+  - { inf: nå, nl: bereiken, kind: kort, pres: når, pret: nådde, sup: nått, imp: nå }
+  - { inf: klä, nl: "kleden (klä på sig = zich aankleden)", kind: kort, pres: klär, pret: klädde, sup: klätt, imp: klä }
+  - { inf: fly, nl: vluchten, kind: kort, pres: flyr, pret: flydde, sup: flytt, imp: fly }
+  # sterk en onregelmatig
+  - { inf: bära, nl: dragen, kind: sterk, pres: bär, pret: bar, sup: burit, imp: bär }
+  - { inf: dra, nl: trekken, kind: sterk, pres: drar, pret: drog, sup: dragit, imp: dra }
+  - { inf: falla, nl: vallen, kind: sterk, pres: faller, pret: föll, sup: fallit, imp: fall }
+  - { inf: frysa, nl: het koud hebben, kind: sterk, pres: fryser, pret: frös, sup: frusit, imp: null }
+  - { inf: försvinna, nl: verdwijnen, kind: sterk, pres: försvinner, pret: försvann, sup: försvunnit, imp: försvinn }
+  - { inf: gråta, nl: huilen, kind: sterk, pres: gråter, pret: grät, sup: gråtit, imp: null }
+  - { inf: hinna, nl: "op tijd zijn, tijd hebben voor", kind: sterk, pres: hinner, pret: hann, sup: hunnit, imp: null }
+  - { inf: kunna, nl: kunnen, kind: sterk, pres: kan, pret: kunde, sup: kunnat, imp: null }
+  - { inf: vilja, nl: willen, kind: sterk, pres: vill, pret: ville, sup: velat, imp: null }
+  - { inf: låta, nl: "laten, klinken", kind: sterk, pres: låter, pret: lät, sup: låtit, imp: låt }
+  - { inf: le, nl: glimlachen, kind: sterk, pres: ler, pret: log, sup: lett, imp: le }
+  - { inf: njuta, nl: genieten, kind: sterk, pres: njuter, pret: njöt, sup: njutit, imp: njut }
+  - { inf: bjuda, nl: "uitnodigen, trakteren", kind: sterk, pres: bjuder, pret: bjöd, sup: bjudit, imp: bjud }
+  - { inf: skjuta, nl: "schieten, duwen", kind: sterk, pres: skjuter, pret: sköt, sup: skjutit, imp: skjut }
+  - { inf: slå, nl: slaan, kind: sterk, pres: slår, pret: slog, sup: slagit, imp: slå }
+  - { inf: stjäla, nl: stelen, kind: sterk, pres: stjäl, pret: stal, sup: stulit, imp: null }
+  - { inf: stiga, nl: "stijgen, stappen", kind: sterk, pres: stiger, pret: steg, sup: stigit, imp: stig }
+  - { inf: vinna, nl: winnen, kind: sterk, pres: vinner, pret: vann, sup: vunnit, imp: vinn }
+  - { inf: välja, nl: kiezen, kind: sterk, pres: väljer, pret: valde, sup: valt, imp: välj }
+  - { inf: sälja, nl: verkopen, kind: sterk, pres: säljer, pret: sålde, sup: sålt, imp: sälj }
+  - { inf: bryta, nl: breken, kind: sterk, pres: bryter, pret: bröt, sup: brutit, imp: bryt }
+  - { inf: brinna, nl: branden, kind: sterk, pres: brinner, pret: brann, sup: brunnit, imp: null }
+  - { inf: bita, nl: bijten, kind: sterk, pres: biter, pret: bet, sup: bitit, imp: bit }
+  - { inf: dö, nl: sterven, kind: sterk, pres: dör, pret: dog, sup: dött, imp: null }
+  - { inf: fortsätta, nl: doorgaan, kind: sterk, pres: fortsätter, pret: fortsatte, sup: fortsatt, imp: fortsätt }
+  - { inf: ljuga, nl: liegen, kind: sterk, pres: ljuger, pret: ljög, sup: ljugit, imp: null }
+  - { inf: skrika, nl: schreeuwen, kind: sterk, pres: skriker, pret: skrek, sup: skrikit, imp: skrik }
+  - { inf: heta, nl: heten, kind: sterk, pres: heter, pret: hette, sup: hetat, imp: null }
