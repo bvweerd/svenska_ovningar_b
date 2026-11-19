@@ -38,7 +38,7 @@ export function streakText() {
   return s.today ? `${base}. Goed bezig!` : `${base}. Oefen vandaag om je reeks vast te houden.`;
 }
 
-/** Compacte hoofdstukknoppen (alleen het nummer), per niveau op één regel. */
+/** Hoofdstukknoppen met nummer en naam, per niveau gegroepeerd. */
 function chapterChips(chapters, href, extra = () => null) {
   const groups = new Map();
   for (const c of chapters) {
@@ -50,7 +50,10 @@ function chapterChips(chapters, href, extra = () => null) {
     h('div', { class: 'chip-group' },
       level ? h('span', { class: 'chip-group-label' }, level) : null,
       h('div', { class: 'chip-links' }, list.map((c) =>
-        h('a', { class: 'chip-link num', href: href(c), title: `${c.title}: ${c.theme.split(' · ')[0]}`, 'aria-label': `${c.title}: ${c.theme.split(' · ')[0]}` }, String(c.chapter), extra(c)))))));
+        h('a', { class: 'chip-link named', href: href(c), 'aria-label': `${c.title}: ${c.theme.split(' · ')[0]}` },
+          h('span', { class: 'chip-no', 'aria-hidden': 'true' }, String(c.chapter)),
+          h('span', { 'aria-hidden': 'true' }, c.theme.split(' · ')[0]),
+          extra(c)))))));
 }
 
 // ---------- Overzicht ----------
@@ -60,8 +63,9 @@ export function viewPracticeHub() {
   const due = dueItems(entries).length;
   const known = srsStats(entries).reduce((a, b) => a + b, 0);
   const weak = available().reduce((n, c) => n + weakItems(c).filter(({ ex }) => !ex.text).length, 0);
-  const tool = (href, title, text, badge) =>
-    h('a', { class: 'tool-card', href },
+  // quiet: er valt nog niets te doen; de kaart blijft een link (met uitleg), maar valt minder op.
+  const tool = (href, title, text, badge, quiet = false) =>
+    h('a', { class: `tool-card${quiet ? ' quiet' : ''}`, href },
       h('span', { class: 'tool-title' }, title, badge ? h('span', { class: 'count' }, String(badge)) : null),
       h('span', { class: 'tool-text' }, text));
   return h('div', {},
@@ -72,8 +76,8 @@ export function viewPracticeHub() {
       h('p', { class: 'streak' }, streakText())),
     h('div', { class: 'tools' },
       tool('#/oefenen/herhaling', 'Dagelijkse herhaling',
-        due ? `${plural(due, 'vraag staat', 'vragen staan')} voor vandaag klaar.` : known ? 'Voor vandaag ben je klaar. Morgen staan er weer vragen klaar.' : 'Maak eerst een paar oefeningen: die komen hier vanzelf terug.', due),
-      tool('#/herhalen', 'Oefen je fouten', weak ? `${plural(weak, 'vraag', 'vragen')} die je eerder fout had.` : 'Geen openstaande fouten.', weak),
+        due ? `${plural(due, 'vraag staat', 'vragen staan')} voor vandaag klaar.` : known ? 'Voor vandaag ben je klaar. Morgen staan er weer vragen klaar.' : 'Nog leeg. Maak eerst een paar oefeningen: die komen hier vanzelf terug.', due, !due),
+      tool('#/herhalen', 'Oefen je fouten', weak ? `${plural(weak, 'vraag', 'vragen')} die je eerder fout had.` : 'Nog leeg. Vragen die je fout hebt, komen hier terug.', weak, !weak),
       tool('#/oefenen/werkwoorden', 'Werkwoordtrainer', 'Oefen werkwoordsvormen zo lang je wilt, met de tijden die jij kiest.'),
       tool('#/oefenen/spel', 'Snelle rondes', '60 seconden: en of ett, betekenis of verleden tijd. Haal je record?'),
       tool('#/oefenen/luisteren', 'Dictee', 'Luister naar een zin of woord en schrijf op wat je hoort.'),

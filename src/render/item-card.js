@@ -130,7 +130,9 @@ export function itemCard(item, ctx, number, onDone, label) {
       return;
     }
     const tip = h('p', {}, res.tip ?? GENERIC_WRONG);
-    if (attempts === 1) show('bad', tip);
+    // Eerste fout met een eigen tip: alleen die tip. Zonder eigen tip meteen de regel erbij,
+    // anders leert de leerling niets van de eerste poging.
+    if (attempts === 1 && res.tip) show('bad', tip);
     else show('bad', tip, rule());
     if (attempts >= 3) revealBtn.hidden = false;
   };

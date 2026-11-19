@@ -1,10 +1,11 @@
 // Minimale markdown voor grammatica-kaarten: koppen, alinea's, lijsten, tabellen,
-// **vet**, *cursief* en `code`. Invoer wordt eerst ge-escaped.
+// **vet**, *cursief*, ~~doorgestreept~~ en `code`. Invoer wordt eerst ge-escaped.
 import { escapeHtml } from './dom.js';
 
 export function inline(s) {
   return escapeHtml(s)
     .replace(/`([^`]+)`/g, '<code>$1</code>')
+    .replace(/~~([^~]+)~~/g, '<del>$1</del>')
     .replace(/\*\*([^*]+)\*\*/g, '<strong>$1</strong>')
     .replace(/\*([^*]+)\*/g, '<em>$1</em>');
 }

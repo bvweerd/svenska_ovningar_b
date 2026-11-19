@@ -17,7 +17,7 @@ import { initAnalytics, trackPage, trackEvent, scoreBucket, analyticsConfigured,
 import {
   viewPracticeHub, viewDaily, viewVerbTrainer, viewFlashcards, viewTest, viewGames, viewGame, GAMES, dueCount, streakText,
 } from './views/practice.js';
-import { chapterByNo, findTopic, crumbs, progressBar, exerciseRunner, practiceView, splitTheme, plural } from './ui.js';
+import { chapterByNo, findTopic, crumbs, progressBar, exerciseRunner, practiceView, splitTheme, plural, scoreMessage, missedList } from './ui.js';
 import { shuffle } from './build.js';
 import {
   getResult, chapterProgress, resetProgress, recordItem, runState, startRun, completeRun, pickRound,
@@ -31,19 +31,38 @@ const app = document.getElementById('app');
 function viewHome() {
   document.title = 'Svenska övningar';
   const last = getLast();
+  const open = course.filter((c) => c.available);
+  const first = open[0];
+  // Voortgang over alle hoofdstukken, alleen als er al iets gemaakt is.
+  // Als zin, niet als balk: na een paar oefeningen staat een balk over alle stof nog op 0%.
+  const totals = open.reduce((t, c) => {
+    const p = chapterProgress(c);
+    return { done: t.done + p.itemsDone, completed: t.completed + p.completed };
+  }, { done: 0, completed: 0 });
   return h('div', { class: 'home' },
     h('section', { class: 'hero' },
       h('h1', {}, 'Svenska övningar'),
       h('p', { class: 'lead' }, SITE_TEXT.lead),
+      // Eerste bezoek: meteen een duidelijke knop om te beginnen, nog vóór de uitleg.
+      !last && first
+        ? h('div', { class: 'actions hero-actions' },
+            h('a', { class: 'btn primary', href: `#/k/${first.chapter}` }, `Begin met ${first.title.toLowerCase()}: ${splitTheme(first.theme).name}`))
+        : null,
+      totals.done
+        ? h('p', { class: 'overall' }, totals.completed
+            ? `Je hebt al ${plural(totals.completed, 'oefening', 'oefeningen')} afgerond en ${plural(totals.done, 'vraag', 'vragen')} gemaakt.`
+            : `Je hebt al ${plural(totals.done, 'vraag', 'vragen')} gemaakt.`)
+        : null,
       h('p', { class: 'muted' }, SIBLING.home[0], h('a', { href: SIBLING.href }, SIBLING.home[1]), SIBLING.home[2]),
     ),
+    // Verder gaan is het belangrijkste: vóór de meldingen over de app en de uitleg.
+    last
+      ? h('a', { class: 'continue', href: last.href },
+          h('span', { class: 'eyebrow' }, 'Verder waar je gebleven was'),
+          h('strong', {}, last.title), h('span', { class: 'arrow', 'aria-hidden': 'true' }, '→'))
+      : null,
     homeNotices(),
     h('div', { class: 'today' },
-      last
-        ? h('a', { class: 'continue', href: last.href },
-            h('span', { class: 'eyebrow' }, 'Verder waar je gebleven was'),
-            h('strong', {}, last.title), h('span', { class: 'arrow', 'aria-hidden': 'true' }, '→'))
-        : null,
       (() => {
         const due = dueCount();
         return h('a', { class: 'continue alt', href: due ? '#/oefenen/herhaling' : '#/oefenen' },
@@ -69,12 +88,15 @@ function viewHome() {
                 : h('span', { class: 'ch-stats' }, plural(p.exercises, 'oefening', 'oefeningen')))
             : h('span', { class: 'soon' }, 'Binnenkort'),
         ];
-        return h('li', { class: `ch-card${ch.available ? '' : ' disabled'}` },
+        return h('li', { class: `ch-card${ch.available ? '' : ' disabled'}`, style: chapterHue(ch) },
           ch.available ? h('a', { href: `#/k/${ch.chapter}` }, inner) : h('div', {}, inner));
       }),
     )]),
   );
 }
+
+/** Eigen kleur per hoofdstuk (een tint op de kleurencirkel), voor een streep op kaart en kop. */
+const chapterHue = (ch) => `--ch-hue:${(ch.chapter * 137) % 360}`;
 
 // ---------- Hoofdstuk ----------
 function exerciseBadge(ch, ex) {
@@ -96,7 +118,7 @@ function viewChapter(ch) {
     ?? ch.exercises.find((ex) => !getResult(ch.chapter, ex.id)?.completedAt);
   return h('div', {},
     crumbs({ label: 'Start', href: '#/' }, { label: ch.title }),
-    h('header', { class: 'page-head' },
+    h('header', { class: 'page-head chapter-head', style: chapterHue(ch) },
       h('p', { class: 'eyebrow' }, ch.title),
       h('h1', {}, name),
       topics ? h('p', { class: 'lead' }, topics) : null,
@@ -117,16 +139,18 @@ function viewChapter(ch) {
         h('a', { class: 'btn ghost', href: `#/k/${ch.chapter}/toets` }, 'Toets'),
         ch.vocab?.length ? h('a', { class: 'btn ghost', href: `#/k/${ch.chapter}/kaarten` }, 'Flitskaarten') : null),
     ),
+    // Onderdelen zijn in- en uitklapbaar, zodat de pagina op een telefoon niet eindeloos lang is.
+    // Open staat het onderdeel waar je verder gaat; bij een nieuw hoofdstuk ook de uitleg.
     ch.grammar.length
-      ? h('section', { class: 'block' },
-          h('h2', {}, 'Grammatica'),
+      ? foldSection('Grammatica', !p.itemsDone, plural(ch.grammar.length, 'onderwerp', 'onderwerpen'),
           h('ul', { class: 'cards' }, ch.grammar.map((g) =>
-            h('li', {}, h('a', { class: 'card', href: `#/k/${ch.chapter}/g/${g.id}` }, h('strong', {}, g.title), h('span', { html: inline(g.summary) }))))),
-        )
+            h('li', {}, h('a', { class: 'card', href: `#/k/${ch.chapter}/g/${g.id}` }, h('strong', {}, g.title), h('span', { html: inline(g.summary) }))))))
       : null,
-    ch.sections.map((s) =>
-      h('section', { class: 'block' },
-        h('h2', {}, s.title),
+    ch.sections.map((s, i) => {
+      const done = s.exercises.filter((ex) => getResult(ch.chapter, ex.id)?.completedAt).length;
+      const open = next ? s.exercises.includes(next) : i === 0;
+      return foldSection(s.title, open,
+        done === s.exercises.length ? `✓ ${plural(done, 'oefening', 'oefeningen')} afgerond` : `${done} van ${s.exercises.length} afgerond`,
         s.intro ? h('p', { class: 'muted' }, s.intro) : null,
         h('ol', { class: 'exercise-list' }, s.exercises.map((ex) => {
           const types = [...new Set(ex.items.flatMap((i) => (i.type === 'steps' ? i.steps.map((s) => s.type) : [i.type])))];
@@ -136,10 +160,16 @@ function viewChapter(ch) {
               h('span', { class: 'ex-meta' }, `${plural(ex.items.length, 'vraag', 'vragen')}${ex.roundSize && ex.items.length > ex.roundSize ? `, ${ex.roundSize} per ronde` : ''} · ${types.map(typeName).join(', ')}`),
               exerciseBadge(ch, ex),
             ));
-        })),
-      ),
-    ),
+        })));
+    }),
   );
+}
+
+/** Een in- en uitklapbaar onderdeel van een hoofdstukpagina. */
+function foldSection(title, open, meta, ...content) {
+  return h('details', { class: 'block fold', open },
+    h('summary', {}, h('h2', {}, title), meta ? h('span', { class: 'fold-meta' }, meta) : null),
+    ...content);
 }
 
 const TYPE_NAMES = {
@@ -186,7 +216,7 @@ function viewExercise(ch, ex, query) {
   const topicCard = ex.topic ? findTopic(ex.topic, ch) : null;
   const [list, score, summary] = exerciseRunner(items, {
     offset: { done: run.done.size, good: goodBefore, total: run.total },
-    onFinish: () => {
+    onFinish: (_good, _done, missed) => {
       const { score: good, total } = completeRun(ch.chapter, ex);
       trackEvent(`oefening/${ch.chapter}/${ex.id}/klaar/${total ? scoreBucket(good / total) : 'schrijven'}`, `H${ch.chapter} · ${ex.title}`);
       const heading = h('h2', {}, total ? `Klaar! ${good} van ${total} in één keer goed.` : 'Klaar!');
@@ -194,10 +224,18 @@ function viewExercise(ch, ex, query) {
         ? h('a', { class: `btn ${cls}`, href: `#/k/${ch.chapter}/o/${next.id}` }, `Volgende: ${next.title}`)
         : h('a', { class: `btn ${cls}`, href: `#/k/${ch.chapter}` }, 'Terug naar het hoofdstuk'));
       if (!partial) {
+        const hard = total && good / total < 0.5;
         return [
           heading,
-          h('p', {}, !total || good / total >= 0.8 ? 'Knap gedaan.' : 'Wat je fout had, kun je straks herhalen via „Oefen je fouten” bij het hoofdstuk.'),
-          h('div', { class: 'actions' }, onward('primary'), h('a', { class: 'btn ghost', href: `${href}?opnieuw` }, 'Opnieuw')),
+          total ? progressBar(good, total, `${good} van ${total} in één keer goed`) : null,
+          h('p', {}, scoreMessage(good, total)),
+          missedList(missed),
+          // Lage score: eerst de uitleg en opnieuw, pas daarna verder.
+          h('div', { class: 'actions' },
+            hard && topicCard ? h('a', { class: 'btn primary', href: topicCard.href }, `Uitleg: ${topicCard.card.title}`) : null,
+            hard ? h('a', { class: `btn ${topicCard ? 'ghost' : 'primary'}`, href: `${href}?opnieuw` }, 'Opnieuw') : null,
+            onward(hard ? 'ghost' : 'primary'),
+            hard ? null : h('a', { class: 'btn ghost', href: `${href}?opnieuw` }, 'Opnieuw')),
         ];
       }
       // Lange oefening in rondes: laat zien hoe ver je bent, en wanneer de hele lijst af is.

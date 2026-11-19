@@ -26,8 +26,11 @@ function markFields(inputs, fields) {
   });
 }
 
+/** Aantal tekens van het langste goede antwoord (minstens 4), voor de breedte van een veld. */
+const fieldChars = (spec) => Math.max(...[].concat(spec.answers ?? ['']).map((a) => displayAnswer([a]).length), 4) + 1;
+
 function textInput(spec, { size, label, wide } = {}) {
-  const longest = Math.max(...[].concat(spec.answers ?? ['']).map((a) => displayAnswer([a]).length), 4);
+  const longest = fieldChars(spec) - 1;
   return h('input', {
     type: 'text',
     class: `answer-input${wide ? ' wide' : ''}`,
@@ -126,6 +129,8 @@ function gap(item, ctx) {
   const fields = [];
   const sentence = h('p', { class: 'gap-text', lang: 'sv' });
   parts.forEach((part, i) => {
+    // Een hint direct na het gat, zoals „(arbeta)”, blijft aan het veld vast (zie hieronder).
+    if (i > 0) part = part.replace(/^\s*\([^()]{1,40}\)/, '');
     sentence.append(h('span', { html: inline(part) }));
     if (i < parts.length - 1) {
       const g = item.gaps[i];
@@ -143,9 +148,15 @@ function gap(item, ctx) {
         );
       } else {
         f = textInput(g, { label: `Gat ${i + 1}` });
+        // Zo breed als het langste goede antwoord (net als het size-attribuut), in ch: dan blijft
+        // de zin bij elkaar en breekt hij niet over regels zoals bij een breed veld.
+        f.style.width = `calc(${Math.min(fieldChars(g), 30)}ch + 22px)`;
       }
       fields.push(f);
-      sentence.append(f);
+      const hint = parts[i + 1].match(/^\s*\(([^()]{1,40})\)/);
+      sentence.append(hint
+        ? h('span', { class: 'gap-field' }, f, h('span', { class: 'gap-hint', html: ` (${inline(hint[1])})` }))
+        : f);
     }
   });
   const el = h('div', {}, prompt(item.prompt), sentence, item.hint ? h('p', { class: 'hint' }, item.hint) : null);

@@ -556,3 +556,49 @@ main.wide { max-width: 1240px; }
 .notice .actions { margin-top: 10px; align-items: center; }
 .notice-close { position: absolute; top: 8px; right: 8px; font-size: 1.3rem; line-height: 1; }
 .notice[hidden] { display: none; }
+
+/* ---------- UX-review (november 2026) ---------- */
+/* Tint per hoofdstuk: een gekleurde streep op de kaart en boven de kop. */
+:root { --ch-l: 46%; }
+@media (prefers-color-scheme: dark) { :root:not([data-theme='light']) { --ch-l: 62%; } }
+:root[data-theme='dark'] { --ch-l: 62%; }
+.ch-card > a, .ch-card > div { border-top: 4px solid hsl(var(--ch-hue, 205) 55% var(--ch-l)); }
+.chapter-head::before { content: ''; display: block; width: 48px; height: 4px; border-radius: 2px; margin-bottom: 10px; background: hsl(var(--ch-hue, 205) 55% var(--ch-l)); }
+
+/* Startpagina: knop om te beginnen en totale voortgang. */
+.hero-actions { margin: 16px 0 8px; }
+.hero .overall { margin: 12px 0 4px; font-weight: 600; }
+
+/* In- en uitklapbare onderdelen op de hoofdstukpagina. */
+details.fold > summary { display: flex; align-items: baseline; flex-wrap: wrap; gap: 4px 12px; cursor: pointer; list-style: none; padding: 6px 0; border-bottom: 1px solid var(--line); margin-bottom: 12px; }
+details.fold > summary::-webkit-details-marker { display: none; }
+details.fold > summary h2 { margin: 0; font-size: 1.3rem; }
+details.fold > summary::after { content: '›'; margin-left: auto; font-size: 1.4rem; line-height: 1; color: var(--accent); transform: rotate(90deg); transition: transform 0.15s; }
+details.fold:not([open]) > summary::after { transform: rotate(0deg); }
+details.fold:not([open]) > summary { margin-bottom: 0; }
+.fold-meta { font-size: 0.85rem; color: var(--muted); }
+details.fold.block { margin: 18px 0; }
+
+/* Invullen: het veld en de hint erna („(arbeta)”) blijven samen op één regel. */
+.gap-field { white-space: nowrap; }
+.gap-hint { color: var(--muted); }
+
+/* Doorgestreept in de uitleg: het foute voorbeeld. */
+del { text-decoration-color: var(--bad); text-decoration-thickness: 2px; color: var(--muted); }
+
+/* Eindscherm: score als balk en wat nog niet meteen goed ging. */
+.summary .progress { margin: 4px 0 10px; max-width: 420px; font-size: 0.9rem; }
+.missed { margin: 12px 0 16px; padding: 12px 16px; background: var(--surface); border-radius: 10px; border: 1px solid var(--line); }
+.missed h3 { margin: 0 0 6px; font-size: 1rem; }
+.missed ul { margin: 0; padding-left: 1.2em; }
+.missed li { margin: 3px 0; }
+
+/* Oefenen: kaarten waar nog niets te doen is, vallen minder op. */
+.tool-card.quiet { background: transparent; box-shadow: none; border-style: dashed; }
+.tool-card.quiet .tool-title { color: var(--muted); }
+
+/* Hoofdstukknoppen met naam. */
+.chip-link.named { padding: 6px 12px 6px 6px; }
+.chip-no { display: inline-grid; place-items: center; min-width: 1.8em; height: 1.8em; padding: 0 4px; border-radius: 999px; background: var(--accent-soft); color: var(--accent); font-weight: 700; font-size: 0.85rem; }
+.chip-group { align-items: flex-start; }
+.chip-group-label { padding-top: 8px; }

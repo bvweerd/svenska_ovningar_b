@@ -92,6 +92,10 @@ describe('klok', () => {
 describe('markdown', () => {
   it('escapet html', () => expect(markdown('<b>x</b>')).not.toContain('<b>'));
   it('tabellen', () => expect(markdown('| a | b |\n|---|---|\n| 1 | 2 |')).toContain('<td>1</td>'));
+  it('doorgestreept, ook binnen cursief', () => {
+    expect(markdown('niet: *~~Igår har jag köpt~~*')).toContain('<em><del>Igår har jag köpt</del></em>');
+    expect(markdown('niet: *~~Igår har jag köpt~~*')).not.toContain('~~');
+  });
 });
 
 describe('tijdsbepaling vooraan of achteraan', () => {

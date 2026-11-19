@@ -4,6 +4,7 @@ import { course } from './content.js';
 import { itemCard } from './render/item-card.js';
 import { recordItem } from './progress.js';
 import { trackEvent, itemSummary, STATUS_LABEL } from './analytics.js';
+import { spokenText } from './render/speak.js';
 
 export const chapterByNo = (n) => course.find((c) => c.chapter === Number(n));
 
@@ -53,6 +54,27 @@ export function progressBar(done, total, label) {
     h('span', { class: 'pct' }, `${pct}%`));
 }
 
+/** Boodschap bij de eindscore: kort en eerlijk, met een volgende stap. */
+export function scoreMessage(good, total) {
+  if (!total) return 'Knap gedaan.';
+  const r = good / total;
+  if (r === 1) return 'Alles in één keer goed. Knap gedaan!';
+  if (r >= 0.8) return 'Knap gedaan. Kijk nog even naar wat niet meteen goed ging.';
+  if (r >= 0.5) return 'Goed bezig. De vragen hieronder komen terug bij „Oefen je fouten” en in de dagelijkse herhaling.';
+  return 'Dit is nog lastig. Lees de uitleg nog eens en doe de oefening daarna opnieuw.';
+}
+
+/** Lijstje met de goede antwoorden van de vragen die niet in één keer goed waren. */
+export function missedList(missed) {
+  if (!missed?.length) return null;
+  return h('div', { class: 'missed' },
+    h('h3', {}, missed.length === 1 ? 'Deze ging nog niet meteen goed' : 'Deze gingen nog niet meteen goed'),
+    h('ul', {}, missed.slice(0, 8).map((item) => {
+      const say = spokenText(item);
+      return h('li', { lang: say ? 'sv' : null }, say ?? itemSummary(item));
+    })));
+}
+
 export const statusOf = (r) => (r.neutral ? 'free' : r.revealed ? 'revealed' : r.firstTry ? 'good' : 'wrong');
 
 // ---------- Oefenronde ----------
@@ -63,6 +85,7 @@ export const statusOf = (r) => (r.neutral ? 'free' : r.revealed ? 'revealed' : r
 export function exerciseRunner(items, { onFinish, offset = { done: 0, good: 0, total: 0 }, onItem, advanceAfterReveal = false }) {
   let done = offset.done;
   let good = offset.good;
+  const missed = []; // vragen uit deze ronde die niet in één keer goed waren
   const all = offset.total || items.length;
   const score = h('div', { class: 'score', 'aria-live': 'polite' });
   const summary = h('div', { class: 'summary', hidden: true });
@@ -86,6 +109,7 @@ export function exerciseRunner(items, { onFinish, offset = { done: 0, good: 0, t
         done++;
         finished++;
         if (r.firstTry && !r.neutral) good++;
+        else if (!r.neutral) missed.push(item);
         updateScore();
         // Vanzelf door naar de volgende vraag. Op een telefoon iets later, en niet als je intussen
         // tikt of scrolt (dan zou de pagina onder je vinger wegschuiven); de knop blijft als uitweg.
@@ -97,7 +121,7 @@ export function exerciseRunner(items, { onFinish, offset = { done: 0, good: 0, t
         };
         if (finished === items.length) {
           summary.hidden = false;
-          summary.replaceChildren(...onFinish(good, done).filter(Boolean));
+          summary.replaceChildren(...onFinish(good, done, missed).filter(Boolean));
           const toSummary = () => {
             summary.scrollIntoView({ behavior: 'smooth', block: 'center' });
             summary.querySelector('.btn.primary')?.focus({ preventScroll: true });
@@ -145,16 +169,16 @@ export function practiceView(ch, { title, instruction, entries, again, empty, le
     };
   });
   const [list, score, summary] = exerciseRunner(items, {
-    onFinish: (good, total) => {
-      const heading = h('h2', {}, `Klaar! ${good} van ${total} in één keer goed.`);
+    onFinish: (good, total, missed) => {
+      const heading = [h('h2', {}, `Klaar! ${good} van ${total} in één keer goed.`), progressBar(good, total, `${good} van ${total} in één keer goed`), missedList(missed)];
       // left: hoeveel er na deze ronde nog openstaat (fouten, herhaalvragen); 0 = alles klaar.
       const n = left ? left.count() : null;
       if (n === 0) {
         back.className = 'btn primary';
-        return [heading, h('p', {}, left.done), h('div', { class: 'actions' }, back)];
+        return [...heading, h('p', {}, left.done), h('div', { class: 'actions' }, back)];
       }
       return [
-        heading,
+        ...heading,
         n ? h('p', {}, left.more(n)) : null,
         h('div', { class: 'actions' }, h('a', { class: 'btn primary', href: again }, 'Nog een ronde'), back),
       ];
