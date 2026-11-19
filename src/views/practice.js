@@ -1,6 +1,6 @@
 // Extra oefenvormen: dagelijkse herhaling, werkwoordtrainer, flitskaarten, toetsen en snelle rondes.
 import { h } from '../dom.js';
-import { course, verbs, practiceEntries } from '../content.js';
+import { course, verbs, practiceEntries, balancedSample } from '../content.js';
 import { crumbs, practiceView, exerciseRunner, findTopic } from '../ui.js';
 import { itemCard } from '../render/item-card.js';
 import { shuffle } from '../build.js';
@@ -327,7 +327,7 @@ export function viewFlashcards(ch) {
 export function viewTest(ch) {
   document.title = `Toets · ${ch.title}`;
   const pool = practiceEntries([ch]);
-  const picked = shuffle(pool).slice(0, 20);
+  const picked = balancedSample(pool, 20, shuffle);
   const results = [];
   const items = picked.map(({ item, ex, idx, chapter }) => ({
     item,

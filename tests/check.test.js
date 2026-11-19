@@ -170,7 +170,7 @@ describe('woordenlijst: meervoud en voorbeeldzin', async () => {
   it('haalt alle Nederlandse lidwoorden weg in de opdracht', () => {
     const v = [{ sv: 'en granne', nl: 'een buurman, een buurvrouw', def: 'grannen', pl: 'grannar' }];
     const it0 = vocabExercises(v, 1).find((e) => e.id === 'woorden-meervoud').items[0];
-    expect(it0.text).toBe('en granne – buurman, buurvrouw → meervoud: ___');
+    expect(it0.text).toBe('en granne (buurman) → meervoud: ___');
   });
   it('nl→sv: tip bij de bepaalde vorm, en woorden zonder lidwoord (mass)', () => {
     const v = [
@@ -195,8 +195,34 @@ describe('woordenlijst: meervoud en voorbeeldzin', async () => {
     const step = ex.find((e) => e.id === 'woorden-en-ett').items[1].steps[1];
     expect(gradeText('brorn', step.gaps[0]).correct).toBe(true);
   });
+  it('def mag een lijst zijn (knät of knäet)', () => {
+    const knä = { sv: 'ett knä', nl: 'een knie', def: ['knät', 'knäet'], pl: 'knän' };
+    const byKnä = Object.fromEntries(vocabExercises([knä], 1).map((e) => [e.id, e]));
+    const step = byKnä['woorden-en-ett'].items[0].steps[1].gaps[0];
+    expect(gradeText('knät', step).correct).toBe(true);
+    expect(gradeText('knäet', step).correct).toBe(true);
+    expect(gradeText('knäet', byKnä['woorden-meervoud'].items[0].gaps[0]).tip).toContain('bepaalde vorm');
+  });
   it('voorbeeldzin moet precies één vet stuk hebben', () => {
     expect(exampleGap('Jag **tar** **bussen**.')).toBe(null);
     expect(exampleGap('Geen vet')).toBe(null);
+  });
+});
+
+describe('mix en toets: niet alleen woordenschat', async () => {
+  const { balancedSample } = await import('../src/content.js');
+  const { shuffle } = await import('../src/build.js');
+  const entries = [
+    ...Array.from({ length: 90 }, (_, i) => ({ ex: { generated: true }, i })),
+    ...Array.from({ length: 30 }, (_, i) => ({ ex: {}, i: 100 + i })),
+  ];
+  it('hooguit een derde gegenereerde woordvragen', () => {
+    const s = balancedSample(entries, 20, shuffle);
+    expect(s).toHaveLength(20);
+    expect(s.filter((e) => e.ex.generated).length).toBeLessThanOrEqual(6);
+  });
+  it('vult aan met woordvragen als er te weinig andere vragen zijn', () => {
+    const s = balancedSample(entries.filter((e) => e.ex.generated || e.i < 105), 20, shuffle);
+    expect(s).toHaveLength(20);
   });
 });

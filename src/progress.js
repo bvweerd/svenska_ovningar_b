@@ -303,8 +303,25 @@ export function completeRun(ch, ex) {
   const state = load();
   const k = exKey(ch, ex.id);
   const prev = state.ex[k] ?? { best: 0 };
-  const ratio = total ? score / total : 1;
-  state.ex[k] = { best: Math.max(prev.best ?? 0, ratio), score, total, completedAt: Date.now() };
+  if (!prev.pick) {
+    const ratio = total ? score / total : 1;
+    state.ex[k] = { best: Math.max(prev.best ?? 0, ratio), score, total, completedAt: Date.now() };
+  } else {
+    // Ronde van een lange oefening: pas afgerond als elke vraag een keer gemaakt is. De beste
+    // score geldt dan voor de hele oefening (laatste poging per vraag), niet voor deze ronde.
+    const all = gradable(ex);
+    const records = all.map(({ idx }) => itemRecord(state, ch, ex, idx));
+    const complete = records.every(Boolean);
+    const whole = all.length ? records.filter((r) => r?.s === 'good').length / all.length : 1;
+    const { pick: _round, runStart: _start, ...rest } = prev;
+    state.ex[k] = {
+      ...rest,
+      score,
+      total,
+      best: complete ? Math.max(prev.best ?? 0, whole) : prev.best ?? 0,
+      ...(complete ? { completedAt: Date.now() } : {}),
+    };
+  }
   save(state);
   return { score, total };
 }
