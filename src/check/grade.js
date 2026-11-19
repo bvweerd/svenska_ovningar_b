@@ -120,7 +120,15 @@ export function clockSpec(item) {
   };
 }
 
-/** Lichte controles bij vrije schrijfopdrachten. */
+/** „Hulp” bij een vrije schrijfopdracht: wat er in de tekst kan, zonder het na te kijken. */
+export function freeHelp(item) {
+  return [
+    ...(item.minWords ? [`Ongeveer ${item.minWords} woorden`] : []),
+    ...(item.require ?? []).map((req) => req.label ?? `Gebruik „${[].concat(req.any ?? req.word)[0]}”`),
+  ];
+}
+
+/** Woorden tellen en kijken welke hulpwoorden erin staan (alleen intern; de leerling ziet geen vinkjes). */
 export function checkFree(text, item) {
   const n = normalize(text);
   const words = n ? n.split(' ').length : 0;

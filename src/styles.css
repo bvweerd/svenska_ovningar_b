@@ -201,9 +201,10 @@ table.fill .answer-input { width: 100%; min-width: 90px; }
 .feedback.bad > p:first-child { color: var(--bad); font-weight: 600; }
 .feedback.info { background: var(--info-soft); }
 .rule { font-size: 0.95rem; }
-.checks { list-style: none; padding: 0; margin: 6px 0 0; }
-.checks .ok { color: var(--good); }
-.checks .bad { color: var(--bad); }
+.optional { font-size: 0.9rem; margin: 0 0 6px; }
+.help { margin: 0 0 10px; }
+.help summary { cursor: pointer; color: var(--accent); font-weight: 600; }
+.help ul { margin: 6px 0 0; padding-left: 20px; }
 .model { margin-top: 12px; }
 .model summary { cursor: pointer; color: var(--accent); font-weight: 600; }
 

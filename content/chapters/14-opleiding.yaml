@@ -318,9 +318,13 @@ sections:
     exercises:
       - id: skriva-anmalan
         title: Meld je aan
-        instruction: Schrijf een mail aan Komvux.
+        instruction: "Bouw eerst je mail aan Komvux op in vier stappen die de app nakijkt. Daarna schrijf je de hele mail, als je wilt."
         topic: formell-mail
         items:
+          - { id: 7frs, type: mc, prompt: "Welke zin zegt goed waarvoor je schrijft?", options: ["Jag skulle vilja anmäla mig till kursen Svenska som andraspråk 2.", "Jag skulle vilja anmäla till kursen Svenska som andraspråk 2.", "Jag skulle vilja anmäla mig på kursen Svenska som andraspråk 2."], answer: 0, tip: "Je aanmelden voor iets: anmäla sig till: Jag anmäler mig till kursen." }
+          - { id: uwvq, type: gap, prompt: "Kies het woord dat past.", text: "Jag vill läsa på distans, ___ jag jobbar heltid på dagarna.", gaps: [{ answers: ["eftersom"], options: ["eftersom", "därför", "men"], tip: "Je geeft de reden: eftersom (omdat). Därför (daarom) begint een nieuwe hoofdzin." }] }
+          - { id: dagt, type: gap, topic: particip, prompt: "Vul de goede vorm in.", text: "Är kurslitteraturen ___ (inkludera) i priset?", gaps: [{ answers: ["inkluderad"], feedback: [{ match: ["inkluderat", "inkluderade"], tip: "kurslitteraturen is een en-woord, enkelvoud: inkluderad." }] }] }
+          - { id: a3z8, type: translate, prompt: "Moet je de cursusboeken zelf kopen?", answers: ["{Måste|Behöver} {man|jag|du} köpa {kurslitteraturen|kursböckerna|böckerna} själv?", "{Måste|Behöver} {man|jag|du} själv köpa {kurslitteraturen|kursböckerna|böckerna}?"], feedback: [{ contains: "man måste", tip: "In een ja/nee-vraag staat het werkwoord vooraan: Måste man …?" }] }
           - id: jceh
             type: free
             prompt: "Je wilt je aanmelden voor een cursus Zweeds op afstand. Schrijf een korte mail (60–100 woorden): stel jezelf voor, zeg welke cursus je wilt volgen en waarom, en stel twee vragen (bijvoorbeeld over de start en de kosten)."

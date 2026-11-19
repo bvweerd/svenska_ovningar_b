@@ -258,9 +258,13 @@ sections:
     exercises:
       - id: skriva-asikt
         title: Geef je mening
-        instruction: Schrijf een betoogje.
+        instruction: "Bouw eerst je betoog op in vier stappen die de app nakijkt. Daarna schrijf je het hele betoog, als je wilt."
         topic: asikt
         items:
+          - { id: mwuw, type: mc, prompt: "Begin met je standpunt. Welke zin is goed?", options: ["Jag anser att vi borde införa fyra dagars arbetsvecka.", "Jag anser att vi borde inte införa fyra dagars arbetsvecka.", "Jag anser att borde vi införa fyra dagars arbetsvecka."], answer: 0, tip: "In de bijzin na att: eerst het onderwerp, dan (inte en) het werkwoord, zonder inversie: att vi (inte) borde …" }
+          - { id: ser8, type: gap, prompt: "Je geeft een tweede argument. Kies het signaalwoord.", text: "___ visar försök i flera länder att folk jobbar mer effektivt.", gaps: [{ answers: ["Dessutom"], options: ["Dessutom", "Sammanfattningsvis", "Visserligen"], tip: "Een argument erbij: dessutom (bovendien)." }] }
+          - { id: 4s6a, type: order, topic: subjunktioner-b1, prompt: "Weerleg het tegenargument. Maak de zin af.", start: "Även om det kostar pengar i början,", tokens: ["tror", "jag", "att", "samhället", "tjänar", "på", "det"], answers: ["Även om det kostar pengar i början, tror jag att samhället tjänar på det."] }
+          - { id: vetm, type: gap, prompt: "Je sluit af. Kies het signaalwoord.", text: "___ anser jag att fördelarna är större än nackdelarna.", gaps: [{ answers: ["Sammanfattningsvis"], options: ["Sammanfattningsvis", "Dessutom", "Visserligen"], tip: "Een conclusie: sammanfattningsvis (samenvattend)." }] }
           - id: 7q8v
             type: free
             prompt: "Moet de vierdaagse werkweek worden ingevoerd? Schrijf je mening in 120–160 woorden. Begin met je standpunt, geef twee argumenten, noem een tegenargument en sluit af met een conclusie. Gebruik **anser/tycker att**, **trots att** of **även om**, **dessutom** en **sammanfattningsvis**."

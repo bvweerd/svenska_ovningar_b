@@ -269,9 +269,13 @@ sections:
     exercises:
       - id: skriva-recension
         title: Schrijf een recensie
-        instruction: Schrijf een korte recensie.
+        instruction: "Bouw eerst je recensie op in vier stappen die de app nakijkt. Daarna schrijf je de hele recensie, als je wilt."
         topic: jamforelse
         items:
+          - { id: sgmz, type: mc, prompt: "Kies de zin die goed vergelijkt.", options: ["Kanelbullarna på Linden är mycket godare än på Ekan.", "Kanelbullarna på Linden är mycket godast än på Ekan.", "Kanelbullarna på Linden är mycket goda än på Ekan."], answer: 0, tip: "Twee dingen vergelijken met än: de vergrotende trap, godare." }
+          - { id: nrxy, type: gap, prompt: "Kies het woord dat past. (Het is even sterk als bij Ekan.)", text: "Kaffet är ___ starkt som på Ekan.", gaps: [{ answers: ["lika"], options: ["lika", "mer", "mest"], tip: "even … als = lika … som." }] }
+          - { id: setc, type: gap, prompt: "Kies de goede vorm.", text: "Det är den ___ kanelbullen i stan.", gaps: [{ answers: ["bästa"], options: ["bästa", "bäst", "bättre"], tip: "Na den + bepaalde vorm krijgt de overtreffende trap -a: den bästa kanelbullen." }] }
+          - { id: smnf, type: order, prompt: "Maak de zin af: hoe vroeger, hoe rustiger.", start: "Ju tidigare man kommer,", tokens: ["desto", "lugnare", "är", "det"], answers: ["Ju tidigare man kommer, desto lugnare är det."] }
           - id: 9dyy
             type: free
             prompt: "Schrijf een recensie (80–120 woorden) van een restaurant, café of product dat je kent. Vergelijk het met een ander, noem voor- en nadelen en geef een cijfer. Gebruik **lika … som** of **inte lika … som**, een vergrotende trap met **än**, en een overtreffende trap."

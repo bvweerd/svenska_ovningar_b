@@ -267,9 +267,13 @@ sections:
     exercises:
       - id: skriva-rad
         title: Geef advies
-        instruction: Schrijf een antwoord op het bericht van Sara.
+        instruction: "Bouw eerst je antwoord aan Sara op in vier stappen die de app nakijkt. Daarna schrijf je het hele bericht, als je wilt."
         topic: rad-onskan
         items:
+          - { id: 3hmf, type: mc, prompt: "Je toont eerst begrip. Kies de beste openingszin.", options: ["Vad tråkigt att höra! Jag förstår att du är ledsen.", "Vad roligt att höra! Jag förstår att du är ledsen.", "Vad tråkigt att höra! Jag förstår att du ledsen är."], answer: 0, tip: "Bij slecht nieuws: Vad tråkigt! En in de bijzin na att staat het werkwoord direct na het onderwerp: att du är ledsen." }
+          - { id: 96hg, type: gap, topic: villkor, prompt: "Kies het goede woord.", text: "Om jag var du, ___ jag prata med Linnea.", gaps: [{ answers: ["skulle"], options: ["skulle", "ska", "kommer"], tip: "Een denkbeeldige situatie (Om jag var du): skulle. Na de om-zin komt het werkwoord eerst." }] }
+          - { id: hywd, type: order, prompt: "Geef een advies met borde.", start: "Ni", tokens: ["borde", "träffas", "och", "ta", "en", "fika"], answers: ["Ni borde träffas och ta en fika."] }
+          - { id: bwc3, type: order, topic: villkor, prompt: "Maak de zin af. Let op de woordvolgorde na de om-zin.", start: "Om hon ber om ursäkt,", tokens: ["vet", "du", "att", "vänskapen", "är", "viktig", "för", "henne"], answers: ["Om hon ber om ursäkt, vet du att vänskapen är viktig för henne."] }
           - id: 8fr2
             type: free
             prompt: "Je vriendin Sara is verdrietig omdat haar beste vriendin haar verjaardag twee keer is vergeten (zie de luisteroefening). Schrijf haar een bericht (70–120 woorden). Toon begrip en geef minstens twee adviezen. Gebruik *borde*, *om jag var du skulle jag …* en een *om*-zin."

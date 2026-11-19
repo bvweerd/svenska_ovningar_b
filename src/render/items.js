@@ -7,7 +7,7 @@ import { displayAnswer } from '../check/normalize.js';
 import { shuffle } from '../build.js';
 import {
   gradeText, gradeMc, gradeMulti, gradeTrueFalse, gradeOrder,
-  gradeFields, clockSpec, checkFree, gradeSort,
+  gradeFields, clockSpec, checkFree, freeHelp, gradeSort,
 } from '../check/grade.js';
 import { speakButton, speedSelect } from './speak.js';
 import { sentenceInput, tileBoard } from './tiles.js';
@@ -455,23 +455,30 @@ function truefalse(item, ctx) {
 }
 
 // ---------- Vrij schrijven ----------
+// De laatste, vrijblijvende stap van een schrijfopdracht (na de nagekeken stappen ervoor). De app
+// beoordeelt de tekst niet: geen vinkjes, geen oordeel. „Hulp” somt op wat erin kan (minWords,
+// require); na „Klaar” of „Toon voorbeeld” volgt het voorbeeldantwoord.
 function free(item) {
   const area = h('textarea', { class: 'answer-input free', rows: 6, lang: 'sv', spellcheck: false, 'aria-label': 'Jouw tekst' });
+  const tips = freeHelp(item);
+  const help = tips.length ? h('details', { class: 'help' }, h('summary', {}, 'Hulp'), h('ul', {}, tips.map((t) => h('li', {}, t)))) : null;
   const model = item.model ? h('details', { class: 'model' }, h('summary', {}, 'Voorbeeldantwoord'), h('p', { lang: 'sv' }, item.model)) : null;
   if (model) model.hidden = true;
-  const el = h('div', {}, prompt(item.prompt), area, model);
+  const showModel = () => {
+    if (model) { model.hidden = false; model.open = true; }
+  };
+  const el = h('div', {},
+    h('p', { class: 'muted optional' }, 'Vrij schrijven, mag je overslaan. De app kijkt dit niet na: vergelijk je tekst met het voorbeeld.'),
+    prompt(item.prompt), help, area, model);
   return {
     el,
     neutral: true,
     check() {
-      const r = checkFree(area.value, item);
-      if (model) model.hidden = false;
-      if (!r.words) return { correct: false, empty: true, tip: 'Schrijf eerst je tekst.' };
-      return { correct: r.allOk, neutral: true, checks: r.checks };
+      if (!checkFree(area.value, item).words) return { correct: false, empty: true, tip: 'Schrijf eerst je tekst, of kies „Toon voorbeeld”.' };
+      showModel();
+      return { correct: true, neutral: true };
     },
-    reveal() {
-      if (model) { model.hidden = false; model.open = true; }
-    },
+    reveal: showModel,
     lock: () => lockInputs(el),
   };
 }

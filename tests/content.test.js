@@ -5,7 +5,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 import yaml from 'js-yaml';
 import { buildCourse } from '../src/build.js';
-import { validateChapter } from '../src/validate.js';
+import { validateChapter, WRITING_STEPS } from '../src/validate.js';
 import { gradeText, gradeOrder, clockSpec } from '../src/check/grade.js';
 import { expand, normalize } from '../src/check/normalize.js';
 
@@ -123,7 +123,7 @@ const exercisePhase = (ex) => {
   if (ex.text && !ex.listen) return 2;
   if (types.size === 1 && types.has('findError')) return 1;
   if (types.size === 1 && types.has('dialogue')) return 3;
-  if (types.size === 1 && types.has('free')) return 4;
+  if (types.has('free')) return 4; // schrijfopdracht met voorbereidende stappen
   return 0;
 };
 const home = new Map(course.flatMap((c) => c.grammar.map((g) => [g.id, c.chapter])));
@@ -156,6 +156,38 @@ describe('opbouw van de hoofdstukken', () => {
     it.runIf(ch.vocab?.length)(`hoofdstuk ${ch.chapter}: de eerste woordenoefening staat vooraan`, () => {
       const first = ch.sections.find((s) => s.id === 'woorden' || s.id === 'ord');
       expect(first?.exercises.some((ex) => ex.id === 'woorden-sv-nl')).toBe(true);
+    });
+  }
+});
+
+// ---------- Geleid schrijven (fase 3 van het verbeterplan) ----------
+describe('geleid schrijven', () => {
+  const step = (id) => ({ id, type: 'mc', prompt: 'p', options: ['a', 'b'], answer: 0 });
+  const free = { id: 'vrij', type: 'free', prompt: 'schrijf' };
+  const chapter = (items, extra = {}) => ({ chapter: 1, canDo: [{ text: 'x', topics: ['woordenschat'] }, { text: 'y', topics: ['woordenschat'] }], exercises: [{ id: 'skriv', title: 't', instruction: 'i', topic: 'woordenschat', items, ...extra }, { id: 'vulling', title: 't', instruction: 'i', topic: 'woordenschat', items: [1, 2, 3, 4, 5].map((n) => step('v' + n)) }] });
+  const writingErrors = (ch) => validateChapter(ch).filter((e) => e.includes('skriv'));
+
+  it('3 tot 5 nagekeken stappen en dan de vrije tekst is goed', () => {
+    for (let n = WRITING_STEPS[0]; n <= WRITING_STEPS[1]; n++) {
+      expect(writingErrors(chapter([...Array.from({ length: n }, (_, i) => step('s' + i)), free]))).toEqual([]);
+    }
+  });
+  it('te weinig of te veel stappen, vrije tekst niet als laatste, of schudden: fout', () => {
+    expect(writingErrors(chapter([step('a'), step('b'), free])).join()).toMatch(/2 voorbereidende/);
+    expect(writingErrors(chapter([...Array.from({ length: 6 }, (_, i) => step('s' + i)), free])).join()).toMatch(/6 voorbereidende/);
+    expect(writingErrors(chapter([free, step('a'), step('b'), step('c')])).join()).toMatch(/laatste stap/);
+    expect(writingErrors(chapter([step('a'), step('b'), step('c'), free], { shuffle: true })).join()).toMatch(/shuffle/);
+  });
+
+  for (const ch of course) {
+    const writing = ch.exercises.filter((ex) => ex.items.some((i) => i.type === 'free'));
+    it.runIf(writing.length)(`hoofdstuk ${ch.chapter}: elke schrijfopdracht heeft nagekeken stappen ervoor`, () => {
+      for (const ex of writing) {
+        const steps = ex.items.filter((i) => i.type !== 'free');
+        expect(steps.length, ex.id).toBeGreaterThanOrEqual(WRITING_STEPS[0]);
+        expect(ex.items.at(-1).type, ex.id).toBe('free');
+        expect(ex.items.at(-1).model, `${ex.id}: voorbeeldantwoord`).toBeTruthy();
+      }
     });
   }
 });

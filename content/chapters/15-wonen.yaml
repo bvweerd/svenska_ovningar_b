@@ -282,9 +282,13 @@ sections:
     exercises:
       - id: skriva-felanmalan
         title: Meld een storing
-        instruction: Schrijf een storingsmelding.
+        instruction: "Bouw eerst je storingsmelding op in vier stappen die de app nakijkt. Daarna schrijf je het hele bericht, als je wilt."
         topic: partikelverb
         items:
+          - { id: kgee, type: mc, prompt: "Kies de beste opening voor je bericht aan de verhuurder.", options: ["Hej! Jag heter Pieter Smit och jag bor på Storgatan 12, lägenhet 1102.", "Hej! Kylskåpet är sönder, kom nu!", "Hej! Jag heter Pieter och jag tycker inte om mitt kylskåp."], answer: 0, tip: "Zeg eerst wie je bent en waar je woont, zodat de verhuurder weet om welke woning het gaat." }
+          - { id: f8zc, type: gap, prompt: "Kies het woord dat past.", text: "Kylskåpet i köket har gått ___.", gaps: [{ answers: ["sönder"], options: ["sönder", "av", "ut"], tip: "kapotgaan = gå sönder." }] }
+          - { id: euj5, type: order, prompt: "Vertel wat je al hebt geprobeerd.", start: "Jag har försökt", tokens: ["stänga", "av", "det", "och", "sätta", "på", "det", "igen"], answers: ["Jag har försökt stänga av det och sätta på det igen."] }
+          - { id: jxwg, type: gap, topic: dar-dit-vars, prompt: "Kies het goede woord.", text: "Kylskåpet står i köket, ___ det nu luktar illa.", gaps: [{ answers: ["där"], options: ["där", "dit", "vars"], tip: "Een plaats (waar iets is): där. Dit is een richting (waarheen)." }] }
           - id: epf2
             type: free
             prompt: "In je appartement is iets kapot (bijvoorbeeld de koelkast, een radiator of de douche). Schrijf een bericht aan de verhuurder (60–100 woorden): wie en waar je bent, wat er kapot is, sinds wanneer, en wanneer ze mogen komen."

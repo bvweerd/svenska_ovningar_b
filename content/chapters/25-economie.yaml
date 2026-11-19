@@ -259,9 +259,13 @@ sections:
     exercises:
       - id: skriva-rapport
         title: Beschrijf de cijfers
-        instruction: Schrijf een kort verslag.
+        instruction: "Bouw eerst je verslag op in vier stappen die de app nakijkt. Daarna schrijf je het hele verslag, als je wilt."
         topic: trender
         items:
+          - { id: wz2b, type: mc, prompt: "Kies de beste openingszin voor een zakelijk verslag.", options: ["Under perioden 2020–2024 förändrades antalet besökare kraftigt.", "Under perioden 2020–2024 förändrade antalet besökare kraftigt.", "Jag tycker att biblioteket är jättebra!"], answer: 0, tip: "Het aantal veranderde zelf: förändras (förändrades). Een verslag is zakelijk, zonder je eigen mening." }
+          - { id: qapq, type: gap, topic: nominalisering, prompt: "Vul het zelfstandig naamwoord in.", text: "År 2021 skedde en ___ (minska) till 9 000 besökare.", gaps: [{ answers: ["minskning"], feedback: [{ match: ["minskande", "minskelse", "minsk"], tip: "minska wordt minskning (zoals öka → ökning)." }] }] }
+          - { id: dgcr, type: gap, prompt: "Kies de goede vorm. (Van 9 000 naar 15 000 bezoekers.)", text: "Därefter följde en ___ ökning.", gaps: [{ answers: ["kraftig"], options: ["kraftig", "kraftigt", "svag"], tip: "ökning is een en-woord: kraftig zonder -t. En 9 000 → 15 000 is een sterke stijging." }] }
+          - { id: rfc3, type: gap, prompt: "Kies het woord dat past. (Van 18 000 naar 18 300.)", text: "Jämfört med 2023 ökade antalet bara ___ under 2024.", gaps: [{ answers: ["marginellt"], options: ["marginellt", "kraftigt", "dramatiskt"], tip: "300 bezoekers meer is heel weinig: marginellt." }] }
           - id: g4t2
             type: free
             prompt: "Bezoekers van de stadsbibliotheek per jaar: 2020: 12 000 · 2021: 9 000 · 2022: 15 000 · 2023: 18 000 · 2024: 18 300. Beschrijf de ontwikkeling in 80–120 woorden, in zakelijke stijl. Noem het laagste en het hoogste punt, gebruik minstens twee nominalisaties (*ökning, minskning* …) en woorden als *kraftigt, svagt, drygt, jämfört med*. Geef een mogelijke verklaring."

@@ -281,9 +281,13 @@ sections:
     exercises:
       - id: skriva-historia
         title: Vertel een gebeurtenis
-        instruction: Schrijf een verhalende tekst.
+        instruction: "Bouw eerst je verhaal op in vier stappen die de app nakijkt. Daarna schrijf je het hele verhaal, als je wilt."
         topic: fundament
         items:
+          - { id: dqnx, type: mc, topic: fundament, prompt: "Kies de beste eerste zin.", options: ["Natten till den 1 februari 1953 drabbades Nederländerna av en katastrof.", "Natten till den 1 februari 1953 Nederländerna drabbades av en katastrof.", "Natten till den 1 februari 1953 drabbade Nederländerna av en katastrof."], answer: 0, tip: "Na de tijdsbepaling vooraan komt het werkwoord op plaats 2. Getroffen worden: drabbas (drabbades)." }
+          - { id: rxmr, type: gap, prompt: "Kies de goede vorm. (Het stormde al vóór de nacht.)", text: "Det ___ stormat hela dagen, och på natten steg vattnet.", gaps: [{ answers: ["hade"], options: ["hade", "har", "var"], shuffle: false, tip: "Iets wat vóór een ander moment in het verleden gebeurde: hade + supinum." }] }
+          - { id: ghck, type: order, topic: fundament, prompt: "Begin met plötsligt.", start: "Plötsligt", tokens: ["brast", "vallarna", "på", "flera", "ställen"], answers: ["Plötsligt brast vallarna på flera ställen."] }
+          - { id: xubf, type: gap, topic: bisats-adverb, prompt: "Kies de goede volgorde.", text: "Det fanns ingen tid att varna alla, eftersom många byar ___ telefon.", gaps: [{ answers: ["inte hade"], options: ["inte hade", "hade inte"], shuffle: false, tip: "In de bijzin (na eftersom) staat inte vóór het werkwoord." }] }
           - id: ksav
             type: free
             prompt: "Vertel over een historische gebeurtenis uit Nederland of België (bijvoorbeeld de watersnood van 1953 of de bouw van de Afsluitdijk), of over een gebeurtenis uit je familie. Schrijf 120–160 woorden. Gebruik de verleden tijd, minstens één keer **hade** + supinum, tijdsbepalingen vooraan en een zin met **det** + werkwoord (*det kom, det fanns …*)."

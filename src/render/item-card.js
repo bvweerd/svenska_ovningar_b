@@ -40,8 +40,9 @@ export function itemCard(item, ctx, number, onDone, label) {
     if (!checkBtn.hidden) checkBtn.focus({ preventScroll: true });
   } });
   const feedback = h('div', { class: 'feedback', 'aria-live': 'polite' });
-  const checkBtn = h('button', { type: 'button', class: 'btn primary', hidden: selfChecking(item) }, 'Controleer');
-  const revealBtn = h('button', { type: 'button', class: 'btn ghost', hidden: true }, 'Toon antwoord');
+  // Vrij schrijven wordt niet nagekeken („Klaar”) en mag je overslaan („Toon voorbeeld”).
+  const checkBtn = h('button', { type: 'button', class: 'btn primary', hidden: selfChecking(item) }, r.neutral ? 'Klaar' : 'Controleer');
+  const revealBtn = h('button', { type: 'button', class: 'btn ghost', hidden: !r.neutral }, r.neutral ? 'Toon voorbeeld' : 'Toon antwoord');
   // Vragen met de knop Controleer houden hun knoppenrij altijd even hoog, ook als de knop na
   // afloop verdwijnt: dan verspringt de rest van de pagina niet.
   const actions = h('div', { class: selfChecking(item) ? 'actions' : 'actions keep' }, checkBtn, revealBtn);
@@ -89,16 +90,10 @@ export function itemCard(item, ctx, number, onDone, label) {
     if (finished) return;
     const res = r.check();
 
+    // Vrij schrijven: geen oordeel, alleen het voorbeeld om mee te vergelijken.
     if (res.neutral) {
-      const list = h('ul', { class: 'checks' }, res.checks.map((c) => h('li', { class: c.ok ? 'ok' : 'bad' }, c.ok ? '✓ ' : '✗ ', c.label)));
-      if (res.correct) {
-        show('good', h('p', {}, 'Mooi! Vergelijk je tekst met het voorbeeldantwoord.'), list);
-        finish(false);
-      } else {
-        show('info', h('p', {}, res.tip ?? 'Je tekst is nog niet compleet:'), list);
-        revealBtn.textContent = 'Klaar';
-        revealBtn.hidden = false;
-      }
+      show('info', h('p', {}, 'Vergelijk je tekst met het voorbeeldantwoord.'));
+      finish(false);
       return;
     }
 

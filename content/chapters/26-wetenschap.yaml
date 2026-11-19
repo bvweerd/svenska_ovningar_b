@@ -246,9 +246,13 @@ sections:
     exercises:
       - id: skriva-sammanfattning
         title: Vat het onderzoek samen
-        instruction: Schrijf een samenvatting van de tekst *Sömnen och minnet*.
+        instruction: "Bouw eerst je samenvatting op in vier stappen die de app nakijkt. Daarna schrijf je de hele samenvatting, als je wilt."
         topic: nominalfras
         items:
+          - { id: q76y, type: mc, prompt: "Je begint met het doel van het onderzoek. Welke zin past?", options: ["Studien handlar om hur sömn påverkar förmågan att lära sig nya ord.", "120 studenter fick lära sig 40 ord på kvällen.", "Fler studier behövs innan man kan dra säkra slutsatser."], answer: 0, tip: "Het doel of onderwerp komt eerst. De methode en de beperking komen later." }
+          - { id: duqa, type: gap, topic: subjunktioner-b1, prompt: "Kies het woord dat past.", text: "Hälften sov en hel natt, ___ den andra hälften fick hålla sig vakna.", gaps: [{ answers: ["medan"], options: ["medan", "därför", "trots"], tip: "Twee groepen tegenover elkaar: medan (terwijl)." }] }
+          - { id: kq7z, type: gap, topic: particip-konstruktion, prompt: "Vul de goede vorm in.", text: "De ___ (utvilad) deltagarna mindes 30 procent fler ord.", gaps: [{ answers: ["utvilade"], feedback: [{ match: ["utvilad", "utvilat"], tip: "Na de (bepaald, meervoud) krijgt het deelwoord -e: de utvilade deltagarna." }] }] }
+          - { id: 2nbt, type: gap, topic: nominalfras, prompt: "Formuleer voorzichtig. Kies het woord dat past.", text: "Resultaten ___ på att även en kort tupplur kan hjälpa.", gaps: [{ answers: ["tyder"], options: ["tyder", "bevisar", "betyder"], tip: "Voorzichtig: tyder på (wijst erop). Bevisar (bewijst) is te stellig." }] }
           - id: 76du
             type: free
             prompt: "Vat de tekst over slaap en geheugen samen in 80–110 woorden. Noem het doel, de methode, het resultaat, de conclusie en een beperking. Formuleer voorzichtig (*tyder på, verkar, kan, sannolikt*)."

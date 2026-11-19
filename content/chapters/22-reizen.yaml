@@ -287,9 +287,14 @@ sections:
     exercises:
       - id: skriva-klagomal
         title: Schrijf een klacht
-        instruction: Schrijf een klachtmail aan het treinbedrijf.
+        instruction: "Bouw eerst je klachtmail op in vijf stappen die de app nakijkt. Daarna schrijf je de hele mail, als je wilt."
         topic: sambandsord
         items:
+          - { id: hf68, type: mc, prompt: "Kies de beste eerste zin na de aanhef.", options: ["Den tolfte juli reste jag med nattåget från Stockholm till Abisko.", "Den tolfte juli jag reste med nattåget från Stockholm till Abisko.", "Den tolv juli reste jag med nattåget från Stockholm till Abisko."], answer: 0, tip: "Na de tijdsbepaling vooraan komt het werkwoord op plaats 2, en een datum is een rangtelwoord: den tolfte." }
+          - { id: xpvu, type: gap, topic: partikelverb-2, prompt: "Kies het woord dat past.", text: "Tåget stannade helt, och vi kom inte ___ förrän klockan tolv.", gaps: [{ answers: ["fram"], options: ["fram", "bort", "av"], tip: "aankomen = komma fram." }] }
+          - { id: 6aq4, type: gap, topic: sambandsord, prompt: "Kies het verbindingswoord dat past.", text: "Det blev ett signalfel. ___ kom vi fram fem timmar för sent.", gaps: [{ answers: ["Därför"], options: ["Därför", "Eftersom", "Däremot"], tip: "Het te laat komen is het gevolg: därför (daarom), met het werkwoord direct erna." }] }
+          - { id: zv7w, type: gap, topic: sambandsord, prompt: "Kies het verbindingswoord dat past.", text: "Vi kom fram för sent. ___ missade vi den sista bussen.", gaps: [{ answers: ["Dessutom"], options: ["Dessutom", "Trots att", "Medan"], tip: "Je voegt nog een probleem toe: dessutom (bovendien)." }] }
+          - { id: zhbn, type: translate, topic: woordenschat, prompt: "Ik wil een vergoeding aanvragen voor de vertraging.", answers: ["Jag {vill|skulle vilja} {ansöka om|söka|begära} ersättning för förseningen."], feedback: [{ contains: "vertraging", tip: "vertraging = försening, de vertraging = förseningen." }] }
           - id: emrk
             type: free
             prompt: "Je trein was vijf uur te laat en je hebt daardoor een bus en een overnachting gemist. Schrijf een klachtmail (80–120 woorden): wanneer en waar je reisde, wat er gebeurde, wat de gevolgen waren en wat je wilt. Gebruik minstens drie verbindingswoorden, waaronder **därför** en **dessutom**."
