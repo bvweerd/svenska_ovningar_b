@@ -71,17 +71,22 @@ sections:
         text: |
           Det första man lär sig när man flyttar till Sverige är att nästan allt hänger på personnumret. Utan personnummer är det svårt att öppna ett bankkonto, skaffa ett mobilabonnemang eller boka en tid hos tandläkaren.
 
-          Marloes flyttade till Göteborg i januari. Hon hade fått jobb på ett företag och skulle stanna i minst tre år. Därför ansökte hon om folkbokföring hos Skatteverket. Hon fyllde i en blankett och visade sitt pass och sitt anställningsavtal. Handläggaren sa att handläggningstiden var ungefär sex veckor.
+          Marloes flyttade till Göteborg i januari. Hon hade fått jobb på ett företag och skulle stanna i minst tre år. Därför ansökte hon om folkbokföring hos Skatteverket. Hon hade bokat en tid på servicekontoret, men hon fick ändå vänta länge. Hon fyllde i en blankett och visade sitt pass och sitt anställningsavtal. Handläggaren sa att handläggningstiden var ungefär sex veckor.
 
           – De veckorna kändes väldigt långa, minns Marloes. Jag fick använda mitt nederländska bankkort överallt, och jag kunde inte ens få ett lånekort på biblioteket.
 
-          Till slut kom ett brev med hennes nya personnummer. Nu trivs hon i Göteborg och hoppas att hon kan stanna längre än tre år.
+          Det värsta var att lönen inte kunde betalas ut till ett svenskt konto. Arbetsgivaren fick betala ut den till hennes nederländska konto, och det tog flera dagar varje månad. Marloes ringde Skatteverket två gånger för att fråga hur det gick med hennes ärende. Båda gångerna fick hon samma svar: ärendet handläggs och beslut fattas så snart som möjligt.
+
+          Till slut kom ett brev med hennes nya personnummer. Samma vecka öppnade hon ett bankkonto, och äntligen lyckades hon få ett lånekort på biblioteket. Nu trivs hon i Göteborg och hoppas att hon kan stanna längre än tre år.
         items:
           - { id: tvh3, type: mc, prompt: "Varför är personnumret så viktigt?", options: ["Man behöver det för nästan allt.", "Man får inte bo i Sverige utan det.", "Det är gratis.", "Man får det på flygplatsen."], answer: 0 }
           - { id: mzug, type: truefalse, statement: "Marloes skulle stanna i Sverige i minst tre år.", answer: true }
           - { id: qx6y, type: mc, prompt: "Vad visade Marloes för handläggaren?", options: ["sitt pass och sitt anställningsavtal", "sitt bankkort", "sitt körkort och sitt hyreskontrakt", "ingenting"], answer: 0 }
           - { id: kjwh, type: truefalse, statement: "Handläggningstiden var ungefär sex månader.", answer: false, correction: { answers: ["{Handläggningstiden|Den} var ungefär sex veckor."] } }
           - { id: 7gyq, type: truefalse, statement: "Veckorna utan personnummer kändes korta.", answer: false, correction: { answers: ["{Veckorna|De} kändes [väldigt ]långa."] } }
+          - { id: 4wct, type: truefalse, statement: "Under väntetiden fick Marloes sin lön utbetald till ett svenskt konto.", answer: false, tip: "Lees de vierde alinea.", correction: { answers: ["{Lönen|Den} kunde inte betalas ut till ett svenskt konto.", "Arbetsgivaren {fick betala ut|betalade ut} {lönen|den} till hennes nederländska konto.", "{Lönen|Den} betalades ut till hennes nederländska konto.", "{Marloes|Hon} fick inte [sin ]lön[en] [utbetald ]{på|till} ett svenskt konto.", "{Marloes|Hon} fick [sin ]lön[en] [utbetald ]{på|till} ett nederländskt konto."] } }
+          - { id: sfhy, type: mc, prompt: "Vilket svar fick Marloes när hon ringde Skatteverket?", options: ["att ärendet handläggs", "att hon måste fylla i en ny blankett", "att hennes papper hade kommit bort", "att hon redan var folkbokförd"], answer: 0, topic: myndighetssprak }
+          - { id: 9b9p, type: mc, prompt: "Vad gjorde Marloes samma vecka som brevet kom?", options: ["Hon öppnade ett bankkonto och skaffade ett lånekort.", "Hon flyttade till en ny lägenhet.", "Hon bytte jobb.", "Hon reste hem till Nederländerna."], answer: 0 }
           - { id: 39up, type: mc, prompt: "Hur mår Marloes nu?", options: ["Hon trivs i Göteborg.", "Hon längtar hem.", "Hon vill flytta till Stockholm.", "Hon är arg på Skatteverket."], answer: 0 }
           - id: rrzs
             type: multi

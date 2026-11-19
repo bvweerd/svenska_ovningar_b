@@ -66,11 +66,15 @@ sections:
         topic: passiv-bli
         textTitle: Från SFI till universitetet
         text: |
-          Joost flyttade från Nijmegen till Umeå för fyra år sedan. Först läste han svenska på SFI, och sedan fortsatte han på Komvux, där han läste svenska som andraspråk och samhällskunskap. Det var tufft, men lärarna var engagerade och klasserna var små.
+          Joost flyttade från Nijmegen till Umeå för fyra år sedan. Först läste han svenska på SFI, och sedan fortsatte han på Komvux, där han läste svenska som andraspråk och samhällskunskap. Det var tufft, men lärarna var engagerade och klasserna var små. Under tiden på Komvux jobbade han extra på en förskola, och det var där han bestämde sig för att bli lärare.
 
           För två år sedan sökte han till lärarprogrammet på universitetet. Hans utbildning från Nederländerna måste först bedömas av en myndighet, och det tog flera månader. Men i juli kom beskedet: han hade blivit antagen!
 
           Nu läser Joost andra året. Han har föreläsningar tre dagar i veckan, och resten av tiden pluggar han hemma eller på biblioteket. Det svåraste är de skriftliga tentorna, eftersom man måste skriva snabbt på svenska. Han får studiemedel från CSN, men han jobbar också extra på ett café på helgerna.
+
+          Nästa termin ska Joost göra sin första praktik. Praktikplatserna fördelas av universitetet, och han blev placerad på en högstadieskola nära där han bor. Han är lite nervös, men också förväntansfull.
+
+          – Jag har ju själv varit nybörjare i ett nytt land, säger han. Därför tror jag att jag förstår hur det känns att inte kunna allt.
 
           – Det bästa med att plugga i Sverige är att man får säga emot läraren, säger Joost. Ingen blir arg om man har en annan åsikt.
         items:
@@ -79,8 +83,10 @@ sections:
           - { id: jm9d, type: truefalse, statement: "Hans utbildning från Nederländerna bedömdes på en vecka.", answer: false, tip: "Hoe lang duurde het?", correction: { answers: ["Det tog flera månader[ att bedöma {den|hans utbildning}]."] } }
           - { id: 32pd, type: mc, prompt: "Vad hände i juli?", options: ["Han blev antagen till lärarprogrammet.", "Han flyttade till Umeå.", "Han började på SFI.", "Han fick jobb på ett café."], answer: 0 }
           - { id: yyhs, type: truefalse, statement: "Joost tycker att de skriftliga tentorna är lätta.", answer: false, correction: { answers: ["{Joost|Han} tycker att {de skriftliga tentorna|tentorna|de} är svåra[st]."] } }
+          - { id: e8sp, type: mc, prompt: "Var bestämde sig Joost för att bli lärare?", options: ["på en förskola där han jobbade extra", "på SFI", "på universitetet", "på caféet där han jobbar"], answer: 0, tip: "Lees het einde van de eerste alinea." }
           - { id: 95a4, type: mc, prompt: "Hur försörjer sig Joost?", options: ["med studiemedel och ett extrajobb", "bara med studiemedel", "hans föräldrar betalar", "han jobbar heltid"], answer: 0 }
           - { id: 2whd, type: mc, prompt: "Wat vindt Joost het beste aan studeren in Zweden?", options: ["Je mag het oneens zijn met de docent.", "De tentamens zijn makkelijk.", "Je hoeft niet naar college.", "Er is gratis koffie."], answer: 0, tip: "säga emot = tegenspreken." }
+          - { id: shnm, type: truefalse, statement: "Joost fick själv välja skola för sin praktik.", answer: false, tip: "Wie verdeelt de stageplaatsen?", correction: { answers: ["{Praktikplatserna|De} fördelas av universitetet.", "Universitetet fördelar praktikplatserna.", "{Han|Joost} {blev placerad|placerades} på en högstadieskola[ nära där han bor].", "{Joost|Han} fick inte [själv ]välja skola[ för sin praktik]."] } }
           - id: gfr5
             type: multi
             prompt: "Welke vormen in de tekst zijn een lijdende vorm of een voltooid deelwoord?"

@@ -73,11 +73,11 @@ sections:
         topic: partikelverb
         textTitle: Tvättstugan
         text: |
-          När Femke flyttade in i sin lägenhet i Malmö visste hon inte mycket om svenska hyreshus. Den första veckan lärde hon sig ett viktigt ord: tvättstuga. I huset där hon bor finns det inga tvättmaskiner i lägenheterna. I stället delar alla hyresgäster på en tvättstuga i källaren, dit man går med sin tvätt.
+          När Femke flyttade in i sin lägenhet i Malmö visste hon inte mycket om svenska hyreshus. Den första veckan lärde hon sig ett viktigt ord: tvättstuga. I huset där hon bor finns det inga tvättmaskiner i lägenheterna. I stället delar alla hyresgäster på en tvättstuga i källaren, dit man går med sin tvätt. Det tyckte Femke var konstigt i början. I Nederländerna hade hon haft en egen tvättmaskin i badrummet.
 
-          Man måste boka en tid i förväg. Femke bokade en tid på lördagsförmiddagen, men när hon kom ner var maskinerna redan upptagna. En granne, vars tid egentligen var slut, hade inte tagit ut sin tvätt. Femke väntade i tjugo minuter. Sedan skrev hon en lapp och satte upp den på dörren.
+          Man måste boka en tid i förväg. Femke bokade en tid på lördagsförmiddagen, men när hon kom ner var maskinerna redan upptagna. En granne, vars tid egentligen var slut, hade inte tagit ut sin tvätt. Femke väntade i tjugo minuter. Sedan skrev hon en lapp och satte upp den på dörren: ”Hej! Jag har bokat tvättstugan nu, men någon har glömt sin tvätt i maskinerna. Kan du ta ut den så snart som möjligt? Femke, lägenhet 2A.”
 
-          Dagen efter hittade hon ett svar under sin lapp: ”Förlåt! Jag glömde bort tiden. Du får gärna låna min tid på onsdag. Ingrid, lägenhet 4B.” Nu hälsar Femke på Ingrid i trapphuset varje dag, och ibland fikar de tillsammans.
+          Dagen efter hittade hon ett svar under sin lapp: ”Förlåt! Jag glömde bort tiden. Du får gärna låna min tid på onsdag. Ingrid, lägenhet 4B.” Nu hälsar Femke på Ingrid i trapphuset varje dag, och ibland fikar de tillsammans. Ingrid är pensionerad lärare och har bott i huset i trettio år. Hon har förklarat för Femke hur allt fungerar: när soporna hämtas, var cyklarna ska stå och vem man ringer när något går sönder.
         items:
           - { id: gy7y, type: mc, prompt: "Var tvättar man i Femkes hus?", options: ["i tvättstugan i källaren", "i lägenheten", "på en tvättinrättning", "hos grannen"], answer: 0 }
           - { id: crme, type: truefalse, statement: "Man kan tvätta när man vill.", answer: false, tip: "Wat moet je eerst doen?", correction: { answers: ["{Man|Du} måste boka en tid[ i förväg]."] } }
@@ -85,6 +85,9 @@ sections:
           - { id: gq59, type: mc, prompt: "Vad gjorde Femke efter tjugo minuter?", options: ["Hon skrev en lapp och satte upp den.", "Hon tog ut grannens tvätt.", "Hon ringde hyresvärden.", "Hon gick hem och gav upp."], answer: 0 }
           - { id: 6w7d, type: mc, prompt: "Varför hade Ingrid inte tagit ut sin tvätt?", options: ["Hon hade glömt bort tiden.", "Hon var sjuk.", "Hon var på semester.", "Maskinen hade gått sönder."], answer: 0 }
           - { id: 27ad, type: truefalse, statement: "Femke och Ingrid är ovänner nu.", answer: false, correction: { answers: ["{De|Femke och Ingrid} fikar [tillsammans ]ibland.", "{De|Femke och Ingrid} är vänner[ nu]."] } }
+          - { id: d6bb, type: truefalse, statement: "Femke hade en egen tvättmaskin i Nederländerna.", answer: true }
+          - { id: abc6, type: mc, prompt: "Vad bad Femke om på lappen?", options: ["att grannen skulle ta ut sin tvätt", "att grannen skulle laga maskinen", "att få låna grannens tid", "att grannen skulle ringa henne"], answer: 0 }
+          - { id: jp5m, type: truefalse, statement: "Ingrid har bott i huset i tre år.", answer: false, tip: "Lees de laatste alinea nog eens.", correction: { answers: ["{Ingrid|Hon} har bott i huset i trettio år."] } }
           - id: by3j
             type: multi
             prompt: "Welke werkwoorden met een partikel staan in de tekst?"
