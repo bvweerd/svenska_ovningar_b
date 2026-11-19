@@ -16,9 +16,13 @@ Nederlands; de interface en de uitleg zijn Nederlands, commitberichten Engels.
 **`PLAN.md`, onderdeel „Verbeterplan didactiek”** is de bron van waarheid. Dat onderdeel is in beide
 repo's gelijk: pas het in één repo aan en kopieer het hele onderdeel naar de andere.
 
-- Fase 1 is klaar (kan-doen-uitspraken, eindtoetsen herschreven, melding computerstem).
-- **Volgende stap: fase 1b** (opbouw, volgorde en moeilijkheid), daarna fase 2 (keuzeoefeningen) en
-  fase 3 (geleid schrijven, langere leesteksten, taken en betogen).
+- Fase 1 en 1b zijn klaar (kan-doen-uitspraken, eindtoetsen herschreven, melding computerstem; vaste
+  volgorde per hoofdstuk, moeilijkheidslijn, `npm run difficulty-report`).
+- **Volgende stap: fase 2** (keuzeoefeningen), daarna fase 3 (geleid schrijven, langere leesteksten,
+  taken en betogen). Vul daarbij aan tot de moeilijkheidslijn: `difficulty-report` markeert met `!` waar
+  een hoofdstuk eronder zit.
+- Nieuwe oefeningen komen op de plek die de vaste volgorde voorschrijft (README, „Volgorde in een
+  hoofdstuk”); `npm test` faalt anders.
 - Vink af in `PLAN.md` en zet onder een afgeronde fase een regel „Gedaan (maand jaar): …”.
 - Er is ook een gedeeld document (claude.ai) met dezelfde inhoud; `PLAN.md` gaat voor.
 
@@ -47,13 +51,14 @@ repo's gelijk: pas het in één repo aan en kopieer het hele onderdeel naar de a
   nieuwe oefening met het goede topic telt mee voor het vinkje. Validatie: 2–4 uitspraken, bekende
   topics, minstens 5 vragen per uitspraak. Logica: `canDoStatus`/`newCanDo` in `src/progress.js`
   (`CANDO_BOX = 3`, `CANDO_SHARE = 0.8`).
-- **Woordenschatoefeningen** worden gemaakt uit `vocab:` in `src/build.js` en nu achteraan gezet in een
-  onderdeel `woordenschat` (fase 1b verandert dat).
+- **Woordenschatoefeningen** worden gemaakt uit `vocab:` in `src/build.js`: de eerste („Wat betekent
+  het?”) vooraan (onderdeel `woorden`, of bovenaan `ord` op de B-site), de rest onderaan in `woordenschat`.
+  De meervoudsoefening verschijnt pas vanaf het hoofdstuk met de grammaticakaart `plural`.
 - `npm test` controleert o.a. dat elk goed antwoord goed gerekend wordt en elke `feedback.match` fout.
 
-## Hoe de analyse van fase 1b is gemeten
+## Hoe de moeilijkheid wordt gemeten
 
-Zodat `npm run difficulty-report` (fase 1b) dezelfde getallen geeft:
+`npm run difficulty-report` (`scripts/difficulty-report.mjs`) meet zo:
 
 - Vragen per hoofdstuk: alle items, stappen van `steps` apart geteld, zonder de onderdelen `herhaling` en
   `eindtoets` en zonder de gegenereerde woordenschat.

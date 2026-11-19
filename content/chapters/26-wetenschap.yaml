@@ -178,6 +178,21 @@ sections:
           - { id: fquu, type: mc, prompt: "*de nya reglerna för arbetstid inom vården*", options: ["reglerna", "arbetstid", "vården", "nya"], answer: 0 }
           - { id: f4g8, type: mc, prompt: "*en kraftig ökning av antalet äldre i Europa*", options: ["ökning", "antalet", "äldre", "Europa"], answer: 0 }
 
+  - id: zoek-de-fout
+    title: Zoek de fout
+    exercises:
+      - id: zoek-de-fout
+        title: Zoek de fout
+        instruction: Klik op het woord dat niet klopt en verbeter de zin.
+        topic: particip-konstruktion
+        shuffle: true
+        items:
+          - { id: dfa4, type: findError, sentence: "Den nyligen publicerad studien väckte intresse.", wrong: [2], answers: ["Den nyligen publicerade studien väckte intresse."], tip: "Na den: welke vorm van het deelwoord?" }
+          - { id: ycxr, type: findError, sentence: "Det är ett snabbt växt problem.", wrong: [4], answers: ["Det är ett snabbt växande problem."], tip: "Het probleem groeit nu: tegenwoordig deelwoord." }
+          - { id: safe, type: findError, sentence: "De i studien deltagna personerna var friska.", wrong: [3], answers: ["De i studien deltagande personerna var friska."], tip: "Ze namen zelf deel: tegenwoordig deelwoord." }
+          - { id: fq5a, type: findError, topic: nominalfras, sentence: "Resultaten tyder om att sömn är viktig.", wrong: [2], answers: ["Resultaten tyder på att sömn är viktig."], tip: "Het vaste voorzetsel: tyda på (erop wijzen)." }
+          - { id: kh7a, type: findError, sentence: "Den av forskarna föreslådda förklaringen är enkel.", wrong: [3], answers: ["Den av forskarna föreslagna förklaringen är enkel."], tip: "föreslå is een sterk werkwoord." }
+
   - id: lyssna
     title: Lyssna · luisteren
     exercises:
@@ -260,21 +275,10 @@ sections:
           - { id: a5dt, type: gap, topic: nominalisering, text: "förbättra → ___", gaps: [{ answers: ["en förbättring"] }] }
           - { id: hyv3, type: gap, topic: subjunktioner-b1, text: "___ studien är liten, är resultaten intressanta.", gaps: [{ answers: ["Även om", "Trots att"], options: ["Även om", "Trots att", "Innan"], shuffle: false }] }
           - { id: zr5j, type: transform, topic: particip-konstruktion, prompt: "metoden som används", task: "Begin met: den …", answers: ["den använda metoden"] }
-
-  - id: zoek-de-fout
-    title: Zoek de fout
-    exercises:
-      - id: zoek-de-fout
-        title: Zoek de fout
-        instruction: Klik op het woord dat niet klopt en verbeter de zin.
-        topic: particip-konstruktion
-        shuffle: true
-        items:
-          - { id: dfa4, type: findError, sentence: "Den nyligen publicerad studien väckte intresse.", wrong: [2], answers: ["Den nyligen publicerade studien väckte intresse."], tip: "Na den: welke vorm van het deelwoord?" }
-          - { id: ycxr, type: findError, sentence: "Det är ett snabbt växt problem.", wrong: [4], answers: ["Det är ett snabbt växande problem."], tip: "Het probleem groeit nu: tegenwoordig deelwoord." }
-          - { id: safe, type: findError, sentence: "De i studien deltagna personerna var friska.", wrong: [3], answers: ["De i studien deltagande personerna var friska."], tip: "Ze namen zelf deel: tegenwoordig deelwoord." }
-          - { id: fq5a, type: findError, topic: nominalfras, sentence: "Resultaten tyder om att sömn är viktig.", wrong: [2], answers: ["Resultaten tyder på att sömn är viktig."], tip: "Het vaste voorzetsel: tyda på (erop wijzen)." }
-          - { id: kh7a, type: findError, sentence: "Den av forskarna föreslådda förklaringen är enkel.", wrong: [3], answers: ["Den av forskarna föreslagna förklaringen är enkel."], tip: "föreslå is een sterk werkwoord." }
+          - { id: ytyf, type: gap, topic: particip-konstruktion, text: "Den nyligen ___ (publicera) studien visar att sömnen påverkar minnet.", gaps: [{ answers: ["publicerade"] }] }
+          - { id: gfre, type: gap, topic: nominalfras, text: "Resultaten ___ tyda på att motion förbättrar sömnen.", gaps: [{ answers: ["kan"], options: ["kan", "måste", "ska"], shuffle: false }] }
+          - { id: y2te, type: gap, topic: trender, text: "Antalet deltagare ___ (fördubblas) mellan 2010 och 2020.", gaps: [{ answers: ["fördubblades"] }] }
+          - { id: xpd8, type: gap, topic: indirekt-fraga, text: "Forskarna undersökte ___ sömnen påverkar minnet hos äldre.", gaps: [{ answers: ["hur"], options: ["hur", "vad", "som"], shuffle: false }] }
 
 vocab:
   - { sv: "en studie", nl: "een studie, een onderzoek", def: "studien", pl: "studier", plDef: "studierna", ex: "En ny **studie** visar att motion förbättrar minnet.", exNl: "Een nieuwe studie laat zien dat beweging het geheugen verbetert." }

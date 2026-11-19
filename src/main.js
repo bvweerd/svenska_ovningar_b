@@ -141,9 +141,12 @@ function viewChapter(ch) {
   const p = chapterProgress(ch);
   const weak = weakItems(ch);
   const { name, topics } = splitTheme(ch.theme);
-  // Waar ga je verder? De oefening die bezig is, anders de eerste die nog niet af is.
+  // Waar ga je verder? De oefening die bezig is, anders de eerste die nog niet af is. Een lange
+  // oefening in rondes (woordenschat) telt na één ronde als gedaan: die oefen je verder in rondes en
+  // in de herhaling, zonder dat de leerling eerst de hele lijst moet afmaken.
+  const roundDone = (ex) => ex.roundSize && ex.items.length > ex.roundSize && roundProgress(ch.chapter, ex).seen >= ex.roundSize;
   const next = ch.exercises.find((ex) => { const r = runState(ch.chapter, ex); return r.started && r.done.size > 0 && r.done.size < r.total; })
-    ?? ch.exercises.find((ex) => !getResult(ch.chapter, ex.id)?.completedAt);
+    ?? ch.exercises.find((ex) => !getResult(ch.chapter, ex.id)?.completedAt && !roundDone(ex));
   return h('div', {},
     crumbs({ label: 'Start', href: '#/' }, { label: ch.title }),
     h('header', { class: 'page-head chapter-head', style: chapterHue(ch) },

@@ -161,33 +161,40 @@ docent of taalpartner aanraden.
       Gedaan in november 2026: 2–4 uitspraken per hoofdstuk (31 hoofdstukken), afgevinkt bij 80% in
       doos 3 of hoger (`canDoStatus` in `src/progress.js`), getoond op de hoofdstukpagina en bij een
       nieuw behaald doel op het eindscherm.
-- [ ] **Fase 1b – opbouw, volgorde en moeilijkheid** (vóór fase 2). Analyse van november 2026:
+- [x] **Fase 1b – opbouw, volgorde en moeilijkheid** (vóór fase 2). Analyse van november 2026:
       geen grammatica uit latere hoofdstukken (goed), nieuwe woorden gelijkmatig (55–64), zinnen in
       leesteksten worden langer (goed). Maar: antwoordzinnen blijven 4–8 woorden van H1 tot H30,
       leesteksten groeien nauwelijks (A 61–94, B 117–170 woorden; B-plan noemt 300–600), het aantal
       vragen daalt juist (A 150 → 67, B 91 → 50), Zoek de fout staat in H14–H30 ná de herhaling,
       herkennen komt in 15 oefeningen na zelf maken, en de woordenschat staat steeds onderaan.
-  - [ ] Vaste volgorde. A-site: woorden (eerste ronde) → per onderwerp herkennen → vorm → kiezen →
+  - [x] Vaste volgorde. A-site: woorden (eerste ronde) → per onderwerp herkennen → vorm → kiezen →
         gemengd (vertalen, zoek de fout) → gebruiken (lezen, dialoog/taak, geleid schrijven) →
         luisteren → herhaling → overige woordenoefeningen. B-site: Läsa → Ord (met eerste
         woordenronde) → Grammatik (herkennen → maken → kiezen) → Zoek de fout → Lyssna → Praktiskt →
         Skriva → Herhaling → overige woordenoefeningen.
-  - [ ] Verplaatsen: Zoek de fout vóór Lyssna (H13–H30); herkennen vóór maken in modaal-vorm (H2),
+  - [x] Verplaatsen: Zoek de fout vóór Lyssna (H13–H30); herkennen vóór maken in modaal-vorm (H2),
         var-vart (H5), seizoenen (H6), biff-kiezen (H10), ligt-of-staat (H11), mer-mest (H12),
         passiv-of-niet en som-weglaten (H13), vara-of-bli (H14), villkor-sorteren en rad-kiezen
         (H18), nagon-goed-fout (H20), samband-sorteren (H22), hade-weg en bekend-nieuw (H29), per
         geval nagekeken; lezen/dialoog/zoek de fout op vaste plek in H1, H4, H6, H9; in H10
         „För att of eftersom?” direct na „Welk voegwoord?”.
-  - [ ] Eerste woordenoefening vooraan (`build.js`); „Begin/Verder” slaat een oefening in rondes over
+  - [x] Eerste woordenoefening vooraan (`build.js`); „Begin/Verder” slaat een oefening in rondes over
         zodra één ronde gedaan is.
-  - [ ] Test: onderdelen in de vaste volgorde, geen topic uit een later hoofdstuk.
-  - [ ] Moeilijkheidslijn (zaagtand: binnen een hoofdstuk oplopend, oudere stof in de herhaling op
+  - [x] Test: onderdelen in de vaste volgorde, geen topic uit een later hoofdstuk.
+  - [x] Moeilijkheidslijn (zaagtand: binnen een hoofdstuk oplopend, oudere stof in de herhaling op
         het niveau van toen; getallen zijn een eigen richtlijn, A1/A2-grens bij H6/H7 een aanname):
         H1–H6 (A1) tekst 70–120 woorden, antwoordzin 4–6, ≥ 80 vragen; H7–H12 (A2) 120–200, 6–9,
         ≥ 80; H13–H24 (B1) 200–350, 8–12, ≥ 70; H25–H30 (B2) 350–500, 10–15, ≥ 70.
-  - [ ] `npm run difficulty-report` (zoals vocab-report) om de lijn te bewaken; aanvullen waar een
+  - [x] `npm run difficulty-report` (zoals vocab-report) om de lijn te bewaken; aanvullen waar een
         hoofdstuk eronder zit (vooral H9–H12 en H16–H30); B-herhalingssets naar 10 vragen; taalreview
         controleert ook „alleen stof uit dit en eerdere hoofdstukken” en de lijn.
+      Gedaan in november 2026: alle hoofdstukken in de vaste volgorde (test in `tests/content.test.js`);
+      17 oefeningen verplaatst (herkennen vóór maken, onderwerpen bij elkaar); „Mag som weg?” (H13) en
+      „Mag hade weg?” (H29) bleven staan: dat zijn keuzes die op de vorm volgen; „Wat betekent het?” vooraan, „Verder” slaat een woordenoefening
+      over na één ronde; de test vond dat H1 al het meervoud vroeg (uitleg pas in H2): de meervoudsoefening
+      verschijnt nu pas vanaf het hoofdstuk met die uitleg; B-herhalingssets van 6 naar 10 vragen
+      (60 nieuwe vragen, na taalreview). Aanvullen tot de lijn (meer vragen, langere zinnen en teksten)
+      loopt mee in fase 2 en 3; `npm run difficulty-report` laat zien waar.
 - [ ] **Fase 2 – keuzeoefeningen**: per grammaticaonderwerp één oefening waarin de leerling eerst
       kiest welke vorm past en die dan maakt (8–10 vragen, `shuffle`, tips die de keuze uitleggen,
       één `steps`-vraag met „Waarom?”). Onderwerpen: inversie (H1), subjekt/objekt/possessief (H4),

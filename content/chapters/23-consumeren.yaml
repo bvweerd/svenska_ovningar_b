@@ -189,6 +189,21 @@ sections:
           - { id: 29kg, type: translate, prompt: "Deze jas is iets duurder dan die.", answers: ["Den här {jackan|rocken|kappan} är {lite|något} dyrare än den där."], feedback: [{ contains: "mer dyr", tip: "dyr is een gewoon bijvoeglijk naamwoord: dyrare." }, { contains: "dyrare som", tip: "Na een vergrotende trap: än." }] }
           - { id: d3n3, type: translate, prompt: "Vlees wordt steeds duurder.", answers: ["{Kött|Köttet} blir {allt dyrare|dyrare och dyrare}."] }
 
+  - id: zoek-de-fout
+    title: Zoek de fout
+    exercises:
+      - id: zoek-de-fout
+        title: Zoek de fout
+        instruction: Klik op het woord dat niet klopt en verbeter de zin.
+        topic: jamforelse
+        shuffle: true
+        items:
+          - { id: ud7u, type: findError, sentence: "Kasse A är lika dyr än kasse B.", wrong: [5], answers: ["Kasse A är lika dyr som kasse B."], tip: "Welk woord hoort bij lika?" }
+          - { id: yhqu, type: findError, sentence: "Ju mer man äter, desto man blir tröttare.", wrong: [5, 6], answers: ["Ju mer man äter, desto tröttare blir man."], tip: "Wat komt er direct na desto?" }
+          - { id: ucgz, type: findError, sentence: "Den här är mer billigare.", wrong: [3], answers: ["Den här är {mycket|lite} billigare.", "Den här är billigare."], tip: "billigare is al een vergrotende trap." }
+          - { id: xemf, type: findError, topic: ordbildning, sentence: "Det är en mycket vanlig och sällsynt växt.", wrong: [4], answers: ["Det är en mycket ovanlig och sällsynt växt."], tip: "sällsynt = zeldzaam." }
+          - { id: kj9m, type: findError, sentence: "Priserna blir alla dyrare.", wrong: [2], answers: ["Priserna blir allt dyrare."], tip: "Steeds duurder …" }
+
   - id: lyssna
     title: Lyssna · luisteren
     exercises:
@@ -283,21 +298,10 @@ sections:
           - { id: 99fq, type: gap, topic: nagon-ingen, text: "Jag har inte köpt ___ kaffe.", gaps: [{ answers: ["något"], options: ["något", "inget", "någon"], shuffle: false, tip: "kaffe is een ett-woord, en na inte: något." }] }
           - { id: uhe3, type: gap, topic: sambandsord, text: "Kasse C var dyr. ___ var förpackningarna inte miljövänliga.", gaps: [{ answers: ["Dessutom"], options: ["Dessutom", "Därför", "Däremot"], shuffle: false }] }
           - { id: z4c9, type: gap, topic: ordbildning, text: "beställa → en ___", gaps: [{ answers: ["beställning"] }] }
-
-  - id: zoek-de-fout
-    title: Zoek de fout
-    exercises:
-      - id: zoek-de-fout
-        title: Zoek de fout
-        instruction: Klik op het woord dat niet klopt en verbeter de zin.
-        topic: jamforelse
-        shuffle: true
-        items:
-          - { id: ud7u, type: findError, sentence: "Kasse A är lika dyr än kasse B.", wrong: [5], answers: ["Kasse A är lika dyr som kasse B."], tip: "Welk woord hoort bij lika?" }
-          - { id: yhqu, type: findError, sentence: "Ju mer man äter, desto man blir tröttare.", wrong: [5, 6], answers: ["Ju mer man äter, desto tröttare blir man."], tip: "Wat komt er direct na desto?" }
-          - { id: ucgz, type: findError, sentence: "Den här är mer billigare.", wrong: [3], answers: ["Den här är {mycket|lite} billigare.", "Den här är billigare."], tip: "billigare is al een vergrotende trap." }
-          - { id: xemf, type: findError, topic: ordbildning, sentence: "Det är en mycket vanlig och sällsynt växt.", wrong: [4], answers: ["Det är en mycket ovanlig och sällsynt växt."], tip: "sällsynt = zeldzaam." }
-          - { id: kj9m, type: findError, sentence: "Priserna blir alla dyrare.", wrong: [2], answers: ["Priserna blir allt dyrare."], tip: "Steeds duurder …" }
+          - { id: arqw, type: gap, topic: jamforelse, text: "Ju mer man handlar på nätet, ___ mer kartong får man slänga.", gaps: [{ answers: ["desto"], options: ["desto", "än", "som"], shuffle: false }] }
+          - { id: 7zpf, type: gap, topic: ordbildning, text: "betala → en ___", gaps: [{ answers: ["betalning"] }] }
+          - { id: ae9t, type: gap, topic: jamforelse, text: "Ekologiska ägg är inte lika billiga ___ vanliga ägg.", gaps: [{ answers: ["som"] }] }
+          - { id: hbje, type: transform, topic: nagon-ingen, task: "Maak de zin ontkennend.", prompt: "Jag har köpt några nya kläder den här månaden.", answers: ["Jag har inte köpt några nya kläder den här månaden."] }
 
 vocab:
   - { sv: "en matkasse", nl: "een maaltijdbox", def: "matkassen", pl: "matkassar", plDef: "matkassarna", ex: "Vi har beställt en **matkasse** med vegetariska recept.", exNl: "We hebben een maaltijdbox met vegetarische recepten besteld." }

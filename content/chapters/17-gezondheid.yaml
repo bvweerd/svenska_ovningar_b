@@ -189,6 +189,21 @@ sections:
           - { id: k52z, type: gap, text: "Barnet drömmer ___ en hund.", gaps: [{ answers: ["om"], feedback: [{ match: "av", tip: "Dromen van = drömma om." }] }] }
           - { id: 9jt7, type: gap, text: "Vad pratade ni ___?", gaps: [{ answers: ["om"], feedback: [{ match: "över", tip: "Praten over = prata om." }] }] }
 
+  - id: zoek-de-fout
+    title: Zoek de fout
+    exercises:
+      - id: zoek-de-fout
+        title: Zoek de fout
+        instruction: Klik op het woord dat niet klopt en verbeter de zin.
+        topic: framtid
+        shuffle: true
+        items:
+          - { id: dbhh, type: findError, sentence: "Det tänker regna hela helgen.", wrong: [1], answers: ["Det kommer att regna hela helgen.", "Det ska regna hela helgen."], tip: "Het weer neemt geen besluit." }
+          - { id: xuvu, type: findError, topic: prep-verb, sentence: "Jag är rädd av hundar.", wrong: [3], answers: ["Jag är rädd för hundar."], tip: "Bang voor …" }
+          - { id: rvs2, type: findError, topic: prep-verb, sentence: "Hon är intresserad i medicin.", wrong: [3], answers: ["Hon är intresserad av medicin."], tip: "Welk voorzetsel hoort bij intresserad?" }
+          - { id: rptb, type: findError, topic: prep-verb, sentence: "Vi väntar för bussen.", wrong: [2], answers: ["Vi väntar på bussen."], tip: "Wachten op …" }
+          - { id: mqf9, type: findError, sentence: "Jag går att ringa läkaren i morgon.", wrong: [1, 2], answers: ["Jag ska ringa läkaren {i morgon|imorgon}.", "Jag tänker ringa läkaren {i morgon|imorgon}."], tip: "Nederlands gaan + infinitief." }
+
   - id: lyssna
     title: Lyssna · luisteren
     exercises:
@@ -287,21 +302,10 @@ sections:
           - { id: hdr5, type: gap, topic: dar-dit-vars, text: "Det är sjukhuset ___ jag föddes.", gaps: [{ answers: ["där"], options: ["där", "dit", "vars"], shuffle: false }] }
           - { id: x24w, type: translate, topic: partikelverb, prompt: "Ik herkende de dokter niet.", answers: ["Jag kände inte igen {läkaren|doktorn}."] }
           - { id: 4uh5, type: gap, topic: framtid, text: "Det ___ ta lång tid innan knät är bra.", gaps: [{ answers: ["kommer att"], options: ["ska", "kommer att", "tänker"], shuffle: false }] }
-
-  - id: zoek-de-fout
-    title: Zoek de fout
-    exercises:
-      - id: zoek-de-fout
-        title: Zoek de fout
-        instruction: Klik op het woord dat niet klopt en verbeter de zin.
-        topic: framtid
-        shuffle: true
-        items:
-          - { id: dbhh, type: findError, sentence: "Det tänker regna hela helgen.", wrong: [1], answers: ["Det kommer att regna hela helgen.", "Det ska regna hela helgen."], tip: "Het weer neemt geen besluit." }
-          - { id: xuvu, type: findError, topic: prep-verb, sentence: "Jag är rädd av hundar.", wrong: [3], answers: ["Jag är rädd för hundar."], tip: "Bang voor …" }
-          - { id: rvs2, type: findError, topic: prep-verb, sentence: "Hon är intresserad i medicin.", wrong: [3], answers: ["Hon är intresserad av medicin."], tip: "Welk voorzetsel hoort bij intresserad?" }
-          - { id: rptb, type: findError, topic: prep-verb, sentence: "Vi väntar för bussen.", wrong: [2], answers: ["Vi väntar på bussen."], tip: "Wachten op …" }
-          - { id: mqf9, type: findError, sentence: "Jag går att ringa läkaren i morgon.", wrong: [1, 2], answers: ["Jag ska ringa läkaren {i morgon|imorgon}.", "Jag tänker ringa läkaren {i morgon|imorgon}."], tip: "Nederlands gaan + infinitief." }
+          - { id: bej6, type: gap, topic: framtid, text: "Enligt prognosen ___ det att regna hela helgen.", gaps: [{ answers: ["kommer"], options: ["kommer", "ska", "tänker"], shuffle: false }] }
+          - { id: 8hb6, type: gap, topic: prep-verb, text: "Jag har ont i ryggen och väntar ___ att läkaren ska ringa.", gaps: [{ answers: ["på"] }] }
+          - { id: gt3c, type: gap, topic: deponens, text: "Han ___ (lyckas) till slut få en tid hos tandläkaren.", gaps: [{ answers: ["lyckades"] }] }
+          - { id: 29hr, type: transform, topic: passiv-bli, task: "Maak er een lijdende zin van met bli.", prompt: "Doktorn undersökte patienten noga.", answers: ["Patienten blev {noga undersökt|undersökt noga}[ av doktorn]."] }
 
 vocab:
   - { sv: "en vårdcentral", nl: "een huisartsenpraktijk, een gezondheidscentrum", def: "vårdcentralen", pl: "vårdcentraler", plDef: "vårdcentralerna", ex: "Ring **vårdcentralen** om febern inte går ner.", exNl: "Bel de huisartsenpraktijk als de koorts niet daalt." }

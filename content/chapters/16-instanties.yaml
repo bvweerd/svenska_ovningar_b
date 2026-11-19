@@ -192,6 +192,21 @@ sections:
               - { text: "Hon **lyckades** till slut.", cat: 1 }
               - { text: "Vi **hörs**!", cat: 2 }
 
+  - id: zoek-de-fout
+    title: Zoek de fout
+    exercises:
+      - id: zoek-de-fout
+        title: Zoek de fout
+        instruction: Klik op het woord dat niet klopt en verbeter de zin.
+        topic: deponens
+        shuffle: true
+        items:
+          - { id: 5ebe, type: findError, sentence: "Jag hoppar att du kan komma.", wrong: [1], answers: ["Jag hoppas att du kan komma."], tip: "Springen of hopen?" }
+          - { id: vjaa, type: findError, sentence: "Det finnas många blanketter här.", wrong: [1], answers: ["Det finns många blanketter här."], tip: "Presens van finnas." }
+          - { id: acnk, type: findError, sentence: "Vi träffar i morgon klockan tio.", wrong: [1], answers: ["Vi {träffas|ses} {i morgon|imorgon} klockan tio."], tip: "We zien elkaar." }
+          - { id: gemj, type: findError, sentence: "Jag har aldrig lyckat med det.", wrong: [3], answers: ["Jag har aldrig lyckats med det."], tip: "lyckas houdt altijd de -s." }
+          - { id: hhae, type: findError, sentence: "Hon trivs inte på jobbet förra året.", wrong: [1], answers: ["Hon trivdes inte på jobbet förra året."], tip: "Kijk naar förra året." }
+
   - id: lyssna
     title: Lyssna · luisteren
     exercises:
@@ -287,21 +302,10 @@ sections:
           - { id: xsma, type: translate, topic: partikelverb, prompt: "Ik herkende de ambtenaar niet.", answers: ["Jag kände inte igen {handläggaren|tjänstemannen|tjänstepersonen}."] }
           - { id: xgpc, type: gap, topic: deponens, text: "Vi ___ (träffas) på en kurs för tre år sedan.", gaps: [{ answers: ["träffades"] }] }
           - { id: mdv9, type: transform, topic: relativ-som, prompt: "Jag fick ett brev. Jag förstod inte brevet.", answers: ["Jag fick ett brev [som ]jag inte förstod."], feedback: [{ contains: "förstod inte", tip: "In de bijzin staat inte vóór het werkwoord: som jag inte förstod." }] }
-
-  - id: zoek-de-fout
-    title: Zoek de fout
-    exercises:
-      - id: zoek-de-fout
-        title: Zoek de fout
-        instruction: Klik op het woord dat niet klopt en verbeter de zin.
-        topic: deponens
-        shuffle: true
-        items:
-          - { id: 5ebe, type: findError, sentence: "Jag hoppar att du kan komma.", wrong: [1], answers: ["Jag hoppas att du kan komma."], tip: "Springen of hopen?" }
-          - { id: vjaa, type: findError, sentence: "Det finnas många blanketter här.", wrong: [1], answers: ["Det finns många blanketter här."], tip: "Presens van finnas." }
-          - { id: acnk, type: findError, sentence: "Vi träffar i morgon klockan tio.", wrong: [1], answers: ["Vi {träffas|ses} {i morgon|imorgon} klockan tio."], tip: "We zien elkaar." }
-          - { id: gemj, type: findError, sentence: "Jag har aldrig lyckat med det.", wrong: [3], answers: ["Jag har aldrig lyckats med det."], tip: "lyckas houdt altijd de -s." }
-          - { id: hhae, type: findError, sentence: "Hon trivs inte på jobbet förra året.", wrong: [1], answers: ["Hon trivdes inte på jobbet förra året."], tip: "Kijk naar förra året." }
+          - { id: 9u8g, type: gap, topic: deponens, text: "Vi ___ (trivas) mycket bra i det nya bostadsområdet.", gaps: [{ answers: ["trivs"] }] }
+          - { id: dw4u, type: gap, topic: myndighetssprak, text: "___ kontakta oss om du har frågor om ditt beslut.", gaps: [{ answers: ["Vänligen"], options: ["Vänligen", "Typ", "Tja"], shuffle: false }] }
+          - { id: wjve, type: transform, topic: relativ-som, task: "Maak er één zin van met som.", prompt: "Jag har fått ett brev. Det kom från Migrationsverket.", answers: ["Jag har fått ett brev som kom från Migrationsverket."] }
+          - { id: 29nn, type: gap, topic: partikelverb, text: "Du måste ___ blanketten innan du skickar den.", gaps: [{ answers: ["fylla i"], options: ["fylla i", "ta upp", "stänga av"], shuffle: false }] }
 
 vocab:
   - { sv: "ett personnummer", nl: "een persoonsnummer (BSN)", def: "personnumret", pl: "personnummer", plDef: "personnumren", ex: "Utan **personnummer** är det svårt att öppna ett bankkonto.", exNl: "Zonder persoonsnummer is het moeilijk om een bankrekening te openen." }

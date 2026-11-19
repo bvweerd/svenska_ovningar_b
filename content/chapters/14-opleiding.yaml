@@ -130,6 +130,22 @@ sections:
   - id: bli-passiv
     title: "Grammatik: de lijdende vorm met bli"
     exercises:
+      - id: vara-of-bli
+        title: Toestand of gebeurtenis?
+        instruction: Kies **är/var** (toestand) of **blev** (iets gebeurde).
+        topic: passiv-bli
+        items:
+          - id: rbkp
+            type: sort
+            categories: ["toestand (vara)", "gebeurtenis (bli)"]
+            items:
+              - { text: "Biblioteket **är** stängt på söndagar.", cat: 0 }
+              - { text: "Vägen **blev** avstängd efter olyckan.", cat: 1 }
+              - { text: "Alla platser **är** bokade.", cat: 0 }
+              - { text: "Hon **blev** överraskad av resultatet.", cat: 1, tip: "Er gebeurde iets met haar: ze werd verrast." }
+              - { text: "Fönstret **var** öppet hela natten.", cat: 0 }
+              - { text: "Han **blev** påkörd av en bil.", cat: 1 }
+
       - id: bli-invullen
         title: Bli + deelwoord
         instruction: Vul het voltooid deelwoord in de goede vorm in.
@@ -158,22 +174,6 @@ sections:
           - { id: 9mah, type: transform, prompt: "Tentorna rättades snabbt.", answers: ["Tentorna blev rättade snabbt.", "Tentorna blev snabbt rättade."] }
           - { id: 86bd, type: transform, prompt: "Mötet flyttades till fredag.", answers: ["Mötet blev flyttat till fredag."], feedback: [{ contains: "blev flyttad ", tip: "möte is een ett-woord: flyttat." }] }
           - { id: mjtb, type: transform, prompt: "Studenterna informerades om ändringen.", answers: ["Studenterna blev informerade om ändringen."], feedback: [{ contains: "blev informerad ", tip: "studenterna is meervoud: informerade." }] }
-
-      - id: vara-of-bli
-        title: Toestand of gebeurtenis?
-        instruction: Kies **är/var** (toestand) of **blev** (iets gebeurde).
-        topic: passiv-bli
-        items:
-          - id: rbkp
-            type: sort
-            categories: ["toestand (vara)", "gebeurtenis (bli)"]
-            items:
-              - { text: "Biblioteket **är** stängt på söndagar.", cat: 0 }
-              - { text: "Vägen **blev** avstängd efter olyckan.", cat: 1 }
-              - { text: "Alla platser **är** bokade.", cat: 0 }
-              - { text: "Hon **blev** överraskad av resultatet.", cat: 1, tip: "Er gebeurde iets met haar: ze werd verrast." }
-              - { text: "Fönstret **var** öppet hela natten.", cat: 0 }
-              - { text: "Han **blev** påkörd av en bil.", cat: 1 }
 
   - id: particip
     title: "Grammatik: deelwoorden"
@@ -222,6 +222,21 @@ sections:
           - { id: u28p, type: mc, prompt: "Hon är en ___ lärare. (inspirerend)", options: ["inspirerande", "inspirerad", "inspirerat"], answer: 0, tip: "Iets wat inspireert: inspirerande. inspirerad = geïnspireerd." }
           - { id: ua3u, type: mc, prompt: "Nils kom ___ in i rummet. (rennend)", options: ["springande", "sprungen", "springer"], answer: 0 }
           - { id: mwp5, type: mc, prompt: "Han är en ___ student. (veelbelovend)", options: ["lovande", "lovad", "lovar"], answer: 0 }
+
+  - id: zoek-de-fout
+    title: Zoek de fout
+    exercises:
+      - id: zoek-de-fout
+        title: Zoek de fout
+        instruction: Klik op het woord dat niet klopt en verbeter de zin.
+        topic: passiv-bli
+        shuffle: true
+        items:
+          - { id: jufa, type: findError, sentence: "Huset blev såld förra året.", wrong: [2], answers: ["Huset blev sålt förra året."], tip: "hus is een ett-woord." }
+          - { id: rvnz, type: findError, sentence: "Böckerna blev stulen i natt.", wrong: [2], answers: ["Böckerna blev stulna i natt."], tip: "Hoeveel boeken?" }
+          - { id: pann, type: findError, topic: particip, sentence: "Den stulen cykeln hittades i skogen.", wrong: [1], answers: ["Den stulna cykeln hittades i skogen."], tip: "Na den: de bepaalde vorm van het deelwoord." }
+          - { id: dcmk, type: findError, topic: particip, sentence: "Det var en spänd film.", wrong: [3], answers: ["Det var en spännande film."], tip: "Een film die spanning geeft." }
+          - { id: 8mzh, type: findError, sentence: "Hon blev antaget till kursen.", wrong: [2], answers: ["Hon blev antagen till kursen."], tip: "Het onderwerp is hon." }
 
   - id: lyssna
     title: Lyssna · luisteren
@@ -332,21 +347,10 @@ sections:
           - { id: wb8t, type: transform, topic: relativ-som, prompt: "Det är en kurs. Den kräver inte förkunskaper.", answers: ["Det är en kurs som inte kräver förkunskaper."], feedback: [{ contains: "som kräver inte", tip: "In een bijzin staat inte vóór het werkwoord." }] }
           - { id: 6nay, type: gap, topic: passiv-bli, text: "Biljetterna blev ___ (sälja) på en timme.", gaps: [{ answers: ["sålda"] }] }
           - { id: p3vh, type: mc, topic: particip, prompt: "Det var en ___ bok.", options: ["spännande", "spänd", "spännad"], answer: 0 }
-
-  - id: zoek-de-fout
-    title: Zoek de fout
-    exercises:
-      - id: zoek-de-fout
-        title: Zoek de fout
-        instruction: Klik op het woord dat niet klopt en verbeter de zin.
-        topic: passiv-bli
-        shuffle: true
-        items:
-          - { id: jufa, type: findError, sentence: "Huset blev såld förra året.", wrong: [2], answers: ["Huset blev sålt förra året."], tip: "hus is een ett-woord." }
-          - { id: rvnz, type: findError, sentence: "Böckerna blev stulen i natt.", wrong: [2], answers: ["Böckerna blev stulna i natt."], tip: "Hoeveel boeken?" }
-          - { id: pann, type: findError, topic: particip, sentence: "Den stulen cykeln hittades i skogen.", wrong: [1], answers: ["Den stulna cykeln hittades i skogen."], tip: "Na den: de bepaalde vorm van het deelwoord." }
-          - { id: dcmk, type: findError, topic: particip, sentence: "Det var en spänd film.", wrong: [3], answers: ["Det var en spännande film."], tip: "Een film die spanning geeft." }
-          - { id: 8mzh, type: findError, sentence: "Hon blev antaget till kursen.", wrong: [2], answers: ["Hon blev antagen till kursen."], tip: "Het onderwerp is hon." }
+          - { id: 2jwh, type: gap, topic: relativ-som, text: "Kursen ___ jag går på börjar klockan åtta varje morgon.", gaps: [{ answers: ["som"], options: ["som", "vars", "där"], shuffle: false }] }
+          - { id: c3bd, type: transform, topic: passiv-bli, task: "Maak er een lijdende zin van met bli.", prompt: "Man antog henne till programmet i våras.", answers: ["Hon blev antagen till programmet i våras."] }
+          - { id: dpdb, type: gap, topic: particip, text: "De ___ (skriva) uppsatserna ska lämnas in på fredag.", gaps: [{ answers: ["skrivna"] }] }
+          - { id: qj6m, type: gap, topic: passiv-s, text: "Ansökan måste ___ (skicka) senast den första maj.", gaps: [{ answers: ["skickas"] }] }
 
 vocab:
   - { sv: "en utbildning", nl: "een opleiding", def: "utbildningen", pl: "utbildningar", plDef: "utbildningarna", ex: "Det tog flera månader innan hans **utbildning** blev godkänd.", exNl: "Het duurde enkele maanden voordat zijn opleiding werd erkend." }

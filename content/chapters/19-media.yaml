@@ -189,6 +189,21 @@ sections:
           - { id: 3u8z, type: order, start: "Hon undrade", tokens: ["om", "vi", "redan", "hade", "ätit"], answers: ["Hon undrade om vi redan hade ätit."] }
           - { id: cnuc, type: order, start: "Han frågade", tokens: ["vem", "som", "hade", "skrivit", "artikeln"], answers: ["Han frågade vem som hade skrivit artikeln."] }
 
+  - id: zoek-de-fout
+    title: Zoek de fout
+    exercises:
+      - id: zoek-de-fout
+        title: Zoek de fout
+        instruction: Klik op het woord dat niet klopt en verbeter de zin.
+        topic: indirekt-fraga
+        shuffle: true
+        items:
+          - { id: jvx9, type: findError, sentence: "Jag vet inte vem ringde.", wrong: [3, 4], answers: ["Jag vet inte vem som ringde."], tip: "vem is hier het onderwerp." }
+          - { id: tx9m, type: findError, sentence: "Hon frågade var bodde jag.", wrong: [3, 4], answers: ["Hon frågade var jag bodde."], tip: "Bijzinvolgorde." }
+          - { id: mv2r, type: findError, topic: indirekt-tal-b1, sentence: "Han sa att han kunde inte komma.", wrong: [4, 5], answers: ["Han sa att han inte kunde komma."], tip: "Waar staat inte in een bijzin?" }
+          - { id: gfvj, type: findError, sentence: "Jag undrar att du vill följa med.", wrong: [2], answers: ["Jag undrar om du vill följa med."], tip: "Een ja/nee-vraag in een bijzin." }
+          - { id: qqpy, type: findError, topic: indirekt-tal-b1, sentence: "Det sa i tidningen att det skulle snöa.", wrong: [1], answers: ["Det stod i tidningen att det skulle snöa."], tip: "Wat zeg je over een tekst in de krant?" }
+
   - id: lyssna
     title: Lyssna · luisteren
     exercises:
@@ -286,21 +301,10 @@ sections:
           - { id: cb9h, type: gap, topic: villkor, text: "Om jag ___ (se) en älg, skulle jag bli rädd.", gaps: [{ answers: ["såg"] }] }
           - { id: m3m6, type: gap, topic: prep-verb, text: "Jag är inte intresserad ___ sport.", gaps: [{ answers: ["av"] }] }
           - { id: pmdy, type: transform, topic: indirekt-tal-b1, prompt: "Karin: ”Jag är rädd.”", task: "Karin sa att …", answers: ["Karin sa att hon var rädd."] }
-
-  - id: zoek-de-fout
-    title: Zoek de fout
-    exercises:
-      - id: zoek-de-fout
-        title: Zoek de fout
-        instruction: Klik op het woord dat niet klopt en verbeter de zin.
-        topic: indirekt-fraga
-        shuffle: true
-        items:
-          - { id: jvx9, type: findError, sentence: "Jag vet inte vem ringde.", wrong: [3, 4], answers: ["Jag vet inte vem som ringde."], tip: "vem is hier het onderwerp." }
-          - { id: tx9m, type: findError, sentence: "Hon frågade var bodde jag.", wrong: [3, 4], answers: ["Hon frågade var jag bodde."], tip: "Bijzinvolgorde." }
-          - { id: mv2r, type: findError, topic: indirekt-tal-b1, sentence: "Han sa att han kunde inte komma.", wrong: [4, 5], answers: ["Han sa att han inte kunde komma."], tip: "Waar staat inte in een bijzin?" }
-          - { id: gfvj, type: findError, sentence: "Jag undrar att du vill följa med.", wrong: [2], answers: ["Jag undrar om du vill följa med."], tip: "Een ja/nee-vraag in een bijzin." }
-          - { id: qqpy, type: findError, topic: indirekt-tal-b1, sentence: "Det sa i tidningen att det skulle snöa.", wrong: [1], answers: ["Det stod i tidningen att det skulle snöa."], tip: "Wat zeg je over een tekst in de krant?" }
+          - { id: z3j5, type: transform, topic: indirekt-tal-b1, prompt: "Sara: ”Jag kan inte komma på mötet.”", task: "Sara sa att …", answers: ["Sara sa att hon inte kunde komma på mötet."], feedback: [{ match: "Sara sa att hon kunde inte komma på mötet.", tip: "In de bijzin staat inte vóór het werkwoord: att hon inte kunde." }] }
+          - { id: c36d, type: gap, topic: indirekt-fraga, text: "Journalisten frågade ___ ministern tänkte avgå.", gaps: [{ answers: ["om"], options: ["om", "att", "som"], shuffle: false }] }
+          - { id: 2hvs, type: gap, topic: villkor, text: "Om tidningen ___ (vara) gratis, skulle fler människor läsa den.", gaps: [{ answers: ["var"] }] }
+          - { id: qakw, type: gap, topic: passiv-s, text: "Nyheten ___ (sända) i alla kanaler i går kväll.", gaps: [{ answers: ["sändes"] }] }
 
 vocab:
   - { sv: "en nyhet", nl: "een nieuwsbericht, een nieuwtje", def: "nyheten", pl: "nyheter", plDef: "nyheterna", ex: "Har du hört **nyheten**? Simon och Ella har förlovat sig.", exNl: "Heb je het nieuwtje gehoord? Simon en Ella hebben zich verloofd." }

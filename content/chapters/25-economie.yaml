@@ -192,6 +192,21 @@ sections:
               - { text: "en nedgång", cat: 1 }
               - { text: "ligga still", cat: 2 }
 
+  - id: zoek-de-fout
+    title: Zoek de fout
+    exercises:
+      - id: zoek-de-fout
+        title: Zoek de fout
+        instruction: Klik op het woord dat niet klopt en verbeter de zin.
+        topic: nominalisering
+        shuffle: true
+        items:
+          - { id: 7xbu, type: findError, sentence: "Det skedde en kraftigt ökning av priserna.", wrong: [3], answers: ["Det skedde en kraftig ökning av priserna."], tip: "Voor een zelfstandig naamwoord: bijvoeglijk naamwoord." }
+          - { id: a7uf, type: findError, sentence: "Vi såg en ökning med försäljningen.", wrong: [4], answers: ["Vi såg en ökning av försäljningen."], tip: "Wát stijgt?" }
+          - { id: uute, type: findError, sentence: "Ledningen fattade en beslut i maj.", wrong: [2], answers: ["Ledningen fattade ett beslut i maj."], tip: "beslut is een ett-woord." }
+          - { id: fbcy, type: findError, topic: trender, sentence: "Räntan steg från två till tre procent, alltså med en procent.", wrong: [10], answers: ["Räntan steg från två till tre procent, alltså med en procentenhet."], tip: "Het verschil tussen twee percentages." }
+          - { id: thad, type: findError, topic: trender, sentence: "Andelen nådde botten på 82 procent.", wrong: [2], answers: ["Andelen nådde {toppen|en topp|sin högsta nivå} på 82 procent."], tip: "82 procent was het hoogste punt." }
+
   - id: lyssna
     title: Lyssna · luisteren
     exercises:
@@ -272,21 +287,10 @@ sections:
           - { id: gh9b, type: gap, topic: jamforelse, text: "Försäljningen var ___ hög som i fjol.", gaps: [{ answers: ["lika"], options: ["lika", "mer", "än"], shuffle: false }] }
           - { id: hzr3, type: gap, topic: sambandsord, text: "E-handeln växte. ___ minskade butiksförsäljningen.", gaps: [{ answers: ["Däremot"], options: ["Däremot", "Dessutom", "Därför"], shuffle: false }] }
           - { id: bybc, type: gap, topic: nominalisering, text: "minska → ___", gaps: [{ answers: ["en minskning"] }] }
-
-  - id: zoek-de-fout
-    title: Zoek de fout
-    exercises:
-      - id: zoek-de-fout
-        title: Zoek de fout
-        instruction: Klik op het woord dat niet klopt en verbeter de zin.
-        topic: nominalisering
-        shuffle: true
-        items:
-          - { id: 7xbu, type: findError, sentence: "Det skedde en kraftigt ökning av priserna.", wrong: [3], answers: ["Det skedde en kraftig ökning av priserna."], tip: "Voor een zelfstandig naamwoord: bijvoeglijk naamwoord." }
-          - { id: a7uf, type: findError, sentence: "Vi såg en ökning med försäljningen.", wrong: [4], answers: ["Vi såg en ökning av försäljningen."], tip: "Wát stijgt?" }
-          - { id: uute, type: findError, sentence: "Ledningen fattade en beslut i maj.", wrong: [2], answers: ["Ledningen fattade ett beslut i maj."], tip: "beslut is een ett-woord." }
-          - { id: fbcy, type: findError, topic: trender, sentence: "Räntan steg från två till tre procent, alltså med en procent.", wrong: [10], answers: ["Räntan steg från två till tre procent, alltså med en procentenhet."], tip: "Het verschil tussen twee percentages." }
-          - { id: thad, type: findError, topic: trender, sentence: "Andelen nådde botten på 82 procent.", wrong: [2], answers: ["Andelen nådde {toppen|en topp|sin högsta nivå} på 82 procent."], tip: "82 procent was het hoogste punt." }
+          - { id: aqtc, type: gap, topic: trender, text: "Arbetslösheten ___ (sjunka) med två procent förra året.", gaps: [{ answers: ["sjönk"] }] }
+          - { id: cmc2, type: gap, topic: nominalisering, text: "minska → en ___", gaps: [{ answers: ["minskning"] }] }
+          - { id: f9n7, type: gap, topic: subjunktioner-b1, text: "___ priserna steg, köpte folk lika mycket som förut.", gaps: [{ answers: ["Trots att"], options: ["Trots att", "Även om", "Medan"], shuffle: false }] }
+          - { id: ny5w, type: gap, topic: asikt, text: "Jag ___ att distansarbete passar de flesta som arbetar på kontor.", gaps: [{ answers: ["anser"], options: ["anser", "undrar", "hoppas på"], shuffle: false }] }
 
 vocab:
   - { sv: "en ökning", nl: "een stijging, een toename", def: "ökningen", pl: "ökningar", plDef: "ökningarna", ex: "Under pandemin skedde en kraftig **ökning** av e-handeln.", exNl: "Tijdens de pandemie was er een sterke toename van de online handel." }

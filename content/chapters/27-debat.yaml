@@ -169,6 +169,21 @@ sections:
           - { id: 5twa, type: gap, text: "___ vill jag säga att frågan berör alla.", gaps: [{ answers: ["Slutligen"], options: ["Slutligen", "Visserligen", "Däremot"], shuffle: false }] }
           - { id: 5ftg, type: gap, text: "Jag ___ att vi behöver nya regler.", gaps: [{ answers: ["anser"], options: ["anser", "betyder", "tycker om"], shuffle: false, feedback: [{ match: "tycker om", tip: "tycka om = houden van. Een mening geven: anser (of tycker, zonder om)." }] }] }
 
+  - id: zoek-de-fout
+    title: Zoek de fout
+    exercises:
+      - id: zoek-de-fout
+        title: Zoek de fout
+        instruction: Klik op het woord dat niet klopt en verbeter de zin.
+        topic: utbrytning
+        shuffle: true
+        items:
+          - { id: q5aa, type: findError, sentence: "Det är eleverna som vill inte ha förbud.", wrong: [4, 5], answers: ["Det är eleverna som inte vill ha [ett ]förbud."], tip: "Het som-deel is een bijzin." }
+          - { id: f2xv, type: findError, sentence: "Det var min bror som ringer i går.", wrong: [5], answers: ["Det {var|är} min bror som ringde {i går|igår}."], tip: "Kijk naar de tijd." }
+          - { id: cb6y, type: findError, sentence: "Vem är det som ringer du?", wrong: [5], answers: ["Vem är det som ringer?"], tip: "Er staat een woord te veel." }
+          - { id: dcqu, type: findError, topic: argumentation, sentence: "Det är inte ett straff men en möjlighet.", wrong: [5], answers: ["Det är inte ett straff utan en möjlighet."], tip: "Na een ontkenning: niet men." }
+          - { id: q472, type: findError, topic: argumentation, sentence: "Kritiker betyder att förbudet är omodernt.", wrong: [1], answers: ["Kritiker menar att förbudet är omodernt.", "Kritiker hävdar att förbudet är omodernt."], tip: "Welk werkwoord betekent een mening hebben?" }
+
   - id: lyssna
     title: Lyssna · luisteren
     exercises:
@@ -265,21 +280,10 @@ sections:
           - { id: 3cnd, type: gap, topic: particip-konstruktion, text: "den av regeringen ___ (föreslå) lagen", gaps: [{ answers: ["föreslagna"] }] }
           - { id: pchr, type: gap, topic: asikt, text: "Jag håller inte med ___ det.", gaps: [{ answers: ["om"], options: ["om", "på", "för"], shuffle: false }] }
           - { id: wru8, type: transform, topic: utbrytning, prompt: "**Föräldrarna** bestämmer.", answers: ["Det är föräldrarna som bestämmer."] }
-
-  - id: zoek-de-fout
-    title: Zoek de fout
-    exercises:
-      - id: zoek-de-fout
-        title: Zoek de fout
-        instruction: Klik op het woord dat niet klopt en verbeter de zin.
-        topic: utbrytning
-        shuffle: true
-        items:
-          - { id: q5aa, type: findError, sentence: "Det är eleverna som vill inte ha förbud.", wrong: [4, 5], answers: ["Det är eleverna som inte vill ha [ett ]förbud."], tip: "Het som-deel is een bijzin." }
-          - { id: f2xv, type: findError, sentence: "Det var min bror som ringer i går.", wrong: [5], answers: ["Det {var|är} min bror som ringde {i går|igår}."], tip: "Kijk naar de tijd." }
-          - { id: cb6y, type: findError, sentence: "Vem är det som ringer du?", wrong: [5], answers: ["Vem är det som ringer?"], tip: "Er staat een woord te veel." }
-          - { id: dcqu, type: findError, topic: argumentation, sentence: "Det är inte ett straff men en möjlighet.", wrong: [5], answers: ["Det är inte ett straff utan en möjlighet."], tip: "Na een ontkenning: niet men." }
-          - { id: q472, type: findError, topic: argumentation, sentence: "Kritiker betyder att förbudet är omodernt.", wrong: [1], answers: ["Kritiker menar att förbudet är omodernt.", "Kritiker hävdar att förbudet är omodernt."], tip: "Welk werkwoord betekent een mening hebben?" }
+          - { id: ps3m, type: gap, topic: utbrytning, text: "Det är skolan ___ måste ta ansvar för problemet.", gaps: [{ answers: ["som"] }] }
+          - { id: z3dv, type: gap, topic: argumentation, text: "För det ___ stör mobilerna undervisningen.", gaps: [{ answers: ["första"] }] }
+          - { id: vv7z, type: gap, topic: particip-konstruktion, text: "Den av eleverna ___ (skriva) debattartikeln publicerades i lokaltidningen.", gaps: [{ answers: ["skrivna"] }] }
+          - { id: 6n67, type: gap, topic: subjunktioner-b1, text: "___ många elever håller med, vill rektorn inte ändra reglerna.", gaps: [{ answers: ["Trots att"], options: ["Trots att", "Eftersom", "Medan"], shuffle: false }] }
 
 vocab:
   - { sv: "en debatt", nl: "een debat", def: "debatten", pl: "debatter", plDef: "debatterna", ex: "Efter programmet blev det en het **debatt** i sociala medier.", exNl: "Na het programma ontstond er een fel debat op sociale media." }

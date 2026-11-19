@@ -176,6 +176,21 @@ sections:
           - { id: tzme, type: order, start: "Trots att det är dyrt,", tokens: ["väljer", "många", "ekologiskt"], answers: ["Trots att det är dyrt, väljer många ekologiskt."] }
           - { id: s3wc, type: order, start: "Det är viktigt att", tokens: ["alla", "får", "säga", "sin åsikt"], answers: ["Det är viktigt att alla får säga sin åsikt."] }
 
+  - id: zoek-de-fout
+    title: Zoek de fout
+    exercises:
+      - id: zoek-de-fout
+        title: Zoek de fout
+        instruction: Klik op het woord dat niet klopt en verbeter de zin.
+        topic: subjunktioner-b1
+        shuffle: true
+        items:
+          - { id: xdus, type: findError, sentence: "Trots att det regnade vi gick ut.", wrong: [4, 5], answers: ["Trots att det regnade gick vi ut."], tip: "Bijzin vooraan: daarna inversie." }
+          - { id: d7fh, type: findError, sentence: "Trots hon var trött gick hon ut.", wrong: [0], answers: ["Trots att hon var trött gick hon ut.", "Fastän hon var trött gick hon ut."], tip: "trots + bijzin: trots att." }
+          - { id: bd6g, type: findError, topic: asikt, sentence: "Jag håller inte med det.", wrong: [3, 4], answers: ["Jag håller inte med om det.", "Det håller jag inte med om."], tip: "Het eens zijn met iets: hålla med om." }
+          - { id: 37ka, type: findError, sentence: "Tvätta händerna sedan du äter!", wrong: [2], answers: ["Tvätta händerna innan du äter!"], tip: "Voordat …" }
+          - { id: pbnv, type: findError, topic: asikt, sentence: "Jag anser att vi borde inte göra det.", wrong: [4, 5], answers: ["Jag anser att vi inte borde göra det."], tip: "Na anser att volgt een bijzin." }
+
   - id: lyssna
     title: Lyssna · luisteren
     exercises:
@@ -286,21 +301,6 @@ sections:
           - { id: yahq, type: order, topic: sambandsord, start: "Därför", tokens: ["missade", "vi", "tåget"], answers: ["Därför missade vi tåget."] }
           - { id: bhb8, type: gap, topic: jamforelse, text: "Ju mer man läser, ___ mer lär man sig.", gaps: [{ answers: ["desto"], options: ["desto", "än", "så"], shuffle: false, tip: "ju … desto (informeel ook ju … ju)." }] }
           - { id: h7zq, type: transform, topic: subjunktioner-b1, prompt: "Det var kallt. Vi badade ändå. (trots att)", answers: ["Trots att det var kallt[,] badade vi[ ändå]."] }
-
-  - id: zoek-de-fout
-    title: Zoek de fout
-    exercises:
-      - id: zoek-de-fout
-        title: Zoek de fout
-        instruction: Klik op het woord dat niet klopt en verbeter de zin.
-        topic: subjunktioner-b1
-        shuffle: true
-        items:
-          - { id: xdus, type: findError, sentence: "Trots att det regnade vi gick ut.", wrong: [4, 5], answers: ["Trots att det regnade gick vi ut."], tip: "Bijzin vooraan: daarna inversie." }
-          - { id: d7fh, type: findError, sentence: "Trots hon var trött gick hon ut.", wrong: [0], answers: ["Trots att hon var trött gick hon ut.", "Fastän hon var trött gick hon ut."], tip: "trots + bijzin: trots att." }
-          - { id: bd6g, type: findError, topic: asikt, sentence: "Jag håller inte med det.", wrong: [3, 4], answers: ["Jag håller inte med om det.", "Det håller jag inte med om."], tip: "Het eens zijn met iets: hålla med om." }
-          - { id: 37ka, type: findError, sentence: "Tvätta händerna sedan du äter!", wrong: [2], answers: ["Tvätta händerna innan du äter!"], tip: "Voordat …" }
-          - { id: pbnv, type: findError, topic: asikt, sentence: "Jag anser att vi borde inte göra det.", wrong: [4, 5], answers: ["Jag anser att vi inte borde göra det."], tip: "Na anser att volgt een bijzin." }
 
 vocab:
   - { sv: "ett samhälle", nl: "een samenleving", def: "samhället", pl: "samhällen", plDef: "samhällena", ex: "Vi lever i ett **samhälle** där allt går allt snabbare.", exNl: "We leven in een samenleving waarin alles steeds sneller gaat." }

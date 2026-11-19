@@ -54,7 +54,7 @@ export function exampleGap(ex) {
  * @param nounTopic    onderwerp voor de en/ett-oefening: "substantiv" als de cursus daar een
  *                     uitlegkaart voor heeft (A1–A2), anders "woordenschat". Zo ook pluralTopic.
  */
-export function vocabExercises(vocab, chapterNo, { nounTopic = 'woordenschat', pluralTopic = 'woordenschat' } = {}) {
+export function vocabExercises(vocab, chapterNo, { nounTopic = 'woordenschat', pluralTopic = 'woordenschat', pluralFrom = 0 } = {}) {
   if (!vocab?.length) return [];
   const rand = rng(chapterNo * 7919 + vocab.length);
   const exercises = [];
@@ -143,7 +143,8 @@ export function vocabExercises(vocab, chapterNo, { nounTopic = 'woordenschat', p
     });
   }
 
-  const plurals = vocab.filter((v) => article(v.sv) && v.pl);
+  // Het meervoud pas oefenen vanaf het hoofdstuk waarin het wordt uitgelegd (pluralFrom).
+  const plurals = chapterNo >= pluralFrom ? vocab.filter((v) => article(v.sv) && v.pl) : [];
   if (plurals.length) {
     exercises.push({
       id: 'woorden-meervoud',
@@ -200,12 +201,20 @@ export function buildChapter(raw, opts = {}) {
   const sections = (raw.sections ?? []).map((s) => ({ ...s, exercises: [...(s.exercises ?? [])] }));
   const generated = vocabExercises(raw.vocab, raw.chapter, opts);
   if (generated.length) {
-    let w = sections.find((s) => s.id === 'woordenschat');
-    if (!w) {
-      w = { id: 'woordenschat', title: 'Woordenschat', exercises: [] };
-      sections.push(w);
+    // De eerste woordenoefening („Wat betekent het?”) komt vooraan: de woorden heb je nodig in de
+    // oefeningen. Op de B-site aan het begin van „Ord och fraser”, anders in een eigen onderdeel.
+    const [first, ...rest] = generated;
+    const ord = sections.find((s) => s.id === 'ord');
+    if (ord) ord.exercises.unshift(first);
+    else sections.unshift({ id: 'woorden', title: 'Woorden', intro: 'Eerst de woorden van dit hoofdstuk, in rondes van 15. De andere woordenoefeningen staan onderaan.', exercises: [first] });
+    if (rest.length) {
+      let w = sections.find((s) => s.id === 'woordenschat');
+      if (!w) {
+        w = { id: 'woordenschat', title: 'Woordenschat', exercises: [] };
+        sections.push(w);
+      }
+      w.exercises.push(...rest);
     }
-    w.exercises.push(...generated);
   }
   const exercises = sections.flatMap((s) => s.exercises);
   return { ...raw, sections, exercises, grammar: raw.grammar ?? [] };
@@ -215,7 +224,8 @@ export function buildCourse(index, rawChapters) {
   const hasCard = (id) => rawChapters.some((c) => c.grammar?.some((g) => g.id === id));
   const nounTopic = hasCard('substantiv') ? 'substantiv' : 'woordenschat';
   const pluralTopic = hasCard('plural') ? 'plural' : 'woordenschat';
-  const byNo = new Map(rawChapters.map((c) => [c.chapter, buildChapter(c, { nounTopic, pluralTopic })]));
+  const pluralFrom = rawChapters.find((c) => c.grammar?.some((g) => g.id === 'plural'))?.chapter ?? 0;
+  const byNo = new Map(rawChapters.map((c) => [c.chapter, buildChapter(c, { nounTopic, pluralTopic, pluralFrom })]));
   return index.chapters.map((meta) => ({
     ...meta,
     ...(byNo.get(meta.chapter) ?? {}),

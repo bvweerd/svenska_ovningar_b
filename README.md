@@ -15,6 +15,7 @@ npm install
 npm run dev      # ontwikkelserver
 npm test         # nakijklogica + controle van alle oefenstof
 npm run build    # statische site in dist/
+npm run difficulty-report   # moeilijkheid per hoofdstuk naast de moeilijkheidslijn (PLAN.md)
 ```
 
 ## Publiceren
@@ -133,6 +134,15 @@ eerst verborgen.
 Met `vocab:` in een hoofdstuk worden drie woordenschatoefeningen automatisch gemaakt.
 `npm test` controleert dat elk goed antwoord ook echt goed gerekend wordt en elke
 vastgelegde fout als fout.
+
+### Volgorde in een hoofdstuk
+
+De knop „Begin/Verder” loopt de oefeningen af in de volgorde van het bestand, dus die volgorde ligt vast
+(fase 1b in `PLAN.md`; `npm test` controleert hem). A-site: woorden → per onderwerp herkennen, vorm, kiezen →
+gemengd (vertalen, zoek de fout) → lezen → dialoog → schrijven → luisteren → herhaling → overige woordenschat.
+B-site: Läsa → Ord → Grammatik → Zoek de fout → Lyssna → Praktiskt → Skriva → Herhaling → overige woordenschat.
+De eerste woordenoefening („Wat betekent het?”) zet de app zelf vooraan; „Verder” slaat een woordenoefening
+over na één ronde van 15. Gebruik geen grammatica uit een later hoofdstuk: ook dat test `npm test`.
 
 ### Kan-doen-uitspraken
 

@@ -198,6 +198,21 @@ sections:
           - { id: g28s, type: transform, prompt: "Där är affären. Vi ska gå dit.", answers: ["Där är affären dit vi ska gå.", "Där är affären [som ]vi ska gå till."] }
           - { id: fg76, type: transform, prompt: "Jag har en granne. Grannens bil står alltid på min plats.", answers: ["Jag har en granne vars bil alltid står på min plats."], feedback: [{ contains: "vars bil står alltid", tip: "In de bijzin staat alltid vóór het werkwoord." }, { contains: "vars bilen", tip: "Na vars staat het woord onbepaald: vars bil." }] }
 
+  - id: zoek-de-fout
+    title: Zoek de fout
+    exercises:
+      - id: zoek-de-fout
+        title: Zoek de fout
+        instruction: Klik op het woord dat niet klopt en verbeter de zin.
+        topic: partikelverb
+        shuffle: true
+        items:
+          - { id: kvmu, type: findError, sentence: "Jag stängde datorn av i går.", wrong: [2, 3], answers: ["Jag stängde av datorn {i går|igår}."], tip: "Waar staat het partikel?" }
+          - { id: ydes, type: findError, topic: dar-dit-vars, sentence: "Det är staden dit jag bor.", wrong: [3], answers: ["Det är staden där jag bor."], tip: "bo is geen beweging." }
+          - { id: hd6g, type: findError, topic: dar-dit-vars, sentence: "Jag har en granne vem hund skäller.", wrong: [4], answers: ["Jag har en granne vars hund skäller."], tip: "Wiens hond?" }
+          - { id: 7gqy, type: findError, sentence: "Jag kände igen inte henne.", wrong: [2, 3], answers: ["Jag kände inte igen henne."], tip: "Waar staat inte bij een partikelwerkwoord?" }
+          - { id: 554k, type: findError, sentence: "Vi ska hälsa hos mormor i helgen.", wrong: [3], answers: ["Vi ska hälsa på mormor i helgen."], tip: "Op bezoek gaan = hälsa …?" }
+
   - id: lyssna
     title: Lyssna · luisteren
     exercises:
@@ -296,21 +311,10 @@ sections:
           - { id: xuf2, type: transform, topic: relativ-som, prompt: "Jag har en granne. Han spelar trummor.", answers: ["Jag har en granne som spelar trummor."] }
           - { id: twx5, type: gap, topic: dar-dit-vars, text: "Det är parken ___ vi brukar ta hunden på morgonen.", gaps: [{ answers: ["dit"], options: ["där", "dit", "vars"], shuffle: false, tip: "ta hunden (dit): je brengt de hond ernaartoe, een beweging, dus dit." }] }
           - { id: 9zdv, type: translate, topic: partikelverb, prompt: "Ik zet de radio aan.", answers: ["Jag sätter på radion.", "Jag slår på radion."] }
-
-  - id: zoek-de-fout
-    title: Zoek de fout
-    exercises:
-      - id: zoek-de-fout
-        title: Zoek de fout
-        instruction: Klik op het woord dat niet klopt en verbeter de zin.
-        topic: partikelverb
-        shuffle: true
-        items:
-          - { id: kvmu, type: findError, sentence: "Jag stängde datorn av i går.", wrong: [2, 3], answers: ["Jag stängde av datorn {i går|igår}."], tip: "Waar staat het partikel?" }
-          - { id: ydes, type: findError, topic: dar-dit-vars, sentence: "Det är staden dit jag bor.", wrong: [3], answers: ["Det är staden där jag bor."], tip: "bo is geen beweging." }
-          - { id: hd6g, type: findError, topic: dar-dit-vars, sentence: "Jag har en granne vem hund skäller.", wrong: [4], answers: ["Jag har en granne vars hund skäller."], tip: "Wiens hond?" }
-          - { id: 7gqy, type: findError, sentence: "Jag kände igen inte henne.", wrong: [2, 3], answers: ["Jag kände inte igen henne."], tip: "Waar staat inte bij een partikelwerkwoord?" }
-          - { id: 554k, type: findError, sentence: "Vi ska hälsa hos mormor i helgen.", wrong: [3], answers: ["Vi ska hälsa på mormor i helgen."], tip: "Op bezoek gaan = hälsa …?" }
+          - { id: gpfj, type: gap, topic: partikelverb, text: "Kläderna är smutsiga. Kan du ___ tvättmaskinen?", gaps: [{ answers: ["sätta på"], options: ["sätta på", "stänga av", "känna igen"], shuffle: false }] }
+          - { id: h97x, type: gap, topic: dar-dit-vars, text: "Det är grannen ___ hund skäller hela natten.", gaps: [{ answers: ["vars"], options: ["vars", "där", "dit"], shuffle: false }] }
+          - { id: e3z4, type: transform, topic: passiv-s, task: "Maak er een lijdende zin van met -s.", prompt: "Hyresvärden reparerar hissen nästa vecka.", answers: ["Hissen repareras av hyresvärden nästa vecka.", "Hissen repareras nästa vecka[ av hyresvärden]."] }
+          - { id: gtxs, type: gap, topic: particip, text: "Dörren var ___ (låsa) när vi kom hem i går kväll.", gaps: [{ answers: ["låst"] }] }
 
 vocab:
   - { sv: "en hyresvärd", nl: "een verhuurder", def: "hyresvärden", pl: "hyresvärdar", plDef: "hyresvärdarna", ex: "Jag ringde **hyresvärden** om elementet i sovrummet.", exNl: "Ik belde de verhuurder over de radiator in de slaapkamer." }

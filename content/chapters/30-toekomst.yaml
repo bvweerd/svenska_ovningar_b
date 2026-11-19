@@ -133,6 +133,21 @@ sections:
           - { id: 4uyh, type: transform, prompt: "Man förväntar sig att fler flyttar till städerna.", answers: ["Fler {förväntas|väntas} flytta till städerna."] }
           - { id: 7hq6, type: transform, prompt: "Man tror att bygget är klart 2030.", task: "Begin met: Bygget väntas …", answers: ["Bygget väntas vara klart [år ]2030."], feedback: [{ contains: "väntas är", tip: "Na väntas: infinitief, vara." }] }
 
+  - id: zoek-de-fout
+    title: Zoek de fout
+    exercises:
+      - id: zoek-de-fout
+        title: Zoek de fout
+        instruction: Klik op het woord dat niet klopt en verbeter de zin.
+        topic: framtid-b2
+        shuffle: true
+        items:
+          - { id: grsc, type: findError, sentence: "Priserna väntas att stiga.", wrong: [2], answers: ["Priserna {väntas|förväntas} stiga."], tip: "Na väntas komt geen att." }
+          - { id: n85z, type: findError, sentence: "Befolkningen beräknar öka.", wrong: [1], answers: ["Befolkningen beräknas öka."], tip: "De bevolking rekent niet zelf." }
+          - { id: 8rqr, type: findError, sentence: "Om tio år kommer jag att har flyttat.", wrong: [6], answers: ["Om tio år kommer jag att ha flyttat."], tip: "Na att: infinitief." }
+          - { id: tn2j, type: findError, sentence: "Det tänker bli kallt i helgen.", wrong: [1], answers: ["Det {lär|kommer att|ska} bli kallt i helgen."], tip: "Het weer heeft geen plannen." }
+          - { id: sdm2, type: findError, topic: bisats-adverb, sentence: "Jag tror att det blir inte lätt.", wrong: [4, 5], answers: ["Jag tror att det inte blir lätt."], tip: "Bijzinvolgorde." }
+
   - id: lyssna
     title: Lyssna · luisteren
     exercises:
@@ -248,21 +263,6 @@ sections:
           - { id: abx5, type: gap, topic: framtid-b2, text: "Om tio år kommer jag ___ flyttat.", gaps: [{ answers: ["att ha"] }] }
           - { id: 65mx, type: transform, topic: subjunktioner-b1, prompt: "Det regnade. Vi gick ut ändå. (trots att)", answers: ["Trots att det regnade[,] gick vi ut.", "Vi gick ut[,] trots att det regnade."] }
           - { id: 6yth, type: gap, topic: bestamd-utan-artikel, text: "Vi ses nästa ___.", gaps: [{ answers: ["vecka"], options: ["vecka", "veckan"], shuffle: false }] }
-
-  - id: zoek-de-fout
-    title: Zoek de fout
-    exercises:
-      - id: zoek-de-fout
-        title: Zoek de fout
-        instruction: Klik op het woord dat niet klopt en verbeter de zin.
-        topic: framtid-b2
-        shuffle: true
-        items:
-          - { id: grsc, type: findError, sentence: "Priserna väntas att stiga.", wrong: [2], answers: ["Priserna {väntas|förväntas} stiga."], tip: "Na väntas komt geen att." }
-          - { id: n85z, type: findError, sentence: "Befolkningen beräknar öka.", wrong: [1], answers: ["Befolkningen beräknas öka."], tip: "De bevolking rekent niet zelf." }
-          - { id: 8rqr, type: findError, sentence: "Om tio år kommer jag att har flyttat.", wrong: [6], answers: ["Om tio år kommer jag att ha flyttat."], tip: "Na att: infinitief." }
-          - { id: tn2j, type: findError, sentence: "Det tänker bli kallt i helgen.", wrong: [1], answers: ["Det {lär|kommer att|ska} bli kallt i helgen."], tip: "Het weer heeft geen plannen." }
-          - { id: sdm2, type: findError, topic: bisats-adverb, sentence: "Jag tror att det blir inte lätt.", wrong: [4, 5], answers: ["Jag tror att det inte blir lätt."], tip: "Bijzinvolgorde." }
 
 vocab:
   - { sv: "en framtid", nl: "de toekomst", def: "framtiden", ex: "Ingen vet hur **framtiden** kommer att se ut.", exNl: "Niemand weet hoe de toekomst eruit zal zien." }

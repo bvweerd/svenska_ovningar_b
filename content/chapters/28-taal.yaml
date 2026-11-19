@@ -199,6 +199,21 @@ sections:
           - { id: 5k2j, type: mc, prompt: "*Jag tror inte på allt han säger. Jag ___.*", options: ["tar det med en nypa salt", "har is i magen", "går som katten kring het gröt", "kastar yxan i sjön"], answer: 0 }
           - { id: 3gfw, type: mc, prompt: "*Något är konstigt här. Jag ___.*", options: ["anar ugglor i mossen", "glider in på en räkmacka", "har is i magen", "kastar yxan i sjön"], answer: 0 }
 
+  - id: zoek-de-fout
+    title: Zoek de fout
+    exercises:
+      - id: zoek-de-fout
+        title: Zoek de fout
+        instruction: Klik op het woord dat niet klopt en verbeter de zin.
+        topic: register
+        shuffle: true
+        items:
+          - { id: 8uhd, type: findError, sentence: "Jag träffade de i går.", wrong: [2], answers: ["Jag träffade dem {i går|igår}."], tip: "Jag träffade oss → ?" }
+          - { id: yak9, type: findError, sentence: "Dem kommer i morgon.", wrong: [0], answers: ["De kommer {i morgon|imorgon}."], tip: "Vi kommer → ?" }
+          - { id: qrjc, type: findError, sentence: "Vi har erhållit din ansökan och den är fett bra.", wrong: [8], answers: ["Vi har erhållit din ansökan och den är mycket bra."], tip: "Past dit woord in een formele brief?" }
+          - { id: s862, type: findError, topic: idiom, sentence: "Det är ingen häst på isen.", wrong: [3], answers: ["Det är ingen ko på isen."], tip: "Welk dier staat er op het ijs?" }
+          - { id: 9hwv, type: findError, topic: idiom, sentence: "Hon hade eld i magen under intervjun.", wrong: [2], answers: ["Hon hade is i magen under intervjun."], tip: "Kalm blijven: … i magen." }
+
   - id: lyssna
     title: Lyssna · luisteren
     exercises:
@@ -278,21 +293,10 @@ sections:
           - { id: 6bty, type: transform, topic: utbrytning, prompt: "**Dialekterna** gör svenskan rik.", answers: ["Det är dialekterna som gör svenskan rik."] }
           - { id: n8ey, type: gap, topic: argumentation, text: "___ låter förortssvenska annorlunda, ___ grammatiken är densamma.", gaps: [{ answers: ["Visserligen"], options: ["Visserligen", "Därför"], shuffle: false }, { answers: ["men"], options: ["men", "utan"], shuffle: false }] }
           - { id: d7vp, type: gap, topic: register, text: "Har du pratat med ___?", gaps: [{ answers: ["dem"], options: ["de", "dem"], shuffle: false }] }
-
-  - id: zoek-de-fout
-    title: Zoek de fout
-    exercises:
-      - id: zoek-de-fout
-        title: Zoek de fout
-        instruction: Klik op het woord dat niet klopt en verbeter de zin.
-        topic: register
-        shuffle: true
-        items:
-          - { id: 8uhd, type: findError, sentence: "Jag träffade de i går.", wrong: [2], answers: ["Jag träffade dem {i går|igår}."], tip: "Jag träffade oss → ?" }
-          - { id: yak9, type: findError, sentence: "Dem kommer i morgon.", wrong: [0], answers: ["De kommer {i morgon|imorgon}."], tip: "Vi kommer → ?" }
-          - { id: qrjc, type: findError, sentence: "Vi har erhållit din ansökan och den är fett bra.", wrong: [8], answers: ["Vi har erhållit din ansökan och den är mycket bra."], tip: "Past dit woord in een formele brief?" }
-          - { id: s862, type: findError, topic: idiom, sentence: "Det är ingen häst på isen.", wrong: [3], answers: ["Det är ingen ko på isen."], tip: "Welk dier staat er op het ijs?" }
-          - { id: 9hwv, type: findError, topic: idiom, sentence: "Hon hade eld i magen under intervjun.", wrong: [2], answers: ["Hon hade is i magen under intervjun."], tip: "Kalm blijven: … i magen." }
+          - { id: 6mam, type: gap, topic: register, text: "___ meddela oss om du inte kan komma på intervjun.", gaps: [{ answers: ["Vänligen"], options: ["Vänligen", "Typ", "Tja"], shuffle: false }] }
+          - { id: g5fg, type: gap, topic: idiom, text: "Det är ingen ___ på isen, vi har gott om tid.", gaps: [{ answers: ["ko"] }] }
+          - { id: apk2, type: transform, topic: utbrytning, task: "Leg de nadruk op het vetgedrukte deel, met det är … som.", prompt: "**Ungdomarna** förändrar språket snabbast.", answers: ["Det är ungdomarna som förändrar språket snabbast."] }
+          - { id: 4xaz, type: gap, topic: nominalisering, text: "förändra → en ___", gaps: [{ answers: ["förändring"] }] }
 
 vocab:
   - { sv: "en dialekt", nl: "een dialect", def: "dialekten", pl: "dialekter", plDef: "dialekterna", ex: "Min mormor talar en bred skånsk **dialekt**.", exNl: "Mijn oma spreekt een breed dialect uit Skåne." }

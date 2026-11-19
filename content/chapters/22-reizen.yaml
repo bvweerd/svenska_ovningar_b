@@ -158,6 +158,24 @@ sections:
   - id: sambandsord
     title: "Grammatik: verbindingswoorden"
     exercises:
+      - id: samband-sorteren
+        title: Inversie of niet?
+        instruction: Komt er na het woord vooraan in de zin **inversie** (werkwoord vóór onderwerp)?
+        topic: sambandsord
+        items:
+          - id: xswn
+            type: sort
+            categories: ["inversie: Därför kom vi …", "geen inversie: … så vi kom"]
+            items:
+              - { text: "därför", cat: 0 }
+              - { text: "och", cat: 1 }
+              - { text: "dessutom", cat: 0 }
+              - { text: "men", cat: 1 }
+              - { text: "ändå", cat: 0 }
+              - { text: "så (= dus)", cat: 1 }
+              - { text: "sedan", cat: 0 }
+              - { text: "eller", cat: 1 }
+
       - id: samband-kiezen
         title: Het goede verbindingswoord
         instruction: Kies het woord dat past.
@@ -188,23 +206,20 @@ sections:
           - { id: 4eyy, type: order, start: "Ändå", tokens: ["hade", "vi", "en fin resa"], answers: ["Ändå hade vi en fin resa."] }
           - { id: s5rk, type: order, start: "Först", tokens: ["åkte", "vi", "till Stockholm"], answers: ["Först åkte vi till Stockholm."] }
 
-      - id: samband-sorteren
-        title: Inversie of niet?
-        instruction: Komt er na het woord vooraan in de zin **inversie** (werkwoord vóór onderwerp)?
+  - id: zoek-de-fout
+    title: Zoek de fout
+    exercises:
+      - id: zoek-de-fout
+        title: Zoek de fout
+        instruction: Klik op het woord dat niet klopt en verbeter de zin.
         topic: sambandsord
+        shuffle: true
         items:
-          - id: xswn
-            type: sort
-            categories: ["inversie: Därför kom vi …", "geen inversie: … så vi kom"]
-            items:
-              - { text: "därför", cat: 0 }
-              - { text: "och", cat: 1 }
-              - { text: "dessutom", cat: 0 }
-              - { text: "men", cat: 1 }
-              - { text: "ändå", cat: 0 }
-              - { text: "så (= dus)", cat: 1 }
-              - { text: "sedan", cat: 0 }
-              - { text: "eller", cat: 1 }
+          - { id: qyqg, type: findError, sentence: "Därför vi missade bussen.", wrong: [1, 2], answers: ["Därför missade vi bussen."], tip: "Inversie na därför." }
+          - { id: kx95, type: findError, sentence: "Dessutom hotellet var dyrt.", wrong: [1, 2], answers: ["Dessutom var hotellet dyrt."], tip: "Inversie na dessutom." }
+          - { id: gf78, type: findError, topic: partikelverb-2, sentence: "Flyget är ställt in.", wrong: [2, 3], answers: ["Flyget är inställt."], tip: "Bij een deelwoord komt het partikel vooraan." }
+          - { id: ahuu, type: findError, topic: partikelverb-2, sentence: "Ta med sig passet!", wrong: [2], answers: ["Ta med dig passet!"], tip: "Tegen wie praat je?" }
+          - { id: butj, type: findError, sentence: "Tåget var sent, så missade vi bussen.", wrong: [4, 5], answers: ["Tåget var sent, så vi missade bussen."], tip: "Na het voegwoord så (= dus): geen inversie. In spreektaal hoor je ook så missade vi, maar schrijf så vi missade." }
 
   - id: lyssna
     title: Lyssna · luisteren
@@ -302,21 +317,10 @@ sections:
           - { id: re9s, type: gap, topic: nagon-ingen, text: "Vi har inte sett ___ renar än.", gaps: [{ answers: ["några"], options: ["några", "inga", "något"], shuffle: false }] }
           - { id: u3vz, type: gap, topic: bestamd-utan-artikel, text: "Vi vandrade hela ___.", gaps: [{ answers: ["dagen"], options: ["dag", "dagen"], shuffle: false }] }
           - { id: zut5, type: order, topic: sambandsord, start: "Därför", tokens: ["tog", "vi", "bussen"], answers: ["Därför tog vi bussen."] }
-
-  - id: zoek-de-fout
-    title: Zoek de fout
-    exercises:
-      - id: zoek-de-fout
-        title: Zoek de fout
-        instruction: Klik op het woord dat niet klopt en verbeter de zin.
-        topic: sambandsord
-        shuffle: true
-        items:
-          - { id: qyqg, type: findError, sentence: "Därför vi missade bussen.", wrong: [1, 2], answers: ["Därför missade vi bussen."], tip: "Inversie na därför." }
-          - { id: kx95, type: findError, sentence: "Dessutom hotellet var dyrt.", wrong: [1, 2], answers: ["Dessutom var hotellet dyrt."], tip: "Inversie na dessutom." }
-          - { id: gf78, type: findError, topic: partikelverb-2, sentence: "Flyget är ställt in.", wrong: [2, 3], answers: ["Flyget är inställt."], tip: "Bij een deelwoord komt het partikel vooraan." }
-          - { id: ahuu, type: findError, topic: partikelverb-2, sentence: "Ta med sig passet!", wrong: [2], answers: ["Ta med dig passet!"], tip: "Tegen wie praat je?" }
-          - { id: butj, type: findError, sentence: "Tåget var sent, så missade vi bussen.", wrong: [4, 5], answers: ["Tåget var sent, så vi missade bussen."], tip: "Na het voegwoord så (= dus): geen inversie. In spreektaal hoor je ook så missade vi, maar schrijf så vi missade." }
+          - { id: zgad, type: gap, topic: partikelverb-2, text: "Vi måste ___ vid nästa station, annars missar vi bussen.", gaps: [{ answers: ["stiga av"], options: ["stiga av", "stiga på", "hinna med"], shuffle: false }] }
+          - { id: djva, type: gap, topic: sambandsord, text: "Tåget var försenat, ___ missade vi vårt flyg till Luleå.", gaps: [{ answers: ["därför"], options: ["därför", "för", "men"], shuffle: false }] }
+          - { id: quzd, type: gap, topic: bestamd-utan-artikel, text: "Vi var ute och reste hela ___ (vecka).", gaps: [{ answers: ["veckan"] }] }
+          - { id: 4c6b, type: transform, topic: passiv-s, task: "Maak er een lijdende zin van met -s.", prompt: "Man ställde in flyget på grund av stormen.", answers: ["Flyget ställdes in på grund av stormen."] }
 
 vocab:
   - { sv: "ett nattåg", nl: "een nachttrein", def: "nattåget", pl: "nattåg", plDef: "nattågen", ex: "Vi tog **nattåget** från Stockholm till Abisko.", exNl: "We namen de nachttrein van Stockholm naar Abisko." }

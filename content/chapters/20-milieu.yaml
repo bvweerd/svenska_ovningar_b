@@ -105,6 +105,22 @@ sections:
   - id: nagon
     title: "Grammatik: någon / ingen"
     exercises:
+      - id: nagon-goed-fout
+        title: Goed of fout?
+        instruction: Is de zin goed of fout?
+        topic: nagon-ingen
+        items:
+          - id: gtvb
+            type: sort
+            categories: ["goed", "fout"]
+            items:
+              - { text: "Jag har ingen tid i dag.", cat: 0 }
+              - { text: "Jag har sett ingen.", cat: 1, tip: "Bij har + supinum: Jag har inte sett någon." }
+              - { text: "Jag kan inte se någon.", cat: 0 }
+              - { text: "Eftersom jag har ingen bil, cyklar jag.", cat: 1, tip: "In een bijzin: eftersom jag inte har någon bil." }
+              - { text: "Ingen kom på mötet.", cat: 0 }
+              - { text: "Hon har ätit ingenting.", cat: 1, tip: "Hon har inte ätit någonting." }
+
       - id: nagon-kiezen
         title: Welke vorm?
         instruction: Kies de goede vorm.
@@ -133,22 +149,6 @@ sections:
           - { id: x9k8, type: transform, prompt: "Jag har hittat något.", answers: ["Jag har inte hittat {något|någonting}."], feedback: [{ match: ["Jag har hittat inget.", "Jag har hittat ingenting."], tip: "Bij har + supinum: inte … något." }] }
           - { id: medb, type: transform, prompt: "Jag känner någon i Umeå.", answers: ["Jag känner ingen i Umeå.", "Jag känner inte någon i Umeå."] }
           - { id: brqb, type: transform, prompt: "Vi har köpt några presenter.", answers: ["Vi har inte köpt några presenter."], feedback: [{ match: "Vi har köpt inga presenter.", tip: "Bij har + supinum: inte … några." }] }
-
-      - id: nagon-goed-fout
-        title: Goed of fout?
-        instruction: Is de zin goed of fout?
-        topic: nagon-ingen
-        items:
-          - id: gtvb
-            type: sort
-            categories: ["goed", "fout"]
-            items:
-              - { text: "Jag har ingen tid i dag.", cat: 0 }
-              - { text: "Jag har sett ingen.", cat: 1, tip: "Bij har + supinum: Jag har inte sett någon." }
-              - { text: "Jag kan inte se någon.", cat: 0 }
-              - { text: "Eftersom jag har ingen bil, cyklar jag.", cat: 1, tip: "In een bijzin: eftersom jag inte har någon bil." }
-              - { text: "Ingen kom på mötet.", cat: 0 }
-              - { text: "Hon har ätit ingenting.", cat: 1, tip: "Hon har inte ätit någonting." }
 
   - id: man
     title: "Grammatik: man, en, ens"
@@ -181,6 +181,21 @@ sections:
           - { id: 28qv, type: translate, prompt: "Je moet je rijbewijs meenemen.", answers: ["Man {måste|ska} ta med [sig ]sitt körkort."], feedback: [{ contains: "ens körkort", tip: "Het bezit hoort bij man als onderwerp: sitt körkort." }, { contains: "du", tip: "Je in algemene zin = man." }] }
           - { id: mrch, type: translate, prompt: "Het is fijn als je vrienden je bellen.", answers: ["Det är {skönt|trevligt|roligt|härligt|fint} {när|om} ens vänner ringer[ till] en."], feedback: [{ contains: "sina vänner", tip: "man is hier niet het onderwerp: ens vänner." }] }
           - { id: 3jp7, type: translate, prompt: "Hier kun je goed eten.", answers: ["Här kan man äta gott.", "Man kan äta gott här.", "Här äter man gott.", "Man äter gott här."] }
+
+  - id: zoek-de-fout
+    title: Zoek de fout
+    exercises:
+      - id: zoek-de-fout
+        title: Zoek de fout
+        instruction: Klik op het woord dat niet klopt en verbeter de zin.
+        topic: nagon-ingen
+        shuffle: true
+        items:
+          - { id: w7df, type: findError, sentence: "Jag har sett ingen i parken.", wrong: [2, 3], answers: ["Jag har inte sett någon i parken."], tip: "Bij har + supinum." }
+          - { id: 77fx, type: findError, sentence: "Det finns ingen bröd kvar.", wrong: [2], answers: ["Det finns inget bröd kvar."], tip: "bröd is een ett-woord." }
+          - { id: 87fg, type: findError, sentence: "Har du någon syskon?", wrong: [2], answers: ["Har du några syskon?", "Har du något syskon?"], tip: "syskon is een ett-woord: något (één) of några (meer)." }
+          - { id: q5d9, type: findError, topic: man-en-ens, sentence: "Man ska ta med ens skräp hem.", wrong: [4], answers: ["Man ska ta med sig sitt skräp hem.", "Man ska ta med sitt skräp hem."], tip: "Het bezit hoort bij het onderwerp man." }
+          - { id: rdms, type: findError, sentence: "Eftersom jag har ingen bil cyklar jag.", wrong: [2, 3], answers: ["Eftersom jag inte har någon bil cyklar jag."], tip: "In een bijzin: inte … någon." }
 
   - id: lyssna
     title: Lyssna · luisteren
@@ -276,21 +291,10 @@ sections:
           - { id: kxk2, type: gap, topic: villkor, text: "Om alla ___ (sortera) sina sopor, skulle vi spara mycket energi.", gaps: [{ answers: ["sorterade"] }] }
           - { id: rmky, type: gap, topic: indirekt-fraga, text: "Vet du ___ hämtar soporna?", gaps: [{ answers: ["vem som"], options: ["vem som", "vem", "vad som"], shuffle: false }] }
           - { id: qrk9, type: transform, topic: nagon-ingen, prompt: "Jag har köpt något.", answers: ["Jag har inte köpt {något|någonting}."] }
-
-  - id: zoek-de-fout
-    title: Zoek de fout
-    exercises:
-      - id: zoek-de-fout
-        title: Zoek de fout
-        instruction: Klik op het woord dat niet klopt en verbeter de zin.
-        topic: nagon-ingen
-        shuffle: true
-        items:
-          - { id: w7df, type: findError, sentence: "Jag har sett ingen i parken.", wrong: [2, 3], answers: ["Jag har inte sett någon i parken."], tip: "Bij har + supinum." }
-          - { id: 77fx, type: findError, sentence: "Det finns ingen bröd kvar.", wrong: [2], answers: ["Det finns inget bröd kvar."], tip: "bröd is een ett-woord." }
-          - { id: 87fg, type: findError, sentence: "Har du någon syskon?", wrong: [2], answers: ["Har du några syskon?", "Har du något syskon?"], tip: "syskon is een ett-woord: något (één) of några (meer)." }
-          - { id: q5d9, type: findError, topic: man-en-ens, sentence: "Man ska ta med ens skräp hem.", wrong: [4], answers: ["Man ska ta med sig sitt skräp hem.", "Man ska ta med sitt skräp hem."], tip: "Het bezit hoort bij het onderwerp man." }
-          - { id: rdms, type: findError, sentence: "Eftersom jag har ingen bil cyklar jag.", wrong: [2, 3], answers: ["Eftersom jag inte har någon bil cyklar jag."], tip: "In een bijzin: inte … någon." }
+          - { id: sgmj, type: gap, topic: man-en-ens, text: "___ måste sortera plasten och pappret i olika kärl.", gaps: [{ answers: ["Man"], options: ["Man", "En", "Ens"], shuffle: false }] }
+          - { id: 9yyj, type: gap, topic: nagon-ingen, text: "Vi har inte ___ kompost i trädgården.", gaps: [{ answers: ["någon"], options: ["någon", "ingen", "några"], shuffle: false }] }
+          - { id: q6yn, type: transform, topic: villkor, task: "Maak de voorwaarde denkbeeldig, met skulle.", prompt: "Om vi cyklar mer, minskar utsläppen.", answers: ["Om vi cyklade mer, skulle utsläppen minska.", "Om vi cyklade mer skulle utsläppen minska."] }
+          - { id: tfbq, type: gap, topic: framtid, text: "Klimatet ___ att bli varmare de närmaste åren.", gaps: [{ answers: ["kommer"] }] }
 
 vocab:
   - { sv: "en miljö", nl: "het milieu, een omgeving", def: "miljön", pl: "miljöer", plDef: "miljöerna", ex: "Vi måste ta bättre hand om **miljön**.", exNl: "We moeten beter voor het milieu zorgen." }

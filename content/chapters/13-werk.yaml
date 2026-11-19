@@ -160,6 +160,25 @@ sections:
   - id: passiv
     title: "Grammatik: de lijdende vorm"
     exercises:
+      - id: passiv-of-niet
+        title: Lijdend of niet?
+        instruction: Is het werkwoord op **-s** een lijdende vorm, of een werkwoord dat altijd op -s eindigt?
+        topic: passiv-s
+        items:
+          - id: hp2f
+            type: sort
+            prompt: "Deel de zinnen in."
+            categories: ["lijdende vorm", "altijd op -s"]
+            items:
+              - { text: "Dörren **stängs** automatiskt.", cat: 0 }
+              - { text: "Jag **hoppas** att du mår bra.", cat: 1, tip: "hoppas (hopen) eindigt altijd op -s; er wordt niets met iemand gedaan." }
+              - { text: "Det **finns** kaffe i köket.", cat: 1, tip: "finnas (er zijn) eindigt altijd op -s." }
+              - { text: "Rapporten **skrevs** av två forskare.", cat: 0 }
+              - { text: "Vi **ses** i morgon!", cat: 1, tip: "ses = elkaar zien. Dat is wederkerig, niet lijdend." }
+              - { text: "Bilen **tvättas** varje lördag.", cat: 0 }
+              - { text: "Hon **trivs** på sitt nya jobb.", cat: 1, tip: "trivas = het naar je zin hebben; altijd op -s." }
+              - { text: "Lönen **betalas** ut i slutet av månaden.", cat: 0 }
+
       - id: passiv-presens
         title: Lijdende vorm – presens
         instruction: Vul de lijdende vorm in de **presens** in.
@@ -203,25 +222,6 @@ sections:
           - { id: n2dh, type: transform, prompt: "Man har renoverat kontoret.", answers: ["Kontoret har renoverats."], feedback: [{ match: "Kontoret renoverades.", tip: "Goed bedacht, maar houd de voltooide tijd aan: har + supinum + s." }] }
           - { id: 9w4f, type: transform, prompt: "Man måste skicka ansökan före fredag.", answers: ["Ansökan måste skickas före fredag.", "Före fredag måste ansökan skickas."], feedback: [{ contains: "måste skickar", tip: "Na een modaal werkwoord komt de infinitief: skicka + s = skickas." }] }
           - { id: 4sj3, type: transform, prompt: "Man städar kontoret varje kväll.", answers: ["Kontoret städas varje kväll.", "Varje kväll städas kontoret."], feedback: [{ contains: "av man", tip: "Man is onbepaald: dat laat je in de lijdende vorm weg." }] }
-
-      - id: passiv-of-niet
-        title: Lijdend of niet?
-        instruction: Is het werkwoord op **-s** een lijdende vorm, of een werkwoord dat altijd op -s eindigt?
-        topic: passiv-s
-        items:
-          - id: hp2f
-            type: sort
-            prompt: "Deel de zinnen in."
-            categories: ["lijdende vorm", "altijd op -s"]
-            items:
-              - { text: "Dörren **stängs** automatiskt.", cat: 0 }
-              - { text: "Jag **hoppas** att du mår bra.", cat: 1, tip: "hoppas (hopen) eindigt altijd op -s; er wordt niets met iemand gedaan." }
-              - { text: "Det **finns** kaffe i köket.", cat: 1, tip: "finnas (er zijn) eindigt altijd op -s." }
-              - { text: "Rapporten **skrevs** av två forskare.", cat: 0 }
-              - { text: "Vi **ses** i morgon!", cat: 1, tip: "ses = elkaar zien. Dat is wederkerig, niet lijdend." }
-              - { text: "Bilen **tvättas** varje lördag.", cat: 0 }
-              - { text: "Hon **trivs** på sitt nya jobb.", cat: 1, tip: "trivas = het naar je zin hebben; altijd op -s." }
-              - { text: "Lönen **betalas** ut i slutet av månaden.", cat: 0 }
 
   - id: som
     title: "Grammatik: zinnen met som"
@@ -270,6 +270,21 @@ sections:
           - { id: ry7d, type: order, start: "Vi söker någon", tokens: ["som", "kan", "börja", "direkt"], answers: ["Vi söker någon som kan börja direkt."] }
           - { id: z2wt, type: order, start: "Han fick ett jobb", tokens: ["som", "han", "alltid", "har", "drömt om"], answers: ["Han fick ett jobb som han alltid har drömt om."] }
           - { id: jxba, type: order, start: "Hon är den enda", tokens: ["som", "aldrig", "är", "sjuk"], answers: ["Hon är den enda som aldrig är sjuk."] }
+
+  - id: zoek-de-fout
+    title: Zoek de fout
+    exercises:
+      - id: zoek-de-fout
+        title: Zoek de fout
+        instruction: Klik op het woord dat niet klopt en verbeter de zin.
+        topic: passiv-s
+        shuffle: true
+        items:
+          - { id: 265z, type: findError, topic: relativ-som, sentence: "Jag har en kollega som pratar inte svenska.", wrong: [5, 6], answers: ["Jag har en kollega som inte pratar svenska."], tip: "Let op de plaats van inte in een bijzin." }
+          - { id: g7hh, type: findError, sentence: "Mötet hålls i går klockan tre.", wrong: [1], answers: ["Mötet hölls {i går|igår} klockan tre."], tip: "Wanneer was de vergadering?" }
+          - { id: ecd2, type: findError, sentence: "Ansökan måste skickar före fredag.", wrong: [2], answers: ["Ansökan måste skickas före fredag."], tip: "Na måste komt een infinitief, hier in de lijdende vorm." }
+          - { id: qt8n, type: findError, sentence: "Huset byggs år 1925.", wrong: [1], answers: ["Huset byggdes år 1925."], tip: "Kijk naar het jaartal." }
+          - { id: ywge, type: findError, topic: relativ-som, sentence: "Jobbet som jag sökte det var på heltid.", wrong: [4], answers: ["Jobbet [som ]jag sökte var på heltid."], tip: "Jobbet is al het onderwerp van de hoofdzin: herhaal het niet met det." }
 
   - id: lyssna
     title: Lyssna · luisteren
@@ -399,21 +414,6 @@ sections:
               - { any: ["som"], label: "Je gebruikt een bijzin met som" }
               - { any: ["hälsningar"], label: "Je sluit af met (Med) vänliga hälsningar" }
             model: "Hej Petra! Jag skriver angående tjänsten som kundtjänstmedarbetare. Jag såg annonsen på er webbplats. Jag har arbetat med kundservice i fyra år på ett företag som säljer cyklar. Där svarade jag på frågor från kunder via telefon och chatt. Jag talar svenska, engelska och nederländska. Jag tycker om att lösa problem och jag är lugn och noggrann. Jag är särskilt intresserad av att arbeta på ett företag som växer. Jag bifogar mitt cv och ser fram emot att höra från er. Med vänliga hälsningar, Lotte de Vries"
-
-  - id: zoek-de-fout
-    title: Zoek de fout
-    exercises:
-      - id: zoek-de-fout
-        title: Zoek de fout
-        instruction: Klik op het woord dat niet klopt en verbeter de zin.
-        topic: passiv-s
-        shuffle: true
-        items:
-          - { id: 265z, type: findError, topic: relativ-som, sentence: "Jag har en kollega som pratar inte svenska.", wrong: [5, 6], answers: ["Jag har en kollega som inte pratar svenska."], tip: "Let op de plaats van inte in een bijzin." }
-          - { id: g7hh, type: findError, sentence: "Mötet hålls i går klockan tre.", wrong: [1], answers: ["Mötet hölls {i går|igår} klockan tre."], tip: "Wanneer was de vergadering?" }
-          - { id: ecd2, type: findError, sentence: "Ansökan måste skickar före fredag.", wrong: [2], answers: ["Ansökan måste skickas före fredag."], tip: "Na måste komt een infinitief, hier in de lijdende vorm." }
-          - { id: qt8n, type: findError, sentence: "Huset byggs år 1925.", wrong: [1], answers: ["Huset byggdes år 1925."], tip: "Kijk naar het jaartal." }
-          - { id: ywge, type: findError, topic: relativ-som, sentence: "Jobbet som jag sökte det var på heltid.", wrong: [4], answers: ["Jobbet [som ]jag sökte var på heltid."], tip: "Jobbet is al het onderwerp van de hoofdzin: herhaal het niet met det." }
 
 vocab:
   - { sv: "en arbetsgivare", nl: "een werkgever", def: "arbetsgivaren", pl: "arbetsgivare", plDef: "arbetsgivarna", ex: "Min **arbetsgivare** betalar för kursen i svenska.", exNl: "Mijn werkgever betaalt de cursus Zweeds." }

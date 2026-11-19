@@ -170,6 +170,21 @@ sections:
   - id: fundament
     title: "Grammatik: wat zet je vooraan?"
     exercises:
+      - id: bekend-nieuw
+        title: Bekend vooraan
+        instruction: Welke zin sluit het best aan op de vorige zin?
+        topic: fundament
+        shuffle: true
+        items:
+          - { id: numc, type: mc, prompt: "*Kungen beställde ett nytt krigsskepp.* …", options: ["Skeppet skulle bli världens mäktigaste.", "Världens mäktigaste skulle skeppet bli.", "Bli världens mäktigaste skulle skeppet.", "Mäktigaste i världen blev skeppet skulle."], answer: 0, tip: "Begin met wat al bekend is (skeppet)." }
+          - { id: 6mnj, type: mc, prompt: "*1956 hittade en amatörforskare vraket.* …", options: ["Fem år senare bärgades det.", "Det bärgades, fem år senare, som skett.", "Bärgades fem år senare det.", "Senare fem år bärgades det."], answer: 0 }
+          - { id: hcpb, type: mc, prompt: "*På museet finns en modell av skeppet.* …", options: ["Modellen är byggd i skala 1:10.", "I skala 1:10 är byggd modellen.", "Byggd i skala 1:10 är modellen den.", "Är modellen byggd i skala 1:10."], answer: 0 }
+          - { id: 6qzv, type: mc, prompt: "*Vasa sjönk i augusti 1628.* …", options: ["I olyckan dog ett trettiotal människor.", "Ett trettiotal människor i olyckan dog.", "I olyckan ett trettiotal människor dog.", "Dog i olyckan ett trettiotal människor."], answer: 0, tip: "Begin met wat al bekend is (de ramp) en zet het nieuwe achteraan." }
+          - { id: 2qjn, type: mc, prompt: "*Skeppet bärgades 1961.* …", options: ["Sedan dess har det restaurerats.", "Restaurerats har det sedan dess.", "Sedan dess det har restaurerats.", "Det sedan dess har restaurerats."], answer: 0 }
+          - { id: s77q, type: mc, prompt: "*Kungen hette Gustav II Adolf.* …", options: ["Han var i Polen när skeppet sjönk.", "I Polen han var när skeppet sjönk.", "När skeppet sjönk han var i Polen.", "Var han i Polen när skeppet sjönk."], answer: 0 }
+          - { id: 6qt4, type: mc, prompt: "*Många turister besöker Vasamuseet.* …", options: ["Museet är ett av Stockholms populäraste.", "Ett av Stockholms populäraste museet är.", "Populäraste av Stockholms är museet ett.", "Är museet ett av Stockholms populäraste."], answer: 0 }
+          - { id: zg76, type: mc, prompt: "*Forskarna har undersökt vraket noga.* …", options: ["Deras slutsats är att skeppet var för smalt.", "Att skeppet var för smalt deras slutsats är.", "Slutsatsen deras är att skeppet var för smalt.", "Är deras slutsats att skeppet var för smalt."], answer: 0 }
+
       - id: det-finns
         title: Begin met det
         instruction: Herschrijf de zin met **det** vooraan.
@@ -199,20 +214,20 @@ sections:
           - { id: 63dy, type: order, start: "Det här", tokens: ["visste", "ingen", "då"], answers: ["Det här visste ingen då."] }
           - { id: ezfu, type: order, start: "Tyvärr", tokens: ["hade", "ingen", "räknat", "med vinden"], answers: ["Tyvärr hade ingen räknat med vinden."] }
 
-      - id: bekend-nieuw
-        title: Bekend vooraan
-        instruction: Welke zin sluit het best aan op de vorige zin?
-        topic: fundament
+  - id: zoek-de-fout
+    title: Zoek de fout
+    exercises:
+      - id: zoek-de-fout
+        title: Zoek de fout
+        instruction: Klik op het woord dat niet klopt en verbeter de zin.
+        topic: bisats-adverb
         shuffle: true
         items:
-          - { id: numc, type: mc, prompt: "*Kungen beställde ett nytt krigsskepp.* …", options: ["Skeppet skulle bli världens mäktigaste.", "Världens mäktigaste skulle skeppet bli.", "Bli världens mäktigaste skulle skeppet.", "Mäktigaste i världen blev skeppet skulle."], answer: 0, tip: "Begin met wat al bekend is (skeppet)." }
-          - { id: 6mnj, type: mc, prompt: "*1956 hittade en amatörforskare vraket.* …", options: ["Fem år senare bärgades det.", "Det bärgades, fem år senare, som skett.", "Bärgades fem år senare det.", "Senare fem år bärgades det."], answer: 0 }
-          - { id: hcpb, type: mc, prompt: "*På museet finns en modell av skeppet.* …", options: ["Modellen är byggd i skala 1:10.", "I skala 1:10 är byggd modellen.", "Byggd i skala 1:10 är modellen den.", "Är modellen byggd i skala 1:10."], answer: 0 }
-          - { id: 6qzv, type: mc, prompt: "*Vasa sjönk i augusti 1628.* …", options: ["I olyckan dog ett trettiotal människor.", "Ett trettiotal människor i olyckan dog.", "I olyckan ett trettiotal människor dog.", "Dog i olyckan ett trettiotal människor."], answer: 0, tip: "Begin met wat al bekend is (de ramp) en zet het nieuwe achteraan." }
-          - { id: 2qjn, type: mc, prompt: "*Skeppet bärgades 1961.* …", options: ["Sedan dess har det restaurerats.", "Restaurerats har det sedan dess.", "Sedan dess det har restaurerats.", "Det sedan dess har restaurerats."], answer: 0 }
-          - { id: s77q, type: mc, prompt: "*Kungen hette Gustav II Adolf.* …", options: ["Han var i Polen när skeppet sjönk.", "I Polen han var när skeppet sjönk.", "När skeppet sjönk han var i Polen.", "Var han i Polen när skeppet sjönk."], answer: 0 }
-          - { id: 6qt4, type: mc, prompt: "*Många turister besöker Vasamuseet.* …", options: ["Museet är ett av Stockholms populäraste.", "Ett av Stockholms populäraste museet är.", "Populäraste av Stockholms är museet ett.", "Är museet ett av Stockholms populäraste."], answer: 0 }
-          - { id: zg76, type: mc, prompt: "*Forskarna har undersökt vraket noga.* …", options: ["Deras slutsats är att skeppet var för smalt.", "Att skeppet var för smalt deras slutsats är.", "Slutsatsen deras är att skeppet var för smalt.", "Är deras slutsats att skeppet var för smalt."], answer: 0 }
+          - { id: h4fe, type: findError, sentence: "Vi vet att kungen var inte i Stockholm.", wrong: [4, 5], answers: ["Vi vet att kungen inte var i Stockholm."], tip: "Bijzinvolgorde." }
+          - { id: gpst, type: findError, sentence: "Hon sa att han kom inte heller.", wrong: [4, 5, 6], answers: ["Hon sa att han inte heller kom."], tip: "Bijzinvolgorde, met twee bijwoorden." }
+          - { id: vq9r, type: findError, topic: fundament, sentence: "År 1961 skeppet bärgades.", wrong: [2, 3], answers: ["År 1961 bärgades skeppet."], tip: "V2." }
+          - { id: crkt, type: findError, topic: fundament, sentence: "Det finnas många turister här.", wrong: [1], answers: ["Det finns många turister här."], tip: "Welke vorm van finnas?" }
+          - { id: z6z2, type: findError, sentence: "Skeppet sjunkit inom några minuter.", wrong: [1], answers: ["Skeppet {hade sjunkit|sjönk} inom några minuter."], tip: "In een hoofdzin mag hade niet wegvallen." }
 
   - id: lyssna
     title: Lyssna · luisteren
@@ -294,21 +309,10 @@ sections:
           - { id: ys8v, type: transform, topic: utbrytning, prompt: "**Kungen** ville ha skeppet klart snabbt.", answers: ["Det var kungen som ville ha skeppet klart snabbt."] }
           - { id: qd95, type: gap, topic: sambandsord, text: "Skeppet var instabilt. ___ sjönk det.", gaps: [{ answers: ["Därför"], options: ["Därför", "Dessutom", "Däremot"], shuffle: false }] }
           - { id: dc83, type: transform, topic: fundament, prompt: "En kanon ligger fortfarande på botten.", answers: ["Det ligger fortfarande en kanon på botten.", "Det ligger en kanon på botten fortfarande."] }
-
-  - id: zoek-de-fout
-    title: Zoek de fout
-    exercises:
-      - id: zoek-de-fout
-        title: Zoek de fout
-        instruction: Klik op het woord dat niet klopt en verbeter de zin.
-        topic: bisats-adverb
-        shuffle: true
-        items:
-          - { id: h4fe, type: findError, sentence: "Vi vet att kungen var inte i Stockholm.", wrong: [4, 5], answers: ["Vi vet att kungen inte var i Stockholm."], tip: "Bijzinvolgorde." }
-          - { id: gpst, type: findError, sentence: "Hon sa att han kom inte heller.", wrong: [4, 5, 6], answers: ["Hon sa att han inte heller kom."], tip: "Bijzinvolgorde, met twee bijwoorden." }
-          - { id: vq9r, type: findError, topic: fundament, sentence: "År 1961 skeppet bärgades.", wrong: [2, 3], answers: ["År 1961 bärgades skeppet."], tip: "V2." }
-          - { id: crkt, type: findError, topic: fundament, sentence: "Det finnas många turister här.", wrong: [1], answers: ["Det finns många turister här."], tip: "Welke vorm van finnas?" }
-          - { id: z6z2, type: findError, sentence: "Skeppet sjunkit inom några minuter.", wrong: [1], answers: ["Skeppet {hade sjunkit|sjönk} inom några minuter."], tip: "In een hoofdzin mag hade niet wegvallen." }
+          - { id: 8axe, type: transform, topic: bisats-adverb, prompt: "Han vill inte längre bo i Stockholm.", task: "Han sa att …", answers: ["Han sa att han inte längre ville bo i Stockholm."], feedback: [{ match: "Han sa att han ville inte längre bo i Stockholm.", tip: "In de bijzin staan inte en längre vóór het werkwoord." }] }
+          - { id: 9gqc, type: transform, topic: fundament, task: "Begin de zin met de tijd.", prompt: "Vasa bärgades år 1961.", answers: ["År 1961 bärgades Vasa."] }
+          - { id: ya7c, type: gap, topic: passiv-s, text: "Skeppet ___ (bygga) på order av kungen.", gaps: [{ answers: ["byggdes"] }] }
+          - { id: hkc4, type: gap, topic: indirekt-fraga, text: "Historikerna undrar fortfarande ___ skeppet sjönk så snabbt.", gaps: [{ answers: ["varför"], options: ["varför", "som", "att"], shuffle: false }] }
 
 vocab:
   - { sv: "ett skepp", nl: "een schip", def: "skeppet", pl: "skepp", plDef: "skeppen", ex: "Tusentals människor kom för att se det nya **skeppet** segla.", exNl: "Duizenden mensen kwamen kijken hoe het nieuwe schip uitvoer." }

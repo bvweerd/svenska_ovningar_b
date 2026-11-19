@@ -110,3 +110,52 @@ for (const ch of course) {
     });
   });
 }
+
+// ---------- Opbouw (fase 1b van het verbeterplan, PLAN.md) ----------
+// Vaste volgorde van de onderdelen. Onbekende id's zijn grammatica-onderdelen (B-site).
+// A-site: woorden → oefeningen → luisteren → herhaling → woordenschat.
+// B-site: woorden in „ord” → läsa → ord → grammatica → zoek de fout → lyssna → praktiskt → skriva → herhaling → woordenschat.
+const SECTION_RANK = { woorden: 0, lasa: 1, ord: 2, oefeningen: 3, 'zoek-de-fout': 4, luisteren: 5, lyssna: 5, praktiskt: 6, skriva: 7, herhaling: 8, eindtoets: 8, woordenschat: 9 };
+const GRAMMAR_RANK = 3;
+// Binnen „oefeningen” (A-site): eerst de onderwerpen en gemengd, dan zoek de fout, dan lezen, dialoog, schrijven.
+const exercisePhase = (ex) => {
+  const types = new Set(ex.items.map((i) => i.type));
+  if (ex.text && !ex.listen) return 2;
+  if (types.size === 1 && types.has('findError')) return 1;
+  if (types.size === 1 && types.has('dialogue')) return 3;
+  if (types.size === 1 && types.has('free')) return 4;
+  return 0;
+};
+const home = new Map(course.flatMap((c) => c.grammar.map((g) => [g.id, c.chapter])));
+
+describe('opbouw van de hoofdstukken', () => {
+  for (const ch of course) {
+    it(`hoofdstuk ${ch.chapter}: onderdelen in de vaste volgorde`, () => {
+      const ranks = ch.sections.map((s) => [s.id, SECTION_RANK[s.id] ?? GRAMMAR_RANK]);
+      for (let i = 1; i < ranks.length; i++) {
+        expect(ranks[i][1], `${ranks[i - 1][0]} hoort na ${ranks[i][0]}`).toBeGreaterThanOrEqual(ranks[i - 1][1]);
+      }
+    });
+
+    it(`hoofdstuk ${ch.chapter}: oefeningen eerst, dan zoek de fout, lezen, dialoog en schrijven`, () => {
+      for (const s of ch.sections.filter((x) => x.id === 'oefeningen')) {
+        const phases = s.exercises.map((ex) => [ex.id, exercisePhase(ex)]);
+        for (let i = 1; i < phases.length; i++) {
+          expect(phases[i][1], `${phases[i][0]} staat na ${phases[i - 1][0]}`).toBeGreaterThanOrEqual(phases[i - 1][1]);
+        }
+      }
+    });
+
+    it(`hoofdstuk ${ch.chapter}: geen grammatica uit een later hoofdstuk`, () => {
+      for (const ex of ch.exercises) for (const item of allItems(ex)) {
+        const t = item.topic ?? ex.topic;
+        if (home.has(t)) expect(home.get(t), `${ex.id}: topic ${t}`).toBeLessThanOrEqual(ch.chapter);
+      }
+    });
+
+    it.runIf(ch.vocab?.length)(`hoofdstuk ${ch.chapter}: de eerste woordenoefening staat vooraan`, () => {
+      const first = ch.sections.find((s) => s.id === 'woorden' || s.id === 'ord');
+      expect(first?.exercises.some((ex) => ex.id === 'woorden-sv-nl')).toBe(true);
+    });
+  }
+});
