@@ -26,6 +26,7 @@ grammar:
       |---|---|---|
       | **trots att** | hoewel (iets wat zo is) | *Han gick till jobbet **trots att** han var sjuk.* |
       | **även om** | ook al, zelfs als | *Jag går på festen **även om** det blir sent.* |
+      | **fastän** | hoewel (= trots att) | *Hon gick ut **fastän** det var kallt.* |
       | **medan** | terwijl (tijd of tegenstelling) | *Hon lagade mat **medan** han dukade. Hon pratar mycket, **medan** han är tyst.* |
       | **innan** | voordat | *Tvätta händerna **innan** du äter!* |
       | **sedan** | sinds; nadat | ***Sedan** jag flyttade hit har jag lärt mig mycket.* ***Sedan** vi hade ätit, gick vi ut.* |
@@ -120,8 +121,8 @@ sections:
         topic: asikt
         items:
           - { id: ajxr, type: translate, prompt: "Ik ben het met je eens.", answers: ["Jag håller med dig.", "Jag håller med."], feedback: [{ contains: "är enig", tip: "är enig med bestaat, maar is formeel en zeldzaam. Gewoner: Jag håller med (dig)." }] }
-          - { id: xxb5, type: translate, prompt: "Daar ben ik het niet mee eens.", answers: ["Det håller jag inte med om.", "Jag håller inte med om det."], feedback: [{ contains: "håller inte med det", tip: "Het eens zijn met iets: hålla med om. Det håller jag inte med om." }] }
-          - { id: 7j26, type: translate, prompt: "Volgens mij is dat te duur.", answers: ["Jag tycker[ att] det är för dyrt.", "Enligt mig är det för dyrt.", "Enligt min mening är det för dyrt."], feedback: [{ contains: "för dyr ", tip: "det is een ett-vorm: för dyrt." }, { contains: "enligt mig det är", tip: "Na enligt mig: inversie, enligt mig är det." }] }
+          - { id: q7hm, type: translate, prompt: "Daar ben ik het niet mee eens.", answers: ["Det håller jag inte med om.", "Jag håller inte med om det."], feedback: [{ contains: "håller inte med det", tip: "Het eens zijn met iets: hålla med om. Det håller jag inte med om." }] }
+          - { id: 7j26, type: translate, prompt: "Volgens mij is dat te duur.", answers: ["Jag {tycker|anser|menar|tror}[ att] det är för dyrt.", "Enligt mig är det för dyrt.", "Det är för dyrt enligt mig.", "Enligt min mening är det för dyrt."], feedback: [{ contains: "för dyr ", tip: "det is een ett-vorm: för dyrt." }, { contains: "enligt mig det är", tip: "Na enligt mig: inversie, enligt mig är det." }] }
 
   - id: subjunktioner
     title: "Grammatik: trots att, även om, medan"
@@ -233,7 +234,7 @@ sections:
 
   - id: skriva
     title: Skriva · schrijven
-    intro: "Schrijfdoel: je mening in 150 woorden."
+    intro: "Schrijfdoel: je mening in 120–160 woorden."
     exercises:
       - id: skriva-asikt
         title: Geef je mening
@@ -271,7 +272,7 @@ sections:
           - { id: 4ptf, type: gap, topic: framtid, text: "Det ___ att bli kallt i natt.", gaps: [{ answers: ["kommer"], options: ["kommer", "ska", "tänker"], shuffle: false }] }
           - { id: rj6b, type: gap, topic: prep-verb, text: "Jag är rädd ___ hundar.", gaps: [{ answers: ["för"] }] }
           - { id: b7gd, type: gap, topic: villkor, text: "Om jag ___ (ha) tid, skulle jag följa med.", gaps: [{ answers: ["hade"] }] }
-          - { id: 78ut, type: transform, topic: indirekt-tal-b1, prompt: "Erik: ”Jag kan inte komma.”", task: "Erik sa att …", answers: ["Erik sa att han inte kunde komma."] }
+          - { id: 78ut, type: transform, topic: indirekt-tal-b1, prompt: "Erik: ”Jag kan inte komma.”", task: "Erik sa att …", answers: ["Erik sa att han inte {kunde|kan} komma."] }
           - { id: rrur, type: gap, topic: indirekt-fraga, text: "Jag vet inte ___ har tagit min cykel.", gaps: [{ answers: ["vem som"], options: ["vem som", "vem", "vad"], shuffle: false }] }
           - { id: qx64, type: transform, topic: nagon-ingen, prompt: "Jag har sett något.", task: "Maak de zin ontkennend.", answers: ["Jag har inte sett {något|någonting}."] }
           - { id: fxpc, type: gap, topic: man-en-ens, text: "Det är skönt när någon hjälper ___.", gaps: [{ answers: ["en"], options: ["man", "en", "ens"], shuffle: false }] }
@@ -291,7 +292,7 @@ sections:
         shuffle: true
         items:
           - { id: xdus, type: findError, sentence: "Trots att det regnade vi gick ut.", wrong: [4, 5], answers: ["Trots att det regnade gick vi ut."], tip: "Bijzin vooraan: daarna inversie." }
-          - { id: d7fh, type: findError, sentence: "Trots regnade det gick vi ut.", wrong: [0, 1], answers: ["Trots att det regnade gick vi ut.", "Trots regnet gick vi ut."], tip: "trots + bijzin: trots att." }
+          - { id: d7fh, type: findError, sentence: "Trots hon var trött gick hon ut.", wrong: [0], answers: ["Trots att hon var trött gick hon ut.", "Fastän hon var trött gick hon ut."], tip: "trots + bijzin: trots att." }
           - { id: bd6g, type: findError, topic: asikt, sentence: "Jag håller inte med det.", wrong: [3, 4], answers: ["Jag håller inte med om det.", "Det håller jag inte med om."], tip: "Het eens zijn met iets: hålla med om." }
           - { id: 37ka, type: findError, sentence: "Tvätta händerna sedan du äter!", wrong: [2], answers: ["Tvätta händerna innan du äter!"], tip: "Voordat …" }
           - { id: pbnv, type: findError, topic: asikt, sentence: "Jag anser att vi borde inte göra det.", wrong: [4, 5], answers: ["Jag anser att vi inte borde göra det."], tip: "Na anser att volgt een bijzin." }

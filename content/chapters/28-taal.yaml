@@ -153,7 +153,7 @@ sections:
         topic: register
         items:
           - { id: d3cw, type: transform, prompt: "Jag vet inte vad dom vill.", answers: ["Jag vet inte vad de vill."], feedback: [{ contains: "vad dem", tip: "vad vi vill → de." }] }
-          - { id: ry7v, type: transform, prompt: "Kan du hjälpa mej med nåt?", answers: ["Kan du hjälpa mig med något?"] }
+          - { id: ry7v, type: transform, prompt: "Kan du hjälpa mej med nåt?", answers: ["Kan du hjälpa mig med {något|någonting}?"] }
           - { id: bch5, type: transform, prompt: "Jag såg dom i går.", answers: ["Jag såg dem {i går|igår}."], feedback: [{ contains: "såg de", tip: "Jag såg oss → dem." }] }
           - { id: ubzd, type: transform, prompt: "Va gör du sen?", answers: ["Vad gör du {sedan|senare|sen}?"] }
           - { id: rcgj, type: transform, prompt: "Har nån sett mina nycklar?", answers: ["Har någon sett mina nycklar?"] }
@@ -290,7 +290,7 @@ sections:
           - { id: 9hwv, type: findError, topic: idiom, sentence: "Hon hade eld i magen under intervjun.", wrong: [2], answers: ["Hon hade is i magen under intervjun."], tip: "Kalm blijven: … i magen." }
 
 vocab:
-  - { sv: "en dialekt", nl: "een dialect", def: "dialekten", pl: "dialekter", plDef: "dialekterna", ex: "Min mormor talar en bred skånsk **dialekt**.", exNl: "Mijn oma spreekt een breed Skåns dialect." }
+  - { sv: "en dialekt", nl: "een dialect", def: "dialekten", pl: "dialekter", plDef: "dialekterna", ex: "Min mormor talar en bred skånsk **dialekt**.", exNl: "Mijn oma spreekt een breed dialect uit Skåne." }
   - { sv: "ett modersmål", nl: "een moedertaal", def: "modersmålet", pl: "modersmål", plDef: "modersmålen", ex: "Mitt **modersmål** är nederländska, men jag drömmer på svenska.", exNl: "Mijn moedertaal is Nederlands, maar ik droom in het Zweeds." }
   - { sv: "ett register", nl: "een register (taalgebruik)", def: "registret", pl: "register", plDef: "registren", ex: "I ett jobbmejl använder man ett mer formellt **register**.", exNl: "In een werkmail gebruik je een formeler register." }
   - { sv: "en förort", nl: "een buitenwijk", def: "förorten", pl: "förorter", plDef: "förorterna", ex: "Han växte upp i en **förort** till Stockholm.", exNl: "Hij groeide op in een buitenwijk van Stockholm." }

@@ -119,7 +119,7 @@ sections:
         instruction: Herschrijf de zin met **väntas**, **beräknas** of **förväntas**.
         topic: framtid-b2
         items:
-          - { id: tjc3, type: transform, prompt: "Man väntar sig att priserna stiger.", answers: ["Priserna väntas stiga."], feedback: [{ contains: "väntas att", tip: "Zonder att: Priserna väntas stiga." }, { contains: "väntas stiger", tip: "Na väntas: infinitief, stiga." }] }
+          - { id: tjc3, type: transform, prompt: "Man väntar sig att priserna stiger.", answers: ["Priserna {väntas|förväntas} stiga."], feedback: [{ contains: "väntas att", tip: "Zonder att: Priserna väntas stiga." }, { contains: "väntas stiger", tip: "Na väntas: infinitief, stiga." }] }
           - { id: 94k3, type: transform, prompt: "Man beräknar att befolkningen ökar.", answers: ["Befolkningen beräknas öka."], feedback: [{ contains: "beräknas ökar", tip: "Na beräknas: infinitief, öka." }] }
           - { id: 4vch, type: transform, prompt: "Man förväntar sig att efterfrågan ökar.", answers: ["Efterfrågan förväntas öka.", "Efterfrågan väntas öka."] }
           - { id: zdx9, type: transform, prompt: "Man tror att arbetslösheten sjunker.", task: "Begin met: Arbetslösheten väntas …", answers: ["Arbetslösheten väntas sjunka."] }
@@ -239,7 +239,7 @@ sections:
           - { id: bgrg, type: transform, topic: bisats-adverb, prompt: "Han kom inte heller.", task: "Hon sa att …", answers: ["Hon sa att han inte heller kom."] }
           - { id: zbuf, type: transform, topic: fundament, prompt: "Många turister finns på museet.", answers: ["Det finns många turister på museet."] }
           - { id: yrse, type: gap, topic: bisats-adverb, text: "Vasa ___ (segla) bara 1 300 meter när det sjönk.", gaps: [{ answers: ["hade seglat"] }] }
-          - { id: n2s3, type: transform, topic: framtid-b2, prompt: "Man väntar sig att priserna stiger.", answers: ["Priserna väntas stiga."] }
+          - { id: n2s3, type: transform, topic: framtid-b2, prompt: "Man väntar sig att priserna stiger.", answers: ["Priserna {väntas|förväntas} stiga."] }
           - { id: abx5, type: gap, topic: framtid-b2, text: "Om tio år kommer jag ___ flyttat.", gaps: [{ answers: ["att ha"] }] }
           - { id: 65mx, type: transform, topic: subjunktioner-b1, prompt: "Det regnade. Vi gick ut ändå. (trots att)", answers: ["Trots att det regnade[,] gick vi ut.", "Vi gick ut[,] trots att det regnade."] }
           - { id: 6yth, type: gap, topic: bestamd-utan-artikel, text: "Vi ses nästa ___.", gaps: [{ answers: ["vecka"], options: ["vecka", "veckan"], shuffle: false }] }
@@ -253,7 +253,7 @@ sections:
         topic: framtid-b2
         shuffle: true
         items:
-          - { id: grsc, type: findError, sentence: "Priserna väntas att stiga.", wrong: [2], answers: ["Priserna väntas stiga."], tip: "Na väntas komt geen att." }
+          - { id: grsc, type: findError, sentence: "Priserna väntas att stiga.", wrong: [2], answers: ["Priserna {väntas|förväntas} stiga."], tip: "Na väntas komt geen att." }
           - { id: n85z, type: findError, sentence: "Befolkningen beräknar öka.", wrong: [1], answers: ["Befolkningen beräknas öka."], tip: "De bevolking rekent niet zelf." }
           - { id: 8rqr, type: findError, sentence: "Om tio år kommer jag att har flyttat.", wrong: [6], answers: ["Om tio år kommer jag att ha flyttat."], tip: "Na att: infinitief." }
           - { id: tn2j, type: findError, sentence: "Det tänker bli kallt i helgen.", wrong: [1], answers: ["Det {lär|kommer att|ska} bli kallt i helgen."], tip: "Het weer heeft geen plannen." }

@@ -1,5 +1,7 @@
 # Werkwoorden voor de werkwoordtrainer en de snelle rondes.
-# kind: ar (jobba – jobbade), er (köpa – köpte / ringa – ringde), kort (bo – bodde), sterk (onregelmatig of sterk)
+# kind: ar (jobba – jobbade), er (köpa – köpte / ringa – ringde), kort (bo – bodde), sterk (onregelmatig of sterk),
+#       partikel (meerdelig: ta upp, känna igen; alleen het eerste woord wordt vervoegd). Die groep bevat ook
+#       vaste voorzetselwerkwoorden met onbeklemtoond voorzetsel (lita på, räkna med), die vervoeg je net zo.
 # Meerdere goede vormen: als lijst. imp: null als er geen gebruikelijke gebiedende wijs is.
 verbs:
   # -ar
@@ -164,7 +166,7 @@ verbs:
   - { inf: ta slut, nl: opraken, kind: partikel, pres: tar slut, pret: tog slut, sup: tagit slut, imp: null }
   - { inf: ta igen, nl: inhalen, kind: partikel, pres: tar igen, pret: tog igen, sup: tagit igen, imp: ta igen }
   - { inf: ta efter, nl: nadoen, kind: partikel, pres: tar efter, pret: tog efter, sup: tagit efter, imp: null }
-  - { inf: komma överens, nl: het eens worden, kind: partikel, pres: kommer överens, pret: kom överens, sup: kommit överens, imp: null }
+  - { inf: komma överens, nl: "het eens worden; goed overweg kunnen", kind: partikel, pres: kommer överens, pret: kom överens, sup: kommit överens, imp: null }
   - { inf: komma fram, nl: aankomen, kind: partikel, pres: kommer fram, pret: kom fram, sup: kommit fram, imp: null }
   - { inf: komma fram till, nl: tot een conclusie komen, kind: partikel, pres: kommer fram till, pret: kom fram till, sup: kommit fram till, imp: null }
   - { inf: gå med på, nl: instemmen met, kind: partikel, pres: går med på, pret: gick med på, sup: gått med på, imp: null }
@@ -188,7 +190,7 @@ verbs:
   - { inf: lämna in, nl: inleveren, kind: partikel, pres: lämnar in, pret: lämnade in, sup: lämnat in, imp: lämna in }
   - { inf: lämna tillbaka, nl: teruggeven, kind: partikel, pres: lämnar tillbaka, pret: lämnade tillbaka, sup: lämnat tillbaka, imp: lämna tillbaka }
   - { inf: byta ut, nl: vervangen, kind: partikel, pres: byter ut, pret: bytte ut, sup: bytt ut, imp: byt ut }
-  - { inf: ställa in, nl: afzeggen, kind: partikel, pres: ställer in, pret: ställde in, sup: ställt in, imp: ställ in }
+  - { inf: ställa in, nl: "afgelasten, afzeggen; instellen", kind: partikel, pres: ställer in, pret: ställde in, sup: ställt in, imp: ställ in }
   - { inf: hyra ut, nl: verhuren, kind: partikel, pres: hyr ut, pret: hyrde ut, sup: hyrt ut, imp: hyr ut }
   - { inf: bjuda in, nl: uitnodigen, kind: partikel, pres: bjuder in, pret: bjöd in, sup: bjudit in, imp: bjud in }
   - { inf: hoppa av, nl: "afhaken, stoppen (met een opleiding)", kind: partikel, pres: hoppar av, pret: hoppade av, sup: hoppat av, imp: null }

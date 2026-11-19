@@ -169,7 +169,7 @@ sections:
         topic: man-en-ens
         items:
           - { id: qh9k, type: translate, prompt: "Hier mag je niet roken.", answers: ["Här får man inte röka.", "Man får inte röka här."], feedback: [{ contains: "du", tip: "Je in algemene zin = man." }] }
-          - { id: 3x94, type: translate, prompt: "Je moet je afval scheiden.", answers: ["Man måste {sortera|källsortera} sina sopor.", "Man ska {sortera|källsortera} sina sopor."], feedback: [{ contains: "ens sopor", tip: "Het bezit hoort bij man als onderwerp: sina sopor." }] }
+          - { id: 3x94, type: translate, prompt: "Je moet je afval scheiden.", answers: ["Man måste {sortera|källsortera} {sina sopor|sitt avfall|sitt skräp}.", "Man ska {sortera|källsortera} {sina sopor|sitt avfall|sitt skräp}."], feedback: [{ contains: "ens sopor", tip: "Het bezit hoort bij man als onderwerp: sina sopor." }] }
           - { id: 4jep, type: translate, prompt: "Het is fijn als iemand je helpt.", answers: ["Det är {skönt|trevligt|härligt|fint} {när|om} någon hjälper en."] }
           - { id: rvny, type: translate, prompt: "In Zweden drinkt men veel koffie.", answers: ["I Sverige dricker man mycket kaffe.", "Man dricker mycket kaffe i Sverige."], feedback: [{ contains: "sverige man dricker", tip: "Na I Sverige vooraan komt eerst het werkwoord: dricker man." }] }
           - { id: yqqh, type: translate, prompt: "Je weet maar nooit.", answers: ["Man vet aldrig.", "Man kan aldrig veta."], feedback: [{ contains: "du vet", tip: "Je in algemene zin = man." }] }
@@ -295,7 +295,7 @@ vocab:
   - { sv: "en flaska", nl: "een fles", def: "flaskan", pl: "flaskor", plDef: "flaskorna", ex: "Hon tog med sig en **flaska** vatten på promenaden.", exNl: "Ze nam een fles water mee op de wandeling." }
   - { sv: "ett batteri", nl: "een batterij", def: "batteriet", pl: "batterier", plDef: "batterierna", ex: "Gamla **batterier** får man inte slänga bland soporna.", exNl: "Oude batterijen mag je niet bij het afval gooien." }
   - { sv: "en loppis", nl: "een rommelmarkt", def: "loppisen", pl: "loppisar", plDef: "loppisarna", ex: "Jag köpte soffan på en **loppis** för 300 kronor.", exNl: "Ik kocht de bank voor 300 kronen op een rommelmarkt." }
-  - { sv: "ett utsläpp", nl: "de uitstoot", def: "utsläppet", pl: "utsläpp", plDef: "utsläppen", ex: "Vi måste minska **{utsläppen|utsläppet}** av koldioxid.", exNl: "We moeten de uitstoot van CO2 verminderen." }
+  - { sv: "ett utsläpp", nl: "een uitstoot, een emissie", def: "utsläppet", pl: "utsläpp", plDef: "utsläppen", ex: "Vi måste minska **{utsläppen|utsläppet}** av koldioxid.", exNl: "We moeten de uitstoot van CO2 verminderen." }
   - { sv: "ett kärl", nl: "een container, een bak", def: "kärlet", pl: "kärl", plDef: "kärlen", ex: "Matavfallet lägger man i det bruna **kärlet**.", exNl: "Etensresten gooi je in de bruine bak." }
   - { sv: "ett hushåll", nl: "een huishouden", def: "hushållet", pl: "hushåll", plDef: "hushållen", ex: "Varje **hushåll** får en ny soptunna.", exNl: "Elk huishouden krijgt een nieuwe vuilnisbak." }
   - { sv: "en kommun", nl: "een gemeente", def: "kommunen", pl: "kommuner", plDef: "kommunerna", ex: "**Kommunen** hämtar soporna varannan vecka.", exNl: "De gemeente haalt het afval om de week op." }
@@ -331,7 +331,7 @@ vocab:
   - { sv: "att släppa ut", nl: "uitstoten, lozen", ex: "Fabriken **släppte ut** kemikalier i ån.", exNl: "De fabriek loosde chemicaliën in de rivier." }
   - { sv: "att förorena", nl: "vervuilen", ex: "Plast **förorenar** haven.", exNl: "Plastic vervuilt de zeeën." }
   - { sv: "att slösa", nl: "verspillen", ex: "Man ska inte **slösa** med vatten.", exNl: "Je moet geen water verspillen." }
-  - { sv: "att dra ner på", nl: "minderen met, verminderen", alt: ["att dra ned på"], ex: "Vi har **{dragit ner på|dragit ned på}** köttet hemma.", exNl: "We hebben thuis geminderd met vlees." }
+  - { sv: "att dra ner på", nl: "minderen met, verminderen", ex: "Vi har **dragit ner på** köttet hemma.", exNl: "We hebben thuis geminderd met vlees." }
   - { sv: "att skydda", nl: "beschermen", ex: "Vi måste **skydda** skogarna och djuren.", exNl: "We moeten de bossen en de dieren beschermen." }
   - { sv: "att ta ansvar för", nl: "verantwoordelijkheid nemen voor", ex: "Alla måste **ta ansvar för** miljön.", exNl: "Iedereen moet verantwoordelijkheid nemen voor het milieu." }
   - { sv: "att släcka", nl: "uitdoen (licht), blussen", ex: "**Släck** lampan när du går ut ur rummet.", exNl: "Doe het licht uit als je de kamer uit gaat." }

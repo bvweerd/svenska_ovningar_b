@@ -194,7 +194,7 @@ sections:
         topic: particip
         shuffle: true
         items:
-          - { id: 3hvr, type: gap, text: "Jag hittade en ___ (glömma bort) väska på bussen.", hint: "Bij een deelwoord komt het partikel ervoor: glömma bort → bortglömd.", gaps: [{ answers: ["bortglömd"], feedback: [{ match: ["bortglömt", "bortglömda"], tip: "väska is een en-woord, onbepaald: bortglömd." }, { match: "glömd", tip: "Voor een vergeten voorwerp zeg je bortglömd (of kvarglömd)." }] }] }
+          - { id: 3hvr, type: gap, text: "Jag hittade en ___ (glömma bort) väska på bussen.", hint: "Bij een deelwoord komt het partikel ervoor: glömma bort → bortglömd.", gaps: [{ answers: ["bortglömd", "kvarglömd"], feedback: [{ match: ["bortglömt", "bortglömda"], tip: "väska is een en-woord, onbepaald: bortglömd." }, { match: "glömd", tip: "Voor een vergeten voorwerp zeg je bortglömd (of kvarglömd)." }] }] }
           - { id: 56dz, type: gap, text: "Vi bor i ett nyligen ___ (renovera) hus.", gaps: [{ answers: ["renoverat"], feedback: [{ match: "renoverad", tip: "hus is een ett-woord: renoverat." }] }] }
           - { id: f6m9, type: gap, text: "De ___ (stjäla) cyklarna hittades i skogen.", gaps: [{ answers: ["stulna"], feedback: [{ match: ["stulen", "stulet"], tip: "Na de en voor een meervoud: stulna." }] }] }
           - { id: b4fb, type: gap, text: "Den ___ (skriva) uppsatsen ska lämnas in på fredag.", gaps: [{ answers: ["skrivna"], feedback: [{ match: "skriven", tip: "Na den (bepaald) krijgt het deelwoord dezelfde vorm als het meervoud: skrivna." }] }] }
@@ -374,7 +374,7 @@ vocab:
   - { sv: "en klasskamrat", nl: "een klasgenoot", def: "klasskamraten", pl: "klasskamrater", ex: "Jag pluggar ofta med två **klasskamrater** från Syrien.", exNl: "Ik studeer vaak met twee klasgenoten uit Syrië." }
   - { sv: "en handledare", nl: "een begeleider (bij een scriptie of stage)", def: "handledaren", pl: "handledare", ex: "Min **handledare** läste uppsatsen och gav mig råd.", exNl: "Mijn begeleider las de scriptie en gaf me advies." }
   - { sv: "en högskolepoäng", nl: "een studiepunt (EC)", def: "högskolepoängen", pl: "högskolepoäng", ex: "En termin på heltid ger trettio **högskolepoäng**.", exNl: "Een voltijds semester levert dertig studiepunten op." }
-  - { sv: "en kunskap", nl: "kennis (wat je weet)", def: "kunskapen", mass: true, ex: "**Kunskap** är något som ingen kan ta ifrån dig.", exNl: "Kennis is iets wat niemand je kan afnemen." }
+  - { sv: "en kunskap", nl: "kennis (wat je weet)", def: "kunskapen", pl: "kunskaper", mass: true, ex: "**Kunskap** är något som ingen kan ta ifrån dig.", exNl: "Kennis is iets wat niemand je kan afnemen." }
   - { sv: "en lektion", nl: "een les", def: "lektionen", pl: "lektioner", ex: "Vi har två **lektioner** i svenska varje dag.", exNl: "We hebben elke dag twee lessen Zweeds." }
   - { sv: "ett gymnasium", nl: "een middelbare school (bovenbouw, 16–19 jaar)", def: "gymnasiet", pl: "gymnasier", ex: "Hon gick på **gymnasiet** i Malmö.", exNl: "Ze zat op de middelbare school in Malmö." }
   - { sv: "en elev", nl: "een leerling", def: "eleven", pl: "elever", ex: "Det går tjugo **elever** i min dotters klass.", exNl: "Er zitten twintig leerlingen in de klas van mijn dochter." }

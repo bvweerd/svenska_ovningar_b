@@ -181,7 +181,7 @@ sections:
           - { id: depz, type: translate, prompt: "Dit is de goedkoopste winkel van de stad.", answers: ["{Det här|Detta} är den billigaste {butiken|affären} i {staden|stan}."], feedback: [{ contains: "den billigast ", tip: "Bepaald: den billigaste butiken." }] }
           - { id: kctq, type: translate, prompt: "Mijn telefoon is niet zo nieuw als de jouwe.", answers: ["Min {mobil|telefon} är inte {lika|så} ny som din."], feedback: [{ contains: "ny än", tip: "Na lika (of så): som." }] }
           - { id: u43c, type: translate, prompt: "Hoe eerder, hoe beter.", answers: ["Ju {förr|tidigare}, {desto|ju} bättre."] }
-          - { id: 29kg, type: translate, prompt: "Deze jas is iets duurder dan die.", answers: ["Den här {jackan|rocken} är lite dyrare än den där."], feedback: [{ contains: "mer dyr", tip: "dyr is een gewoon bijvoeglijk naamwoord: dyrare." }, { contains: "dyrare som", tip: "Na een vergrotende trap: än." }] }
+          - { id: 29kg, type: translate, prompt: "Deze jas is iets duurder dan die.", answers: ["Den här {jackan|rocken|kappan} är {lite|något} dyrare än den där."], feedback: [{ contains: "mer dyr", tip: "dyr is een gewoon bijvoeglijk naamwoord: dyrare." }, { contains: "dyrare som", tip: "Na een vergrotende trap: än." }] }
           - { id: d3n3, type: translate, prompt: "Vlees wordt steeds duurder.", answers: ["{Kött|Köttet} blir {allt dyrare|dyrare och dyrare}."] }
 
   - id: lyssna
@@ -262,7 +262,7 @@ sections:
               - { any: ["bäst", "billigast", "godast", "mest", "dyrast", "sämst", "minst"], label: "Je gebruikt een overtreffende trap" }
               - { any: ["men", "däremot", "dessutom"], label: "Je noemt voor- en nadelen (men, däremot, dessutom)" }
               - { any: ["betyg", "av fem", "av tio", "rekommenderar"], label: "Je geeft een oordeel of cijfer" }
-            model: "Kafé Linden ligger mitt i stan och är ett av de populäraste kaféerna i Örebro. Jag har jämfört det med Kafé Ekan, som ligger bara två kvarter bort. Kanelbullarna på Linden är mycket godare än på Ekan, och kaffet är lika starkt som jag vill ha det. Däremot är priserna högre: en kaffe och en bulle kostar sextio kronor. Dessutom är det svårt att hitta en ledig plats på helgerna. Ju tidigare man kommer, desto lugnare är det. Mitt betyg: fyra av fem. Bästa kanelbullen i stan!"
+            model: "Kafé Linden ligger mitt i stan och är ett av de populäraste kaféerna i Örebro. Jag har jämfört det med Kafé Ekan, som ligger bara två kvarter bort. Kanelbullarna på Linden är mycket godare än på Ekan, och kaffet är precis så starkt som jag vill ha det. Däremot är priserna högre: en kaffe och en bulle kostar sextio kronor. Dessutom är det svårt att hitta en ledig plats på helgerna. Ju tidigare man kommer, desto lugnare är det. Mitt betyg: fyra av fem. Bästa kanelbullen i stan!"
 
   - id: herhaling
     title: Herhaling
@@ -352,6 +352,6 @@ vocab:
   - { sv: "nöjd", nl: "tevreden", ex: "Är du **nöjd** med din nya telefon?", exNl: "Ben je tevreden over je nieuwe telefoon?" }
   - { sv: "betydligt", nl: "aanzienlijk", ex: "Varorna är ofta **betydligt** billigare på nätet.", exNl: "De producten zijn online vaak aanzienlijk goedkoper." }
   - { sv: "särskilt", nl: "bijzonder, vooral", ex: "Maten på restaurangen var inte **särskilt** god.", exNl: "Het eten in het restaurant was niet bijzonder lekker." }
-  - { sv: "på köpet", nl: "op de koop toe, er gratis bij", ex: "Köper du två tröjor får du en mössa **på köpet**.", exNl: "Als je twee truien koopt, krijg je er een muts op de koop toe bij." }
+  - { sv: "på köpet", nl: "op de koop toe, er gratis bij", ex: "Köper du två tröjor får du en mössa **på köpet**.", exNl: "Als je twee truien koopt, krijg je er een muts gratis bij." }
   - { sv: "till halva priset", nl: "voor de halve prijs", ex: "Gårdagens bröd säljs **till halva priset**.", exNl: "Het brood van gisteren wordt voor de halve prijs verkocht." }
   - { sv: "ohälsosam", nl: "ongezond", ex: "Färdigmat är ofta salt och **ohälsosam**.", exNl: "Kant-en-klaarmaaltijden zijn vaak zout en ongezond." }

@@ -19,7 +19,7 @@ grammar:
       |---|---|
       | **-ning / -ing** (en) | *öka → ökning, minska → minskning, utveckla → utveckling, förändra → förändring, sälja → försäljning* |
       | geen uitgang (meestal ett) | *besluta → ett beslut, köpa → ett köp, falla → ett fall* |
-      | **-else** (en/ett) | *betyda → en betydelse, uppleva → en upplevelse* |
+      | **-else** (en/ett) | *betyda → en betydelse, uppleva → en upplevelse, fängsla → ett fängelse* |
       | eigen woord | *stiga → en uppgång, sjunka → en nedgång* |
 
       ### Bijvoeglijk naamwoord in plaats van bijwoord
@@ -329,10 +329,10 @@ vocab:
   - { sv: "att halveras", nl: "halveren (de helft worden)", ex: "Bolagets vinst **halverades** under krisåret.", exNl: "De winst van het bedrijf halveerde in het crisisjaar." }
   - { sv: "att uppgå till", nl: "bedragen", ex: "Kostnaderna **uppgick till** fem miljoner kronor.", exNl: "De kosten bedroegen vijf miljoen kronen." }
   - { sv: "att räkna med", nl: "rekenen op, verwachten", ex: "Ledningen **räknar med** en fortsatt ökning.", exNl: "De directie rekent op een aanhoudende stijging." }
-  - { sv: "att skära ner på", nl: "bezuinigen op", ex: "Många familjer **{skär ner på|skär ned på}** restaurangbesök.", exNl: "Veel gezinnen bezuinigen op restaurantbezoeken." }
+  - { sv: "att skära ner på", nl: "bezuinigen op", ex: "Många familjer **skär ner på** restaurangbesök.", exNl: "Veel gezinnen bezuinigen op restaurantbezoeken." }
   - { sv: "att leda till", nl: "leiden tot", ex: "Höjda räntor kan **leda till** lägre bostadspriser.", exNl: "Hogere rentes kunnen tot lagere huizenprijzen leiden." }
   - { sv: "att gå i konkurs", nl: "failliet gaan", ex: "Restaurangen **gick i konkurs** efter bara ett år.", exNl: "Het restaurant ging na slechts een jaar failliet." }
-  - { sv: "att lägga ner", nl: "opheffen, sluiten (een bedrijf of afdeling)", ex: "Företaget **{lägger ner|lägger ned}** två butiker i vår.", exNl: "Het bedrijf heft dit voorjaar twee winkels op." }
+  - { sv: "att lägga ner", nl: "opheffen, sluiten (een bedrijf of afdeling)", ex: "Företaget **lägger ner** två butiker i vår.", exNl: "Het bedrijf heft dit voorjaar twee winkels op." }
   - { sv: "stadigt", nl: "gestaag", ex: "Försäljningen har ökat **stadigt** de senaste åren.", exNl: "De verkoop is de afgelopen jaren gestaag gestegen." }
   - { sv: "främst", nl: "voornamelijk, vooral", ex: "Ökningen beror **främst** på e-handeln.", exNl: "De stijging komt voornamelijk door de online handel." }
   - { sv: "i stort sett", nl: "grotendeels, in grote lijnen", ex: "Prognosen för förra året stämde **i stort sett**.", exNl: "De prognose voor vorig jaar klopte grotendeels." }

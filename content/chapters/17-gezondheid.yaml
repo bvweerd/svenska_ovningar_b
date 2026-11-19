@@ -113,7 +113,7 @@ sections:
         items:
           - { id: 4cys, type: translate, prompt: "Ik ben duizelig.", answers: ["Jag är yr.", "Jag känner mig yr."] }
           - { id: 6eb7, type: translate, prompt: "Ik heb sinds gisteren koorts.", answers: ["Jag har haft feber {sedan|sen} {i går|igår}."], feedback: [{ contains: "jag har feber", tip: "Het duurt tot nu toe: perfectum, jag har haft feber sedan i går." }, { contains: "gisteren", tip: "Gisteren = i går." }] }
-          - { id: kq8k, type: translate, prompt: "Mijn knie doet pijn.", answers: ["Jag har ont i knät.", "Knät gör ont.", "Mitt knä gör ont."] }
+          - { id: kq8k, type: translate, prompt: "Mijn knie doet pijn.", answers: ["Jag har ont i knät.", "Knät gör ont.", "Mitt knä gör ont.", "Det gör ont i {knät|mitt knä}."] }
           - { id: unqg, type: translate, prompt: "Ik ben misselijk.", answers: ["Jag mår illa.", "Jag känner mig illamående.", "Jag är illamående."] }
 
   - id: framtid
@@ -155,13 +155,13 @@ sections:
         instruction: Vertaal naar het Zweeds.
         topic: framtid
         items:
-          - { id: bha8, type: translate, prompt: "Het gaat morgen regenen.", answers: ["Det kommer att regna {i morgon|imorgon}.", "{I morgon|Imorgon} kommer det att regna.", "Det ska regna {i morgon|imorgon}.", "{I morgon|Imorgon} ska det regna."], feedback: [{ contains: "går att regna", tip: "gå betekent hier niet gaan: gebruik kommer att." }] }
+          - { id: bha8, type: translate, prompt: "Het gaat morgen regenen.", answers: ["Det kommer[ att] regna {i morgon|imorgon}.", "{I morgon|Imorgon} kommer det[ att] regna.", "Det ska regna {i morgon|imorgon}.", "{I morgon|Imorgon} ska det regna."], feedback: [{ contains: "går att regna", tip: "gå betekent hier niet gaan: gebruik kommer att." }] }
           - { id: 2xwx, type: translate, prompt: "Ik ga morgen naar de dokter. (Ik heb een afspraak.)", answers: ["Jag ska [gå ]till {läkaren|doktorn|vårdcentralen} {i morgon|imorgon}.", "{I morgon|Imorgon} ska jag [gå ]till {läkaren|doktorn|vårdcentralen}.", "Jag går till {läkaren|doktorn|vårdcentralen} {i morgon|imorgon}."], feedback: [{ contains: "går att", tip: "Nederlands gaan + infinitief is geen gå in het Zweeds: gebruik ska." }] }
-          - { id: pnv9, type: translate, prompt: "Je zult je snel beter voelen.", answers: ["Du kommer att må bättre snart.", "Du kommer snart att må bättre.", "Du kommer att känna dig bättre snart.", "Du kommer snart att känna dig bättre."], feedback: [{ contains: "du ska", tip: "Een voorspelling: kommer att." }] }
+          - { id: pnv9, type: translate, prompt: "Je zult je snel beter voelen.", answers: ["Du kommer[ att] må bättre snart.", "Du kommer snart[ att] må bättre.", "Du kommer[ att] känna dig bättre snart.", "Du kommer snart[ att] känna dig bättre."], feedback: [{ contains: "du ska", tip: "Een voorspelling: kommer att." }] }
           - { id: zynp, type: translate, prompt: "Ik ben van plan te stoppen met roken.", answers: ["Jag tänker sluta röka.", "Jag ska sluta röka.", "Jag har tänkt sluta röka.", "Jag planerar att sluta röka.", "Jag har planer på att sluta röka."] }
           - { id: yhtg, type: translate, prompt: "De apotheek gaat om negen uur open.", answers: ["Apoteket öppnar [klockan ]nio.", "Apoteket ska öppna [klockan ]nio.", "[Klockan ]nio öppnar apoteket."], feedback: [{ contains: "går att öppna", tip: "Gaan + infinitief bestaat niet in het Zweeds. Voor een vaste tijd gebruik je de presens: Apoteket öppnar klockan nio." }] }
-          - { id: 2yu9, type: translate, prompt: "Ik ga niet naar dat feest. (Dat heb ik zelf besloten.)", answers: ["Jag tänker inte gå på {den festen|festen}.", "Jag ska inte gå på {den festen|festen}."], feedback: [{ contains: "kommer inte att gå", tip: "Een eigen besluit: tänker inte (of ska inte). kommer att is een voorspelling." }] }
-          - { id: dyqw, type: translate, prompt: "Over een week krijg je de uitslag.", answers: ["Du {kommer att få|får} {svaret|resultatet|provsvaret} om en vecka.", "Om en vecka {kommer du att få|får du} {svaret|resultatet|provsvaret}."], feedback: [{ contains: "i en vecka", tip: "Over een week (in de toekomst) = om en vecka." }] }
+          - { id: 2yu9, type: translate, prompt: "Ik ga niet naar dat feest. (Dat heb ik zelf besloten.)", answers: ["Jag tänker inte gå på {den festen|den där festen|festen}.", "Jag ska inte gå på {den festen|den där festen|festen}."], feedback: [{ contains: "kommer inte att gå", tip: "Een eigen besluit: tänker inte (of ska inte). kommer att is een voorspelling." }] }
+          - { id: dyqw, type: translate, prompt: "Over een week krijg je de uitslag.", answers: ["Du {kommer att få|kommer få|får} {svaret|resultatet|provsvaret} om en vecka.", "Om en vecka {kommer du att få|kommer du få|får du} {svaret|resultatet|provsvaret}."], feedback: [{ contains: "i en vecka", tip: "Over een week (in de toekomst) = om en vecka." }] }
           - { id: 54p7, type: translate, prompt: "Volgend jaar verhuizen we. (Dat hebben we besloten.)", answers: ["Vi ska flytta nästa år.", "Nästa år ska vi flytta.", "Vi flyttar nästa år.", "Nästa år flyttar vi."], feedback: [{ contains: "nästa år vi", tip: "Na Nästa år vooraan komt eerst het werkwoord." }] }
 
   - id: prep
@@ -322,7 +322,7 @@ vocab:
   - { sv: "en akutmottagning", nl: "een spoedeisende hulp (in het ziekenhuis)", def: "akutmottagningen", pl: "akutmottagningar", ex: "Vi fick vänta fem timmar på **akutmottagningen**.", exNl: "We moesten vijf uur wachten op de spoedeisende hulp." }
   - { sv: "en fysioterapeut", nl: "een fysiotherapeut", def: "fysioterapeuten", pl: "fysioterapeuter", ex: "Nu ska Ruud träffa en **fysioterapeut** två gånger i veckan.", exNl: "Nu gaat Ruud twee keer per week naar een fysiotherapeut." }
   - { sv: "ett symtom", nl: "een symptoom", def: "symtomet", pl: "symtom", alt: ["ett symptom"], ex: "Vilka **{symtom|symptom}** har du haft de senaste dagarna?", exNl: "Welke symptomen heb je de afgelopen dagen gehad?" }
-  - { sv: "en smärta", nl: "pijn", def: "smärtan", pl: "smärtor", ex: "Tabletterna tar bort **smärtan** ganska snabbt.", exNl: "De tabletten nemen de pijn vrij snel weg." }
+  - { sv: "en smärta", nl: "een pijn", def: "smärtan", pl: "smärtor", ex: "Tabletterna tar bort **smärtan** ganska snabbt.", exNl: "De tabletten nemen de pijn vrij snel weg." }
   - { sv: "ett besvär", nl: "klachten, last (lichamelijk)", def: "besväret", pl: "besvär", ex: "Har du haft de här **besvären** länge?", exNl: "Heb je al lang last van deze klachten?" }
   - { sv: "en vaccination", nl: "een vaccinatie, een inenting", def: "vaccinationen", pl: "vaccinationer", ex: "Har du fått din **vaccination** mot influensa i år?", exNl: "Heb je dit jaar je vaccinatie tegen griep al gehad?" }
   - { sv: "en biverkning", nl: "een bijwerking", def: "biverkningen", pl: "biverkningar", ex: "Den här medicinen kan ge **biverkningar** som huvudvärk.", exNl: "Dit medicijn kan bijwerkingen geven, zoals hoofdpijn." }

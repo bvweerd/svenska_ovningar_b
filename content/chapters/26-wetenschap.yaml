@@ -120,13 +120,13 @@ sections:
         instruction: Herschrijf de woordgroep met een **som**-zin.
         topic: particip-konstruktion
         items:
-          - { id: z4s9, type: transform, prompt: "den nyligen publicerade studien", task: "Begin met: studien som …", answers: ["studien som nyligen {publicerades|har publicerats|publicerats}", "studien som {publicerades|har publicerats} nyligen"] }
+          - { id: z4s9, type: transform, prompt: "den nyligen publicerade studien", task: "Begin met: studien som …", answers: ["studien som nyligen {publicerades|har publicerats|publicerats}", "studien som {publicerades|har publicerats|publicerats} nyligen"] }
           - { id: fp3a, type: transform, prompt: "de i studien deltagande studenterna", task: "Begin met: studenterna som …", answers: ["studenterna som {deltog|deltar} i studien"] }
           - { id: kcdf, type: transform, prompt: "den av forskarna föreslagna förklaringen", task: "Begin met: förklaringen som …", answers: ["förklaringen som forskarna {föreslog|föreslår|har föreslagit}", "förklaringen som föreslogs av forskarna"] }
           - { id: vub2, type: transform, prompt: "ett snabbt växande problem", task: "Begin met: ett problem som …", answers: ["ett problem som växer snabbt", "ett problem som snabbt växer"] }
           - { id: eqge, type: transform, prompt: "den gällande regeln", task: "Begin met: regeln som …", answers: ["regeln som gäller[ nu]"] }
           - { id: daz2, type: transform, prompt: "den ökande arbetslösheten", task: "Begin met: arbetslösheten som …", answers: ["arbetslösheten som ökar"] }
-          - { id: xpvy, type: transform, prompt: "de nyligen anställda forskarna", task: "Begin met: forskarna som …", answers: ["forskarna som {nyligen anställdes|nyligen har anställts|anställdes nyligen|har anställts nyligen}"] }
+          - { id: xpvy, type: transform, prompt: "de nyligen anställda forskarna", task: "Begin met: forskarna som …", answers: ["forskarna som {nyligen anställdes|nyligen har anställts|nyligen anställts|anställdes nyligen|har anställts nyligen|anställts nyligen}"] }
           - { id: gzd7, type: transform, prompt: "en ofta använd metod", task: "Begin met: en metod som …", answers: ["en metod som {används ofta|ofta används}"] }
 
       - id: particip-inpakken
@@ -239,7 +239,7 @@ sections:
               - { any: ["procent", "fler ord", "mindes"], label: "Je noemt het resultaat" }
               - { any: ["tyder på", "verkar", "kan", "sannolikt", "troligen"], label: "Je formuleert voorzichtig" }
               - { any: ["fler studier", "begränsning", "dock", "men"], label: "Je noemt een beperking" }
-            model: "Studien handlar om hur sömn påverkar förmågan att lära sig nya ord. 120 studenter fick på kvällen lära sig 40 ord på ett påhittat språk. Hälften sov sedan en hel natt, medan den andra hälften fick vara vaken. Nästa dag mindes de utvilade deltagarna i genomsnitt 30 procent fler ord. Forskarna drar slutsatsen att sömnen sannolikt är avgörande för långtidsminnet, och resultaten tyder på att även en kort tupplur kan hjälpa. En begränsning är dock att fler studier behövs innan man kan dra säkra slutsatser."
+            model: "Studien handlar om hur sömn påverkar förmågan att lära sig nya ord. 120 studenter fick på kvällen lära sig 40 ord på ett påhittat språk. Hälften sov sedan en hel natt, medan den andra hälften fick hålla sig vakna. Nästa dag mindes de utvilade deltagarna i genomsnitt 30 procent fler ord. Forskarna drar slutsatsen att sömnen sannolikt är avgörande för långtidsminnet, och resultaten tyder på att även en kort tupplur kan hjälpa. En begränsning är dock att fler studier behövs innan man kan dra säkra slutsatser."
 
   - id: herhaling
     title: Herhaling

@@ -132,7 +132,7 @@ sections:
           - { id: bvra, type: gap, text: "Glöm inte att ta med ___ passet!", gaps: [{ answers: ["dig"], options: ["dig", "sig", "du"], shuffle: false, feedback: [{ match: "sig", tip: "Tegen jou (du): ta med dig." }] }] }
           - { id: ygrq, type: gap, text: "Bussen ___ klockan sju i morse, så vi missade den.", gaps: [{ answers: ["åkte iväg"], options: ["åkte iväg", "kom fram", "steg på"], tip: "Vertrekken: åka iväg." }] }
           - { id: fns3, type: gap, text: "Var ska vi ___ bussen? (instappen)", gaps: [{ answers: ["stiga på"], options: ["stiga på", "stiga av", "komma fram"] }] }
-          - { id: mauq, type: gap, text: "Tåget var försenat, så vi ___ inte bussen.", gaps: [{ answers: ["hann med"], options: ["hann med", "kom fram", "steg av"], tip: "Iets nog halen: hinna med (hann med)." }] }
+          - { id: mauq, type: gap, text: "Tåget var försenat, så vi ___ bussen.", gaps: [{ answers: ["hann inte med"], options: ["hann inte med", "kom inte fram", "steg inte av"], tip: "Iets nog halen: hinna med. Inte staat tussen werkwoord en partikel: hann inte med." }] }
           - { id: r9t7, type: gap, text: "Mitt flyg blev inställt, så jag måste ___ biljetten.", gaps: [{ answers: ["boka om"], options: ["boka om", "boka in", "boka ut"], tip: "Omboeken: boka om." }] }
 
       - id: partikel-deelwoord

@@ -167,8 +167,8 @@ sections:
         instruction: Vertaal naar het Zweeds.
         topic: rad-onskan
         items:
-          - { id: 8naq, type: translate, prompt: "Als ik jou was, zou ik met hem praten.", answers: ["Om jag {var|vore} du, skulle jag prata med honom.", "Om jag {var|vore} du, hade jag pratat med honom."], feedback: [{ contains: "jag skulle prata", tip: "Na de om-zin komt eerst het werkwoord: skulle jag prata." }, { contains: "om jag är du", tip: "Denkbeeldig: om jag var du." }] }
-          - { id: q4h2, type: translate, prompt: "Je zou meer moeten slapen.", answers: ["Du borde sova mer.", "Du skulle behöva sova mer."], feedback: [{ contains: "skulle måste", tip: "Moeten (advies) = borde: Du borde sova mer." }] }
+          - { id: 8naq, type: translate, prompt: "Als ik jou was, zou ik met hem praten.", answers: ["Om jag {var|vore} du, [så ]skulle jag prata med honom.", "Om jag {var|vore} du, [så ]hade jag pratat med honom."], feedback: [{ contains: "jag skulle prata", tip: "Na de om-zin komt eerst het werkwoord: skulle jag prata." }, { contains: "om jag är du", tip: "Denkbeeldig: om jag var du." }] }
+          - { id: q4h2, type: translate, prompt: "Je zou meer moeten slapen.", answers: ["Du borde sova mer.", "Du bör sova mer.", "Du skulle behöva sova mer."], feedback: [{ contains: "skulle måste", tip: "Moeten (advies) = borde: Du borde sova mer." }] }
           - { id: dz4s, type: translate, prompt: "Ik wou dat ik meer tijd had.", answers: ["Jag önskar [att ]jag hade mer tid."], feedback: [{ contains: "att jag har", tip: "Na önskar att: verleden tijd, hade." }] }
           - { id: 9p28, type: translate, prompt: "Zou je me kunnen helpen?", answers: ["Skulle du kunna hjälpa mig?"] }
           - { id: ew3k, type: translate, prompt: "Stel je voor dat we naar IJsland konden gaan!", answers: ["Tänk om vi kunde {åka|resa} till Island!"] }
@@ -334,7 +334,7 @@ vocab:
   - { sv: "att bli kär i", nl: "verliefd worden op", ex: "Han **blev kär i** henne redan första dagen.", exNl: "Hij werd al op de eerste dag verliefd op haar." }
   - { sv: "att flytta ihop", nl: "gaan samenwonen", ex: "Vi **flyttade ihop** efter ett år.", exNl: "Na een jaar gingen we samenwonen." }
   - { sv: "att gå isär", nl: "uit elkaar gaan", ex: "Efter tio år bestämde de sig för att **gå isär**.", exNl: "Na tien jaar besloten ze uit elkaar te gaan." }
-  - { sv: "att bråka", nl: "kibbelen, ruzie zoeken", ex: "Syskonen **bråkar** om allt, från tv:n till godiset.", exNl: "De broers en zussen kibbelen over alles, van de tv tot het snoep." }
+  - { sv: "att bråka", nl: "ruziemaken, kibbelen", ex: "Syskonen **bråkar** om allt, från tv:n till godiset.", exNl: "De broers en zussen kibbelen over alles, van de tv tot het snoep." }
   - { sv: "att stötta", nl: "steunen", alt: ["att stödja"], ex: "Mina vänner **{stöttade|stödde}** mig under skilsmässan.", exNl: "Mijn vrienden steunden me tijdens de scheiding." }
   - { sv: "att ställa upp för", nl: "klaarstaan voor", ex: "Hon har alltid **ställt upp för** sina vänner.", exNl: "Ze heeft altijd voor haar vrienden klaargestaan." }
   - { sv: "att förlåta", nl: "vergeven", ex: "Det tog lång tid innan hon kunde **förlåta** honom.", exNl: "Het duurde lang voordat ze hem kon vergeven." }

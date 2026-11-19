@@ -453,7 +453,7 @@ vocab:
   - { sv: "att ansvara för", nl: "verantwoordelijk zijn voor", ex: "Hon **ansvarar för** kontakten med kunderna.", exNl: "Zij is verantwoordelijk voor het contact met de klanten." }
   - { sv: "att sköta", nl: "regelen, zorgen voor, beheren", ex: "Han **sköter** all ekonomi på företaget.", exNl: "Hij regelt alle financiën bij het bedrijf." }
   - { sv: "att jobba hemifrån", nl: "thuiswerken", alt: ["att arbeta hemifrån"], ex: "Jag **jobbar hemifrån** på fredagar.", exNl: "Op vrijdag werk ik thuis." }
-  - { sv: "att gå ner i tid", nl: "minder gaan werken", alt: ["att gå ned i tid"], ex: "Hon vill **gå ner i tid** och jobba 75 procent.", exNl: "Ze wil minder gaan werken: 75 procent." }
+  - { sv: "att gå ner i tid", nl: "minder gaan werken", ex: "Hon vill **gå ner i tid** och jobba 75 procent.", exNl: "Ze wil minder gaan werken: 75 procent." }
   - { sv: "att ta ledigt", nl: "vrij nemen", ex: "Jag **tar ledigt** på fredag för att flytta.", exNl: "Ik neem vrijdag vrij om te verhuizen." }
   - { sv: "att hoppa in", nl: "invallen", ex: "Kan du **hoppa in** för Sara i morgon?", exNl: "Kun je morgen voor Sara invallen?" }
   - { sv: "att höra av sig", nl: "van zich laten horen, contact opnemen", ex: "Vi **hör av oss** så snart vi har bestämt oss.", exNl: "We laten van ons horen zodra we een besluit hebben genomen." }

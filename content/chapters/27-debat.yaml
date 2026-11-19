@@ -144,7 +144,7 @@ sections:
           - { id: e3yy, type: translate, prompt: "Wat wil je eigenlijk?", answers: ["Vad är det [som ]du vill[ egentligen]?", "Vad är det egentligen [som ]du vill?"], feedback: [{ match: ["Vad vill du egentligen?", "Vad vill du?"], tip: "Ook goed Zweeds, maar oefen hier: Vad är det du vill?" }] }
           - { id: sxyu, type: translate, prompt: "Wie heeft er gewonnen?", answers: ["Vem {var det som vann|är det som har vunnit}?"], feedback: [{ match: ["Vem vann?", "Vem har vunnit?"], tip: "Ook goed Zweeds, maar oefen hier: Vem var det som vann?" }] }
           - { id: gm6n, type: translate, prompt: "Was het je broer die belde?", answers: ["Var det din bror som ringde?"], feedback: [{ contains: "som ringde din bror", tip: "Eerst de nadruk (det din bror), daarna som + de rest." }] }
-          - { id: nv4g, type: translate, prompt: "Wanneer begint de les eigenlijk?", answers: ["När är det [som ]lektionen börjar[ egentligen]?", "När börjar lektionen egentligen?"] }
+          - { id: nv4g, type: translate, prompt: "Wanneer begint de les eigenlijk?", answers: ["När är det [som ]lektionen börjar[ egentligen]?", "När är det egentligen [som ]lektionen börjar?"], feedback: [{ match: ["När börjar lektionen egentligen?", "När börjar lektionen?"], tip: "Ook goed Zweeds, maar oefen hier: När är det som lektionen börjar?" }] }
 
   - id: argument
     title: "Grammatik: argumenteren"

@@ -3,7 +3,7 @@ chapter: 29
 grammar:
   - id: bisats-adverb
     title: Lange bijzinnen
-    summary: "In een bijzin staan **alle** zinsbijwoorden vóór het werkwoord: *att han **kanske inte längre** ville segla*. In de hoofdzin erna: *Han ville **kanske inte längre** segla.* In geschreven Zweeds mag **hade** (en ook **har**) in een bijzin wegvallen: *när skeppet (hade) sjunkit*."
+    summary: "In een bijzin staan **alle** zinsbijwoorden vóór het werkwoord: *att han **kanske inte längre** ville segla*. In een hoofdzin staan ze ná het werkwoord: *Han ville **kanske inte längre** segla.* In geschreven Zweeds mag **hade** (en ook **har**) in een bijzin wegvallen: *när skeppet (hade) sjunkit*."
     body: |
       ### Meerdere bijwoorden
       Zinsbijwoorden zoals *inte, aldrig, kanske, nog, ju, redan, längre, heller, alltid* staan:
@@ -129,7 +129,7 @@ sections:
           - { id: rjbc, type: transform, prompt: "Man hade redan märkt problemet.", task: "Det är känt att …", answers: ["Det är känt att man redan [hade ]märkt problemet."], feedback: [{ contains: "hade redan", tip: "In de bijzin: redan vóór het werkwoord." }] }
           - { id: vmwp, type: transform, prompt: "Skeppet sjönk inte på grund av stormen.", task: "Man vet att …", answers: ["Man vet att skeppet inte sjönk på grund av stormen."], feedback: [{ contains: "sjönk inte", tip: "In de bijzin: inte vóór het werkwoord." }] }
           - { id: aqym, type: transform, prompt: "Kungen ville alltid ha det största skeppet.", task: "Det sägs att …", answers: ["Det sägs att kungen alltid ville ha det största skeppet."], feedback: [{ contains: "ville alltid", tip: "In de bijzin: alltid vóór het werkwoord." }] }
-          - { id: 25df, type: transform, prompt: "Hon har aldrig besökt museet.", task: "Hon berättade att …", answers: ["Hon berättade att hon aldrig {hade|har} besökt museet."], feedback: [{ contains: ["hade aldrig", "har aldrig"], tip: "In de bijzin: aldrig vóór het werkwoord." }] }
+          - { id: 25df, type: transform, prompt: "Hon har aldrig besökt museet.", task: "Hon berättade att …", answers: ["Hon berättade att hon aldrig [{hade|har} ]besökt museet."], feedback: [{ contains: ["hade aldrig", "har aldrig"], tip: "In de bijzin: aldrig vóór het werkwoord." }] }
           - { id: h67m, type: transform, prompt: "Vi kan tyvärr inte komma.", task: "Vi skrev att …", answers: ["Vi skrev att vi tyvärr inte {kunde|kan} komma."], feedback: [{ contains: ["kunde tyvärr", "kan tyvärr"], tip: "In de bijzin: tyvärr inte vóór het werkwoord." }] }
 
       - id: hade-weg
