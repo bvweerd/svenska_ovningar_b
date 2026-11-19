@@ -80,7 +80,11 @@ sections:
 
           Tåget skulle gå klockan sex på kvällen. Först blev det en timmes försening, och sedan stannade tåget helt utanför Umeå på grund av ett signalfel. Därför kom vi fram till Abisko fem timmar för sent. Dessutom hade vi missat bussen till vandringsleden, så vi fick vänta till nästa dag.
 
-          Ändå var det värt det. Fjällen var fantastiska, och vi såg både renar och midnattssol. När vi kom hem skrev jag ett klagomål till tågbolaget. Två veckor senare fick vi tillbaka en del av pengarna.
+          Vi hade tänkt sova i tält redan den första natten, men vi var så trötta att vi inte orkade sätta upp det. Därför frågade vi på turiststationen om de hade några lediga sängar. Till slut fick vi två platser i ett rum med fyra andra vandrare. Det var trångt, men det var i alla fall varmt och torrt.
+
+          Ändå var det värt det. Fjällen var fantastiska, och vi såg både renar och midnattssol. Sedan vandrade vi i fem dagar och sov i tältet varje natt. Bara en dag regnade det, men då blev nästan allt blött, även sovsäckarna. Dessutom hade Joyce glömt att ta med sig myggmedel, så vi fick dela på mitt.
+
+          När vi kom hem skrev jag ett klagomål till tågbolaget. Två veckor senare fick vi tillbaka en del av pengarna. Nästa sommar vill vi åka dit igen, men då ska vi ta god tid på oss.
         items:
           - { id: s65v, type: mc, prompt: "Varför åkte de till Abisko?", options: ["för att vandra", "för att hälsa på släkt", "för att jobba", "för att åka skidor"], answer: 0 }
           - { id: 4d7c, type: truefalse, statement: "De bokade biljetterna i sista minuten.", answer: false, correction: { answers: ["De bokade {biljetterna|dem} två månader i förväg."] } }
@@ -94,6 +98,9 @@ sections:
             options: ["därför", "så", "dessutom", "ändå", "först"]
             answers: [0, 1]
             tip: "dessutom voegt iets toe, ändå is een tegenstelling, först geeft een volgorde."
+          - { id: 43v8, type: mc, prompt: "Varför satte de inte upp tältet den första natten?", options: ["De var för trötta.", "Det regnade för mycket.", "De hade glömt tältet.", "Det var förbjudet att tälta."], answer: 0 }
+          - { id: bzs4, type: truefalse, statement: "På turiststationen fick de ett eget rum.", answer: false, correction: { answers: ["De fick [två ]platser i ett rum med fyra andra[ vandrare]."] } }
+          - { id: b3t4, type: mc, prompt: "Vad hade Joyce glömt att ta med sig?", options: ["myggmedel", "sin sovsäck", "sitt pass", "tältet"], answer: 0 }
 
   - id: ord
     title: Ord och fraser · woorden en uitdrukkingen
@@ -155,6 +162,62 @@ sections:
           - { id: uzzz, type: gap, text: "skriva ut → Biljetterna är ___.", gaps: [{ answers: ["utskrivna"], feedback: [{ match: ["utskriven", "skrivna ut"], tip: "Meervoud, met het partikel vooraan: utskrivna." }] }] }
           - { id: hcn5, type: gap, text: "sätta upp → Tältet är ___.", gaps: [{ answers: ["uppsatt"], feedback: [{ match: ["satt upp", "uppsatta"], tip: "tält is een ett-woord en het partikel komt vooraan: uppsatt." }] }] }
 
+      - id: partikel-vertalen
+        title: Vertaal
+        instruction: Vertaal naar het Zweeds. Gebruik een werkwoord met een partikel.
+        topic: partikelverb-2
+        shuffle: true
+        items:
+          - id: u5cg
+            type: translate
+            prompt: "We moeten opschieten, anders halen we de laatste trein naar Kiruna niet."
+            answers: ["Vi {måste|får} skynda oss, annars hinner vi inte med {det sista tåget|sista tåget} till Kiruna."]
+            feedback:
+              - { contains: "annars vi", tip: "*annars* vooraan geeft inversie: *annars hinner vi*." }
+              - { contains: "hinner vi med inte", tip: "*inte* staat vóór het partikel: *hinner vi inte med*." }
+          - id: n9tu
+            type: translate
+            prompt: "Vergeet niet je slaapzak en je paspoort mee te nemen!"
+            answers: ["Glöm inte [att ]ta med [dig ]{sovsäcken|din sovsäck} och {passet|ditt pass}!"]
+            feedback:
+              - { contains: "ta med sig", tip: "Tegen jou (du): *ta med dig*." }
+              - { contains: "ta dig med", tip: "Bij *ta med* staat *dig* na het partikel: *ta med dig*." }
+          - id: ssjj
+            type: translate
+            prompt: "Toen we eindelijk in Abisko aankwamen, was de bus al vertrokken."
+            answers:
+              - "När vi {äntligen|till slut} kom fram till Abisko, hade bussen redan {åkt iväg|åkt|gått}."
+              - "Bussen hade redan {åkt iväg|åkt|gått} när vi {äntligen|till slut} kom fram till Abisko."
+            feedback:
+              - { contains: "abisko bussen hade", tip: "Na de bijzin vooraan komt eerst het werkwoord: *hade bussen*." }
+          - id: emfg
+            type: translate
+            prompt: "Onze vlucht is geannuleerd, dus we moeten de kaartjes omboeken."
+            answers: ["Vårt flyg {är inställt|har ställts in|ställdes in|blev inställt|har blivit inställt}, så vi måste boka om biljetterna."]
+            feedback:
+              - { contains: "är inställd ", tip: "*flyg* is een ett-woord: *vårt flyg är inställt*." }
+              - { contains: "är ställt in", tip: "Als deelwoord komt het partikel vooraan: *inställt*." }
+              - { contains: "så måste vi", tip: "Na het voegwoord *så* (= dus) geen inversie: *så vi måste*." }
+          - id: eqw7
+            type: translate
+            prompt: "Waar moeten we uitstappen als we naar het hotel willen?"
+            answers: ["Var {ska|måste} vi {stiga|gå|kliva} av om vi {vill|ska} [åka ]till hotellet?"]
+            feedback:
+              - { contains: "stiga ut", tip: "Uitstappen is *stiga av* (of *gå av*)." }
+          - id: 5had
+            type: translate
+            prompt: "Alle koffers zijn al uitgepakt en de telefoons zijn uitgezet."
+            answers: ["{Alla väskor|Alla väskorna|Väskorna|Alla resväskor|Alla resväskorna|Resväskorna} är redan uppackade[,] och {mobilerna|telefonerna} är avstängda."]
+            feedback:
+              - { contains: "packade upp", tip: "Als deelwoord komt het partikel vooraan: *uppackade*." }
+              - { contains: "stängda av", tip: "Als deelwoord komt het partikel vooraan: *avstängda*." }
+          - id: s7am
+            type: translate
+            prompt: "De conducteur vroeg of we in Umeå wilden uitstappen."
+            answers: ["Konduktören frågade om vi ville {stiga|gå|kliva} av i Umeå."]
+            feedback:
+              - { contains: "om ville vi", tip: "Na *om* volgt een bijzin: eerst het onderwerp, *om vi ville*." }
+
   - id: sambandsord
     title: "Grammatik: verbindingswoorden"
     exercises:
@@ -205,6 +268,65 @@ sections:
           - { id: e9cj, type: order, start: "Däremot", tokens: ["var", "hotellet", "billigt"], answers: ["Däremot var hotellet billigt."] }
           - { id: 4eyy, type: order, start: "Ändå", tokens: ["hade", "vi", "en fin resa"], answers: ["Ändå hade vi en fin resa."] }
           - { id: s5rk, type: order, start: "Först", tokens: ["åkte", "vi", "till Stockholm"], answers: ["Först åkte vi till Stockholm."] }
+
+      - id: samband-vertalen
+        title: Vertaal
+        instruction: Vertaal naar het Zweeds. Let op de woordvolgorde na het verbindingswoord.
+        topic: sambandsord
+        shuffle: true
+        items:
+          - id: akur
+            type: translate
+            prompt: "Het hotel was duur. Bovendien was de kamer klein en vies."
+            answers: ["Hotellet var dyrt. Dessutom var rummet {litet|smått} och smutsigt."]
+            feedback:
+              - { contains: "dessutom rummet", tip: "Na *dessutom* vooraan: inversie, *dessutom var rummet*." }
+              - { contains: "rummet var liten", tip: "*rum* is een ett-woord: *litet*." }
+          - id: r79y
+            type: translate
+            prompt: "Het vliegtuig was vertraagd, dus we hebben de laatste bus naar het hotel gemist."
+            answers: ["{Flyget|Planet} {var|blev} försenat, så vi {missade|har missat} {den sista bussen|sista bussen} till hotellet."]
+            feedback:
+              - { contains: "så missade vi", tip: "Na het voegwoord *så* (= dus) geen inversie: *så vi missade*." }
+              - { contains: "var försenad", tip: "*flyg* is een ett-woord: *flyget var försenat*." }
+          - id: 7gua
+            type: translate
+            prompt: "Het regende de hele week. Toch hadden we een fantastische vakantie."
+            answers:
+              - "Det regnade hela veckan. {Ändå|Trots det} hade vi en {fantastisk|underbar} semester."
+              - "Det regnade hela veckan. Vi hade ändå en {fantastisk|underbar} semester."
+            feedback:
+              - { contains: "ändå vi hade", tip: "Na *ändå* vooraan: inversie, *ändå hade vi*." }
+          - id: rgc3
+            type: translate
+            prompt: "We kwamen vijf uur te laat aan. Daarom willen we een vergoeding aanvragen."
+            answers: ["Vi kom[ fram] fem timmar för sent. Därför vill vi {ansöka om|söka|begära|kräva} ersättning."]
+            feedback:
+              - { contains: "därför vi", tip: "Na *därför* vooraan: inversie, *därför vill vi*." }
+          - id: ccwd
+            type: translate
+            prompt: "Eerst namen we de trein naar Kiruna en daarna de bus naar Abisko."
+            answers:
+              - "Först tog vi tåget till Kiruna[,] och {sedan|sen|efter det|därefter} tog vi bussen till Abisko."
+              - "Först tog vi tåget till Kiruna[,] och {sedan|sen|efter det|därefter} bussen till Abisko."
+            feedback:
+              - { contains: "först vi tog", tip: "Na *först* vooraan: inversie, *först tog vi*." }
+              - { contains: "sedan vi tog", tip: "Na *sedan* vooraan: inversie, *sedan tog vi*." }
+          - id: tvzt
+            type: translate
+            prompt: "Mijn vriendin reist graag met het vliegtuig. Ik neem daarentegen liever de trein."
+            answers: ["Min {kompis|vän|väninna|flickvän} {reser gärna med flyg|reser gärna med flygplan|flyger gärna}. {Jag tar däremot hellre tåget|Däremot tar jag hellre tåget|Jag åker däremot hellre tåg|Däremot åker jag hellre tåg}."]
+            feedback:
+              - { contains: "däremot jag", tip: "Na *däremot* vooraan: inversie, *däremot tar jag*." }
+          - id: add7
+            type: translate
+            prompt: "We waren moe, want we hadden de hele nacht in de trein gezeten."
+            answers:
+              - "Vi var trötta, {för|eftersom} vi hade suttit {på|i} tåget hela natten."
+              - "Vi var trötta, {för|eftersom} vi hade suttit hela natten {på|i} tåget."
+            feedback:
+              - { contains: "för hade vi", tip: "Na *för* (= want) geen inversie: *för vi hade*." }
+              - { contains: "hela natt ", tip: "Na *hela*: bepaald, *hela natten*." }
 
   - id: zoek-de-fout
     title: Zoek de fout

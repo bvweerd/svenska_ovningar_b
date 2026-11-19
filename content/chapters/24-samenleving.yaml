@@ -61,9 +61,11 @@ sections:
         topic: asikt
         textTitle: Ska vi införa fyra dagars arbetsvecka?
         text: |
-          **Ja, säger Lina Ek, 34, sjuksköterska.** Jag tycker att vi borde testa det. Många är utbrända och sjukskrivna, och med en extra ledig dag skulle vi hinna vila. Dessutom visar försök i andra länder att folk jobbar mer effektivt när de är utvilade. Även om det kostar pengar i början, tror jag att samhället tjänar på det i längden.
+          I flera länder har företag testat att låta personalen jobba fyra dagar i veckan med samma lön. Nu diskuteras frågan även i Sverige. Vi frågade två personer vad de tycker.
 
-          **Nej, säger Per Holm, 58, företagare.** Visserligen låter det trevligt, men jag håller inte med. Trots att det kanske fungerar på kontor, är det omöjligt inom vården och i butiker, där någon alltid måste finnas på plats. Medan vissa får mer fritid, måste andra jobba mer. Jag anser att det är bättre att låta folk själva välja hur mycket de vill jobba.
+          **Ja, säger Lina Ek, 34, sjuksköterska.** Jag tycker att vi borde testa det. Många är utbrända och sjukskrivna, och med en extra ledig dag skulle vi hinna vila. Själv jobbar jag natt varannan vecka, och när jag kommer hem är jag ofta så trött att jag inte orkar laga mat eller träffa vänner. Dessutom visar försök i andra länder att folk jobbar mer effektivt när de är utvilade. Även om det kostar pengar i början, tror jag att samhället tjänar på det i längden.
+
+          **Nej, säger Per Holm, 58, företagare.** Visserligen låter det trevligt, men jag håller inte med. Trots att det kanske fungerar på kontor, är det omöjligt inom vården och i butiker, där någon alltid måste finnas på plats. I min egen butik har vi redan svårt att hitta personal, och om alla skulle jobba en dag mindre, skulle jag behöva anställa två personer till. Medan vissa får mer fritid, måste andra jobba mer. Jag anser att det är bättre att låta folk själva välja hur mycket de vill jobba. Själv har jag jobbat sex dagar i veckan sedan jag startade företaget, men det är mitt eget val.
         items:
           - { id: ngbb, type: mc, prompt: "Vad jobbar Lina med?", options: ["Hon är sjuksköterska.", "Hon är företagare.", "Hon är lärare.", "Hon är politiker."], answer: 0 }
           - { id: vv2a, type: truefalse, statement: "Lina tycker att man borde testa fyra dagars arbetsvecka.", answer: true }
@@ -76,6 +78,9 @@ sections:
             prompt: "Welke uitdrukkingen in de tekst nuanceren of geven iets toe?"
             options: ["Visserligen låter det trevligt, men …", "Även om det kostar pengar …", "Trots att det kanske fungerar på kontor …", "Jag tycker att vi borde testa det.", "Dessutom visar försök …"]
             answers: [0, 1, 2]
+          - { id: cxca, type: mc, prompt: "Varför är Lina ofta trött när hon kommer hem?", options: ["Hon jobbar natt varannan vecka.", "Hon har lång väg till jobbet.", "Hon tränar varje kväll.", "Hon har tre små barn."], answer: 0 }
+          - { id: akkw, type: truefalse, statement: "Per har svårt att hitta personal till sin butik.", answer: true }
+          - { id: 85gq, type: truefalse, statement: "Per jobbar fyra dagar i veckan.", answer: false, correction: { answers: ["{Per|Han} {jobbar|har jobbat} sex dagar i veckan."] } }
 
   - id: ord
     title: Ord och fraser · woorden en uitdrukkingen
@@ -128,6 +133,20 @@ sections:
           - { id: ajxr, type: translate, prompt: "Ik ben het met je eens.", answers: ["Jag håller med dig.", "Jag håller med."], feedback: [{ contains: "är enig", tip: "är enig med bestaat, maar is formeel en zeldzaam. Gewoner: Jag håller med (dig)." }] }
           - { id: q7hm, type: translate, prompt: "Daar ben ik het niet mee eens.", answers: ["Det håller jag inte med om.", "Jag håller inte med om det."], feedback: [{ contains: "håller inte med det", tip: "Het eens zijn met iets: hålla med om. Det håller jag inte med om." }] }
           - { id: 7j26, type: translate, prompt: "Volgens mij is dat te duur.", answers: ["Jag {tycker|anser|menar|tror}[ att] det är för dyrt.", "Enligt mig är det för dyrt.", "Det är för dyrt enligt mig.", "Enligt min mening är det för dyrt."], feedback: [{ contains: "för dyr ", tip: "det is een ett-vorm: för dyrt." }, { contains: "enligt mig det är", tip: "Na enligt mig: inversie, enligt mig är det." }] }
+          - id: c6ng
+            type: translate
+            prompt: "Ik ben het niet met je eens, maar je hebt wel een punt."
+            answers: ["Jag håller inte med [dig], men du har {ändå |faktiskt |}en poäng."]
+            feedback:
+              - { contains: "håller med inte", tip: "*inte* staat vóór het partikel: *jag håller inte med*." }
+          - id: rwfw
+            type: translate
+            prompt: "Enerzijds is het duur, anderzijds zouden veel mensen er baat bij hebben."
+            answers: ["Å ena sidan är det dyrt, [men ]å andra sidan skulle många [människor ]{tjäna på det|ha nytta av det}."]
+            feedback:
+              - { contains: "å ena sidan det", tip: "Na *å ena sidan* vooraan: inversie, *å ena sidan är det*." }
+              - { contains: "å andra sidan många", tip: "Na *å andra sidan* vooraan: inversie, *å andra sidan skulle många*." }
+              - { contains: "är det dyr ", tip: "Bij *det är* krijgt het bijvoeglijk naamwoord -t: *dyrt*." }
 
   - id: subjunktioner
     title: "Grammatik: trots att, även om, medan"
@@ -176,6 +195,64 @@ sections:
           - { id: tzme, type: order, start: "Trots att det är dyrt,", tokens: ["väljer", "många", "ekologiskt"], answers: ["Trots att det är dyrt, väljer många ekologiskt."] }
           - { id: s3wc, type: order, start: "Det är viktigt att", tokens: ["alla", "får", "säga", "sin åsikt"], answers: ["Det är viktigt att alla får säga sin åsikt."] }
 
+      - id: subj-vertalen
+        title: Vertaal
+        instruction: Vertaal naar het Zweeds. Let op de woordvolgorde in de bijzin en in de hoofdzin.
+        topic: subjunktioner-b1
+        shuffle: true
+        items:
+          - id: 3jgh
+            type: translate
+            prompt: "Hoewel het regende, gingen we naar het debat in het stadhuis."
+            answers:
+              - "{Trots att|Fastän|Även om} det regnade[,] gick vi [ändå ]till debatten i stadshuset."
+              - "Vi gick [ändå ]till debatten i stadshuset[,] {trots att|fastän|även om} det regnade."
+            feedback:
+              - { contains: "regnade vi gick", tip: "Na de bijzin vooraan komt eerst het werkwoord: *gick vi*." }
+              - { contains: "trots det regnade", tip: "*trots* + bijzin: *trots att*." }
+          - id: ekrd
+            type: translate
+            prompt: "Ook al wordt het duurder, toch vind ik dat we het moeten proberen."
+            answers:
+              - "Även om det blir dyrare[,] tycker jag [ändå ]att vi {borde|ska|måste} {prova|testa} det."
+            feedback:
+              - { contains: "dyrare jag tycker", tip: "Na de bijzin vooraan komt eerst het werkwoord: *tycker jag*." }
+              - { contains: "att vi borde inte", tip: "In de *att*-zin staat *inte* vóór het werkwoord." }
+          - id: 54xe
+            type: translate
+            prompt: "Sommige mensen werken vier dagen, terwijl anderen zes dagen per week moeten werken."
+            answers: ["{Vissa|En del|Somliga} {jobbar|arbetar} fyra dagar, medan andra måste {jobba|arbeta} sex dagar {i veckan|per vecka}."]
+            feedback:
+              - { contains: "medan måste andra", tip: "*medan* begint een bijzin: eerst het onderwerp, *medan andra måste*." }
+          - id: admu
+            type: translate
+            prompt: "Hij ging weg zonder iets tegen de anderen te zeggen."
+            answers: ["Han gick{| därifrån| iväg| sin väg} utan att säga {något|någonting} till de andra."]
+            feedback:
+              - { contains: "utan att han", tip: "zonder … te + infinitief: *utan att säga*." }
+              - { contains: "utan säga", tip: "zonder … te: *utan att säga*." }
+          - id: y4d8
+            type: translate
+            prompt: "Voordat je beslist, moet je naar beide kanten luisteren."
+            answers:
+              - "Innan du bestämmer dig[,] måste du lyssna på {båda|bägge} sidorna."
+              - "Du måste lyssna på {båda|bägge} sidorna innan du bestämmer dig."
+              - "Innan man bestämmer sig[,] måste man lyssna på {båda|bägge} sidorna."
+              - "Man måste lyssna på {båda|bägge} sidorna innan man bestämmer sig."
+            feedback:
+              - { contains: "dig du måste", tip: "Na de bijzin vooraan komt eerst het werkwoord: *måste du*." }
+              - { contains: "sig man måste", tip: "Na de bijzin vooraan komt eerst het werkwoord: *måste man*." }
+              - { contains: "sidor ", tip: "Na *båda*: bepaald, *båda sidorna*." }
+          - id: n5g2
+            type: translate
+            prompt: "Sinds ik naar Zweden ben verhuisd, lees ik elke dag de krant in het Zweeds."
+            answers:
+              - "Sedan jag flyttade till Sverige[,] läser jag tidningen på svenska varje dag."
+              - "Sedan jag flyttade till Sverige[,] läser jag varje dag tidningen på svenska."
+              - "Jag läser tidningen på svenska varje dag[,] sedan jag flyttade till Sverige."
+            feedback:
+              - { contains: "sverige jag läser", tip: "Na de bijzin vooraan komt eerst het werkwoord: *läser jag*." }
+
   - id: zoek-de-fout
     title: Zoek de fout
     exercises:
@@ -190,6 +267,8 @@ sections:
           - { id: bd6g, type: findError, topic: asikt, sentence: "Jag håller inte med det.", wrong: [3, 4], answers: ["Jag håller inte med om det.", "Det håller jag inte med om."], tip: "Het eens zijn met iets: hålla med om." }
           - { id: 37ka, type: findError, sentence: "Tvätta händerna sedan du äter!", wrong: [2], answers: ["Tvätta händerna innan du äter!"], tip: "Voordat …" }
           - { id: pbnv, type: findError, topic: asikt, sentence: "Jag anser att vi borde inte göra det.", wrong: [4, 5], answers: ["Jag anser att vi inte borde göra det."], tip: "Na anser att volgt een bijzin." }
+          - { id: wdpd, type: findError, sentence: "Även om det kostar mycket pengar, jag tror att det är värt det.", wrong: [6, 7], answers: ["Även om det kostar mycket pengar[,] tror jag att det är värt det."], tip: "Bijzin vooraan: daarna inversie." }
+          - { id: x3vk, type: findError, topic: asikt, sentence: "Lina tycker att sjuksköterskor har inte tillräckligt med tid för att vila.", wrong: [4, 5], answers: ["Lina tycker att sjuksköterskor inte har tillräckligt med tid för att vila."], tip: "Na tycker att volgt een bijzin: waar staat inte?" }
 
   - id: lyssna
     title: Lyssna · luisteren
