@@ -131,6 +131,9 @@ sections:
           - { id: cjk8, type: gap, text: "När kom ni ___ till hotellet?", gaps: [{ answers: ["fram"], options: ["fram", "av", "på", "iväg"], shuffle: false }] }
           - { id: bvra, type: gap, text: "Glöm inte att ta med ___ passet!", gaps: [{ answers: ["dig"], options: ["dig", "sig", "du"], shuffle: false, feedback: [{ match: "sig", tip: "Tegen jou (du): ta med dig." }] }] }
           - { id: ygrq, type: gap, text: "Bussen ___ klockan sju i morse, så vi missade den.", gaps: [{ answers: ["åkte iväg"], options: ["åkte iväg", "kom fram", "steg på"], tip: "Vertrekken: åka iväg." }] }
+          - { id: fns3, type: gap, text: "Var ska vi ___ bussen?", gaps: [{ answers: ["stiga på"], options: ["stiga på", "stiga av", "komma fram"] }] }
+          - { id: mauq, type: gap, text: "Tåget var försenat, så vi ___ inte bussen.", gaps: [{ answers: ["hann med"], options: ["hann med", "kom fram", "steg av"], tip: "Iets nog halen: hinna med (hann med)." }] }
+          - { id: r9t7, type: gap, text: "Mitt flyg blev inställt, så jag måste ___ biljetten.", gaps: [{ answers: ["boka om"], options: ["boka om", "boka in", "boka ut"], tip: "Omboeken: boka om." }] }
 
       - id: partikel-deelwoord
         title: Het partikel vooraan
@@ -143,6 +146,9 @@ sections:
           - { id: 5afn, type: gap, text: "packa upp → Väskorna är ___.", gaps: [{ answers: ["uppackade"], feedback: [{ match: ["upppackade", "uppackad"], tip: "Meervoud: uppackade (met twee p's)." }] }] }
           - { id: 6bq9, type: gap, text: "stänga av → Mobilen är ___.", gaps: [{ answers: ["avstängd"], feedback: [{ match: "stängd av", tip: "Het partikel komt vooraan: avstängd." }] }] }
           - { id: 2hka, type: gap, text: "låsa upp → Dörren är ___.", gaps: [{ answers: ["upplåst"], feedback: [{ match: "låst upp", tip: "Het partikel komt vooraan: upplåst." }] }] }
+          - { id: et7e, type: gap, text: "slå på → Datorn är ___.", gaps: [{ answers: ["påslagen"], feedback: [{ match: ["slagen på", "påslaget"], tip: "dator is een en-woord en het partikel komt vooraan: påslagen." }] }] }
+          - { id: uzzz, type: gap, text: "skriva ut → Biljetterna är ___.", gaps: [{ answers: ["utskrivna"], feedback: [{ match: ["utskriven", "skrivna ut"], tip: "Meervoud, met het partikel vooraan: utskrivna." }] }] }
+          - { id: hcn5, type: gap, text: "sätta upp → Tältet är ___.", gaps: [{ answers: ["uppsatt"], feedback: [{ match: ["satt upp", "uppsatta"], tip: "tält is een ett-woord en het partikel komt vooraan: uppsatt." }] }] }
 
   - id: sambandsord
     title: "Grammatik: verbindingswoorden"
@@ -159,6 +165,8 @@ sections:
           - { id: 8byx, type: gap, text: "Bussen var full. Tåget ___ var nästan tomt.", gaps: [{ answers: ["däremot"], options: ["däremot", "därför", "dessutom"], shuffle: false, tip: "Een tegenstelling: däremot." }] }
           - { id: 4mcn, type: gap, text: "Det regnade hela veckan. ___ hade vi roligt.", gaps: [{ answers: ["Ändå"], options: ["Ändå", "Därför", "Dessutom"], shuffle: false, tip: "Toch: ändå." }] }
           - { id: c54n, type: gap, text: "___ åkte vi till Kiruna, och sedan vidare till Abisko.", gaps: [{ answers: ["Först"], options: ["Först", "Till slut", "Däremot"], shuffle: false }] }
+          - { id: h56y, type: gap, text: "Jag gillar att resa med tåg. Min man ___ föredrar flyg.", gaps: [{ answers: ["däremot"], options: ["däremot", "därför", "dessutom"], shuffle: false, tip: "Een tegenstelling: däremot." }] }
+          - { id: zjmy, type: gap, text: "Vi åt middag och gick på museum. ___ åkte vi hem.", gaps: [{ answers: ["Till slut"], options: ["Till slut", "Däremot", "Dessutom"], shuffle: false }] }
 
       - id: samband-zinsbouw
         title: Let op de woordvolgorde
@@ -171,6 +179,9 @@ sections:
           - { id: 7jtb, type: order, start: "Tåget var sent, så", tokens: ["vi", "missade", "bussen"], answers: ["Tåget var sent, så vi missade bussen."] }
           - { id: xdqr, type: order, start: "Till slut", tokens: ["kom", "vi", "fram", "till Abisko"], answers: ["Till slut kom vi fram till Abisko."] }
           - { id: 4u9b, type: order, start: "Vi kom sent eftersom", tokens: ["tåget", "inte", "gick", "i tid"], answers: ["Vi kom sent eftersom tåget inte gick i tid."] }
+          - { id: e9cj, type: order, start: "Däremot", tokens: ["var", "hotellet", "billigt"], answers: ["Däremot var hotellet billigt."] }
+          - { id: 4eyy, type: order, start: "Ändå", tokens: ["hade", "vi", "en fin resa"], answers: ["Ändå hade vi en fin resa."] }
+          - { id: s5rk, type: order, start: "Först", tokens: ["åkte", "vi", "till Stockholm"], answers: ["Först åkte vi till Stockholm."] }
 
       - id: samband-sorteren
         title: Inversie of niet?

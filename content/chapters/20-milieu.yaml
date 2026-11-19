@@ -112,6 +112,8 @@ sections:
           - { id: qvft, type: gap, text: "Det finns ___ bröd kvar.", gaps: [{ answers: ["inget"], options: ["ingen", "inget", "inga"], shuffle: false, feedback: [{ match: "ingen", tip: "bröd is een ett-woord: inget." }] }] }
           - { id: efvm, type: gap, text: "Är det ___ som vill ha kaffe?", gaps: [{ answers: ["någon", "några"], options: ["någon", "något", "några"], shuffle: false }] }
           - { id: y34s, type: gap, text: "___ visste vad som hade hänt.", gaps: [{ answers: ["Ingen"], options: ["Ingen", "Inget", "Inga"], shuffle: false, tip: "Niemand = ingen." }] }
+          - { id: dn9x, type: gap, text: "Jag har inte ___ tid i dag.", gaps: [{ answers: ["någon"], options: ["någon", "något", "några"], shuffle: false, feedback: [{ match: "något", tip: "tid is een en-woord: någon." }] }] }
+          - { id: t9y7, type: gap, text: "Finns det ___ ledigt rum?", gaps: [{ answers: ["något"], options: ["någon", "något", "några"], shuffle: false, feedback: [{ match: "någon", tip: "rum is een ett-woord: något." }] }] }
 
       - id: nagon-ontkennen
         title: Maak de zin ontkennend
@@ -124,6 +126,8 @@ sections:
           - { id: umcw, type: transform, prompt: "Det finns mat i kylen.", answers: ["Det finns ingen mat i kylen.", "Det finns inte någon mat i kylen."] }
           - { id: wvkk, type: transform, prompt: "Hon sa att hon hade några frågor.", answers: ["Hon sa att hon inte hade några frågor."], feedback: [{ match: "Hon sa att hon hade inga frågor.", tip: "In een bijzin: inte … några." }] }
           - { id: x9k8, type: transform, prompt: "Jag har hittat något.", answers: ["Jag har inte hittat {något|någonting}."], feedback: [{ match: ["Jag har hittat inget.", "Jag har hittat ingenting."], tip: "Bij har + supinum: inte … något." }] }
+          - { id: medb, type: transform, prompt: "Jag känner någon i Umeå.", answers: ["Jag känner ingen i Umeå.", "Jag känner inte någon i Umeå."] }
+          - { id: brqb, type: transform, prompt: "Vi har köpt några presenter.", answers: ["Vi har inte köpt några presenter."], feedback: [{ match: "Vi har köpt inga presenter.", tip: "Bij har + supinum: inte … några." }] }
 
       - id: nagon-goed-fout
         title: Goed of fout?
@@ -155,6 +159,9 @@ sections:
           - { id: bebf, type: gap, text: "Det är härligt när ___ vänner hälsar på.", gaps: [{ answers: ["ens"], options: ["man", "en", "ens"], shuffle: false }] }
           - { id: 96ut, type: gap, text: "Man ska ta med sig ___ skräp hem.", gaps: [{ answers: ["sitt"], options: ["sitt", "ens", "hans"], shuffle: false, feedback: [{ match: "ens", tip: "Het bezit hoort bij het onderwerp man in dezelfde zin: sitt." }] }] }
           - { id: 5wrh, type: gap, text: "Det känns bra när någon hjälper ___.", gaps: [{ answers: ["en"], options: ["man", "en", "ens"], shuffle: false }] }
+          - { id: fyc5, type: gap, text: "Det är svårt när ingen lyssnar på ___.", gaps: [{ answers: ["en"], options: ["man", "en", "ens"], shuffle: false, feedback: [{ match: "man", tip: "Na een voorzetsel (på) komt de objectvorm: en." }] }] }
+          - { id: q2j8, type: gap, text: "___ vet aldrig vad som kan hända.", gaps: [{ answers: ["Man"], options: ["Man", "En", "Ens"], shuffle: false }] }
+          - { id: 4r3t, type: gap, text: "Det är tråkigt när ___ cykel blir stulen.", gaps: [{ answers: ["ens"], options: ["man", "en", "ens"], shuffle: false, tip: "Bezit bij man, als man niet het onderwerp is: ens." }] }
 
       - id: man-vertalen
         title: Vertaal met man
@@ -164,6 +171,11 @@ sections:
           - { id: qh9k, type: translate, prompt: "Hier mag je niet roken.", answers: ["Här får man inte röka.", "Man får inte röka här."], feedback: [{ contains: "du", tip: "Je in algemene zin = man." }] }
           - { id: 3x94, type: translate, prompt: "Je moet je afval scheiden.", answers: ["Man måste {sortera|källsortera} sina sopor.", "Man ska {sortera|källsortera} sina sopor."], feedback: [{ contains: "ens sopor", tip: "Het bezit hoort bij man als onderwerp: sina sopor." }] }
           - { id: 4jep, type: translate, prompt: "Het is fijn als iemand je helpt.", answers: ["Det är {skönt|trevligt|härligt|fint} {när|om} någon hjälper en."] }
+          - { id: rvny, type: translate, prompt: "In Zweden drinkt men veel koffie.", answers: ["I Sverige dricker man mycket kaffe.", "Man dricker mycket kaffe i Sverige."], feedback: [{ contains: "sverige man dricker", tip: "Na I Sverige vooraan komt eerst het werkwoord: dricker man." }] }
+          - { id: yqqh, type: translate, prompt: "Je weet maar nooit.", answers: ["Man vet aldrig."], feedback: [{ contains: "du vet", tip: "Je in algemene zin = man." }] }
+          - { id: 28qv, type: translate, prompt: "Je moet je rijbewijs meenemen.", answers: ["Man {måste|ska} ta med [sig ]sitt körkort."], feedback: [{ contains: "ens körkort", tip: "Het bezit hoort bij man als onderwerp: sitt körkort." }, { contains: "du", tip: "Je in algemene zin = man." }] }
+          - { id: mrch, type: translate, prompt: "Het is fijn als je vrienden je bellen.", answers: ["Det är {skönt|trevligt|roligt|härligt|fint} {när|om} ens vänner ringer[ till] en."], feedback: [{ contains: "sina vänner", tip: "man is hier niet het onderwerp: ens vänner." }] }
+          - { id: 3jp7, type: translate, prompt: "Hier kun je goed eten.", answers: ["Här kan man äta gott.", "Man kan äta gott här.", "Här äter man gott.", "Man äter gott här."] }
 
   - id: lyssna
     title: Lyssna · luisteren

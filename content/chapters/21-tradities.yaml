@@ -137,6 +137,8 @@ sections:
           - { id: cbze, type: translate, prompt: "de eerste keer", answers: ["[den ]första gången"], feedback: [{ match: "första gång", tip: "Na första: bepaald, gången." }] }
           - { id: 9a7k, type: translate, prompt: "dezelfde dag", answers: ["samma dag"], feedback: [{ match: ["samma dagen", "den samma dagen"], tip: "Na samma: onbepaald, en zonder den: samma dag." }] }
           - { id: wv2y, type: translate, prompt: "beide ouders", answers: ["{båda|bägge} föräldrarna", "de {båda|bägge} föräldrarna"], feedback: [{ match: "båda föräldrar", tip: "Na båda: bepaald, föräldrarna." }] }
+          - { id: xhdf, type: translate, prompt: "de hele dag", answers: ["hela dagen"], feedback: [{ match: "hela dag", tip: "Na hela: bepaald, dagen." }] }
+          - { id: 6y93, type: translate, prompt: "volgende week", answers: ["nästa vecka"], feedback: [{ match: "nästa veckan", tip: "Na nästa: onbepaald, vecka." }] }
 
   - id: sammansattning
     title: "Grammatik: samenstellingen"
@@ -167,6 +169,9 @@ sections:
           - { id: a9zj, type: mc, prompt: "julbord (en jul + bord)", options: ["en", "ett"], answer: 1, shuffle: false, tip: "bord is een ett-woord." }
           - { id: dhye, type: mc, prompt: "barnvagn (ett barn + vagn)", options: ["en", "ett"], answer: 0, shuffle: false, tip: "vagn is een en-woord." }
           - { id: 3jrr, type: mc, prompt: "skolbibliotek (en skola + bibliotek)", options: ["en", "ett"], answer: 1, shuffle: false, tip: "bibliotek is een ett-woord." }
+          - { id: tkvb, type: mc, prompt: "tågbiljett (ett tåg + biljett)", options: ["en", "ett"], answer: 0, shuffle: false, tip: "biljett is een en-woord." }
+          - { id: enrq, type: mc, prompt: "sommarhus (en sommar + hus)", options: ["en", "ett"], answer: 1, shuffle: false, tip: "hus is een ett-woord." }
+          - { id: e7th, type: mc, prompt: "kaffekopp (ett kaffe + kopp)", options: ["en", "ett"], answer: 0, shuffle: false, tip: "kopp is een en-woord." }
 
       - id: samenstelling-s
         title: Met of zonder -s-?

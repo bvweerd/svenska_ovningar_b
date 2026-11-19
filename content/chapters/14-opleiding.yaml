@@ -151,6 +151,8 @@ sections:
           - { id: w3w7, type: transform, prompt: "Huset såldes förra året.", answers: ["Huset blev sålt förra året."], feedback: [{ contains: "blev såld", tip: "hus is een ett-woord: sålt." }] }
           - { id: tg7y, type: transform, prompt: "Jag bjöds på middag.", answers: ["Jag blev bjuden på middag."] }
           - { id: 9mah, type: transform, prompt: "Tentorna rättades snabbt.", answers: ["Tentorna blev rättade snabbt.", "Tentorna blev snabbt rättade."] }
+          - { id: 86bd, type: transform, prompt: "Mötet flyttades till fredag.", answers: ["Mötet blev flyttat till fredag."], feedback: [{ contains: "blev flyttad ", tip: "möte is een ett-woord: flyttat." }] }
+          - { id: mjtb, type: transform, prompt: "Studenterna informerades om ändringen.", answers: ["Studenterna blev informerade om ändringen."], feedback: [{ contains: "blev informerad ", tip: "studenterna is meervoud: informerade." }] }
 
       - id: vara-of-bli
         title: Toestand of gebeurtenis?
@@ -198,6 +200,8 @@ sections:
           - { id: b4fb, type: gap, text: "Den ___ (skriva) uppsatsen ska lämnas in på fredag.", gaps: [{ answers: ["skrivna"], feedback: [{ match: "skriven", tip: "Na den (bepaald) krijgt het deelwoord dezelfde vorm als het meervoud: skrivna." }] }] }
           - { id: wsjf, type: gap, text: "Det ___ (ställa in) mötet ersätts av ett mejl.", gaps: [{ answers: ["inställda"], feedback: [{ match: "inställt", tip: "Na det (bepaald): de -a-vorm, inställda." }] }] }
           - { id: xmc6, type: gap, text: "Hon har ett ___ (måla) porträtt av sin mormor.", gaps: [{ answers: ["målat"] }] }
+          - { id: v54u, type: gap, text: "Han köpte en ___ (använda) cykel.", gaps: [{ answers: ["använd"], feedback: [{ match: ["använt", "använda"], tip: "cykel is een en-woord, onbepaald: använd." }] }] }
+          - { id: p7t9, type: gap, text: "Alla ___ (anmäla) studenter får ett mejl.", gaps: [{ answers: ["anmälda"], feedback: [{ match: ["anmäld", "anmält"], tip: "Meervoud: anmälda." }] }] }
 
       - id: presens-particip
         title: Spännande en leende
@@ -210,6 +214,9 @@ sections:
           - { id: hqes, type: mc, prompt: "Under ___ år ska skolan byggas om.", options: ["kommande", "kommen", "kommade"], answer: 0 }
           - { id: khn9, type: mc, prompt: "Han kom ___ in i klassrummet.", options: ["springande", "sprungen", "springer"], answer: 0 }
           - { id: 249y, type: mc, prompt: "Vi läste en ___ artikel om skolsystemet.", options: ["intressant", "intresserande", "intresserad"], answer: 0, tip: "intressant is een gewoon bijvoeglijk naamwoord; intresserad (av) zeg je over een persoon." }
+          - { id: u28p, type: mc, prompt: "Hon är en ___ lärare. (inspirerend)", options: ["inspirerande", "inspirerad", "inspirerat"], answer: 0, tip: "Iets wat inspireert: inspirerande. inspirerad = geïnspireerd." }
+          - { id: ua3u, type: mc, prompt: "Nils satt ___ i soffan hela kvällen. (lezend)", options: ["läsande", "läst", "läser"], answer: 0 }
+          - { id: mwp5, type: mc, prompt: "Han är en ___ student. (veelbelovend)", options: ["lovande", "lovad", "lovar"], answer: 0 }
 
   - id: lyssna
     title: Lyssna · luisteren

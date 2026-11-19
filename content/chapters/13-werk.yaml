@@ -196,6 +196,7 @@ sections:
           - { id: 52mq, type: transform, prompt: "Företaget anställde tre nya ingenjörer.", answers: ["Tre nya ingenjörer anställdes[ av företaget]."] }
           - { id: n2dh, type: transform, prompt: "Man har renoverat kontoret.", answers: ["Kontoret har renoverats."], feedback: [{ match: "Kontoret renoverades.", tip: "Goed bedacht, maar houd de voltooide tijd aan: har + supinum + s." }] }
           - { id: 9w4f, type: transform, prompt: "Man måste skicka ansökan före fredag.", answers: ["Ansökan måste skickas före fredag.", "Före fredag måste ansökan skickas."], feedback: [{ contains: "måste skickar", tip: "Na een modaal werkwoord komt de infinitief: skicka + s = skickas." }] }
+          - { id: 4sj3, type: transform, prompt: "Man städar kontoret varje kväll.", answers: ["Kontoret städas varje kväll.", "Varje kväll städas kontoret."], feedback: [{ contains: "av man", tip: "Man is onbepaald: dat laat je in de lijdende vorm weg." }] }
 
       - id: passiv-of-niet
         title: Lijdend of niet?
@@ -231,6 +232,7 @@ sections:
           - { id: g3hu, type: transform, prompt: "Hon har en chef. Chefen lyssnar inte på henne.", answers: ["Hon har en chef som inte lyssnar på henne."], feedback: [{ contains: "som lyssnar inte", tip: "In een bijzin staat inte vóór het werkwoord: som inte lyssnar." }] }
           - { id: p6jm, type: transform, prompt: "Det är kontoret. Jag jobbar på kontoret.", answers: ["Det är kontoret [som ]jag jobbar på.", "Det är kontoret där jag jobbar."], feedback: [{ contains: "på kontoret", tip: "Herhaal kontoret niet. Het voorzetsel blijft achteraan: … som jag jobbar på." }] }
           - { id: qjbk, type: transform, prompt: "Jag ringde till kunden. Han hade skickat ett klagomål.", answers: ["Jag ringde till kunden som hade skickat ett klagomål."] }
+          - { id: 47he, type: transform, prompt: "Vi har en ny chef. Alla tycker om henne.", answers: ["Vi har en ny chef som alla tycker om."], feedback: [{ contains: "om henne", tip: "som vervangt henne: laat henne weg. Het voorzetsel om blijft achteraan." }] }
 
       - id: som-weglaten
         title: Mag som weg?
@@ -258,6 +260,10 @@ sections:
           - { id: 977g, type: order, start: "Det är ett jobb", tokens: ["som", "jag", "verkligen", "vill", "ha"], answers: ["Det är ett jobb som jag verkligen vill ha."] }
           - { id: r2h5, type: order, start: "Hon sökte en tjänst", tokens: ["som", "inte", "krävde", "erfarenhet"], answers: ["Hon sökte en tjänst som inte krävde erfarenhet."] }
           - { id: bhey, type: order, start: "Det är kollegan", tokens: ["som", "jag", "delar", "rum", "med"], answers: ["Det är kollegan som jag delar rum med."] }
+          - { id: 7z5t, type: order, start: "Det här är rapporten", tokens: ["som", "chefen", "inte", "har", "läst"], answers: ["Det här är rapporten som chefen inte har läst."] }
+          - { id: ry7d, type: order, start: "Vi söker någon", tokens: ["som", "kan", "börja", "direkt"], answers: ["Vi söker någon som kan börja direkt."] }
+          - { id: z2wt, type: order, start: "Han fick ett jobb", tokens: ["som", "han", "alltid", "har", "drömt om"], answers: ["Han fick ett jobb som han alltid har drömt om."] }
+          - { id: jxba, type: order, start: "Hon är den enda", tokens: ["som", "aldrig", "är", "sjuk"], answers: ["Hon är den enda som aldrig är sjuk."] }
 
   - id: lyssna
     title: Lyssna · luisteren

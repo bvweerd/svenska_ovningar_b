@@ -143,6 +143,9 @@ sections:
           - { id: be58, type: gap, text: "Har du pratat med ___?", gaps: [{ answers: ["dem"], options: ["de", "dem"], shuffle: false, tip: "Na een voorzetsel: dem (med oss)." }] }
           - { id: 6jwa, type: gap, text: "Jag vet inte vad ___ vill.", gaps: [{ answers: ["de"], options: ["de", "dem"], shuffle: false, feedback: [{ match: "dem", tip: "vad vi vill → de." }] }] }
           - { id: 7a4c, type: gap, text: "___ här skorna är för små.", gaps: [{ answers: ["De"], options: ["De", "Dem"], shuffle: false, tip: "Aanwijzend vóór een zelfstandig naamwoord: de här." }] }
+          - { id: 5jja, type: gap, text: "Jag ringde ___ i går.", gaps: [{ answers: ["dem"], options: ["de", "dem"], shuffle: false, feedback: [{ match: "de", tip: "Jag ringde oss → dem." }] }] }
+          - { id: q27n, type: gap, text: "Vet du om ___ har ätit?", gaps: [{ answers: ["de"], options: ["de", "dem"], shuffle: false, feedback: [{ match: "dem", tip: "om vi har ätit → de." }] }] }
+          - { id: gkmk, type: gap, text: "Vi bjöd ___ på middag.", gaps: [{ answers: ["dem"], options: ["de", "dem"], shuffle: false }] }
 
       - id: standaard
         title: Schrijf het netjes
@@ -154,6 +157,9 @@ sections:
           - { id: bch5, type: transform, prompt: "Jag såg dom i går.", answers: ["Jag såg dem {i går|igår}."], feedback: [{ contains: "såg de", tip: "Jag såg oss → dem." }] }
           - { id: ubzd, type: transform, prompt: "Va gör du sen?", answers: ["Vad gör du {sedan|senare|sen}?"] }
           - { id: rcgj, type: transform, prompt: "Har nån sett mina nycklar?", answers: ["Har någon sett mina nycklar?"] }
+          - { id: zthq, type: transform, prompt: "Dom sa att dom inte hade tid.", answers: ["De sa att de inte hade tid.", "De sade att de inte hade tid."], feedback: [{ contains: "dem", tip: "Onderwerp (vi sa, vi hade): de." }] }
+          - { id: dsmp, type: transform, prompt: "Ja vet inte.", answers: ["Jag vet inte."] }
+          - { id: bxa9, type: transform, prompt: "Säj till om du behöver nåt!", answers: ["Säg till om du behöver {något|någonting}!"] }
 
       - id: formeler
         title: Formeler
@@ -164,6 +170,11 @@ sections:
           - { id: vtfd, type: gap, text: "Vi har ___ din ansökan.", gaps: [{ answers: ["erhållit"], options: ["erhållit", "fått tag på", "kollat"], shuffle: false }] }
           - { id: ukfj, type: gap, text: "Vi vill ___ att kontoret är stängt i morgon.", gaps: [{ answers: ["meddela"], options: ["meddela", "snacka om", "säga till dig"], shuffle: false }] }
           - { id: pce2, type: gap, text: "Tack för din ansökan. Vi har ___ redan anställt en person.", gaps: [{ answers: ["dock"], options: ["dock", "typ", "liksom"], shuffle: false }] }
+          - { id: yvma, type: gap, text: "Mötet ___ på fredag klockan tio.", gaps: [{ answers: ["äger rum"], options: ["äger rum", "blir av typ", "händer liksom"], shuffle: false }] }
+          - { id: b74h, type: gap, text: "Vi ___ dig att svara senast den 1 maj.", gaps: [{ answers: ["ber"], options: ["ber", "vill typ att", "säger åt"], shuffle: false }] }
+          - { id: kquh, type: gap, text: "Har du ___ frågor är du välkommen att kontakta oss.", gaps: [{ answers: ["ytterligare"], options: ["ytterligare", "fler såna", "lite mer typ"], shuffle: false }] }
+          - { id: ry78, type: gap, text: "Vi ___ för besväret.", gaps: [{ answers: ["ber om ursäkt"], options: ["ber om ursäkt", "är sorry", "säger förlåt typ"], shuffle: false }] }
+          - { id: acwz, type: gap, text: "Ansökan ska skickas ___ den 15 maj.", gaps: [{ answers: ["senast"], options: ["senast", "typ innan", "sådär runt"], shuffle: false }] }
 
   - id: idiom
     title: "Grammatik: uitdrukkingen"
@@ -180,6 +191,8 @@ sections:
           - { id: fcp5, type: mc, prompt: "*Hon var lugn under hela intervjun. Hon ___.*", options: ["hade is i magen", "fick skägg i brevlådan", "gled in på en räkmacka", "anade ugglor i mossen"], answer: 0 }
           - { id: naeq, type: mc, prompt: "*Säg vad du menar, i stället för att ___!*", options: ["gå som katten kring het gröt", "ha is i magen", "kasta yxan i sjön", "glida in på en räkmacka"], answer: 0 }
           - { id: bhv6, type: mc, prompt: "*Det var svårt, men vi ___. Vi fortsatte.*", options: ["kastade inte yxan i sjön", "hade inte is i magen", "anade inte ugglor i mossen", "tog det inte med en nypa salt"], answer: 0, tip: "Ze gaven niet op: de bijl niet in het meer gooien." }
+          - { id: 5k2j, type: mc, prompt: "*Jag tror inte på allt han säger. Jag ___.*", options: ["tar det med en nypa salt", "har is i magen", "går som katten kring het gröt", "kastar yxan i sjön"], answer: 0 }
+          - { id: 3gfw, type: mc, prompt: "*Något är konstigt här. Jag ___.*", options: ["anar ugglor i mossen", "glider in på en räkmacka", "har is i magen", "kastar yxan i sjön"], answer: 0 }
 
   - id: lyssna
     title: Lyssna · luisteren

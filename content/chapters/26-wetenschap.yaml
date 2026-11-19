@@ -125,6 +125,9 @@ sections:
           - { id: kcdf, type: transform, prompt: "den av forskarna föreslagna förklaringen", task: "Begin met: förklaringen som …", answers: ["förklaringen som forskarna {föreslog|föreslår|har föreslagit}", "förklaringen som föreslogs av forskarna"] }
           - { id: vub2, type: transform, prompt: "ett snabbt växande problem", task: "Begin met: ett problem som …", answers: ["ett problem som växer snabbt", "ett problem som snabbt växer"] }
           - { id: eqge, type: transform, prompt: "den gällande regeln", task: "Begin met: regeln som …", answers: ["regeln som gäller[ nu]"] }
+          - { id: daz2, type: transform, prompt: "den ökande arbetslösheten", task: "Begin met: arbetslösheten som …", answers: ["arbetslösheten som ökar"] }
+          - { id: xpvy, type: transform, prompt: "de nyligen anställda forskarna", task: "Begin met: forskarna som …", answers: ["forskarna som {nyligen anställdes|nyligen har anställts|anställdes nyligen|har anställts nyligen}"] }
+          - { id: gzd7, type: transform, prompt: "en ofta använd metod", task: "Begin met: en metod som …", answers: ["en metod som {används ofta|ofta används}"] }
 
       - id: particip-inpakken
         title: Pak het in
@@ -135,6 +138,10 @@ sections:
           - { id: yfju, type: transform, prompt: "personerna som deltar", task: "Begin met: de …", answers: ["de deltagande personerna"] }
           - { id: hjuj, type: transform, prompt: "ett problem som växer", task: "Begin met: ett …", answers: ["ett växande problem"] }
           - { id: 7nxn, type: transform, prompt: "rapporten som publicerades i går", task: "Begin met: den i går …", answers: ["den {i går|igår} publicerade rapporten"], feedback: [{ contains: "publicerad rapporten", tip: "Na den: publicerade." }] }
+          - { id: gw86, type: transform, prompt: "barnen som leker", task: "Begin met: de …", answers: ["de lekande barnen"] }
+          - { id: 5sed, type: transform, prompt: "en artikel som skrevs av två forskare", task: "Begin met: en av två forskare …", answers: ["en av två forskare skriven artikel"], feedback: [{ contains: ["skrivna artikel", "skrivet artikel"], tip: "artikel is een en-woord, onbepaald: skriven." }] }
+          - { id: 4b48, type: transform, prompt: "priserna som stiger", task: "Begin met: de …", answers: ["de stigande priserna"] }
+          - { id: bpkd, type: transform, prompt: "boken som översattes nyligen", task: "Begin met: den nyligen …", answers: ["den nyligen översatta boken"], feedback: [{ contains: ["översatt boken", "översatte boken"], tip: "Na den: översatta." }] }
 
       - id: particip-vormen
         title: De goede vorm
@@ -148,6 +155,8 @@ sections:
           - { id: skr5, type: gap, text: "den nyligen ___ (publicera) rapporten", gaps: [{ answers: ["publicerade"], feedback: [{ match: "publicerad", tip: "Na den: publicerade." }] }] }
           - { id: afhf, type: gap, text: "ett ofta ___ (citera) exempel", gaps: [{ answers: ["citerat"], feedback: [{ match: ["citerad", "citerade"], tip: "Na ett (onbepaald): citerat." }] }] }
           - { id: nexm, type: gap, text: "de av regeringen ___ (föreslå) reglerna", gaps: [{ answers: ["föreslagna"], feedback: [{ match: ["föreslådda", "föreslagen"], tip: "föreslå is sterk: föreslagen, föreslaget, föreslagna." }] }] }
+          - { id: 7v2e, type: gap, text: "ett ___ (stiga) antal", gaps: [{ answers: ["stigande"] }] }
+          - { id: h9w3, type: gap, text: "ett ___ (stänga) fönster", gaps: [{ answers: ["stängt"], feedback: [{ match: ["stängd", "stängda"], tip: "Na ett (onbepaald): stängt." }] }] }
 
       - id: kern-vinden
         title: Vind de kern
@@ -159,6 +168,10 @@ sections:
           - { id: y629, type: mc, prompt: "*de av regeringen föreslagna reglerna för hyror i storstäderna*", options: ["reglerna", "regeringen", "hyror", "storstäderna"], answer: 0 }
           - { id: 5g7b, type: mc, prompt: "*forskarnas slutsats om effekten av korta tupplurar*", options: ["slutsats", "forskarnas", "effekten", "tupplurar"], answer: 0 }
           - { id: qewn, type: mc, prompt: "*en för många människor helt okänd sjukdom*", options: ["sjukdom", "människor", "okänd", "många"], answer: 0 }
+          - { id: 6qds, type: mc, prompt: "*den snabbt växande efterfrågan på el i norra Sverige*", options: ["efterfrågan", "el", "Sverige", "växande"], answer: 0 }
+          - { id: tmtt, type: mc, prompt: "*ett av forskarna ofta citerat exempel från 1990-talet*", options: ["exempel", "forskarna", "1990-talet", "citerat"], answer: 0 }
+          - { id: fquu, type: mc, prompt: "*de nya reglerna för arbetstid inom vården*", options: ["reglerna", "arbetstid", "vården", "nya"], answer: 0 }
+          - { id: f4g8, type: mc, prompt: "*en kraftig ökning av antalet äldre i Europa*", options: ["ökning", "antalet", "äldre", "Europa"], answer: 0 }
 
   - id: lyssna
     title: Lyssna · luisteren

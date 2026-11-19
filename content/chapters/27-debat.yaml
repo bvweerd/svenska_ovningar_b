@@ -129,6 +129,8 @@ sections:
           - { id: uvpj, type: transform, prompt: "Jag vill ha **kaffe**.", answers: ["Det är kaffe [som ]jag vill ha."] }
           - { id: 58be, type: transform, prompt: "**Eleverna** vill inte ha ett förbud.", answers: ["Det är eleverna som inte vill ha [ett ]förbud."], feedback: [{ contains: "som vill inte", tip: "Het som-deel is een bijzin: som inte vill." }] }
           - { id: mmwb, type: transform, prompt: "**Regeringen** fattar beslutet.", answers: ["Det är regeringen som fattar beslutet."] }
+          - { id: tvq7, type: transform, prompt: "Jag glömde **nyckeln**.", answers: ["Det var nyckeln [som ]jag glömde."], feedback: [{ contains: "som glömde jag", tip: "Na som: bijzinvolgorde, som jag glömde." }] }
+          - { id: hwkf, type: transform, prompt: "**Fleur** har bakat tårtan.", answers: ["Det är Fleur som har bakat tårtan.", "Det var Fleur som {har bakat|bakade} tårtan."] }
 
       - id: utbrytning-vragen
         title: Vragen met nadruk
@@ -138,6 +140,11 @@ sections:
           - { id: w6nv, type: translate, prompt: "Wie belt er?", answers: ["Vem är det som ringer?"], feedback: [{ match: "Vem ringer?", tip: "Ook goed Zweeds, maar oefen hier: Vem är det som ringer?" }] }
           - { id: ffk6, type: translate, prompt: "Wat is er gebeurd?", answers: ["Vad var det som hände?", "Vad är det som har hänt?"], feedback: [{ match: ["Vad hände?", "Vad har hänt?"], tip: "Ook goed, maar oefen hier: Vad var det som hände?" }] }
           - { id: 6zf6, type: translate, prompt: "Heb jij dit geschreven?", answers: ["{Är|Var} det du som {har skrivit|skrev} det här?"], feedback: [{ match: "Har du skrivit det här?", tip: "Ook goed, maar oefen hier met nadruk: Är det du som har skrivit det här?" }] }
+          - { id: 7j7v, type: translate, prompt: "Wie heeft dit gedaan?", answers: ["Vem {är|var} det som {har gjort|gjorde} {det här|detta}?"], feedback: [{ match: ["Vem har gjort det här?", "Vem gjorde det här?"], tip: "Ook goed Zweeds, maar oefen hier: Vem är det som har gjort det här?" }] }
+          - { id: e3yy, type: translate, prompt: "Wat wil je eigenlijk?", answers: ["Vad är det [som ]du vill[ egentligen]?", "Vad är det egentligen [som ]du vill?"], feedback: [{ match: ["Vad vill du egentligen?", "Vad vill du?"], tip: "Ook goed Zweeds, maar oefen hier: Vad är det du vill?" }] }
+          - { id: sxyu, type: translate, prompt: "Wie heeft er gewonnen?", answers: ["Vem {var det som vann|är det som har vunnit}?"], feedback: [{ match: ["Vem vann?", "Vem har vunnit?"], tip: "Ook goed Zweeds, maar oefen hier: Vem var det som vann?" }] }
+          - { id: gm6n, type: translate, prompt: "Was het je broer die belde?", answers: ["Var det din bror som ringde?"], feedback: [{ contains: "som ringde din bror", tip: "Eerst de nadruk (det din bror), daarna som + de rest." }] }
+          - { id: nv4g, type: translate, prompt: "Wanneer begint de les eigenlijk?", answers: ["När är det [som ]lektionen börjar[ egentligen]?", "När börjar lektionen egentligen?"] }
 
   - id: argument
     title: "Grammatik: argumenteren"
@@ -154,6 +161,8 @@ sections:
           - { id: gavx, type: gap, text: "Det argumentet ___ inte.", gaps: [{ answers: ["håller"], options: ["håller", "stannar", "går"], shuffle: false }] }
           - { id: xkt6, type: gap, text: "___ anser jag att mobilerna ska samlas in.", gaps: [{ answers: ["Därför"], options: ["Därför", "Visserligen", "För det första"], shuffle: false }] }
           - { id: puxx, type: gap, text: "Det är inte ett straff, ___ en möjlighet.", gaps: [{ answers: ["utan"], options: ["utan", "men", "eller"], shuffle: false, feedback: [{ match: "men", tip: "Na een ontkenning (inte X, maar Y): utan." }] }] }
+          - { id: 5twa, type: gap, text: "___ vill jag säga att frågan berör alla.", gaps: [{ answers: ["Slutligen"], options: ["Slutligen", "Visserligen", "Däremot"], shuffle: false }] }
+          - { id: 5ftg, type: gap, text: "Jag ___ att vi behöver nya regler.", gaps: [{ answers: ["anser"], options: ["anser", "betyder", "tycker om"], shuffle: false, feedback: [{ match: "tycker om", tip: "tycka om = houden van. Een mening geven: anser (of tycker, zonder om)." }] }] }
 
   - id: lyssna
     title: Lyssna · luisteren

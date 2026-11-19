@@ -93,6 +93,11 @@ sections:
           - { id: seq2, type: gap, text: "Om tio år ___ jag ___ (flytta) tillbaka till Nederländerna.", gaps: [{ answers: ["kommer"] }, { answers: ["att ha flyttat"], feedback: [{ match: "att flytta", tip: "Het is dan al gebeurd: att ha flyttat." }] }] }
           - { id: 5szn, type: gap, text: "När du kommer hem, ___ jag redan ___ (laga) mat.", gaps: [{ answers: ["kommer"] }, { answers: ["att ha lagat"] }] }
           - { id: 3cyt, type: gap, text: "År 2040 ___ de flesta bilar ___ (gå) över till el.", gaps: [{ answers: ["kommer"] }, { answers: ["att ha gått"], feedback: [{ match: "att ha gåtts", tip: "Supinum van gå: gått." }] }] }
+          - { id: zfgn, type: gap, text: "Innan sommaren ___ vi ___ (måla) huset.", gaps: [{ answers: ["kommer"] }, { answers: ["att ha målat"], feedback: [{ match: "att måla", tip: "Het is dan al gebeurd: att ha målat." }] }] }
+          - { id: mjgf, type: gap, text: "Om ett år ___ hon ___ (ta) examen.", gaps: [{ answers: ["kommer"] }, { answers: ["att ha tagit"], feedback: [{ match: "att ha tagat", tip: "ta is sterk: tagit." }] }] }
+          - { id: c66z, type: gap, text: "När filmen börjar ___ vi redan ___ (äta).", gaps: [{ answers: ["kommer"] }, { answers: ["att ha ätit"], feedback: [{ match: "att ha ätat", tip: "äta is sterk: ätit." }] }] }
+          - { id: utmh, type: gap, text: "År 2050 ___ havsnivån ___ (stiga) flera decimeter.", gaps: [{ answers: ["kommer"] }, { answers: ["att ha stigit"], feedback: [{ match: "att ha stigat", tip: "stiga is sterk: stigit." }] }] }
+          - { id: 7xnv, type: gap, text: "Till jul ___ jag ___ (läsa) alla böckerna.", gaps: [{ answers: ["kommer"] }, { answers: ["att ha läst"] }] }
 
       - id: framtid-b2-kiezen
         title: Het goede woord
@@ -104,6 +109,10 @@ sections:
           - { id: hbeb, type: gap, text: "Priserna ___ stiga under nästa år.", gaps: [{ answers: ["väntas"], options: ["väntas", "väntar", "vänta"], shuffle: false, feedback: [{ match: "väntar", tip: "De prijzen wachten niet zelf: lijdend, väntas." }] }] }
           - { id: jdaf, type: gap, text: "Befolkningen ___ öka med två procent.", gaps: [{ answers: ["beräknas"], options: ["beräknas", "beräknar", "räknar"], shuffle: false }] }
           - { id: hkg5, type: gap, text: "Reglerna kan ___ att ändras.", gaps: [{ answers: ["komma"], options: ["komma", "kommer", "kommit"], shuffle: false, tip: "kan komma att = zou kunnen gaan." }] }
+          - { id: n4kf, type: gap, text: "Projektet ___ vara klart i maj.", gaps: [{ answers: ["beräknas"], options: ["beräknas", "beräknar", "tänker"], shuffle: false }] }
+          - { id: t2kr, type: gap, text: "Det ___ bli svårt att hitta bostad i framtiden.", gaps: [{ answers: ["lär"], options: ["lär", "vill", "tänker"], shuffle: false, tip: "Zal wel (verwachting): lär." }] }
+          - { id: qu9c, type: gap, text: "Fler ___ att jobba hemifrån.", gaps: [{ answers: ["kommer"], options: ["kommer", "lär", "väntas"], shuffle: false, tip: "Alleen kommer heeft att nodig: kommer att jobba." }] }
+          - { id: pbwg, type: gap, text: "Skatterna kan ___ att höjas.", gaps: [{ answers: ["komma"], options: ["komma", "kommer", "kommit"], shuffle: false, tip: "kan komma att = zou kunnen gaan." }] }
 
       - id: framtid-b2-omvormen
         title: Formeel verwachten
@@ -114,6 +123,10 @@ sections:
           - { id: 94k3, type: transform, prompt: "Man beräknar att befolkningen ökar.", answers: ["Befolkningen beräknas öka."], feedback: [{ contains: "beräknas ökar", tip: "Na beräknas: infinitief, öka." }] }
           - { id: 4vch, type: transform, prompt: "Man förväntar sig att efterfrågan ökar.", answers: ["Efterfrågan förväntas öka.", "Efterfrågan väntas öka."] }
           - { id: zdx9, type: transform, prompt: "Man tror att arbetslösheten sjunker.", task: "Begin met: Arbetslösheten väntas …", answers: ["Arbetslösheten väntas sjunka."] }
+          - { id: 82s6, type: transform, prompt: "Man väntar sig att räntan sjunker.", answers: ["Räntan {väntas|förväntas} sjunka."], feedback: [{ contains: "väntas sjunker", tip: "Na väntas: infinitief, sjunka." }] }
+          - { id: vw4m, type: transform, prompt: "Man beräknar att kostnaden blir två miljoner.", answers: ["Kostnaden beräknas bli två miljoner."], feedback: [{ contains: "beräknas blir", tip: "Na beräknas: infinitief, bli." }] }
+          - { id: 4uyh, type: transform, prompt: "Man förväntar sig att fler flyttar till städerna.", answers: ["Fler {förväntas|väntas} flytta till städerna."] }
+          - { id: 7hq6, type: transform, prompt: "Man tror att bygget är klart 2030.", task: "Begin met: Bygget väntas …", answers: ["Bygget väntas vara klart [år ]2030."], feedback: [{ contains: "väntas är", tip: "Na väntas: infinitief, vara." }] }
 
   - id: lyssna
     title: Lyssna · luisteren

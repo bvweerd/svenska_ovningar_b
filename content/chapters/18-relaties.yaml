@@ -126,6 +126,8 @@ sections:
           - { id: tqz4, type: gap, text: "Om jag hade vetat det, skulle jag ___ ringt dig.", gaps: [{ answers: ["ha"], options: ["ha", "har", "hade"], shuffle: false, tip: "skulle ha + supinum: skulle ha ringt." }] }
           - { id: kmxu, type: gap, text: "Om hon ___ (vara) här nu, skulle hon skratta.", gaps: [{ answers: ["var", "vore"], feedback: [{ match: "är", tip: "Ze is er niet: denkbeeldig, dus var (of formeel vore)." }] }] }
           - { id: 447z, type: gap, text: "Om du ___ (fråga) honom i går, hade han hjälpt dig.", gaps: [{ answers: ["hade frågat"], feedback: [{ match: "frågade", tip: "Het gaat om het verleden en het is niet gebeurd: hade frågat." }] }] }
+          - { id: rwgr, type: gap, text: "Om jag ___ (vinna) en miljon, skulle jag resa jorden runt.", gaps: [{ answers: ["vann"], feedback: [{ match: "vinner", tip: "Het is denkbeeldig: verleden tijd, vann." }, { match: "vinnade", tip: "vinna is sterk: vann." }] }] }
+          - { id: ugmb, type: gap, text: "Vad ___ du ha gjort om bussen inte hade kommit?", gaps: [{ answers: ["skulle"], options: ["skulle", "ska", "hade"], shuffle: false }] }
 
       - id: villkor-omvormen
         title: Van echt naar denkbeeldig
@@ -136,6 +138,10 @@ sections:
           - { id: pmg9, type: transform, prompt: "Om det regnar, stannar vi hemma.", answers: ["Om det regnade, skulle vi stanna hemma.", "Om det regnade, stannade vi hemma.", "Om det regnade, så {skulle vi stanna|stannade vi} hemma."], feedback: [{ contains: "vi skulle", tip: "Na de om-zin komt eerst het werkwoord: skulle vi." }] }
           - { id: 7js3, type: transform, prompt: "Om du frågar, svarar hon.", answers: ["Om du frågade, skulle hon svara.", "Om du frågade, svarade hon.", "Om du frågade, så {skulle hon svara|svarade hon}."] }
           - { id: qa5m, type: transform, prompt: "Jag visste det inte, så jag kom inte. (Begin met: Om jag hade …)", answers: ["Om jag hade vetat det, skulle jag ha kommit.", "Om jag hade vetat det, hade jag kommit.", "Om jag hade vetat det, så {skulle jag ha kommit|hade jag kommit}."], feedback: [{ contains: "skulle jag kommit", tip: "In spreektaal valt ha vaak weg, maar schrijf: skulle jag ha kommit." }] }
+          - { id: qzfa, type: transform, prompt: "Om vi har råd, köper vi ett hus.", answers: ["Om vi hade råd, [så ]skulle vi köpa ett hus.", "Om vi hade råd, [så ]köpte vi ett hus."], feedback: [{ contains: "skulle vi köpte", tip: "Na skulle komt de infinitief: skulle vi köpa." }] }
+          - { id: qcct, type: transform, prompt: "Om hon kommer, blir jag glad.", answers: ["Om hon kom, [så ]skulle jag bli glad.", "Om hon kom, [så ]blev jag glad."] }
+          - { id: bk3u, type: transform, prompt: "Om det är soligt, går vi till stranden.", answers: ["Om det {var|vore} soligt, [så ]skulle vi gå till stranden.", "Om det {var|vore} soligt, [så ]gick vi till stranden."], feedback: [{ contains: "vi skulle", tip: "Na de om-zin komt eerst het werkwoord: skulle vi." }] }
+          - { id: n5fb, type: transform, prompt: "Han ringde inte, så hon blev arg. (Begin met: Om han hade …)", answers: ["Om han hade ringt, [så ]skulle hon inte ha blivit arg.", "Om han hade ringt, [så ]hade hon inte blivit arg."], feedback: [{ contains: "hade ringat", tip: "ringa – ringde – ringt." }] }
 
       - id: villkor-sorteren
         title: Echt of denkbeeldig?
@@ -166,6 +172,9 @@ sections:
           - { id: dz4s, type: translate, prompt: "Ik wou dat ik meer tijd had.", answers: ["Jag önskar [att ]jag hade mer tid."], feedback: [{ contains: "att jag har", tip: "Na önskar att: verleden tijd, hade." }] }
           - { id: 9p28, type: translate, prompt: "Zou je me kunnen helpen?", answers: ["Skulle du kunna hjälpa mig?"] }
           - { id: ew3k, type: translate, prompt: "Stel je voor dat we naar IJsland konden gaan!", answers: ["Tänk om vi kunde {åka|resa} till Island!"] }
+          - { id: gwvu, type: translate, prompt: "Je zou eens met een dokter moeten praten.", answers: ["Du borde [kanske ]prata med en {läkare|doktor}.", "Du borde [kanske ]prata med {läkaren|doktorn|din läkare}."], feedback: [{ contains: "skulle måste", tip: "Moeten (advies) = borde." }] }
+          - { id: 3zre, type: translate, prompt: "Als ik jou was, zou ik dat niet doen.", answers: ["Om jag {var|vore} du, [så ]skulle jag inte göra det.", "Om jag {var|vore} du, [så ]hade jag inte gjort det."], feedback: [{ contains: "jag skulle inte", tip: "Na de om-zin komt eerst het werkwoord: skulle jag." }] }
+          - { id: m5nb, type: translate, prompt: "Ik wou dat het zomer was.", answers: ["Jag önskar [att ]det var sommar."], feedback: [{ contains: "det är sommar", tip: "Na önskar att: verleden tijd, det var." }] }
 
       - id: rad-kiezen
         title: Een goed advies
@@ -176,6 +185,11 @@ sections:
           - { id: zm84, type: mc, prompt: "*Jag är så trött hela tiden.*", options: ["Du borde kanske gå och lägga dig tidigare.", "Du borde vara trött.", "Om jag var du skulle jag vara trött.", "Jag önskar att du var trött."], answer: 0 }
           - { id: gbcy, type: mc, prompt: "*Min chef ger mig för mycket jobb.*", options: ["Om jag var du skulle jag prata med henne om det.", "Om jag var din chef skulle jag ge dig mer.", "Du borde jobba mindre hemma.", "Tänk om du hade ett jobb!"], answer: 0 }
           - { id: yxsn, type: mc, prompt: "*Jag har grälat med min syster.*", options: ["Du kanske skulle ringa henne och be om ursäkt?", "Du borde gräla mer.", "Om jag var din syster skulle jag gräla.", "Jag önskar att jag hade en syster."], answer: 0 }
+          - { id: mag4, type: mc, prompt: "*Jag har ont i ryggen efter jobbet.*", options: ["Du borde kanske ta en paus då och då.", "Du borde ha ont i ryggen.", "Om jag var din rygg skulle jag vila.", "Tänk om du hade en rygg!"], answer: 0 }
+          - { id: safw, type: mc, prompt: "*Jag vet inte vad jag ska ge Olle i present.*", options: ["Du skulle kunna fråga hans fru.", "Du borde inte ge Olle.", "Om jag var Olle skulle jag ge dig en present.", "Jag önskar att jag var en present."], answer: 0 }
+          - { id: rg6d, type: mc, prompt: "*Jag är så nervös inför intervjun.*", options: ["Om jag var du skulle jag förbereda några frågor.", "Du borde vara mer nervös.", "Tänk om du var nervös!", "Jag önskar att jag hade en intervju."], answer: 0 }
+          - { id: d65d, type: mc, prompt: "*Vi bråkar alltid om disken.*", options: ["Ni kanske skulle göra ett schema?", "Ni borde bråka mer om disken.", "Om jag var disken skulle jag gå.", "Jag önskar att jag hade disk."], answer: 0 }
+          - { id: b4mm, type: mc, prompt: "*Jag har ingen lust att träna.*", options: ["Du skulle kunna börja med korta promenader.", "Du borde ha ingen lust.", "Om jag var du skulle jag ha lust.", "Tänk om du hade lust!"], answer: 0 }
 
   - id: lyssna
     title: Lyssna · luisteren

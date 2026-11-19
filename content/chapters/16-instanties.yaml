@@ -152,6 +152,7 @@ sections:
           - { id: brty, type: gap, text: "Jag har aldrig ___ (lyckas) lära mig åka skidor.", gaps: [{ answers: ["lyckats"], feedback: [{ match: "lyckat", tip: "Ook het supinum houdt de -s: lyckats." }] }] }
           - { id: bg2n, type: gap, text: "Hur ___ (kännas) det i dag?", gaps: [{ answers: ["känns"], feedback: [{ match: "kännes", tip: "kännes is ouderwets; gewoon Zweeds is känns." }] }] }
           - { id: 4c5n, type: gap, text: "Vi ___ (umgås) mycket när vi bodde i samma stad.", gaps: [{ answers: ["umgicks"], feedback: [{ match: ["umgåddes", "umgåtts"], tip: "umgås gaat als gå: umgicks." }] }] }
+          - { id: vyyc, type: gap, text: "Barnen ___ (slåss) om leksakerna hela tiden.", gaps: [{ answers: ["slåss"], feedback: [{ match: "slår", tip: "Met elkaar vechten: slåss (presens is ook slåss)." }] }] }
 
       - id: elkaar
         title: Elkaar
@@ -163,6 +164,10 @@ sections:
           - { id: 4vde, type: gap, text: "Ska vi ___ på lunchen och prata om det?", gaps: [{ answers: ["träffas"], options: ["träffas", "träffa", "träffar"], feedback: [{ match: "träffa", tip: "Zonder voorwerp en met de betekenis elkaar: träffas." }] }] }
           - { id: tybn, type: gap, text: "Vi ___ på telefon i går kväll.", gaps: [{ answers: ["hördes"], options: ["hördes", "hörde", "hör"] }] }
           - { id: hwyq, type: gap, text: "Barnen ___ alltid när de ses.", gaps: [{ answers: ["kramas"], options: ["kramas", "kramar", "kramade"] }] }
+          - { id: u8yv, type: gap, text: "Var ___ ni första gången?", gaps: [{ answers: ["träffades"], options: ["träffades", "träffade", "träffas"], feedback: [{ match: "träffade", tip: "Elkaar ontmoeten, zonder voorwerp: träffades." }] }] }
+          - { id: zmv6, type: gap, text: "Jag ringer i kväll. Vi ___!", gaps: [{ answers: ["hörs"], options: ["hörs", "hör", "hördes"], tip: "Vi hörs! = we spreken elkaar (nog)." }] }
+          - { id: 83z3, type: gap, text: "De ___ och gick sedan hem.", gaps: [{ answers: ["kramades"], options: ["kramades", "kramade", "kramas"] }] }
+          - { id: zapa, type: gap, text: "Vi ___ vid stationen klockan fem, okej?", gaps: [{ answers: ["ses"], options: ["ses", "ser", "sågs"], feedback: [{ match: "sågs", tip: "Een afspraak voor straks: presens, ses." }] }] }
 
       - id: s-sorteren
         title: Welke -s is het?

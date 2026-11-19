@@ -115,5 +115,14 @@ Daarna leest de eigenaar steekproefsgewijs mee. Pas dan wordt er gepubliceerd.
       per hoofdstuk een **taalreview**.
 - [ ] **Fase 4**: kernoefeningen naar 8–10 vragen, luistervragen in de A1–A2-site,
       ±80 werkwoorden erbij in de werkwoordtrainer; per hoofdstuk of per lijst een **taalreview**.
+      Gedaan, wacht op **taalreview**: 82 werkwoorden erbij (146 in totaal); alle kernoefeningen
+      (grammatica, zonder lezen/luisteren/schrijven/herhaling) hebben nu minstens 8 vragen
+      (±420 vragen erbij); in hoofdstuk 0–12 een onderdeel Luisteren met een meerkeuze-
+      luisteroefening en een dictee (130 vragen).
 - [ ] **Fase 5**: aan de hand van GoatCounter kijken welke oefeningen gebruikt worden en vaak
       fout gaan, en daar verder uitbreiden (met **taalreview** voor nieuwe stof).
+      `npm run stats` maakt het overzicht (README, „Statistieken”). Eerste meting (19 november):
+      nog maar ±200 antwoorden, vooral uit tests. Wat er is, wijst op de sje-/tje-klank en de
+      zachte klinkers (hoofdstuk 0: tips verduidelijkt, vragen erbij) en op de correctievraag in
+      lasa-annons (meer goede antwoorden). Op de B1–B2-site meldt Chrome vaak geen Zweedse stem.
+      Over een paar weken opnieuw meten, met `--min 5`.

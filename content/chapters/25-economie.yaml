@@ -134,6 +134,9 @@ sections:
           - { id: h5qe, type: transform, prompt: "Företaget beslutade att stänga kontoret.", task: "Begin met: företagets …", answers: ["företagets beslut [om ]att stänga kontoret"] }
           - { id: awfr, type: transform, prompt: "Man förbättrade arbetsmiljön.", task: "Begin met: förbättringen …", answers: ["förbättringen av arbetsmiljön"] }
           - { id: ysme, type: transform, prompt: "Försäljningen ökade med tio procent.", task: "Begin met: en ökning …", answers: ["en ökning av försäljningen med tio procent", "en ökning med tio procent av försäljningen"], feedback: [{ contains: "ökning med försäljningen", tip: "Wát stijgt: av försäljningen. Hoeveel: med tio procent." }] }
+          - { id: wv7e, type: transform, prompt: "Regeringen höjde skatten.", task: "Begin met: regeringens …", answers: ["regeringens höjning av skatten", "regeringens skattehöjning"], feedback: [{ contains: "höjning med skatten", tip: "Wát wordt verhoogd: av. regeringens höjning av skatten." }] }
+          - { id: 244q, type: transform, prompt: "Kostnaderna minskade snabbt.", task: "Begin met: den snabba …", answers: ["den snabba minskningen av kostnaderna", "den snabba kostnadsminskningen"], feedback: [{ contains: "snabb minskningen", tip: "Na den: snabba." }] }
+          - { id: 66y2, type: transform, prompt: "Man utvecklade en ny app.", task: "Begin met: utvecklingen …", answers: ["utvecklingen av en ny app"] }
 
       - id: nominal-voorzetsel
         title: av, med, från of till?
@@ -145,6 +148,10 @@ sections:
           - { id: nrhh, type: gap, text: "en ökning ___ tio procent", gaps: [{ answers: ["med"], options: ["av", "med", "till"], shuffle: false, tip: "Hoeveel: med." }] }
           - { id: 4qqw, type: gap, text: "en minskning från tolv ___ åtta procent", gaps: [{ answers: ["till"], options: ["av", "med", "till"], shuffle: false }] }
           - { id: ycp9, type: gap, text: "en förbättring ___ arbetsmiljön", gaps: [{ answers: ["av"], options: ["av", "med", "från"], shuffle: false }] }
+          - { id: 2qec, type: gap, text: "en höjning ___ skatten", gaps: [{ answers: ["av"], options: ["av", "med", "till"], shuffle: false, tip: "Wát wordt verhoogd: av." }] }
+          - { id: mvm9, type: gap, text: "en minskning ___ fem procent", gaps: [{ answers: ["med"], options: ["av", "med", "till"], shuffle: false, tip: "Hoeveel: med." }] }
+          - { id: grsg, type: gap, text: "en ökning från 20 ___ 25 procent", gaps: [{ answers: ["till"], options: ["av", "med", "till"], shuffle: false }] }
+          - { id: pbva, type: gap, text: "ett beslut ___ att stänga fabriken", gaps: [{ answers: ["om"], options: ["om", "av", "för"], shuffle: false, tip: "Een besluit over iets: beslut om." }] }
 
   - id: trender
     title: "Grammatik: ontwikkelingen beschrijven"
@@ -161,6 +168,8 @@ sections:
           - { id: 28z2, type: gap, text: "År 2021 nådde andelen en ___ på 82 procent.", gaps: [{ answers: ["topp"], options: ["topp", "nedgång", "minskning"], shuffle: false }] }
           - { id: pgdu, type: gap, text: "Försäljningen ökade ___, från 100 till 103 miljoner.", gaps: [{ answers: ["svagt"], options: ["svagt", "kraftigt", "plötsligt"], shuffle: false, tip: "Drie procent is een kleine stijging: svagt (of marginellt)." }] }
           - { id: g3sb, type: gap, text: "51 procent är ___ hälften.", gaps: [{ answers: ["drygt"], options: ["drygt", "knappt", "exakt"], shuffle: false }] }
+          - { id: uhhh, type: gap, text: "Efter flera år av ökning ___ priserna kraftigt 2023.", gaps: [{ answers: ["föll"], options: ["föll", "steg", "låg"], shuffle: false }] }
+          - { id: 8nkt, type: gap, text: "49 procent är ___ hälften.", gaps: [{ answers: ["knappt"], options: ["drygt", "knappt", "exakt"], shuffle: false, tip: "Iets minder dan: knappt." }] }
 
       - id: trend-sorteren
         title: Omhoog, omlaag of gelijk?

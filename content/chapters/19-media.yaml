@@ -137,6 +137,8 @@ sections:
           - { id: pw9c, type: transform, prompt: "Mamma: ”Jag kan inte komma i morgon.”", task: "Mamma sa att …", answers: ["Mamma sa att hon inte kunde komma {dagen efter|nästa dag|dagen därpå|följande dag|i morgon|imorgon}."], feedback: [{ contains: "kunde inte", tip: "Het is een bijzin: inte vóór het werkwoord, inte kunde." }, { contains: "att hon inte kan", tip: "kan → kunde." }] }
           - { id: t5mb, type: transform, prompt: "Polisen: ”Ingen har skadats.”", task: "Polisen sa att …", answers: ["Polisen sa att ingen hade skadats.", "Polisen sa att ingen skadades."] }
           - { id: tjnr, type: transform, prompt: "Meteorologen: ”Det kommer att snöa i helgen.”", task: "Meteorologen sa att …", answers: ["Meteorologen sa att det skulle snöa i helgen."], feedback: [{ contains: "kommer att", tip: "kommer att → skulle." }] }
+          - { id: frth, type: transform, prompt: "Nils: ”Jag tycker inte om fisk.”", task: "Nils sa att …", answers: ["Nils sa att han inte tyckte om fisk."], feedback: [{ contains: "tyckte inte om", tip: "In de bijzin staat inte vóór het werkwoord: att han inte tyckte om." }, { contains: "tycker", tip: "Schuif de tijd terug: tycker → tyckte." }] }
+          - { id: xbxg, type: transform, prompt: "Ingrid: ”Vi har aldrig varit i Lappland.”", task: "Ingrid sa att …", answers: ["Ingrid sa att de aldrig hade varit i Lappland."], feedback: [{ contains: "att vi", tip: "Ingrid praat over haar gezin: vi wordt de." }, { contains: "hade aldrig", tip: "In de bijzin staat aldrig vóór het werkwoord: de aldrig hade varit." }] }
 
       - id: indirekt-vragen
         title: Wat vroeg ze?
@@ -147,6 +149,10 @@ sections:
           - { id: 9m5u, type: transform, prompt: "”Var bor du?” frågade han.", task: "Han frågade …", answers: ["Han frågade var jag bodde."], feedback: [{ contains: "var bodde jag", tip: "Bijzinvolgorde: eerst het onderwerp, var jag bodde." }] }
           - { id: gfws, type: transform, prompt: "”Varför kom du inte?” frågade chefen.", task: "Chefen frågade …", answers: ["Chefen frågade varför jag inte {hade kommit|kom}."], feedback: [{ contains: "jag kom inte", tip: "In de bijzin staat inte vóór het werkwoord: varför jag inte kom." }, { contains: "jag hade inte", tip: "In de bijzin staat inte vóór het werkwoord: varför jag inte hade kommit." }] }
           - { id: ecab, type: transform, prompt: "”Vem ringde?” frågade hon.", task: "Hon frågade …", answers: ["Hon frågade vem som {hade ringt|ringde}."], feedback: [{ contains: "vem ringde", tip: "vem is het onderwerp: vem som ringde." }, { contains: "vem hade ringt", tip: "vem is het onderwerp: vem som hade ringt." }] }
+          - { id: qkvt, type: transform, prompt: "”Hur mår du?” frågade läkaren.", task: "Läkaren frågade …", answers: ["Läkaren frågade hur jag mådde."], feedback: [{ contains: "hur mådde jag", tip: "Bijzinvolgorde: eerst het onderwerp, hur jag mådde." }, { contains: "hur jag mår", tip: "Schuif de tijd terug: mår → mådde." }] }
+          - { id: gx92, type: transform, prompt: "”Har du sett min nyckel?” frågade Bram.", task: "Bram frågade …", answers: ["Bram frågade om jag hade sett hans nyckel."], feedback: [{ contains: "min nyckel", tip: "Het is Brams sleutel: hans nyckel." }, { contains: "sin nyckel", tip: "In de bijzin is jag het onderwerp, dus geen sin: hans nyckel." }] }
+          - { id: dunt, type: transform, prompt: "”När börjar filmen?” undrade Wilma.", task: "Wilma undrade …", answers: ["Wilma undrade när filmen {började|skulle börja}."], feedback: [{ contains: "när började filmen", tip: "Bijzinvolgorde: eerst het onderwerp, när filmen började." }] }
+          - { id: 55we, type: transform, prompt: "”Vad heter din syster?” frågade Olle.", task: "Olle frågade …", answers: ["Olle frågade vad min syster hette."], feedback: [{ contains: "vad hette", tip: "Bijzinvolgorde: eerst het onderwerp, vad min syster hette." }, { contains: "din syster", tip: "Olle vraagt naar jouw zus; vanuit jou gezien: min syster." }] }
 
       - id: vem-som
         title: Vem som of vem?
@@ -160,6 +166,8 @@ sections:
           - { id: 96yx, type: gap, text: "Jag undrar ___ du tänker göra i sommar.", gaps: [{ answers: ["vad"], options: ["vem som", "vem", "vad som", "vad"], shuffle: false, feedback: [{ match: "vad som", tip: "du is het onderwerp: geen som." }] }] }
           - { id: nta3, type: gap, text: "Ingen vet ___ orsakade branden – kanske spisen?", gaps: [{ answers: ["vad som"], options: ["vem som", "vem", "vad som", "vad"], shuffle: false, feedback: [{ match: "vad", tip: "vad is het onderwerp (wat veroorzaakte de brand?): vad som." }] }] }
           - { id: 5ywz, type: gap, text: "Kan du säga ___ jag ska ringa?", gaps: [{ answers: ["vem"], options: ["vem som", "vem", "vad som", "vad"], shuffle: false }] }
+          - { id: fj9g, type: gap, text: "Jag vet inte ___ du pratar om.", gaps: [{ answers: ["vem"], options: ["vem som", "vem", "vad som", "vad"], shuffle: false, feedback: [{ match: "vem som", tip: "du is het onderwerp: geen som." }] }] }
+          - { id: gc96, type: gap, text: "Säg ___ du vill ha till middag!", gaps: [{ answers: ["vad"], options: ["vem som", "vem", "vad som", "vad"], shuffle: false, feedback: [{ match: "vad som", tip: "du is het onderwerp: geen som." }] }] }
 
       - id: indirekt-zinsbouw
         title: Bijzinnen bouwen
@@ -171,6 +179,10 @@ sections:
           - { id: zmj8, type: order, start: "Hon frågade", tokens: ["om", "jag", "ville", "följa med"], answers: ["Hon frågade om jag ville följa med."] }
           - { id: ts7g, type: order, start: "Han sa att", tokens: ["han", "aldrig", "hade", "varit", "i Kiruna"], answers: ["Han sa att han aldrig hade varit i Kiruna."] }
           - { id: vxuw, type: order, start: "Vet du", tokens: ["vilka", "som", "kommer", "i kväll"], answers: ["Vet du vilka som kommer i kväll?"] }
+          - { id: yyck, type: order, start: "Kan du säga", tokens: ["när", "nästa", "buss", "går"], answers: ["Kan du säga när nästa buss går?"] }
+          - { id: qhyw, type: order, start: "Jag vet inte", tokens: ["vad", "som", "hände"], answers: ["Jag vet inte vad som hände."] }
+          - { id: 3u8z, type: order, start: "Hon undrade", tokens: ["om", "vi", "redan", "hade", "ätit"], answers: ["Hon undrade om vi redan hade ätit."] }
+          - { id: cnuc, type: order, start: "Han frågade", tokens: ["vem", "som", "hade", "skrivit", "artikeln"], answers: ["Han frågade vem som hade skrivit artikeln."] }
 
   - id: lyssna
     title: Lyssna · luisteren

@@ -154,6 +154,7 @@ sections:
           - { id: 45u3, type: gap, text: "Vi försöker handla så billigt ___ möjligt.", gaps: [{ answers: ["som"], options: ["som", "än", "så"], shuffle: false }] }
           - { id: 6fcu, type: gap, text: "Den här tröjan är ___ billigare än den där.", gaps: [{ answers: ["mycket"], options: ["mycket", "mer", "mest"], shuffle: false, feedback: [{ match: "mer", tip: "billigare is al een vergrotende trap. Veel goedkoper: mycket billigare." }] }] }
           - { id: dnfb, type: gap, text: "Det är den ___ kända restaurangen i stan.", gaps: [{ answers: ["mest"], options: ["mest", "mer", "mycket"], shuffle: false }] }
+          - { id: jgsc, type: gap, text: "Ju fler som köper, ___ lägre blir priset.", gaps: [{ answers: ["desto"], options: ["desto", "än", "så"], shuffle: false }] }
 
       - id: ju-desto
         title: Hoe … hoe
@@ -163,6 +164,11 @@ sections:
           - { id: 8gg3, type: transform, prompt: "Man tränar mer. Man blir starkare.", answers: ["Ju mer man tränar, desto starkare blir man.", "Ju mer man tränar, ju starkare blir man."], feedback: [{ contains: "desto man blir", tip: "Na desto + vergrotende trap: inversie, desto starkare blir man." }, { contains: "ju mer tränar man", tip: "Het ju-deel is een bijzin: ju mer man tränar." }] }
           - { id: 7hte, type: transform, prompt: "Man sover mindre. Man blir tröttare.", answers: ["Ju mindre man sover, desto tröttare blir man.", "Ju mindre man sover, ju tröttare blir man."], feedback: [{ contains: "desto man blir", tip: "Na desto + vergrotende trap: inversie, desto tröttare blir man." }] }
           - { id: uhn9, type: transform, prompt: "Man handlar tidigare. Det blir billigare.", answers: ["Ju tidigare man handlar, desto billigare blir det.", "Ju tidigare man handlar, ju billigare blir det."], feedback: [{ contains: "desto det blir", tip: "Inversie na desto: desto billigare blir det." }] }
+          - { id: xj93, type: transform, prompt: "Man läser mer. Man lär sig fler ord.", answers: ["Ju mer man läser, {desto|ju} fler ord lär man sig."], feedback: [{ contains: "ord man lär", tip: "Na desto + vergrotende trap komt eerst het werkwoord: desto fler ord lär man sig." }] }
+          - { id: wsdc, type: transform, prompt: "Varan är äldre. Den blir billigare.", answers: ["Ju äldre varan är, {desto|ju} billigare blir den."], feedback: [{ contains: "billigare den blir", tip: "Inversie na desto: desto billigare blir den." }, { contains: "varan är äldre", tip: "Na ju komt eerst de vergrotende trap: ju äldre varan är." }] }
+          - { id: 7bsz, type: transform, prompt: "Det är varmare. Glassen säljer bättre.", answers: ["Ju varmare det är, {desto|ju} bättre säljer glassen."], feedback: [{ contains: "bättre glassen säljer", tip: "Inversie na desto: desto bättre säljer glassen." }] }
+          - { id: wsm3, type: transform, prompt: "Man väntar längre. Det blir dyrare.", answers: ["Ju längre man väntar, {desto|ju} dyrare blir det."], feedback: [{ contains: "dyrare det blir", tip: "Inversie na desto: desto dyrare blir det." }] }
+          - { id: var4, type: transform, prompt: "Butiken är större. Utbudet blir bredare.", answers: ["Ju större butiken är, {desto|ju} {bredare|större} blir utbudet."] }
 
       - id: jamfor-vertalen
         title: Vertaal
@@ -172,6 +178,11 @@ sections:
           - { id: fuyj, type: translate, prompt: "Deze koffie is even duur als die.", answers: ["Det här kaffet är lika dyrt som det där.", "Det här kaffet kostar lika mycket som det där."], feedback: [{ contains: "lika dyr ", tip: "kaffe is een ett-woord: lika dyrt." }, { contains: "lika dyrt än", tip: "Na lika: som." }] }
           - { id: hm8q, type: translate, prompt: "Alles wordt steeds duurder.", answers: ["{Allt|Allting} blir allt dyrare.", "{Allt|Allting} blir dyrare och dyrare."] }
           - { id: gpzb, type: translate, prompt: "Het is veel goedkoper online.", answers: ["Det är mycket billigare på nätet.", "Det är mycket billigare online."], feedback: [{ contains: "mer billigare", tip: "billigare is al vergrotend: mycket billigare." }] }
+          - { id: depz, type: translate, prompt: "Dit is de goedkoopste winkel van de stad.", answers: ["{Det här|Detta} är den billigaste {butiken|affären} i {staden|stan}."], feedback: [{ contains: "den billigast ", tip: "Bepaald: den billigaste butiken." }] }
+          - { id: kctq, type: translate, prompt: "Mijn telefoon is niet zo nieuw als de jouwe.", answers: ["Min {mobil|telefon} är inte {lika|så} ny som din."], feedback: [{ contains: "ny än", tip: "Na lika (of så): som." }] }
+          - { id: u43c, type: translate, prompt: "Hoe eerder, hoe beter.", answers: ["Ju {förr|tidigare}, {desto|ju} bättre."] }
+          - { id: 29kg, type: translate, prompt: "Deze jas is iets duurder dan die.", answers: ["Den här {jackan|rocken} är lite dyrare än den där."], feedback: [{ contains: "mer dyr", tip: "dyr is een gewoon bijvoeglijk naamwoord: dyrare." }, { contains: "dyrare som", tip: "Na een vergrotende trap: än." }] }
+          - { id: d3n3, type: translate, prompt: "Vlees wordt steeds duurder.", answers: ["{Kött|Köttet} blir {allt dyrare|dyrare och dyrare}."] }
 
   - id: lyssna
     title: Lyssna · luisteren

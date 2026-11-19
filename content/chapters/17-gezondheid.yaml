@@ -132,6 +132,7 @@ sections:
           - { id: arrp, type: gap, text: "Vi ___ träffas klockan tre, eller hur?", gaps: [{ answers: ["ska"], options: ["ska", "kommer att", "tänker"], shuffle: false, feedback: [{ match: "kommer att", tip: "Een afspraak: ska." }] }] }
           - { id: fj6e, type: gap, text: "Forskarna tror att fler människor ___ jobba hemifrån om tio år.", gaps: [{ answers: ["kommer att"], options: ["ska", "kommer att", "tänker"], shuffle: false, feedback: [{ match: "ska", tip: "Een voorspelling (tror att): kommer att." }] }] }
           - { id: sfjs, type: gap, text: "Läkaren säger att du ___ ta tabletterna tre gånger om dagen.", gaps: [{ answers: ["ska"], options: ["ska", "kommer att", "tänker"], shuffle: false, tip: "ska = moeten volgens iemand anders (hier de arts)." }] }
+          - { id: bkg7, type: gap, text: "Enligt prognosen ___ det bli kallare i helgen.", gaps: [{ answers: ["kommer att"], options: ["ska", "kommer att", "tänker"], shuffle: false, feedback: [{ match: "tänker", tip: "Het weer heeft geen plannen: een voorspelling is kommer att (ska kan ook bij het weerbericht)." }] }] }
 
       - id: framtid-sorteren
         title: Plan of voorspelling?
@@ -158,6 +159,10 @@ sections:
           - { id: 2xwx, type: translate, prompt: "Ik ga morgen naar de dokter. (Ik heb een afspraak.)", answers: ["Jag ska [gå ]till {läkaren|doktorn|vårdcentralen} {i morgon|imorgon}.", "{I morgon|Imorgon} ska jag [gå ]till {läkaren|doktorn|vårdcentralen}.", "Jag går till {läkaren|doktorn|vårdcentralen} {i morgon|imorgon}."], feedback: [{ contains: "går att", tip: "Nederlands gaan + infinitief is geen gå in het Zweeds: gebruik ska." }] }
           - { id: pnv9, type: translate, prompt: "Je zult je snel beter voelen.", answers: ["Du kommer att må bättre snart.", "Du kommer snart att må bättre.", "Du kommer att känna dig bättre snart.", "Du kommer snart att känna dig bättre."], feedback: [{ contains: "du ska", tip: "Een voorspelling: kommer att." }] }
           - { id: zynp, type: translate, prompt: "Ik ben van plan te stoppen met roken.", answers: ["Jag tänker sluta röka.", "Jag ska sluta röka.", "Jag har tänkt sluta röka.", "Jag planerar att sluta röka.", "Jag har planer på att sluta röka."] }
+          - { id: yhtg, type: translate, prompt: "De apotheek gaat om negen uur open.", answers: ["Apoteket öppnar [klockan ]nio.", "Apoteket ska öppna [klockan ]nio.", "[Klockan ]nio öppnar apoteket."], feedback: [{ contains: "går att öppna", tip: "Gaan + infinitief bestaat niet in het Zweeds. Voor een vaste tijd gebruik je de presens: Apoteket öppnar klockan nio." }] }
+          - { id: 2yu9, type: translate, prompt: "Ik ga niet naar dat feest. (Dat heb ik zelf besloten.)", answers: ["Jag tänker inte gå på {den festen|festen}.", "Jag ska inte gå på {den festen|festen}."], feedback: [{ contains: "kommer inte att gå", tip: "Een eigen besluit: tänker inte (of ska inte). kommer att is een voorspelling." }] }
+          - { id: dyqw, type: translate, prompt: "Over een week krijg je de uitslag.", answers: ["Du {kommer att få|får} {svaret|resultatet|provsvaret} om en vecka.", "Om en vecka {kommer du att få|får du} {svaret|resultatet|provsvaret}."], feedback: [{ contains: "i en vecka", tip: "Over een week (in de toekomst) = om en vecka." }] }
+          - { id: 54p7, type: translate, prompt: "Volgend jaar verhuizen we. (Dat hebben we besloten.)", answers: ["Vi ska flytta nästa år.", "Nästa år ska vi flytta.", "Vi flyttar nästa år.", "Nästa år flyttar vi."], feedback: [{ contains: "nästa år vi", tip: "Na Nästa år vooraan komt eerst het werkwoord." }] }
 
   - id: prep
     title: "Grammatik: vaste voorzetsels"

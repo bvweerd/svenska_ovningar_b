@@ -150,6 +150,10 @@ sections:
           - { id: w4gk, type: transform, prompt: "Han var sjuk. Han gick till jobbet ändå. (trots att)", answers: ["Trots att han var sjuk[,] gick han till jobbet[ ändå]."], feedback: [{ contains: "sjuk han gick", tip: "Inversie in de hoofdzin: gick han." }] }
           - { id: s8yq, type: transform, prompt: "Jag åt frukost. Sedan gick jag. (innan)", answers: ["Innan jag gick[,] åt jag frukost."], feedback: [{ contains: "gick jag åt", tip: "In de innan-zin: bijzinvolgorde, innan jag gick." }] }
           - { id: 9kjf, type: transform, prompt: "Hon hade inte tid. Hon hjälpte mig ändå. (trots att)", answers: ["Trots att hon inte hade tid[,] hjälpte hon mig[ ändå]."], feedback: [{ contains: "hade inte tid", tip: "In de bijzin staat inte vóór het werkwoord: hon inte hade." }] }
+          - { id: x6b7, type: transform, prompt: "Jag var trött. Jag kunde inte sova. (fastän)", answers: ["Fastän jag var trött[,] kunde jag inte sova."], feedback: [{ contains: "trött jag kunde", tip: "Na de bijzin vooraan: eerst het werkwoord, kunde jag." }] }
+          - { id: hvdx, type: transform, prompt: "Vi kom hem. Då började det regna. (när)", answers: ["När vi kom hem[,] började det regna."], feedback: [{ contains: "hem det började", tip: "Na de bijzin vooraan: eerst het werkwoord, började det." }] }
+          - { id: wthp, type: transform, prompt: "Du är klar. Då kan vi gå. (när)", answers: ["När du är klar[,] kan vi gå."], feedback: [{ contains: "klar vi kan", tip: "Na de bijzin vooraan: eerst het werkwoord, kan vi." }] }
+          - { id: ffa8, type: transform, prompt: "Han hade ätit. Sedan gick han ut. (efter att)", answers: ["Efter att han hade ätit[,] gick han ut.", "Efter att ha ätit[,] gick han ut."], feedback: [{ contains: "ätit han gick", tip: "Na de bijzin vooraan: eerst het werkwoord, gick han." }] }
 
       - id: subj-zinsbouw
         title: Zinnen bouwen
@@ -160,6 +164,11 @@ sections:
           - { id: q67s, type: order, start: "Även om det kostar pengar,", tokens: ["tror", "jag", "att", "det", "är", "värt det"], answers: ["Även om det kostar pengar, tror jag att det är värt det."] }
           - { id: fjjg, type: order, start: "Jag anser att", tokens: ["vi", "inte", "borde", "införa", "det"], answers: ["Jag anser att vi inte borde införa det."] }
           - { id: wg7p, type: order, start: "Medan vissa får mer fritid,", tokens: ["måste", "andra", "jobba", "mer"], answers: ["Medan vissa får mer fritid, måste andra jobba mer."] }
+          - { id: vf46, type: order, start: "Eftersom priserna stiger,", tokens: ["måste", "många", "familjer", "spara"], answers: ["Eftersom priserna stiger, måste många familjer spara."] }
+          - { id: cmay, type: order, start: "Jag tycker att", tokens: ["man", "inte", "ska", "förbjuda", "det"], answers: ["Jag tycker att man inte ska förbjuda det."] }
+          - { id: 5t4d, type: order, start: "Om fler cyklade,", tokens: ["skulle", "luften", "bli", "bättre"], answers: ["Om fler cyklade, skulle luften bli bättre."] }
+          - { id: tzme, type: order, start: "Trots att det är dyrt,", tokens: ["väljer", "många", "ekologiskt"], answers: ["Trots att det är dyrt, väljer många ekologiskt."] }
+          - { id: s3wc, type: order, start: "Det är viktigt att", tokens: ["alla", "får", "säga", "sin åsikt"], answers: ["Det är viktigt att alla får säga sin åsikt."] }
 
   - id: lyssna
     title: Lyssna · luisteren
