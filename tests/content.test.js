@@ -48,6 +48,20 @@ it('elk bestand hoort bij een hoofdstuk uit index.yaml', () => {
   for (const r of raw) expect(known.has(r.data.chapter), r.file).toBe(true);
 });
 
+it('een woord in meer hoofdstukken heeft overal dezelfde vertaling en vormen', () => {
+  const first = new Map();
+  for (const ch of course) for (const v of ch.vocab ?? []) {
+    const key = v.sv.toLowerCase();
+    const sig = JSON.stringify([v.nl, v.def ?? null, v.pl ?? null]);
+    if (!first.has(key)) first.set(key, { ch: ch.chapter, sig });
+    else if (first.get(key).sig !== sig) {
+      // Een bewust andere betekenis mag, maar dan met dezelfde vormen.
+      const [, def, pl] = JSON.parse(first.get(key).sig);
+      expect([v.def ?? null, v.pl ?? null], `${v.sv}: hoofdstuk ${first.get(key).ch} en ${ch.chapter}`).toEqual([def, pl]);
+    }
+  }
+});
+
 for (const ch of course) {
   describe(`hoofdstuk ${ch.chapter}`, () => {
     it('grammatica-id’s zijn uniek over de hele cursus', () => {

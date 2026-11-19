@@ -1,4 +1,5 @@
 // Controleert de structuur van een (gebouwd) hoofdstuk. Geeft een lijst foutmeldingen.
+import { exampleGap } from './build.js';
 
 const TYPES = new Set(['mc', 'multi', 'gap', 'translate', 'order', 'match', 'table', 'truefalse', 'clock', 'dialogue', 'free', 'steps', 'findError', 'transform', 'listen', 'sort']);
 
@@ -82,6 +83,28 @@ function checkItem(item, where, errors, topics) {
   }
 }
 
+/** Woordenlijst: { sv, nl, def?, pl?, alt?, ex?, exNl? } (zie vocabExercises in build.js). */
+function checkVocab(ch, errors) {
+  const seen = new Set();
+  (ch.vocab ?? []).forEach((v, i) => {
+    const where = `hoofdstuk ${ch.chapter} / woord ${i + 1} (${v?.sv ?? '?'})`;
+    const err = (msg) => errors.push(`${where}: ${msg}`);
+    if (typeof v?.sv !== 'string' || !v.sv.trim() || typeof v.nl !== 'string' || !v.nl.trim()) return err('sv en nl zijn verplicht');
+    if (seen.has(v.sv)) err('staat dubbel in dit hoofdstuk');
+    seen.add(v.sv);
+    const noun = /^(en|ett) /.test(v.sv);
+    if (v.def !== undefined && (!noun || typeof v.def !== 'string' || !v.def)) err('def (bepaalde vorm) alleen bij een woord met en/ett');
+    if (v.pl !== undefined) {
+      const pl = [].concat(v.pl);
+      if (!noun) err('pl (meervoud) alleen bij een woord met en/ett');
+      if (!pl.length || pl.some((p) => typeof p !== 'string' || !p.trim() || /^(en|ett) /.test(p))) err('pl moet een of meer vormen zonder lidwoord zijn');
+    }
+    if (v.ex !== undefined && !exampleGap(v.ex)) err('ex moet precies één **vet** stuk bevatten');
+    if (v.ex !== undefined && !v.exNl) err('bij ex hoort exNl (de Nederlandse vertaling)');
+    if (v.exNl !== undefined && v.ex === undefined) err('exNl zonder ex');
+  });
+}
+
 /** @param extraTopics  grammatica-onderwerpen uit andere hoofdstukken (voor herhaling) */
 export function validateChapter(ch, extraTopics = []) {
   const errors = [];
@@ -91,6 +114,7 @@ export function validateChapter(ch, extraTopics = []) {
   for (const g of ch.grammar ?? []) {
     if (!g.id || !g.title || !g.summary || !g.body) errors.push(`grammatica ${g.id ?? '?'}: id, title, summary en body zijn verplicht`);
   }
+  checkVocab(ch, errors);
   for (const ex of ch.exercises) {
     const where = `hoofdstuk ${ch.chapter} / ${ex.id}`;
     if (!ex.id || ids.has(ex.id)) errors.push(`${where}: ontbrekende of dubbele id`);

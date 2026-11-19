@@ -25,11 +25,30 @@ const kind = (v) => (article(v.sv) ? 'noun' : v.sv.startsWith('att ') ? 'verb' :
 const nlBare = (nl) => nl.replace(/^(een|de|het) /, '');
 const bare = (sv) => sv.replace(/^(en|ett|att) /, '');
 
+/** Lange woordenlijsten worden per ronde van zoveel woorden geoefend (zie pickRound in progress.js). */
+export const VOCAB_ROUND = 15;
+
+const list = (x) => [].concat(x ?? []);
+const BOLD = /\*\*([^*]+)\*\*/g;
+
 /**
- * @param nounTopic  grammatica-onderwerp voor de en/ett-oefening: "substantiv" als de cursus daar een
- *                   uitlegkaart voor heeft (A1–A2), anders "woordenschat".
+ * Woord in een voorbeeldzin: ex = "Jag tar **bussen** varje morgon." (precies één vet stuk).
+ * Geeft { text, answer } met ___ op de plek van het vette stuk, of null.
  */
-export function vocabExercises(vocab, chapterNo, { nounTopic = 'woordenschat' } = {}) {
+export function exampleGap(ex) {
+  const hits = [...String(ex ?? '').matchAll(BOLD)];
+  if (hits.length !== 1) return null;
+  return { text: ex.replace(BOLD, '___'), answer: hits[0][1] };
+}
+
+/**
+ * Woord-entry in content: { sv, nl, def?, pl?, alt?, ex?, exNl? }
+ *   def  bepaalde vorm enkelvoud (bilen), pl  meervoud (bilar; of een lijst als beide goed zijn),
+ *   ex   Zweedse voorbeeldzin met het woord **vet**, exNl  de Nederlandse vertaling daarvan.
+ * @param nounTopic    onderwerp voor de en/ett-oefening: "substantiv" als de cursus daar een
+ *                     uitlegkaart voor heeft (A1–A2), anders "woordenschat". Zo ook pluralTopic.
+ */
+export function vocabExercises(vocab, chapterNo, { nounTopic = 'woordenschat', pluralTopic = 'woordenschat' } = {}) {
   if (!vocab?.length) return [];
   const rand = rng(chapterNo * 7919 + vocab.length);
   const exercises = [];
@@ -41,6 +60,7 @@ export function vocabExercises(vocab, chapterNo, { nounTopic = 'woordenschat' } 
     topic: 'woordenschat',
     generated: true,
     shuffle: true,
+    roundSize: VOCAB_ROUND,
     items: vocab.map((v) => {
       const pool = shuffle(vocab.filter((o) => o.nl !== v.nl), rand);
       const same = pool.filter((o) => kind(o) === kind(v));
@@ -56,6 +76,7 @@ export function vocabExercises(vocab, chapterNo, { nounTopic = 'woordenschat' } 
     topic: 'woordenschat',
     generated: true,
     shuffle: true,
+    roundSize: VOCAB_ROUND,
     items: vocab.map((v) => {
       const feedback = [];
       const art = article(v.sv);
@@ -82,6 +103,7 @@ export function vocabExercises(vocab, chapterNo, { nounTopic = 'woordenschat' } 
       topic: nounTopic,
       generated: true,
       shuffle: true,
+      roundSize: VOCAB_ROUND,
       items: nouns.map((v) => ({
         id: v.sv,
         type: 'steps',
@@ -100,6 +122,52 @@ export function vocabExercises(vocab, chapterNo, { nounTopic = 'woordenschat' } 
             gaps: [{ answers: [v.def] }],
           },
         ],
+      })),
+    });
+  }
+
+  const plurals = vocab.filter((v) => article(v.sv) && v.pl);
+  if (plurals.length) {
+    exercises.push({
+      id: 'woorden-meervoud',
+      title: 'Meervoud van de woorden',
+      instruction: 'Schrijf het meervoud (onbepaald, zonder lidwoord).',
+      topic: pluralTopic,
+      generated: true,
+      shuffle: true,
+      roundSize: VOCAB_ROUND,
+      items: plurals.map((v) => {
+        const pl = list(v.pl);
+        const feedback = [];
+        if (!pl.includes(bare(v.sv))) feedback.push({ match: [bare(v.sv), v.sv], tip: 'Dat is nog enkelvoud. Welke uitgang krijgt dit woord in het meervoud?' });
+        if (v.def && !pl.includes(v.def)) feedback.push({ match: v.def, tip: 'Dat is de bepaalde vorm enkelvoud. Gevraagd wordt het meervoud.' });
+        return {
+          id: v.sv,
+          type: 'gap',
+          text: `${v.sv} (${nlBare(v.nl)}) → meervoud: ___`,
+          gaps: [{ answers: pl, feedback }],
+        };
+      }),
+    });
+  }
+
+  const examples = vocab.map((v) => ({ v, gap: exampleGap(v.ex) })).filter(({ gap }) => gap);
+  if (examples.length) {
+    exercises.push({
+      id: 'woorden-in-zin',
+      title: 'Woorden in een zin',
+      instruction: 'Vul het woord in de goede vorm in. De Nederlandse zin helpt je op weg.',
+      topic: 'woordenschat',
+      generated: true,
+      shuffle: true,
+      roundSize: VOCAB_ROUND,
+      items: examples.map(({ v, gap }) => ({
+        id: v.sv,
+        type: 'gap',
+        prompt: v.exNl,
+        text: gap.text,
+        hint: `(${bare(v.sv)})`,
+        gaps: [{ answers: [gap.answer] }],
       })),
     });
   }
@@ -122,8 +190,10 @@ export function buildChapter(raw, opts = {}) {
 }
 
 export function buildCourse(index, rawChapters) {
-  const nounTopic = rawChapters.some((c) => c.grammar?.some((g) => g.id === 'substantiv')) ? 'substantiv' : 'woordenschat';
-  const byNo = new Map(rawChapters.map((c) => [c.chapter, buildChapter(c, { nounTopic })]));
+  const hasCard = (id) => rawChapters.some((c) => c.grammar?.some((g) => g.id === id));
+  const nounTopic = hasCard('substantiv') ? 'substantiv' : 'woordenschat';
+  const pluralTopic = hasCard('plural') ? 'plural' : 'woordenschat';
+  const byNo = new Map(rawChapters.map((c) => [c.chapter, buildChapter(c, { nounTopic, pluralTopic })]));
   return index.chapters.map((meta) => ({
     ...meta,
     ...(byNo.get(meta.chapter) ?? {}),

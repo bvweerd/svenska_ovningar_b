@@ -3,7 +3,7 @@
 // state = {
 //   v: 2,
 //   items: { "<hoofdstuk>/<oefening>/<vraag-id>": { s: 'good'|'wrong'|'revealed'|'free', at, h, x? } },
-//   ex:    { "<hoofdstuk>/<oefening>": { best, score, total, completedAt?, runStart? } },
+//   ex:    { "<hoofdstuk>/<oefening>": { best, score, total, completedAt?, runStart?, pick? } },
 //   last:  { href, title, at }
 // }
 // - 'good' = in één keer goed, 'wrong' = goed na fouten, 'revealed' = antwoord bekeken.
@@ -13,6 +13,7 @@
 //   Een andere tip, uitleg of vraagformulering laat de voortgang staan.
 // - ids: true betekent dat oude voortgang (op plek) is omgezet naar ids (zie migrateToIds).
 // - Een "ronde" van een oefening begint bij runStart; vragen met at >= runStart zijn in deze ronde gedaan.
+// - pick: bij een lange oefening (roundSize) de vraag-id's van deze ronde; zonder pick telt de hele oefening.
 //   x: 1 = gemaakt buiten de oefening (toets, mix, herhaling, flitskaarten): telt wel als voortgang,
 //   maar niet als gedaan in de lopende ronde van de oefening.
 
@@ -236,32 +237,67 @@ export function setPref(key, value) {
   save(state);
 }
 
-/** Welke vragen zijn in de lopende ronde al gedaan? */
+/** De vraagnummers (idx) van de lopende ronde: alle vragen, of de gekozen deelverzameling (pick). */
+function roundIndices(ex, rec) {
+  const all = ex.items.map((_, idx) => idx);
+  if (!rec?.pick) return all;
+  const ids = new Set(rec.pick.map(String));
+  return all.filter((idx) => ids.has(String(itemId(ex, idx))));
+}
+
+/** Welke vragen zijn in de lopende ronde al gedaan? inRound(idx): hoort deze vraag bij de ronde? */
 export function runState(ch, ex) {
   const state = load();
   const rec = state.ex[exKey(ch, ex.id)];
   const start = rec?.runStart;
+  const indices = roundIndices(ex, rec);
+  const inRound = new Set(indices);
   const done = new Map();
   if (start) {
-    ex.items.forEach((_, idx) => {
+    indices.forEach((idx) => {
       const r = itemRecord(state, ch, ex, idx);
       if (r && r.at >= start && !r.x) done.set(idx, r.s);
     });
   }
-  return { started: !!start, done, total: ex.items.length };
+  return { started: !!start, done, total: indices.length, inRound: (idx) => inRound.has(idx) };
 }
 
-export function startRun(ch, ex) {
+/**
+ * Kiest de vragen voor een ronde van een lange oefening: eerst vragen die je nog nooit gemaakt
+ * hebt, dan vragen die fout gingen of waarvan je het antwoord bekeek, dan de rest.
+ * Binnen een groep willekeurig. Geeft vraagnummers (idx) terug, in de volgorde van de oefening.
+ */
+export function pickRound(ch, ex, size, rand = Math.random) {
+  const state = load();
+  const groups = [[], [], []];
+  ex.items.forEach((item, idx) => {
+    if (item.type === 'free') return;
+    const r = itemRecord(state, ch, ex, idx);
+    groups[!r ? 0 : r.s === 'wrong' || r.s === 'revealed' ? 1 : 2].push(idx);
+  });
+  const mix = (a) => {
+    for (let i = a.length - 1; i > 0; i--) {
+      const j = Math.floor(rand() * (i + 1));
+      [a[i], a[j]] = [a[j], a[i]];
+    }
+    return a;
+  };
+  return groups.flatMap(mix).slice(0, size).sort((a, b) => a - b);
+}
+
+/** Start een nieuwe ronde; pick (vraagnummers) beperkt de ronde tot die vragen. */
+export function startRun(ch, ex, pick = null) {
   const state = load();
   const k = exKey(ch, ex.id);
-  state.ex[k] = { ...(state.ex[k] ?? { best: 0 }), runStart: Date.now() };
+  const { pick: _old, ...rest } = state.ex[k] ?? { best: 0 };
+  state.ex[k] = { ...rest, runStart: Date.now(), ...(pick ? { pick: pick.map((idx) => itemId(ex, idx)) } : {}) };
   save(state);
 }
 
 /** Sluit een ronde af en geeft de score van die ronde terug. */
 export function completeRun(ch, ex) {
-  const { done } = runState(ch, ex);
-  const items = gradable(ex);
+  const { done, inRound } = runState(ch, ex);
+  const items = gradable(ex).filter(({ idx }) => inRound(idx));
   const score = items.filter(({ idx }) => done.get(idx) === 'good').length;
   const total = items.length;
   const state = load();
