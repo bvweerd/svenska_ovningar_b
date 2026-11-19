@@ -93,13 +93,13 @@ sections:
         topic: passiv-s
         textTitle: "Lindhem AB söker kundtjänstmedarbetare"
         text: |
-          Lindhem AB säljer möbler och inredning på nätet. Företaget grundades 2009 i Örebro och har i dag 120 anställda.
+          Lindhem AB säljer möbler och inredning på nätet. Företaget grundades 2009 i Örebro och har i dag 120 anställda. Våra möbler tillverkas i Sverige och Polen, och alla varor som beställs på webbplatsen levereras inom fem arbetsdagar. Under det senaste året har antalet kunder ökat kraftigt, och därför behöver vi förstärka vår kundtjänst.
 
-          Vi söker nu en kundtjänstmedarbetare på heltid. Du kommer att svara på frågor från kunder via telefon, chatt och mejl. Arbetet sker på vårt kontor i Örebro, men en dag i veckan kan du arbeta hemifrån.
+          Vi söker nu en kundtjänstmedarbetare på heltid. Du kommer att svara på frågor från kunder via telefon, chatt och mejl. Arbetet sker på vårt kontor i Örebro, men en dag i veckan kan du arbeta hemifrån. I arbetet ingår också att hantera reklamationer och returer. Du blir en del av ett team på åtta personer, och du får en grundlig introduktion under de första veckorna.
 
           Vi söker dig som har minst ett års erfarenhet av kundservice, talar och skriver svenska och engelska obehindrat och tycker om att lösa problem. Det är meriterande om du kan ett tredje språk, till exempel tyska eller nederländska.
 
-          Tjänsten är en tillsvidareanställning med sex månaders provanställning. Lön enligt överenskommelse. Intervjuer hålls löpande, så skicka din ansökan så snart som möjligt, dock senast den 15 maj. Ansökan skickas via vår webbplats. Frågor om tjänsten besvaras av rekryteringsansvarig Petra Lind.
+          Tjänsten är en tillsvidareanställning med sex månaders provanställning. Vi erbjuder flexibla arbetstider och friskvårdsbidrag, och kontoret ligger bara fem minuters promenad från centralstationen. Lön enligt överenskommelse. Intervjuer hålls löpande, så skicka din ansökan så snart som möjligt, dock senast den 15 maj. Ansökan skickas via vår webbplats. Frågor om tjänsten besvaras av rekryteringsansvarig Petra Lind.
         items:
           - { id: mtu8, type: mc, prompt: "Vad säljer Lindhem?", options: ["möbler och inredning", "kläder och skor", "resor", "telefoner"], answer: 0 }
           - { id: rpdg, type: mc, prompt: "Hur ofta kan man arbeta hemifrån?", options: ["en dag i veckan", "två dagar i veckan", "varje dag", "aldrig"], answer: 0 }
@@ -107,6 +107,7 @@ sections:
           - { id: 7mf5, type: truefalse, statement: "Man måste ha minst ett års erfarenhet av kundservice.", answer: true }
           - { id: hyhv, type: truefalse, statement: "Tjänsten är på deltid.", answer: false, tip: "Lees de tweede alinea nog eens.", correction: { answers: ["{Tjänsten|Den|Jobbet} är på heltid.", "Det är en heltidstjänst."] } }
           - { id: waue, type: truefalse, statement: "Man ska vänta till den 15 maj med att skicka sin ansökan.", answer: false, tip: "Wanneer worden de gesprekken gehouden?", correction: { answers: ["{Man ska|Man bör|Man kan} skicka {sin ansökan|ansökan|den} {så snart [som ]möjligt|direkt|nu}[, dock senast den 15 maj].", "{Du ska|Du bör|Du kan} skicka {din ansökan|ansökan|den} {så snart [som ]möjligt|direkt|nu}[, dock senast den 15 maj].", "{Man ska skicka sin|Du ska skicka din} ansökan senast den 15 maj.", "{Man|Du} behöver inte vänta[ till den 15 maj]."] } }
+          - { id: cg3k, type: truefalse, statement: "Lindhems möbler tillverkas bara i Sverige.", answer: false, tip: "Lees de eerste alinea nog eens.", correction: { answers: ["{Möblerna|De|Lindhems möbler} tillverkas [både ]i Sverige och [i ]Polen.", "{Möblerna|De|Lindhems möbler} tillverkas inte bara i Sverige.", "{Möblerna|De|Lindhems möbler} tillverkas också i Polen."] } }
           - { id: 6bhn, type: mc, prompt: "Wat betekent *Lön enligt överenskommelse*?", options: ["Het salaris wordt in overleg bepaald.", "Het salaris staat vast in de cao.", "Er is geen salaris.", "Het salaris is voor iedereen gelijk."], answer: 0 }
           - { id: qrmd, type: mc, prompt: "Wat is een *tillsvidareanställning*?", options: ["een vaste aanstelling", "een tijdelijk contract", "een stage", "een oproepcontract"], answer: 0, tip: "tills vidare = tot nader order, dus zonder einddatum." }
           - id: j2wt
