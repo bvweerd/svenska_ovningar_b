@@ -272,9 +272,13 @@ sections:
     exercises:
       - id: skriva-sammanfattning
         title: Vat het nieuws samen
-        instruction: Schrijf een korte samenvatting van het nieuwsbericht over de eland.
+        instruction: "Bouw eerst je samenvatting op in vier stappen die de app nakijkt. Daarna schrijf je de hele samenvatting, als je wilt."
         topic: indirekt-tal-b1
         items:
+          - { id: enrs, type: mc, prompt: "Welke zin is een goede eerste zin van je samenvatting?", options: ["I tisdags gick en ung älg rakt genom centrala Uppsala.", "Jag tycker att älgar är väldigt fina djur.", "Det här är en text som jag har läst om en älg."], answer: 0, tip: "Een samenvatting begint met wat er gebeurde, waar en wanneer, zonder je eigen mening." }
+          - { id: yfgh, type: order, topic: indirekt-tal-b1, prompt: "De politie zei: „Älgen har troligen gått vilse.” Vertel het verder.", start: "Polisen sa att", tokens: ["älgen", "troligen", "hade", "gått", "vilse"], answers: ["Polisen sa att älgen troligen hade gått vilse."] }
+          - { id: 58st, type: translate, prompt: "Volgens de politie is dat niet ongewoon.", answers: ["Enligt polisen är {det|detta} inte ovanligt.", "{Det|Detta} är inte ovanligt[,] enligt polisen."], feedback: [{ contains: "polisen det är", tip: "Enligt polisen staat vooraan, dus het werkwoord komt op plaats 2: Enligt polisen är det …" }] }
+          - { id: zb7b, type: gap, topic: indirekt-fraga, prompt: "Kies het goede woord.", text: "Polisen vet inte ___ såg älgen först.", gaps: [{ answers: ["vem som"], options: ["vem som", "vem", "vilken"], tip: "Is het vraagwoord het onderwerp van de indirecte vraag, dan komt er som achter: vem som såg …" }] }
           - id: 78ks
             type: free
             prompt: "Vat het bericht *Älg på villovägar i centrala Uppsala* samen in 50–80 woorden, in je eigen woorden. Vertel wat er gebeurde, waar en wanneer, en wat de politie zei. Gebruik **enligt** en minstens één keer **sa att**."

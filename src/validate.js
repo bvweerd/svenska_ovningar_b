@@ -131,6 +131,23 @@ function checkCanDo(ch, topics, errors) {
   });
 }
 
+/**
+ * Geleid schrijven: een schrijfopdracht (`free`) is de laatste, vrijblijvende stap van zijn oefening,
+ * na 3 tot 5 vragen die de app nakijkt en die naar de tekst toe werken.
+ */
+export const WRITING_STEPS = [3, 5];
+function checkWriting(ex, where, errors) {
+  const items = ex.items ?? [];
+  const free = items.filter((it) => it.type === 'free');
+  if (!free.length) return;
+  const err = (msg) => errors.push(`${where}: ${msg}`);
+  if (free.length > 1) err('maar één schrijfopdracht (free) per oefening');
+  if (items.at(-1)?.type !== 'free') err('de schrijfopdracht (free) hoort als laatste stap in de oefening');
+  if (ex.shuffle) err('een oefening met een schrijfopdracht mag niet schudden (shuffle)');
+  const steps = items.length - free.length;
+  if (steps < WRITING_STEPS[0] || steps > WRITING_STEPS[1]) err(`${steps} voorbereidende stappen vóór de schrijfopdracht, verwacht ${WRITING_STEPS[0]} tot ${WRITING_STEPS[1]}`);
+}
+
 /** @param extraTopics  grammatica-onderwerpen uit andere hoofdstukken (voor herhaling) */
 export function validateChapter(ch, extraTopics = []) {
   const errors = [];
@@ -157,6 +174,7 @@ export function validateChapter(ch, extraTopics = []) {
       else itemIds.add(it.id);
     });
     ex.items?.forEach((it, i) => checkItem(it, `${where} #${i + 1}`, errors, topics));
+    checkWriting(ex, where, errors);
   }
   return errors;
 }

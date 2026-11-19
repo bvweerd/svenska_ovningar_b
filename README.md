@@ -117,12 +117,31 @@ hoofdstuk + oefening-`id` + vraag-`id`, niet aan de plek van de vraag.
 | `truefalse` | rätt/fel, met optionele `correction` (open verbetering) |
 | `clock` | klok aflezen (`time: "07:30"`), antwoorden worden gegenereerd |
 | `dialogue` | dialoog ordenen (regels in de goede volgorde opgeven) |
-| `free` | schrijfopdracht met lichte controles en voorbeeldantwoord |
+| `free` | vrije tekst (laatste stap van een schrijfopdracht): niet nagekeken, met „Hulp” en voorbeeldantwoord |
 | `findError` | zoek de fout: `sentence`, `wrong` (woordnummers, vanaf 0) en `answers` |
 | `transform` | Zweedse zin herschrijven: `prompt` (bronzin), optioneel `task`, `answers` |
 | `listen` | luisteren: `say` (voor te lezen tekst); dictee, of met `options` + `answer` een keuzevraag |
 | `sort` | indelen: `categories` en `items: [{ text, cat, tip? }]` |
 | `steps` | samengestelde vraag: meerdere van bovenstaande na elkaar |
+
+**Schrijfopdrachten (geleid schrijven).** Een schrijfoefening heeft eerst 3 tot 5 gewone vragen die de app
+nakijkt en naar de tekst toe werken (openingszin kiezen, bijzin afmaken, signaalwoord kiezen), en als
+laatste item de vrije tekst (`free`). Die stap is vrijblijvend: geen vinkjes en geen oordeel. Onder
+„Hulp” staan `minWords` („Ongeveer … woorden”) en de `label`s van `require`; na „Klaar” of „Toon voorbeeld”
+verschijnt `model`. `npm test` controleert dat `free` als laatste staat, na 3 tot 5 stappen, zonder `shuffle`.
+
+```yaml
+items:
+  - { id: 7zwc, type: mc, prompt: "Kies de beste openingszin.", options: ["Hej! Jag heter Sanne.", "Hej! Heter jag Sanne."], answer: 0 }
+  - { id: vau2, type: order, start: "Nu", tokens: ["bor", "jag", "i", "Zwolle"], answers: ["Nu bor jag i Zwolle."] }
+  - { id: 3bp9, type: translate, prompt: "Ik spreek Nederlands.", answers: ["Jag {talar|pratar} nederländska."] }
+  - id: sbrx
+    type: free
+    prompt: "Vertel hoe je heet, waar je vandaan komt …"
+    minWords: 25
+    require: [{ word: "heter", label: "Je vertelt hoe je heet (heter)" }]
+    model: "Hej! Jag heter Sanne …"
+```
 
 Antwoordpatronen: `[optioneel]` en `{keuze|andere keuze}`, bijvoorbeeld
 `"[Nej, ]vi {talar|pratar} inte finska."`. Bekende fouten met eigen tip:

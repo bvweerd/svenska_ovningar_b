@@ -232,3 +232,12 @@ describe('mix en toets: niet alleen woordenschat', async () => {
     expect(s).toHaveLength(20);
   });
 });
+
+describe('vrij schrijven: hulp zonder oordeel', () => {
+  it('somt woordenaantal en hulpwoorden op', async () => {
+    const { freeHelp } = await import('../src/check/grade.js');
+    expect(freeHelp({ minWords: 25, require: [{ word: 'heter', label: 'Je vertelt hoe je heet' }, { any: ['bor', 'bodde'] }] }))
+      .toEqual(['Ongeveer 25 woorden', 'Je vertelt hoe je heet', 'Gebruik „bor”']);
+    expect(freeHelp({})).toEqual([]);
+  });
+});

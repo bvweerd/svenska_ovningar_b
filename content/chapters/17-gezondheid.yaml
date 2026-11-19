@@ -326,9 +326,14 @@ sections:
     exercises:
       - id: skriva-verzoek
         title: Een afspraak verzetten
-        instruction: Schrijf een bericht aan de huisartsenpraktijk.
+        instruction: "Bouw eerst je bericht aan de huisartsenpraktijk op in vijf stappen die de app nakijkt. Daarna schrijf je het hele bericht, als je wilt."
         topic: framtid
         items:
+          - { id: f24u, type: mc, topic: prep-verb, prompt: "Kies de zin met het goede voorzetsel.", options: ["Jag har en tid hos doktor Lindqvist i morgon klockan tio.", "Jag har en tid på doktor Lindqvist i morgon klockan tio.", "Jag har en tid av doktor Lindqvist i morgon klockan tio."], answer: 0, tip: "Bij iemand (een persoon): hos." }
+          - { id: qpv5, type: gap, topic: woordenschat, prompt: "Kies het woord dat past.", text: "Tyvärr kan jag inte komma, ___ jag måste jobba.", gaps: [{ answers: ["eftersom"], options: ["eftersom", "därför", "så"], tip: "Je geeft de reden: eftersom (omdat)." }] }
+          - { id: 4ddw, type: translate, topic: woordenschat, prompt: "Ik zou mijn afspraak graag willen verzetten.", answers: ["Jag skulle {gärna vilja|vilja} {boka om|omboka|flytta|ändra} min tid.", "Jag vill gärna {boka om|omboka|flytta|ändra} min tid."] }
+          - { id: vpb3, type: mc, prompt: "Je bent vast van plan om morgenochtend te bellen. Welke zin is goed?", options: ["Jag tänker ringa er i morgon förmiddag.", "Jag tänker att ringa er i morgon förmiddag.", "Jag ska att ringa er i morgon förmiddag."], answer: 0, tip: "Na tänker en ska komt het werkwoord zonder att." }
+          - { id: za29, type: gap, topic: prep-verb, prompt: "Kies het goede voorzetsel.", text: "Jag hoppas ___ en ny tid snart.", gaps: [{ answers: ["på"], options: ["på", "om", "för"], tip: "hopen op = hoppas på." }] }
           - id: 2v7c
             type: free
             prompt: "Je hebt morgen een afspraak bij de dokter, maar je moet onverwacht naar je werk. Schrijf een bericht (50–90 woorden): zeg wie je bent en wanneer je afspraak is, waarom je niet kunt, vraag om een nieuwe tijd en noem wanneer je wel kunt."

@@ -250,9 +250,14 @@ sections:
     exercises:
       - id: skriva-debattartikel
         title: Schrijf een opiniestuk
-        instruction: Schrijf een korte *debattartikel*.
+        instruction: "Bouw eerst je debattartikel op in vijf stappen die de app nakijkt. Daarna schrijf je het hele betoog, als je wilt."
         topic: argumentation
         items:
+          - { id: m69g, type: mc, prompt: "Kies de beste tes (je standpunt).", options: ["Jag anser att kollektivtrafiken i våra städer borde vara gratis.", "Kollektivtrafik är bussar, tåg och spårvagnar.", "Jag åker ibland buss till jobbet."], answer: 0, tip: "Een tes is een standpunt waarover je van mening kunt verschillen, geen feit of ervaring." }
+          - { id: dncy, type: gap, topic: utbrytning, prompt: "Kies het woord dat past.", text: "Det är bilarna ___ står för en stor del av utsläppen i staden.", gaps: [{ answers: ["som"], options: ["som", "att", "vilka"], tip: "Nadruk met det är … som." }] }
+          - { id: yytk, type: order, prompt: "Weerleg het motargument: geef toe, en zet er dan iets tegenover.", start: "Visserligen kostar det pengar,", tokens: ["men", "samhället", "sparar", "pengar", "på", "färre", "olyckor"], answers: ["Visserligen kostar det pengar, men samhället sparar pengar på färre olyckor."] }
+          - { id: fkvy, type: transform, topic: utbrytning, task: "Leg de nadruk op kostnaden met det är … som.", prompt: "Kostnaden är inte det stora problemet.", answers: ["Det är inte kostnaden som är det stora problemet."], feedback: [{ contains: "det är kostnaden inte", tip: "inte staat direct na det är: Det är inte kostnaden som …" }] }
+          - { id: 833q, type: gap, prompt: "Je sluit af. Kies het signaalwoord.", text: "___ anser jag att vi borde testa gratis kollektivtrafik.", gaps: [{ answers: ["Därför"], options: ["Därför", "Visserligen", "För det första"], tip: "Een conclusie trek je met därför (daarom) of sammanfattningsvis." }] }
           - id: n8x3
             type: free
             prompt: "Kies een stelling, bijvoorbeeld *Mobiler borde förbjudas i skolan*, *Kollektivtrafiken borde vara gratis* of *Alla borde lära sig svenska innan de får medborgarskap*. Schrijf een betoog van 150–200 woorden met tes, twee argumenten, een motargument met bemötande en een slutsats. Gebruik minstens één keer *det är … som*."

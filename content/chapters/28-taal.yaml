@@ -265,9 +265,13 @@ sections:
     exercises:
       - id: skriva-tva-register
         title: Twee keer hetzelfde
-        instruction: Schrijf dezelfde boodschap in twee registers.
+        instruction: "Bouw eerst je twee berichten op in vier stappen die de app nakijkt. Daarna schrijf je ze allebei, als je wilt."
         topic: register
         items:
+          - { id: tauw, type: mc, prompt: "Welke zin past in de formele mail aan een klant?", options: ["Tyvärr måste jag ställa in vårt möte i morgon.", "Sorry, kan inte komma i morgon!", "Tja, mötet blir inte av."], answer: 0, tip: "Formeel: volledige zinnen en tyvärr. Sorry en tja zijn informeel." }
+          - { id: j4ef, type: mc, prompt: "Welke zin past in het sms'je aan je vriend Erik?", options: ["Sorry, är sjuk, så det blir ingen fika i morgon.", "Jag ber om ursäkt för det korta varslet.", "Tyvärr måste jag meddela att jag är förhindrad."], answer: 0, tip: "Een sms'je aan een vriend is kort en informeel, en mag zonder onderwerp beginnen (är sjuk)." }
+          - { id: wtf5, type: gap, prompt: "Kies het woord dat past in de formele mail.", text: "Jag ber om ___ för det korta varslet.", gaps: [{ answers: ["ursäkt"], options: ["ursäkt", "förlåt", "sorry"], tip: "excuses aanbieden = be om ursäkt." }] }
+          - { id: 2cae, type: translate, prompt: "Zou het passen om in plaats daarvan dinsdag af te spreken?", answers: ["Skulle det passa att {i stället|istället} {ses|träffas} på tisdag?", "Skulle det passa att {ses|träffas} på tisdag {i stället|istället}?", "Skulle det passa om vi {i stället|istället} {ses|träffas} på tisdag?", "Skulle det passa om vi {ses|träffas} på tisdag {i stället|istället}?"] }
           - id: 76wd
             type: free
             prompt: "Je moet een afspraak voor morgen afzeggen omdat je ziek bent. Schrijf (1) een korte, formele mail aan een klant (40–60 woorden) en (2) een sms'je aan een vriend (15–30 woorden). Gebruik in de mail *tyvärr* en een nieuwe datum, in het sms'je informele woorden."

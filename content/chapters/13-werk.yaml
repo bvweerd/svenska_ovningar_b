@@ -401,9 +401,13 @@ sections:
 
       - id: skriva-ansokan
         title: Schrijf je sollicitatiemail
-        instruction: Schrijf een korte sollicitatiemail op de vacature van Lindhem AB.
+        instruction: "Bouw eerst je sollicitatiemail aan Lindhem AB op in vier stappen die de app nakijkt. Daarna schrijf je de hele mail, als je wilt."
         topic: formell-mail
         items:
+          - { id: 2ksd, type: mc, prompt: "Je schrijft aan Petra Lind over de vacature. Welke zin past direct na de aanhef?", options: ["Jag skriver angående tjänsten som kundtjänstmedarbetare.", "Tja, jag vill gärna ha jobbet hos er!", "Jag skriver för att jag har tråkigt på mitt jobb."], answer: 0, tip: "Een formele mail begint zakelijk en zegt waarover hij gaat: Jag skriver angående …" }
+          - { id: dfrk, type: order, topic: relativ-som, prompt: "Vertel over je ervaring. Maak de zin af met een bijzin met som.", start: "Jag har arbetat i fyra år på ett företag", tokens: ["som", "säljer", "cyklar"], answers: ["Jag har arbetat i fyra år på ett företag som säljer cyklar."] }
+          - { id: 6y2r, type: translate, topic: relativ-som, prompt: "Ik ben vooral geïnteresseerd in een bedrijf dat groeit.", answers: ["Jag är {särskilt|speciellt|framför allt|framförallt|främst|i synnerhet|mest} intresserad av [att arbeta på ]ett företag som växer."], feedback: [{ contains: "intresserad i", tip: "geïnteresseerd in = intresserad av." }, { contains: "företag att", tip: "dat (betrekkelijk) = som: ett företag som växer." }] }
+          - { id: 79d3, type: gap, prompt: "Kies het goede woord voor de afsluiting.", text: "Med ___ hälsningar, Lotte de Vries", gaps: [{ answers: ["vänliga"], options: ["vänliga", "vänlig", "vänligt"], tip: "hälsningar is meervoud: Med vänliga hälsningar." }] }
           - id: gd3d
             type: free
             prompt: "Schrijf een mail aan Petra Lind (80–120 woorden). Zeg op welke functie je solliciteert, wat je ervaring is en waarom je de baan wilt. Gebruik minstens één zin met **som**, en sluit netjes af."

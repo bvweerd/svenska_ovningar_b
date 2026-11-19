@@ -278,9 +278,13 @@ sections:
     exercises:
       - id: skriva-fraga
         title: Stel je vraag
-        instruction: Schrijf een mail aan een instantie.
+        instruction: "Bouw eerst je mail aan de instantie op in vier stappen die de app nakijkt. Daarna schrijf je de hele mail, als je wilt."
         topic: myndighetssprak
         items:
+          - { id: cqrw, type: gap, prompt: "Kies de goede vorm.", text: "Jag ___ om folkbokföring den 3 februari.", gaps: [{ answers: ["ansökte"], options: ["ansökte", "ansökade", "ansöker"], tip: "Het was in februari: verleden tijd. ansöka gaat als köpa: ansökte." }] }
+          - { id: ax2d, type: mc, prompt: "Hoe noem je je dossiernummer?", options: ["Mitt ärendenummer är 123-456.", "Mitt ärende nummer är 123-456.", "Min ärendenummer är 123-456."], answer: 0, tip: "Een samenstelling schrijf je aan elkaar, en nummer is een ett-woord: mitt ärendenummer." }
+          - { id: etd8, type: order, prompt: "Stel je vraag beleefd, als indirecte vraag.", start: "Jag undrar", tokens: ["när", "jag", "kan", "räkna", "med", "ett", "beslut"], answers: ["Jag undrar när jag kan räkna med ett beslut."] }
+          - { id: htgn, type: translate, topic: deponens, prompt: "Ik hoop dat jullie me kunnen helpen.", answers: ["Jag hoppas[ att] ni kan hjälpa mig."], feedback: [{ contains: "hoppar", tip: "hopen = hoppas (altijd met -s). hoppa is springen." }, { contains: "kan ni", tip: "Na att komt een bijzin: eerst het onderwerp, dan het werkwoord (att ni kan …)." }] }
           - id: ugy4
             type: free
             prompt: "Je hebt zes weken geleden een persoonsnummer aangevraagd en nog niets gehoord. Schrijf een korte mail (60–100 woorden) aan de instantie: wie je bent, wanneer je het aangevraagd hebt, je dossiernummer, en wat je wilt weten."

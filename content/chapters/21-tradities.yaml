@@ -267,9 +267,13 @@ sections:
     exercises:
       - id: skriva-tradition
         title: Beschrijf een traditie
-        instruction: Beschrijf een Nederlands of Vlaams feest voor een Zweedse vriend.
+        instruction: "Bouw eerst je tekst over een feest op in vier stappen die de app nakijkt. Daarna schrijf je de hele tekst, als je wilt."
         topic: bestamd-utan-artikel
         items:
+          - { id: xrm4, type: mc, prompt: "Kies de beste openingszin.", options: ["I Nederländerna firar vi Kungens dag den tjugosjunde april.", "I Nederländerna vi firar Kungens dag den tjugosjunde april.", "I Nederländerna firar vi Kungens dag den tjugosju april."], answer: 0, tip: "Na I Nederländerna komt het werkwoord op plaats 2, en een datum is een rangtelwoord: den tjugosjunde." }
+          - { id: xw2y, type: gap, topic: bestamd-utan-artikel, prompt: "Kies het goede woord.", text: "___ landet blir orange.", gaps: [{ answers: ["Hela"], options: ["Hela", "Helt", "Hel"], tip: "Het hele land: hela landet (hela + bepaalde vorm)." }] }
+          - { id: fgqc, type: gap, topic: bestamd-utan-artikel, prompt: "Kies het goede woord.", text: "Förra ___ var jag i Amsterdam på Kungens dag.", gaps: [{ answers: ["året"], options: ["året", "år", "åren"], tip: "Na förra komt de bepaalde vorm: förra året." }] }
+          - { id: 4ds3, type: gap, topic: sammansattning, prompt: "Vul één woord in: verjaardag.", text: "Kungens dag är egentligen kungens ___.", gaps: [{ answers: ["födelsedag"], feedback: [{ match: "födelse dag", tip: "Een samenstelling schrijf je aan elkaar: födelsedag." }] }] }
           - id: bfzv
             type: free
             prompt: "Beschrijf een feest of traditie uit Nederland of België (bijvoorbeeld Koningsdag, Sinterklaas of carnaval) in 80–120 woorden. Wanneer is het, wat doet men, wat eet men? Vertel ook hoe jij het vorig jaar hebt gevierd. Gebruik minstens twee van: *förra, hela, första, nästa, samma*."

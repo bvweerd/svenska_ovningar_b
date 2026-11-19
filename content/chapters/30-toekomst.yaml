@@ -200,9 +200,14 @@ sections:
     exercises:
       - id: skriva-framtid
         title: Jouw toekomst
-        instruction: Schrijf een toekomstvisie.
+        instruction: "Bouw eerst je toekomstvisie op in vijf stappen die de app nakijkt. Daarna schrijf je de hele tekst, als je wilt."
         topic: framtid-b2
         items:
+          - { id: vs3n, type: mc, prompt: "Kies de beste openingszin.", options: ["Om tio år kommer mycket att ha förändrats.", "Om tio år mycket kommer att ha förändrats.", "Om tio år kommer mycket att har förändrats."], answer: 0, tip: "Na Om tio år komt het werkwoord op plaats 2, en na att komt de infinitief: att ha förändrats." }
+          - { id: wkte, type: gap, prompt: "Je vertelt over een besluit dat je al hebt genomen. Kies het woord dat past.", text: "Jag ___ fortsätta att bo i Sverige, det har jag bestämt.", gaps: [{ answers: ["ska"], options: ["ska", "lär", "väntas"], tip: "Een plan of besluit: ska. Lär en väntas gaan over verwachtingen." }] }
+          - { id: ejhm, type: gap, prompt: "Je noemt een verwachting van anderen. Kies het woord dat past.", text: "Elbilar ___ bli helt vanliga.", gaps: [{ answers: ["väntas"], options: ["väntas", "vill", "tänker"], tip: "Er wordt verwacht dat …: väntas. Vill en tänker gaan over wat mensen willen of van plan zijn." }] }
+          - { id: aymn, type: translate, prompt: "Dan zal ik hier vijftien jaar gewoond hebben.", answers: ["Då kommer jag [att ]ha bott här [i ]femton år.", "Då har jag bott här [i ]femton år."], feedback: [{ contains: "då jag", tip: "Na då vooraan komt het werkwoord op plaats 2: Då kommer jag …" }] }
+          - { id: qh8t, type: order, prompt: "Maak de zin af. Let op de woordvolgorde na de om-zin.", start: "Om vi är beredda att lära oss nya saker,", tokens: ["kommer", "det", "att", "finnas", "nya", "möjligheter"], answers: ["Om vi är beredda att lära oss nya saker, kommer det att finnas nya möjligheter."] }
           - id: 3fa2
             type: free
             prompt: "Hoe ziet jouw leven (of de wereld) er over tien jaar uit? Schrijf 150–200 woorden. Gebruik *ska* (plannen), *kommer att* (voorspellingen), *kommer att ha* + supinum, een voorwaarde met *om*, en minstens één van *lär, väntas, beräknas*. Sluit af met een conclusie."
