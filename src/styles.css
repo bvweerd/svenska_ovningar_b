@@ -609,3 +609,18 @@ del { text-decoration-color: var(--bad); text-decoration-thickness: 2px; color: 
 .gap-text .answer-input { line-height: 1.3; padding: 3px 8px; vertical-align: baseline; }
 .gap-text select.answer-input { padding: 3px 4px; }
 .gap-hint { font-size: 0.95em; }
+
+/* Kan-doen-uitspraken op de hoofdstukpagina (de app vinkt ze zelf af). */
+.cando { margin: 8px 0 20px; padding: 14px 18px; background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius); }
+.cando h2 { font-size: 1.05rem; margin: 0 0 8px; }
+.cando ul { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 6px; }
+.cando li { display: flex; align-items: baseline; gap: 10px; }
+.cando-mark { flex: none; display: inline-grid; place-items: center; width: 1.3em; height: 1.3em; border-radius: 50%; border: 1.5px solid var(--line); color: var(--good); font-weight: 700; font-size: 0.9rem; transform: translateY(0.15em); }
+.cando li.done .cando-mark { border-color: var(--good); background: var(--good-soft); }
+.cando-text { flex: 1; }
+.cando-pct { flex: none; font-size: 0.85rem; color: var(--muted); }
+.cando p { margin: 10px 0 0; }
+/* Eindscherm: net behaalde doelen. */
+.achieved { margin: 4px 0 12px; padding: 10px 14px; border-radius: 10px; background: var(--good-soft); border: 1px solid var(--good); }
+.achieved ul { list-style: none; margin: 4px 0 0; padding: 0; }
+.voice-note { margin-top: 6px; }

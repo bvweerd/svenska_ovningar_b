@@ -149,15 +149,18 @@ zelfbeoordeling, en er is geen moedertaalspreker voor echte opnames. Spreken en 
 blijven daarom open punten; fase 1 meldt de computerstem, en de handleiding kan voor spreken een
 docent of taalpartner aanraden.
 
-- [ ] **Fase 1 – snelle verbeteringen**
-  - [ ] Eindtoetsen H24 en H30 herformuleren: „Herhaling B1-/B2-grammatica”, met wat 16/20
+- [x] **Fase 1 – snelle verbeteringen**
+  - [x] Eindtoetsen H24 en H30 herformuleren: „Herhaling B1-/B2-grammatica”, met wat 16/20
         betekent en dat B1/B2 ook lezen, luisteren, spreken en schrijven omvat. Id's blijven gelijk.
-  - [ ] Per hoofdstuk 2–3 kan-doen-uitspraken (ERK) in een veld `canDo`, elk met de onderwerpen
+  - [x] Per hoofdstuk 2–3 kan-doen-uitspraken (ERK) in een veld `canDo`, elk met de onderwerpen
         (`topics`) waar hij op rust, met validatietest.
-  - [ ] Automatisch afvinken: ✓ als de vragen van die onderwerpen grotendeels (±80%) in doos 3 of
+  - [x] Automatisch afvinken: ✓ als de vragen van die onderwerpen grotendeels (±80%) in doos 3 of
         hoger staan; berekend in `progress.js` uit de bestaande voortgang. Telling
         `kandoen/<hoofdstuk>/<nr>/behaald` bij de eerste ✓.
-  - [ ] Bij luisteroefeningen melden dat het een computerstem is.
+  - [x] Bij luisteroefeningen melden dat het een computerstem is.
+      Gedaan in november 2026: 2–4 uitspraken per hoofdstuk (31 hoofdstukken), afgevinkt bij 80% in
+      doos 3 of hoger (`canDoStatus` in `src/progress.js`), getoond op de hoofdstukpagina en bij een
+      nieuw behaald doel op het eindscherm.
 - [ ] **Fase 2 – keuzeoefeningen**: per grammaticaonderwerp één oefening waarin de leerling eerst
       kiest welke vorm past en die dan maakt (8–10 vragen, `shuffle`, tips die de keuze uitleggen,
       één `steps`-vraag met „Waarom?”). Onderwerpen: inversie (H1), subjekt/objekt/possessief (H4),

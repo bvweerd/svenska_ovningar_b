@@ -271,3 +271,39 @@ describe('flitskaarten en dictee', () => {
     expect(P.dictationProgress(says)).toEqual({ total: 3, seen: 2, wrong: 1 });
   });
 });
+
+describe('kan-doen-uitspraken', () => {
+  const items = Array.from({ length: 5 }, (_, i) => ({ id: `k${i}`, type: 'gap', text: `${i} ___`, gaps: [{ answers: [`a${i}`] }] }));
+  const oef = { id: 'kd', topic: 'presens', items: [...items, { id: 'vrij', type: 'free', prompt: 'schrijf' }] };
+  const ch = { chapter: 7, exercises: [oef], canDo: [{ text: 'Ik kan het', topics: ['presens'] }] };
+  const goodTimes = (n, upTo = items.length) => {
+    for (let r = 0; r < n; r++) for (let i = 0; i < upTo; i++) P.recordItem(7, oef, i, 'good');
+  };
+
+  it('telt alleen nakijkbare vragen over de onderwerpen', () => {
+    expect(P.canDoStatus(ch)).toEqual([{ text: 'Ik kan het', total: 5, known: 0, share: 0, done: false }]);
+  });
+
+  it('behaald pas als 80% van de vragen in doos 3 of hoger staat', () => {
+    goodTimes(2);
+    expect(P.canDoStatus(ch)[0].done).toBe(false);
+    goodTimes(1, 3); // 3 van 5 in doos 3: 60%
+    expect(P.canDoStatus(ch)[0]).toMatchObject({ known: 3, done: false });
+    goodTimes(1, 4); // vraag 4 nu ook in doos 3: 4 van 5 = 80%
+    expect(P.canDoStatus(ch)[0]).toMatchObject({ known: 4, done: true });
+  });
+
+  it('een fout zet een vraag terug', () => {
+    goodTimes(3);
+    P.recordItem(7, oef, 0, 'wrong');
+    P.recordItem(7, oef, 1, 'revealed');
+    expect(P.canDoStatus(ch)[0]).toMatchObject({ known: 3, done: false });
+  });
+
+  it('newCanDo meldt een behaalde uitspraak één keer', () => {
+    expect(P.newCanDo(ch)).toEqual([]);
+    goodTimes(3);
+    expect(P.newCanDo(ch)).toEqual([{ nr: 1, text: 'Ik kan het' }]);
+    expect(P.newCanDo(ch)).toEqual([]);
+  });
+});

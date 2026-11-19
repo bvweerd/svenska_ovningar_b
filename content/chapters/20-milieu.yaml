@@ -1,4 +1,9 @@
 chapter: 20
+# Kan-doen-uitspraken: de app vinkt ze zelf af als de vragen over deze onderwerpen
+# grotendeels in doos 3 of hoger staan (src/progress.js, canDoStatus).
+canDo:
+  - { text: "Ik kies tussen någon en ingen, en zet ze op de goede plek", topics: [nagon-ingen] }
+  - { text: "Ik kan algemene uitspraken doen met man, en en ens", topics: [man-en-ens] }
 
 grammar:
   - id: nagon-ingen

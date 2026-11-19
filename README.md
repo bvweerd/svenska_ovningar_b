@@ -54,6 +54,7 @@ Wat er geteld wordt:
 | `oefening/<hoofdstuk>/<oefening>/klaar/<score>` | oefening afgerond, score in groepen (0-39, 40-59, 60-79, 80-100) |
 | `werkwoord/<tijd>/<werkwoord>/goed\|fout\|bekeken` | werkwoordtrainer |
 | `toets/<hoofdstuk>/klaar/<score>` en `spel/<naam>/klaar` | toetsen en snelle rondes |
+| `kandoen/<hoofdstuk>/<nummer>/behaald` | een kan-doen-uitspraak is voor het eerst afgevinkt |
 
 Alle paden krijgen het voorvoegsel `/b`, zodat ze los staan van de A1–A2-site. Extra voor luisteren:
 
@@ -132,6 +133,14 @@ eerst verborgen.
 Met `vocab:` in een hoofdstuk worden drie woordenschatoefeningen automatisch gemaakt.
 `npm test` controleert dat elk goed antwoord ook echt goed gerekend wordt en elke
 vastgelegde fout als fout.
+
+### Kan-doen-uitspraken
+
+Elk hoofdstuk heeft bovenaan 2 tot 4 uitspraken (`canDo`), elk met de onderwerpen (`topics`) waar
+hij op rust: `{ text: "Ik kan …", topics: [presens, v2] }`. De leerling beoordeelt niets zelf: de app
+vinkt een uitspraak af als 80% van de vragen over die onderwerpen in doos 3 of hoger van de dagelijkse
+herhaling staat (drie keer achter elkaar in één keer goed). `npm test` controleert dat de topics
+bestaan en dat er minstens 5 vragen over zijn.
 
 ## Twee sites, één code
 

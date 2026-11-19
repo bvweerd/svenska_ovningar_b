@@ -1,4 +1,9 @@
 chapter: 17
+# Kan-doen-uitspraken: de app vinkt ze zelf af als de vragen over deze onderwerpen
+# grotendeels in doos 3 of hoger staan (src/progress.js, canDoStatus).
+canDo:
+  - { text: "Ik kan over de toekomst praten met ska, kommer att en tänker", topics: [framtid] }
+  - { text: "Ik ken het vaste voorzetsel bij veelgebruikte werkwoorden", topics: [prep-verb] }
 
 grammar:
   - id: framtid

@@ -1,4 +1,9 @@
 chapter: 22
+# Kan-doen-uitspraken: de app vinkt ze zelf af als de vragen over deze onderwerpen
+# grotendeels in doos 3 of hoger staan (src/progress.js, canDoStatus).
+canDo:
+  - { text: "Ik kan op reis werkwoorden met een partikel gebruiken (stiga på, hinna med)", topics: [partikelverb-2] }
+  - { text: "Ik kan zinnen en delen van een verhaal met elkaar verbinden", topics: [sambandsord] }
 
 grammar:
   - id: partikelverb-2

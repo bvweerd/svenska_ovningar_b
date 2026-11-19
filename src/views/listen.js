@@ -8,7 +8,7 @@ import {
   speechSupported, speechStatus, swedishVoices, chosenVoice, setVoice, getRate, setRate, speak, stop, onVoicesChanged,
   voiceGender, chooseGender, getPitch, setPitch,
 } from '../speech.js';
-import { speakButton } from '../render/speak.js';
+import { speakButton, voiceNote } from '../render/speak.js';
 import { trackEvent } from '../analytics.js';
 import { recordDictation, pickDictation, dictationProgress } from '../progress.js';
 
@@ -346,7 +346,8 @@ export function viewDictation(query) {
     h('div', { class: 'actions' },
       h('a', { class: `btn ${kind === 'zin' ? 'primary' : 'ghost'} small`, href: '#/oefenen/luisteren?soort=zin' }, 'Zinnen'),
       h('a', { class: `btn ${kind === 'woord' ? 'primary' : 'ghost'} small`, href: '#/oefenen/luisteren?soort=woord' }, 'Woorden'),
-      h('a', { class: 'btn ghost small', href: '#/luisteren' }, 'Luisteren instellen')));
+      h('a', { class: 'btn ghost small', href: '#/luisteren' }, 'Luisteren instellen')),
+    voiceNote());
   if (!speechSupported()) {
     return h('div', {}, crumbs({ label: 'Start', href: '#/' }, { label: 'Oefenen', href: '#/oefenen' }, { label: 'Dictee' }), head,
       h('p', {}, 'Deze browser kan niet voorlezen. ', h('a', { href: '#/luisteren' }, 'Bekijk hoe je dat aanzet.')));

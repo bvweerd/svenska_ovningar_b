@@ -1,4 +1,10 @@
 chapter: 13
+# Kan-doen-uitspraken: de app vinkt ze zelf af als de vragen over deze onderwerpen
+# grotendeels in doos 3 of hoger staan (src/progress.js, canDoStatus).
+canDo:
+  - { text: "Ik kan een vacature begrijpen en vertellen wat er op het werk gebeurt (lijdende vorm met -s)", topics: [passiv-s] }
+  - { text: "Ik kan iemand of iets nader beschrijven met som", topics: [relativ-som] }
+  - { text: "Ik ken de vaste zinnen voor een korte, formele mail", topics: [formell-mail] }
 
 grammar:
   - id: passiv-s

@@ -1,4 +1,9 @@
 chapter: 14
+# Kan-doen-uitspraken: de app vinkt ze zelf af als de vragen over deze onderwerpen
+# grotendeels in doos 3 of hoger staan (src/progress.js, canDoStatus).
+canDo:
+  - { text: "Ik kan vertellen wat er met iets of iemand gebeurd is (lijdende vorm met bli)", topics: [passiv-bli] }
+  - { text: "Ik kan voltooide deelwoorden als bijvoeglijk naamwoord gebruiken", topics: [particip] }
 
 grammar:
   - id: passiv-bli

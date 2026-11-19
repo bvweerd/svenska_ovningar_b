@@ -1,4 +1,9 @@
 chapter: 29
+# Kan-doen-uitspraken: de app vinkt ze zelf af als de vragen over deze onderwerpen
+# grotendeels in doos 3 of hoger staan (src/progress.js, canDoStatus).
+canDo:
+  - { text: "Ik zet zinsbijwoorden in lange bijzinnen op de goede plek", topics: [bisats-adverb] }
+  - { text: "Ik kies bewust wat ik vooraan in de zin zet", topics: [fundament] }
 
 grammar:
   - id: bisats-adverb

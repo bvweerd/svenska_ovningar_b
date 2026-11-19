@@ -1,4 +1,9 @@
 chapter: 30
+# Kan-doen-uitspraken: de app vinkt ze zelf af als de vragen over deze onderwerpen
+# grotendeels in doos 3 of hoger staan (src/progress.js, canDoStatus).
+canDo:
+  - { text: "Ik kan verwachtingen uitspreken en de voltooid toekomende tijd gebruiken", topics: [framtid-b2] }
+  - { text: "Ik kan de grammatica van B2 ook door elkaar toepassen", topics: [nominalisering, trender, particip-konstruktion, nominalfras, utbrytning, argumentation, register, idiom, bisats-adverb, fundament] }
 
 grammar:
   - id: framtid-b2
@@ -197,7 +202,7 @@ sections:
 
   - id: herhaling
     title: Herhaling B1 en B2
-    intro: Een gemengde herhaling van alle hoofdstukken, als opwarmer voor de eindtoets.
+    intro: Een gemengde herhaling van alle hoofdstukken, als opwarmer voor de herhaling van de B2-grammatica.
     exercises:
       - id: herhaling-alles
         title: Alles door elkaar
@@ -216,12 +221,12 @@ sections:
           - { id: n2e8, type: transform, topic: utbrytning, prompt: "**Klimatet** är den största frågan.", answers: ["Det är klimatet som är den största frågan."] }
 
   - id: eindtoets
-    title: Eindtoets B2
-    intro: Twintig vragen over de stof van B2 (hoofdstuk 25–30), met een paar vragen uit B1.
+    title: Herhaling B2-grammatica
+    intro: "Twintig vragen over de grammatica van B2 (hoofdstuk 25–30), met een paar vragen uit B1. Heb je er 16 of meer in één keer goed, dan beheers je de grammatica van B2 goed. Voor B2 als geheel tellen ook lezen, luisteren, spreken en schrijven; die meet deze herhaling niet."
     exercises:
       - id: eindtoets-b2
-        title: Eindtoets B2
-        instruction: Gemengde vragen op B2-niveau.
+        title: Herhaling B2-grammatica
+        instruction: Gemengde vragen over de grammatica van B2.
         items:
           - { id: vr87, type: gap, topic: nominalisering, text: "Priserna ökade kraftigt. → Det skedde en ___ ökning av priserna.", gaps: [{ answers: ["kraftig"] }] }
           - { id: pdhn, type: gap, topic: nominalisering, text: "en ökning ___ försäljningen", gaps: [{ answers: ["av"], options: ["av", "med", "till"], shuffle: false }] }

@@ -115,6 +115,22 @@ function checkVocab(ch, errors) {
   });
 }
 
+/** Kan-doen-uitspraken: 2–4 per hoofdstuk, elk met bekende onderwerpen en genoeg vragen om af te vinken. */
+function checkCanDo(ch, topics, errors) {
+  const err = (msg) => errors.push(`hoofdstuk ${ch.chapter} / canDo: ${msg}`);
+  if (!Array.isArray(ch.canDo)) return err('ontbreekt (2 tot 4 uitspraken)');
+  if (ch.canDo.length < 2 || ch.canDo.length > 4) err(`${ch.canDo.length} uitspraken, verwacht 2 tot 4`);
+  ch.canDo.forEach((c, i) => {
+    if (typeof c?.text !== 'string' || !c.text.trim()) err(`#${i + 1} heeft geen tekst`);
+    if (!Array.isArray(c?.topics) || !c.topics.length) return err(`#${i + 1} heeft geen topics`);
+    for (const t of c.topics) if (!topics.has(t)) err(`#${i + 1}: onbekend topic "${t}"`);
+    // Zonder genoeg vragen in dit hoofdstuk kan de uitspraak nooit (eerlijk) worden afgevinkt.
+    const set = new Set(c.topics);
+    const n = ch.exercises.reduce((sum, ex) => sum + ex.items.filter((it) => it.type !== 'free' && set.has(it.topic ?? ex.topic)).length, 0);
+    if (n < 5) err(`#${i + 1}: maar ${n} vragen over deze topics in dit hoofdstuk (minstens 5)`);
+  });
+}
+
 /** @param extraTopics  grammatica-onderwerpen uit andere hoofdstukken (voor herhaling) */
 export function validateChapter(ch, extraTopics = []) {
   const errors = [];
@@ -125,6 +141,7 @@ export function validateChapter(ch, extraTopics = []) {
     if (!g.id || !g.title || !g.summary || !g.body) errors.push(`grammatica ${g.id ?? '?'}: id, title, summary en body zijn verplicht`);
   }
   checkVocab(ch, errors);
+  checkCanDo(ch, topics, errors);
   for (const ex of ch.exercises) {
     const where = `hoofdstuk ${ch.chapter} / ${ex.id}`;
     if (!ex.id || ids.has(ex.id)) errors.push(`${where}: ontbrekende of dubbele id`);

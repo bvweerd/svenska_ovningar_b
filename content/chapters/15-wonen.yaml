@@ -1,4 +1,9 @@
 chapter: 15
+# Kan-doen-uitspraken: de app vinkt ze zelf af als de vragen over deze onderwerpen
+# grotendeels in doos 3 of hoger staan (src/progress.js, canDoStatus).
+canDo:
+  - { text: "Ik kan met werkwoorden met een partikel een probleem in huis beschrijven", topics: [partikelverb] }
+  - { text: "Ik kies tussen där, dit en vars", topics: [dar-dit-vars] }
 
 grammar:
   - id: partikelverb

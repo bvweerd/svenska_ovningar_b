@@ -1,4 +1,9 @@
 chapter: 24
+# Kan-doen-uitspraken: de app vinkt ze zelf af als de vragen over deze onderwerpen
+# grotendeels in doos 3 of hoger staan (src/progress.js, canDoStatus).
+canDo:
+  - { text: "Ik kan mijn mening geven en reageren op die van een ander", topics: [asikt] }
+  - { text: "Ik kan tegenstelling en tijd uitdrukken met trots att, även om en medan", topics: [subjunktioner-b1] }
 
 grammar:
   - id: asikt
@@ -254,11 +259,11 @@ sections:
             model: "Jag anser att vi borde införa fyra dagars arbetsvecka, åtminstone som ett försök. För det första är många människor stressade och utbrända. Med en extra ledig dag skulle de hinna vila, träna och umgås med familjen. Dessutom visar försök i flera länder att folk jobbar mer effektivt när de är utvilade, vilket gör att företagen inte förlorar på det. Visserligen fungerar det inte lika enkelt överallt. Inom vården och i butiker måste någon alltid finnas på plats, och det kan bli dyrt att anställa fler. Men även om det kostar pengar i början, tror jag att samhället tjänar på det i längden, eftersom färre blir sjukskrivna. Sammanfattningsvis anser jag att fördelarna är större än nackdelarna. Därför borde vi testa det."
 
   - id: eindtoets
-    title: Eindtoets B1
-    intro: Twintig vragen over alles wat je op B1-niveau hebt geleerd. Ga je hier vlot doorheen, dan ben je klaar voor B2.
+    title: Herhaling B1-grammatica
+    intro: "Twintig vragen over de grammatica van hoofdstuk 13 tot en met 24. Heb je er 16 of meer in één keer goed, dan beheers je de grammatica van B1 goed. Voor B1 als geheel tellen ook lezen, luisteren, spreken en schrijven; die meet deze herhaling niet."
     exercises:
       - id: eindtoets-b1
-        title: Eindtoets B1
+        title: Herhaling B1-grammatica
         instruction: Gemengde vragen uit hoofdstuk 13 tot en met 24.
         items:
           - { id: 2vuq, type: gap, topic: passiv-s, text: "Huset ___ (bygga) 1912.", gaps: [{ answers: ["byggdes"] }] }

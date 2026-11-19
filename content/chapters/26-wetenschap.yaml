@@ -1,4 +1,9 @@
 chapter: 26
+# Kan-doen-uitspraken: de app vinkt ze zelf af als de vragen over deze onderwerpen
+# grotendeels in doos 3 of hoger staan (src/progress.js, canDoStatus).
+canDo:
+  - { text: "Ik begrijp lange deelwoordconstructies in formele teksten", topics: [particip-konstruktion] }
+  - { text: "Ik vind de kern van een lange naamwoordgroep en formuleer voorzichtig", topics: [nominalfras] }
 
 grammar:
   - id: particip-konstruktion

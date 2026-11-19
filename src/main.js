@@ -4,7 +4,7 @@ import { markdown, inline } from './md.js';
 import { course, levels, practiceEntries, balancedSample } from './content.js';
 import { SITE_TEXT, SIBLING } from './config.js';
 import { reportConfigured } from './report.js';
-import { speakButton, speedSelect } from './render/speak.js';
+import { speakButton, speedSelect, voiceNote } from './render/speak.js';
 import { speechSupported } from './speech.js';
 import { setKnownWords, getInputMode, setInputMode } from './render/tiles.js';
 import { expand } from './check/normalize.js';
@@ -22,7 +22,7 @@ import { shuffle } from './build.js';
 import {
   getResult, chapterProgress, resetProgress, recordItem, runState, startRun, completeRun, pickRound,
   weakItems, setLast, getLast, exportProgress, importProgress, migrateToIds,
-  roundProgress,
+  roundProgress, canDoStatus, newCanDo,
 } from './progress.js';
 
 const app = document.getElementById('app');
@@ -84,7 +84,7 @@ function viewHome() {
           ch.available
             ? (p.itemsDone
                 ? [progressBar(p.itemsDone, p.itemsTotal, `${p.itemsDone} van ${p.itemsTotal} vragen gemaakt`),
-                   h('span', { class: 'ch-stats' }, `${p.completed} van ${p.exercises} oefeningen afgerond`)]
+                   h('span', { class: 'ch-stats' }, `${p.completed} van ${p.exercises} oefeningen afgerond${goalsLine(ch)}`)]
                 : h('span', { class: 'ch-stats' }, plural(p.exercises, 'oefening', 'oefeningen')))
             : h('span', { class: 'soon' }, 'Binnenkort'),
         ];
@@ -93,6 +93,34 @@ function viewHome() {
       }),
     )]),
   );
+}
+
+/** „ · 1 van 3 doelen” als er al een doel behaald is. */
+function goalsLine(ch) {
+  const st = canDoStatus(ch);
+  const done = st.filter((x) => x.done).length;
+  return done ? ` · ${done} van ${st.length} doelen` : '';
+}
+
+/** Behaalde kan-doen-uitspraken die nog niet gemeld waren: tellen (één keer) en teruggeven. */
+function claimCanDo(ch) {
+  const fresh = newCanDo(ch);
+  for (const f of fresh) trackEvent(`kandoen/${ch.chapter}/${f.nr}/behaald`, `H${ch.chapter} · ${f.text}`);
+  return fresh;
+}
+
+/** Wat je na dit hoofdstuk kunt; de app vinkt het zelf af (zie canDoStatus in progress.js). */
+function canDoList(ch) {
+  claimCanDo(ch);
+  const st = canDoStatus(ch);
+  if (!st.length) return null;
+  return h('section', { class: 'cando', 'aria-labelledby': 'cando-title' },
+    h('h2', { id: 'cando-title' }, 'Dit kun je na dit hoofdstuk'),
+    h('ul', {}, st.map((x) => h('li', { class: x.done ? 'done' : '' },
+      h('span', { class: 'cando-mark', 'aria-hidden': 'true' }, x.done ? '✓' : ''),
+      h('span', { class: 'cando-text' }, x.text, x.done ? h('span', { class: 'sr-only' }, ' (behaald)') : null),
+      !x.done && x.known ? h('span', { class: 'cando-pct', title: `${x.known} van ${x.total} vragen beheerst` }, `${Math.round(x.share * 100)}%`) : null))),
+    h('p', { class: 'muted small' }, 'Het vinkje komt vanzelf: als je de meeste vragen hierover een paar keer achter elkaar in één keer goed hebt, ook in de dagelijkse herhaling.'));
 }
 
 /** Eigen kleur per hoofdstuk (een tint op de kleurencirkel), voor een streep op kaart en kop. */
@@ -139,6 +167,7 @@ function viewChapter(ch) {
         h('a', { class: 'btn ghost', href: `#/k/${ch.chapter}/toets` }, 'Toets'),
         ch.vocab?.length ? h('a', { class: 'btn ghost', href: `#/k/${ch.chapter}/kaarten` }, 'Flitskaarten') : null),
     ),
+    canDoList(ch),
     // Onderdelen zijn in- en uitklapbaar, zodat de pagina op een telefoon niet eindeloos lang is.
     // Open staat het onderdeel waar je verder gaat; bij een nieuw hoofdstuk ook de uitleg.
     ch.grammar.length
@@ -218,6 +247,12 @@ function viewExercise(ch, ex, query) {
     offset: { done: run.done.size, good: goodBefore, total: run.total },
     onFinish: (_good, _done, missed) => {
       const { score: good, total } = completeRun(ch.chapter, ex);
+      const fresh = claimCanDo(ch);
+      const achieved = fresh.length
+        ? h('div', { class: 'achieved' },
+            h('strong', {}, fresh.length === 1 ? 'Nieuw doel behaald!' : 'Nieuwe doelen behaald!'),
+            h('ul', {}, fresh.map((f) => h('li', {}, '✓ ', f.text))))
+        : null;
       trackEvent(`oefening/${ch.chapter}/${ex.id}/klaar/${total ? scoreBucket(good / total) : 'schrijven'}`, `H${ch.chapter} · ${ex.title}`);
       const heading = h('h2', {}, total ? `Klaar! ${good} van ${total} in één keer goed.` : 'Klaar!');
       const onward = (cls) => (next
@@ -227,6 +262,7 @@ function viewExercise(ch, ex, query) {
         const hard = total && good / total < 0.5;
         return [
           heading,
+          achieved,
           total ? progressBar(good, total, `${good} van ${total} in één keer goed`) : null,
           h('p', {}, scoreMessage(good, total)),
           missedList(missed),
@@ -243,6 +279,7 @@ function viewExercise(ch, ex, query) {
       if (!p.fresh && !p.wrong) {
         return [
           heading,
+          achieved,
           h('p', {}, `Je hebt alle ${p.total} woorden gehad, en de laatste keer had je ze allemaal goed. Deze oefening is af!`),
           h('div', { class: 'actions' }, onward('primary'), h('a', { class: 'btn ghost', href: `${href}?opnieuw` }, 'Nog een ronde')),
         ];
@@ -250,6 +287,7 @@ function viewExercise(ch, ex, query) {
       const todo = [p.fresh ? `${p.fresh} nog nieuw` : null, p.wrong ? `${p.wrong} om te herhalen` : null].filter(Boolean).join(', ');
       return [
         heading,
+        achieved,
         h('p', {}, `Je hebt nu ${p.seen} van de ${p.total} woorden gehad (${todo}).`),
         progressBar(p.seen - p.wrong, p.total, `${p.seen - p.wrong} van ${p.total} woorden goed`),
         h('div', { class: 'actions' }, h('a', { class: 'btn primary', href: `${href}?opnieuw` }, 'Volgende ronde'), onward('ghost')),
@@ -265,6 +303,7 @@ function viewExercise(ch, ex, query) {
         ? h('p', { class: 'muted' }, roundIntro(run.total, roundProgress(ch.chapter, ex)))
         : null,
       topicCard ? h('p', { class: 'muted' }, 'Uitleg: ', h('a', { href: topicCard.href }, topicCard.card.title)) : null,
+      ex.listen || ex.items.some((i) => i.type === 'listen') ? voiceNote() : null,
     ),
     resumed
       ? h('div', { class: 'resume' },

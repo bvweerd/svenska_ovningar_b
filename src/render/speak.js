@@ -4,6 +4,16 @@ import { displayAnswer } from '../check/normalize.js';
 import { speak, stop, isSpeaking, speechSupported, speechStatus, getRate, setRate } from '../speech.js';
 
 /** Kleine keuzelijst voor de voorleessnelheid (geldt overal). */
+/**
+ * Korte melding dat de voorleesstem een computerstem is. speech-extra: verborgen als er geen
+ * Zweedse stem is (dan is er ook niets voor te lezen).
+ */
+export function voiceNote() {
+  return h('p', { class: 'muted small voice-note speech-extra', lang: 'nl' },
+    'Je hoort een computerstem van je browser; echte Zweedse uitspraak kan afwijken. ',
+    h('a', { href: '#/luisteren' }, 'Luisteren instellen'));
+}
+
 export function speedSelect() {
   if (!speechSupported()) return null;
   const opts = [0.6, 0.7, 0.8, 0.9, 1, 1.1, 1.2];

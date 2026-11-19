@@ -1,4 +1,9 @@
 chapter: 16
+# Kan-doen-uitspraken: de app vinkt ze zelf af als de vragen over deze onderwerpen
+# grotendeels in doos 3 of hoger staan (src/progress.js, canDoStatus).
+canDo:
+  - { text: "Ik kan werkwoorden gebruiken die altijd op -s eindigen (hoppas, trivas, lyckas)", topics: [deponens] }
+  - { text: "Ik begrijp formele brieven en berichten van instanties", topics: [myndighetssprak] }
 
 grammar:
   - id: deponens

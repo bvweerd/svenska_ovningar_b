@@ -1,4 +1,9 @@
 chapter: 21
+# Kan-doen-uitspraken: de app vinkt ze zelf af als de vragen over deze onderwerpen
+# grotendeels in doos 3 of hoger staan (src/progress.js, canDoStatus).
+canDo:
+  - { text: "Ik kan de bepaalde vorm zonder lidwoord gebruiken (förra veckan, hela dagen)", topics: [bestamd-utan-artikel] }
+  - { text: "Ik begrijp samenstellingen en weet of ze en of ett zijn", topics: [sammansattning] }
 
 grammar:
   - id: bestamd-utan-artikel

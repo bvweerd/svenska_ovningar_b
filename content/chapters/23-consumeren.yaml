@@ -1,4 +1,9 @@
 chapter: 23
+# Kan-doen-uitspraken: de app vinkt ze zelf af als de vragen over deze onderwerpen
+# grotendeels in doos 3 of hoger staan (src/progress.js, canDoStatus).
+canDo:
+  - { text: "Ik kan met voor- en achtervoegsels nieuwe woorden maken en begrijpen", topics: [ordbildning] }
+  - { text: "Ik kan producten en prijzen uitgebreid vergelijken", topics: [jamforelse] }
 
 grammar:
   - id: ordbildning

@@ -1,4 +1,9 @@
 chapter: 19
+# Kan-doen-uitspraken: de app vinkt ze zelf af als de vragen over deze onderwerpen
+# grotendeels in doos 3 of hoger staan (src/progress.js, canDoStatus).
+canDo:
+  - { text: "Ik kan navertellen wat iemand zei, met de goede tijd", topics: [indirekt-tal-b1] }
+  - { text: "Ik kan een vraag indirect stellen of doorgeven", topics: [indirekt-fraga] }
 
 grammar:
   - id: indirekt-tal-b1
