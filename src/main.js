@@ -538,53 +538,61 @@ function charBar() {
   }
   // Computer (geen schermtoetsenbord): de balk staat in de knoppenrij van de vraag, naast „Controleer”
   // (in de pagina, niet zwevend), zodat de vraag niet langer wordt en er niets verspringt. Buiten een
-  // vraag staat hij onder het veld. Touchscreen met het toetsenbord dicht: geen balk. Toetsenbord open (het zichtbare deel van het scherm is dan veel lager): de balk ligt
-  // vast direct boven het toetsenbord, over de hele breedte en met hoofdletters. Ook dan verspringt de
-  // pagina niet; hooguit één keer bijscrollen als het veld anders achter de balk zou vallen, pas als het
-  // toetsenbord stilstaat (tijdens de animatie scrollt de browser zelf naar het veld).
-  let settleUntil = 0; // alleen kort na focus of toetsenbord bijsturen, nooit tijdens gewoon scrollen
-  let settleTimer = null;
+  // vraag staat hij onder het veld.
+  // Touchscreen: alleen een balk terwijl het schermtoetsenbord open is, vast direct erboven, over de
+  // hele breedte en met hoofdletters. Zolang het toetsenbord nog omhoog schuift (en de browser zelf naar
+  // het veld scrollt) blijft de balk onzichtbaar. Staat alles stil, dan wordt hij in één keer geplaatst,
+  // scrollt de pagina zo nodig één keer zodat het veld boven de balk blijft, en pas dan verschijnt hij.
+  const coarse = () => matchMedia('(pointer: coarse)').matches;
   const keyboardOpen = () => {
     const vv = window.visualViewport;
-    return !!vv && matchMedia('(pointer: coarse)').matches && window.innerHeight - vv.height > 120;
+    return !!vv && coarse() && window.innerHeight - vv.height > 120;
   };
-  const dock = () => {
-    if (bar.hidden) return;
+  let settleTimer = null;
+  const placeAbove = () => {
     const vv = window.visualViewport;
-    // Op een touchscreen heb je de letters alleen nodig terwijl het toetsenbord open is.
-    bar.classList.toggle('away', matchMedia('(pointer: coarse)').matches && !keyboardOpen());
-    if (!keyboardOpen()) {
-      bar.classList.remove('docked');
-      bar.style.top = '';
-      return;
-    }
-    bar.classList.add('docked');
     bar.style.top = `${Math.round(vv.offsetTop + vv.height - bar.offsetHeight - 6)}px`;
   };
-  const keepVisible = () => {
-    dock();
-    if (bar.hidden || !target || Date.now() > settleUntil) return;
-    const vv = window.visualViewport;
-    const top = vv ? vv.offsetTop : 0;
-    const bottom = bar.classList.contains('docked') ? bar.getBoundingClientRect().top - 6 : (vv ? vv.offsetTop + vv.height : window.innerHeight);
-    // Vast boven het toetsenbord: het veld moet erboven passen. In de pagina: de balk zelf in beeld.
-    const need = (bar.classList.contains('docked') ? target : bar).getBoundingClientRect().bottom - bottom + 8;
-    // Niet zo ver dat het veld zelf onder de vaste balken bovenaan verdwijnt.
-    const room = target.getBoundingClientRect().top - top - 112;
-    const by = Math.min(need, room);
-    if (by > 0) window.scrollBy({ top: by });
-    settleUntil = 0;
+  const undock = () => {
+    bar.classList.remove('docked', 'show');
+    bar.style.top = '';
   };
-  const settle = () => {
-    settleUntil = Date.now() + 1500;
+  const settled = () => {
+    if (bar.hidden || !coarse()) return;
+    if (!keyboardOpen()) {
+      undock();
+      bar.classList.add('away');
+      return;
+    }
+    bar.classList.remove('away');
+    bar.classList.add('docked'); // nog onzichtbaar (zonder .show), maar wel meetbaar
+    placeAbove();
+    const r = target?.getBoundingClientRect();
+    if (r) {
+      const need = r.bottom - (bar.getBoundingClientRect().top - 8);
+      // Niet zo ver dat het veld zelf onder de vaste balken bovenaan verdwijnt.
+      const room = r.top - window.visualViewport.offsetTop - 112;
+      const by = Math.min(need, room);
+      if (by > 0) {
+        window.scrollBy({ top: by, behavior: 'instant' });
+        placeAbove();
+      }
+    }
+    requestAnimationFrame(() => bar.classList.add('show'));
+  };
+  // Wachten tot het toetsenbord stilstaat (geen nieuwe resize meer): dan pas plaatsen en tonen.
+  const settleSoon = (hideFirst) => {
+    if (hideFirst) bar.classList.remove('show');
     clearTimeout(settleTimer);
-    settleTimer = setTimeout(keepVisible, 350);
+    settleTimer = setTimeout(settled, 220);
   };
   window.visualViewport?.addEventListener('resize', () => {
-    dock();
-    if (Date.now() < settleUntil) settle();
+    if (!bar.hidden && coarse()) settleSoon(true);
   });
-  window.visualViewport?.addEventListener('scroll', dock);
+  // iOS verschuift het zichtbare deel bij scrollen met open toetsenbord: de balk schuift mee.
+  window.visualViewport?.addEventListener('scroll', () => {
+    if (bar.classList.contains('show')) placeAbove();
+  });
   document.addEventListener('focusin', (e) => {
     if (!e.target.matches('input[type="text"], textarea')) return;
     target = e.target;
@@ -597,15 +605,21 @@ function charBar() {
       if (bar.previousElementSibling !== anchor) anchor.after(bar);
     }
     bar.hidden = false;
-    dock();
-    settle();
+    if (!coarse()) return;
+    // Ander veld terwijl het toetsenbord al open is: de balk blijft staan. Anders: wachten op het toetsenbord.
+    if (bar.classList.contains('show') && keyboardOpen()) settleSoon(false);
+    else {
+      undock();
+      bar.classList.add('away');
+      settleSoon(true);
+    }
   });
   document.addEventListener('focusout', () => {
     setTimeout(() => {
       if (!document.activeElement?.matches('input[type="text"], textarea')) {
         bar.hidden = true;
-        bar.classList.remove('docked');
-        bar.style.top = '';
+        clearTimeout(settleTimer);
+        undock();
       }
     }, 150);
   });

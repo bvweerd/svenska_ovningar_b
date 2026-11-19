@@ -532,6 +532,8 @@ main.wide { max-width: 1240px; }
 .charbar.docked button { width: auto; height: 44px; }
 .charbar.docked .upper { display: block; }
 .charbar.away { display: none; }
+.charbar.docked { opacity: 0; pointer-events: none; transition: opacity 0.15s ease-out; }
+.charbar.docked.show { opacity: 1; pointer-events: auto; }
 .settings > summary { cursor: pointer; }
 .dialogue.tap li.placeholder { counter-increment: none; } .dialogue.tap li.placeholder::before { content: none; }
 
