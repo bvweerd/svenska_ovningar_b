@@ -18,9 +18,9 @@ repo's gelijk: pas het in één repo aan en kopieer het hele onderdeel naar de a
 
 - Fase 1, 1b, 2 en 3 zijn klaar (kan-doen-uitspraken, eindtoetsen herschreven, melding computerstem; vaste
   volgorde per hoofdstuk, moeilijkheidslijn, `npm run difficulty-report`; keuzeoefeningen „Kies en …”).
-- **Volgende stap: meten** na publicatie (`npm run stats -- --min 5`); fase 3 (geleid schrijven, langere leesteksten,
-  taken en betogen). Vul daarbij aan tot de moeilijkheidslijn: `difficulty-report` markeert met `!` waar
-  een hoofdstuk eronder zit.
+- **Volgende stap: meten** na publicatie (`npm run stats -- --min 5`): fout/bekeken per oefening, doos 4+,
+  geleide stappen. Er is geen testgroep. Houd nieuwe stof op de moeilijkheidslijn: `difficulty-report`
+  markeert met `!` waar een hoofdstuk eronder zit.
 - Nieuwe oefeningen komen op de plek die de vaste volgorde voorschrijft (README, „Volgorde in een
   hoofdstuk”); `npm test` faalt anders.
 - Vink af in `PLAN.md` en zet onder een afgeronde fase een regel „Gedaan (maand jaar): …”.
