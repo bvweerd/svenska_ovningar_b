@@ -166,7 +166,7 @@ sections:
           - { id: 96yx, type: gap, text: "Jag undrar ___ du tänker göra i sommar.", gaps: [{ answers: ["vad"], options: ["vem som", "vem", "vad som", "vad"], shuffle: false, feedback: [{ match: "vad som", tip: "du is het onderwerp: geen som." }] }] }
           - { id: nta3, type: gap, text: "Ingen vet ___ orsakade branden – kanske spisen?", gaps: [{ answers: ["vad som"], options: ["vem som", "vem", "vad som", "vad"], shuffle: false, feedback: [{ match: "vad", tip: "vad is het onderwerp (wat veroorzaakte de brand?): vad som." }] }] }
           - { id: 5ywz, type: gap, text: "Kan du säga ___ jag ska ringa?", gaps: [{ answers: ["vem"], options: ["vem som", "vem", "vad som", "vad"], shuffle: false }] }
-          - { id: fj9g, type: gap, text: "Jag vet inte ___ du pratar om.", gaps: [{ answers: ["vem"], options: ["vem som", "vem", "vad som", "vad"], shuffle: false, feedback: [{ match: "vem som", tip: "du is het onderwerp: geen som." }] }] }
+          - { id: fj9g, type: gap, text: "Jag vet inte ___ du pratar om.", gaps: [{ answers: ["vem", "vad"], options: ["vem som", "vem", "vad som", "vad"], shuffle: false, feedback: [{ match: ["vem som", "vad som"], tip: "du is het onderwerp: geen som." }] }] }
           - { id: gc96, type: gap, text: "Säg ___ du vill ha till middag!", gaps: [{ answers: ["vad"], options: ["vem som", "vem", "vad som", "vad"], shuffle: false, feedback: [{ match: "vad som", tip: "du is het onderwerp: geen som." }] }] }
 
       - id: indirekt-zinsbouw

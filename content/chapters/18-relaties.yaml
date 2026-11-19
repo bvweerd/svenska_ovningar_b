@@ -140,7 +140,7 @@ sections:
           - { id: qa5m, type: transform, prompt: "Jag visste det inte, så jag kom inte. (Begin met: Om jag hade …)", answers: ["Om jag hade vetat det, skulle jag ha kommit.", "Om jag hade vetat det, hade jag kommit.", "Om jag hade vetat det, så {skulle jag ha kommit|hade jag kommit}."], feedback: [{ contains: "skulle jag kommit", tip: "In spreektaal valt ha vaak weg, maar schrijf: skulle jag ha kommit." }] }
           - { id: qzfa, type: transform, prompt: "Om vi har råd, köper vi ett hus.", answers: ["Om vi hade råd, [så ]skulle vi köpa ett hus.", "Om vi hade råd, [så ]köpte vi ett hus."], feedback: [{ contains: "skulle vi köpte", tip: "Na skulle komt de infinitief: skulle vi köpa." }] }
           - { id: qcct, type: transform, prompt: "Om hon kommer, blir jag glad.", answers: ["Om hon kom, [så ]skulle jag bli glad.", "Om hon kom, [så ]blev jag glad."] }
-          - { id: bk3u, type: transform, prompt: "Om det är soligt, går vi till stranden.", answers: ["Om det {var|vore} soligt, [så ]skulle vi gå till stranden.", "Om det {var|vore} soligt, [så ]gick vi till stranden."], feedback: [{ contains: "vi skulle", tip: "Na de om-zin komt eerst het werkwoord: skulle vi." }] }
+          - { id: bk3u, type: transform, prompt: "Om det är soligt, går vi till stranden.", answers: ["Om det {var|vore} soligt, [så ]skulle vi gå till stranden.", "Om det {var|vore} soligt, [så ]gick vi till stranden."], feedback: [{ contains: ["soligt vi skulle", "soligt, vi skulle"], tip: "Na de om-zin komt eerst het werkwoord: skulle vi." }] }
           - { id: n5fb, type: transform, prompt: "Han ringde inte, så hon blev arg. (Begin met: Om han hade …)", answers: ["Om han hade ringt, [så ]skulle hon inte ha blivit arg.", "Om han hade ringt, [så ]hade hon inte blivit arg."], feedback: [{ contains: "hade ringat", tip: "ringa – ringde – ringt." }] }
 
       - id: villkor-sorteren
@@ -172,9 +172,9 @@ sections:
           - { id: dz4s, type: translate, prompt: "Ik wou dat ik meer tijd had.", answers: ["Jag önskar [att ]jag hade mer tid."], feedback: [{ contains: "att jag har", tip: "Na önskar att: verleden tijd, hade." }] }
           - { id: 9p28, type: translate, prompt: "Zou je me kunnen helpen?", answers: ["Skulle du kunna hjälpa mig?"] }
           - { id: ew3k, type: translate, prompt: "Stel je voor dat we naar IJsland konden gaan!", answers: ["Tänk om vi kunde {åka|resa} till Island!"] }
-          - { id: gwvu, type: translate, prompt: "Je zou eens met een dokter moeten praten.", answers: ["Du borde [kanske ]prata med en {läkare|doktor}.", "Du borde [kanske ]prata med {läkaren|doktorn|din läkare}."], feedback: [{ contains: "skulle måste", tip: "Moeten (advies) = borde." }] }
+          - { id: gwvu, type: translate, prompt: "Je zou eens met een dokter moeten praten.", answers: ["Du borde [kanske ]prata med en {läkare|doktor}.", "Du borde [kanske ]prata med {läkaren|doktorn|din läkare}.", "Du skulle [kanske ]behöva prata med en {läkare|doktor}."], feedback: [{ contains: "skulle måste", tip: "Moeten (advies) = borde." }] }
           - { id: 3zre, type: translate, prompt: "Als ik jou was, zou ik dat niet doen.", answers: ["Om jag {var|vore} du, [så ]skulle jag inte göra det.", "Om jag {var|vore} du, [så ]hade jag inte gjort det."], feedback: [{ contains: "jag skulle inte", tip: "Na de om-zin komt eerst het werkwoord: skulle jag." }] }
-          - { id: m5nb, type: translate, prompt: "Ik wou dat het zomer was.", answers: ["Jag önskar [att ]det var sommar."], feedback: [{ contains: "det är sommar", tip: "Na önskar att: verleden tijd, det var." }] }
+          - { id: m5nb, type: translate, prompt: "Ik wou dat het zomer was.", answers: ["Jag önskar [att ]det {var|vore} sommar."], feedback: [{ contains: "det är sommar", tip: "Na önskar att: verleden tijd, det var." }] }
 
       - id: rad-kiezen
         title: Een goed advies

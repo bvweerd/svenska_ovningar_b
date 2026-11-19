@@ -132,7 +132,7 @@ sections:
           - { id: arrp, type: gap, text: "Vi ___ träffas klockan tre, eller hur?", gaps: [{ answers: ["ska"], options: ["ska", "kommer att", "tänker"], shuffle: false, feedback: [{ match: "kommer att", tip: "Een afspraak: ska." }] }] }
           - { id: fj6e, type: gap, text: "Forskarna tror att fler människor ___ jobba hemifrån om tio år.", gaps: [{ answers: ["kommer att"], options: ["ska", "kommer att", "tänker"], shuffle: false, feedback: [{ match: "ska", tip: "Een voorspelling (tror att): kommer att." }] }] }
           - { id: sfjs, type: gap, text: "Läkaren säger att du ___ ta tabletterna tre gånger om dagen.", gaps: [{ answers: ["ska"], options: ["ska", "kommer att", "tänker"], shuffle: false, tip: "ska = moeten volgens iemand anders (hier de arts)." }] }
-          - { id: bkg7, type: gap, text: "Enligt prognosen ___ det bli kallare i helgen.", gaps: [{ answers: ["kommer att"], options: ["ska", "kommer att", "tänker"], shuffle: false, feedback: [{ match: "tänker", tip: "Het weer heeft geen plannen: een voorspelling is kommer att (ska kan ook bij het weerbericht)." }] }] }
+          - { id: bkg7, type: gap, text: "Enligt prognosen ___ det bli kallare i helgen.", gaps: [{ answers: ["kommer att", "ska"], options: ["ska", "kommer att", "tänker"], shuffle: false, feedback: [{ match: "tänker", tip: "Het weer heeft geen plannen: een voorspelling is kommer att (of ska: zo wordt het verwacht)." }] }] }
 
       - id: framtid-sorteren
         title: Plan of voorspelling?

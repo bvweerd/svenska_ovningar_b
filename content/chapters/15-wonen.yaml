@@ -156,8 +156,8 @@ sections:
           - { id: zxbz, type: translate, prompt: "Wanneer trekken jullie in?", answers: ["När flyttar ni in?", "När ska ni flytta in?"] }
           - { id: 6r4b, type: translate, prompt: "De wasmachine is kapotgegaan.", answers: ["Tvättmaskinen har gått sönder.", "Tvättmaskinen gick sönder."] }
           - { id: uj2j, type: translate, prompt: "Doe de lamp aan!", answers: ["Tänd lampan!", "{Sätt|Slå} på lampan!"], feedback: [{ contains: "lampan på", tip: "Het partikel komt direct na het werkwoord: Sätt på lampan!" }] }
-          - { id: c6pk, type: translate, prompt: "Morgen ga ik bij oma op bezoek.", answers: ["{I morgon|Imorgon} {ska jag hälsa|hälsar jag} på {mormor|farmor}.", "Jag {ska hälsa|hälsar} på {mormor|farmor} {i morgon|imorgon}."], feedback: [{ contains: "besöka på", tip: "Op bezoek gaan: hälsa på (of besöka, zonder på)." }] }
-          - { id: 5j3e, type: translate, prompt: "De kraan is kapot.", answers: ["Kranen {har gått sönder|är sönder|gick sönder}."], feedback: [{ contains: "kaputt", tip: "Kapot = sönder." }] }
+          - { id: c6pk, type: translate, prompt: "Morgen ga ik bij oma op bezoek.", answers: ["{I morgon|Imorgon} {ska jag hälsa|hälsar jag} på {mormor|farmor}.", "Jag {ska hälsa|hälsar} på {mormor|farmor} {i morgon|imorgon}.", "{I morgon|Imorgon} {ska jag besöka|besöker jag} {mormor|farmor}.", "Jag {ska besöka|besöker} {mormor|farmor} {i morgon|imorgon}."], feedback: [{ contains: "besöka på", tip: "Op bezoek gaan: hälsa på (of besöka, zonder på)." }] }
+          - { id: 5j3e, type: translate, prompt: "De kraan is kapot.", answers: ["Kranen {har gått sönder|är sönder|gick sönder|är trasig}."], feedback: [{ contains: "kaputt", tip: "Kapot = sönder." }] }
 
   - id: dar-dit-vars
     title: "Grammatik: där, dit en vars"

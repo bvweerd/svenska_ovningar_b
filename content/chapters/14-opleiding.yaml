@@ -215,7 +215,7 @@ sections:
           - { id: khn9, type: mc, prompt: "Han kom ___ in i klassrummet.", options: ["springande", "sprungen", "springer"], answer: 0 }
           - { id: 249y, type: mc, prompt: "Vi läste en ___ artikel om skolsystemet.", options: ["intressant", "intresserande", "intresserad"], answer: 0, tip: "intressant is een gewoon bijvoeglijk naamwoord; intresserad (av) zeg je over een persoon." }
           - { id: u28p, type: mc, prompt: "Hon är en ___ lärare. (inspirerend)", options: ["inspirerande", "inspirerad", "inspirerat"], answer: 0, tip: "Iets wat inspireert: inspirerande. inspirerad = geïnspireerd." }
-          - { id: ua3u, type: mc, prompt: "Nils satt ___ i soffan hela kvällen. (lezend)", options: ["läsande", "läst", "läser"], answer: 0 }
+          - { id: ua3u, type: mc, prompt: "Nils kom ___ in i rummet. (rennend)", options: ["springande", "sprungen", "springer"], answer: 0 }
           - { id: mwp5, type: mc, prompt: "Han är en ___ student. (veelbelovend)", options: ["lovande", "lovad", "lovar"], answer: 0 }
 
   - id: lyssna

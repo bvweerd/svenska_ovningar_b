@@ -168,7 +168,7 @@ sections:
           - { id: 28z2, type: gap, text: "År 2021 nådde andelen en ___ på 82 procent.", gaps: [{ answers: ["topp"], options: ["topp", "nedgång", "minskning"], shuffle: false }] }
           - { id: pgdu, type: gap, text: "Försäljningen ökade ___, från 100 till 103 miljoner.", gaps: [{ answers: ["svagt"], options: ["svagt", "kraftigt", "plötsligt"], shuffle: false, tip: "Drie procent is een kleine stijging: svagt (of marginellt)." }] }
           - { id: g3sb, type: gap, text: "51 procent är ___ hälften.", gaps: [{ answers: ["drygt"], options: ["drygt", "knappt", "exakt"], shuffle: false }] }
-          - { id: uhhh, type: gap, text: "Efter flera år av ökning ___ priserna kraftigt 2023.", gaps: [{ answers: ["föll"], options: ["föll", "steg", "låg"], shuffle: false }] }
+          - { id: uhhh, type: gap, text: "Efter flera år av ökning vände trenden: priserna ___ kraftigt 2023.", gaps: [{ answers: ["föll"], options: ["föll", "steg", "låg"], shuffle: false }] }
           - { id: 8nkt, type: gap, text: "49 procent är ___ hälften.", gaps: [{ answers: ["knappt"], options: ["drygt", "knappt", "exakt"], shuffle: false, tip: "Iets minder dan: knappt." }] }
 
       - id: trend-sorteren

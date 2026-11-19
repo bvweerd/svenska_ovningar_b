@@ -134,7 +134,7 @@ verbs:
   - { inf: falla, nl: vallen, kind: sterk, pres: faller, pret: föll, sup: fallit, imp: fall }
   - { inf: frysa, nl: het koud hebben, kind: sterk, pres: fryser, pret: frös, sup: frusit, imp: null }
   - { inf: försvinna, nl: verdwijnen, kind: sterk, pres: försvinner, pret: försvann, sup: försvunnit, imp: försvinn }
-  - { inf: gråta, nl: huilen, kind: sterk, pres: gråter, pret: grät, sup: gråtit, imp: null }
+  - { inf: gråta, nl: huilen, kind: sterk, pres: gråter, pret: grät, sup: gråtit, imp: gråt }
   - { inf: hinna, nl: "op tijd zijn, tijd hebben voor", kind: sterk, pres: hinner, pret: hann, sup: hunnit, imp: null }
   - { inf: kunna, nl: kunnen, kind: sterk, pres: kan, pret: kunde, sup: kunnat, imp: null }
   - { inf: vilja, nl: willen, kind: sterk, pres: vill, pret: ville, sup: velat, imp: null }
@@ -154,6 +154,6 @@ verbs:
   - { inf: bita, nl: bijten, kind: sterk, pres: biter, pret: bet, sup: bitit, imp: bit }
   - { inf: dö, nl: sterven, kind: sterk, pres: dör, pret: dog, sup: dött, imp: null }
   - { inf: fortsätta, nl: doorgaan, kind: sterk, pres: fortsätter, pret: fortsatte, sup: fortsatt, imp: fortsätt }
-  - { inf: ljuga, nl: liegen, kind: sterk, pres: ljuger, pret: ljög, sup: ljugit, imp: null }
+  - { inf: ljuga, nl: liegen, kind: sterk, pres: ljuger, pret: ljög, sup: ljugit, imp: ljug }
   - { inf: skrika, nl: schreeuwen, kind: sterk, pres: skriker, pret: skrek, sup: skrikit, imp: skrik }
   - { inf: heta, nl: heten, kind: sterk, pres: heter, pret: hette, sup: hetat, imp: null }
