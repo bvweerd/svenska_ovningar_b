@@ -169,23 +169,17 @@ oefenen zonder oordeel.
   - [ ] Taken met een doel (situatie + dialoog met keuzes), te beginnen met H2, H6, H11, H17, H22.
   - [ ] H25–H30: een betoog in stappen bouwen (standpunt, argumenten, tegenargument, conclusie),
         elke stap nagekeken; de vrije versie is optioneel.
-- [ ] **Fase 4 – spreken**
-  - [ ] Vraagtype `speak`: luisteren, nazeggen en opnemen (`MediaRecorder`, niets bewaard of
-        verstuurd), opname en voorbeeld afspelen, verder. Geen score en niet in de Leitner-dozen.
-        Zonder microfoon: luisteren en hardop nazeggen.
-  - [ ] Proef met spraakherkenning, pas onderdeel van het plan als die slaagt: herkent de browser
-        Zweeds op het apparaat zelf, zonder dat geluid naar een externe dienst gaat? (Chrome stuurt
-        het geluid standaard naar Google; dan valt het af.)
+- [ ] **Fase 4 – echte opnames**
   - [ ] H0: ±50 woorden en woordparen ingesproken door een moedertaalspreker (veld `audio`,
         browserstem als terugval, in de PWA-cache).
-  - [ ] Per hoofdstuk 5–8 nazegzinnen en 2–3 vragen om hardop te beantwoorden (daarna
-        „Toon voorbeeld”, geen oordeel).
+  - Spreken zelf valt bewust buiten het plan: spraakherkenning is niet goed genoeg om uitspraak
+    na te kijken en werkt in de browser alleen via een externe dienst, en zelf beoordelen of
+    terugluisteren past niet bij de spelregels. De handleiding kan een docent of taalpartner aanraden.
 - [ ] **Meten na elke fase** (`npm run stats -- --min 5`): behaalde kan-doen-doelen (fase 1);
       fout/bekeken bij keuzeoefeningen en aandeel vragen in doos 4+ (fase 2); afgemaakte geleide
-      stappen, vrije teksten en leesteksten (fase 3); gebruik van nazeggen en
-      `spreken/geen-microfoon` (fase 4).
+      stappen, vrije teksten en leesteksten (fase 3); goed/fout bij de luistervragen in H0, voor en
+      na de echte opnames (fase 4).
       Na fase 2 ook een gebruikerstest: 3–5 leerlingen doen hardop denkend een hoofdstuk.
 
-Open vragen: wie spreekt de woorden voor H0 in en onder welke licentie; eerst fase 3 of eerst
-fase 4; is er een vaste groep voor de gebruikerstest; slaagt de proef met spraakherkenning op het
-apparaat zelf.
+Open vragen: wie spreekt de woorden voor H0 in en onder welke licentie; is er een vaste groep
+voor de gebruikerstest.
