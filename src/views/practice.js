@@ -278,21 +278,25 @@ export function viewFlashcards(ch) {
     card.classList.toggle('flipped', flipped);
     face.replaceChildren(
       h('span', { class: 'flash-main', lang: dir === 'sv' && !flipped ? 'sv' : dir === 'nl' && flipped ? 'sv' : 'nl' }, flipped ? back(current.v) : front(current.v)),
-      h('span', { class: 'flash-hint' }, flipped ? front(current.v) : 'Klik of druk op spatie om om te draaien'),
+      h('span', { class: 'flash-hint' }, flipped ? front(current.v) : 'Tik op de kaart (of druk op spatie) om hem om te draaien'),
     );
-    actions.replaceChildren(...(flipped
-      ? [h('button', { type: 'button', class: 'btn primary', onclick: () => rate(true) }, 'Wist ik (1)'),
-         h('button', { type: 'button', class: 'btn ghost', onclick: () => rate(false) }, 'Nog niet (2)')]
-      : [h('button', { type: 'button', class: 'btn ghost', onclick: () => flip() }, 'Omdraaien (spatie)')]),
+    // Vaste knoppen op een vaste plek: „Wist ik” en „Nog niet” kunnen pas na het omdraaien, zodat
+    // een dubbele tik op de kaart niet per ongeluk een beoordeling geeft.
+    actions.replaceChildren(
+      h('button', { type: 'button', class: 'btn primary', disabled: !flipped, onclick: () => rate(true) }, 'Wist ik (1)'),
+      h('button', { type: 'button', class: 'btn ghost', disabled: !flipped, onclick: () => rate(false) }, 'Nog niet (2)'),
       speechSupported() ? h('button', { type: 'button', class: 'btn ghost speech-extra', onclick: () => speak(current.v.sv) }, 'Luister (L)') : '');
   };
+  let flippedAt = 0;
+  const settling = () => Date.now() - flippedAt < 350;
   const flip = () => {
-    if (!current) return;
+    if (!current || settling()) return;
     flipped = !flipped;
+    flippedAt = Date.now();
     show();
   };
   const rate = (ok) => {
-    if (!current || !flipped) return;
+    if (!current || !flipped || settling()) return;
     // Alleen de eerste beoordeling telt: wat je pas na herhalen wist, komt in een volgende stapel terug.
     if (!current.rated) rateCard(ch.chapter, dir, current.v.sv, ok);
     current.rated = true;

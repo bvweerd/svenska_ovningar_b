@@ -38,14 +38,16 @@ export function match(item, ctx) {
           marks = null;
           active = i;
           draw();
-          bank.querySelector('button')?.focus({ preventScroll: true });
+          bank.querySelector('button:not(.used)')?.focus({ preventScroll: true });
         },
       }, value === null ? '…' : item.pairs[value][1]);
       return h('div', { class: `match-row${marks ? (marks[i] ? ' ok' : ' bad') : ''}`, role: 'listitem' },
         h('span', { class: 'match-left', lang: 'sv' }, left), slot);
     }));
-    fill(bank, order.filter((r) => !chosen.includes(r)).map((r) =>
-      h('button', {
+    // Gekozen betekenissen blijven als lege plek staan, zodat de rest niet onder je vinger verschuift.
+    fill(bank, order.map((r) => chosen.includes(r)
+      ? h('button', { type: 'button', class: 'chip used', disabled: true, tabindex: '-1', 'aria-hidden': 'true' }, item.pairs[r][1])
+      : h('button', {
         type: 'button',
         class: 'chip',
         disabled: locked,
@@ -58,7 +60,7 @@ export function match(item, ctx) {
           active = done;
           draw();
           if (done < 0) ctx.auto?.();
-          else bank.querySelector('button')?.focus({ preventScroll: true });
+          else bank.querySelector('button:not(.used)')?.focus({ preventScroll: true });
         },
       }, item.pairs[r][1])));
   };
@@ -106,8 +108,9 @@ export function dialogue(item, ctx = {}) {
       ? placed.map((lineNo, pos) => h('li', { class: marks ? (marks[pos] ? 'ok' : 'bad') : '' },
           h('button', { type: 'button', class: 'line-btn', disabled: locked, onclick: () => { placed = placed.filter((x) => x !== lineNo); marks = null; draw(); } }, item.lines[lineNo])))
       : h('li', { class: 'placeholder' }, 'Tik de regels hieronder aan in de goede volgorde.'));
-    fill(bank, order.filter((x) => !placed.includes(x)).map((lineNo) =>
-      h('button', {
+    fill(bank, order.map((lineNo) => placed.includes(lineNo)
+      ? h('button', { type: 'button', class: 'line-btn used', disabled: true, tabindex: '-1', 'aria-hidden': 'true' }, item.lines[lineNo])
+      : h('button', {
         type: 'button',
         class: 'line-btn',
         disabled: locked,
@@ -116,7 +119,7 @@ export function dialogue(item, ctx = {}) {
           marks = null;
           draw();
           if (placed.length === item.lines.length) ctx.auto?.();
-          else bank.querySelector('button')?.focus({ preventScroll: true });
+          else bank.querySelector('button:not(.used)')?.focus({ preventScroll: true });
         },
       }, item.lines[lineNo])));
   };

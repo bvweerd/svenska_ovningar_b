@@ -10,7 +10,7 @@ import {
   gradeFields, clockSpec, checkFree, gradeSort,
 } from '../check/grade.js';
 import { speakButton, speedSelect } from './speak.js';
-import { sentenceInput } from './tiles.js';
+import { sentenceInput, tileBoard } from './tiles.js';
 import { match, dialogue } from './tap.js';
 import { speak, speechStatus } from '../speech.js';
 
@@ -46,7 +46,7 @@ function lockInputs(root) {
 
 /** Zinsveld (typen of woordtegels) met nakijken; gedeeld door vertalen, omvormen, luisteren enz. */
 function sentenceField(spec, ctx, { label, source, prefill, topic } = {}) {
-  const field = sentenceInput(spec, { label, source, prefill, textInput, onComplete: () => ctx.auto?.() });
+  const field = sentenceInput(spec, { label, source, prefill, textInput, onComplete: () => ctx.ready?.() });
   return {
     field,
     check() {
@@ -322,43 +322,26 @@ function clock(item, ctx) {
 
 // ---------- Zinsbouw ----------
 function order(item, ctx) {
-  let tiles = shuffle(item.tokens.map((t, i) => ({ t, i })));
-  let chosen = [];
-  const bank = h('div', { class: 'chips bank', 'aria-label': 'Beschikbare woorden' });
-  const line = h('div', { class: 'chips line', 'aria-label': 'Jouw zin', lang: 'sv' });
-  const draw = () => {
-    fill(line,
-      item.start ? h('span', { class: 'chip fixed' }, item.start) : null,
-      chosen.map((c) => h('button', { type: 'button', class: 'chip', onclick: () => { chosen = chosen.filter((x) => x !== c); draw(); } }, c.t)),
-      chosen.length || item.start ? null : h('span', { class: 'placeholder' }, 'Klik op de woorden in de goede volgorde.'),
-    );
-    fill(bank,
-      tiles.filter((x) => !chosen.includes(x)).map((c) => h('button', { type: 'button', class: 'chip', onclick: () => {
-        chosen.push(c);
-        draw();
-        if (chosen.length === item.tokens.length) ctx.auto?.();
-        else bank.querySelector('button')?.focus();
-      } }, c.t)),
-    );
-  };
-  draw();
-  const el = h('div', {}, prompt(item.prompt), line, bank);
+  const board = tileBoard({
+    tiles: shuffle(item.tokens.map((t, i) => ({ t, i }))),
+    start: item.start,
+    label: 'Jouw zin',
+    placeholder: 'Tik de woorden aan in de goede volgorde.',
+    needed: item.tokens.length,
+    onComplete: () => ctx.ready?.(),
+  });
+  const el = h('div', {}, prompt(item.prompt), board.el);
   return {
     el,
     check() {
-      const res = gradeOrder(chosen.map((c) => c.t), item, ctx);
-      line.classList.toggle('ok', res.correct);
-      line.classList.toggle('bad', !res.correct && !res.empty);
+      const res = gradeOrder(board.tokens(), item, ctx);
+      board.mark(res.empty ? undefined : res.correct);
       return res;
     },
     reveal() {
-      line.replaceChildren(h('span', { class: 'chip revealed' }, displayAnswer(item.answers)));
-      bank.replaceChildren();
+      board.reveal(displayAnswer(item.answers));
     },
-    lock() {
-      lockInputs(el);
-      line.querySelectorAll('button').forEach((b) => (b.disabled = true));
-    },
+    lock: () => board.lock(),
   };
 }
 
@@ -543,8 +526,13 @@ function steps(item, ctx) {
   const addStep = (i) => {
     const r = RENDERERS[item.steps[i].type](item.steps[i], ctx);
     rendered[i] = r;
-    box.append(h('div', { class: 'step' }, h('span', { class: 'step-no' }, `Stap ${i + 1}`), r.el));
-    r.el.querySelector('input, select, textarea, button')?.focus?.();
+    const step = h('div', { class: 'step' }, h('span', { class: 'step-no' }, `Stap ${i + 1}`), r.el);
+    box.append(step);
+    // Niet scrollen en op een telefoon geen toetsenbord openen; de stap komt rustig in beeld.
+    const first = r.el.querySelector('input, select, textarea, button');
+    const touch = typeof matchMedia === 'function' && matchMedia('(pointer: coarse)').matches;
+    if (first && !(touch && first.matches('input[type="text"], textarea'))) first.focus({ preventScroll: true });
+    if (i > 0) requestAnimationFrame(() => step.scrollIntoView?.({ behavior: 'smooth', block: 'nearest' }));
   };
   addStep(0);
   return {

@@ -146,7 +146,7 @@ select.answer-input { padding-right: 4px; }
 .options { display: flex; flex-direction: column; gap: 6px; }
 .options.row { flex-direction: row; flex-wrap: wrap; }
 .option { display: flex; gap: 10px; align-items: center; padding: 8px 12px; border: 1.5px solid var(--line); border-radius: 10px; cursor: pointer; background: var(--surface-2); }
-.option:hover { border-color: var(--accent); }
+@media (hover: hover) { .option:hover { border-color: var(--accent); } }
 .option.ok { border-color: var(--good); background: var(--good-soft); }
 .option.bad { border-color: var(--bad); background: var(--bad-soft); }
 .option input { accent-color: var(--accent); }
@@ -156,7 +156,7 @@ select.answer-input { padding-right: 4px; }
 .chips.line.ok { border-style: solid; border-color: var(--good); background: var(--good-soft); }
 .chips.line.bad { border-style: solid; border-color: var(--bad); background: var(--bad-soft); }
 .chip { font: inherit; padding: 6px 12px; border-radius: 8px; border: 1.5px solid var(--line); background: var(--surface); color: var(--text); cursor: pointer; }
-.chip:hover:not(:disabled) { border-color: var(--accent); }
+@media (hover: hover) { .chip:hover:not(:disabled) { border-color: var(--accent); } }
 .chip.fixed { background: var(--accent-soft); border-color: transparent; }
 .chip.revealed { border-color: var(--yellow); }
 .placeholder { color: var(--muted); font-size: 0.9rem; }
@@ -317,7 +317,7 @@ table.fill .answer-input { width: 100%; min-width: 90px; }
 .game-options { display: grid; gap: 10px; grid-template-columns: repeat(2, minmax(0, 1fr)); }
 .game-options.n3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
 .game-option { font: inherit; font-size: 1.1rem; padding: 14px 10px; border: 1.5px solid var(--line); border-radius: 12px; background: var(--surface-2); color: var(--text); cursor: pointer; display: flex; gap: 10px; align-items: center; justify-content: center; }
-.game-option:hover { border-color: var(--accent); }
+@media (hover: hover) { .game-option:hover { border-color: var(--accent); } }
 .game-option.ok { border-color: var(--good); background: var(--good-soft); }
 .game-option.bad { border-color: var(--bad); background: var(--bad-soft); }
 .game-option kbd { font: inherit; font-size: 0.75rem; color: var(--muted); border: 1px solid var(--line); border-radius: 4px; padding: 0 5px; }
@@ -401,6 +401,35 @@ details.howto ol { margin: 8px 0 4px; }
 .link-btn { background: none; border: none; padding: 2px 0; font: inherit; font-size: 0.85rem; color: var(--accent); text-decoration: underline; cursor: pointer; }
 @media (pointer: coarse) { .tiles .chip { padding: 9px 14px; font-size: 1.02rem; } }
 
+/* ---------- Niets laten verspringen (vooral op een telefoon) ---------- */
+.sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; border: 0; }
+/* Een gekozen tegel laat een lege plek achter. */
+.chip.used, .line-btn.used { visibility: hidden; }
+.actions.keep { min-height: 44px; align-items: center; }
+/* Invoegcursor in de zin: smalle tikvlakken tussen de tegels; de gekozen plek toont een streep. */
+.chips.line { column-gap: 0; }
+.slot { position: relative; flex: 0 0 12px; align-self: stretch; min-height: 36px; padding: 0; border: 0; background: none; cursor: text; }
+.slot.end { flex: 1 0 24px; }
+.slot::before { content: ''; position: absolute; top: 6px; bottom: 6px; left: 50%; width: 3px; margin-left: -1.5px; border-radius: 2px; background: transparent; }
+.slot.end::before { left: 6px; margin-left: 0; }
+.slot[aria-pressed="true"]::before { background: var(--accent); }
+.slot:disabled { cursor: default; }
+.slot:disabled::before { background: transparent; }
+.chips.line .chip { margin: 0; }
+.chip, .option, .btn, .slot, .line-btn, .game-option, .match-slot { touch-action: manipulation; }
+@media (pointer: coarse) {
+  .chips { min-height: 64px; }
+  .chip, .match-slot { min-height: 44px; }
+  .option { min-height: 46px; }
+  .options { gap: 8px; }
+  .input-switch { padding: 10px 0; margin-bottom: 4px; }
+  .charbar .upper { display: none; }
+  .game-options { grid-auto-rows: minmax(88px, 1fr); }
+  .game-option kbd { display: none; }
+  .game-prompt { min-height: 5.5rem; justify-content: center; }
+  .icon-btn { width: 40px; height: 40px; }
+}
+
 /* Foutmelding */
 .item-head .report-btn { margin-left: auto; color: var(--muted); text-decoration: none; font-size: 0.8rem; }
 .item-head .report-btn:hover, .item-head .report-btn:focus-visible { color: var(--accent); text-decoration: underline; }
@@ -472,7 +501,7 @@ main.wide { max-width: 1240px; }
 .dialogue-bank { display: flex; flex-direction: column; gap: 6px; margin: 10px 0; }
 .line-btn { width: 100%; font: inherit; text-align: left; padding: 10px 12px; border-radius: 10px; border: 1.5px solid var(--line); background: var(--surface); color: var(--text); cursor: pointer; }
 .dialogue.tap .line-btn { border: none; background: none; }
-.line-btn:hover:not(:disabled) { border-color: var(--accent); }
+@media (hover: hover) { .line-btn:hover:not(:disabled) { border-color: var(--accent); } }
 .line-btn:disabled { cursor: default; }
 
 /* Tabel invullen: op de telefoon één kaartje per rij */
@@ -495,6 +524,7 @@ main.wide { max-width: 1240px; }
 
 /* Letterbalk: direct onder het invoerveld, in de pagina (nooit achter het toetsenbord) */
 .charbar { position: static; transform: none; width: fit-content; margin: 6px 0; box-shadow: none; }
+.actions .charbar { margin: 0; padding: 0; border: none; background: none; }
 .charbar button { width: 44px; height: 40px; }
 .settings > summary { cursor: pointer; }
 .dialogue.tap li.placeholder { counter-increment: none; } .dialogue.tap li.placeholder::before { content: none; }

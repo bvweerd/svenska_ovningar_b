@@ -510,6 +510,7 @@ function charBar() {
   let target = null;
   for (const c of ['å', 'ä', 'ö', 'Å', 'Ä', 'Ö']) {
     bar.append(h('button', {
+      class: c === c.toUpperCase() ? 'upper' : null,
       type: 'button',
       onmousedown: (e) => e.preventDefault(),
       onclick: () => {
@@ -523,8 +524,9 @@ function charBar() {
       },
     }, c));
   }
-  // De balk staat direct onder het invoerveld (in de pagina, niet zwevend), zodat hij nooit
-  // achter het schermtoetsenbord verdwijnt. Als het toetsenbord opent, scrollt de pagina mee.
+  // De balk staat in de knoppenrij van de vraag, naast „Controleer” (in de pagina, niet zwevend),
+  // zodat hij nooit achter het schermtoetsenbord verdwijnt en de vraag niet langer maakt: er
+  // verspringt dus niets als hij verschijnt. Buiten een vraag staat hij direct onder het veld.
   let settleUntil = 0; // alleen kort na focus of toetsenbord bijsturen, nooit tijdens gewoon scrollen
   const keepVisible = () => {
     if (bar.hidden || Date.now() > settleUntil) return;
@@ -543,9 +545,14 @@ function charBar() {
   document.addEventListener('focusin', (e) => {
     if (!e.target.matches('input[type="text"], textarea')) return;
     target = e.target;
-    // Onder de hele zin of het zinsveld; in een tabelcel direct onder het veld.
-    const anchor = target.closest('td') ? target : target.closest('.sentence-input, .gap-text') ?? target;
-    if (bar.previousElementSibling !== anchor) anchor.after(bar);
+    const actions = target.closest('.item')?.querySelector(':scope > .actions');
+    if (actions) {
+      if (bar.parentElement !== actions) actions.append(bar);
+    } else {
+      // Onder de hele zin of het zinsveld; in een tabelcel direct onder het veld.
+      const anchor = target.closest('td') ? target : target.closest('.sentence-input, .gap-text') ?? target;
+      if (bar.previousElementSibling !== anchor) anchor.after(bar);
+    }
     bar.hidden = false;
     settle();
   });

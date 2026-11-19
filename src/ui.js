@@ -72,19 +72,26 @@ export function exerciseRunner(items, { onFinish, offset = { done: 0, good: 0, t
         finished++;
         if (r.firstTry && !r.neutral) good++;
         updateScore();
+        // Op een telefoon niet vanzelf scrollen: wie net tikt, raakt dan iets anders. Daar komt
+        // een knop „Volgende vraag” onder de feedback; met muis en toetsenbord gaat het vanzelf.
+        const touch = matchMedia('(pointer: coarse)').matches;
         if (finished === items.length) {
           summary.hidden = false;
           summary.replaceChildren(...onFinish(good, done).filter(Boolean));
-          setTimeout(() => {
+          const toSummary = () => {
             summary.scrollIntoView({ behavior: 'smooth', block: 'center' });
             summary.querySelector('.btn.primary')?.focus({ preventScroll: true });
-          }, r.revealed ? 1200 : 700);
+          };
+          if (touch) card.offerNext('Naar de uitslag ↓', toSummary);
+          else setTimeout(toSummary, r.revealed ? 1200 : 700);
           return;
         }
-        // Na een goed antwoord automatisch door naar de volgende open vraag.
+        // Na een goed antwoord door naar de volgende open vraag.
         if (r.revealed && !advanceAfterReveal) return;
         const next = cards.slice(i + 1).find((c) => !c.isFinished()) ?? cards.find((c) => !c.isFinished());
-        if (next) setTimeout(() => next.focusFirst(), r.revealed ? 1500 : 700);
+        if (!next) return;
+        if (touch) card.offerNext('Volgende vraag ↓', () => next.focusFirst());
+        else setTimeout(() => next.focusFirst(), r.revealed ? 1500 : 700);
       }, label);
       cards.push(card);
       return card;
