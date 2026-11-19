@@ -1,5 +1,6 @@
 import { defineConfig } from 'vite';
 import yaml from 'js-yaml';
+import { pwaPlugin } from './scripts/pwa.mjs';
 
 // Laadt .yaml-bestanden als JavaScript-objecten.
 const yamlPlugin = {
@@ -12,6 +13,6 @@ const yamlPlugin = {
 
 export default defineConfig({
   base: './',
-  plugins: [yamlPlugin],
+  plugins: [yamlPlugin, pwaPlugin()],
   test: { include: ['tests/**/*.test.js', 'worker/**/*.test.js'] },
 });

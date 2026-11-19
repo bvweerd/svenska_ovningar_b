@@ -29,6 +29,16 @@ Naast de oefeningen per hoofdstuk zijn er onder **Oefenen**: dagelijkse herhalin
 intervallen (Leitner-dozen), een werkwoordtrainer (`content/verbs.yaml`), toetsen per
 hoofdstuk, flitskaarten en snelle rondes van 60 seconden. Alle voortgang staat in de browser.
 
+## Als app (PWA)
+
+De site is te installeren als app op telefoon, tablet en computer (iPhone/iPad: Safari → Delen →
+„Zet op beginscherm”; Android: Chrome → ⋮ → „App installeren”) en werkt daarna ook offline.
+Bij `npm run build` maakt `scripts/pwa.mjs` het manifest (naam uit `APP` in `src/config.js`, iconen uit
+`public/icons/`) en de service worker `sw.js`, die alle bestanden in de cache zet. Na een nieuwe
+build ziet de gebruiker onderin „Er is een nieuwe versie” met een knop om bij te werken.
+De voortgang blijft gewoon in localStorage; in de app vraagt de site om blijvende opslag.
+Op iPhone/iPad heeft de app een eigen opslag, los van Safari: overzetten gaat via exporteren en importeren.
+
 ## Statistieken (GoatCounter)
 
 De site kan anoniem meten via [GoatCounter](https://www.goatcounter.com): zonder cookies en
@@ -115,7 +125,7 @@ vastgelegde fout als fout.
 
 ## Twee sites, één code
 
-Deze site en zijn zusterrepo (svenska_ovningar voor A1–A2, svenska_ovningar_b voor B1–B2) delen dezelfde code. `src/`, `tests/`, `scripts/`, `vite.config.js` en `package.json` zijn in beide repo's gelijk. Wat per site verschilt, staat in `src/config.js`: opslagsleutel, GoatCounter-voorvoegsel, issue-repo, teksten en de link naar de andere site. Daarnaast verschillen de inhoud (`content/`), `index.html` en de Worker (alleen in de B1–B2-repo).
+Deze site en zijn zusterrepo (svenska_ovningar voor A1–A2, svenska_ovningar_b voor B1–B2) delen dezelfde code. `src/`, `tests/`, `scripts/`, `vite.config.js` en `package.json` zijn in beide repo's gelijk. Wat per site verschilt, staat in `src/config.js`: opslagsleutel, app-naam, GoatCounter-voorvoegsel, issue-repo, teksten en de link naar de andere site. Daarnaast verschillen de inhoud (`content/`), `index.html`, de app-iconen (`public/icons/`) en de Worker (alleen in de B1–B2-repo).
 
 Pas je gedeelde code aan, kopieer die dan naar de andere repo en controleer met `npm run check-sync` (beide repo's naast elkaar uitgecheckt).
 

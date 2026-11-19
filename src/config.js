@@ -19,6 +19,13 @@ export const SITE_TEXT = {
   about: 'Svenska övningar B1–B2 is een gratis oefensite voor Nederlandstaligen die Zweeds leren op gevorderd niveau. Het vervolgt de beginnerssite (hoofdstuk 0–12) met twaalf hoofdstukken op B1 (13–24) en zes op B2 (25–30). Elk hoofdstuk heeft een thema, een praktisch doel en een schrijfdoel, met lezen, luisteren, grammatica, woordenschat en schrijven.',
 };
 
+/** Naam en beschrijving als app (manifest, beginscherm). */
+export const APP = {
+  name: 'Svenska övningar B1–B2',
+  shortName: 'Svenska B1–B2',
+  description: 'Zweeds oefenen op B1- en B2-niveau, automatisch nagekeken met tips.',
+};
+
 /** De andere site: [tekst voor de link, linktekst, tekst na de link]. */
 export const SIBLING = {
   href: 'https://bvweerd.github.io/svenska_ovningar/',

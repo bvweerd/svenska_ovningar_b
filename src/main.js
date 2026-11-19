@@ -11,6 +11,7 @@ import { expand } from './check/normalize.js';
 import { viewListenSettings, viewDictation, reportSpeechStatus } from './views/listen.js';
 import { itemCard } from './render/item-card.js';
 import { createMenu } from './menu.js';
+import { initPwa, installSection } from './pwa.js';
 import { initAnalytics, trackPage, trackEvent, scoreBucket, analyticsConfigured, optedOut, setOptOut } from './analytics.js';
 import {
   viewPracticeHub, viewDaily, viewVerbTrainer, viewFlashcards, viewTest, viewGames, viewGame, GAMES, dueCount, streakText,
@@ -374,6 +375,7 @@ function viewAbout() {
             return h('label', { class: 'option inline' }, box, h('span', {}, 'Anoniem meetellen'));
           })())
       : h('p', {}, 'Deze site verzamelt geen statistieken.'),
+    installSection(),
     h('h2', {}, 'Voortgang'),
     h('p', {}, 'Je voortgang wordt per vraag opgeslagen in deze browser. Ga je halverwege een oefening weg, dan ga je later verder waar je gebleven was. Wil je op een ander apparaat verder, exporteer dan je voortgang naar een bestand en importeer dat daar.'),
     progressTools(),
@@ -565,6 +567,7 @@ setKnownWords(...knownWords());
 migrateToIds(course);
 const updateMenu = createMenu(course);
 initAnalytics();
+initPwa();
 reportSpeechStatus();
 window.addEventListener('hashchange', route);
 charBar();

@@ -3,7 +3,7 @@
 // Gebruik: npm run check-sync   (geeft exitcode 1 bij verschillen)
 //
 // Gelijk moeten zijn: src/ (behalve src/config.js), tests/, scripts/, vite.config.js en package.json.
-// De inhoud (content/), index.html, de Worker en src/config.js verschillen per site.
+// De inhoud (content/), index.html, de app-iconen (public/icons/), de Worker en src/config.js verschillen per site.
 import fs from 'node:fs';
 import path from 'node:path';
 
