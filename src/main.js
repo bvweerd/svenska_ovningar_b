@@ -12,6 +12,7 @@ import { viewListenSettings, viewDictation, reportSpeechStatus } from './views/l
 import { itemCard } from './render/item-card.js';
 import { createMenu } from './menu.js';
 import { initPwa, installSection, isStandalone, syncThemeColor } from './pwa.js';
+import { homeNotices, countVisit } from './onboarding.js';
 import { initAnalytics, trackPage, trackEvent, scoreBucket, analyticsConfigured, optedOut, setOptOut } from './analytics.js';
 import {
   viewPracticeHub, viewDaily, viewVerbTrainer, viewFlashcards, viewTest, viewGames, viewGame, GAMES, dueCount, streakText,
@@ -36,6 +37,7 @@ function viewHome() {
       h('p', { class: 'lead' }, SITE_TEXT.lead),
       h('p', { class: 'muted' }, SIBLING.home[0], h('a', { href: SIBLING.href }, SIBLING.home[1]), SIBLING.home[2]),
     ),
+    homeNotices(),
     h('div', { class: 'today' },
       last
         ? h('a', { class: 'continue', href: last.href },
@@ -367,6 +369,14 @@ function viewAbout() {
     crumbs({ label: 'Start', href: '#/' }, { label: 'Over deze site' }),
     h('h1', {}, 'Over deze site'),
     h('p', {}, SITE_TEXT.about),
+    h('h2', {}, 'Handleiding: zo begin je'),
+    h('ol', {},
+      h('li', {}, 'Kies op de startpagina een hoofdstuk. Elk hoofdstuk heeft uitleg (grammatica), oefeningen, woorden en een toets.'),
+      h('li', {}, 'Lees eerst de uitleg of begin direct met de eerste oefening. Bij elke vraag staat een link naar de uitleg die erbij hoort.'),
+      h('li', {}, 'Maak de oefeningen van boven naar beneden. Lange woordenlijsten oefen je in rondes van 15 woorden: eerst nieuwe en foute woorden.'),
+      h('li', {}, 'Kom elke dag even terug: de dagelijkse herhaling op de startpagina zet klaar wat je weer moet oefenen.'),
+      h('li', {}, 'Op je telefoon? Zet de site als app op je beginscherm (zie „Als app installeren” hieronder).'),
+    ),
     h('p', {}, SIBLING.about[0], h('a', { href: SIBLING.href }, SIBLING.about[1]), SIBLING.about[2]),
     h('h2', {}, 'Luisteren'),
     h('p', {}, 'De site leest Zweeds voor met de spraakfunctie van je eigen browser. Hoe goed dat klinkt, hangt af van de Zweedse stemmen op je apparaat. ', h('a', { href: '#/luisteren' }, 'Luisteren instellen'), ' legt per browser uit hoe je een goede stem krijgt.'),
@@ -380,9 +390,10 @@ function viewAbout() {
     ),
     h('h2', {}, 'Snel werken'),
     h('ul', {},
-      h('li', {}, 'Meerkeuze, keuzelijsten, koppelen en zinsbouw worden meteen nagekeken zodra je antwoord compleet is.'),
+      h('li', {}, 'Meerkeuze, keuzelijsten en koppelen worden meteen nagekeken zodra je antwoord compleet is.'),
+      h('li', {}, 'Bij woordtegels druk je zelf op Controleer, zodat je eerst nog kunt schuiven. Tik tussen twee woorden in je zin om daar een woord in te voegen; tik op een woord in je zin om het weg te halen.'),
       h('li', {}, 'Typ je antwoord en druk op Enter. Bij meerkeuze kun je de cijfertoetsen 1–9 gebruiken.'),
-      h('li', {}, 'Na een goed antwoord ga je vanzelf door naar de volgende vraag; aan het eind brengt Enter je naar de volgende oefening.'),
+      h('li', {}, 'Na een goed antwoord ga je met de computer vanzelf door naar de volgende vraag; op een telefoon tik je op „Volgende vraag”. Aan het eind brengt Enter je naar de volgende oefening.'),
     ),
     h('h2', {}, 'Oefenvormen'),
     h('ul', {},
@@ -615,6 +626,7 @@ migrateToIds(course);
 const updateMenu = createMenu(course);
 initAnalytics();
 initPwa();
+countVisit();
 reportSpeechStatus();
 window.addEventListener('hashchange', route);
 charBar();

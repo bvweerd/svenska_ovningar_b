@@ -537,3 +537,14 @@ main.wide { max-width: 1240px; }
   background: var(--surface); color: var(--text); border: 1px solid var(--line); border-radius: var(--radius);
   box-shadow: 0 4px 20px rgb(0 0 0 / 0.15);
 }
+
+/* ---------- Eerste gebruik: uitleg en installatieadvies op de startpagina ---------- */
+.notice { position: relative; background: var(--surface); border: 1px solid var(--line); border-left: 4px solid var(--accent); border-radius: var(--radius); padding: 14px 48px 14px 18px; margin: 0 0 16px; box-shadow: var(--shadow); }
+.notice.install { border-left-color: var(--yellow); }
+.notice h2 { font-size: 1.05rem; margin: 0 0 6px; }
+.notice ul, .notice ol { margin: 6px 0; padding-left: 1.3em; }
+.notice li { margin: 3px 0; }
+.notice p { margin: 6px 0; }
+.notice .actions { margin-top: 10px; align-items: center; }
+.notice-close { position: absolute; top: 8px; right: 8px; font-size: 1.3rem; line-height: 1; }
+.notice[hidden] { display: none; }
