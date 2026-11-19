@@ -15,15 +15,16 @@ const TIME_WORDS = new Set([
 
 /** Woorden die een tijdsbepaling kunnen beginnen (voorzetsels en dergelijke). */
 const TIME_START = new Set([
-  'på', 'i', 'om', 'under', 'efter', 'före', 'vid', 'från', 'sedan', 'varje', 'klockan', 'nästa', 'förra', 'hela', 'någon',
+  'på', 'i', 'om', 'under', 'efter', 'före', 'vid', 'från', 'till', 'sedan', 'varje', 'klockan', 'nästa', 'förra', 'hela', 'en', 'ett', 'någon',
 ]);
-// Niet vooraan: „till fredag” (mötet flyttades till fredag) en „en helgdag” zijn vaak geen tijdsbepaling.
 
 /** Zelfstandige naamwoorden voor tijd (begin van het woord). */
-const TIME_NOUN = /^((mån|tis|ons|tors|fre|lör|sön)dag|dag|morgon|morgn|förmiddag|eftermiddag|kväll|natt|nätt|helg|veck|månad|år|sommar|somr|vinter|vintr|vår|höst|jul|påsk|midsommar|nyår|timm|minut|sekund|lunch|middag|frukost|semester|stund|gång|januari|februari|mars|april|maj|juni|juli|augusti|september|oktober|november|december|\d)/;
+const TIME_NOUN = /^((mån|tis|ons|tors|fre|lör|sön)dag|dag|morgon|morgn|förmiddag|eftermiddag|kväll|natt|nätt|helg(?!dag)|veck|månad|år|sommar|somr|vinter|vintr|vår|höst|jul|påsk|midsommar|nyår|timm|minut|sekund|lunch|middag|frukost|semester|stund|gång|januari|februari|mars|april|maj|juni|juli|augusti|september|oktober|november|december|\d)/;
 
 /** Getallen na „klockan” („klockan sex”, „klockan halv sju”). */
 const CLOCK_NUMBERS = new Set(['ett', 'två', 'tre', 'fyra', 'fem', 'sex', 'sju', 'åtta', 'nio', 'tio', 'elva', 'tolv']);
+/** Telwoorden binnen een tijdsbepaling („i trettio år”). */
+const NUMBER = /^(\d+|ett|två|tre|fyra|fem|sex|sju|åtta|nio|tio|elva|tolv|tretton|fjorton|femton|sexton|sjutton|arton|nitton|tjugo|trettio|fyrtio|femtio|sextio|sjuttio|åttio|nittio|hundra)$/;
 const CLOCK_PARTS = new Set(['halv', 'kvart', 'över', 'nästan', 'ungefär', 'cirka']);
 
 /** Zinsbijwoorden: horen niet bij het onderwerp. */
@@ -41,7 +42,7 @@ const CONJUNCTIONS = new Set([
   'där', 'dit', 'varifrån', 'vars', 'vilken', 'vilket', 'vilka', 'hur', 'vad', 'vem', 'vems', 'varför', 'ifall', 'huruvida', 'sedan', 'än', 'samt',
 ]);
 
-/** Vraagwoorden die geen voegwoord zijn (var = waar, maar ook „was”: daarom niet bij de voegwoorden). */
+/** Vraagwoorden die geen voegwoord zijn, als onderwerp uitgesloten (var = waar, maar ook „was”: als werkwoord wel goed). */
 const QUESTION_WORDS = new Set(['var', 'vart', 'varifrån']);
 
 /** Persoonlijke voornaamwoorden die alleen onderwerp zijn. */
@@ -71,14 +72,14 @@ const DETERMINERS = new Set([
 ]);
 
 const MAX_ADVERBIAL = 4;
-const MAX_SUBJECT = 3;
+const MAX_SUBJECT = 7; // twee woordgroepen van hoogstens 3 woorden met „och”
 
 /**
  * Woorden binnen een tijdsbepaling: tijdwoorden, getallen, lidwoorden, voorzetsels en bijvoeglijke vormen
  * („om tio år”, „under de senaste åren”, „klockan sex på måndag”), geen plaats als „till skolan förra veckan”.
  */
 const timeInner = (w) => !CONJUNCTIONS.has(w) && !TIME_WORDS.has(w) && w !== 'inte' && w !== 'aldrig' && (
-  TIME_NOUN.test(w) || CLOCK_NUMBERS.has(w) || TIME_START.has(w) || w === 'till' || DETERMINERS.has(w) || CLOCK_PARTS.has(w) || /[ae]$/.test(w));
+  TIME_NOUN.test(w) || NUMBER.test(w) || TIME_START.has(w) || DETERMINERS.has(w) || CLOCK_PARTS.has(w) || /[ae]$/.test(w));
 
 /** Is dit stuk een tijdsbepaling? */
 export function isTimeAdverbial(words) {
@@ -91,6 +92,8 @@ export function isTimeAdverbial(words) {
   const timeEnd = TIME_NOUN.test(last) || (words.includes('klockan') && CLOCK_NUMBERS.has(last));
   // „på middag” (uitgenodigd voor het eten) is geen tijd; „efter middagen” wel.
   if (/^(lunch|middag|frukost)/.test(last) && !['efter', 'före', 'vid', 'under'].includes(words[0])) return false;
+  // „till 1177” is een telefoonnummer, geen tijd.
+  if (words[0] === 'till' && /^\d+$/.test(last)) return false;
   return TIME_START.has(words[0]) && timeEnd
     && inner.every(timeInner);
 }
@@ -98,41 +101,79 @@ export function isTimeAdverbial(words) {
 const plainWord = (w) => !SENTENCE_ADVERBS.has(w) && !CONJUNCTIONS.has(w);
 
 /**
- * Is dit een herkenbaar onderwerp? Eén woord (jag, Bram, det), of lidwoord/bezittelijk voornaamwoord +
- * zelfstandig naamwoord, eventueel met één bijvoeglijk naamwoord ertussen („min gamla bil”, „den här boken”).
- * Zo wordt „robotar vara” of „min bror tidningen” geen onderwerp.
+ * Kern na een genitief („Olles fru”, „Brams nya jobb”). Een genitief is niet te onderscheiden van een naam op
+ * -s („Nils spelar fotboll”), dus alleen bij deze woorden; ze zijn nooit het werkwoord.
  */
-function plainSubject(words) {
-  if (!words.length || !words.every(plainWord) || words.some((w) => TIME_WORDS.has(w) || PREPOSITIONS.has(w) || QUESTION_WORDS.has(w))) return false;
+const GENITIVE_HEADS = new Set([
+  'fru', 'man', 'mamma', 'pappa', 'son', 'söner', 'dotter', 'döttrar', 'syster', 'systrar', 'bror', 'bröder', 'barn', 'föräldrar',
+  'mormor', 'morfar', 'farmor', 'farfar', 'moster', 'faster', 'morbror', 'farbror', 'kusin', 'kusiner', 'vän', 'vänner',
+  'flickvän', 'pojkvän', 'sambo', 'familj', 'familjen', 'hund', 'katt', 'kollega', 'kollegor', 'chef', 'granne', 'grannar',
+  'lärare', 'jobb', 'bil', 'hus', 'lägenhet',
+]);
+
+/** Genitief van een naam of zelfstandig naamwoord: „Olles”, „Brams”, „mammas” (niet hans/hennes: die staan bij DETERMINERS). */
+const genitive = (w) => w.length > 2 && w.endsWith('s') && !DETERMINERS.has(w) && !SUBJECT_PRONOUNS.has(w);
+
+/**
+ * Eén woordgroep als onderwerp: één woord (jag, Bram, det), lidwoord/bezittelijk voornaamwoord of genitief
+ * + zelfstandig naamwoord, eventueel met één bijvoeglijk naamwoord ertussen („min gamla bil”, „Olles fru”,
+ * „den här boken”). Zo wordt „robotar vara” of „min bror tidningen” geen onderwerp.
+ */
+function nounPhrase(words) {
+  if (!words.length || words.length > 3 || !words.every(plainWord)) return false;
+  if (words.some((w) => TIME_WORDS.has(w) || PREPOSITIONS.has(w) || QUESTION_WORDS.has(w))) return false;
   const [first, second, third] = words;
   const pronoun = ['den', 'det', 'de'].includes(first);
   const standalone = pronoun || first === 'alla' || first === 'ingen';
   // Eén woord: geen lidwoord of telwoord („många tittar svenskar …”), wel den/det/de, alla, ingen.
   if (words.length === 1) return (standalone || !DETERMINERS.has(first)) && !CLOCK_NUMBERS.has(first) && !CLOCK_PARTS.has(first);
-  if (!DETERMINERS.has(first) || words.slice(1).some((w) => DETERMINERS.has(w))) return false;
+  if (words.slice(1).some((w) => DETERMINERS.has(w) || (SUBJECT_PRONOUNS.has(w) && w !== 'man'))) return false;
+  const adjective = /[ae]$/.test(second);
+  // Genitief: „Olles fru”, „Brams nya jobb” (niet „Nils fotboll”).
+  if (genitive(first)) return GENITIVE_HEADS.has(words.at(-1)) && (words.length === 2 || adjective);
+  if (!DETERMINERS.has(first)) return false;
   // den/det/de + naamwoord alleen als „de flesta …”, „den här …” of met bijvoeglijk naamwoord + bepaalde vorm
   // („de gamla möblerna”); niet „de middag” of „det ska bli”.
   if (pronoun) {
-    return words.length === 3 && (['flesta', 'här', 'där'].includes(second) || (/[ae]$/.test(second) && /(en|et|na)$/.test(third)));
+    return words.length === 3 && (['flesta', 'här', 'där'].includes(second) || (adjective && /(en|et|na)$/.test(third)));
   }
-  return words.length === 2 || /[ae]$/.test(second);
+  return words.length === 2 || adjective;
+}
+
+/**
+ * Is dit een herkenbaar onderwerp? Eén woordgroep, of twee verbonden met „och”:
+ * „Fleur och Bram”, „Erik och jag”, „Bram och hans fru”, „min syster och hennes man”.
+ * Een los woord naast „och” moet een voornaamwoord of een naam (hoofdletter) zijn, zodat
+ * „Jag duschar och äter frukost” geen onderwerp „jag och äter” oplevert. names: woorden met hoofdletter.
+ */
+function plainSubject(words, names = new Set()) {
+  const i = words.indexOf('och');
+  if (i === -1) return nounPhrase(words);
+  const conjunct = (part) => nounPhrase(part) && (part.length > 1 || SUBJECT_PRONOUNS.has(part[0]) || part[0] === 'de' || names.has(part[0]));
+  return i > 0 && !words.includes('och', i + 1) && conjunct(words.slice(0, i)) && conjunct(words.slice(i + 1));
 }
 
 /** Kan dit het vervoegde werkwoord op plaats 2 zijn? (We kennen de werkwoorden niet; sluit het onmogelijke uit.) */
 const plainVerb = (w) => plainWord(w) && !DETERMINERS.has(w) && !TIME_WORDS.has(w) && !TIME_START.has(w)
-  && !CLOCK_NUMBERS.has(w) && !CLOCK_PARTS.has(w) && !PREPOSITIONS.has(w) && !QUESTION_WORDS.has(w) && w !== 'här' && w !== 'där';
+  && !CLOCK_NUMBERS.has(w) && !CLOCK_PARTS.has(w) && !PREPOSITIONS.has(w) && !GENITIVE_HEADS.has(w) && w !== 'här' && w !== 'där';
 
 /**
  * Geen bijzin in de rest. „kommer att + infinitief” is wel goed: daar is att geen voegwoord.
  * De rest eindigt niet op een voorzetsel of lidwoord: dan hoorde de tijdsbepaling bij een groter zinsdeel
  * („bott här i nästan ett år”, „feber sen igår”, „strax efter klockan sex”).
  */
-function simpleRest(words, verb) {
+function simpleRest(words, verb, adverbial) {
+  // „(från) måndag till torsdag” hoort bij elkaar.
+  if (adverbial[0] === 'till' && (words.includes('från') || TIME_NOUN.test(words.at(-1) ?? ''))) return false;
   const last = words.at(-1);
-  if (last && (PREPOSITIONS.has(last) || (NEEDS_NOUN.has(last) && last !== 'en' && last !== 'ett') || CLOCK_PARTS.has(last) || ['sen', 'strax', 'redan'].includes(last))) return false;
+  if (last && (PREPOSITIONS.has(last) || (NEEDS_NOUN.has(last) && last !== 'ett') || CLOCK_PARTS.has(last) || ['sen', 'strax', 'redan'].includes(last))) return false;
   // Een onderwerpsvorm in de rest is een tweede zin zonder att: „Jag tror [att] Olle kommer imorgon”.
-  if (words.some((w) => SUBJECT_PRONOUNS.has(w)) || [verb, ...words].some((w) => SAY_THINK.has(w))) return false;
-  return words.every((w, i) => !CONJUNCTIONS.has(w) || (i === 0 && w === 'att' && verb === 'kommer'));
+  // („hennes man” is geen voornaamwoord.)
+  const pronounAt = (w, i) => SUBJECT_PRONOUNS.has(w) && !(w === 'man' && i > 0 && (DETERMINERS.has(words[i - 1]) || genitive(words[i - 1])));
+  if (words.some(pronounAt) || [verb, ...words].some((w) => SAY_THINK.has(w))) return false;
+  // „dit”/„där” als laatste woord is een plaatsbepaling („Vi åker dit imorgon”), geen bijzin.
+  const adverbAt = (w, i) => (w === 'dit' || w === 'där') && i === words.length - 1;
+  return words.every((w, i) => !CONJUNCTIONS.has(w) || adverbAt(w, i) || (i === 0 && w === 'att' && verb === 'kommer'));
 }
 
 /**
@@ -151,6 +192,8 @@ export function movedAdverbialOrders(answer, opts) {
   if (hasClauseBreak(String(answer ?? ''))) return [];
   const n = normalize(answer, opts);
   const w = n.split(' ').filter(Boolean);
+  // Woorden met een hoofdletter in het antwoord (namen; het eerste woord van de zin telt ook mee).
+  const names = new Set(String(answer).split(/\s+/).filter((t) => /^\p{Lu}/u.test(t)).map((t) => normalize(t)));
   const out = new Map();
   if (w.length < 3) return [];
   const add = (words, fronted) => {
@@ -165,7 +208,9 @@ export function movedAdverbialOrders(answer, opts) {
         const V = w[a];
         const S = w.slice(a + 1, a + 1 + s);
         const R = w.slice(a + 1 + s);
-        if (isTimeAdverbial(A) && plainVerb(V) && plainSubject(S) && simpleRest(R, V)) add([...S, V, ...R, ...A], false);
+        // „Idag kommer Olles fru”: het onderwerp is niet alleen „Olles”.
+        const cutGenitive = genitive(S.at(-1)) && GENITIVE_HEADS.has(R[0]);
+        if (isTimeAdverbial(A) && plainVerb(V) && plainSubject(S, names) && !cutGenitive && simpleRest(R, V, A)) add([...S, V, ...R, ...A], false);
       }
       // Achteraan → vooraan
       if (s + 1 + a <= w.length) {
@@ -173,7 +218,7 @@ export function movedAdverbialOrders(answer, opts) {
         const V = w[s];
         const R = w.slice(s + 1, w.length - a);
         const A = w.slice(w.length - a);
-        if (isTimeAdverbial(A) && plainVerb(V) && plainSubject(S) && simpleRest(R, V)) add([...A, V, ...S, ...R], true);
+        if (isTimeAdverbial(A) && plainVerb(V) && plainSubject(S, names) && simpleRest(R, V, A)) add([...A, V, ...S, ...R], true);
       }
     }
   }

@@ -96,7 +96,8 @@ de opdracht te volgen: begint het goede antwoord met de tijdsbepaling, dan „be
 tijdsbepaling”; begint het met iets anders, dan „begin de zin zoals gevraagd”.
 
 Bewust voorzichtig: de nakijker verplaatst alleen een tijdsbepaling tussen plaats 1 (met inversie) en het
-eind van één enkelvoudige hoofdzin met een herkenbaar onderwerp. Niet bij een vraag, een komma, een
+eind van één enkelvoudige hoofdzin met een herkenbaar onderwerp (*Bram*, *min syster*, *Olles fru*,
+*Fleur och Bram*, *Erik och jag*). Niet bij een vraag, een komma, een
 voegwoord of bijzinwoord (*att, som, när, där, dit, vars, eftersom, medan …*; *kommer att* mag wel) of een
 werkwoord als *tror/vet/hoppas* (bijzin zonder *att*). Wil je een andere volgorde in zo'n zin goedkeuren,
 zet die dan zelf bij de antwoorden.

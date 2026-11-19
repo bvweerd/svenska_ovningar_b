@@ -140,6 +140,38 @@ describe('tijdsbepaling vooraan of achteraan', () => {
     expect(gradeText('Min bror tidningen läser idag', s).correct).toBe(false);
     expect(gradeText('På lördag kommer de flesta gästerna', { answers: ['De flesta gästerna kommer på lördag.'] }).correct).toBe(true);
   });
+  it('onderwerp met „och”, bezittelijk voornaamwoord of genitief', () => {
+    const both = (a, b) => {
+      expect(gradeText(a, { answers: [b] })).toMatchObject({ correct: true, moved: true });
+      expect(gradeText(b, { answers: [a] })).toMatchObject({ correct: true, moved: true });
+    };
+    both('Fleur och Bram tittar på tv på kvällen.', 'På kvällen tittar Fleur och Bram på tv.');
+    both('Erik och jag springer på lördag.', 'På lördag springer Erik och jag.');
+    both('Jag och Erik springer på lördag.', 'På lördag springer jag och Erik.');
+    both('Min syster kommer i morgon.', 'I morgon kommer min syster.');
+    both('Mina föräldrar flyttade förra året.', 'Förra året flyttade mina föräldrar.');
+    both('Olles fru kommer idag.', 'Idag kommer Olles fru.');
+    both('Bram och hans fru åker till Gotland i sommar.', 'I sommar åker Bram och hans fru till Gotland.');
+    both('Min syster och hennes man kommer på fredag.', 'På fredag kommer min syster och hennes man.');
+    // Geen woordensla.
+    expect(gradeText('Olles kommer fru idag', { answers: ['Idag kommer Olles fru.'] }).correct).toBe(false);
+    expect(gradeText('Idag fru Olles kommer', { answers: ['Olles fru kommer idag.'] }).correct).toBe(false);
+    expect(gradeText('Fleur och tittar Bram på tv på kvällen', { answers: ['På kvällen tittar Fleur och Bram på tv.'] }).correct).toBe(false);
+    expect(gradeText('Nils fotboll spelar nu', { answers: ['Nu spelar Nils fotboll.'] }).correct).toBe(false);
+    expect(gradeText('Nils spelar fotboll nu', { answers: ['Nu spelar Nils fotboll.'] }).correct).toBe(true);
+  });
+  it('gevallen uit de inhoud: var, telwoorden, till', () => {
+    const ok = (a, b) => expect(gradeText(a, { answers: [b] }).correct).toBe(true);
+    const no = (a, b) => expect(gradeText(a, { answers: [b] }).correct).toBe(false);
+    ok('Det var soligt på lördagen', 'På lördagen var det soligt.');
+    ok('I trettio år har hon bott i huset', 'Hon har bott i huset i trettio år.');
+    ok('Till den 15 maj behöver du inte vänta', 'Du behöver inte vänta till den 15 maj.');
+    no('Till torsdag kan du ringa Karin från måndag', 'Du kan ringa Karin från måndag till torsdag.');
+    no('Till torsdag kan du ringa Karin måndag', 'Du kan ringa Karin måndag till torsdag.');
+    no('Till 1177 ringde han först', 'Han ringde till 1177 först.');
+    // Twee werkwoorden met „och” is geen onderwerp met „och”.
+    no('Jag och äter duschar frukost på morgonen', 'På morgonen duschar jag och äter frukost.');
+  });
   it('haalt de tijdsbepaling niet uit een bijzin (H15 zdmz: dit)', () => {
     const s = { answers: ['Jag {ska åka|åker} till Gotland, dit mina föräldrar flyttade {förra året|i fjol}.'] };
     expect(gradeText('Jag åker till Gotland, dit mina föräldrar flyttade förra året', s).correct).toBe(true);
@@ -149,6 +181,9 @@ describe('tijdsbepaling vooraan of achteraan', () => {
     for (const w of ['dit', 'där', 'vars', 'när', 'som', 'medan', 'innan', 'tills', 'fastän']) {
       expect(gradeText(`Igår ser jag huset ${w} hon bor`, { answers: [`Jag ser huset ${w} hon bor igår.`] }).correct).toBe(false);
     }
+    // Aan het eind is dit/där een plaatsbepaling: dan mag het wel.
+    expect(gradeText('Imorgon åker vi dit', { answers: ['Vi åker dit imorgon.'] }).correct).toBe(true);
+    expect(gradeText('Vi har bott där i tre år', { answers: ['I tre år har vi bott där.'] }).correct).toBe(true);
     expect(gradeText('Idag stannar jag hemma så att jag kan vila', { answers: ['Jag stannar hemma så att jag kan vila idag.'] }).correct).toBe(false);
   });
   it('de tijdsbepaling slokt geen werkwoord of onderwerp op en laat geen voorzetsel achter', () => {
