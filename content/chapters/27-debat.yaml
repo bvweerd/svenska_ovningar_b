@@ -65,9 +65,15 @@ sections:
 
           Det är inte eleverna som är problemet, det är mobilerna. Efter tjugo år som lärare har jag sett hur koncentrationen i klassrummet har försämrats. För det första är det omöjligt att konkurrera med sociala medier. Varje gång en mobil plingar tappar hela klassen fokus. För det andra påverkas rasterna: i stället för att prata och leka sitter eleverna tysta med var sin skärm.
 
+          För det tredje handlar det om elevernas hälsa. Många av mina elever berättar att de ligger vakna med mobilen långt efter midnatt och att de är trötta redan på första lektionen. Forskningen pekar åt samma håll: den som sover för lite har svårare att lära sig nytt. Det är alltså inte lärarna som har hittat på problemet, utan eleverna själva som beskriver det. Skolan kan inte bestämma vad som händer hemma på kvällarna, men den kan se till att skoldagen blir en paus från skärmen.
+
           Kritiker menar att mobilen är ett viktigt verktyg för lärande och att ett förbud är omodernt. Visserligen kan mobilen användas i undervisningen, men skolan har redan datorer för det. Andra hävdar att föräldrar måste kunna nå sina barn. Det argumentet håller inte: skolan har en telefon, och i en nödsituation når man barnen den vägen.
 
-          Därför anser jag att mobilerna ska samlas in när skoldagen börjar och lämnas tillbaka när den slutar. Det är inte ett straff, utan en möjlighet för eleverna att vara närvarande.
+          Man kan också invända att eleverna måste lära sig att själva ta ansvar för sin mobilanvändning. Det stämmer att självdisciplin är viktigt, men det är orimligt att kräva att fjortonåringar ska stå emot appar som är byggda för att fånga deras uppmärksamhet. De flesta vuxna klarar ju inte ens det själva.
+
+          Förra hösten testade vi ett förbud i två av skolans åttondeklasser. Eleverna lämnade in sina mobiler till mentorn varje morgon och fick tillbaka dem efter sista lektionen. Resultatet överraskade många av oss. Efter bara några veckor var det lugnare på lektionerna, och fler elever deltog i diskussionerna. Det var eleverna själva som märkte skillnaden först: flera av dem berättade att de kände sig mindre stressade. Även vi lärare märkte skillnaden, eftersom lektionerna inte längre avbröts av mobiler som plingade. En del föräldrar var skeptiska i början, men i dag är det föräldrarna som frågar varför hela skolan inte har infört samma regler.
+
+          Därför anser jag att mobilerna ska samlas in när skoldagen börjar och lämnas tillbaka när den slutar. Det är inte ett straff, utan en möjlighet för eleverna att vara närvarande. Kort sagt: det är dags att resten av skolan följer efter.
         items:
           - { id: ywcb, type: mc, prompt: "Vad är Karins tes?", options: ["Mobilerna ska samlas in under skoldagen.", "Eleverna är problemet.", "Skolan behöver fler datorer.", "Föräldrar ska kunna ringa sina barn."], answer: 0 }
           - { id: fv96, type: mc, prompt: "Vad är hennes första argument?", options: ["Det går inte att konkurrera med sociala medier.", "Mobiler är dyra.", "Eleverna fuskar på proven.", "Föräldrarna vill ha ett förbud."], answer: 0 }
@@ -75,6 +81,10 @@ sections:
           - { id: 39xc, type: mc, prompt: "Hur bemöter Karin argumentet att föräldrar måste nå sina barn?", options: ["Skolan har en telefon som föräldrarna kan ringa.", "Föräldrar behöver inte nå sina barn.", "Barnen kan använda datorerna.", "Hon håller med."], answer: 0 }
           - { id: b363, type: mc, prompt: "Wat betekent *Det argumentet håller inte*?", options: ["Dat argument klopt niet.", "Dat argument houdt nooit op.", "Dat argument houd ik.", "Dat argument is te lang."], answer: 0 }
           - { id: 6nq7, type: mc, prompt: "Wat betekent *med var sin skärm*?", options: ["ieder met een eigen scherm", "met hun scherm uit", "met één scherm samen", "zonder scherm"], answer: 0 }
+          - { id: z68g, type: truefalse, statement: "Förra hösten testades förbudet i hela skolan.", answer: false, correction: { answers: ["{Förbudet|Det} testades [bara ]i två[ av skolans] åttondeklasser.", "{Förbudet|Det} testades inte i hela skolan[, bara i två {klasser|åttondeklasser}]."] } }
+          - { id: aqgq, type: multi, prompt: "Vad hände under testet i åttondeklasserna? (Meerdere antwoorden zijn goed.)", options: ["Det blev lugnare på lektionerna.", "Fler elever deltog i diskussionerna.", "Flera elever kände sig mindre stressade.", "Eleverna fick bättre betyg.", "Alla föräldrar protesterade mot förbudet.", "Lärarna började använda mobilerna i undervisningen."], answers: [0, 1, 2] }
+          - { id: 778r, type: mc, prompt: "Varför skriver Karin att de flesta vuxna inte ens klarar det själva?", options: ["För att visa att det är orimligt att kräva så mycket självdisciplin av fjortonåringar.", "För att hon vill att även vuxna ska lämna in sina mobiler.", "För att hon tycker att föräldrarna är dåliga förebilder.", "För att hon håller med om invändningen."], answer: 0, tip: "Het staat in het bemötande: ze zwakt de invändning af." }
+          - { id: rkaj, type: mc, prompt: "Vilken funktion har stycket om testet i åttondeklasserna i Karins text?", options: ["Det ger belägg för hennes tes.", "Det är ett motargument.", "Det är hennes slutsats.", "Det visar att förbudet inte fungerade."], answer: 0, tip: "Ze laat met het resultaat zien dat haar standpunt klopt." }
 
       - id: opbouw-sorteren
         title: De opbouw van het betoog
@@ -151,6 +161,44 @@ sections:
           - { id: gm6n, type: translate, prompt: "Was het je broer die belde?", answers: ["Var det din bror som ringde?"], feedback: [{ contains: "som ringde din bror", tip: "Eerst de nadruk (det din bror), daarna som + de rest." }] }
           - { id: nv4g, type: translate, prompt: "Wanneer begint de les eigenlijk?", answers: ["När är det [som ]lektionen börjar[ egentligen]?", "När är det egentligen [som ]lektionen börjar?"], feedback: [{ match: ["När börjar lektionen egentligen?", "När börjar lektionen?"], tip: "Ook goed Zweeds, maar oefen hier: När är det som lektionen börjar?" }] }
 
+      - id: utbrytning-lange-zinnen
+        title: Nadruk in een lange zin
+        instruction: Leg nadruk op het **vetgedrukte** deel met *det är/var … som*. De rest van de zin blijft hetzelfde.
+        topic: utbrytning
+        items:
+          - { id: 635z, type: transform, prompt: "Rektorn bestämde **efter en lång diskussion med elevrådet** att förbudet skulle testas.", answers: ["Det var efter en lång diskussion med elevrådet [som ]rektorn bestämde att förbudet skulle testas."], feedback: [{ contains: "som bestämde rektorn", tip: "Na som: bijzinvolgorde, eerst het onderwerp: som rektorn bestämde." }, { contains: "elevrådet bestämde rektorn", tip: "Na het benadrukte deel volgt (som +) bijzinvolgorde: … elevrådet (som) rektorn bestämde." }] }
+          - { id: 9trz, type: transform, prompt: "**Eleverna själva** märkte först att det blev lugnare på lektionerna.", answers: ["Det {var|är} eleverna själva som först märkte att det blev lugnare på lektionerna.", "Det {var|är} eleverna själva som märkte först att det blev lugnare på lektionerna."] }
+          - { id: r4fj, type: transform, prompt: "**Många elever** vill inte lämna ifrån sig mobilen under skoldagen.", answers: ["Det är många elever som inte vill lämna ifrån sig mobilen under skoldagen."], feedback: [{ contains: "som vill inte", tip: "Het som-deel is een bijzin: inte vóór het werkwoord (som inte vill)." }] }
+
+      - id: utbrytning-vertalen
+        title: Vertalen met nadruk
+        instruction: Vertaal naar het Zweeds. Gebruik *det är/var … som* voor het deel met nadruk.
+        topic: utbrytning
+        items:
+          - { id: vhsw, type: translate, prompt: "Het zijn niet de leraren, maar de leerlingen zelf die het meest last hebben van de mobieltjes in de klas.", answers: ["Det är inte lärarna[,] utan eleverna själva[,] som {störs|besväras|påverkas} mest av {mobilerna|mobiltelefonerna|telefonerna} {i klassrummet|i klassen}.", "Det är eleverna själva, inte lärarna, som {störs|besväras|påverkas} mest av {mobilerna|mobiltelefonerna|telefonerna} {i klassrummet|i klassen}.", "Det är inte lärarna som {störs|besväras|påverkas} mest av {mobilerna|mobiltelefonerna|telefonerna} {i klassrummet|i klassen}, utan eleverna själva."], feedback: [{ contains: "inte lärarna men", tip: "Na een ontkenning (niet X, maar Y) gebruik je utan, niet men." }] }
+          - { id: 4h4b, type: translate, prompt: "Pas na de test begrepen de ouders hoe groot het probleem eigenlijk was. (Begin met: Het was pas na de test dat …)", answers: ["Det var först efter {testet|försöket} [som ]föräldrarna {förstod|insåg|begrep} hur stort problemet egentligen var.", "Det var inte förrän efter {testet|försöket} [som ]föräldrarna {förstod|insåg|begrep} hur stort problemet egentligen var."], feedback: [{ contains: "som förstod föräldrarna", tip: "Na som: bijzinvolgorde, eerst het onderwerp (som föräldrarna förstod)." }, { contains: "hur stort var problemet", tip: "Een indirecte vraag is een bijzin: hur stort problemet egentligen var." }, { contains: "hur stort problemet var egentligen", tip: "In de bijzin staat egentligen vóór het werkwoord: hur stort problemet egentligen var." }] }
+          - { id: h59y, type: translate, prompt: "Wie is het eigenlijk die beslist welke regels er op school gelden?", answers: ["Vem är det egentligen som {bestämmer|beslutar} vilka regler som gäller {i|på} skolan?", "Vem är det som egentligen {bestämmer|beslutar} vilka regler som gäller {i|på} skolan?"], feedback: [{ contains: "vilka regler gäller", tip: "vilka regler is hier het onderwerp van de bijzin: dan heb je som nodig (vilka regler som gäller)." }] }
+          - { id: u5qj, type: translate, prompt: "Het zijn juist de volwassenen die goede rolmodellen (förebilder) voor hun kinderen moeten zijn.", answers: ["Det är {just|precis} [de ]vuxna som {måste|ska|bör} vara {bra|goda} förebilder {för|åt} {sina barn|barnen}."], feedback: [{ contains: "deras barn", tip: "Het gaat om de eigen kinderen van het onderwerp (de vuxna): sina barn." }, { contains: "som vara", tip: "Vergeet het werkwoord måste niet: som måste vara." }] }
+          - { id: quj3, type: translate, prompt: "Was het echt de minister die beweerde dat het verbod te duur zou zijn?", answers: ["Var det verkligen ministern som {hävdade|påstod} att förbudet skulle {bli|vara} för dyrt?"], feedback: [{ match: "Var det verkligen ministern som {hävdade|påstod} att förbudet skulle {bli|vara} för dyr?", tip: "förbud is een ett-woord: för dyrt." }] }
+
+      - id: utbrytning-ordenen
+        title: Zinnen met nadruk bouwen
+        instruction: Zet de woorden in de goede volgorde.
+        topic: utbrytning
+        items:
+          - { id: 3cf7, type: order, start: "Det var", tokens: ["på", "föräldramötet", "i", "september", "som", "rektorn", "berättade", "om", "förbudet", "för", "första", "gången"], answers: ["Det var på föräldramötet i september som rektorn berättade om förbudet för första gången.", "Det var på föräldramötet i september som rektorn för första gången berättade om förbudet.", "Det var på föräldramötet i september som rektorn berättade för första gången om förbudet.", "Det var i september på föräldramötet som rektorn berättade om förbudet för första gången.", "Det var i september på föräldramötet som rektorn för första gången berättade om förbudet.", "Det var i september på föräldramötet som rektorn berättade för första gången om förbudet."], feedback: [{ contains: "som berättade rektorn", tip: "Na som: bijzinvolgorde, eerst het onderwerp (som rektorn berättade)." }] }
+          - { id: u67k, type: order, start: "Det är inte", tokens: ["mobilen", "i", "sig", "som", "är", "problemet", "utan", "hur", "den", "används", "i", "skolan"], answers: ["Det är inte mobilen i sig som är problemet, utan hur den används i skolan.", "Det är inte mobilen i sig utan hur den används i skolan som är problemet."], feedback: [{ contains: "hur används den", tip: "Na hur volgt hier een bijzin, zonder inversie: hur den används." }] }
+          - { id: n6q9, type: order, start: "Vad", tokens: ["är", "det", "egentligen", "som", "gör", "att", "så", "många", "elever", "inte", "kan", "släppa", "mobilen"], answers: ["Vad är det egentligen som gör att så många elever inte kan släppa mobilen?", "Vad är det som egentligen gör att så många elever inte kan släppa mobilen?"], feedback: [{ contains: "elever kan inte", tip: "Na att volgt een bijzin: inte vóór het werkwoord (att så många elever inte kan)." }] }
+
+      - id: utbrytning-lang-kiezen
+        title: Kies de goede vorm
+        instruction: Kies wat past.
+        topic: utbrytning
+        shuffle: true
+        items:
+          - { id: 6ehy, type: gap, text: "Det var inte rektorn ___ tog initiativet till förbudet, utan en grupp lärare på skolan.", gaps: [{ answers: ["som"], options: ["som", "att", "vem"], shuffle: false, feedback: [{ match: "att", tip: "Nadruk leg je met det är/var … som, niet met att." }] }] }
+          - { id: 723k, type: gap, text: "Vem ___ föreslog att mobilerna skulle samlas in redan när skoldagen började?", gaps: [{ answers: ["var det som"], options: ["var det som", "det var som", "som var det"], shuffle: false, feedback: [{ match: "det var som", tip: "In een vraag komt het werkwoord direct na het vraagwoord: Vem var det som …?" }] }] }
+
   - id: argument
     title: "Grammatik: argumenteren"
     exercises:
@@ -168,6 +216,24 @@ sections:
           - { id: puxx, type: gap, text: "Det är inte ett straff, ___ en möjlighet.", gaps: [{ answers: ["utan"], options: ["utan", "men", "eller"], shuffle: false, feedback: [{ match: "men", tip: "Na een ontkenning (inte X, maar Y): utan." }] }] }
           - { id: 5twa, type: gap, text: "___ vill jag säga att frågan berör alla.", gaps: [{ answers: ["Slutligen"], options: ["Slutligen", "Visserligen", "Däremot"], shuffle: false }] }
           - { id: 5ftg, type: gap, text: "Jag ___ att vi behöver nya regler.", gaps: [{ answers: ["anser"], options: ["anser", "betyder", "tycker om"], shuffle: false, feedback: [{ match: "tycker om", tip: "tycka om = houden van. Een mening geven: anser (of tycker, zonder om)." }] }] }
+          - { id: caka, type: gap, text: "Det argumentet håller inte, ___ föräldrarna alltid kan nå sina barn via skolans telefon.", gaps: [{ answers: ["eftersom"], options: ["eftersom", "därför", "utan"], shuffle: false, feedback: [{ match: "därför", tip: "Je geeft de reden: eftersom. Na därför zou het werkwoord direct volgen (därför kan föräldrarna)." }] }] }
+
+      - id: argument-ordenen
+        title: Een bemötande bouwen
+        instruction: Zet de woorden in de goede volgorde.
+        topic: argumentation
+        items:
+          - { id: ndb2, type: order, start: "Visserligen", tokens: ["kan", "mobilen", "vara", "ett", "bra", "verktyg", "men", "den", "stör", "samtidigt", "koncentrationen", "hos", "många", "elever"], answers: ["Visserligen kan mobilen vara ett bra verktyg, men den stör samtidigt koncentrationen hos många elever.", "Visserligen kan mobilen vara ett bra verktyg, men samtidigt stör den koncentrationen hos många elever."], feedback: [{ contains: "visserligen mobilen kan", tip: "Visserligen vooraan is een zinsdeel: daarna komt meteen het werkwoord (Visserligen kan mobilen …)." }, { contains: "men samtidigt den stör", tip: "Na men samtidigt vooraan in de hoofdzin: eerst het werkwoord (samtidigt stör den)." }] }
+          - { id: bu97, type: order, start: "Det argumentet håller inte,", tokens: ["eftersom", "det", "inte", "finns", "några", "belägg", "för", "att", "förbudet", "skadar", "eleverna"], answers: ["Det argumentet håller inte, eftersom det inte finns några belägg för att förbudet skadar eleverna."], feedback: [{ contains: "det finns inte några", tip: "Na eftersom volgt een bijzin: inte vóór het werkwoord (eftersom det inte finns)." }] }
+
+      - id: argument-omvormen
+        title: Betoogzinnen schrijven
+        instruction: Herschrijf of vertaal de zin zoals de opdracht vraagt.
+        topic: argumentation
+        items:
+          - { id: vnwg, type: transform, task: "Maak er een bemötande van: begin met *Visserligen* en verbind met *men*.", prompt: "Ett förbud kräver mycket av lärarna. Resultaten från testet är ändå mycket positiva.", answers: ["Visserligen kräver ett förbud mycket av lärarna, men resultaten från testet är[ ändå] mycket positiva.", "Visserligen kräver ett förbud mycket av lärarna, men ändå är resultaten från testet mycket positiva."], feedback: [{ contains: "visserligen ett förbud kräver", tip: "Visserligen vooraan is een zinsdeel: daarna komt meteen het werkwoord (Visserligen kräver ett förbud …)." }] }
+          - { id: eyr9, type: transform, task: "Maak er een slutsats van: begin met *Därför anser jag att*.", prompt: "Alla skolor i kommunen borde samla in elevernas mobiler varje morgon.", answers: ["Därför anser jag att alla skolor i kommunen {borde|bör} samla in elevernas mobiler varje morgon."], feedback: [{ contains: "därför jag anser", tip: "Na därför vooraan komt eerst het werkwoord: Därför anser jag …" }] }
+          - { id: bbj4, type: translate, prompt: "Vertaal: Ten eerste kunnen de leerlingen zich beter concentreren wanneer de mobieltjes niet in het klaslokaal zijn.", answers: ["För det första kan eleverna koncentrera sig bättre {när|om} mobilerna inte {finns|är} i klassrummet.", "För det första kan eleverna bättre koncentrera sig {när|om} mobilerna inte {finns|är} i klassrummet."], feedback: [{ contains: "för det första eleverna", tip: "För det första is een zinsdeel: daarna komt meteen het werkwoord (För det första kan eleverna …)." }, { contains: ["mobilerna finns inte", "mobilerna är inte"], tip: "Na när volgt een bijzin: inte vóór het werkwoord (när mobilerna inte finns)." }] }
 
   - id: zoek-de-fout
     title: Zoek de fout
@@ -183,6 +249,10 @@ sections:
           - { id: cb6y, type: findError, sentence: "Vem är det som ringer du?", wrong: [5], answers: ["Vem är det som ringer?"], tip: "Er staat een woord te veel." }
           - { id: dcqu, type: findError, topic: argumentation, sentence: "Det är inte ett straff men en möjlighet.", wrong: [5], answers: ["Det är inte ett straff utan en möjlighet."], tip: "Na een ontkenning: niet men." }
           - { id: q472, type: findError, topic: argumentation, sentence: "Kritiker betyder att förbudet är omodernt.", wrong: [1], answers: ["Kritiker menar att förbudet är omodernt.", "Kritiker hävdar att förbudet är omodernt."], tip: "Welk werkwoord betekent een mening hebben?" }
+          - { id: jrd7, type: findError, sentence: "Det var under förra läsåret som började skolan samla in elevernas mobiler varje morgon.", wrong: [6, 7], answers: ["Det var under förra läsåret [som ]skolan började samla in elevernas mobiler varje morgon."], tip: "Na som: bijzinvolgorde, eerst het onderwerp en dan het werkwoord." }
+          - { id: sdd9, type: findError, sentence: "Många föräldrar hävdar att det är skolan som har inte gjort tillräckligt för att lösa problemet.", wrong: [8, 9], answers: ["Många föräldrar hävdar att det är skolan som inte har gjort tillräckligt för att lösa problemet."], tip: "Het som-deel is een bijzin: waar staat inte?" }
+          - { id: eg5u, type: findError, topic: argumentation, sentence: "För det andra eleverna sover sämre när de har mobilen bredvid sig i sängen.", wrong: [3, 4], answers: ["För det andra sover eleverna sämre när de har mobilen bredvid sig i sängen."], tip: "För det andra staat vooraan: waar komt dan het werkwoord?" }
+          - { id: cw3u, type: findError, topic: argumentation, sentence: "Visserligen kan mobilen vara ett verktyg, utan skolan har redan datorer för det ändamålet.", wrong: [6], answers: ["Visserligen kan mobilen vara ett verktyg, men skolan har redan datorer för det ändamålet."], tip: "Bij visserligen hoort men; utan gebruik je alleen na een ontkenning." }
 
   - id: lyssna
     title: Lyssna · luisteren
