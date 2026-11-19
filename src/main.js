@@ -393,7 +393,7 @@ function viewAbout() {
       h('li', {}, 'Meerkeuze, keuzelijsten en koppelen worden meteen nagekeken zodra je antwoord compleet is.'),
       h('li', {}, 'Bij woordtegels druk je zelf op Controleer, zodat je eerst nog kunt schuiven. Tik tussen twee woorden in je zin om daar een woord in te voegen; tik op een woord in je zin om het weg te halen.'),
       h('li', {}, 'Typ je antwoord en druk op Enter. Bij meerkeuze kun je de cijfertoetsen 1–9 gebruiken.'),
-      h('li', {}, 'Na een goed antwoord ga je met de computer vanzelf door naar de volgende vraag; op een telefoon tik je op „Volgende vraag”. Aan het eind brengt Enter je naar de volgende oefening.'),
+      h('li', {}, 'Na een goed antwoord ga je vanzelf door naar de volgende vraag. Op een telefoon wacht de site even; tik of scrol je intussen, dan blijf je staan en tik je zelf op „Volgende vraag”. Aan het eind brengt Enter je naar de volgende oefening.'),
     ),
     h('h2', {}, 'Oefenvormen'),
     h('ul', {},
@@ -429,6 +429,7 @@ function viewAbout() {
     h('h2', {}, 'Voortgang'),
     h('p', {}, `Je voortgang wordt per vraag opgeslagen ${isStandalone() ? 'in deze app' : 'in deze browser'}. Ga je halverwege een oefening weg, dan ga je later verder waar je gebleven was. Wil je op een ander apparaat verder, exporteer dan je voortgang naar een bestand en importeer dat daar.`),
     progressTools(),
+    h('p', { class: 'muted version' }, `Versie ${import.meta.env.APP_VERSION ?? 'onbekend'}`),
   );
 }
 
@@ -538,21 +539,29 @@ function charBar() {
   // De balk staat in de knoppenrij van de vraag, naast „Controleer” (in de pagina, niet zwevend),
   // zodat hij nooit achter het schermtoetsenbord verdwijnt en de vraag niet langer maakt: er
   // verspringt dus niets als hij verschijnt. Buiten een vraag staat hij direct onder het veld.
+  // Hooguit één keer bijscrollen, pas als het toetsenbord stilstaat: tijdens de animatie scrollt de
+  // browser zelf naar het veld, en tegelijk bijsturen liet de pagina alle kanten op springen.
   let settleUntil = 0; // alleen kort na focus of toetsenbord bijsturen, nooit tijdens gewoon scrollen
+  let settleTimer = null;
   const keepVisible = () => {
-    if (bar.hidden || Date.now() > settleUntil) return;
+    if (bar.hidden || !target || Date.now() > settleUntil) return;
     const vv = window.visualViewport;
+    const top = vv ? vv.offsetTop : 0;
     const bottom = vv ? vv.offsetTop + vv.height : window.innerHeight;
-    const r = bar.getBoundingClientRect();
-    if (r.bottom > bottom - 8) window.scrollBy({ top: r.bottom - bottom + 8 });
+    const need = bar.getBoundingClientRect().bottom - bottom + 8;
+    // Niet zo ver dat het veld zelf onder de vaste balken bovenaan verdwijnt.
+    const room = target.getBoundingClientRect().top - top - 112;
+    const by = Math.min(need, room);
+    if (by > 0) window.scrollBy({ top: by });
   };
-  // Het toetsenbord schuift de eerste keer met een animatie omhoog en de browser scrollt zelf
-  // naar het veld: daarom een paar keer kort na elkaar controleren.
   const settle = () => {
-    settleUntil = Date.now() + 1200;
-    [60, 250, 500, 900].forEach((ms) => setTimeout(keepVisible, ms));
+    settleUntil = Date.now() + 1500;
+    clearTimeout(settleTimer);
+    settleTimer = setTimeout(keepVisible, 350);
   };
-  window.visualViewport?.addEventListener('resize', settle);
+  window.visualViewport?.addEventListener('resize', () => {
+    if (Date.now() < settleUntil) settle();
+  });
   document.addEventListener('focusin', (e) => {
     if (!e.target.matches('input[type="text"], textarea')) return;
     target = e.target;
