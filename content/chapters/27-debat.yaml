@@ -277,23 +277,65 @@ sections:
           - { id: q472, type: findError, topic: argumentation, sentence: "Kritiker betyder att förbudet är omodernt.", wrong: [1], answers: ["Kritiker menar att förbudet är omodernt.", "Kritiker hävdar att förbudet är omodernt."], tip: "Welk werkwoord betekent een mening hebben?" }
 
 vocab:
-  - { sv: "en debatt", nl: "een debat", def: "debatten", pl: "debatter", plDef: "debatterna" }
-  - { sv: "en debattartikel", nl: "een opiniestuk", def: "debattartikeln", pl: "debattartiklar", plDef: "debattartiklarna" }
-  - { sv: "en tes", nl: "een stelling, een standpunt", def: "tesen", pl: "teser", plDef: "teserna" }
-  - { sv: "ett argument", nl: "een argument", def: "argumentet", pl: "argument", plDef: "argumenten" }
-  - { sv: "ett motargument", nl: "een tegenargument", def: "motargumentet", pl: "motargument", plDef: "motargumenten" }
-  - { sv: "ett förbud", nl: "een verbod", def: "förbudet", pl: "förbud", plDef: "förbuden" }
-  - { sv: "en kritiker", nl: "een criticus", def: "kritikern", pl: "kritiker", plDef: "kritikerna" }
-  - { sv: "ett verktyg", nl: "een instrument, een hulpmiddel", def: "verktyget", pl: "verktyg", plDef: "verktygen" }
-  - { sv: "ett straff", nl: "een straf", def: "straffet", pl: "straff", plDef: "straffen" }
-  - { sv: "en förebild", nl: "een voorbeeld, een rolmodel", def: "förebilden", pl: "förebilder", plDef: "förebilderna" }
-  - { sv: "ett elevråd", nl: "een leerlingenraad", def: "elevrådet", pl: "elevråd", plDef: "elevråden" }
-  - { sv: "att hävda", nl: "beweren" }
-  - { sv: "att invända", nl: "tegenwerpen" }
-  - { sv: "att bemöta", nl: "reageren op, ingaan op" }
-  - { sv: "att avbryta", nl: "onderbreken" }
-  - { sv: "att förbjuda", nl: "verbieden" }
-  - { sv: "överens", nl: "het eens" }
-  - { sv: "närvarande", nl: "aanwezig" }
-  - { sv: "slutligen", nl: "ten slotte" }
-  - { sv: "kort sagt", nl: "kortom" }
+  - { sv: "en debatt", nl: "een debat", def: "debatten", pl: "debatter", plDef: "debatterna", ex: "Efter programmet blev det en het **debatt** i sociala medier.", exNl: "Na het programma ontstond er een fel debat op sociale media." }
+  - { sv: "en debattartikel", nl: "een opiniestuk", def: "debattartikeln", pl: "debattartiklar", plDef: "debattartiklarna", ex: "Hon skrev en **debattartikel** om skolans mobilförbud.", exNl: "Ze schreef een opiniestuk over het mobielverbod van de school." }
+  - { sv: "en tes", nl: "een stelling, een standpunt", def: "tesen", pl: "teser", plDef: "teserna", ex: "Börja texten med att presentera din **tes** tydligt.", exNl: "Begin de tekst met het duidelijk presenteren van je stelling." }
+  - { sv: "ett argument", nl: "een argument", def: "argumentet", pl: "argument", plDef: "argumenten", ex: "Det **argumentet** håller inte, enligt min mening.", exNl: "Dat argument houdt geen stand, naar mijn mening." }
+  - { sv: "ett motargument", nl: "een tegenargument", def: "motargumentet", pl: "motargument", plDef: "motargumenten", ex: "En bra debattör bemöter alltid **motargumenten**.", exNl: "Een goede debater gaat altijd in op de tegenargumenten." }
+  - { sv: "ett förbud", nl: "een verbod", def: "förbudet", pl: "förbud", plDef: "förbuden", ex: "Regeringen vill införa ett **förbud** mot mobiler i skolan.", exNl: "De regering wil een verbod op mobieltjes op school invoeren." }
+  - { sv: "en kritiker", nl: "een criticus", def: "kritikern", pl: "kritiker", plDef: "kritikerna", ex: "**Kritikerna** menar att förslaget är omodernt.", exNl: "De critici vinden dat het voorstel ouderwets is." }
+  - { sv: "ett verktyg", nl: "een instrument, een hulpmiddel", def: "verktyget", pl: "verktyg", plDef: "verktygen", ex: "Mobilen kan vara ett viktigt **verktyg** i undervisningen.", exNl: "De mobiel kan een belangrijk hulpmiddel zijn in het onderwijs." }
+  - { sv: "ett straff", nl: "een straf", def: "straffet", pl: "straff", plDef: "straffen", ex: "Att lämna in mobilen är inte ett **straff** för eleverna.", exNl: "Je mobiel inleveren is geen straf voor de leerlingen." }
+  - { sv: "en förebild", nl: "een voorbeeld, een rolmodel", def: "förebilden", pl: "förebilder", plDef: "förebilderna", ex: "Vuxna borde vara bättre **förebilder** för barnen.", exNl: "Volwassenen zouden betere rolmodellen moeten zijn voor de kinderen." }
+  - { sv: "ett elevråd", nl: "een leerlingenraad", def: "elevrådet", pl: "elevråd", plDef: "elevråden", ex: "**Elevrådet** har samlat in namn mot förbudet.", exNl: "De leerlingenraad heeft handtekeningen verzameld tegen het verbod." }
+  - { sv: "att hävda", nl: "beweren", ex: "Andra **hävdar** att föräldrar måste kunna nå sina barn.", exNl: "Anderen beweren dat ouders hun kinderen moeten kunnen bereiken." }
+  - { sv: "att invända", nl: "tegenwerpen", ex: "Någon **invände** att förbudet är svårt att kontrollera.", exNl: "Iemand wierp tegen dat het verbod moeilijk te controleren is." }
+  - { sv: "att bemöta", nl: "reageren op, ingaan op", ex: "Hur **bemöter** du det argumentet i din text?", exNl: "Hoe ga je in je tekst in op dat argument?" }
+  - { sv: "att avbryta", nl: "onderbreken", ex: "Snälla, **avbryt** mig inte när jag pratar!", exNl: "Onderbreek me alsjeblieft niet als ik praat!" }
+  - { sv: "att förbjuda", nl: "verbieden", ex: "Skolan har **förbjudit** mobiler under lektionerna.", exNl: "De school heeft mobieltjes tijdens de lessen verboden." }
+  - { sv: "överens", nl: "het eens", ex: "Vi är inte **överens** om hur problemet ska lösas.", exNl: "We zijn het niet eens over hoe het probleem opgelost moet worden." }
+  - { sv: "närvarande", nl: "aanwezig", ex: "Utan mobilen är eleverna mer **närvarande** på lektionerna.", exNl: "Zonder mobiel zijn de leerlingen meer aanwezig tijdens de lessen." }
+  - { sv: "slutligen", nl: "ten slotte", ex: "**Slutligen** vill jag tacka alla som har deltagit i debatten.", exNl: "Ten slotte wil ik iedereen bedanken die aan het debat heeft deelgenomen." }
+  - { sv: "kort sagt", nl: "kortom", ex: "**Kort sagt** är förbudet både dyrt och onödigt.", exNl: "Kortom, het verbod is zowel duur als onnodig." }
+  - { sv: "en ståndpunkt", nl: "een standpunt", def: "ståndpunkten", pl: "ståndpunkter", plDef: "ståndpunkterna", ex: "Partiet har en tydlig **ståndpunkt** i frågan.", exNl: "De partij heeft een duidelijk standpunt in deze kwestie." }
+  - { sv: "en motpart", nl: "een tegenpartij", def: "motparten", pl: "motparter", plDef: "motparterna", ex: "Lyssna noga på vad din **motpart** säger.", exNl: "Luister goed naar wat je tegenpartij zegt." }
+  - { sv: "en debattör", nl: "een debater", def: "debattören", pl: "debattörer", plDef: "debattörerna", ex: "Hon är en skicklig **debattör** som sällan tappar tråden.", exNl: "Ze is een vaardige debater die zelden de draad kwijtraakt." }
+  - { sv: "en replik", nl: "een repliek, een weerwoord", def: "repliken", pl: "repliker", plDef: "replikerna", ex: "Ministern fick två minuter för sin **replik**.", exNl: "De minister kreeg twee minuten voor zijn repliek." }
+  - { sv: "ett inlägg", nl: "een bijdrage (in een debat), een post", def: "inlägget", pl: "inlägg", plDef: "inläggen", ex: "Hans **inlägg** i debatten var kort men träffande.", exNl: "Zijn bijdrage aan het debat was kort maar raak." }
+  - { sv: "ett påstående", nl: "een bewering", def: "påståendet", pl: "påståenden", plDef: "påståendena", ex: "Det **påståendet** saknar stöd i forskningen.", exNl: "Die bewering wordt niet door onderzoek ondersteund." }
+  - { sv: "ett belägg", nl: "een bewijs (onderbouwing)", def: "belägget", pl: "belägg", plDef: "beläggen", ex: "Finns det några **belägg** för det du säger?", exNl: "Zijn er bewijzen voor wat je zegt?" }
+  - { sv: "en invändning", nl: "een bezwaar, een tegenwerping", def: "invändningen", pl: "invändningar", plDef: "invändningarna", ex: "Har någon några **invändningar** mot förslaget?", exNl: "Heeft iemand bezwaren tegen het voorstel?" }
+  - { sv: "en omröstning", nl: "een stemming", def: "omröstningen", pl: "omröstningar", plDef: "omröstningarna", ex: "Efter debatten blev det en **omröstning** i elevrådet.", exNl: "Na het debat volgde er een stemming in de leerlingenraad." }
+  - { sv: "en debattledare", nl: "een gespreksleider (bij een debat)", def: "debattledaren", pl: "debattledare", plDef: "debattledarna", ex: "**Debattledaren** gav ordet till nästa talare.", exNl: "De gespreksleider gaf het woord aan de volgende spreker." }
+  - { sv: "en talare", nl: "een spreker", def: "talaren", pl: "talare", plDef: "talarna", ex: "Varje **talare** får tre minuter på sig.", exNl: "Iedere spreker krijgt drie minuten." }
+  - { sv: "en fördom", nl: "een vooroordeel", def: "fördomen", pl: "fördomar", plDef: "fördomarna", ex: "Debatten byggde mest på **fördomar**, inte på fakta.", exNl: "Het debat was vooral gebaseerd op vooroordelen, niet op feiten." }
+  - { sv: "en generalisering", nl: "een generalisatie, een veralgemening", def: "generaliseringen", pl: "generaliseringar", plDef: "generaliseringarna", ex: "Att alla tonåringar är beroende är en grov **generalisering**.", exNl: "Dat alle tieners verslaafd zijn, is een grove generalisatie." }
+  - { sv: "ett motstånd", nl: "verzet, weerstand", def: "motståndet", mass: true, ex: "Förslaget mötte starkt **motstånd** från föräldrarna.", exNl: "Het voorstel stuitte op sterk verzet van de ouders." }
+  - { sv: "en härskarteknik", nl: "een machtstechniek (om iemand klein te krijgen)", def: "härskartekniken", pl: "härskartekniker", plDef: "härskarteknikerna", ex: "Att förlöjliga motparten är en vanlig **härskarteknik**.", exNl: "Het belachelijk maken van de tegenpartij is een veelgebruikte machtstechniek." }
+  - { sv: "att argumentera för", nl: "argumenteren voor, pleiten voor", ex: "Hon **argumenterade för** ett totalt förbud mot mobiler.", exNl: "Ze pleitte voor een totaalverbod op mobieltjes." }
+  - { sv: "att ifrågasätta", nl: "in twijfel trekken", ex: "Journalisten **ifrågasatte** ministerns siffror.", exNl: "De journalist trok de cijfers van de minister in twijfel." }
+  - { sv: "att övertyga", nl: "overtuigen", ex: "Du har inte **övertygat** mig än.", exNl: "Je hebt me nog niet overtuigd." }
+  - { sv: "att ta ställning", nl: "een standpunt innemen", ex: "Partiet vägrar att **ta ställning** i frågan.", exNl: "De partij weigert een standpunt in te nemen in deze kwestie." }
+  - { sv: "att ge med sig", nl: "toegeven, inbinden", ex: "Han vägrar att **ge med sig**, trots alla argument.", exNl: "Hij weigert toe te geven, ondanks alle argumenten." }
+  - { sv: "att stå fast vid", nl: "vasthouden aan, blijven bij", ex: "Jag **står fast vid** min åsikt, vad du än säger.", exNl: "Ik houd vast aan mijn mening, wat je ook zegt." }
+  - { sv: "att ta upp", nl: "aankaarten, ter sprake brengen", ex: "Jag vill **ta upp** en sak till innan vi slutar.", exNl: "Ik wil nog één punt aankaarten voordat we stoppen." }
+  - { sv: "att lyfta fram", nl: "naar voren brengen, benadrukken", ex: "Hon **lyfte fram** flera starka argument i sitt tal.", exNl: "Ze bracht in haar toespraak verschillende sterke argumenten naar voren." }
+  - { sv: "att gå med på", nl: "akkoord gaan met, instemmen met", ex: "Rektorn har **gått med på** att testa förbudet.", exNl: "De rector is akkoord gegaan met het uitproberen van het verbod." }
+  - { sv: "att tala till punkt", nl: "uitpraten", ex: "Låt mig **tala till punkt**, tack.", exNl: "Laat me alsjeblieft uitpraten." }
+  - { sv: "att förlöjliga", nl: "belachelijk maken", ex: "Man ska aldrig **förlöjliga** sin motpart i en debatt.", exNl: "Je moet je tegenpartij in een debat nooit belachelijk maken." }
+  - { sv: "att framföra", nl: "uiten (kritiek, een mening)", ex: "Flera föräldrar har **framfört** kritik mot förbudet.", exNl: "Verschillende ouders hebben kritiek geuit op het verbod." }
+  - { sv: "att motivera", nl: "onderbouwen, motiveren", ex: "Du måste **motivera** din åsikt med fakta.", exNl: "Je moet je mening met feiten onderbouwen." }
+  - { sv: "att vara emot", nl: "tegen zijn", ex: "Många elever och föräldrar **är emot** förbudet.", exNl: "Veel leerlingen en ouders zijn tegen het verbod." }
+  - { sv: "för det första", nl: "ten eerste", ex: "**För det första** är förbudet svårt att kontrollera.", exNl: "Ten eerste is het verbod moeilijk te controleren." }
+  - { sv: "för det andra", nl: "ten tweede", ex: "**För det andra** påverkas rasterna negativt.", exNl: "Ten tweede worden de pauzes negatief beïnvloed." }
+  - { sv: "med andra ord", nl: "met andere woorden", ex: "**Med andra ord** håller argumentet inte.", exNl: "Met andere woorden: het argument houdt geen stand." }
+  - { sv: "å ena sidan", nl: "aan de ene kant", ex: "**Å ena sidan** är mobilen ett bra verktyg.", exNl: "Aan de ene kant is de mobiel een goed hulpmiddel." }
+  - { sv: "å andra sidan", nl: "aan de andere kant", ex: "**Å andra sidan** stör den koncentrationen i klassrummet.", exNl: "Aan de andere kant verstoort hij de concentratie in de klas." }
+  - { sv: "enligt min mening", nl: "naar mijn mening", ex: "**Enligt min mening** borde beslutet fattas av eleverna.", exNl: "Naar mijn mening zou de beslissing door de leerlingen genomen moeten worden." }
+  - { sv: "tvärtom", nl: "integendeel", ex: "Förbudet är inget straff för eleverna, **tvärtom**.", exNl: "Het verbod is geen straf voor de leerlingen, integendeel." }
+  - { sv: "övertygande", nl: "overtuigend", ex: "Hon höll ett mycket **övertygande** tal på mötet.", exNl: "Ze hield een zeer overtuigende toespraak op de vergadering." }
+  - { sv: "saklig", nl: "zakelijk, objectief", ex: "Försök att hålla en **saklig** ton i debatten.", exNl: "Probeer een zakelijke toon aan te houden in het debat." }
+  - { sv: "orimlig", nl: "onredelijk", ex: "Många tycker att kravet på eleverna är helt **orimligt**.", exNl: "Velen vinden de eis aan de leerlingen volkomen onredelijk." }
+  - { sv: "befogad", nl: "terecht, gerechtvaardigd", ex: "Kritiken mot förslaget är helt **befogad**.", exNl: "De kritiek op het voorstel is volkomen terecht." }
+  - { sv: "ensidig", nl: "eenzijdig", ex: "Artikeln ger en väldigt **ensidig** bild av problemet.", exNl: "Het artikel geeft een erg eenzijdig beeld van het probleem." }
+  - { sv: "däremot", nl: "daarentegen", ex: "Eleverna gillar förslaget. Föräldrarna är **däremot** skeptiska.", exNl: "De leerlingen vinden het voorstel goed. De ouders zijn daarentegen sceptisch." }

@@ -297,23 +297,61 @@ sections:
           - { id: pbnv, type: findError, topic: asikt, sentence: "Jag anser att vi borde inte göra det.", wrong: [4, 5], answers: ["Jag anser att vi inte borde göra det."], tip: "Na anser att volgt een bijzin." }
 
 vocab:
-  - { sv: "ett samhälle", nl: "een samenleving", def: "samhället", pl: "samhällen", plDef: "samhällena" }
-  - { sv: "en åsikt", nl: "een mening", def: "åsikten", pl: "åsikter", plDef: "åsikterna" }
-  - { sv: "en debatt", nl: "een debat", def: "debatten", pl: "debatter", plDef: "debatterna" }
-  - { sv: "en fördel", nl: "een voordeel", def: "fördelen", pl: "fördelar", plDef: "fördelarna" }
-  - { sv: "en nackdel", nl: "een nadeel", def: "nackdelen", pl: "nackdelar", plDef: "nackdelarna" }
-  - { sv: "ett argument", nl: "een argument", def: "argumentet", pl: "argument", plDef: "argumenten" }
-  - { sv: "ett försök", nl: "een proef, een poging", def: "försöket", pl: "försök", plDef: "försöken" }
-  - { sv: "en företagare", nl: "een ondernemer", def: "företagaren", pl: "företagare", plDef: "företagarna" }
-  - { sv: "vården", nl: "de zorg(sector)" }
-  - { sv: "en lön", nl: "een salaris, een loon", def: "lönen", pl: "löner", plDef: "lönerna" }
-  - { sv: "att anse", nl: "vinden, menen" }
-  - { sv: "att hålla med", nl: "het eens zijn" }
-  - { sv: "att införa", nl: "invoeren" }
-  - { sv: "att tjäna på", nl: "baat hebben bij" }
-  - { sv: "att förbjuda", nl: "verbieden" }
-  - { sv: "visserligen", nl: "weliswaar" }
-  - { sv: "trots att", nl: "hoewel" }
-  - { sv: "även om", nl: "ook al, zelfs als" }
-  - { sv: "medan", nl: "terwijl" }
-  - { sv: "sammanfattningsvis", nl: "samenvattend" }
+  - { sv: "ett samhälle", nl: "een samenleving", def: "samhället", pl: "samhällen", plDef: "samhällena", ex: "Vi lever i ett **samhälle** där allt går allt snabbare.", exNl: "We leven in een samenleving waarin alles steeds sneller gaat." }
+  - { sv: "en åsikt", nl: "een mening", def: "åsikten", pl: "åsikter", plDef: "åsikterna", ex: "Alla har rätt till sin egen **åsikt**.", exNl: "Iedereen heeft recht op zijn eigen mening." }
+  - { sv: "en debatt", nl: "een debat", def: "debatten", pl: "debatter", plDef: "debatterna", ex: "I går var det en het **debatt** om skolan på tv.", exNl: "Gisteren was er een fel debat over de school op tv." }
+  - { sv: "en fördel", nl: "een voordeel", def: "fördelen", pl: "fördelar", plDef: "fördelarna", ex: "En stor **fördel** med jobbet är att jag kan jobba hemifrån.", exNl: "Een groot voordeel van de baan is dat ik thuis kan werken." }
+  - { sv: "en nackdel", nl: "een nadeel", def: "nackdelen", pl: "nackdelar", plDef: "nackdelarna", ex: "Vilka är **nackdelarna** med en kortare arbetsvecka?", exNl: "Wat zijn de nadelen van een kortere werkweek?" }
+  - { sv: "ett argument", nl: "een argument", def: "argumentet", pl: "argument", plDef: "argumenten", ex: "Hon har flera starka **argument** för förslaget.", exNl: "Zij heeft meerdere sterke argumenten voor het voorstel." }
+  - { sv: "ett försök", nl: "een proef, een poging", def: "försöket", pl: "försök", plDef: "försöken", ex: "Kommunen gör ett **försök** med sex timmars arbetsdag.", exNl: "De gemeente doet een proef met een werkdag van zes uur." }
+  - { sv: "en företagare", nl: "een ondernemer", def: "företagaren", pl: "företagare", plDef: "företagarna", ex: "Som **företagare** måste man ofta jobba på helgerna.", exNl: "Als ondernemer moet je vaak in het weekend werken." }
+  - { sv: "vården", nl: "de zorg(sector)", ex: "Det saknas personal inom **vården**.", exNl: "Er is een tekort aan personeel in de zorg." }
+  - { sv: "en lön", nl: "een salaris, een loon", def: "lönen", pl: "löner", plDef: "lönerna", ex: "Hon fick högre **lön** när hon bytte jobb.", exNl: "Ze kreeg een hoger salaris toen ze van baan veranderde." }
+  - { sv: "att anse", nl: "vinden, menen", ex: "Jag **anser** att alla borde få samma chans.", exNl: "Ik vind dat iedereen dezelfde kans zou moeten krijgen." }
+  - { sv: "att hålla med", nl: "het eens zijn", ex: "Jag **håller med** dig om att skatten är för hög.", exNl: "Ik ben het met je eens dat de belasting te hoog is." }
+  - { sv: "att införa", nl: "invoeren", ex: "Regeringen vill **införa** en ny lag om arbetstid.", exNl: "De regering wil een nieuwe wet over de werktijd invoeren." }
+  - { sv: "att tjäna på", nl: "baat hebben bij", ex: "Både företagen och de anställda kan **tjäna på** kortare arbetsdagar.", exNl: "Zowel de bedrijven als de werknemers kunnen baat hebben bij kortere werkdagen." }
+  - { sv: "att förbjuda", nl: "verbieden", ex: "Många vill **förbjuda** mobiler i skolan.", exNl: "Veel mensen willen mobieltjes op school verbieden." }
+  - { sv: "visserligen", nl: "weliswaar", ex: "Det är **visserligen** dyrt, men det är värt pengarna.", exNl: "Het is weliswaar duur, maar het is het geld waard." }
+  - { sv: "trots att", nl: "hoewel", ex: "**Trots att** hon är sjuk går hon till jobbet.", exNl: "Hoewel ze ziek is, gaat ze naar haar werk." }
+  - { sv: "även om", nl: "ook al, zelfs als", ex: "Jag tänker rösta, **även om** jag inte gillar något parti.", exNl: "Ik ga stemmen, ook al vind ik geen enkele partij goed." }
+  - { sv: "medan", nl: "terwijl", ex: "Han lagade mat **medan** barnen gjorde läxorna.", exNl: "Hij kookte terwijl de kinderen hun huiswerk maakten." }
+  - { sv: "sammanfattningsvis", nl: "samenvattend", ex: "**Sammanfattningsvis** finns det både för- och nackdelar.", exNl: "Samenvattend zijn er zowel voor- als nadelen." }
+  - { sv: "en välfärd", nl: "de sociale voorzieningen, de verzorgingsstaat", def: "välfärden", mass: true, ex: "Skatterna betalar för **välfärden**, till exempel skola och vård.", exNl: "De belastingen betalen voor de sociale voorzieningen, zoals school en zorg." }
+  - { sv: "en medborgare", nl: "een burger, een staatsburger", def: "medborgaren", pl: "medborgare", ex: "Alla svenska **medborgare** som har fyllt arton år får rösta i riksdagsvalet.", exNl: "Alle Zweedse burgers die achttien jaar of ouder zijn, mogen stemmen bij de parlementsverkiezingen." }
+  - { sv: "en politiker", nl: "een politicus", def: "politikern", pl: "politiker", ex: "Många **politiker** lovar mer än de kan hålla.", exNl: "Veel politici beloven meer dan ze kunnen waarmaken." }
+  - { sv: "ett val", nl: "een verkiezing, een keuze", def: "valet", pl: "val", ex: "I Sverige hålls **val** till riksdagen vart fjärde år.", exNl: "In Zweden worden er om de vier jaar verkiezingen voor het parlement gehouden." }
+  - { sv: "en regering", nl: "een regering", def: "regeringen", pl: "regeringar", ex: "**Regeringen** har lagt fram ett nytt förslag.", exNl: "De regering heeft een nieuw voorstel ingediend." }
+  - { sv: "en riksdag", nl: "het Zweedse parlement (de Riksdag)", def: "riksdagen", pl: "riksdagar", ex: "**Riksdagen** har 349 ledamöter.", exNl: "Het Zweedse parlement heeft 349 leden." }
+  - { sv: "ett parti", nl: "een partij (in de politiek)", def: "partiet", pl: "partier", ex: "Vilket **parti** tänker du rösta på?", exNl: "Op welke partij ga je stemmen?" }
+  - { sv: "en jämställdhet", nl: "de gelijkwaardigheid van man en vrouw", def: "jämställdheten", mass: true, ex: "Sverige har kommit långt när det gäller **jämställdhet**.", exNl: "Zweden is ver gekomen wat betreft de gelijkwaardigheid van man en vrouw." }
+  - { sv: "en enkät", nl: "een enquête, een vragenlijst", def: "enkäten", pl: "enkäter", ex: "Tusen personer svarade på **enkäten**.", exNl: "Duizend mensen beantwoordden de enquête." }
+  - { sv: "en majoritet", nl: "een meerderheid", def: "majoriteten", pl: "majoriteter", ex: "En **majoritet** av de tillfrågade var positiva.", exNl: "Een meerderheid van de ondervraagden was positief." }
+  - { sv: "ett förslag", nl: "een voorstel", def: "förslaget", pl: "förslag", ex: "Vad tycker du om **förslaget** om fyra dagars arbetsvecka?", exNl: "Wat vind je van het voorstel voor een vierdaagse werkweek?" }
+  - { sv: "en lag", nl: "een wet", def: "lagen", pl: "lagar", ex: "Enligt **lagen** har alla rätt till fem veckors semester.", exNl: "Volgens de wet heeft iedereen recht op vijf weken vakantie." }
+  - { sv: "en rättighet", nl: "een recht", def: "rättigheten", pl: "rättigheter", ex: "Det är viktigt att känna till sina **rättigheter** som anställd.", exNl: "Het is belangrijk om je rechten als werknemer te kennen." }
+  - { sv: "en skyldighet", nl: "een plicht, een verplichting", def: "skyldigheten", pl: "skyldigheter", ex: "Medborgare har både rättigheter och **skyldigheter**.", exNl: "Burgers hebben zowel rechten als plichten." }
+  - { sv: "att rösta", nl: "stemmen", ex: "Unga **röstar** mer sällan än äldre.", exNl: "Jongeren stemmen minder vaak dan ouderen." }
+  - { sv: "att komma överens", nl: "het eens worden, afspreken", ex: "Det är svårt att **komma överens** om en lösning.", exNl: "Het is moeilijk om het eens te worden over een oplossing." }
+  - { sv: "att lösa", nl: "oplossen", ex: "Hur ska vi **lösa** problemet med bostadsbristen?", exNl: "Hoe moeten we het probleem van de woningnood oplossen?" }
+  - { sv: "att satsa på", nl: "inzetten op, investeren in", ex: "Regeringen tänker **satsa på** skolan och vården.", exNl: "De regering is van plan in te zetten op school en zorg." }
+  - { sv: "att bidra till", nl: "bijdragen aan", ex: "Alla kan **bidra till** ett bättre samhälle.", exNl: "Iedereen kan bijdragen aan een betere samenleving." }
+  - { sv: "att se till att", nl: "ervoor zorgen dat", ex: "Politikerna måste **se till att** alla får bra vård.", exNl: "De politici moeten ervoor zorgen dat iedereen goede zorg krijgt." }
+  - { sv: "att stödja", nl: "steunen", alt: ["att stöda"], ex: "Jag **{stöder|stödjer}** förslaget helt och hållet.", exNl: "Ik steun het voorstel volledig." }
+  - { sv: "det beror på", nl: "het hangt ervan af", ex: "Är det en bra idé? **Det beror på** hur man ser det.", exNl: "Is het een goed idee? Het hangt ervan af hoe je het bekijkt." }
+  - { sv: "rättvis", nl: "eerlijk, rechtvaardig", ex: "Är det **rättvist** att alla betalar lika mycket?", exNl: "Is het eerlijk dat iedereen evenveel betaalt?" }
+  - { sv: "utbränd", nl: "opgebrand (met een burn-out)", ex: "Efter flera år av stress blev hon **utbränd**.", exNl: "Na een aantal jaren stress raakte ze opgebrand." }
+  - { sv: "effektiv", nl: "efficiënt, doeltreffend", ex: "Utvilade medarbetare jobbar mer **effektivt**.", exNl: "Uitgeruste medewerkers werken efficiënter." }
+  - { sv: "offentlig", nl: "openbaar, publiek", ex: "Hon jobbar inom den **offentliga** sektorn.", exNl: "Ze werkt in de publieke sector." }
+  - { sv: "frivillig", nl: "vrijwillig", ex: "Många jobbar **frivilligt** för att hjälpa andra.", exNl: "Veel mensen werken vrijwillig om anderen te helpen." }
+  - { sv: "för min del", nl: "wat mij betreft", ex: "**För min del** får de gärna införa sex timmars arbetsdag.", exNl: "Wat mij betreft mogen ze gerust een werkdag van zes uur invoeren." }
+  - { sv: "utan att", nl: "zonder te, zonder dat", ex: "Han gick hem **utan att** säga hej då.", exNl: "Hij ging naar huis zonder gedag te zeggen." }
+  - { sv: "en demokrati", nl: "een democratie", def: "demokratin", pl: "demokratier", plDef: "demokratierna", ex: "I en **demokrati** får alla säga vad de tycker.", exNl: "In een democratie mag iedereen zeggen wat hij vindt." }
+  - { sv: "en statsminister", nl: "een minister-president, een premier", def: "statsministern", pl: "statsministrar", plDef: "statsministrarna", ex: "**Statsministern** leder regeringens arbete.", exNl: "De minister-president leidt het werk van de regering." }
+  - { sv: "en folkomröstning", nl: "een referendum, een volksraadpleging", def: "folkomröstningen", pl: "folkomröstningar", plDef: "folkomröstningarna", ex: "År 2003 röstade svenskarna nej till euron i en **folkomröstning**.", exNl: "In 2003 stemden de Zweden in een referendum tegen de euro." }
+  - { sv: "en invandrare", nl: "een immigrant", def: "invandraren", pl: "invandrare", plDef: "invandrarna", ex: "Många **invandrare** läser svenska på SFI.", exNl: "Veel immigranten volgen Zweedse les bij SFI." }
+  - { sv: "en integration", nl: "de integratie", def: "integrationen", mass: true, ex: "Ett jobb är ofta det viktigaste för en lyckad **integration**.", exNl: "Een baan is vaak het belangrijkste voor een geslaagde integratie." }
+  - { sv: "en yttrandefrihet", nl: "de vrijheid van meningsuiting", def: "yttrandefriheten", mass: true, ex: "**Yttrandefriheten** är skyddad i grundlagen.", exNl: "De vrijheid van meningsuiting is in de grondwet beschermd." }
+  - { sv: "en diskriminering", nl: "de discriminatie", def: "diskrimineringen", mass: true, ex: "Det är förbjudet med **diskriminering** på arbetsplatsen.", exNl: "Discriminatie op de werkplek is verboden." }
+  - { sv: "att demonstrera", nl: "demonstreren", ex: "Tusentals människor **demonstrerade** mot den nya lagen.", exNl: "Duizenden mensen demonstreerden tegen de nieuwe wet." }
+  - { sv: "jämlik", nl: "gelijk (met gelijke rechten en kansen)", ex: "Sverige anses vara ett ganska **jämlikt** land.", exNl: "Zweden geldt als een vrij gelijk land." }

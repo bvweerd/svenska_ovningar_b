@@ -293,23 +293,64 @@ sections:
           - { id: fkg9, type: findError, topic: rad-onskan, sentence: "Du borde att sova mer.", wrong: [2], answers: ["Du borde sova mer."], tip: "Na borde komt geen att." }
 
 vocab:
-  - { sv: "en sambo", nl: "een samenwonende partner", def: "sambon", pl: "sambor", plDef: "samborna" }
-  - { sv: "en särbo", nl: "een LAT-partner", def: "särbon", pl: "särbor", plDef: "särborna" }
-  - { sv: "ett förhållande", nl: "een relatie", def: "förhållandet", pl: "förhållanden", plDef: "förhållandena" }
-  - { sv: "en vänskap", nl: "een vriendschap", def: "vänskapen", pl: "vänskaper", plDef: "vänskaperna" }
-  - { sv: "ett råd", nl: "een advies, een raad", def: "rådet", pl: "råd", plDef: "råden" }
-  - { sv: "ett beslut", nl: "een besluit", def: "beslutet", pl: "beslut", plDef: "besluten" }
-  - { sv: "en kompromiss", nl: "een compromis", def: "kompromissen", pl: "kompromisser", plDef: "kompromisserna" }
-  - { sv: "ett bröllop", nl: "een bruiloft", def: "bröllopet", pl: "bröllop", plDef: "bröllopen" }
-  - { sv: "en svärmor", nl: "een schoonmoeder", def: ["svärmodern", "svärmorn"], pl: "svärmödrar", plDef: "svärmödrarna" }
-  - { sv: "att gifta sig", nl: "trouwen" }
-  - { sv: "att skilja sig", nl: "scheiden" }
-  - { sv: "att gräla", nl: "ruziemaken" }
-  - { sv: "att göra slut", nl: "het uitmaken" }
-  - { sv: "att längta", nl: "verlangen" }
-  - { sv: "att önska", nl: "wensen" }
-  - { sv: "att föreslå", nl: "voorstellen" }
-  - { sv: "kär", nl: "verliefd" }
-  - { sv: "ledsen", nl: "verdrietig" }
-  - { sv: "kluven", nl: "verscheurd, in tweestrijd" }
-  - { sv: "förlovad", nl: "verloofd" }
+  - { sv: "en sambo", nl: "een samenwonende partner", def: "sambon", pl: "sambor", plDef: "samborna", ex: "Jag och min **sambo** har bott tillsammans i fem år.", exNl: "Mijn samenwonende partner en ik wonen al vijf jaar samen." }
+  - { sv: "en särbo", nl: "een LAT-partner", def: "särbon", pl: "särbor", plDef: "särborna", ex: "De är **särbor** och bor i var sin lägenhet.", exNl: "Ze zijn LAT-partners en wonen elk in een eigen appartement." }
+  - { sv: "ett förhållande", nl: "een relatie", def: "förhållandet", pl: "förhållanden", plDef: "förhållandena", ex: "Deras **förhållande** höll i tio år.", exNl: "Hun relatie hield tien jaar stand." }
+  - { sv: "en vänskap", nl: "een vriendschap", def: "vänskapen", pl: "vänskaper", plDef: "vänskaperna", ex: "Vår **vänskap** började redan i förskolan.", exNl: "Onze vriendschap begon al op de kleuterschool." }
+  - { sv: "ett råd", nl: "een advies, een raad", def: "rådet", pl: "råd", plDef: "råden", ex: "Tack för alla goda **råd**!", exNl: "Bedankt voor alle goede adviezen!" }
+  - { sv: "ett beslut", nl: "een besluit", def: "beslutet", pl: "beslut", plDef: "besluten", ex: "Det var ett svårt **beslut** att flytta isär.", exNl: "Het was een moeilijk besluit om uit elkaar te gaan wonen." }
+  - { sv: "en kompromiss", nl: "een compromis", def: "kompromissen", pl: "kompromisser", plDef: "kompromisserna", ex: "Till slut hittade vi en **kompromiss** som passade oss båda.", exNl: "Uiteindelijk vonden we een compromis dat ons allebei uitkwam." }
+  - { sv: "ett bröllop", nl: "een bruiloft", def: "bröllopet", pl: "bröllop", plDef: "bröllopen", ex: "Vi är bjudna på två **bröllop** i sommar.", exNl: "We zijn deze zomer op twee bruiloften uitgenodigd." }
+  - { sv: "en svärmor", nl: "een schoonmoeder", def: ["svärmodern", "svärmorn"], pl: "svärmödrar", plDef: "svärmödrarna", ex: "Min **svärmor** ringer varje söndag.", exNl: "Mijn schoonmoeder belt elke zondag." }
+  - { sv: "att gifta sig", nl: "trouwen", ex: "De **gifte sig** i en liten kyrka på Gotland.", exNl: "Ze trouwden in een kerkje op Gotland." }
+  - { sv: "att skilja sig", nl: "scheiden", ex: "Hennes föräldrar **skilde sig** när hon var tio år.", exNl: "Haar ouders scheidden toen ze tien was." }
+  - { sv: "att gräla", nl: "ruziemaken", ex: "Vi **grälar** ofta om vem som ska diska.", exNl: "We maken vaak ruzie over wie moet afwassen." }
+  - { sv: "att göra slut", nl: "het uitmaken", ex: "Hon **gjorde slut** med sin pojkvän i går.", exNl: "Ze heeft het gisteren uitgemaakt met haar vriend." }
+  - { sv: "att längta", nl: "verlangen", ex: "Jag **längtar** efter dig varje dag.", exNl: "Ik verlang elke dag naar je." }
+  - { sv: "att önska", nl: "wensen", ex: "Jag **önskar** att jag hade mer tid.", exNl: "Ik wou dat ik meer tijd had." }
+  - { sv: "att föreslå", nl: "voorstellen", ex: "Frida **föreslår** att de pratar öppet med varandra.", exNl: "Frida stelt voor dat ze openlijk met elkaar praten." }
+  - { sv: "kär", nl: "verliefd", ex: "De är fortfarande **kära** i varandra.", exNl: "Ze zijn nog steeds verliefd op elkaar." }
+  - { sv: "ledsen", nl: "verdrietig", ex: "Han blev **ledsen** när hon flyttade.", exNl: "Hij werd verdrietig toen ze verhuisde." }
+  - { sv: "kluven", nl: "verscheurd, in tweestrijd", ex: "Jag är **kluven** inför flytten till Luleå.", exNl: "Ik ben verscheurd over de verhuizing naar Luleå." }
+  - { sv: "förlovad", nl: "verloofd", ex: "Lisa och Ahmed är **förlovade** sedan i julas.", exNl: "Lisa en Ahmed zijn sinds afgelopen kerst verloofd." }
+  - { sv: "ett äktenskap", nl: "een huwelijk", def: "äktenskapet", pl: "äktenskap", ex: "Deras **äktenskap** varade i över femtio år.", exNl: "Hun huwelijk duurde meer dan vijftig jaar." }
+  - { sv: "en make", nl: "een echtgenoot", def: "maken", pl: "makar", ex: "Hon presenterade sin **make** för alla gäster.", exNl: "Ze stelde haar echtgenoot voor aan alle gasten." }
+  - { sv: "en maka", nl: "een echtgenote", def: "makan", pl: "makor", alt: ["en fru"], ex: "Han firade bröllopsdagen med sin **{maka|fru}**.", exNl: "Hij vierde de trouwdag met zijn echtgenote." }
+  - { sv: "en svärfar", nl: "een schoonvader", def: ["svärfadern", "svärfarn"], pl: "svärfäder", ex: "Min **svärfar** hjälpte oss att renovera köket.", exNl: "Mijn schoonvader hielp ons de keuken op te knappen." }
+  - { sv: "ett ex", nl: "een ex", def: "exet", pl: "ex", ex: "Hon har fortfarande kontakt med sitt **ex**.", exNl: "Ze heeft nog steeds contact met haar ex." }
+  - { sv: "en förälskelse", nl: "een verliefdheid", def: "förälskelsen", pl: "förälskelser", ex: "Det var bara en kort **förälskelse** under sommarlovet.", exNl: "Het was maar een korte verliefdheid in de zomervakantie." }
+  - { sv: "en kärlek", nl: "een liefde", def: "kärleken", pl: "kärlekar", ex: "Hon träffade sitt livs **kärlek** på en tågresa.", exNl: "Ze ontmoette de liefde van haar leven tijdens een treinreis." }
+  - { sv: "ett gräl", nl: "een ruzie", def: "grälet", pl: "gräl", ex: "Efter **grälet** pratade de inte med varandra på två dagar.", exNl: "Na de ruzie spraken ze twee dagen niet met elkaar." }
+  - { sv: "en konflikt", nl: "een conflict", def: "konflikten", pl: "konflikter", ex: "Det är viktigt att lösa **konflikter** innan de växer.", exNl: "Het is belangrijk conflicten op te lossen voordat ze groter worden." }
+  - { sv: "ett förtroende", nl: "het vertrouwen", def: "förtroendet", mass: true, ex: "Jag har stort **förtroende** för henne.", exNl: "Ik heb veel vertrouwen in haar." }
+  - { sv: "en skilsmässa", nl: "een echtscheiding", def: "skilsmässan", pl: "skilsmässor", ex: "Efter **skilsmässan** bodde barnen varannan vecka hos varje förälder.", exNl: "Na de scheiding woonden de kinderen om de week bij elke ouder." }
+  - { sv: "en förlovning", nl: "een verloving", def: "förlovningen", pl: "förlovningar", ex: "De firade **förlovningen** med en middag för familjen.", exNl: "Ze vierden de verloving met een etentje voor de familie." }
+  - { sv: "en dejt", nl: "een date, een afspraakje", def: "dejten", pl: "dejter", ex: "Hur gick **dejten** i går?", exNl: "Hoe ging de date gisteren?" }
+  - { sv: "en svåger", nl: "een zwager", def: "svågern", pl: "svågrar", ex: "Min **svåger** är gift med min syster.", exNl: "Mijn zwager is getrouwd met mijn zus." }
+  - { sv: "en svägerska", nl: "een schoonzus", def: "svägerskan", pl: "svägerskor", ex: "Jag kommer bra överens med mina **svägerskor**.", exNl: "Ik kan goed opschieten met mijn schoonzussen." }
+  - { sv: "en styvpappa", nl: "een stiefvader", def: "styvpappan", pl: "styvpappor", alt: ["en bonuspappa", "en styvfar"], ex: "Hennes **{styvpappa|bonuspappa|styvfar}** har varit som en riktig pappa för henne.", exNl: "Haar stiefvader is als een echte vader voor haar geweest." }
+  - { sv: "en bekant", nl: "een kennis (persoon)", def: "bekanten", pl: "bekanta", ex: "Han är ingen vän, bara en **bekant** från jobbet.", exNl: "Hij is geen vriend, alleen een kennis van het werk." }
+  - { sv: "att bli ihop", nl: "verkering krijgen", ex: "Linnea och Omar **blev ihop** på gymnasiet.", exNl: "Linnea en Omar kregen verkering op de middelbare school." }
+  - { sv: "att bli kär i", nl: "verliefd worden op", ex: "Han **blev kär i** henne redan första dagen.", exNl: "Hij werd al op de eerste dag verliefd op haar." }
+  - { sv: "att flytta ihop", nl: "gaan samenwonen", ex: "Vi **flyttade ihop** efter ett år.", exNl: "Na een jaar gingen we samenwonen." }
+  - { sv: "att gå isär", nl: "uit elkaar gaan", ex: "Efter tio år bestämde de sig för att **gå isär**.", exNl: "Na tien jaar besloten ze uit elkaar te gaan." }
+  - { sv: "att bråka", nl: "kibbelen, ruzie zoeken", ex: "Syskonen **bråkar** om allt, från tv:n till godiset.", exNl: "De broers en zussen kibbelen over alles, van de tv tot het snoep." }
+  - { sv: "att stötta", nl: "steunen", alt: ["att stödja"], ex: "Mina vänner **{stöttade|stödde}** mig under skilsmässan.", exNl: "Mijn vrienden steunden me tijdens de scheiding." }
+  - { sv: "att ställa upp för", nl: "klaarstaan voor", ex: "Hon har alltid **ställt upp för** sina vänner.", exNl: "Ze heeft altijd voor haar vrienden klaargestaan." }
+  - { sv: "att förlåta", nl: "vergeven", ex: "Det tog lång tid innan hon kunde **förlåta** honom.", exNl: "Het duurde lang voordat ze hem kon vergeven." }
+  - { sv: "att be om ursäkt", nl: "excuses aanbieden, sorry zeggen", ex: "Han **bad om ursäkt** för att han hade glömt hennes födelsedag.", exNl: "Hij bood zijn excuses aan omdat hij haar verjaardag was vergeten." }
+  - { sv: "att bli sams", nl: "het weer goedmaken", ex: "De grälade på morgonen men **blev sams** före lunch.", exNl: "Ze kregen 's ochtends ruzie, maar maakten het voor de lunch weer goed." }
+  - { sv: "att sakna", nl: "missen (iemand), het gemis voelen", ex: "Jag **saknar** dig när du är bortrest.", exNl: "Ik mis je als je op reis bent." }
+  - { sv: "att svika", nl: "in de steek laten, verraden", ex: "Jag lovar att aldrig **svika** dig.", exNl: "Ik beloof je nooit in de steek te laten." }
+  - { sv: "att ljuga", nl: "liegen", ex: "Han **ljög** om var han hade varit.", exNl: "Hij loog over waar hij was geweest." }
+  - { sv: "att hålla ihop", nl: "bij elkaar blijven", ex: "De har **hållit ihop** i trettio år.", exNl: "Ze zijn dertig jaar bij elkaar gebleven." }
+  - { sv: "svartsjuk", nl: "jaloers", ex: "Han blir **svartsjuk** när hon pratar med andra killar.", exNl: "Hij wordt jaloers als ze met andere jongens praat." }
+  - { sv: "trogen", nl: "trouw", ex: "Han har alltid varit **trogen** mot sin fru.", exNl: "Hij is altijd trouw geweest aan zijn vrouw." }
+  - { sv: "besviken", nl: "teleurgesteld", ex: "Vi var mycket **besvikna** på honom.", exNl: "We waren erg teleurgesteld in hem." }
+  - { sv: "förstående", nl: "begripvol", ex: "Min chef var väldigt **förstående** när jag behövde ledigt.", exNl: "Mijn baas was heel begripvol toen ik vrij nodig had." }
+  - { sv: "ömsesidig", nl: "wederzijds", ex: "Känslorna var **ömsesidiga**.", exNl: "De gevoelens waren wederzijds." }
+  - { sv: "varannan", nl: "elke tweede, om de (twee)", ex: "Barnen bor hos sin pappa **varannan** vecka.", exNl: "De kinderen wonen om de week bij hun vader." }
+  - { sv: "på allvar", nl: "serieus, echt", ex: "Du måste ta hans problem **på allvar**.", exNl: "Je moet zijn problemen serieus nemen." }
+  - { sv: "Lycka till!", nl: "Succes!", ex: "**Lycka till** med flytten!", exNl: "Succes met de verhuizing!" }
+  - { sv: "för alltid", nl: "voor altijd", ex: "Jag trodde att vi skulle vara tillsammans **för alltid**.", exNl: "Ik dacht dat we voor altijd samen zouden blijven." }
+  - { sv: "om jag var du", nl: "als ik jou was", alt: ["om jag vore du"], ex: "**{Om jag var du|Om jag vore du}** skulle jag prata med henne.", exNl: "Als ik jou was, zou ik met haar praten." }

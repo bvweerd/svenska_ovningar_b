@@ -288,23 +288,65 @@ sections:
           - { id: rdms, type: findError, sentence: "Eftersom jag har ingen bil cyklar jag.", wrong: [2, 3], answers: ["Eftersom jag inte har någon bil cyklar jag."], tip: "In een bijzin: inte … någon." }
 
 vocab:
-  - { sv: "en miljö", nl: "het milieu, een omgeving", def: "miljön", pl: "miljöer", plDef: "miljöerna" }
-  - { sv: "ett klimat", nl: "het klimaat", def: "klimatet", pl: "klimat", plDef: "klimaten" }
-  - { sv: "en påse", nl: "een zak", def: "påsen", pl: "påsar", plDef: "påsarna" }
-  - { sv: "en burk", nl: "een blik, een pot", def: "burken", pl: "burkar", plDef: "burkarna" }
-  - { sv: "en flaska", nl: "een fles", def: "flaskan", pl: "flaskor", plDef: "flaskorna" }
-  - { sv: "ett batteri", nl: "een batterij", def: "batteriet", pl: "batterier", plDef: "batterierna" }
-  - { sv: "en loppis", nl: "een rommelmarkt", def: "loppisen", pl: "loppisar", plDef: "loppisarna" }
-  - { sv: "ett utsläpp", nl: "de uitstoot", def: "utsläppet", pl: "utsläpp", plDef: "utsläppen" }
-  - { sv: "ett kärl", nl: "een container, een bak", def: "kärlet", pl: "kärl", plDef: "kärlen" }
-  - { sv: "ett hushåll", nl: "een huishouden", def: "hushållet", pl: "hushåll", plDef: "hushållen" }
-  - { sv: "en kommun", nl: "een gemeente", def: "kommunen", pl: "kommuner", plDef: "kommunerna" }
-  - { sv: "sopor", nl: "afval, vuilnis" }
-  - { sv: "pant", nl: "statiegeld" }
-  - { sv: "att sortera", nl: "sorteren, scheiden" }
-  - { sv: "att slänga", nl: "weggooien" }
-  - { sv: "att vänja sig", nl: "wennen" }
-  - { sv: "att spara", nl: "besparen, sparen" }
-  - { sv: "hållbar", nl: "duurzaam" }
-  - { sv: "begagnad", nl: "tweedehands" }
-  - { sv: "överdriven", nl: "overdreven" }
+  - { sv: "en miljö", nl: "het milieu, een omgeving", def: "miljön", pl: "miljöer", plDef: "miljöerna", ex: "Vi måste ta bättre hand om **miljön**.", exNl: "We moeten beter voor het milieu zorgen." }
+  - { sv: "ett klimat", nl: "het klimaat", def: "klimatet", pl: "klimat", plDef: "klimaten", ex: "**Klimatet** blir varmare för varje år.", exNl: "Het klimaat wordt elk jaar warmer." }
+  - { sv: "en påse", nl: "een zak", def: "påsen", pl: "påsar", plDef: "påsarna", ex: "I köket har vi fem olika **påsar** för sopor.", exNl: "In de keuken hebben we vijf verschillende zakken voor afval." }
+  - { sv: "en burk", nl: "een blik, een pot", def: "burken", pl: "burkar", plDef: "burkarna", ex: "Tomma **burkar** lämnar man tillbaka i butiken.", exNl: "Lege blikjes breng je terug naar de winkel." }
+  - { sv: "en flaska", nl: "een fles", def: "flaskan", pl: "flaskor", plDef: "flaskorna", ex: "Hon tog med sig en **flaska** vatten på promenaden.", exNl: "Ze nam een fles water mee op de wandeling." }
+  - { sv: "ett batteri", nl: "een batterij", def: "batteriet", pl: "batterier", plDef: "batterierna", ex: "Gamla **batterier** får man inte slänga bland soporna.", exNl: "Oude batterijen mag je niet bij het afval gooien." }
+  - { sv: "en loppis", nl: "een rommelmarkt", def: "loppisen", pl: "loppisar", plDef: "loppisarna", ex: "Jag köpte soffan på en **loppis** för 300 kronor.", exNl: "Ik kocht de bank voor 300 kronen op een rommelmarkt." }
+  - { sv: "ett utsläpp", nl: "de uitstoot", def: "utsläppet", pl: "utsläpp", plDef: "utsläppen", ex: "Vi måste minska **{utsläppen|utsläppet}** av koldioxid.", exNl: "We moeten de uitstoot van CO2 verminderen." }
+  - { sv: "ett kärl", nl: "een container, een bak", def: "kärlet", pl: "kärl", plDef: "kärlen", ex: "Matavfallet lägger man i det bruna **kärlet**.", exNl: "Etensresten gooi je in de bruine bak." }
+  - { sv: "ett hushåll", nl: "een huishouden", def: "hushållet", pl: "hushåll", plDef: "hushållen", ex: "Varje **hushåll** får en ny soptunna.", exNl: "Elk huishouden krijgt een nieuwe vuilnisbak." }
+  - { sv: "en kommun", nl: "een gemeente", def: "kommunen", pl: "kommuner", plDef: "kommunerna", ex: "**Kommunen** hämtar soporna varannan vecka.", exNl: "De gemeente haalt het afval om de week op." }
+  - { sv: "sopor", nl: "afval, vuilnis", ex: "Vem bär ut **soporna** i kväll?", exNl: "Wie brengt vanavond het afval naar buiten?" }
+  - { sv: "pant", nl: "statiegeld", ex: "Man får tillbaka **panten** när man lämnar in flaskan.", exNl: "Je krijgt het statiegeld terug als je de fles inlevert." }
+  - { sv: "att sortera", nl: "sorteren, scheiden", ex: "Svenskarna är noga med att **sortera** sina sopor.", exNl: "Zweden nemen het nauw met het scheiden van hun afval." }
+  - { sv: "att slänga", nl: "weggooien", ex: "Man ska inte **slänga** glas bland de vanliga soporna.", exNl: "Je moet glas niet bij het gewone afval gooien." }
+  - { sv: "att vänja sig", nl: "wennen", ex: "Det var konstigt i början, men man **vänjer sig**.", exNl: "In het begin was het vreemd, maar je went eraan." }
+  - { sv: "att spara", nl: "besparen, sparen", ex: "Vi försöker **spara** energi genom att sänka värmen.", exNl: "We proberen energie te besparen door de verwarming lager te zetten." }
+  - { sv: "hållbar", nl: "duurzaam", ex: "Vi vill bygga ett **hållbart** samhälle.", exNl: "We willen een duurzame samenleving opbouwen." }
+  - { sv: "begagnad", nl: "tweedehands", ex: "Hon köper nästan bara **begagnade** kläder.", exNl: "Ze koopt bijna alleen tweedehands kleren." }
+  - { sv: "överdriven", nl: "overdreven", ex: "I början tyckte Bas att det var lite **överdrivet**.", exNl: "In het begin vond Bas het een beetje overdreven." }
+  - { sv: "en återvinningsstation", nl: "een inzamelpunt (voor recycling)", def: "återvinningsstationen", pl: "återvinningsstationer", ex: "Tidningar och glas lämnar vi på **återvinningsstationen**.", exNl: "Kranten en glas brengen we naar het inzamelpunt." }
+  - { sv: "en återvinningscentral", nl: "een milieustraat", def: "återvinningscentralen", pl: "återvinningscentraler", ex: "Den gamla soffan körde vi till **återvinningscentralen**.", exNl: "De oude bank brachten we met de auto naar de milieustraat." }
+  - { sv: "en kompost", nl: "een composthoop", def: "komposten", pl: "komposter", ex: "Skalen lägger vi i **komposten** i trädgården.", exNl: "De schillen gooien we op de composthoop in de tuin." }
+  - { sv: "en växthuseffekt", nl: "het broeikaseffect", def: "växthuseffekten", mass: true, ex: "Koldioxid förstärker **växthuseffekten**.", exNl: "CO2 versterkt het broeikaseffect." }
+  - { sv: "ett bränsle", nl: "een brandstof", def: "bränslet", pl: "bränslen", ex: "Bussarna i stan går på förnybart **bränsle**.", exNl: "De bussen in de stad rijden op hernieuwbare brandstof." }
+  - { sv: "en energikälla", nl: "een energiebron", def: "energikällan", pl: "energikällor", ex: "Sol och vind är viktiga **energikällor**.", exNl: "Zon en wind zijn belangrijke energiebronnen." }
+  - { sv: "en solcell", nl: "een zonnepaneel, een zonnecel", def: "solcellen", pl: "solceller", alt: ["en solpanel"], ex: "Grannen har satt upp **{solceller|solpaneler}** på taket.", exNl: "De buurman heeft zonnepanelen op het dak gezet." }
+  - { sv: "ett vindkraftverk", nl: "een windturbine, een windmolen", def: "vindkraftverket", pl: "vindkraftverk", ex: "Utanför byn står tio **vindkraftverk**.", exNl: "Buiten het dorp staan tien windturbines." }
+  - { sv: "en elbil", nl: "een elektrische auto", def: "elbilen", pl: "elbilar", ex: "Vi laddar **elbilen** i garaget på natten.", exNl: "We laden de elektrische auto 's nachts op in de garage." }
+  - { sv: "en uppvärmning", nl: "de opwarming", def: "uppvärmningen", mass: true, ex: "Den globala **uppvärmningen** påverkar hela jorden.", exNl: "De wereldwijde opwarming heeft gevolgen voor de hele aarde." }
+  - { sv: "en översvämning", nl: "een overstroming", def: "översvämningen", pl: "översvämningar", ex: "Efter regnet blev det stora **översvämningar** i södra Sverige.", exNl: "Na de regen waren er grote overstromingen in Zuid-Zweden." }
+  - { sv: "en torka", nl: "een droogte", def: "torkan", pl: "torkor", ex: "**Torkan** i somras var svår för bönderna.", exNl: "De droogte afgelopen zomer was zwaar voor de boeren." }
+  - { sv: "ett slöseri", nl: "een verspilling", def: "slöseriet", pl: "slöserier", ex: "Det är ett stort **slöseri** att slänga mat som går att äta.", exNl: "Het is een grote verspilling om eten weg te gooien dat nog goed is." }
+  - { sv: "en resurs", nl: "een hulpbron, een middel", def: "resursen", pl: "resurser", ex: "Jordens **resurser** räcker inte om vi fortsätter så här.", exNl: "De hulpbronnen van de aarde zijn niet genoeg als we zo doorgaan." }
+  - { sv: "en sophämtning", nl: "de vuilnisophaal", def: "sophämtningen", mass: true, ex: "**Sophämtningen** kommer på tisdagar.", exNl: "De vuilnisophaal komt op dinsdag." }
+  - { sv: "en pantburk", nl: "een statiegeldblikje", def: "pantburken", pl: "pantburkar", ex: "Barnen samlar **pantburkar** för att tjäna pengar.", exNl: "De kinderen verzamelen statiegeldblikjes om geld te verdienen." }
+  - { sv: "en miljöbov", nl: "een milieuvervuiler (spreektaal)", def: "miljöboven", pl: "miljöbovar", ex: "Flyget kallas ofta för en stor **miljöbov**.", exNl: "Vliegen wordt vaak een grote milieuvervuiler genoemd." }
+  - { sv: "att källsortera", nl: "afval scheiden (bij de bron)", alt: ["att sortera"], ex: "I vårt hus **{källsorterar|sorterar}** alla sina sopor.", exNl: "In ons gebouw scheidt iedereen zijn afval." }
+  - { sv: "att återvinna", nl: "recyclen", ex: "Aluminium kan **återvinnas** hur många gånger som helst.", exNl: "Aluminium kan onbeperkt worden gerecycled." }
+  - { sv: "att panta", nl: "inleveren (voor statiegeld)", ex: "Glöm inte att **panta** flaskorna!", exNl: "Vergeet niet de flessen in te leveren voor statiegeld!" }
+  - { sv: "att släppa ut", nl: "uitstoten, lozen", ex: "Fabriken **släppte ut** kemikalier i ån.", exNl: "De fabriek loosde chemicaliën in de rivier." }
+  - { sv: "att förorena", nl: "vervuilen", ex: "Plast **förorenar** haven.", exNl: "Plastic vervuilt de zeeën." }
+  - { sv: "att slösa", nl: "verspillen", ex: "Man ska inte **slösa** med vatten.", exNl: "Je moet geen water verspillen." }
+  - { sv: "att dra ner på", nl: "minderen met, verminderen", alt: ["att dra ned på"], ex: "Vi har **{dragit ner på|dragit ned på}** köttet hemma.", exNl: "We hebben thuis geminderd met vlees." }
+  - { sv: "att skydda", nl: "beschermen", ex: "Vi måste **skydda** skogarna och djuren.", exNl: "We moeten de bossen en de dieren beschermen." }
+  - { sv: "att ta ansvar för", nl: "verantwoordelijkheid nemen voor", ex: "Alla måste **ta ansvar för** miljön.", exNl: "Iedereen moet verantwoordelijkheid nemen voor het milieu." }
+  - { sv: "att släcka", nl: "uitdoen (licht), blussen", ex: "**Släck** lampan när du går ut ur rummet.", exNl: "Doe het licht uit als je de kamer uit gaat." }
+  - { sv: "att gå över till", nl: "overstappen op", ex: "Många företag **går över till** förnybar energi.", exNl: "Veel bedrijven stappen over op hernieuwbare energie." }
+  - { sv: "att ta vara på", nl: "benutten, zuinig omgaan met", ex: "Mormor lärde mig att **ta vara på** all mat.", exNl: "Oma leerde me al het eten goed te benutten." }
+  - { sv: "att återanvända", nl: "hergebruiken", ex: "Vi **återanvänder** glasburkar till sylt.", exNl: "We hergebruiken glazen potten voor jam." }
+  - { sv: "att vara noga med", nl: "het nauw nemen met, letten op", ex: "Man måste **vara noga med** att skölja burkarna.", exNl: "Je moet erop letten dat je de potten omspoelt." }
+  - { sv: "miljövänlig", nl: "milieuvriendelijk", ex: "Tåget är ett mer **miljövänligt** alternativ än flyget.", exNl: "De trein is een milieuvriendelijker alternatief dan het vliegtuig." }
+  - { sv: "klimatsmart", nl: "klimaatbewust", ex: "Det finns många **klimatsmarta** recept på nätet.", exNl: "Er staan veel klimaatbewuste recepten op internet." }
+  - { sv: "förnybar", nl: "hernieuwbaar", ex: "Sverige får mycket el från **förnybara** källor.", exNl: "Zweden haalt veel stroom uit hernieuwbare bronnen." }
+  - { sv: "fossil", nl: "fossiel", ex: "Vi måste sluta använda **fossila** bränslen.", exNl: "We moeten stoppen met het gebruik van fossiele brandstoffen." }
+  - { sv: "skadlig", nl: "schadelijk", ex: "Avgaser är **skadliga** för hälsan.", exNl: "Uitlaatgassen zijn schadelijk voor de gezondheid." }
+  - { sv: "giftig", nl: "giftig", ex: "Batterier innehåller **giftiga** ämnen.", exNl: "Batterijen bevatten giftige stoffen." }
+  - { sv: "vad som helst", nl: "wat dan ook, van alles", ex: "På loppisen kan man hitta **vad som helst**.", exNl: "Op de rommelmarkt kun je van alles vinden." }
+  - { sv: "någonstans", nl: "ergens", ex: "Finns det en återvinningsstation **någonstans** här i närheten?", exNl: "Is er hier ergens in de buurt een inzamelpunt?" }
+  - { sv: "ingenstans", nl: "nergens", ex: "Det fanns **ingenstans** att lämna batterierna.", exNl: "Er was nergens een plek om de batterijen in te leveren." }
+  - { sv: "allt mer", nl: "steeds meer", ex: "Svenskar köper **allt mer** begagnat.", exNl: "Zweden kopen steeds meer tweedehands." }
+  - { sv: "inte ens", nl: "niet eens", ex: "Han sorterar **inte ens** glaset.", exNl: "Hij scheidt niet eens het glas." }

@@ -284,23 +284,61 @@ sections:
           - { id: thad, type: findError, topic: trender, sentence: "Andelen nådde botten på 82 procent.", wrong: [2], answers: ["Andelen nådde {toppen|en topp|sin högsta nivå} på 82 procent."], tip: "82 procent was het hoogste punt." }
 
 vocab:
-  - { sv: "en ökning", nl: "een stijging, een toename", def: "ökningen", pl: "ökningar", plDef: "ökningarna" }
-  - { sv: "en minskning", nl: "een daling, een afname", def: "minskningen", pl: "minskningar", plDef: "minskningarna" }
-  - { sv: "en utveckling", nl: "een ontwikkeling", def: "utvecklingen" }
-  - { sv: "en förändring", nl: "een verandering", def: "förändringen", pl: "förändringar", plDef: "förändringarna" }
-  - { sv: "en försäljning", nl: "de verkoop, de omzet", def: "försäljningen" }
-  - { sv: "en andel", nl: "een aandeel", def: "andelen", pl: "andelar", plDef: "andelarna" }
-  - { sv: "en nivå", nl: "een niveau", def: "nivån", pl: "nivåer", plDef: "nivåerna" }
-  - { sv: "en ledning", nl: "de directie, de leiding", def: "ledningen" }
-  - { sv: "ett kvartal", nl: "een kwartaal", def: "kvartalet", pl: "kvartal", plDef: "kvartalen" }
-  - { sv: "en tillväxt", nl: "de groei", def: "tillväxten", mass: true }
-  - { sv: "en procentenhet", nl: "een procentpunt", def: "procentenheten", pl: "procentenheter", plDef: "procentenheterna" }
-  - { sv: "ett diagram", nl: "een grafiek", def: "diagrammet", pl: "diagram", plDef: "diagrammen" }
-  - { sv: "att öka", nl: "toenemen, stijgen" }
-  - { sv: "att minska", nl: "afnemen, dalen" }
-  - { sv: "att uppge", nl: "verklaren, opgeven" }
-  - { sv: "att försvåra", nl: "bemoeilijken" }
-  - { sv: "kraftigt", nl: "sterk" }
-  - { sv: "gradvis", nl: "geleidelijk" }
-  - { sv: "drygt", nl: "iets meer dan" }
-  - { sv: "knappt", nl: "iets minder dan" }
+  - { sv: "en ökning", nl: "een stijging, een toename", def: "ökningen", pl: "ökningar", plDef: "ökningarna", ex: "Under pandemin skedde en kraftig **ökning** av e-handeln.", exNl: "Tijdens de pandemie was er een sterke toename van de online handel." }
+  - { sv: "en minskning", nl: "een daling, een afname", def: "minskningen", pl: "minskningar", plDef: "minskningarna", ex: "Företaget rapporterar en tydlig **minskning** av sjukfrånvaron.", exNl: "Het bedrijf meldt een duidelijke daling van het ziekteverzuim." }
+  - { sv: "en utveckling", nl: "een ontwikkeling", def: "utvecklingen", ex: "Ledningen följer **utvecklingen** på marknaden noga.", exNl: "De directie volgt de ontwikkeling op de markt nauwlettend." }
+  - { sv: "en förändring", nl: "een verandering", def: "förändringen", pl: "förändringar", plDef: "förändringarna", ex: "Hemarbetet har lett till stora **förändringar** på arbetsplatsen.", exNl: "Het thuiswerken heeft tot grote veranderingen op de werkplek geleid." }
+  - { sv: "en försäljning", nl: "de verkoop, de omzet", def: "försäljningen", ex: "**Försäljningen** i de fysiska butikerna minskade med tre procent.", exNl: "De verkoop in de fysieke winkels daalde met drie procent." }
+  - { sv: "en andel", nl: "een aandeel", def: "andelen", pl: "andelar", plDef: "andelarna", ex: "**Andelen** kvinnor i styrelsen har ökat de senaste åren.", exNl: "Het aandeel vrouwen in het bestuur is de afgelopen jaren gestegen." }
+  - { sv: "en nivå", nl: "een niveau", def: "nivån", pl: "nivåer", plDef: "nivåerna", ex: "Andelen har aldrig återgått till den tidigare **nivån**.", exNl: "Het aandeel is nooit naar het vroegere niveau teruggekeerd." }
+  - { sv: "en ledning", nl: "de directie, de leiding", def: "ledningen", ex: "**Ledningen** har beslutat att stänga två butiker.", exNl: "De directie heeft besloten twee winkels te sluiten." }
+  - { sv: "ett kvartal", nl: "een kwartaal", def: "kvartalet", pl: "kvartal", plDef: "kvartalen", ex: "Vinsten ökade under årets tredje **kvartal**.", exNl: "De winst steeg in het derde kwartaal van het jaar." }
+  - { sv: "en tillväxt", nl: "de groei", def: "tillväxten", mass: true, ex: "Regeringen räknar med en svag **tillväxt** nästa år.", exNl: "De regering rekent volgend jaar op een zwakke groei." }
+  - { sv: "en procentenhet", nl: "een procentpunt", def: "procentenheten", pl: "procentenheter", plDef: "procentenheterna", ex: "Räntan höjdes med en halv **procentenhet**.", exNl: "De rente werd met een half procentpunt verhoogd." }
+  - { sv: "ett diagram", nl: "een grafiek", def: "diagrammet", pl: "diagram", plDef: "diagrammen", ex: "**Diagrammet** visar hur försäljningen har utvecklats sedan 2019.", exNl: "De grafiek laat zien hoe de verkoop zich sinds 2019 heeft ontwikkeld." }
+  - { sv: "att öka", nl: "toenemen, stijgen", ex: "Antalet anställda har **ökat** med tjugo procent.", exNl: "Het aantal werknemers is met twintig procent toegenomen." }
+  - { sv: "att minska", nl: "afnemen, dalen", ex: "Sjukfrånvaron **minskade** kraftigt efter förändringen.", exNl: "Het ziekteverzuim nam na de verandering sterk af." }
+  - { sv: "att uppge", nl: "verklaren, opgeven", ex: "Många chefer **uppger** att samarbetet har blivit sämre.", exNl: "Veel leidinggevenden verklaren dat de samenwerking slechter is geworden." }
+  - { sv: "att försvåra", nl: "bemoeilijken", ex: "Hemarbetet har **försvårat** introduktionen av nyanställda.", exNl: "Het thuiswerken heeft het inwerken van nieuwe medewerkers bemoeilijkt." }
+  - { sv: "kraftigt", nl: "sterk", ex: "Elpriserna steg **kraftigt** under vintern.", exNl: "De elektriciteitsprijzen stegen in de winter sterk." }
+  - { sv: "gradvis", nl: "geleidelijk", ex: "Andelen hemarbetare minskade **gradvis** efter pandemin.", exNl: "Het aandeel thuiswerkers nam na de pandemie geleidelijk af." }
+  - { sv: "drygt", nl: "iets meer dan", ex: "Företaget har **drygt** tvåhundra anställda.", exNl: "Het bedrijf heeft iets meer dan tweehonderd werknemers." }
+  - { sv: "knappt", nl: "iets minder dan", ex: "**Knappt** hälften av de tillfrågade var nöjda.", exNl: "Iets minder dan de helft van de ondervraagden was tevreden." }
+  - { sv: "en kostnad", nl: "een kostenpost, de kosten", def: "kostnaden", pl: "kostnader", ex: "De höga **kostnaderna** för el drabbar många företag.", exNl: "De hoge kosten voor elektriciteit treffen veel bedrijven." }
+  - { sv: "en intäkt", nl: "een opbrengst, een inkomst", def: "intäkten", pl: "intäkter", ex: "**Intäkterna** från e-handeln ökade med åtta procent.", exNl: "De opbrengsten uit de online handel stegen met acht procent." }
+  - { sv: "en vinst", nl: "een winst", def: "vinsten", pl: "vinster", ex: "Bolaget redovisade en **vinst** på tio miljoner kronor.", exNl: "Het bedrijf boekte een winst van tien miljoen kronen." }
+  - { sv: "en förlust", nl: "een verlies", def: "förlusten", pl: "förluster", ex: "Butikerna i centrum går med **förlust**.", exNl: "De winkels in het centrum draaien verlies." }
+  - { sv: "en omsättning", nl: "de omzet", def: "omsättningen", pl: "omsättningar", ex: "Företaget har en årlig **omsättning** på två miljarder kronor.", exNl: "Het bedrijf heeft een jaarlijkse omzet van twee miljard kronen." }
+  - { sv: "en investering", nl: "een investering", def: "investeringen", pl: "investeringar", ex: "Den nya fabriken är en stor **investering** för kommunen.", exNl: "De nieuwe fabriek is een grote investering voor de gemeente." }
+  - { sv: "en inflation", nl: "de inflatie", def: "inflationen", mass: true, ex: "Hög **inflation** gör att pengarna blir mindre värda.", exNl: "Door hoge inflatie wordt geld minder waard." }
+  - { sv: "en ränta", nl: "een rente", def: "räntan", pl: "räntor", ex: "Riksbanken har höjt **räntan** tre gånger i år.", exNl: "De Riksbank heeft de rente dit jaar drie keer verhoogd." }
+  - { sv: "ett lån", nl: "een lening", def: "lånet", pl: "lån", ex: "Många hushåll har stora **lån** på sina bostäder.", exNl: "Veel huishoudens hebben grote leningen op hun woning." }
+  - { sv: "en lågkonjunktur", nl: "een recessie, een laagconjunctuur", def: "lågkonjunkturen", pl: "lågkonjunkturer", ex: "Under en **lågkonjunktur** brukar arbetslösheten öka.", exNl: "Tijdens een recessie neemt de werkloosheid meestal toe." }
+  - { sv: "en arbetslöshet", nl: "de werkloosheid", def: "arbetslösheten", mass: true, ex: "**Arbetslösheten** bland unga ligger på drygt tjugo procent.", exNl: "De werkloosheid onder jongeren ligt op iets meer dan twintig procent." }
+  - { sv: "en marknad", nl: "een markt", def: "marknaden", pl: "marknader", ex: "Företaget vill växa på den europeiska **marknaden**.", exNl: "Het bedrijf wil groeien op de Europese markt." }
+  - { sv: "en konkurrens", nl: "de concurrentie", def: "konkurrensen", mass: true, ex: "**Konkurrensen** från utländska nätbutiker är hård.", exNl: "De concurrentie van buitenlandse webwinkels is hard." }
+  - { sv: "en aktie", nl: "een beursaandeel", def: "aktien", pl: "aktier", ex: "Efter rapporten föll **aktien** med tio procent.", exNl: "Na het rapport daalde het aandeel met tien procent." }
+  - { sv: "ett underskott", nl: "een tekort (in de begroting)", def: "underskottet", pl: "underskott", ex: "Kommunen har ett **underskott** på femtio miljoner kronor.", exNl: "De gemeente heeft een tekort van vijftig miljoen kronen." }
+  - { sv: "ett antal", nl: "een aantal", def: "antalet", pl: "antal", ex: "**Antalet** kunder ökade med tio procent i fjol.", exNl: "Het aantal klanten steeg vorig jaar met tien procent." }
+  - { sv: "en siffra", nl: "een cijfer (getal)", def: "siffran", pl: "siffror", ex: "De senaste **siffrorna** visar att tillväxten har avtagit.", exNl: "De laatste cijfers laten zien dat de groei is afgenomen." }
+  - { sv: "att stiga", nl: "stijgen, omhooggaan", ex: "Bostadspriserna **steg** med fem procent förra året.", exNl: "De huizenprijzen stegen vorig jaar met vijf procent." }
+  - { sv: "att rasa", nl: "kelderen, instorten", ex: "Under krisen **rasade** aktiekurserna.", exNl: "Tijdens de crisis kelderden de aandelenkoersen." }
+  - { sv: "att ligga still", nl: "stabiel blijven, stilstaan", ex: "Försäljningen har **legat still** under hela året.", exNl: "De verkoop is het hele jaar stabiel gebleven." }
+  - { sv: "att nå en topp", nl: "een piek bereiken", ex: "Hemarbetet **nådde en topp** år 2021.", exNl: "Het thuiswerken bereikte in 2021 een piek." }
+  - { sv: "att fördubblas", nl: "verdubbelen", ex: "Priset på kaffe har **fördubblats** på två år.", exNl: "De prijs van koffie is in twee jaar verdubbeld." }
+  - { sv: "att halveras", nl: "halveren (de helft worden)", ex: "Bolagets vinst **halverades** under krisåret.", exNl: "De winst van het bedrijf halveerde in het crisisjaar." }
+  - { sv: "att uppgå till", nl: "bedragen", ex: "Kostnaderna **uppgick till** fem miljoner kronor.", exNl: "De kosten bedroegen vijf miljoen kronen." }
+  - { sv: "att räkna med", nl: "rekenen op, verwachten", ex: "Ledningen **räknar med** en fortsatt ökning.", exNl: "De directie rekent op een aanhoudende stijging." }
+  - { sv: "att skära ner på", nl: "bezuinigen op", ex: "Många familjer **{skär ner på|skär ned på}** restaurangbesök.", exNl: "Veel gezinnen bezuinigen op restaurantbezoeken." }
+  - { sv: "att leda till", nl: "leiden tot", ex: "Höjda räntor kan **leda till** lägre bostadspriser.", exNl: "Hogere rentes kunnen tot lagere huizenprijzen leiden." }
+  - { sv: "att gå i konkurs", nl: "failliet gaan", ex: "Restaurangen **gick i konkurs** efter bara ett år.", exNl: "Het restaurant ging na slechts een jaar failliet." }
+  - { sv: "att lägga ner", nl: "opheffen, sluiten (een bedrijf of afdeling)", ex: "Företaget **{lägger ner|lägger ned}** två butiker i vår.", exNl: "Het bedrijf heft dit voorjaar twee winkels op." }
+  - { sv: "stadigt", nl: "gestaag", ex: "Försäljningen har ökat **stadigt** de senaste åren.", exNl: "De verkoop is de afgelopen jaren gestaag gestegen." }
+  - { sv: "främst", nl: "voornamelijk, vooral", ex: "Ökningen beror **främst** på e-handeln.", exNl: "De stijging komt voornamelijk door de online handel." }
+  - { sv: "i stort sett", nl: "grotendeels, in grote lijnen", ex: "Prognosen för förra året stämde **i stort sett**.", exNl: "De prognose voor vorig jaar klopte grotendeels." }
+  - { sv: "oförändrad", nl: "onveranderd", ex: "Räntan lämnas **oförändrad** på två procent.", exNl: "De rente blijft onveranderd op twee procent." }
+  - { sv: "jämfört med", nl: "vergeleken met", ex: "Försäljningen ökade med åtta procent **jämfört med** i fjol.", exNl: "De verkoop steeg met acht procent vergeleken met vorig jaar." }
+  - { sv: "lönsam", nl: "winstgevend, rendabel", ex: "Den nya tjänsten har ännu inte blivit **lönsam**.", exNl: "De nieuwe dienst is nog niet winstgevend geworden." }
+  - { sv: "bestående", nl: "blijvend", ex: "Hemarbetet verkar vara en **bestående** förändring.", exNl: "Het thuiswerken lijkt een blijvende verandering te zijn." }
+  - { sv: "samtidigt", nl: "tegelijkertijd", ex: "Försäljningen ökade, men **samtidigt** steg kostnaderna.", exNl: "De verkoop steeg, maar tegelijkertijd stegen de kosten." }
+  - { sv: "omkring", nl: "ongeveer, rond", alt: ["cirka", "ungefär"], ex: "Andelen ligger i dag på **omkring** femtio procent.", exNl: "Het aandeel ligt vandaag op ongeveer vijftig procent." }

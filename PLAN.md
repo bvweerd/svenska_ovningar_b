@@ -113,6 +113,8 @@ Daarna leest de eigenaar steekproefsgewijs mee. Pas dan wordt er gepubliceerd.
       goedgekeurd door de eigenaar.
 - [ ] **Fase 3**: hoofdstuk 13–30 naar ±60 woorden (meer uitdrukkingen en partikelwerkwoorden),
       per hoofdstuk een **taalreview**.
+      Stand: hoofdstuk 13–30 uitgebreid tot 58–62 woorden (1083 in totaal) → **taalreview**
+      (twee rondes) gedaan; wacht op de steekproef van de eigenaar.
 - [x] **Fase 4**: kernoefeningen naar 8–10 vragen, luistervragen in de A1–A2-site,
       ±80 werkwoorden erbij in de werkwoordtrainer; per hoofdstuk of per lijst een **taalreview**.
       Gedaan en na **taalreview** verwerkt: 82 werkwoorden erbij (146 in totaal); alle kernoefeningen

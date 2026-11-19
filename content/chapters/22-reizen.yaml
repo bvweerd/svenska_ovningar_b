@@ -314,23 +314,64 @@ sections:
           - { id: butj, type: findError, sentence: "Tåget var sent, så missade vi bussen.", wrong: [4, 5], answers: ["Tåget var sent, så vi missade bussen."], tip: "Na het voegwoord så (= dus): geen inversie. In spreektaal hoor je ook så missade vi, maar schrijf så vi missade." }
 
 vocab:
-  - { sv: "ett nattåg", nl: "een nachttrein", def: "nattåget", pl: "nattåg", plDef: "nattågen" }
-  - { sv: "en sovvagn", nl: "een slaaprijtuig", def: "sovvagnen", pl: "sovvagnar", plDef: "sovvagnarna" }
-  - { sv: "en biljett", nl: "een kaartje", def: "biljetten", pl: "biljetter", plDef: "biljetterna" }
-  - { sv: "en försening", nl: "een vertraging", def: "förseningen", pl: "förseningar", plDef: "förseningarna" }
-  - { sv: "ett spår", nl: "een spoor", def: "spåret", pl: "spår", plDef: "spåren" }
-  - { sv: "en avgång", nl: "een vertrek", def: "avgången", pl: "avgångar", plDef: "avgångarna" }
-  - { sv: "en ankomst", nl: "een aankomst", def: "ankomsten", pl: "ankomster", plDef: "ankomsterna" }
-  - { sv: "ett byte", nl: "een overstap", def: "bytet", pl: "byten", plDef: "bytena" }
-  - { sv: "ett klagomål", nl: "een klacht", def: "klagomålet", pl: "klagomål", plDef: "klagomålen" }
-  - { sv: "en ersättning", nl: "een vergoeding", def: "ersättningen", pl: "ersättningar", plDef: "ersättningarna" }
-  - { sv: "ett tält", nl: "een tent", def: "tältet", pl: "tält", plDef: "tälten" }
-  - { sv: "en resenär", nl: "een reiziger", def: "resenären", pl: "resenärer", plDef: "resenärerna" }
-  - { sv: "att stiga på", nl: "instappen" }
-  - { sv: "att stiga av", nl: "uitstappen" }
-  - { sv: "att komma fram", nl: "aankomen" }
-  - { sv: "att hinna med", nl: "halen (op tijd)" }
-  - { sv: "att boka om", nl: "omboeken" }
-  - { sv: "därför", nl: "daarom" }
-  - { sv: "dessutom", nl: "bovendien" }
-  - { sv: "ändå", nl: "toch" }
+  - { sv: "ett nattåg", nl: "een nachttrein", def: "nattåget", pl: "nattåg", plDef: "nattågen", ex: "Vi tog **nattåget** från Stockholm till Abisko.", exNl: "We namen de nachttrein van Stockholm naar Abisko." }
+  - { sv: "en sovvagn", nl: "een slaaprijtuig", def: "sovvagnen", pl: "sovvagnar", plDef: "sovvagnarna", ex: "Vi sov gott i **sovvagnen** hela natten.", exNl: "We sliepen de hele nacht goed in het slaaprijtuig." }
+  - { sv: "en biljett", nl: "een kaartje", def: "biljetten", pl: "biljetter", plDef: "biljetterna", ex: "Vi bokade **biljetterna** två månader i förväg.", exNl: "We boekten de kaartjes twee maanden van tevoren." }
+  - { sv: "en försening", nl: "een vertraging", def: "förseningen", pl: "förseningar", plDef: "förseningarna", ex: "**Förseningen** berodde på ett signalfel.", exNl: "De vertraging kwam door een seinstoring." }
+  - { sv: "ett spår", nl: "een spoor", def: "spåret", pl: "spår", plDef: "spåren", ex: "Tåget till Göteborg avgår från **spår** sju.", exNl: "De trein naar Göteborg vertrekt van spoor zeven." }
+  - { sv: "en avgång", nl: "een vertrek", def: "avgången", pl: "avgångar", plDef: "avgångarna", ex: "Nästa **avgång** mot Kiruna är klockan 18.10.", exNl: "Het volgende vertrek richting Kiruna is om 18.10 uur." }
+  - { sv: "en ankomst", nl: "een aankomst", def: "ankomsten", pl: "ankomster", plDef: "ankomsterna", ex: "Beräknad **ankomst** är klockan nio.", exNl: "De verwachte aankomst is om negen uur." }
+  - { sv: "ett byte", nl: "een overstap", def: "bytet", pl: "byten", plDef: "bytena", ex: "Resan tar fem timmar med ett **byte** i Sundsvall.", exNl: "De reis duurt vijf uur met één overstap in Sundsvall." }
+  - { sv: "ett klagomål", nl: "een klacht", def: "klagomålet", pl: "klagomål", plDef: "klagomålen", ex: "Jag skrev ett **klagomål** till tågbolaget.", exNl: "Ik schreef een klacht aan de spoorwegmaatschappij." }
+  - { sv: "en ersättning", nl: "een vergoeding", def: "ersättningen", pl: "ersättningar", plDef: "ersättningarna", ex: "Vid stor försening har man rätt till **ersättning**.", exNl: "Bij een grote vertraging heb je recht op een vergoeding." }
+  - { sv: "ett tält", nl: "een tent", def: "tältet", pl: "tält", plDef: "tälten", ex: "Vi satte upp **tältet** vid en sjö.", exNl: "We zetten de tent op bij een meer." }
+  - { sv: "en resenär", nl: "een reiziger", def: "resenären", pl: "resenärer", plDef: "resenärerna", ex: "Tågbolaget bad **resenärerna** om ursäkt.", exNl: "De spoorwegmaatschappij bood de reizigers excuses aan." }
+  - { sv: "att stiga på", nl: "instappen", ex: "Vi **steg på** tåget i Stockholm.", exNl: "We stapten in Stockholm in de trein." }
+  - { sv: "att stiga av", nl: "uitstappen", ex: "Vi **steg av** vid fel hållplats.", exNl: "We stapten bij de verkeerde halte uit." }
+  - { sv: "att komma fram", nl: "aankomen", ex: "Vi **kom fram** till Abisko fem timmar för sent.", exNl: "We kwamen vijf uur te laat in Abisko aan." }
+  - { sv: "att hinna med", nl: "halen (op tijd)", ex: "Vi sprang och **hann med** bussen i sista stund.", exNl: "We renden en haalden de bus op het nippertje." }
+  - { sv: "att boka om", nl: "omboeken", ex: "Kan jag **boka om** min biljett till i morgon?", exNl: "Kan ik mijn kaartje omboeken naar morgen?" }
+  - { sv: "därför", nl: "daarom", ex: "Tåget var försenat. **Därför** missade vi bussen.", exNl: "De trein had vertraging. Daarom misten we de bus." }
+  - { sv: "dessutom", nl: "bovendien", ex: "Tåget var försenat, och **dessutom** var det fullt.", exNl: "De trein had vertraging en bovendien was hij vol." }
+  - { sv: "ändå", nl: "toch", ex: "Det regnade hela veckan, men vi hade **ändå** roligt.", exNl: "Het regende de hele week, maar we hadden toch plezier." }
+  - { sv: "en vandringsled", nl: "een wandelroute", def: "vandringsleden", pl: "vandringsleder", ex: "Kungsleden är Sveriges mest kända **vandringsled**.", exNl: "De Kungsleden is de bekendste wandelroute van Zweden." }
+  - { sv: "en sovsäck", nl: "een slaapzak", def: "sovsäcken", pl: "sovsäckar", ex: "Glöm inte att packa ner **sovsäcken**!", exNl: "Vergeet niet de slaapzak in te pakken!" }
+  - { sv: "ett signalfel", nl: "een seinstoring", def: "signalfelet", pl: "signalfel", ex: "Ett **signalfel** utanför Umeå stoppade all trafik.", exNl: "Een seinstoring buiten Umeå legde al het verkeer stil." }
+  - { sv: "ett tågbolag", nl: "een spoorwegmaatschappij", def: "tågbolaget", pl: "tågbolag", ex: "Vilket **tågbolag** kör nattåget till Narvik?", exNl: "Welke spoorwegmaatschappij rijdt de nachttrein naar Narvik?" }
+  - { sv: "en konduktör", nl: "een conducteur", def: "konduktören", pl: "konduktörer", ex: "**Konduktören** kontrollerade våra biljetter.", exNl: "De conducteur controleerde onze kaartjes." }
+  - { sv: "en vagn", nl: "een rijtuig, een wagon", def: "vagnen", pl: "vagnar", ex: "Våra platser är i **vagn** åtta.", exNl: "Onze plaatsen zijn in rijtuig acht." }
+  - { sv: "en kupé", nl: "een coupé (in een trein)", def: "kupén", pl: "kupéer", ex: "Vi delade **kupé** med en familj från Tyskland.", exNl: "We deelden een coupé met een gezin uit Duitsland." }
+  - { sv: "en sittplats", nl: "een zitplaats", def: "sittplatsen", pl: "sittplatser", ex: "Det fanns inga lediga **sittplatser** på tåget.", exNl: "Er waren geen vrije zitplaatsen in de trein." }
+  - { sv: "ett resmål", nl: "een reisbestemming", def: "resmålet", pl: "resmål", ex: "Thailand är ett populärt **resmål** för svenskar.", exNl: "Thailand is een populaire reisbestemming voor Zweden." }
+  - { sv: "en förbindelse", nl: "een verbinding", def: "förbindelsen", pl: "förbindelser", ex: "Det finns bra **förbindelser** mellan Malmö och Köpenhamn.", exNl: "Er zijn goede verbindingen tussen Malmö en Kopenhagen." }
+  - { sv: "en anslutning", nl: "een aansluiting", def: "anslutningen", pl: "anslutningar", ex: "Vi missade **anslutningen** i Boden.", exNl: "We misten de aansluiting in Boden." }
+  - { sv: "en ren", nl: "een rendier", def: "renen", pl: "renar", ex: "På vägen såg vi flera **renar**.", exNl: "Onderweg zagen we verscheidene rendieren." }
+  - { sv: "en midnattssol", nl: "de middernachtzon", def: "midnattssolen", mass: true, ex: "I juni kan man se **midnattssolen** i Abisko.", exNl: "In juni kun je in Abisko de middernachtzon zien." }
+  - { sv: "en charterresa", nl: "een pakketreis", def: "charterresan", pl: "charterresor", ex: "Förr åkte många svenskar på **charterresa** till Mallorca.", exNl: "Vroeger gingen veel Zweden op pakketreis naar Mallorca." }
+  - { sv: "en reseförsäkring", nl: "een reisverzekering", def: "reseförsäkringen", pl: "reseförsäkringar", ex: "Har du tecknat en **reseförsäkring**?", exNl: "Heb je een reisverzekering afgesloten?" }
+  - { sv: "en sevärdhet", nl: "een bezienswaardigheid", def: "sevärdheten", pl: "sevärdheter", ex: "Vasamuseet är en av Stockholms största **sevärdheter**.", exNl: "Het Vasamuseum is een van de grootste bezienswaardigheden van Stockholm." }
+  - { sv: "ett boende", nl: "een accommodatie, een verblijf", def: "boendet", pl: "boenden", ex: "Vi hittade ett billigt **boende** nära stationen.", exNl: "We vonden een goedkope accommodatie vlak bij het station." }
+  - { sv: "att åka iväg", nl: "vertrekken, weggaan", ex: "Vi **åker iväg** tidigt i morgon.", exNl: "We vertrekken morgen vroeg." }
+  - { sv: "att köra om", nl: "inhalen (in het verkeer)", ex: "Lastbilen **körde om** oss i en kurva.", exNl: "De vrachtwagen haalde ons in een bocht in." }
+  - { sv: "att packa ner", nl: "inpakken", ex: "Vi **packade ner** tält, sovsäckar och mat för en vecka.", exNl: "We pakten een tent, slaapzakken en eten voor een week in." }
+  - { sv: "att checka in", nl: "inchecken", ex: "Man kan **checka in** på hotellet från klockan tre.", exNl: "Je kunt vanaf drie uur inchecken in het hotel." }
+  - { sv: "att checka ut", nl: "uitchecken", ex: "Vi måste **checka ut** före klockan elva.", exNl: "We moeten vóór elf uur uitchecken." }
+  - { sv: "att köa", nl: "in de rij staan", ex: "Vi fick **köa** i en timme vid säkerhetskontrollen.", exNl: "We moesten een uur in de rij staan bij de veiligheidscontrole." }
+  - { sv: "att ta med sig", nl: "meenemen", ex: "Glöm inte att **ta med dig** passet!", exNl: "Vergeet niet je paspoort mee te nemen!" }
+  - { sv: "att ta sig", nl: "ergens komen, zich verplaatsen", ex: "Det är svårt att **ta sig** runt på ön utan bil.", exNl: "Het is moeilijk om je zonder auto op het eiland te verplaatsen." }
+  - { sv: "att hämta upp", nl: "ophalen (met de auto)", ex: "Min bror **hämtade upp** oss på flygplatsen.", exNl: "Mijn broer haalde ons op van het vliegveld." }
+  - { sv: "att gå ombord", nl: "aan boord gaan", ex: "Passagerarna kan **gå ombord** från klockan sju.", exNl: "De passagiers kunnen vanaf zeven uur aan boord gaan." }
+  - { sv: "att övernatta", nl: "overnachten", ex: "Vi **övernattade** på ett vandrarhem i Kiruna.", exNl: "We overnachtten in een jeugdherberg in Kiruna." }
+  - { sv: "att utforska", nl: "verkennen, ontdekken", ex: "Vi hyrde cyklar för att **utforska** ön.", exNl: "We huurden fietsen om het eiland te verkennen." }
+  - { sv: "att resa runt", nl: "rondreizen", ex: "Hon vill **resa runt** i Asien i ett halvår.", exNl: "Ze wil een half jaar door Azië rondreizen." }
+  - { sv: "på vägen", nl: "onderweg", ex: "**På vägen** till Abisko stannade vi i Kiruna.", exNl: "Onderweg naar Abisko stopten we in Kiruna." }
+  - { sv: "på grund av", nl: "vanwege, door", ex: "Bussen var sen **på grund av** snön.", exNl: "De bus was laat vanwege de sneeuw." }
+  - { sv: "det är värt det", nl: "het is de moeite waard", ex: "Resan var lång, men **det var värt det**.", exNl: "De reis was lang, maar het was de moeite waard." }
+  - { sv: "så att", nl: "zodat", ex: "Vi gick upp tidigt **så att** vi skulle hinna med tåget.", exNl: "We stonden vroeg op, zodat we de trein zouden halen." }
+  - { sv: "alltså", nl: "dus", ex: "Bussen går om en kvart. Vi har **alltså** lite tid kvar.", exNl: "De bus gaat over een kwartier. We hebben dus nog wat tijd." }
+  - { sv: "annars", nl: "anders", ex: "Skynda dig, **annars** missar vi tåget!", exNl: "Schiet op, anders missen we de trein!" }
+  - { sv: "trots", nl: "ondanks", ex: "**Trots** förseningen kom vi fram i tid till bröllopet.", exNl: "Ondanks de vertraging kwamen we op tijd aan voor de bruiloft." }
+  - { sv: "fullbokad", nl: "volgeboekt", ex: "Alla hotell i stan var **fullbokade**.", exNl: "Alle hotels in de stad waren volgeboekt." }
+  - { sv: "bekväm", nl: "comfortabel, gemakkelijk", ex: "Sängarna i sovvagnen var förvånansvärt **bekväma**.", exNl: "De bedden in het slaaprijtuig waren verrassend comfortabel." }
+  - { sv: "utomlands", nl: "in het buitenland, naar het buitenland", ex: "Förra året reste vi inte **utomlands** alls.", exNl: "Vorig jaar zijn we helemaal niet naar het buitenland geweest." }
+  - { sv: "i sista minuten", nl: "op het laatste moment", alt: ["i sista stund"], ex: "Vi bokade resan **{i sista minuten|i sista stund}**.", exNl: "We boekten de reis op het laatste moment." }

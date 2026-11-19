@@ -299,23 +299,62 @@ sections:
           - { id: hhae, type: findError, sentence: "Hon trivs inte på jobbet förra året.", wrong: [1], answers: ["Hon trivdes inte på jobbet förra året."], tip: "Kijk naar förra året." }
 
 vocab:
-  - { sv: "ett personnummer", nl: "een persoonsnummer (BSN)", def: "personnumret", pl: "personnummer", plDef: "personnumren" }
-  - { sv: "en folkbokföring", nl: "de inschrijving in de bevolkingsadministratie", def: "folkbokföringen", mass: true }
-  - { sv: "en blankett", nl: "een formulier", def: "blanketten", pl: "blanketter", plDef: "blanketterna" }
-  - { sv: "en handläggare", nl: "een behandelend ambtenaar", def: "handläggaren", pl: "handläggare", plDef: "handläggarna" }
-  - { sv: "ett ärende", nl: "een zaak, een dossier", def: "ärendet", pl: "ärenden", plDef: "ärendena" }
-  - { sv: "ett beslut", nl: "een besluit", def: "beslutet", pl: "beslut", plDef: "besluten" }
-  - { sv: "en avgift", nl: "een heffing, een tarief", def: "avgiften", pl: "avgifter", plDef: "avgifterna" }
-  - { sv: "ett id-kort", nl: "een identiteitskaart", def: "id-kortet", pl: "id-kort", plDef: "id-korten" }
-  - { sv: "ett bankkonto", nl: "een bankrekening", def: "bankkontot", pl: "bankkonton", plDef: "bankkontona" }
-  - { sv: "ett kvitto", nl: "een bonnetje, een bon", def: "kvittot", pl: "kvitton", plDef: "kvittona" }
-  - { sv: "att ansöka om", nl: "aanvragen" }
-  - { sv: "att överklaga", nl: "in beroep gaan" }
-  - { sv: "att hoppas", nl: "hopen" }
-  - { sv: "att minnas", nl: "zich herinneren" }
-  - { sv: "att lyckas", nl: "lukken, slagen" }
-  - { sv: "att kännas", nl: "aanvoelen" }
-  - { sv: "att umgås", nl: "omgaan (met elkaar)" }
-  - { sv: "att träffas", nl: "elkaar ontmoeten" }
-  - { sv: "senast", nl: "uiterlijk" }
-  - { sv: "enligt", nl: "volgens" }
+  - { sv: "ett personnummer", nl: "een persoonsnummer (BSN)", def: "personnumret", pl: "personnummer", plDef: "personnumren", ex: "Utan **personnummer** är det svårt att öppna ett bankkonto.", exNl: "Zonder persoonsnummer is het moeilijk om een bankrekening te openen." }
+  - { sv: "en folkbokföring", nl: "de inschrijving in de bevolkingsadministratie", def: "folkbokföringen", mass: true, ex: "Hon ansökte om **folkbokföring** hos Skatteverket.", exNl: "Ze vroeg bij de Belastingdienst inschrijving in de bevolkingsadministratie aan." }
+  - { sv: "en blankett", nl: "een formulier", def: "blanketten", pl: "blanketter", plDef: "blanketterna", ex: "Fyll i **blanketten** och skicka den till oss.", exNl: "Vul het formulier in en stuur het naar ons." }
+  - { sv: "en handläggare", nl: "een behandelend ambtenaar", def: "handläggaren", pl: "handläggare", plDef: "handläggarna", ex: "Ha ditt ärendenummer redo när du pratar med en **handläggare**.", exNl: "Houd je zaaknummer bij de hand als je met een behandelend ambtenaar praat." }
+  - { sv: "ett ärende", nl: "een zaak, een dossier", def: "ärendet", pl: "ärenden", plDef: "ärendena", ex: "Jag ringer om ett **ärende** som jag skickade in i maj.", exNl: "Ik bel over een zaak die ik in mei heb ingediend." }
+  - { sv: "ett beslut", nl: "een besluit", def: "beslutet", pl: "beslut", plDef: "besluten", ex: "Du kan överklaga **beslutet** inom tre veckor.", exNl: "Je kunt binnen drie weken in beroep gaan tegen het besluit." }
+  - { sv: "en avgift", nl: "een heffing, een tarief", def: "avgiften", pl: "avgifter", plDef: "avgifterna", ex: "**Avgiften** för ett id-kort är 400 kronor.", exNl: "Het tarief voor een identiteitskaart is 400 kronen." }
+  - { sv: "ett id-kort", nl: "een identiteitskaart", def: "id-kortet", pl: "id-kort", plDef: "id-korten", ex: "Jag behöver ett **id-kort** för att hämta ut paket.", exNl: "Ik heb een identiteitskaart nodig om pakketjes op te halen." }
+  - { sv: "ett bankkonto", nl: "een bankrekening", def: "bankkontot", pl: "bankkonton", plDef: "bankkontona", ex: "Lönen sätts in på ditt **bankkonto** den 25:e.", exNl: "Het salaris wordt de 25e op je bankrekening gestort." }
+  - { sv: "ett kvitto", nl: "een bonnetje, een bon", def: "kvittot", pl: "kvitton", plDef: "kvittona", ex: "Spara **kvittot** om du vill ha pengarna tillbaka.", exNl: "Bewaar de bon als je je geld terug wilt." }
+  - { sv: "att ansöka om", nl: "aanvragen", ex: "Hon **ansökte om** ett nytt pass hos polisen i januari.", exNl: "Ze vroeg in januari bij de politie een nieuw paspoort aan." }
+  - { sv: "att överklaga", nl: "in beroep gaan", ex: "Han tänker **överklaga** beslutet till förvaltningsrätten.", exNl: "Hij is van plan bij de bestuursrechter in beroep te gaan tegen het besluit." }
+  - { sv: "att hoppas", nl: "hopen", ex: "Jag **hoppas** att handläggningstiden inte blir så lång.", exNl: "Ik hoop dat de behandeltermijn niet zo lang wordt." }
+  - { sv: "att minnas", nl: "zich herinneren", ex: "De veckorna var väldigt långa, **minns** Marloes.", exNl: "Die weken waren erg lang, herinnert Marloes zich." }
+  - { sv: "att lyckas", nl: "lukken, slagen", ex: "Till slut **lyckades** hon öppna ett bankkonto.", exNl: "Uiteindelijk lukte het haar een bankrekening te openen." }
+  - { sv: "att kännas", nl: "aanvoelen", ex: "De sex veckorna **kändes** väldigt långa för Marloes.", exNl: "Die zes weken voelden voor Marloes heel lang aan." }
+  - { sv: "att umgås", nl: "omgaan (met elkaar)", ex: "Vi **umgås** mycket med grannarna på helgerna.", exNl: "In het weekend gaan we veel met de buren om." }
+  - { sv: "att träffas", nl: "elkaar ontmoeten", ex: "Vi kan **träffas** på kaféet efter jobbet.", exNl: "We kunnen elkaar na het werk in het café ontmoeten." }
+  - { sv: "senast", nl: "uiterlijk", ex: "Blanketten ska skickas in **senast** den 1 juni.", exNl: "Het formulier moet uiterlijk 1 juni ingestuurd worden." }
+  - { sv: "enligt", nl: "volgens", ex: "**Enligt** Skatteverket tar det ungefär sex veckor.", exNl: "Volgens de Belastingdienst duurt het ongeveer zes weken." }
+  - { sv: "en handläggningstid", nl: "een behandeltermijn, een doorlooptijd", def: "handläggningstiden", pl: "handläggningstider", ex: "**Handläggningstiden** är just nu ungefär sex veckor.", exNl: "De behandeltermijn is op dit moment ongeveer zes weken." }
+  - { sv: "en deklaration", nl: "een belastingaangifte", def: "deklarationen", pl: "deklarationer", ex: "Glöm inte att lämna in **deklarationen** i tid.", exNl: "Vergeet niet de belastingaangifte op tijd in te dienen." }
+  - { sv: "en skatt", nl: "een belasting", def: "skatten", pl: "skatter", ex: "Hur mycket **skatt** betalar man i Sverige?", exNl: "Hoeveel belasting betaal je in Zweden?" }
+  - { sv: "ett intyg", nl: "een verklaring, een attest", def: "intyget", pl: "intyg", ex: "Du behöver ett **intyg** från din arbetsgivare.", exNl: "Je hebt een verklaring van je werkgever nodig." }
+  - { sv: "en väntetid", nl: "een wachttijd", def: "väntetiden", pl: "väntetider", ex: "Just nu är **väntetiden** ungefär tjugo minuter.", exNl: "Op dit moment is de wachttijd ongeveer twintig minuten." }
+  - { sv: "en kölapp", nl: "een volgnummer (bonnetje)", def: "kölappen", pl: "kölappar", ex: "Ta en **kölapp** och vänta tills ditt nummer visas.", exNl: "Neem een volgnummer en wacht tot je nummer verschijnt." }
+  - { sv: "en legitimation", nl: "een legitimatie, een identiteitsbewijs", def: "legitimationen", pl: "legitimationer", ex: "Glöm inte att ta med giltig **legitimation**.", exNl: "Vergeet niet een geldige legitimatie mee te nemen." }
+  - { sv: "en underskrift", nl: "een handtekening", def: "underskriften", pl: "underskrifter", ex: "Blanketten är inte giltig utan din **underskrift**.", exNl: "Het formulier is niet geldig zonder jouw handtekening." }
+  - { sv: "ett bidrag", nl: "een toelage, een uitkering", def: "bidraget", pl: "bidrag", ex: "Hon har ansökt om ett **bidrag** till sin utbildning.", exNl: "Ze heeft een toelage voor haar opleiding aangevraagd." }
+  - { sv: "en försäkring", nl: "een verzekering", def: "försäkringen", pl: "försäkringar", ex: "Vi måste teckna en **försäkring** innan vi flyttar in.", exNl: "We moeten een verzekering afsluiten voordat we erin trekken." }
+  - { sv: "ett uppehållstillstånd", nl: "een verblijfsvergunning", def: "uppehållstillståndet", pl: "uppehållstillstånd", ex: "Hon fick **uppehållstillstånd** i två år.", exNl: "Ze kreeg een verblijfsvergunning voor twee jaar." }
+  - { sv: "ett medborgarskap", nl: "een staatsburgerschap", def: "medborgarskapet", pl: "medborgarskap", ex: "Hon fick svenskt **medborgarskap** förra året.", exNl: "Ze kreeg vorig jaar het Zweedse staatsburgerschap." }
+  - { sv: "en fullmakt", nl: "een machtiging, een volmacht", def: "fullmakten", pl: "fullmakter", ex: "Min sambo kan hämta ut paketet om hon har en **fullmakt**.", exNl: "Mijn partner kan het pakket ophalen als ze een machtiging heeft." }
+  - { sv: "en inkomst", nl: "een inkomen", def: "inkomsten", pl: "inkomster", ex: "Avgiften beror på hur hög **inkomst** man har.", exNl: "Het tarief hangt af van hoe hoog je inkomen is." }
+  - { sv: "en handling", nl: "een document (officieel stuk)", def: "handlingen", pl: "handlingar", ex: "Skicka in alla **handlingar** senast den 30 april.", exNl: "Stuur alle documenten uiterlijk 30 april in." }
+  - { sv: "att fylla i", nl: "invullen", ex: "Du kan **fylla i** blanketten direkt på webbplatsen.", exNl: "Je kunt het formulier direct op de website invullen." }
+  - { sv: "att skriva under", nl: "ondertekenen, tekenen", ex: "Glöm inte att **skriva under** blanketten längst ner.", exNl: "Vergeet niet het formulier onderaan te ondertekenen." }
+  - { sv: "att inkomma", nl: "binnenkomen, ingediend worden (formeel)", ex: "Kompletteringen måste **inkomma** senast den 1 maj.", exNl: "De aanvulling moet uiterlijk 1 mei binnenkomen." }
+  - { sv: "att komplettera", nl: "aanvullen", ex: "Du behöver **komplettera** din ansökan med ett intyg.", exNl: "Je moet je aanvraag aanvullen met een verklaring." }
+  - { sv: "att bifoga", nl: "bijvoegen (als bijlage)", ex: "**Bifoga** en kopia av ditt pass till ansökan.", exNl: "Voeg een kopie van je paspoort bij de aanvraag." }
+  - { sv: "att avslå", nl: "afwijzen (een aanvraag)", ex: "Hans ansökan **avslogs** eftersom ett intyg saknades.", exNl: "Zijn aanvraag werd afgewezen omdat er een verklaring ontbrak." }
+  - { sv: "att bevilja", nl: "toekennen, verlenen", ex: "Hon **beviljades** bidrag för hela terminen.", exNl: "Haar werd voor het hele semester een toelage toegekend." }
+  - { sv: "att skriva sig", nl: "zich inschrijven (op een adres)", ex: "Har du **skrivit dig** på din nya adress än?", exNl: "Heb je je al op je nieuwe adres ingeschreven?" }
+  - { sv: "att finnas", nl: "er zijn, bestaan", ex: "Det **finns** många frågor och svar på webbplatsen.", exNl: "Er zijn veel vragen en antwoorden te vinden op de website." }
+  - { sv: "att synas", nl: "te zien zijn, zichtbaar zijn", ex: "Ditt ärendenummer **syns** längst upp i brevet.", exNl: "Je zaaknummer is bovenaan in de brief te zien." }
+  - { sv: "att fattas", nl: "ontbreken", ex: "Det **fattades** två papper i min ansökan.", exNl: "Er ontbraken twee papieren in mijn aanvraag." }
+  - { sv: "att låtsas", nl: "doen alsof", ex: "Han **låtsades** att han inte hade fått brevet.", exNl: "Hij deed alsof hij de brief niet had gekregen." }
+  - { sv: "att få besked", nl: "uitsluitsel krijgen, bericht krijgen", ex: "Du **får besked** från Migrationsverket inom sex veckor.", exNl: "Je krijgt binnen zes weken uitsluitsel van de migratiedienst." }
+  - { sv: "att betala in", nl: "overmaken, storten", ex: "**Betala in** avgiften innan du bokar en tid.", exNl: "Maak het bedrag over voordat je een afspraak boekt." }
+  - { sv: "att ta reda på", nl: "uitzoeken", ex: "Jag ska **ta reda på** vilka handlingar som behövs.", exNl: "Ik ga uitzoeken welke documenten er nodig zijn." }
+  - { sv: "giltig", nl: "geldig", ex: "Passet är **giltigt** i fem år.", exNl: "Het paspoort is vijf jaar geldig." }
+  - { sv: "personligen", nl: "persoonlijk, in eigen persoon", ex: "Du måste komma **personligen** till servicekontoret.", exNl: "Je moet persoonlijk naar het servicekantoor komen." }
+  - { sv: "i god tid", nl: "ruim op tijd", ex: "Ansök om nytt pass **i god tid** före resan.", exNl: "Vraag ruim op tijd vóór de reis een nieuw paspoort aan." }
+  - { sv: "omgående", nl: "onmiddellijk, per omgaande", ex: "Meddela oss **omgående** om du byter adress.", exNl: "Laat het ons onmiddellijk weten als je van adres verandert." }
+  - { sv: "skyldig", nl: "verplicht (volgens de wet), schuldig", ex: "Man är **skyldig** att anmäla flytt inom en vecka.", exNl: "Je bent verplicht een verhuizing binnen een week door te geven." }
+  - { sv: "berättigad", nl: "gerechtigd, rechthebbend", ex: "Du kan vara **berättigad** till bostadsbidrag.", exNl: "Je kunt gerechtigd zijn tot huurtoeslag." }
+  - { sv: "kostnadsfri", nl: "kosteloos", ex: "Tjänsten är **kostnadsfri** för alla som bor i kommunen.", exNl: "De dienst is kosteloos voor iedereen die in de gemeente woont." }
+  - { sv: "digitalt", nl: "digitaal", ex: "Du kan skicka in ansökan **digitalt** med bank-id.", exNl: "Je kunt de aanvraag digitaal indienen met bank-id." }
+  - { sv: "respektive", nl: "respectievelijk", ex: "Avgiften är 400 **respektive** 250 kronor för vuxna och barn.", exNl: "Het tarief is 400 respectievelijk 250 kronen voor volwassenen en kinderen." }

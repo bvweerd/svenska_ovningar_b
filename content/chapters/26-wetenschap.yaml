@@ -272,23 +272,62 @@ sections:
           - { id: kh7a, type: findError, sentence: "Den av forskarna föreslådda förklaringen är enkel.", wrong: [3], answers: ["Den av forskarna föreslagna förklaringen är enkel."], tip: "föreslå is een sterk werkwoord." }
 
 vocab:
-  - { sv: "en studie", nl: "een studie, een onderzoek", def: "studien", pl: "studier", plDef: "studierna" }
-  - { sv: "en forskare", nl: "een onderzoeker", def: "forskaren", pl: "forskare", plDef: "forskarna" }
-  - { sv: "forskning", nl: "onderzoek (wetenschap)" }
-  - { sv: "en deltagare", nl: "een deelnemer", def: "deltagaren", pl: "deltagare", plDef: "deltagarna" }
-  - { sv: "en slutsats", nl: "een conclusie", def: "slutsatsen", pl: "slutsatser", plDef: "slutsatserna" }
-  - { sv: "ett resultat", nl: "een resultaat", def: "resultatet", pl: "resultat", plDef: "resultaten" }
-  - { sv: "en metod", nl: "een methode", def: "metoden", pl: "metoder", plDef: "metoderna" }
-  - { sv: "ett syfte", nl: "een doel", def: "syftet", pl: "syften", plDef: "syftena" }
-  - { sv: "en förklaring", nl: "een verklaring", def: "förklaringen", pl: "förklaringar", plDef: "förklaringarna" }
-  - { sv: "en begränsning", nl: "een beperking", def: "begränsningen", pl: "begränsningar", plDef: "begränsningarna" }
-  - { sv: "ett minne", nl: "een geheugen, een herinnering", def: "minnet", pl: "minnen", plDef: "minnena" }
-  - { sv: "en hjärna", nl: "een brein, de hersenen", def: "hjärnan", pl: "hjärnor", plDef: "hjärnorna" }
-  - { sv: "att undersöka", nl: "onderzoeken" }
-  - { sv: "att påverka", nl: "beïnvloeden" }
-  - { sv: "att tyda på", nl: "erop wijzen" }
-  - { sv: "att publicera", nl: "publiceren" }
-  - { sv: "avgörande", nl: "beslissend" }
-  - { sv: "sannolikt", nl: "waarschijnlijk" }
-  - { sv: "i genomsnitt", nl: "gemiddeld" }
-  - { sv: "dock", nl: "echter" }
+  - { sv: "en studie", nl: "een studie, een onderzoek", def: "studien", pl: "studier", plDef: "studierna", ex: "En ny **studie** visar att motion förbättrar minnet.", exNl: "Een nieuwe studie laat zien dat beweging het geheugen verbetert." }
+  - { sv: "en forskare", nl: "een onderzoeker", def: "forskaren", pl: "forskare", plDef: "forskarna", ex: "**Forskarna** har följt tusen barn i tio år.", exNl: "De onderzoekers hebben duizend kinderen tien jaar lang gevolgd." }
+  - { sv: "forskning", nl: "onderzoek (wetenschap)", ex: "Det behövs mer **forskning** om hur sociala medier påverkar unga.", exNl: "Er is meer onderzoek nodig naar hoe sociale media jongeren beïnvloeden." }
+  - { sv: "en deltagare", nl: "een deelnemer", def: "deltagaren", pl: "deltagare", plDef: "deltagarna", ex: "Studiens **deltagare** fick fylla i en enkät varje vecka.", exNl: "De deelnemers aan de studie moesten elke week een vragenlijst invullen." }
+  - { sv: "en slutsats", nl: "een conclusie", def: "slutsatsen", pl: "slutsatser", plDef: "slutsatserna", ex: "Rapportens viktigaste **slutsats** är att fler studier behövs.", exNl: "De belangrijkste conclusie van het rapport is dat er meer studies nodig zijn." }
+  - { sv: "ett resultat", nl: "een resultaat", def: "resultatet", pl: "resultat", plDef: "resultaten", ex: "**Resultaten** var överraskande även för forskarna själva.", exNl: "De resultaten waren zelfs voor de onderzoekers zelf verrassend." }
+  - { sv: "en metod", nl: "een methode", def: "metoden", pl: "metoder", plDef: "metoderna", ex: "Forskarna använde en ny **metod** för att mäta stress.", exNl: "De onderzoekers gebruikten een nieuwe methode om stress te meten." }
+  - { sv: "ett syfte", nl: "een doel", def: "syftet", pl: "syften", plDef: "syftena", ex: "**Syftet** med studien var att undersöka sömnens betydelse.", exNl: "Het doel van de studie was het belang van slaap te onderzoeken." }
+  - { sv: "en förklaring", nl: "een verklaring", def: "förklaringen", pl: "förklaringar", plDef: "förklaringarna", ex: "Det finns flera möjliga **förklaringar** till resultatet.", exNl: "Er zijn meerdere mogelijke verklaringen voor het resultaat." }
+  - { sv: "en begränsning", nl: "een beperking", def: "begränsningen", pl: "begränsningar", plDef: "begränsningarna", ex: "En **begränsning** med studien är att den var ganska liten.", exNl: "Een beperking van de studie is dat ze vrij klein was." }
+  - { sv: "ett minne", nl: "een geheugen, een herinnering", def: "minnet", pl: "minnen", plDef: "minnena", ex: "Med åldern blir **minnet** ofta sämre.", exNl: "Met de leeftijd wordt het geheugen vaak slechter." }
+  - { sv: "en hjärna", nl: "een brein, de hersenen", def: "hjärnan", pl: "hjärnor", plDef: "hjärnorna", ex: "**Hjärnan** behöver sömn för att fungera bra.", exNl: "Het brein heeft slaap nodig om goed te functioneren." }
+  - { sv: "att undersöka", nl: "onderzoeken", ex: "Forskarna **undersökte** hur ljus påverkar sömnen.", exNl: "De onderzoekers onderzochten hoe licht de slaap beïnvloedt." }
+  - { sv: "att påverka", nl: "beïnvloeden", ex: "Stress kan **påverka** både kroppen och hjärnan.", exNl: "Stress kan zowel het lichaam als de hersenen beïnvloeden." }
+  - { sv: "att tyda på", nl: "erop wijzen", ex: "Resultaten **tyder på** att korta pauser förbättrar koncentrationen.", exNl: "De resultaten wijzen erop dat korte pauzes de concentratie verbeteren." }
+  - { sv: "att publicera", nl: "publiceren", ex: "Resultaten kommer att **publiceras** i höst.", exNl: "De resultaten worden dit najaar gepubliceerd." }
+  - { sv: "avgörande", nl: "beslissend", ex: "Sömnen spelar en **avgörande** roll för inlärningen.", exNl: "Slaap speelt een beslissende rol bij het leren." }
+  - { sv: "sannolikt", nl: "waarschijnlijk", ex: "Effekten beror **sannolikt** på bättre sömn.", exNl: "Het effect komt waarschijnlijk door betere slaap." }
+  - { sv: "i genomsnitt", nl: "gemiddeld", ex: "Deltagarna sov **i genomsnitt** sju timmar per natt.", exNl: "De deelnemers sliepen gemiddeld zeven uur per nacht." }
+  - { sv: "dock", nl: "echter", ex: "Studien är **dock** för liten för att ge säkra svar.", exNl: "De studie is echter te klein om zekere antwoorden te geven." }
+  - { sv: "en hypotes", nl: "een hypothese", def: "hypotesen", pl: "hypoteser", ex: "Forskarnas **hypotes** var att sömn förbättrar minnet.", exNl: "De hypothese van de onderzoekers was dat slaap het geheugen verbetert." }
+  - { sv: "en teori", nl: "een theorie", def: "teorin", pl: "teorier", ex: "Det finns flera **teorier** om varför vi drömmer.", exNl: "Er zijn verschillende theorieën over waarom we dromen." }
+  - { sv: "ett experiment", nl: "een experiment", def: "experimentet", pl: "experiment", ex: "I **experimentet** fick hälften av deltagarna sova en hel natt.", exNl: "In het experiment mocht de helft van de deelnemers een hele nacht slapen." }
+  - { sv: "en kontrollgrupp", nl: "een controlegroep", def: "kontrollgruppen", pl: "kontrollgrupper", ex: "Resultaten jämfördes med en **kontrollgrupp** som inte fick någon behandling.", exNl: "De resultaten werden vergeleken met een controlegroep die geen behandeling kreeg." }
+  - { sv: "ett urval", nl: "een steekproef, een selectie", def: "urvalet", pl: "urval", ex: "**Urvalet** bestod av 500 slumpvis utvalda personer.", exNl: "De steekproef bestond uit 500 willekeurig gekozen personen." }
+  - { sv: "en effekt", nl: "een effect, een uitwerking", def: "effekten", pl: "effekter", ex: "Medicinen hade ingen mätbar **effekt**.", exNl: "Het medicijn had geen meetbaar effect." }
+  - { sv: "ett samband", nl: "een verband", def: "sambandet", pl: "samband", ex: "Forskarna hittade ett tydligt **samband** mellan stress och sömnproblem.", exNl: "De onderzoekers vonden een duidelijk verband tussen stress en slaapproblemen." }
+  - { sv: "en orsak", nl: "een oorzaak", def: "orsaken", pl: "orsaker", ex: "Man vet ännu inte vad som är **orsaken** till sjukdomen.", exNl: "Men weet nog niet wat de oorzaak van de ziekte is." }
+  - { sv: "ett bevis", nl: "een bewijs", def: "beviset", pl: "bevis", ex: "Det finns inga **bevis** för att metoden fungerar.", exNl: "Er is geen bewijs dat de methode werkt." }
+  - { sv: "en vetenskap", nl: "een wetenschap", def: "vetenskapen", pl: "vetenskaper", ex: "Hon har ägnat hela sitt liv åt **vetenskapen**.", exNl: "Ze heeft haar hele leven aan de wetenschap gewijd." }
+  - { sv: "en mätning", nl: "een meting", def: "mätningen", pl: "mätningar", ex: "**Mätningarna** gjordes varje morgon under en månad.", exNl: "De metingen werden een maand lang elke ochtend gedaan." }
+  - { sv: "en avhandling", nl: "een proefschrift", def: "avhandlingen", pl: "avhandlingar", ex: "Hon skrev sin **avhandling** om barns språkutveckling.", exNl: "Ze schreef haar proefschrift over de taalontwikkeling van kinderen." }
+  - { sv: "en upptäckt", nl: "een ontdekking", def: "upptäckten", pl: "upptäckter", ex: "**Upptäckten** av penicillin förändrade medicinen för alltid.", exNl: "De ontdekking van penicilline veranderde de geneeskunde voorgoed." }
+  - { sv: "ett intryck", nl: "een indruk", def: "intrycket", pl: "intryck", ex: "Under natten sorterar hjärnan dagens **intryck**.", exNl: "'s Nachts sorteert het brein de indrukken van de dag." }
+  - { sv: "en tupplur", nl: "een dutje", def: "tuppluren", pl: "tupplurar", ex: "En kort **tupplur** efter lunch kan förbättra koncentrationen.", exNl: "Een kort dutje na de lunch kan de concentratie verbeteren." }
+  - { sv: "en faktor", nl: "een factor", def: "faktorn", pl: "faktorer", ex: "Stress är en viktig **faktor** bakom många sjukdomar.", exNl: "Stress is een belangrijke factor achter veel ziekten." }
+  - { sv: "ett långtidsminne", nl: "het langetermijngeheugen", def: "långtidsminnet", mass: true, ex: "Sömnen hjälper oss att flytta information till **långtidsminnet**.", exNl: "Slaap helpt ons informatie naar het langetermijngeheugen te verplaatsen." }
+  - { sv: "att dra en slutsats", nl: "een conclusie trekken", ex: "Forskarna **drog slutsatsen** att träning minskar stress.", exNl: "De onderzoekers trokken de conclusie dat sporten stress vermindert." }
+  - { sv: "att bevisa", nl: "bewijzen", ex: "Studien **bevisar** inte att kaffe är nyttigt.", exNl: "De studie bewijst niet dat koffie gezond is." }
+  - { sv: "att mäta", nl: "meten", ex: "Forskarna **mätte** deltagarnas puls varje timme.", exNl: "De onderzoekers maten elk uur de hartslag van de deelnemers." }
+  - { sv: "att visa sig", nl: "blijken", ex: "Det **visade sig** att teorin var fel.", exNl: "Het bleek dat de theorie onjuist was." }
+  - { sv: "att komma fram till", nl: "komen tot, uitkomen op (een conclusie)", ex: "Forskarna **kom fram till** ett tydligt svar efter tre år.", exNl: "De onderzoekers kwamen na drie jaar tot een duidelijk antwoord." }
+  - { sv: "att bekräfta", nl: "bevestigen", ex: "Den nya studien **bekräftar** tidigare resultat.", exNl: "De nieuwe studie bevestigt eerdere resultaten." }
+  - { sv: "att spela roll", nl: "uitmaken, ertoe doen", ex: "Hur mycket man sover verkar **spela roll** för minnet.", exNl: "Hoeveel je slaapt, lijkt uit te maken voor het geheugen." }
+  - { sv: "att utgå från", nl: "uitgaan van", ex: "Forskarna **utgick från** att alla deltagare sov lika mycket.", exNl: "De onderzoekers gingen ervan uit dat alle deelnemers evenveel sliepen." }
+  - { sv: "att betona", nl: "benadrukken", ex: "Forskarna **betonar** att studien är ganska liten.", exNl: "De onderzoekers benadrukken dat de studie vrij klein is." }
+  - { sv: "att genomföra", nl: "uitvoeren, doorvoeren", ex: "Studien **genomfördes** vid tre svenska universitet.", exNl: "De studie werd aan drie Zweedse universiteiten uitgevoerd." }
+  - { sv: "att forska", nl: "onderzoek doen", ex: "Hon **forskar** om hur barn lär sig språk.", exNl: "Zij doet onderzoek naar hoe kinderen talen leren." }
+  - { sv: "att ingå i", nl: "deel uitmaken van", ex: "Fyrtio personer **ingick i** studien.", exNl: "Veertig personen maakten deel uit van de studie." }
+  - { sv: "vetenskaplig", nl: "wetenschappelijk", ex: "Artikeln publicerades i en **vetenskaplig** tidskrift.", exNl: "Het artikel werd in een wetenschappelijk tijdschrift gepubliceerd." }
+  - { sv: "tillförlitlig", nl: "betrouwbaar", ex: "Resultaten är inte särskilt **tillförlitliga**.", exNl: "De resultaten zijn niet bijzonder betrouwbaar." }
+  - { sv: "liknande", nl: "vergelijkbaar, soortgelijk", ex: "Andra studier har visat **liknande** resultat.", exNl: "Andere studies hebben vergelijkbare resultaten laten zien." }
+  - { sv: "nyligen", nl: "onlangs, recent", ex: "En **nyligen** genomförd studie visar att promenader minskar stress.", exNl: "Een onlangs uitgevoerde studie laat zien dat wandelen stress vermindert." }
+  - { sv: "huruvida", nl: "of (formeel)", ex: "Det är oklart **huruvida** effekten är bestående.", exNl: "Het is onduidelijk of het effect blijvend is." }
+  - { sv: "följaktligen", nl: "bijgevolg, dientengevolge", ex: "Urvalet var litet. **Följaktligen** är resultaten osäkra.", exNl: "De steekproef was klein. Bijgevolg zijn de resultaten onzeker." }
+  - { sv: "i själva verket", nl: "in werkelijkheid, eigenlijk", ex: "Man trodde att metoden fungerade, men **i själva verket** hade den ingen effekt.", exNl: "Men dacht dat de methode werkte, maar in werkelijkheid had ze geen effect." }
+  - { sv: "det verkar som att", nl: "het lijkt erop dat", alt: ["det verkar som om"], ex: "**{Det verkar som att|Det verkar som om}** promenader i naturen minskar stress.", exNl: "Het lijkt erop dat wandelingen in de natuur stress verminderen." }
+  - { sv: "därmed", nl: "daarmee, daardoor", ex: "Studien var liten och **därmed** inte så tillförlitlig.", exNl: "De studie was klein en daarmee niet zo betrouwbaar." }
+  - { sv: "signifikant", nl: "significant", ex: "Skillnaden mellan grupperna var inte **signifikant**.", exNl: "Het verschil tussen de groepen was niet significant." }
