@@ -7,6 +7,21 @@ import { trackEvent, itemSummary, STATUS_LABEL } from './analytics.js';
 
 export const chapterByNo = (n) => course.find((c) => c.chapter === Number(n));
 
+/** Voert go uit na ms, tenzij de gebruiker intussen tikt, scrolt of typt. */
+function afterPause(go, ms) {
+  const events = ['pointerdown', 'touchmove', 'wheel', 'keydown'];
+  const stop = () => events.forEach((e) => removeEventListener(e, cancel, true));
+  const cancel = () => {
+    clearTimeout(timer);
+    stop();
+  };
+  const timer = setTimeout(() => {
+    stop();
+    go();
+  }, ms);
+  events.forEach((e) => addEventListener(e, cancel, { capture: true, passive: true }));
+}
+
 export function findTopic(topic, preferChapter) {
   const order = [preferChapter, ...course.filter((c) => c !== preferChapter)].filter(Boolean);
   for (const ch of order) {
@@ -72,9 +87,14 @@ export function exerciseRunner(items, { onFinish, offset = { done: 0, good: 0, t
         finished++;
         if (r.firstTry && !r.neutral) good++;
         updateScore();
-        // Op een telefoon niet vanzelf scrollen: wie net tikt, raakt dan iets anders. Daar komt
-        // een knop „Volgende vraag” onder de feedback; met muis en toetsenbord gaat het vanzelf.
+        // Vanzelf door naar de volgende vraag. Op een telefoon iets later, en niet als je intussen
+        // tikt of scrolt (dan zou de pagina onder je vinger wegschuiven); de knop blijft als uitweg.
         const touch = matchMedia('(pointer: coarse)').matches;
+        const advance = (label, go, ms) => {
+          if (!touch) return void setTimeout(go, ms);
+          card.offerNext(label, go);
+          afterPause(go, ms + 600);
+        };
         if (finished === items.length) {
           summary.hidden = false;
           summary.replaceChildren(...onFinish(good, done).filter(Boolean));
@@ -82,16 +102,14 @@ export function exerciseRunner(items, { onFinish, offset = { done: 0, good: 0, t
             summary.scrollIntoView({ behavior: 'smooth', block: 'center' });
             summary.querySelector('.btn.primary')?.focus({ preventScroll: true });
           };
-          if (touch) card.offerNext('Naar de uitslag ↓', toSummary);
-          else setTimeout(toSummary, r.revealed ? 1200 : 700);
+          advance('Naar de uitslag ↓', toSummary, r.revealed ? 1200 : 700);
           return;
         }
         // Na een goed antwoord door naar de volgende open vraag.
         if (r.revealed && !advanceAfterReveal) return;
         const next = cards.slice(i + 1).find((c) => !c.isFinished()) ?? cards.find((c) => !c.isFinished());
         if (!next) return;
-        if (touch) card.offerNext('Volgende vraag ↓', () => next.focusFirst());
-        else setTimeout(() => next.focusFirst(), r.revealed ? 1500 : 700);
+        advance('Volgende vraag ↓', () => next.focusFirst(), r.revealed ? 1500 : 700);
       }, label);
       cards.push(card);
       return card;

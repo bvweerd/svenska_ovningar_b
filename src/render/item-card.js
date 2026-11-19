@@ -185,11 +185,15 @@ export function itemCard(item, ctx, number, onDone, label) {
     const el = card.querySelector(
       'input[type="text"]:not(:disabled), textarea:not(:disabled), select:not(:disabled), input[type="radio"]:not(:disabled), input[type="checkbox"]:not(:disabled), button.chip:not(:disabled), button.move:not(:disabled)',
     );
-    if (scroll) card.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    // Bovenaan het scherm (onder de vaste balken, zie scroll-margin-top), zodat er zoveel mogelijk ruimte onder de vraag is.
+    if (scroll) card.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    // Op een telefoon geen tekstveld focussen: dan springt het toetsenbord open en schuift alles.
+    const touch = typeof matchMedia === 'function' && matchMedia('(pointer: coarse)').matches;
+    if (touch && el?.matches('input[type="text"], textarea')) return;
     el?.focus({ preventScroll: true });
   };
   card.isFinished = () => finished;
-  /** Knop om zelf verder te gaan (op een telefoon, in plaats van vanzelf scrollen), op de plek van Controleer. */
+  /** Knop om zelf verder te gaan op een telefoon (als het vanzelf verder gaan is afgebroken), op de plek van Controleer. */
   card.offerNext = (text, go) => {
     const btn = h('button', { type: 'button', class: 'btn ghost next-btn', onclick: go }, text);
     actions.append(btn);
