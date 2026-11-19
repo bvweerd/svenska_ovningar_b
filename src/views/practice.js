@@ -8,7 +8,7 @@ import {
   dueItems, srsStats, streak, weakItems, saveTest, getTest, saveGame, getGame,
   getPref, setPref, INTERVALS, rateCard, pickCards, cardProgress,
 } from '../progress.js';
-import { TENSES, KINDS, pickVerbItem, pretOptions } from '../verbs.js';
+import { TENSES, KINDS, pickVerbItem, pretOptions, withNewKinds } from '../verbs.js';
 import { trackEvent, scoreBucket } from '../analytics.js';
 import { speak, speechSupported } from '../speech.js';
 
@@ -137,7 +137,12 @@ export function viewDaily() {
 // ---------- Werkwoordtrainer ----------
 export function viewVerbTrainer() {
   document.title = 'Werkwoordtrainer · Svenska övningar';
-  const settings = getPref('verbs', { tenses: ['pres', 'pret', 'sup'], kinds: Object.keys(KINDS) });
+  // Alleen soorten die in deze site voorkomen (partikelwerkwoorden alleen op B1–B2).
+  const kindKeys = Object.keys(KINDS).filter((k) => verbs.some((v) => v.kind === k));
+  // Een soort die er later bij kwam, staat ook bij bestaande instellingen aan.
+  const saved = getPref('verbs', null);
+  const settings = withNewKinds(saved ?? { tenses: ['pres', 'pret', 'sup'], kinds: kindKeys }, kindKeys);
+  if (saved && JSON.stringify(saved) !== JSON.stringify(settings)) setPref('verbs', settings);
   let done = 0;
   let good = 0;
   let run = 0;
@@ -161,7 +166,7 @@ export function viewVerbTrainer() {
     last = q.verb.inf;
     const card = itemCard(q.item, { topic: q.item.topic, findTopic: (t) => findTopic(t) }, done + 1, (r) => {
       done++;
-      trackEvent(`werkwoord/${q.tense}/${q.verb.inf}/${r.firstTry ? 'goed' : r.revealed ? 'bekeken' : 'fout'}`, `${q.verb.inf} (${q.verb.nl}) · ${TENSES[q.tense].label}`);
+      trackEvent(`werkwoord/${q.tense}/${q.verb.inf.replaceAll(' ', '-')}/${r.firstTry ? 'goed' : r.revealed ? 'bekeken' : 'fout'}`, `${q.verb.inf} (${q.verb.nl}) · ${TENSES[q.tense].label}`);
       if (r.firstTry) {
         good++;
         run++;
@@ -180,7 +185,8 @@ export function viewVerbTrainer() {
   const settingsSummary = h('summary', {});
   const summarize = () => {
     const tenses = settings.tenses.map((t) => TENSES[t]?.label.replace(/ \(.*\)/, '')).join(', ') || 'geen tijden';
-    const kinds = settings.kinds.length === Object.keys(KINDS).length ? 'alle soorten' : `${settings.kinds.length} van ${Object.keys(KINDS).length} soorten`;
+    const chosen = kindKeys.filter((k) => settings.kinds.includes(k)).length;
+    const kinds = chosen === kindKeys.length ? 'alle soorten' : `${chosen} van ${kindKeys.length} soorten`;
     settingsSummary.replaceChildren(h('strong', {}, 'Instellingen'), h('span', { class: 'muted' }, ` · ${tenses} · ${kinds}`));
   };
   const checkbox = (group, key, label) => {
@@ -205,7 +211,7 @@ export function viewVerbTrainer() {
     settingsBox = h('details', { class: 'settings', open: !matchMedia('(pointer: coarse)').matches },
       settingsSummary,
       h('fieldset', {}, h('legend', {}, 'Tijden'), h('div', { class: 'options row' }, Object.entries(TENSES).map(([k, t]) => checkbox('tenses', k, t.label)))),
-      h('fieldset', {}, h('legend', {}, 'Soorten werkwoorden'), h('div', { class: 'options row' }, Object.entries(KINDS).map(([k, l]) => checkbox('kinds', k, l))))),
+      h('fieldset', {}, h('legend', {}, 'Soorten werkwoorden'), h('div', { class: 'options row' }, kindKeys.map((k) => checkbox('kinds', k, KINDS[k]))))),
     stats, list,
   );
   summarize();
@@ -278,21 +284,25 @@ export function viewFlashcards(ch) {
     card.classList.toggle('flipped', flipped);
     face.replaceChildren(
       h('span', { class: 'flash-main', lang: dir === 'sv' && !flipped ? 'sv' : dir === 'nl' && flipped ? 'sv' : 'nl' }, flipped ? back(current.v) : front(current.v)),
-      h('span', { class: 'flash-hint' }, flipped ? front(current.v) : 'Klik of druk op spatie om om te draaien'),
+      h('span', { class: 'flash-hint' }, flipped ? front(current.v) : 'Tik op de kaart (of druk op spatie) om hem om te draaien'),
     );
-    actions.replaceChildren(...(flipped
-      ? [h('button', { type: 'button', class: 'btn primary', onclick: () => rate(true) }, 'Wist ik (1)'),
-         h('button', { type: 'button', class: 'btn ghost', onclick: () => rate(false) }, 'Nog niet (2)')]
-      : [h('button', { type: 'button', class: 'btn ghost', onclick: () => flip() }, 'Omdraaien (spatie)')]),
+    // Vaste knoppen op een vaste plek: „Wist ik” en „Nog niet” kunnen pas na het omdraaien, zodat
+    // een dubbele tik op de kaart niet per ongeluk een beoordeling geeft.
+    actions.replaceChildren(
+      h('button', { type: 'button', class: 'btn primary', disabled: !flipped, onclick: () => rate(true) }, 'Wist ik (1)'),
+      h('button', { type: 'button', class: 'btn ghost', disabled: !flipped, onclick: () => rate(false) }, 'Nog niet (2)'),
       speechSupported() ? h('button', { type: 'button', class: 'btn ghost speech-extra', onclick: () => speak(current.v.sv) }, 'Luister (L)') : '');
   };
+  let flippedAt = 0;
+  const settling = () => Date.now() - flippedAt < 350;
   const flip = () => {
-    if (!current) return;
+    if (!current || settling()) return;
     flipped = !flipped;
+    flippedAt = Date.now();
     show();
   };
   const rate = (ok) => {
-    if (!current || !flipped) return;
+    if (!current || !flipped || settling()) return;
     // Alleen de eerste beoordeling telt: wat je pas na herhalen wist, komt in een volgende stapel terug.
     if (!current.rated) rateCard(ch.chapter, dir, current.v.sv, ok);
     current.rated = true;
@@ -446,8 +456,10 @@ export const GAMES = {
     title: 'Verleden tijd',
     intro: 'Kies de juiste preteritum.',
     make() {
-      if (!verbs.length) return null;
-      const verb = verbs[Math.floor(Math.random() * verbs.length)];
+      // Partikelwerkwoorden niet: daar zijn de fouten dezelfde als bij het werkwoord zelf.
+      const pool = verbs.filter((v) => v.kind !== 'partikel');
+      if (!pool.length) return null;
+      const verb = pool[Math.floor(Math.random() * pool.length)];
       const { correct, options } = pretOptions(verb);
       const opts = shuffle(options);
       return { prompt: verb.inf, sub: verb.nl, options: opts, answer: opts.indexOf(correct), solution: `${verb.inf} – ${correct}` };

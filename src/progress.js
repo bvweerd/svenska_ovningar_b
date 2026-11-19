@@ -229,6 +229,12 @@ export function getGame(id) {
   return load().games?.[id] ?? null;
 }
 
+/** Heeft deze gebruiker al iets gemaakt (een vraag, flitskaart of dictee)? */
+export function hasProgress() {
+  const s = load();
+  return Object.keys(s.items ?? {}).length > 0 || Object.keys(s.cards ?? {}).length > 0 || Object.keys(s.dictee ?? {}).length > 0;
+}
+
 export function getPref(key, fallback) {
   return load().prefs?.[key] ?? fallback;
 }

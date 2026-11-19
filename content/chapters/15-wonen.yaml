@@ -24,6 +24,8 @@ grammar:
       - *Stäng **av** den!* – Zet hem uit! (niet ~~*Stäng den av*~~)
       - *Kan du sätta **på** radion?*
 
+      Uitzondering: een wederkerend *sig* staat wél vóór het partikel: *Hon satte **sig ner***. Daarover meer in hoofdstuk 22.
+
       Is het partikelwerkwoord zelf de persoonsvorm in een hoofdzin, dan staan **inte** en andere bijwoorden tussen werkwoord en partikel:
 
       - *Jag kände **inte igen** henne.* – Ik herkende haar niet.
@@ -174,7 +176,7 @@ sections:
           - { id: hy5w, type: gap, text: "Tvättstugan, ___ alla går med sin tvätt, ligger i källaren.", gaps: [{ answers: ["dit"], options: ["där", "dit", "vars", "när"], shuffle: false, feedback: [{ match: "där", tip: "gå med sin tvätt: je gaat ernaartoe, dus dit." }] }] }
           - { id: 797d, type: gap, text: "Kvarteret ___ vi bor är lugnt.", gaps: [{ answers: ["där"], options: ["där", "dit", "vars", "när"], shuffle: false }] }
           - { id: jggh, type: gap, text: "Hyresvärden, ___ nummer står på tavlan, svarar aldrig.", gaps: [{ answers: ["vars"], options: ["där", "dit", "vars", "när"], shuffle: false }] }
-          - { id: fhy3, type: gap, text: "Minns du dagen ___ vi flyttade in?", gaps: [{ answers: ["när"], options: ["där", "dit", "vars", "när"], shuffle: false, feedback: [{ match: "där", tip: "Het gaat om een tijd (dagen): när." }] }] }
+          - { id: fhy3, type: gap, text: "Minns du dagen ___ vi flyttade in?", gaps: [{ answers: ["när"], options: ["där", "dit", "vars", "när"], shuffle: false, feedback: [{ match: "där", tip: "Het gaat om een tijd (*dagen* = de dag): när." }] }] }
           - { id: gt5f, type: gap, text: "Vi åkte till stugan, ___ vi stannade en vecka.", gaps: [{ answers: ["där"], options: ["där", "dit", "vars", "när"], shuffle: false, feedback: [{ match: "dit", tip: "Het gaat om waar ze bleven (stannade, geen beweging): där." }] }] }
 
       - id: dar-vars-combineren
@@ -285,7 +287,7 @@ sections:
         items:
           - { id: 78ev, type: gap, topic: passiv-s, text: "Hyran ___ (betala) den sista varje månad.", gaps: [{ answers: ["betalas"] }] }
           - { id: yzd6, type: gap, topic: passiv-bli, text: "Fönstren blev ___ (byta ut) i fjol.", gaps: [{ answers: ["utbytta"], feedback: [{ match: ["bytta ut", "bytt ut"], tip: "Als deelwoord komt het partikel vooraan: utbytt, utbytta." }] }], hint: "Bij een deelwoord komt het partikel ervoor: byta ut → utbytt." }
-          - { id: bqph, type: gap, topic: particip, text: "Vi hittade en ___ (glömma bort) jacka i tvättstugan.", hint: "Bij een deelwoord komt het partikel ervoor: glömma bort → bortglömd.", gaps: [{ answers: ["bortglömd"], feedback: [{ match: "glömd", tip: "Voor een vergeten voorwerp zeg je bortglömd (of kvarglömd)." }] }] }
+          - { id: bqph, type: gap, topic: particip, text: "Vi hittade en ___ (glömma bort) jacka i tvättstugan.", hint: "Bij een deelwoord komt het partikel ervoor: glömma bort → bortglömd.", gaps: [{ answers: ["bortglömd", "kvarglömd"], feedback: [{ match: "glömd", tip: "Voor een vergeten voorwerp zeg je bortglömd (of kvarglömd)." }] }] }
           - { id: xuf2, type: transform, topic: relativ-som, prompt: "Jag har en granne. Han spelar trummor.", answers: ["Jag har en granne som spelar trummor."] }
           - { id: twx5, type: gap, topic: dar-dit-vars, text: "Det är parken ___ vi brukar ta hunden på morgonen.", gaps: [{ answers: ["dit"], options: ["där", "dit", "vars"], shuffle: false, tip: "ta hunden (dit): je brengt de hond ernaartoe, een beweging, dus dit." }] }
           - { id: 9zdv, type: translate, topic: partikelverb, prompt: "Ik zet de radio aan.", answers: ["Jag sätter på radion.", "Jag slår på radion."] }
@@ -306,23 +308,64 @@ sections:
           - { id: 554k, type: findError, sentence: "Vi ska hälsa hos mormor i helgen.", wrong: [3], answers: ["Vi ska hälsa på mormor i helgen."], tip: "Op bezoek gaan = hälsa …?" }
 
 vocab:
-  - { sv: "en hyresvärd", nl: "een verhuurder", def: "hyresvärden", pl: "hyresvärdar", plDef: "hyresvärdarna" }
-  - { sv: "en hyresgäst", nl: "een huurder", def: "hyresgästen", pl: "hyresgäster", plDef: "hyresgästerna" }
-  - { sv: "en hyra", nl: "de huur", def: "hyran", pl: "hyror", plDef: "hyrorna" }
-  - { sv: "ett hyreshus", nl: "een huurflat", def: "hyreshuset", pl: "hyreshus", plDef: "hyreshusen" }
-  - { sv: "ett hyreskontrakt", nl: "een huurcontract", def: "hyreskontraktet", pl: "hyreskontrakt", plDef: "hyreskontrakten" }
-  - { sv: "en tvättstuga", nl: "een gezamenlijke wasruimte", def: "tvättstugan", pl: "tvättstugor", plDef: "tvättstugorna" }
-  - { sv: "en källare", nl: "een kelder", def: "källaren", pl: "källare", plDef: "källarna" }
-  - { sv: "ett trapphus", nl: "een trappenhuis", def: "trapphuset", pl: "trapphus", plDef: "trapphusen" }
-  - { sv: "en granne", nl: "een buurman, een buurvrouw", def: "grannen", pl: "grannar", plDef: "grannarna" }
-  - { sv: "ett kvarter", nl: "een buurt, een blok", def: "kvarteret", pl: "kvarter", plDef: "kvarteren" }
-  - { sv: "ett element", nl: "een radiator", def: "elementet", pl: "element", plDef: "elementen" }
-  - { sv: "en kran", nl: "een kraan", def: "kranen", pl: "kranar", plDef: "kranarna" }
-  - { sv: "en felanmälan", nl: "een storingsmelding", pl: "felanmälningar", plDef: "felanmälningarna" }
-  - { sv: "att flytta in", nl: "intrekken" }
-  - { sv: "att stänga av", nl: "uitzetten" }
-  - { sv: "att sätta på", nl: "aanzetten" }
-  - { sv: "att gå sönder", nl: "kapotgaan" }
-  - { sv: "att laga", nl: "repareren" }
-  - { sv: "att hälsa på", nl: "op bezoek gaan" }
-  - { sv: "att känna igen", nl: "herkennen" }
+  - { sv: "en hyresvärd", nl: "een verhuurder", def: "hyresvärden", pl: "hyresvärdar", plDef: "hyresvärdarna", ex: "Jag ringde **hyresvärden** om elementet i sovrummet.", exNl: "Ik belde de verhuurder over de radiator in de slaapkamer." }
+  - { sv: "en hyresgäst", nl: "een huurder", def: "hyresgästen", pl: "hyresgäster", plDef: "hyresgästerna", ex: "Alla **hyresgäster** delar på en tvättstuga i källaren.", exNl: "Alle huurders delen een wasruimte in de kelder." }
+  - { sv: "en hyra", nl: "een huur", def: "hyran", pl: "hyror", plDef: "hyrorna", ex: "**Hyran** ska betalas i förskott varje månad.", exNl: "De huur moet elke maand vooruitbetaald worden." }
+  - { sv: "ett hyreshus", nl: "een huurflat", def: "hyreshuset", pl: "hyreshus", plDef: "hyreshusen", ex: "Vi bor i ett gammalt **hyreshus** från 1930-talet.", exNl: "We wonen in een oude huurflat uit de jaren dertig." }
+  - { sv: "ett hyreskontrakt", nl: "een huurcontract", def: "hyreskontraktet", pl: "hyreskontrakt", plDef: "hyreskontrakten", ex: "Läs **hyreskontraktet** noga innan du skriver under.", exNl: "Lees het huurcontract goed voordat je tekent." }
+  - { sv: "en tvättstuga", nl: "een gezamenlijke wasruimte", def: "tvättstugan", pl: "tvättstugor", plDef: "tvättstugorna", ex: "Man måste boka en tid i **tvättstugan**.", exNl: "Je moet een tijd boeken in de wasruimte." }
+  - { sv: "en källare", nl: "een kelder", def: "källaren", pl: "källare", plDef: "källarna", ex: "På vintern står cyklarna i **källaren**.", exNl: "In de winter staan de fietsen in de kelder." }
+  - { sv: "ett trapphus", nl: "een trappenhuis", def: "trapphuset", pl: "trapphus", plDef: "trapphusen", ex: "Det luktar rök i **trapphuset** igen.", exNl: "Het ruikt weer naar rook in het trappenhuis." }
+  - { sv: "en granne", nl: "een buurman, een buurvrouw", def: "grannen", pl: "grannar", plDef: "grannarna", ex: "Våra **grannar** har fest varje lördag.", exNl: "Onze buren geven elke zaterdag een feest." }
+  - { sv: "ett kvarter", nl: "een buurt, een blok", def: "kvarteret", pl: "kvarter", plDef: "kvarteren", ex: "Det finns tre pizzerior i vårt **kvarter**.", exNl: "Er zijn drie pizzeria's in onze buurt." }
+  - { sv: "ett element", nl: "een radiator", def: "elementet", pl: "element", plDef: "elementen", ex: "**Elementet** i sovrummet har slutat fungera.", exNl: "De radiator in de slaapkamer doet het niet meer." }
+  - { sv: "en kran", nl: "een kraan", def: "kranen", pl: "kranar", plDef: "kranarna", ex: "Det droppar från **kranen** i köket hela natten.", exNl: "De kraan in de keuken druppelt de hele nacht." }
+  - { sv: "en felanmälan", nl: "een storingsmelding", pl: "felanmälningar", plDef: "felanmälningarna", ex: "Jag ringer för att göra en **felanmälan**.", exNl: "Ik bel om een storingsmelding te doen." }
+  - { sv: "att flytta in", nl: "intrekken", ex: "Vi **flyttade in** i lägenheten i mars.", exNl: "We trokken in maart in het appartement." }
+  - { sv: "att stänga av", nl: "uitzetten", ex: "Glöm inte att **stänga av** spisen innan du går.", exNl: "Vergeet niet het fornuis uit te zetten voordat je weggaat." }
+  - { sv: "att sätta på", nl: "aanzetten", ex: "Kan du **sätta på** tvättmaskinen när du kommer hem?", exNl: "Kun je de wasmachine aanzetten als je thuiskomt?" }
+  - { sv: "att gå sönder", nl: "kapotgaan", ex: "Diskmaskinen **gick sönder** i går kväll.", exNl: "De vaatwasser ging gisteravond kapot." }
+  - { sv: "att laga", nl: "repareren", ex: "Hyresvärden kommer i morgon för att **laga** kranen.", exNl: "De verhuurder komt morgen om de kraan te repareren." }
+  - { sv: "att hälsa på", nl: "op bezoek gaan", ex: "Min mamma ska **hälsa på** oss i helgen.", exNl: "Mijn moeder komt dit weekend bij ons op bezoek." }
+  - { sv: "att känna igen", nl: "herkennen", ex: "Jag **kände igen** henne direkt i trapphuset.", exNl: "Ik herkende haar meteen in het trappenhuis." }
+  - { sv: "en bostad", nl: "een woning", def: "bostaden", pl: "bostäder", ex: "Det är svårt att hitta en **bostad** i Stockholm.", exNl: "Het is moeilijk om in Stockholm een woning te vinden." }
+  - { sv: "en bostadsrätt", nl: "een koopappartement (aandeel in een wooncoöperatie)", def: "bostadsrätten", pl: "bostadsrätter", ex: "De köpte en **bostadsrätt** på tre rum i Uppsala.", exNl: "Ze kochten een koopappartement met drie kamers in Uppsala." }
+  - { sv: "ett andrahandskontrakt", nl: "een onderhuurcontract", def: "andrahandskontraktet", pl: "andrahandskontrakt", ex: "Jag har bara ett **andrahandskontrakt** på ett år.", exNl: "Ik heb maar een onderhuurcontract voor een jaar." }
+  - { sv: "en bostadskö", nl: "een wachtlijst voor huurwoningen", def: "bostadskön", pl: "bostadsköer", ex: "Hon har stått i **bostadskön** i åtta år.", exNl: "Ze staat al acht jaar op de wachtlijst voor een huurwoning." }
+  - { sv: "en deposition", nl: "een borg, een waarborgsom", def: "depositionen", pl: "depositioner", ex: "Vi betalade tre månadshyror i **deposition**.", exNl: "We betaalden drie maanden huur als borg." }
+  - { sv: "ett oväsen", nl: "lawaai, herrie", def: "oväsendet", mass: true, ex: "Jag kunde inte sova för allt **oväsen** från gatan.", exNl: "Ik kon niet slapen van al het lawaai op straat." }
+  - { sv: "ett förråd", nl: "een berging, een opslagruimte", def: "förrådet", pl: "förråd", ex: "Varje lägenhet har ett eget **förråd** på vinden.", exNl: "Elk appartement heeft een eigen berging op zolder." }
+  - { sv: "ett soprum", nl: "een afvalruimte", def: "soprummet", pl: "soprum", ex: "Soporna slänger man i **soprummet** på gården.", exNl: "Het afval gooi je weg in de afvalruimte op de binnenplaats." }
+  - { sv: "ett avlopp", nl: "een afvoer, een riool", def: "avloppet", pl: "avlopp", ex: "Det är stopp i **avloppet** i duschen.", exNl: "De afvoer in de douche is verstopt." }
+  - { sv: "en fastighetsskötare", nl: "een huismeester, een conciërge", def: "fastighetsskötaren", pl: "fastighetsskötare", ex: "**Fastighetsskötaren** kommer och byter lampan i trapphuset.", exNl: "De huismeester komt de lamp in het trappenhuis vervangen." }
+  - { sv: "ett lås", nl: "een slot", def: "låset", pl: "lås", ex: "Vi bytte **låset** på dörren när vi flyttade in.", exNl: "We vervingen het slot van de deur toen we erin trokken." }
+  - { sv: "en renovering", nl: "een renovatie, een verbouwing", def: "renoveringen", pl: "renoveringar", ex: "Under **renoveringen** bodde vi hos mina föräldrar.", exNl: "Tijdens de renovatie woonden we bij mijn ouders." }
+  - { sv: "en lapp", nl: "een briefje", def: "lappen", pl: "lappar", ex: "Femke skrev en **lapp** och satte upp den på dörren.", exNl: "Femke schreef een briefje en hing het op de deur." }
+  - { sv: "en flyttkartong", nl: "een verhuisdoos", def: "flyttkartongen", pl: "flyttkartonger", ex: "Vi har fortfarande tio **flyttkartonger** i hallen.", exNl: "We hebben nog steeds tien verhuisdozen in de hal." }
+  - { sv: "att flytta ut", nl: "uit een woning vertrekken, eruit verhuizen", ex: "Vi måste **flytta ut** senast i slutet av juni.", exNl: "We moeten uiterlijk eind juni uit de woning vertrekken." }
+  - { sv: "att hyra ut", nl: "verhuren", ex: "De **hyr ut** sin lägenhet medan de bor utomlands.", exNl: "Ze verhuren hun appartement terwijl ze in het buitenland wonen." }
+  - { sv: "att hyra i andra hand", nl: "onderhuren", ex: "Det är vanligt att **hyra i andra hand** i Stockholm.", exNl: "In Stockholm is het gebruikelijk om onder te huren." }
+  - { sv: "att byta ut", nl: "vervangen", ex: "Hyresvärden ska **byta ut** alla fönster i huset.", exNl: "De verhuurder gaat alle ramen in het huis vervangen." }
+  - { sv: "att skruva upp", nl: "hoger zetten, harder zetten (verwarming, muziek)", ex: "Jag har försökt **skruva upp** elementet, men inget händer.", exNl: "Ik heb geprobeerd de radiator hoger te zetten, maar er gebeurt niets." }
+  - { sv: "att skruva ner", nl: "zachter zetten, lager zetten (muziek, verwarming)", ex: "Kan ni **skruva ner** musiken lite? Barnen sover.", exNl: "Kunnen jullie de muziek wat zachter zetten? De kinderen slapen." }
+  - { sv: "att sätta upp", nl: "ophangen (een briefje, een bord)", ex: "Någon har **satt upp** en lapp i tvättstugan.", exNl: "Iemand heeft een briefje opgehangen in de wasruimte." }
+  - { sv: "att ta ut", nl: "eruit halen", ex: "Glöm inte att **ta ut** tvätten ur maskinen.", exNl: "Vergeet niet de was uit de machine te halen." }
+  - { sv: "att plocka upp efter sig", nl: "je eigen rommel opruimen", ex: "Alla måste **plocka upp efter sig** i tvättstugan.", exNl: "Iedereen moet in de wasruimte zijn eigen rommel opruimen." }
+  - { sv: "att stå ut med", nl: "verdragen, uithouden", ex: "Jag kan inte **stå ut med** oväsendet längre.", exNl: "Ik kan het lawaai niet langer verdragen." }
+  - { sv: "att klaga på", nl: "klagen over", ex: "Grannen **klagade på** att vi spelade musik för högt.", exNl: "De buurman klaagde erover dat we te hard muziek speelden." }
+  - { sv: "att packa upp", nl: "uitpakken", ex: "Vi har inte hunnit **packa upp** alla kartonger än.", exNl: "We zijn nog niet toegekomen aan het uitpakken van alle dozen." }
+  - { sv: "att låsa upp", nl: "openmaken (met een sleutel)", ex: "Fastighetsskötaren **låste upp** dörren åt mig.", exNl: "De huismeester maakte de deur voor me open." }
+  - { sv: "att ringa på", nl: "aanbellen", ex: "Någon **ringde på** dörren mitt i natten.", exNl: "Iemand belde midden in de nacht aan." }
+  - { sv: "att störa", nl: "storen", ex: "Förlåt att jag **stör**, men har du en minut?", exNl: "Sorry dat ik stoor, maar heb je even?" }
+  - { sv: "vars", nl: "wiens, waarvan, van wie", ex: "En granne **vars** tid egentligen var slut hade inte tagit ut sin tvätt.", exNl: "Een buurman wiens tijd eigenlijk om was, had zijn was niet uit de machine gehaald." }
+  - { sv: "i förväg", nl: "van tevoren", ex: "Man måste boka tvättstugan **i förväg**.", exNl: "Je moet de wasruimte van tevoren boeken." }
+  - { sv: "trångbodd", nl: "krap behuisd", ex: "Familjen är **trångbodd** med fyra barn i en tvåa.", exNl: "Het gezin is krap behuisd: vier kinderen in een tweekamerwoning." }
+  - { sv: "rymlig", nl: "ruim", ex: "Lägenheten är ljus och **rymlig** med en stor balkong.", exNl: "Het appartement is licht en ruim, met een groot balkon." }
+  - { sv: "lyhörd", nl: "gehorig", ex: "Huset är så **lyhört** att man hör grannarna prata.", exNl: "Het huis is zo gehorig dat je de buren hoort praten." }
+  - { sv: "fuktig", nl: "vochtig", ex: "Det är **fuktigt** i källaren, så vi har inga böcker där.", exNl: "Het is vochtig in de kelder, dus we hebben er geen boeken." }
+  - { sv: "möblerad", nl: "gemeubileerd", ex: "Jag hyr en **möblerad** lägenhet i andra hand.", exNl: "Ik huur een gemeubileerd appartement in onderhuur." }
+  - { sv: "centralt", nl: "centraal (gelegen)", ex: "Vi bor väldigt **centralt**, bara fem minuter från stationen.", exNl: "We wonen heel centraal, maar vijf minuten van het station." }
+  - { sv: "egentligen", nl: "eigenlijk", ex: "Hennes tid var **egentligen** slut, men hon tvättade ändå.", exNl: "Haar tijd was eigenlijk om, maar ze waste toch." }
+  - { sv: "inklusive", nl: "inclusief", ex: "Hyran är 8 000 kronor i månaden **inklusive** värme.", exNl: "De huur is 8000 kronen per maand, inclusief verwarming." }
+  - { sv: "på bottenvåningen", nl: "op de begane grond", ex: "Vi bor **på bottenvåningen**, så vi behöver ingen hiss.", exNl: "We wonen op de begane grond, dus we hebben geen lift nodig." }
+  - { sv: "trasig", nl: "kapot", ex: "Dörren till tvättstugan är **trasig** igen.", exNl: "De deur van de wasruimte is weer kapot." }

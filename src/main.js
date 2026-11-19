@@ -12,6 +12,7 @@ import { viewListenSettings, viewDictation, reportSpeechStatus } from './views/l
 import { itemCard } from './render/item-card.js';
 import { createMenu } from './menu.js';
 import { initPwa, installSection, isStandalone, syncThemeColor } from './pwa.js';
+import { homeNotices, countVisit } from './onboarding.js';
 import { initAnalytics, trackPage, trackEvent, scoreBucket, analyticsConfigured, optedOut, setOptOut } from './analytics.js';
 import {
   viewPracticeHub, viewDaily, viewVerbTrainer, viewFlashcards, viewTest, viewGames, viewGame, GAMES, dueCount, streakText,
@@ -36,6 +37,7 @@ function viewHome() {
       h('p', { class: 'lead' }, SITE_TEXT.lead),
       h('p', { class: 'muted' }, SIBLING.home[0], h('a', { href: SIBLING.href }, SIBLING.home[1]), SIBLING.home[2]),
     ),
+    homeNotices(),
     h('div', { class: 'today' },
       last
         ? h('a', { class: 'continue', href: last.href },
@@ -367,6 +369,14 @@ function viewAbout() {
     crumbs({ label: 'Start', href: '#/' }, { label: 'Over deze site' }),
     h('h1', {}, 'Over deze site'),
     h('p', {}, SITE_TEXT.about),
+    h('h2', {}, 'Handleiding: zo begin je'),
+    h('ol', {},
+      h('li', {}, 'Kies op de startpagina een hoofdstuk. Elk hoofdstuk heeft uitleg (grammatica), oefeningen, woorden en een toets.'),
+      h('li', {}, 'Lees eerst de uitleg of begin direct met de eerste oefening. Bij elke vraag staat een link naar de uitleg die erbij hoort.'),
+      h('li', {}, 'Maak de oefeningen van boven naar beneden. Lange woordenlijsten oefen je in rondes van 15 woorden: eerst nieuwe en foute woorden.'),
+      h('li', {}, 'Kom elke dag even terug: de dagelijkse herhaling op de startpagina zet klaar wat je weer moet oefenen.'),
+      h('li', {}, 'Op je telefoon? Zet de site als app op je beginscherm (zie „Als app installeren” hieronder).'),
+    ),
     h('p', {}, SIBLING.about[0], h('a', { href: SIBLING.href }, SIBLING.about[1]), SIBLING.about[2]),
     h('h2', {}, 'Luisteren'),
     h('p', {}, 'De site leest Zweeds voor met de spraakfunctie van je eigen browser. Hoe goed dat klinkt, hangt af van de Zweedse stemmen op je apparaat. ', h('a', { href: '#/luisteren' }, 'Luisteren instellen'), ' legt per browser uit hoe je een goede stem krijgt.'),
@@ -380,9 +390,10 @@ function viewAbout() {
     ),
     h('h2', {}, 'Snel werken'),
     h('ul', {},
-      h('li', {}, 'Meerkeuze, keuzelijsten, koppelen en zinsbouw worden meteen nagekeken zodra je antwoord compleet is.'),
+      h('li', {}, 'Meerkeuze, keuzelijsten en koppelen worden meteen nagekeken zodra je antwoord compleet is.'),
+      h('li', {}, 'Bij woordtegels druk je zelf op Controleer, zodat je eerst nog kunt schuiven. Tik tussen twee woorden in je zin om daar een woord in te voegen; tik op een woord in je zin om het weg te halen.'),
       h('li', {}, 'Typ je antwoord en druk op Enter. Bij meerkeuze kun je de cijfertoetsen 1–9 gebruiken.'),
-      h('li', {}, 'Na een goed antwoord ga je vanzelf door naar de volgende vraag; aan het eind brengt Enter je naar de volgende oefening.'),
+      h('li', {}, 'Na een goed antwoord ga je vanzelf door naar de volgende vraag. Op een telefoon wacht de site even; tik of scrol je intussen, dan blijf je staan en tik je zelf op „Volgende vraag”. Aan het eind brengt Enter je naar de volgende oefening.'),
     ),
     h('h2', {}, 'Oefenvormen'),
     h('ul', {},
@@ -418,6 +429,7 @@ function viewAbout() {
     h('h2', {}, 'Voortgang'),
     h('p', {}, `Je voortgang wordt per vraag opgeslagen ${isStandalone() ? 'in deze app' : 'in deze browser'}. Ga je halverwege een oefening weg, dan ga je later verder waar je gebleven was. Wil je op een ander apparaat verder, exporteer dan je voortgang naar een bestand en importeer dat daar.`),
     progressTools(),
+    h('p', { class: 'muted version' }, `Versie ${import.meta.env.APP_VERSION ?? 'onbekend'}`),
   );
 }
 
@@ -510,6 +522,7 @@ function charBar() {
   let target = null;
   for (const c of ['å', 'ä', 'ö', 'Å', 'Ä', 'Ö']) {
     bar.append(h('button', {
+      class: c === c.toUpperCase() ? 'upper' : null,
       type: 'button',
       onmousedown: (e) => e.preventDefault(),
       onclick: () => {
@@ -523,14 +536,19 @@ function charBar() {
       },
     }, c));
   }
-  // Zonder schermtoetsenbord staat de balk direct onder het invoerveld. Is het toetsenbord open
-  // (het zichtbare deel van het scherm is dan veel lager), dan ligt de balk vast direct erboven,
-  // over de hele breedte: zo zie je hem op Android en iPhone zonder te scrollen.
+  // Toetsenbord dicht: de balk staat in de knoppenrij van de vraag, naast „Controleer” (in de pagina,
+  // niet zwevend), zodat de vraag niet langer wordt en er niets verspringt. Buiten een vraag staat hij
+  // onder het veld. Toetsenbord open (het zichtbare deel van het scherm is dan veel lager): de balk ligt
+  // vast direct boven het toetsenbord, over de hele breedte en met hoofdletters. Ook dan verspringt de
+  // pagina niet; hooguit één keer bijscrollen als het veld anders achter de balk zou vallen, pas als het
+  // toetsenbord stilstaat (tijdens de animatie scrollt de browser zelf naar het veld).
+  let settleUntil = 0; // alleen kort na focus of toetsenbord bijsturen, nooit tijdens gewoon scrollen
+  let settleTimer = null;
   const keyboardOpen = () => {
     const vv = window.visualViewport;
     return !!vv && matchMedia('(pointer: coarse)').matches && window.innerHeight - vv.height > 120;
   };
-  const place = () => {
+  const dock = () => {
     if (bar.hidden) return;
     const vv = window.visualViewport;
     if (!keyboardOpen()) {
@@ -539,23 +557,45 @@ function charBar() {
       return;
     }
     bar.classList.add('docked');
-    const top = vv.offsetTop + vv.height - bar.offsetHeight - 6;
-    bar.style.top = `${Math.round(top)}px`;
-    // Het veld zelf moet boven de balk zichtbaar blijven.
-    const r = target?.getBoundingClientRect();
-    if (r && r.bottom > top - 6) window.scrollBy({ top: r.bottom - top + 12 });
+    bar.style.top = `${Math.round(vv.offsetTop + vv.height - bar.offsetHeight - 6)}px`;
   };
-  // Het toetsenbord schuift met een animatie omhoog: daarom een paar keer kort na elkaar plaatsen.
-  const settle = () => [0, 120, 300, 600].forEach((ms) => setTimeout(place, ms));
-  window.visualViewport?.addEventListener('resize', settle);
-  window.visualViewport?.addEventListener('scroll', place);
+  const keepVisible = () => {
+    dock();
+    if (bar.hidden || !target || Date.now() > settleUntil) return;
+    const vv = window.visualViewport;
+    const top = vv ? vv.offsetTop : 0;
+    const bottom = bar.classList.contains('docked') ? bar.getBoundingClientRect().top - 6 : (vv ? vv.offsetTop + vv.height : window.innerHeight);
+    // Vast boven het toetsenbord: het veld moet erboven passen. In de pagina: de balk zelf in beeld.
+    const need = (bar.classList.contains('docked') ? target : bar).getBoundingClientRect().bottom - bottom + 8;
+    // Niet zo ver dat het veld zelf onder de vaste balken bovenaan verdwijnt.
+    const room = target.getBoundingClientRect().top - top - 112;
+    const by = Math.min(need, room);
+    if (by > 0) window.scrollBy({ top: by });
+    settleUntil = 0;
+  };
+  const settle = () => {
+    settleUntil = Date.now() + 1500;
+    clearTimeout(settleTimer);
+    settleTimer = setTimeout(keepVisible, 350);
+  };
+  window.visualViewport?.addEventListener('resize', () => {
+    dock();
+    if (Date.now() < settleUntil) settle();
+  });
+  window.visualViewport?.addEventListener('scroll', dock);
   document.addEventListener('focusin', (e) => {
     if (!e.target.matches('input[type="text"], textarea')) return;
     target = e.target;
-    // Onder de hele zin of het zinsveld; in een tabelcel onder de hele tabel (een cel is te smal).
-    const anchor = target.closest('.table-wrap') ?? target.closest('.sentence-input, .gap-text') ?? target;
-    if (bar.previousElementSibling !== anchor) anchor.after(bar);
+    const actions = target.closest('.item')?.querySelector(':scope > .actions');
+    if (actions) {
+      if (bar.parentElement !== actions) actions.append(bar);
+    } else {
+      // Onder de hele zin of het zinsveld; bij een tabel onder de hele tabel (een cel is te smal).
+      const anchor = target.closest('.table-wrap') ?? target.closest('.sentence-input, .gap-text') ?? target;
+      if (bar.previousElementSibling !== anchor) anchor.after(bar);
+    }
     bar.hidden = false;
+    dock();
     settle();
   });
   document.addEventListener('focusout', () => {
@@ -563,6 +603,7 @@ function charBar() {
       if (!document.activeElement?.matches('input[type="text"], textarea')) {
         bar.hidden = true;
         bar.classList.remove('docked');
+        bar.style.top = '';
       }
     }, 150);
   });
@@ -620,6 +661,7 @@ migrateToIds(course);
 const updateMenu = createMenu(course);
 initAnalytics();
 initPwa();
+countVisit();
 reportSpeechStatus();
 window.addEventListener('hashchange', route);
 charBar();

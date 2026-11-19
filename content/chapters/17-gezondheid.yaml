@@ -113,7 +113,7 @@ sections:
         items:
           - { id: 4cys, type: translate, prompt: "Ik ben duizelig.", answers: ["Jag är yr.", "Jag känner mig yr."] }
           - { id: 6eb7, type: translate, prompt: "Ik heb sinds gisteren koorts.", answers: ["Jag har haft feber {sedan|sen} {i går|igår}."], feedback: [{ contains: "jag har feber", tip: "Het duurt tot nu toe: perfectum, jag har haft feber sedan i går." }, { contains: "gisteren", tip: "Gisteren = i går." }] }
-          - { id: kq8k, type: translate, prompt: "Mijn knie doet pijn.", answers: ["Jag har ont i knät.", "Knät gör ont.", "Mitt knä gör ont."] }
+          - { id: kq8k, type: translate, prompt: "Mijn knie doet pijn.", answers: ["Jag har ont i knät.", "Knät gör ont.", "Mitt knä gör ont.", "Det gör ont i {knät|mitt knä}."] }
           - { id: unqg, type: translate, prompt: "Ik ben misselijk.", answers: ["Jag mår illa.", "Jag känner mig illamående.", "Jag är illamående."] }
 
   - id: framtid
@@ -155,13 +155,13 @@ sections:
         instruction: Vertaal naar het Zweeds.
         topic: framtid
         items:
-          - { id: bha8, type: translate, prompt: "Het gaat morgen regenen.", answers: ["Det kommer att regna {i morgon|imorgon}.", "{I morgon|Imorgon} kommer det att regna.", "Det ska regna {i morgon|imorgon}.", "{I morgon|Imorgon} ska det regna."], feedback: [{ contains: "går att regna", tip: "gå betekent hier niet gaan: gebruik kommer att." }] }
+          - { id: bha8, type: translate, prompt: "Het gaat morgen regenen.", answers: ["Det kommer[ att] regna {i morgon|imorgon}.", "{I morgon|Imorgon} kommer det[ att] regna.", "Det ska regna {i morgon|imorgon}.", "{I morgon|Imorgon} ska det regna."], feedback: [{ contains: "går att regna", tip: "gå betekent hier niet gaan: gebruik kommer att." }] }
           - { id: 2xwx, type: translate, prompt: "Ik ga morgen naar de dokter. (Ik heb een afspraak.)", answers: ["Jag ska [gå ]till {läkaren|doktorn|vårdcentralen} {i morgon|imorgon}.", "{I morgon|Imorgon} ska jag [gå ]till {läkaren|doktorn|vårdcentralen}.", "Jag går till {läkaren|doktorn|vårdcentralen} {i morgon|imorgon}."], feedback: [{ contains: "går att", tip: "Nederlands gaan + infinitief is geen gå in het Zweeds: gebruik ska." }] }
-          - { id: pnv9, type: translate, prompt: "Je zult je snel beter voelen.", answers: ["Du kommer att må bättre snart.", "Du kommer snart att må bättre.", "Du kommer att känna dig bättre snart.", "Du kommer snart att känna dig bättre."], feedback: [{ contains: "du ska", tip: "Een voorspelling: kommer att." }] }
+          - { id: pnv9, type: translate, prompt: "Je zult je snel beter voelen.", answers: ["Du kommer[ att] må bättre snart.", "Du kommer snart[ att] må bättre.", "Du kommer[ att] känna dig bättre snart.", "Du kommer snart[ att] känna dig bättre."], feedback: [{ contains: "du ska", tip: "Een voorspelling: kommer att." }] }
           - { id: zynp, type: translate, prompt: "Ik ben van plan te stoppen met roken.", answers: ["Jag tänker sluta röka.", "Jag ska sluta röka.", "Jag har tänkt sluta röka.", "Jag planerar att sluta röka.", "Jag har planer på att sluta röka."] }
           - { id: yhtg, type: translate, prompt: "De apotheek gaat om negen uur open.", answers: ["Apoteket öppnar [klockan ]nio.", "Apoteket ska öppna [klockan ]nio.", "[Klockan ]nio öppnar apoteket."], feedback: [{ contains: "går att öppna", tip: "Gaan + infinitief bestaat niet in het Zweeds. Voor een vaste tijd gebruik je de presens: Apoteket öppnar klockan nio." }] }
-          - { id: 2yu9, type: translate, prompt: "Ik ga niet naar dat feest. (Dat heb ik zelf besloten.)", answers: ["Jag tänker inte gå på {den festen|festen}.", "Jag ska inte gå på {den festen|festen}."], feedback: [{ contains: "kommer inte att gå", tip: "Een eigen besluit: tänker inte (of ska inte). kommer att is een voorspelling." }] }
-          - { id: dyqw, type: translate, prompt: "Over een week krijg je de uitslag.", answers: ["Du {kommer att få|får} {svaret|resultatet|provsvaret} om en vecka.", "Om en vecka {kommer du att få|får du} {svaret|resultatet|provsvaret}."], feedback: [{ contains: "i en vecka", tip: "Over een week (in de toekomst) = om en vecka." }] }
+          - { id: 2yu9, type: translate, prompt: "Ik ga niet naar dat feest. (Dat heb ik zelf besloten.)", answers: ["Jag tänker inte gå på {den festen|den där festen|festen}.", "Jag ska inte gå på {den festen|den där festen|festen}."], feedback: [{ contains: "kommer inte att gå", tip: "Een eigen besluit: tänker inte (of ska inte). kommer att is een voorspelling." }] }
+          - { id: dyqw, type: translate, prompt: "Over een week krijg je de uitslag.", answers: ["Du {kommer att få|kommer få|får} {svaret|resultatet|provsvaret} om en vecka.", "Om en vecka {kommer du att få|kommer du få|får du} {svaret|resultatet|provsvaret}."], feedback: [{ contains: "i en vecka", tip: "Over een week (in de toekomst) = om en vecka." }] }
           - { id: 54p7, type: translate, prompt: "Volgend jaar verhuizen we. (Dat hebben we besloten.)", answers: ["Vi ska flytta nästa år.", "Nästa år ska vi flytta.", "Vi flyttar nästa år.", "Nästa år flyttar vi."], feedback: [{ contains: "nästa år vi", tip: "Na Nästa år vooraan komt eerst het werkwoord." }] }
 
   - id: prep
@@ -198,13 +198,13 @@ sections:
 
           Du ska dricka mycket och vila så mycket du kan. Om du har feber kan du ta febernedsättande tabletter som du köper på apoteket. Antibiotika hjälper inte mot förkylning.
 
-          Om du får svårt att andas, eller om febern inte går ner efter tre dagar, ska du kontakta vårdcentralen. Vid akuta besvär ska du ringa 112.
+          Om du får svårt att andas, eller om febern inte går ner efter tre dagar, ska du kontakta vårdcentralen. Vid akuta, livshotande besvär ska du ringa 112.
         items:
           - { id: j3ah, type: truefalse, statement: "Förkylningen kommer att gå över av sig själv.", answer: true }
           - { id: 7qbn, type: truefalse, statement: "Det kan ta en till två månader.", answer: false, correction: { answers: ["Det kan ta en till två veckor."] } }
           - { id: 5bjv, type: truefalse, statement: "Antibiotika hjälper mot förkylning.", answer: false, correction: { answers: ["Antibiotika hjälper inte mot förkylning."] } }
           - { id: 8khn, type: truefalse, statement: "Om febern inte går ner efter tre dagar ska man kontakta vårdcentralen.", answer: true }
-          - { id: 5akb, type: truefalse, statement: "Vid akuta besvär ska man ringa 1177.", answer: false, correction: { answers: ["Vid akuta besvär ska {man|du} ringa 112."] } }
+          - { id: 5akb, type: truefalse, statement: "Vid akuta, livshotande besvär ska man ringa 1177.", answer: false, correction: { answers: ["Vid {akuta, livshotande|livshotande|akuta} besvär ska {man|du} ringa 112."] } }
 
       - id: lyssna-dictee
         title: Dictee
@@ -299,23 +299,64 @@ sections:
           - { id: mqf9, type: findError, sentence: "Jag går att ringa läkaren i morgon.", wrong: [1, 2], answers: ["Jag ska ringa läkaren {i morgon|imorgon}.", "Jag tänker ringa läkaren {i morgon|imorgon}."], tip: "Nederlands gaan + infinitief." }
 
 vocab:
-  - { sv: "en vårdcentral", nl: "een huisartsenpraktijk, een gezondheidscentrum", def: "vårdcentralen", pl: "vårdcentraler", plDef: "vårdcentralerna" }
-  - { sv: "en läkare", nl: "een arts, een dokter", def: "läkaren", pl: "läkare", plDef: "läkarna" }
-  - { sv: "en sjuksköterska", nl: "een verpleegkundige", def: "sjuksköterskan", pl: "sjuksköterskor", plDef: "sjuksköterskorna" }
-  - { sv: "ett apotek", nl: "een apotheek", def: "apoteket", pl: "apotek", plDef: "apoteken" }
-  - { sv: "ett recept", nl: "een recept (van de arts)", def: "receptet", pl: "recept", plDef: "recepten" }
-  - { sv: "en remiss", nl: "een verwijzing", def: "remissen", pl: "remisser", plDef: "remisserna" }
-  - { sv: "en feber", nl: "de koorts", def: "febern", mass: true }
-  - { sv: "en förkylning", nl: "een verkoudheid", def: "förkylningen", pl: "förkylningar", plDef: "förkylningarna" }
-  - { sv: "en spruta", nl: "een injectie, een spuit", def: "sprutan", pl: "sprutor", plDef: "sprutorna" }
-  - { sv: "ett knä", nl: "een knie", def: "knät", pl: "knän", plDef: "knäna" }
-  - { sv: "en behandling", nl: "een behandeling", def: "behandlingen", pl: "behandlingar", plDef: "behandlingarna" }
-  - { sv: "yr", nl: "duizelig" }
-  - { sv: "svullen", nl: "gezwollen" }
-  - { sv: "allvarlig", nl: "ernstig" }
-  - { sv: "att må illa", nl: "misselijk zijn" }
-  - { sv: "att undersöka", nl: "onderzoeken" }
-  - { sv: "att boka om", nl: "verzetten (een afspraak)" }
-  - { sv: "att lita på", nl: "vertrouwen op" }
-  - { sv: "att bry sig om", nl: "geven om" }
-  - { sv: "att vara orolig för", nl: "ongerust zijn over" }
+  - { sv: "en vårdcentral", nl: "een huisartsenpraktijk, een gezondheidscentrum", def: "vårdcentralen", pl: "vårdcentraler", plDef: "vårdcentralerna", ex: "Ring **vårdcentralen** om febern inte går ner.", exNl: "Bel de huisartsenpraktijk als de koorts niet daalt." }
+  - { sv: "en läkare", nl: "een arts, een dokter", def: "läkaren", pl: "läkare", plDef: "läkarna", ex: "**Läkaren** undersökte knät och trodde inte att det var allvarligt.", exNl: "De arts onderzocht de knie en dacht niet dat het ernstig was." }
+  - { sv: "en sjuksköterska", nl: "een verpleegkundige", def: "sjuksköterskan", pl: "sjuksköterskor", plDef: "sjuksköterskorna", ex: "Han ringde 1177 och fick prata med en **sjuksköterska**.", exNl: "Hij belde 1177 en kon met een verpleegkundige praten." }
+  - { sv: "ett apotek", nl: "een apotheek", def: "apoteket", pl: "apotek", plDef: "apoteken", ex: "Du kan köpa tabletterna på **apoteket**.", exNl: "Je kunt de tabletten bij de apotheek kopen." }
+  - { sv: "ett recept", nl: "een recept (van de arts)", def: "receptet", pl: "recept", plDef: "recepten", ex: "Den här medicinen får du bara på **recept**.", exNl: "Dit medicijn krijg je alleen op recept." }
+  - { sv: "en remiss", nl: "een verwijzing", def: "remissen", pl: "remisser", plDef: "remisserna", ex: "Du behöver en **remiss** för att träffa en specialist.", exNl: "Je hebt een verwijzing nodig om naar een specialist te gaan." }
+  - { sv: "en feber", nl: "de koorts", def: "febern", mass: true, ex: "Om **febern** inte går ner, ska du ringa oss.", exNl: "Als de koorts niet daalt, moet je ons bellen." }
+  - { sv: "en förkylning", nl: "een verkoudheid", def: "förkylningen", pl: "förkylningar", plDef: "förkylningarna", ex: "Antibiotika hjälper tyvärr inte mot en vanlig **förkylning**.", exNl: "Antibiotica helpt helaas niet tegen een gewone verkoudheid." }
+  - { sv: "en spruta", nl: "een injectie, een spuit", def: "sprutan", pl: "sprutor", plDef: "sprutorna", ex: "Sköterskan gav mig en **spruta** i armen.", exNl: "De verpleegkundige gaf me een injectie in mijn arm." }
+  - { sv: "ett knä", nl: "een knie", def: "knät", pl: "knän", plDef: "knäna", ex: "Ruud fick plötsligt ont i **knät**.", exNl: "Ruud kreeg plotseling pijn aan zijn knie." }
+  - { sv: "en behandling", nl: "een behandeling", def: "behandlingen", pl: "behandlingar", plDef: "behandlingarna", ex: "**Behandlingen** hos fysioterapeuten tar ungefär tre månader.", exNl: "De behandeling bij de fysiotherapeut duurt ongeveer drie maanden." }
+  - { sv: "yr", nl: "duizelig", ex: "Jag blir **yr** när jag reser mig för snabbt.", exNl: "Ik word duizelig als ik te snel opsta." }
+  - { sv: "svullen", nl: "gezwollen", ex: "Efter några dagar var knät fortfarande **svullet**.", exNl: "Na een paar dagen was de knie nog steeds gezwollen." }
+  - { sv: "allvarlig", nl: "ernstig", ex: "Läkaren trodde inte att det var något **allvarligt**.", exNl: "De arts dacht niet dat het iets ernstigs was." }
+  - { sv: "att må illa", nl: "misselijk zijn", ex: "Jag **mår illa** och har ont i magen.", exNl: "Ik ben misselijk en heb buikpijn." }
+  - { sv: "att undersöka", nl: "onderzoeken", ex: "Läkaren ska **undersöka** dig om en liten stund.", exNl: "De arts gaat je zo meteen onderzoeken." }
+  - { sv: "att boka om", nl: "verzetten (een afspraak)", ex: "Kan jag **boka om** min tid till nästa vecka?", exNl: "Kan ik mijn afspraak naar volgende week verzetten?" }
+  - { sv: "att lita på", nl: "vertrouwen op", ex: "Du kan **lita på** att läkaren har tystnadsplikt.", exNl: "Je kunt erop vertrouwen dat de arts zwijgplicht heeft." }
+  - { sv: "att bry sig om", nl: "geven om", ex: "Min läkare **bryr sig om** sina patienter på riktigt.", exNl: "Mijn arts geeft echt om zijn patiënten." }
+  - { sv: "att vara orolig för", nl: "ongerust zijn over", ex: "Jag **är orolig för** min pappas hjärta.", exNl: "Ik ben ongerust over het hart van mijn vader." }
+  - { sv: "en akutmottagning", nl: "een spoedeisende hulp (in het ziekenhuis)", def: "akutmottagningen", pl: "akutmottagningar", ex: "Vi fick vänta fem timmar på **akutmottagningen**.", exNl: "We moesten vijf uur wachten op de spoedeisende hulp." }
+  - { sv: "en fysioterapeut", nl: "een fysiotherapeut", def: "fysioterapeuten", pl: "fysioterapeuter", ex: "Nu ska Ruud träffa en **fysioterapeut** två gånger i veckan.", exNl: "Nu gaat Ruud twee keer per week naar een fysiotherapeut." }
+  - { sv: "ett symtom", nl: "een symptoom", def: "symtomet", pl: "symtom", alt: ["ett symptom"], ex: "Vilka **{symtom|symptom}** har du haft de senaste dagarna?", exNl: "Welke symptomen heb je de afgelopen dagen gehad?" }
+  - { sv: "en smärta", nl: "de pijn", mass: true, def: "smärtan", pl: "smärtor", ex: "Tabletterna tar bort **smärtan** ganska snabbt.", exNl: "De tabletten nemen de pijn vrij snel weg." }
+  - { sv: "ett besvär", nl: "klachten, last (lichamelijk)", def: "besväret", pl: "besvär", ex: "Har du haft de här **besvären** länge?", exNl: "Heb je al lang last van deze klachten?" }
+  - { sv: "en vaccination", nl: "een vaccinatie, een inenting", def: "vaccinationen", pl: "vaccinationer", ex: "Har du fått din **vaccination** mot influensa i år?", exNl: "Heb je dit jaar je vaccinatie tegen griep al gehad?" }
+  - { sv: "en biverkning", nl: "een bijwerking", def: "biverkningen", pl: "biverkningar", ex: "Den här medicinen kan ge **biverkningar** som huvudvärk.", exNl: "Dit medicijn kan bijwerkingen geven, zoals hoofdpijn." }
+  - { sv: "ett utslag", nl: "uitslag (op de huid)", def: "utslaget", pl: "utslag", ex: "Barnet har fått **utslag** på hela kroppen.", exNl: "Het kind heeft over het hele lichaam uitslag gekregen." }
+  - { sv: "en infektion", nl: "een infectie, een ontsteking", def: "infektionen", pl: "infektioner", ex: "Läkaren tror att det är en **infektion** i örat.", exNl: "De arts denkt dat het een infectie in het oor is." }
+  - { sv: "en patient", nl: "een patiënt", def: "patienten", pl: "patienter", ex: "Läkaren träffar ungefär tjugo **patienter** om dagen.", exNl: "De arts ziet ongeveer twintig patiënten per dag." }
+  - { sv: "ett blodprov", nl: "een bloedmonster, een bloedonderzoek", def: "blodprovet", pl: "blodprov", ex: "Sköterskan tog ett **blodprov** i armen.", exNl: "De verpleegkundige nam een bloedmonster af uit mijn arm." }
+  - { sv: "ett väntrum", nl: "een wachtkamer", def: "väntrummet", pl: "väntrum", ex: "Det satt många människor i **väntrummet** i morse.", exNl: "Er zaten vanochtend veel mensen in de wachtkamer." }
+  - { sv: "en sjukskrivning", nl: "een ziekteverlof (op advies van de arts)", def: "sjukskrivningen", pl: "sjukskrivningar", ex: "Läkaren förlängde min **sjukskrivning** med två veckor.", exNl: "De arts verlengde mijn ziekteverlof met twee weken." }
+  - { sv: "en egenavgift", nl: "een eigen bijdrage", def: "egenavgiften", pl: "egenavgifter", ex: "I vår region är **egenavgiften** för ett läkarbesök 200 kronor.", exNl: "In onze regio is de eigen bijdrage voor een doktersbezoek 200 kronen." }
+  - { sv: "ett plåster", nl: "een pleister", def: "plåstret", pl: "plåster", ex: "Har du ett **plåster**? Jag har skurit mig.", exNl: "Heb je een pleister? Ik heb me gesneden." }
+  - { sv: "att gå över", nl: "overgaan (vanzelf ophouden)", ex: "Förkylningen **går över** på en vecka eller två.", exNl: "De verkoudheid gaat binnen een week of twee over." }
+  - { sv: "att återhämta sig", nl: "herstellen, bijkomen", ex: "Hon behöver vila för att **återhämta sig** efter operationen.", exNl: "Ze moet rusten om na de operatie te herstellen." }
+  - { sv: "att bli frisk", nl: "beter worden", ex: "Du kommer att **bli frisk**, men det tar tid.", exNl: "Je wordt wel beter, maar het kost tijd." }
+  - { sv: "att svimma", nl: "flauwvallen", ex: "Han **svimmade** när han såg blodet.", exNl: "Hij viel flauw toen hij het bloed zag." }
+  - { sv: "att kräkas", nl: "overgeven", ex: "Barnet har **kräkts** flera gånger under natten.", exNl: "Het kind heeft 's nachts meerdere keren overgegeven." }
+  - { sv: "att lida av", nl: "lijden aan", ex: "Många **lider av** sömnproblem på vintern.", exNl: "Veel mensen lijden in de winter aan slaapproblemen." }
+  - { sv: "att vara rädd för", nl: "bang zijn voor", ex: "Min son **är rädd för** sprutor och läkare.", exNl: "Mijn zoon is bang voor injecties en artsen." }
+  - { sv: "att skriva ut", nl: "voorschrijven (medicijnen)", ex: "Läkaren **skrev ut** antibiotika mot infektionen.", exNl: "De arts schreef antibiotica voor tegen de infectie." }
+  - { sv: "att hämta ut", nl: "ophalen (bij een loket of apotheek)", ex: "Du kan **hämta ut** medicinen på apoteket i morgon.", exNl: "Je kunt het medicijn morgen bij de apotheek ophalen." }
+  - { sv: "att stuka", nl: "verstuiken", ex: "Jag **stukade** foten när jag sprang i skogen.", exNl: "Ik verstuikte mijn voet toen ik in het bos rende." }
+  - { sv: "att vaccinera sig", nl: "zich laten vaccineren", ex: "Alla över 65 bör **vaccinera sig** mot influensa.", exNl: "Iedereen boven de 65 zou zich tegen griep moeten laten vaccineren." }
+  - { sv: "att röra på sig", nl: "bewegen (lichaamsbeweging)", ex: "Det är viktigt att **röra på sig** varje dag.", exNl: "Het is belangrijk om elke dag te bewegen." }
+  - { sv: "att ta det lugnt", nl: "het rustig aan doen", ex: "Du ska **ta det lugnt** i några dagar.", exNl: "Je moet het een paar dagen rustig aan doen." }
+  - { sv: "att ha svårt att", nl: "moeite hebben met (iets doen)", ex: "Jag **har svårt att** sova när jag har ont.", exNl: "Ik heb moeite met slapen als ik pijn heb." }
+  - { sv: "att bota", nl: "genezen (iemand of een ziekte)", ex: "Det finns ingen medicin som kan **bota** sjukdomen.", exNl: "Er is geen medicijn dat de ziekte kan genezen." }
+  - { sv: "akut", nl: "acuut, dringend", ex: "Vid **akuta**, livshotande besvär ska du alltid ringa 112.", exNl: "Bij acute, levensbedreigende klachten moet je altijd 112 bellen." }
+  - { sv: "kronisk", nl: "chronisch", ex: "Hon har haft **kronisk** smärta i ryggen i flera år.", exNl: "Ze heeft al jaren chronische rugpijn." }
+  - { sv: "smittsam", nl: "besmettelijk", ex: "Stanna hemma så länge du är **smittsam**.", exNl: "Blijf thuis zolang je besmettelijk bent." }
+  - { sv: "receptfri", nl: "zonder recept verkrijgbaar", ex: "Det här är ett **receptfritt** läkemedel mot huvudvärk.", exNl: "Dit is een middel tegen hoofdpijn dat zonder recept verkrijgbaar is." }
+  - { sv: "inom", nl: "binnen (een bepaalde tijd)", ex: "Om det inte blir bättre **inom** en vecka ska du ringa.", exNl: "Als het niet binnen een week beter wordt, moet je bellen." }
+  - { sv: "i värsta fall", nl: "in het ergste geval", ex: "**I värsta fall** måste knät opereras, men det är ovanligt.", exNl: "In het ergste geval moet de knie geopereerd worden, maar dat is zeldzaam." }
+  - { sv: "ordentligt", nl: "goed, grondig", ex: "Du måste vila **ordentligt** innan du börjar träna igen.", exNl: "Je moet goed uitrusten voordat je weer gaat trainen." }
+  - { sv: "av sig själv", nl: "vanzelf", ex: "Febern går oftast ner **av sig själv** efter några dagar.", exNl: "De koorts zakt meestal vanzelf na een paar dagen." }
+  - { sv: "beroende av", nl: "verslaafd aan, afhankelijk van", ex: "Han blev **beroende av** sömntabletter efter en svår period.", exNl: "Hij raakte na een moeilijke periode verslaafd aan slaappillen." }
+  - { sv: "stel", nl: "stijf", ex: "Jag är alltid **stel** i ryggen på morgonen.", exNl: "Ik ben 's ochtends altijd stijf in mijn rug." }
+  - { sv: "öm", nl: "pijnlijk (bij aanraking), gevoelig", ex: "Knät är fortfarande lite **ömt** efter fallet.", exNl: "De knie is na de val nog steeds wat pijnlijk." }

@@ -146,13 +146,13 @@ sections:
         topic: indirekt-fraga
         items:
           - { id: 99yx, type: transform, prompt: "”Kommer du på festen?” frågade Lisa.", task: "Lisa frågade …", answers: ["Lisa frågade om jag {kom|skulle komma} på festen."], feedback: [{ contains: "frågade kom", tip: "Een ja/nee-vraag krijgt om: frågade om jag kom." }, { contains: "om kom jag", tip: "Bijzinvolgorde: om jag kom." }] }
-          - { id: 9m5u, type: transform, prompt: "”Var bor du?” frågade han.", task: "Han frågade …", answers: ["Han frågade var jag bodde."], feedback: [{ contains: "var bodde jag", tip: "Bijzinvolgorde: eerst het onderwerp, var jag bodde." }] }
+          - { id: 9m5u, type: transform, prompt: "”Var bor du?” frågade han.", task: "Han frågade …", answers: ["Han frågade var jag {bodde|bor}."], feedback: [{ contains: "var bodde jag", tip: "Bijzinvolgorde: eerst het onderwerp, var jag bodde." }, { contains: "var bor jag", tip: "Bijzinvolgorde: eerst het onderwerp, var jag bor (of var jag bodde)." }] }
           - { id: gfws, type: transform, prompt: "”Varför kom du inte?” frågade chefen.", task: "Chefen frågade …", answers: ["Chefen frågade varför jag inte {hade kommit|kom}."], feedback: [{ contains: "jag kom inte", tip: "In de bijzin staat inte vóór het werkwoord: varför jag inte kom." }, { contains: "jag hade inte", tip: "In de bijzin staat inte vóór het werkwoord: varför jag inte hade kommit." }] }
           - { id: ecab, type: transform, prompt: "”Vem ringde?” frågade hon.", task: "Hon frågade …", answers: ["Hon frågade vem som {hade ringt|ringde}."], feedback: [{ contains: "vem ringde", tip: "vem is het onderwerp: vem som ringde." }, { contains: "vem hade ringt", tip: "vem is het onderwerp: vem som hade ringt." }] }
-          - { id: qkvt, type: transform, prompt: "”Hur mår du?” frågade läkaren.", task: "Läkaren frågade …", answers: ["Läkaren frågade hur jag mådde."], feedback: [{ contains: "hur mådde jag", tip: "Bijzinvolgorde: eerst het onderwerp, hur jag mådde." }, { contains: "hur jag mår", tip: "Schuif de tijd terug: mår → mådde." }] }
+          - { id: qkvt, type: transform, prompt: "”Hur mår du?” frågade läkaren.", task: "Läkaren frågade …", answers: ["Läkaren frågade hur jag {mådde|mår}."], feedback: [{ contains: "hur mådde jag", tip: "Bijzinvolgorde: eerst het onderwerp, hur jag mådde." }, { contains: "hur mår jag", tip: "Bijzinvolgorde: eerst het onderwerp, hur jag mår (of hur jag mådde)." }] }
           - { id: gx92, type: transform, prompt: "”Har du sett min nyckel?” frågade Bram.", task: "Bram frågade …", answers: ["Bram frågade om jag hade sett hans nyckel."], feedback: [{ contains: "min nyckel", tip: "Het is Brams sleutel: hans nyckel." }, { contains: "sin nyckel", tip: "In de bijzin is jag het onderwerp, dus geen sin: hans nyckel." }] }
           - { id: dunt, type: transform, prompt: "”När börjar filmen?” undrade Wilma.", task: "Wilma undrade …", answers: ["Wilma undrade när filmen {började|skulle börja}."], feedback: [{ contains: "när började filmen", tip: "Bijzinvolgorde: eerst het onderwerp, när filmen började." }] }
-          - { id: 55we, type: transform, prompt: "”Vad heter din syster?” frågade Olle.", task: "Olle frågade …", answers: ["Olle frågade vad min syster hette."], feedback: [{ contains: "vad hette", tip: "Bijzinvolgorde: eerst het onderwerp, vad min syster hette." }, { contains: "din syster", tip: "Olle vraagt naar jouw zus; vanuit jou gezien: min syster." }] }
+          - { id: 55we, type: transform, prompt: "”Vad heter din syster?” frågade Olle.", task: "Olle frågade …", answers: ["Olle frågade vad min syster {hette|heter}."], feedback: [{ contains: "vad hette", tip: "Bijzinvolgorde: eerst het onderwerp, vad min syster hette." }, { contains: "din syster", tip: "Olle vraagt naar jouw zus; vanuit jou gezien: min syster." }] }
 
       - id: vem-som
         title: Vem som of vem?
@@ -298,23 +298,64 @@ sections:
           - { id: qqpy, type: findError, topic: indirekt-tal-b1, sentence: "Det sa i tidningen att det skulle snöa.", wrong: [1], answers: ["Det stod i tidningen att det skulle snöa."], tip: "Wat zeg je over een tekst in de krant?" }
 
 vocab:
-  - { sv: "en nyhet", nl: "een nieuwsbericht, een nieuwtje", def: "nyheten", pl: "nyheter", plDef: "nyheterna" }
-  - { sv: "en tidning", nl: "een krant", def: "tidningen", pl: "tidningar", plDef: "tidningarna" }
-  - { sv: "en artikel", nl: "een artikel", def: "artikeln", pl: "artiklar", plDef: "artiklarna" }
-  - { sv: "en rubrik", nl: "een kop", def: "rubriken", pl: "rubriker", plDef: "rubrikerna" }
-  - { sv: "en källa", nl: "een bron", def: "källan", pl: "källor", plDef: "källorna" }
-  - { sv: "en insändare", nl: "een ingezonden brief", def: "insändaren", pl: "insändare", plDef: "insändarna" }
-  - { sv: "en journalist", nl: "een journalist", def: "journalisten", pl: "journalister", plDef: "journalisterna" }
-  - { sv: "en olycka", nl: "een ongeluk", def: "olyckan", pl: "olyckor", plDef: "olyckorna" }
-  - { sv: "en brand", nl: "een brand", def: "branden", pl: "bränder", plDef: "bränderna" }
-  - { sv: "en älg", nl: "een eland", def: "älgen", pl: "älgar", plDef: "älgarna" }
-  - { sv: "ett snöfall", nl: "een sneeuwval", def: "snöfallet", pl: "snöfall", plDef: "snöfallen" }
-  - { sv: "(stor) uppståndelse", nl: "(grote) opschudding" }
-  - { sv: "att orsaka", nl: "veroorzaken" }
-  - { sv: "att skadas", nl: "gewond raken" }
-  - { sv: "att spärra av", nl: "afsluiten (een weg)" }
-  - { sv: "att gå vilse", nl: "verdwalen" }
-  - { sv: "att undra", nl: "zich afvragen" }
-  - { sv: "att sprida", nl: "verspreiden" }
-  - { sv: "enligt", nl: "volgens" }
-  - { sv: "troligen", nl: "waarschijnlijk" }
+  - { sv: "en nyhet", nl: "een nieuwsbericht, een nieuwtje", def: "nyheten", pl: "nyheter", plDef: "nyheterna", ex: "Har du hört **nyheten**? Simon och Ella har förlovat sig.", exNl: "Heb je het nieuwtje gehoord? Simon en Ella hebben zich verloofd." }
+  - { sv: "en tidning", nl: "een krant", def: "tidningen", pl: "tidningar", plDef: "tidningarna", ex: "Det stod en artikel om älgen i **tidningen**.", exNl: "Er stond een artikel over de eland in de krant." }
+  - { sv: "en artikel", nl: "een artikel", def: "artikeln", pl: "artiklar", plDef: "artiklarna", ex: "Hon skrev en lång **artikel** om bostadsbristen.", exNl: "Ze schreef een lang artikel over de woningnood." }
+  - { sv: "en rubrik", nl: "een kop", def: "rubriken", pl: "rubriker", plDef: "rubrikerna", ex: "**Rubriken** lockade många läsare.", exNl: "De kop trok veel lezers." }
+  - { sv: "en källa", nl: "een bron", def: "källan", pl: "källor", plDef: "källorna", ex: "En journalist måste alltid kontrollera sina **källor**.", exNl: "Een journalist moet altijd zijn bronnen controleren." }
+  - { sv: "en insändare", nl: "een ingezonden brief", def: "insändaren", pl: "insändare", plDef: "insändarna", ex: "Han skrev en arg **insändare** om de nya parkeringsavgifterna.", exNl: "Hij schreef een boze ingezonden brief over de nieuwe parkeertarieven." }
+  - { sv: "en journalist", nl: "een journalist", def: "journalisten", pl: "journalister", plDef: "journalisterna", ex: "**Journalisten** frågade vad som hade hänt.", exNl: "De journalist vroeg wat er was gebeurd." }
+  - { sv: "en olycka", nl: "een ongeluk", def: "olyckan", pl: "olyckor", plDef: "olyckorna", ex: "Två personer skadades i **olyckan** på E4:an.", exNl: "Bij het ongeluk op de E4 raakten twee mensen gewond." }
+  - { sv: "en brand", nl: "een brand", def: "branden", pl: "bränder", plDef: "bränderna", ex: "**Branden** började i ett kök på tredje våningen.", exNl: "De brand begon in een keuken op de derde verdieping." }
+  - { sv: "en älg", nl: "een eland", def: "älgen", pl: "älgar", plDef: "älgarna", ex: "**Älgen** gick lugnt genom stadsparken.", exNl: "De eland liep rustig door het stadspark." }
+  - { sv: "ett snöfall", nl: "een sneeuwval", def: "snöfallet", pl: "snöfall", plDef: "snöfallen", ex: "Det kraftiga **snöfallet** stoppade tågtrafiken.", exNl: "De zware sneeuwval legde het treinverkeer stil." }
+  - { sv: "(stor) uppståndelse", nl: "(grote) opschudding", ex: "Älgen orsakade **stor uppståndelse** i centrum.", exNl: "De eland veroorzaakte grote opschudding in het centrum." }
+  - { sv: "att orsaka", nl: "veroorzaken", ex: "Olyckan **orsakade** långa köer.", exNl: "Het ongeluk veroorzaakte lange files." }
+  - { sv: "att skadas", nl: "gewond raken", ex: "Ingen människa **skadades** vid branden.", exNl: "Bij de brand raakte niemand gewond." }
+  - { sv: "att spärra av", nl: "afsluiten (een weg)", ex: "Polisen **spärrade av** flera gator.", exNl: "De politie sloot meerdere straten af." }
+  - { sv: "att gå vilse", nl: "verdwalen", ex: "Älgen hade troligen **gått vilse**.", exNl: "De eland was waarschijnlijk verdwaald." }
+  - { sv: "att undra", nl: "zich afvragen", ex: "Jag **undrar** vem som skrev artikeln.", exNl: "Ik vraag me af wie het artikel schreef." }
+  - { sv: "att sprida", nl: "verspreiden", ex: "Falska nyheter **sprids** snabbt på nätet.", exNl: "Nepnieuws wordt snel verspreid op internet." }
+  - { sv: "enligt", nl: "volgens", ex: "**Enligt** polisen var älgen ung.", exNl: "Volgens de politie was de eland jong." }
+  - { sv: "troligen", nl: "waarschijnlijk", ex: "Tåget blir **troligen** en timme försenat.", exNl: "De trein heeft waarschijnlijk een uur vertraging." }
+  - { sv: "en ledare", nl: "een hoofdredactioneel commentaar, een leider", def: "ledaren", pl: "ledare", ex: "I dagens **ledare** kritiserar tidningen regeringen.", exNl: "In het hoofdredactioneel commentaar van vandaag bekritiseert de krant de regering." }
+  - { sv: "ett reportage", nl: "een reportage", def: "reportaget", pl: "reportage", ex: "Hon gjorde ett **reportage** om livet i en liten by i Norrland.", exNl: "Ze maakte een reportage over het leven in een klein dorp in Norrland." }
+  - { sv: "en presstalesperson", nl: "een woordvoerder", def: "presstalespersonen", pl: "presstalespersoner", alt: ["en talesperson"], ex: "Enligt polisens **{presstalesperson|talesperson}** skadades ingen.", exNl: "Volgens de woordvoerder van de politie raakte niemand gewond." }
+  - { sv: "en redaktion", nl: "een redactie", def: "redaktionen", pl: "redaktioner", ex: "Hela **redaktionen** arbetade sent den kvällen.", exNl: "De hele redactie werkte die avond tot laat." }
+  - { sv: "en redaktör", nl: "een redacteur", def: "redaktören", pl: "redaktörer", ex: "**Redaktören** bestämmer vilka artiklar som publiceras.", exNl: "De redacteur bepaalt welke artikelen er gepubliceerd worden." }
+  - { sv: "en kvällstidning", nl: "een boulevardkrant (avondkrant)", def: "kvällstidningen", pl: "kvällstidningar", ex: "**Kvällstidningarna** skriver mycket om kändisar.", exNl: "De boulevardkranten schrijven veel over beroemdheden." }
+  - { sv: "en prenumeration", nl: "een abonnement", def: "prenumerationen", pl: "prenumerationer", ex: "Jag har sagt upp min **prenumeration** på tidningen.", exNl: "Ik heb mijn abonnement op de krant opgezegd." }
+  - { sv: "en annons", nl: "een advertentie", def: "annonsen", pl: "annonser", ex: "Tidningen tjänar mest pengar på **annonser**.", exNl: "De krant verdient het meeste geld aan advertenties." }
+  - { sv: "ett inslag", nl: "een item (in een uitzending)", def: "inslaget", pl: "inslag", ex: "Kvällens första **inslag** handlade om skogsbränderna.", exNl: "Het eerste item van vanavond ging over de bosbranden." }
+  - { sv: "en sändning", nl: "een uitzending", def: "sändningen", pl: "sändningar", ex: "**Sändningen** avbröts på grund av tekniska problem.", exNl: "De uitzending werd onderbroken door technische problemen." }
+  - { sv: "en tittare", nl: "een kijker", def: "tittaren", pl: "tittare", ex: "Programmet hade över en miljon **tittare**.", exNl: "Het programma had meer dan een miljoen kijkers." }
+  - { sv: "en podd", nl: "een podcast", def: "podden", pl: "poddar", alt: ["en podcast"], ex: "Jag lyssnar på en **{podd|podcast}** om historia när jag tränar.", exNl: "Ik luister naar een podcast over geschiedenis als ik sport." }
+  - { sv: "en följare", nl: "een volger (op sociale media)", def: "följaren", pl: "följare", ex: "Hon har över hundratusen **följare** på Instagram.", exNl: "Ze heeft meer dan honderdduizend volgers op Instagram." }
+  - { sv: "ett rykte", nl: "een gerucht, een reputatie", def: "ryktet", pl: "rykten", ex: "Det går ett **rykte** om att fabriken ska stänga.", exNl: "Er gaat een gerucht dat de fabriek gaat sluiten." }
+  - { sv: "ett vittne", nl: "een getuige", def: "vittnet", pl: "vittnen", ex: "Flera **vittnen** såg bilen köra mot rött.", exNl: "Meerdere getuigen zagen de auto door rood rijden." }
+  - { sv: "en händelse", nl: "een gebeurtenis, een voorval", def: "händelsen", pl: "händelser", ex: "Polisen utreder **händelsen**.", exNl: "De politie onderzoekt het voorval." }
+  - { sv: "ett nyhetsflöde", nl: "een nieuwsfeed", def: "nyhetsflödet", pl: "nyhetsflöden", ex: "Jag scrollar igenom mitt **nyhetsflöde** varje morgon.", exNl: "Ik scroll elke ochtend door mijn nieuwsfeed." }
+  - { sv: "att prenumerera på", nl: "een abonnement hebben op, geabonneerd zijn op", ex: "Vi **prenumererar på** två dagstidningar.", exNl: "We hebben een abonnement op twee dagbladen." }
+  - { sv: "att rapportera", nl: "verslag doen, berichten", ex: "SVT **rapporterade** direkt från platsen.", exNl: "SVT deed rechtstreeks verslag vanaf de plek." }
+  - { sv: "att intervjua", nl: "interviewen", ex: "Journalisten **intervjuade** flera vittnen.", exNl: "De journalist interviewde meerdere getuigen." }
+  - { sv: "att sända", nl: "uitzenden", ex: "Matchen **sänds** på tv i kväll.", exNl: "De wedstrijd wordt vanavond op tv uitgezonden." }
+  - { sv: "att påstå", nl: "beweren", ex: "Han **påstod** att han inte hade sett något.", exNl: "Hij beweerde dat hij niets had gezien." }
+  - { sv: "att avslöja", nl: "onthullen, ontmaskeren", ex: "Tidningen **avslöjade** att politikern hade ljugit.", exNl: "De krant onthulde dat de politicus had gelogen." }
+  - { sv: "att förneka", nl: "ontkennen", ex: "Ministern **förnekar** att hon visste om saken.", exNl: "De minister ontkent dat ze van de zaak wist." }
+  - { sv: "att granska", nl: "kritisch onderzoeken, doorlichten", ex: "Journalister ska **granska** dem som har makt.", exNl: "Journalisten moeten de mensen met macht kritisch onderzoeken." }
+  - { sv: "att lägga ut", nl: "online zetten, posten", ex: "Hon **{lade ut|la ut}** en bild på älgen på Instagram.", exNl: "Ze zette een foto van de eland op Instagram." }
+  - { sv: "att faktagranska", nl: "factchecken", ex: "Redaktionen **faktagranskar** alla uppgifter innan de publiceras.", exNl: "De redactie factcheckt alle gegevens voordat ze gepubliceerd worden." }
+  - { sv: "att stämma", nl: "kloppen (juist zijn)", ex: "Det som stod i artikeln **stämde** inte.", exNl: "Wat er in het artikel stond, klopte niet." }
+  - { sv: "att hålla koll på", nl: "in de gaten houden, bijhouden", ex: "Jag försöker **hålla koll på** vad som händer i världen.", exNl: "Ik probeer in de gaten te houden wat er in de wereld gebeurt." }
+  - { sv: "att rycka ut", nl: "uitrukken", ex: "Räddningstjänsten **ryckte ut** till branden mitt i natten.", exNl: "De brandweer rukte midden in de nacht uit naar de brand." }
+  - { sv: "aktuell", nl: "actueel", ex: "Programmet tar upp **aktuella** frågor varje vecka.", exNl: "Het programma behandelt elke week actuele kwesties." }
+  - { sv: "opartisk", nl: "onpartijdig", ex: "En journalist bör vara **opartisk**.", exNl: "Een journalist hoort onpartijdig te zijn." }
+  - { sv: "pålitlig", nl: "betrouwbaar", ex: "Wikipedia är inte alltid en **pålitlig** källa.", exNl: "Wikipedia is niet altijd een betrouwbare bron." }
+  - { sv: "anonym", nl: "anoniem", ex: "Källan vill vara **anonym**.", exNl: "De bron wil anoniem blijven." }
+  - { sv: "falsk", nl: "vals, nep", ex: "Många delar **falska** nyheter utan att veta om det.", exNl: "Veel mensen delen valse nieuwsberichten zonder het te weten." }
+  - { sv: "enligt uppgift", nl: "naar verluidt", ex: "**Enligt uppgift** ska butiken stänga i mars.", exNl: "Naar verluidt gaat de winkel in maart dicht." }
+  - { sv: "i tisdags", nl: "afgelopen dinsdag", ex: "Älgen sågs i Uppsala **i tisdags**.", exNl: "De eland werd afgelopen dinsdag in Uppsala gezien." }
+  - { sv: "strax", nl: "vlak (voor of na), zo meteen", ex: "Olyckan hände **strax** efter klockan sex.", exNl: "Het ongeluk gebeurde vlak na zessen." }
+  - { sv: "tydligen", nl: "blijkbaar", ex: "Det var **tydligen** en ung älg.", exNl: "Het was blijkbaar een jonge eland." }
+  - { sv: "i direktsändning", nl: "live (op radio of tv)", alt: ["live"], ex: "Presskonferensen visades **{i direktsändning|live}**.", exNl: "De persconferentie werd live uitgezonden." }
+  - { sv: "vilseledande", nl: "misleidend", ex: "Rubriken var **vilseledande**.", exNl: "De kop was misleidend." }

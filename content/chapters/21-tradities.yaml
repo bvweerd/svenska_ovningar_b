@@ -100,7 +100,7 @@ sections:
           - id: ja57
             type: match
             pairs:
-              - ["en semla", "een roomsoes-broodje met amandelspijs"]
+              - ["en semla", "een kardemombroodje met amandelspijs en slagroom"]
               - ["en lussekatt", "een saffraanbroodje"]
               - ["Valborg", "de avond van 30 april"]
               - ["nationaldagen", "6 juni"]
@@ -259,7 +259,7 @@ sections:
               - { any: ["man"], label: "Je vertelt wat men doet (man …)" }
               - { any: ["förra"], label: "Je gebruikt förra (vorig)" }
               - { any: ["hela", "första", "nästa", "samma", "båda", "själva"], label: "Je gebruikt hela, första, nästa, samma, båda of själva" }
-            model: "I Nederländerna firar vi Kungens dag den tjugosjunde april. Hela landet blir orange: man har orange kläder, orange hattar och ibland till och med orange hår. På morgonen säljer barn och vuxna gamla saker på gatan. Det är som en enda stor loppis. Sedan går man ut och lyssnar på musik, och många festar hela dagen. Förra året var jag i Amsterdam för första gången på Kungens dag. Det var fullt med båtar på kanalerna! Nästa år vill jag fira i en mindre stad."
+            model: "I Nederländerna firar vi Kungens dag den tjugosjunde april. Hela landet blir orange: man har orange kläder och orange hattar på sig, och ibland till och med orange hår. På morgonen säljer barn och vuxna gamla saker på gatan. Det är som en enda stor loppis. Sedan går man ut och lyssnar på musik, och många festar hela dagen. Förra året var jag i Amsterdam för första gången på Kungens dag. Det var fullt med båtar på kanalerna! Nästa år vill jag fira i en mindre stad."
 
   - id: herhaling
     title: Herhaling
@@ -273,7 +273,7 @@ sections:
           - { id: sdbf, type: gap, topic: particip, text: "Vi åt ___ (koka) ägg till frukost.", gaps: [{ answers: ["kokta", "nykokta"] }] }
           - { id: 7yfp, type: gap, topic: man-en-ens, text: "På Valborg tänder ___ stora brasor.", gaps: [{ answers: ["man"], options: ["man", "en", "ens"], shuffle: false }] }
           - { id: vvvk, type: gap, topic: nagon-ingen, text: "Jag har aldrig ätit ___ semla.", gaps: [{ answers: ["någon"], options: ["någon", "ingen", "något"], shuffle: false, tip: "Na aldrig: någon (aldrig is al ontkennend)." }] }
-          - { id: 8u2e, type: transform, topic: indirekt-tal-b1, prompt: "Sanne: ”Jag har bakat bullar.”", task: "Sanne sa att …", answers: ["Sanne sa att hon hade bakat bullar."] }
+          - { id: 8u2e, type: transform, topic: indirekt-tal-b1, prompt: "Sanne: ”Jag har bakat bullar.”", task: "Sanne sa att …", answers: ["Sanne sa att hon {hade|har} bakat bullar."] }
           - { id: gqen, type: gap, topic: bestamd-utan-artikel, text: "Vi firade jul hos mormor förra ___.", gaps: [{ answers: ["året"], options: ["år", "året"], shuffle: false }] }
 
   - id: zoek-de-fout
@@ -292,23 +292,64 @@ sections:
           - { id: ay2n, type: findError, topic: sammansattning, sentence: "Jag läste en tidningartikel om Lucia.", wrong: [3], answers: ["Jag läste en tidningsartikel om Lucia."], tip: "Wat komt er na -ing?" }
 
 vocab:
-  - { sv: "en tradition", nl: "een traditie", def: "traditionen", pl: "traditioner", plDef: "traditionerna" }
-  - { sv: "en högtid", nl: "een feestdag", def: "högtiden", pl: "högtider", plDef: "högtiderna" }
-  - { sv: "en helgdag", nl: "een vrije feestdag", def: "helgdagen", pl: "helgdagar", plDef: "helgdagarna" }
-  - { sv: "ett bakverk", nl: "een gebakje", def: "bakverket", pl: "bakverk", plDef: "bakverken" }
-  - { sv: "ett bageri", nl: "een bakkerij", def: "bageriet", pl: "bagerier", plDef: "bagerierna" }
-  - { sv: "en semla", nl: "een semla (vastenavondbroodje)", def: "semlan", pl: "semlor", plDef: "semlorna" }
-  - { sv: "en våffla", nl: "een wafel", def: "våfflan", pl: "våfflor", plDef: "våfflorna" }
-  - { sv: "en brasa", nl: "een vreugdevuur, een haardvuur", def: "brasan", pl: "brasor", plDef: "brasorna" }
-  - { sv: "en kör", nl: "een koor", def: "kören", pl: "körer", plDef: "körerna" }
-  - { sv: "en sed", nl: "een gewoonte, een gebruik", def: "seden", pl: "seder", plDef: "sederna" }
-  - { sv: "ett skämt", nl: "een grap", def: "skämtet", pl: "skämt", plDef: "skämten" }
-  - { sv: "en årstid", nl: "een seizoen", def: "årstiden", pl: "årstider", plDef: "årstiderna" }
-  - { sv: "att fira", nl: "vieren" }
-  - { sv: "att baka", nl: "bakken" }
-  - { sv: "att tända", nl: "aansteken" }
-  - { sv: "att dyka upp", nl: "opduiken, verschijnen" }
-  - { sv: "att höra talas om", nl: "horen over" }
-  - { sv: "förra", nl: "vorig(e)" }
-  - { sv: "nästa", nl: "volgend(e)" }
-  - { sv: "i fjol", nl: "vorig jaar" }
+  - { sv: "en tradition", nl: "een traditie", def: "traditionen", pl: "traditioner", plDef: "traditionerna", ex: "Att äta semlor på fettisdagen är en gammal **tradition**.", exNl: "Semla's eten op vastenavond is een oude traditie." }
+  - { sv: "en högtid", nl: "een feestdag", def: "högtiden", pl: "högtider", plDef: "högtiderna", ex: "Jul och påsk är de största **högtiderna** i Sverige.", exNl: "Kerst en Pasen zijn de grootste feestdagen in Zweden." }
+  - { sv: "en helgdag", nl: "een vrije feestdag", def: "helgdagen", pl: "helgdagar", plDef: "helgdagarna", ex: "Första maj är en **helgdag** i Sverige.", exNl: "1 mei is in Zweden een vrije feestdag." }
+  - { sv: "ett bakverk", nl: "een gebakje", def: "bakverket", pl: "bakverk", plDef: "bakverken", ex: "Nästan varje årstid har sitt eget **bakverk**.", exNl: "Bijna elk seizoen heeft zijn eigen gebakje." }
+  - { sv: "ett bageri", nl: "een bakkerij", def: "bageriet", pl: "bagerier", plDef: "bagerierna", ex: "Det luktar nybakat bröd från **bageriet** på hörnet.", exNl: "Het ruikt naar versgebakken brood van de bakkerij op de hoek." }
+  - { sv: "en semla", nl: "een semla (vastenavondbroodje)", def: "semlan", pl: "semlor", plDef: "semlorna", ex: "Hur många **semlor** har du ätit i år?", exNl: "Hoeveel semla's heb je dit jaar gegeten?" }
+  - { sv: "en våffla", nl: "een wafel", def: "våfflan", pl: "våfflor", plDef: "våfflorna", ex: "På våffeldagen äter många svenskar **våfflor** med sylt och grädde.", exNl: "Op wafeldag eten veel Zweden wafels met jam en slagroom." }
+  - { sv: "en brasa", nl: "een vreugdevuur, een haardvuur", def: "brasan", pl: "brasor", plDef: "brasorna", ex: "Vi satt vid **brasan** och grillade korv.", exNl: "We zaten bij het vuur worstjes te roosteren." }
+  - { sv: "en kör", nl: "een koor", def: "kören", pl: "körer", plDef: "körerna", ex: "En **kör** sjöng vårsånger vid brasan.", exNl: "Een koor zong lenteliederen bij het vreugdevuur." }
+  - { sv: "en sed", nl: "een gewoonte, een gebruik", def: "seden", pl: "seder", plDef: "sederna", ex: "Det är en gammal **sed** att dricka glögg i december.", exNl: "Het is een oud gebruik om in december glögg te drinken." }
+  - { sv: "ett skämt", nl: "een grap", def: "skämtet", pl: "skämt", plDef: "skämten", ex: "Först trodde jag att kanelbullens dag var ett **skämt**.", exNl: "Eerst dacht ik dat de dag van het kaneelbroodje een grap was." }
+  - { sv: "en årstid", nl: "een seizoen", def: "årstiden", pl: "årstider", plDef: "årstiderna", ex: "Vilken **årstid** tycker du bäst om?", exNl: "Welk seizoen vind je het leukst?" }
+  - { sv: "att fira", nl: "vieren", ex: "Hur **firar** ni jul i Nederländerna?", exNl: "Hoe vieren jullie kerst in Nederland?" }
+  - { sv: "att baka", nl: "bakken", ex: "Förra året **bakade** jag lussekatter själv.", exNl: "Vorig jaar bakte ik zelf saffraanbroodjes." }
+  - { sv: "att tända", nl: "aansteken", ex: "I advent **tänder** vi ett ljus i fönstret.", exNl: "In de advent steken we een kaars aan in het raam." }
+  - { sv: "att dyka upp", nl: "opduiken, verschijnen", ex: "Semlorna **dyker upp** i bagerierna redan i januari.", exNl: "De semla's duiken al in januari op in de bakkerijen." }
+  - { sv: "att höra talas om", nl: "horen over", ex: "Jag hade aldrig **hört talas om** våffeldagen.", exNl: "Ik had nog nooit over wafeldag gehoord." }
+  - { sv: "förra", nl: "vorig(e)", ex: "**Förra** sommaren firade vi midsommar på Gotland.", exNl: "Vorige zomer vierden we midzomer op Gotland." }
+  - { sv: "nästa", nl: "volgend(e)", ex: "**Nästa** år ska jag baka lussekatter till Lucia.", exNl: "Volgend jaar ga ik saffraanbroodjes bakken voor Lucia." }
+  - { sv: "i fjol", nl: "vorig jaar", ex: "Vi var i Dalarna på midsommar **i fjol**.", exNl: "Vorig jaar waren we met midzomer in Dalarna." }
+  - { sv: "en midsommar", nl: "midzomer (het midzomerfeest)", def: "midsommaren", mass: true, ex: "Vi firar **midsommar** hos mina svärföräldrar i Dalarna.", exNl: "We vieren midzomer bij mijn schoonouders in Dalarna." }
+  - { sv: "en midsommarstång", nl: "een midzomerpaal (meiboom)", def: "midsommarstången", pl: "midsommarstänger", ex: "Barnen hjälpte till att klä **midsommarstången** med blommor.", exNl: "De kinderen hielpen de midzomerpaal met bloemen te versieren." }
+  - { sv: "en fettisdag", nl: "een vastenavond (dinsdag voor de vasten)", def: "fettisdagen", pl: "fettisdagar", ex: "På **fettisdagen** äter många svenskar semlor.", exNl: "Op vastenavond eten veel Zweden semla's." }
+  - { sv: "en nationaldag", nl: "een nationale feestdag", def: "nationaldagen", pl: "nationaldagar", ex: "Sveriges **nationaldag** firas den sjätte juni.", exNl: "De nationale feestdag van Zweden wordt op 6 juni gevierd." }
+  - { sv: "en surströmming", nl: "een zure haring (gegiste Oostzeeharing)", def: "surströmmingen", pl: "surströmmingar", ex: "**Surströmmingen** luktar så starkt att många äter den utomhus.", exNl: "De zure haring ruikt zo sterk dat veel mensen hem buiten eten." }
+  - { sv: "en sill", nl: "een haring", def: "sillen", pl: "sillar", ex: "Ingen midsommarlunch utan inlagd **sill** och nypotatis!", exNl: "Geen midzomerlunch zonder ingelegde haring en nieuwe aardappeltjes!" }
+  - { sv: "en snaps", nl: "een borrel (glaasje sterkedrank)", def: "snapsen", pl: "snapsar", ex: "Till sillen dricker många en **snaps**.", exNl: "Bij de haring drinken velen een borrel." }
+  - { sv: "en snapsvisa", nl: "een drinklied", def: "snapsvisan", pl: "snapsvisor", ex: "Innan man skålar sjunger man en **snapsvisa**.", exNl: "Voordat men proost, zingt men een drinklied." }
+  - { sv: "ett firande", nl: "een viering", def: "firandet", pl: "firanden", ex: "**Firandet** av Valborg börjar redan på eftermiddagen.", exNl: "De viering van Walpurgisnacht begint al 's middags." }
+  - { sv: "en gudstjänst", nl: "een kerkdienst", def: "gudstjänsten", pl: "gudstjänster", ex: "Julottan är en tidig **gudstjänst** på juldagens morgon.", exNl: "De julotta is een vroege kerkdienst op de ochtend van eerste kerstdag." }
+  - { sv: "en namnsdag", nl: "een naamdag", def: "namnsdagen", pl: "namnsdagar", ex: "I Sverige firar man både födelsedag och **namnsdag**.", exNl: "In Zweden viert men zowel zijn verjaardag als zijn naamdag." }
+  - { sv: "en studentmössa", nl: "een studentenpet (bij het eindexamen)", def: "studentmössan", pl: "studentmössor", ex: "Eleverna springer ut med **{studentmössan|studentmössorna}** på huvudet.", exNl: "De geslaagde leerlingen rennen naar buiten met de studentenpet op hun hoofd." }
+  - { sv: "ett dop", nl: "een doop", def: "dopet", pl: "dop", ex: "Efter **dopet** bjöd familjen på tårta.", exNl: "Na de doop trakteerde de familie op taart." }
+  - { sv: "en begravning", nl: "een begrafenis", def: "begravningen", pl: "begravningar", ex: "Hela byn kom till **begravningen**.", exNl: "Het hele dorp kwam naar de begrafenis." }
+  - { sv: "ett ursprung", nl: "een oorsprong, een herkomst", def: "ursprunget", pl: "ursprung", ex: "Luciafirandets **ursprung** är inte helt känt.", exNl: "De oorsprong van het luciafeest is niet helemaal bekend." }
+  - { sv: "en klämdag", nl: "een brugdag", def: "klämdagen", pl: "klämdagar", ex: "Många tar ledigt på **klämdagen** efter Kristi himmelsfärd.", exNl: "Veel mensen nemen vrij op de brugdag na Hemelvaart." }
+  - { sv: "en påskkärring", nl: "een paasheksje", def: "påskkärringen", pl: "påskkärringar", ex: "På skärtorsdagen går barnen runt som **påskkärringar**.", exNl: "Op Witte Donderdag gaan de kinderen als paasheksjes langs de deuren." }
+  - { sv: "att klä ut sig", nl: "zich verkleden", ex: "Vad ska du **klä ut dig** till på festen?", exNl: "Als wat ga jij je verkleden op het feest?" }
+  - { sv: "att hitta på", nl: "verzinnen, bedenken", ex: "Kanelbullens dag **hittades på** 1999.", exNl: "De dag van het kaneelbroodje werd in 1999 bedacht." }
+  - { sv: "att hålla fast vid", nl: "vasthouden aan", ex: "Min mormor **håller fast vid** gamla traditioner.", exNl: "Mijn oma houdt vast aan oude tradities." }
+  - { sv: "att gå i arv", nl: "doorgegeven worden (van generatie op generatie)", ex: "Receptet har **gått i arv** i fyra generationer.", exNl: "Het recept is al vier generaties lang doorgegeven." }
+  - { sv: "att uppmärksamma", nl: "aandacht besteden aan, stilstaan bij", ex: "Skolan **uppmärksammar** nationaldagen med sång och flaggor.", exNl: "De school staat stil bij de nationale feestdag met zang en vlaggen." }
+  - { sv: "att sjunga in", nl: "inzingen (de lente)", ex: "Kören samlas vid brasan för att **sjunga in** våren.", exNl: "Het koor komt bij het vuur samen om de lente in te zingen." }
+  - { sv: "att bjuda in", nl: "uitnodigen", ex: "Vi har **bjudit in** grannarna till kräftskiva.", exNl: "We hebben de buren uitgenodigd voor een rivierkreeftenfeest." }
+  - { sv: "att göra i ordning", nl: "klaarmaken, in orde maken", ex: "Hela familjen hjälps åt att **göra i ordning** julbordet.", exNl: "De hele familie helpt mee om het kerstbuffet klaar te maken." }
+  - { sv: "att härstamma från", nl: "stammen uit, afstammen van", ex: "Många av våra jultraditioner **härstammar från** Tyskland.", exNl: "Veel van onze kersttradities stammen uit Duitsland." }
+  - { sv: "att äga rum", nl: "plaatsvinden", ex: "Luciatåget **äger rum** i kyrkan klockan sju.", exNl: "De luciaoptocht vindt om zeven uur in de kerk plaats." }
+  - { sv: "att samlas", nl: "samenkomen, zich verzamelen", ex: "Hela släkten **samlas** hos oss på julafton.", exNl: "De hele familie komt op kerstavond bij ons samen." }
+  - { sv: "att hylla", nl: "eren, hulde brengen", ex: "På fars dag **hyllar** man alla pappor.", exNl: "Op vaderdag eert men alle vaders." }
+  - { sv: "att kallas", nl: "genoemd worden, heten", ex: "Dagen före midsommardagen **kallas** midsommarafton.", exNl: "De dag vóór midzomerdag wordt midsommarafton genoemd." }
+  - { sv: "ursprungligen", nl: "oorspronkelijk", ex: "Våffeldagen hette **ursprungligen** Vårfrudagen.", exNl: "Wafeldag heette oorspronkelijk Vårfrudagen." }
+  - { sv: "kyrklig", nl: "kerkelijk", ex: "Våffeldagen var från början en **kyrklig** helgdag.", exNl: "Wafeldag was oorspronkelijk een kerkelijke feestdag." }
+  - { sv: "religiös", nl: "religieus", ex: "Många firar jul utan att vara **religiösa**.", exNl: "Veel mensen vieren kerst zonder religieus te zijn." }
+  - { sv: "hednisk", nl: "heidens", ex: "Midsommarfirandet har **hedniska** rötter.", exNl: "Het midzomerfeest heeft heidense wortels." }
+  - { sv: "årlig", nl: "jaarlijks", ex: "Marknaden är en **årlig** tradition i byn.", exNl: "De markt is een jaarlijkse traditie in het dorp." }
+  - { sv: "traditionell", nl: "traditioneel", ex: "På julbordet finns **traditionell** mat som skinka och sill.", exNl: "Op het kerstbuffet staat traditioneel eten zoals ham en haring." }
+  - { sv: "i julas", nl: "afgelopen kerst", ex: "Vi var hos min syster **i julas**.", exNl: "Afgelopen kerst waren we bij mijn zus." }
+  - { sv: "i påskas", nl: "afgelopen Pasen", ex: "**I påskas** målade barnen ägg.", exNl: "Afgelopen Pasen beschilderden de kinderen eieren." }
+  - { sv: "nuförtiden", nl: "tegenwoordig", alt: ["numera", "nu för tiden"], ex: "**{Nuförtiden|Nu för tiden|Numera}** säljs semlor hela vintern.", exNl: "Tegenwoordig worden semla's de hele winter verkocht." }
+  - { sv: "Glad påsk!", nl: "Vrolijk Pasen!", ex: "**Glad påsk**, och tack för ägget!", exNl: "Vrolijk Pasen, en bedankt voor het ei!" }
+  - { sv: "Valborg", nl: "Walpurgisnacht (30 april)", alt: ["valborgsmässoafton"], ex: "På **{Valborg|valborgsmässoafton}** tänder man stora brasor i hela landet.", exNl: "Op Walpurgisnacht steekt men in het hele land grote vuren aan." }

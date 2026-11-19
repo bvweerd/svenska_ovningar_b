@@ -153,7 +153,7 @@ sections:
         topic: register
         items:
           - { id: d3cw, type: transform, prompt: "Jag vet inte vad dom vill.", answers: ["Jag vet inte vad de vill."], feedback: [{ contains: "vad dem", tip: "vad vi vill → de." }] }
-          - { id: ry7v, type: transform, prompt: "Kan du hjälpa mej med nåt?", answers: ["Kan du hjälpa mig med något?"] }
+          - { id: ry7v, type: transform, prompt: "Kan du hjälpa mej med nåt?", answers: ["Kan du hjälpa mig med {något|någonting}?"] }
           - { id: bch5, type: transform, prompt: "Jag såg dom i går.", answers: ["Jag såg dem {i går|igår}."], feedback: [{ contains: "såg de", tip: "Jag såg oss → dem." }] }
           - { id: ubzd, type: transform, prompt: "Va gör du sen?", answers: ["Vad gör du {sedan|senare|sen}?"] }
           - { id: rcgj, type: transform, prompt: "Har nån sett mina nycklar?", answers: ["Har någon sett mina nycklar?"] }
@@ -290,23 +290,65 @@ sections:
           - { id: 9hwv, type: findError, topic: idiom, sentence: "Hon hade eld i magen under intervjun.", wrong: [2], answers: ["Hon hade is i magen under intervjun."], tip: "Kalm blijven: … i magen." }
 
 vocab:
-  - { sv: "en dialekt", nl: "een dialect", def: "dialekten", pl: "dialekter", plDef: "dialekterna" }
-  - { sv: "ett modersmål", nl: "een moedertaal", def: "modersmålet", pl: "modersmål", plDef: "modersmålen" }
-  - { sv: "ett register", nl: "een register (taalgebruik)", def: "registret", pl: "register", plDef: "registren" }
-  - { sv: "en förort", nl: "een buitenwijk", def: "förorten", pl: "förorter", plDef: "förorterna" }
-  - { sv: "ett minoritetsspråk", nl: "een minderheidstaal", def: "minoritetsspråket", pl: "minoritetsspråk", plDef: "minoritetsspråken" }
-  - { sv: "ett uttryck", nl: "een uitdrukking", def: "uttrycket", pl: "uttryck", plDef: "uttrycken" }
-  - { sv: "ett uttal", nl: "een uitspraak", def: "uttalet", pl: "uttal", plDef: "uttalen" }
-  - { sv: "en identitet", nl: "een identiteit", def: "identiteten", pl: "identiteter", plDef: "identiteterna" }
-  - { sv: "ett meddelande", nl: "een bericht", def: "meddelandet", pl: "meddelanden", plDef: "meddelandena" }
-  - { sv: "att växla", nl: "wisselen" }
-  - { sv: "att behärska", nl: "beheersen" }
-  - { sv: "att uttala", nl: "uitspreken" }
-  - { sv: "att meddela", nl: "mededelen" }
-  - { sv: "att erhålla", nl: "ontvangen (formeel)" }
-  - { sv: "att återkomma", nl: "erop terugkomen" }
-  - { sv: "oavsett", nl: "ongeacht" }
-  - { sv: "likadant", nl: "hetzelfde, op dezelfde manier" }
-  - { sv: "dock", nl: "echter" }
-  - { sv: "således", nl: "dus (formeel)" }
-  - { sv: "vänligen", nl: "gelieve (formeel verzoek)" }
+  - { sv: "en dialekt", nl: "een dialect", def: "dialekten", pl: "dialekter", plDef: "dialekterna", ex: "Min mormor talar en bred skånsk **dialekt**.", exNl: "Mijn oma spreekt een breed dialect uit Skåne." }
+  - { sv: "ett modersmål", nl: "een moedertaal", def: "modersmålet", pl: "modersmål", plDef: "modersmålen", ex: "Mitt **modersmål** är nederländska, men jag drömmer på svenska.", exNl: "Mijn moedertaal is Nederlands, maar ik droom in het Zweeds." }
+  - { sv: "ett register", nl: "een register (taalgebruik)", def: "registret", pl: "register", plDef: "registren", ex: "I ett jobbmejl använder man ett mer formellt **register**.", exNl: "In een werkmail gebruik je een formeler register." }
+  - { sv: "en förort", nl: "een buitenwijk", def: "förorten", pl: "förorter", plDef: "förorterna", ex: "Han växte upp i en **förort** till Stockholm.", exNl: "Hij groeide op in een buitenwijk van Stockholm." }
+  - { sv: "ett minoritetsspråk", nl: "een minderheidstaal", def: "minoritetsspråket", pl: "minoritetsspråk", plDef: "minoritetsspråken", ex: "Samiska är ett av Sveriges fem nationella **minoritetsspråk**.", exNl: "Samisch is een van de vijf nationale minderheidstalen van Zweden." }
+  - { sv: "ett uttryck", nl: "een uitdrukking", def: "uttrycket", pl: "uttryck", plDef: "uttrycken", ex: "Vad betyder **uttrycket** 'ingen ko på isen'?", exNl: "Wat betekent de uitdrukking 'ingen ko på isen'?" }
+  - { sv: "ett uttal", nl: "een uitspraak", def: "uttalet", pl: "uttal", plDef: "uttalen", ex: "Hennes **uttal** är nästan perfekt efter bara ett år i Sverige.", exNl: "Haar uitspraak is na slechts een jaar in Zweden bijna perfect." }
+  - { sv: "en identitet", nl: "een identiteit", def: "identiteten", pl: "identiteter", plDef: "identiteterna", ex: "Språket är en viktig del av vår **identitet**.", exNl: "Taal is een belangrijk deel van onze identiteit." }
+  - { sv: "ett meddelande", nl: "een bericht", def: "meddelandet", pl: "meddelanden", plDef: "meddelandena", ex: "Jag fick ett **meddelande** från banken i morse.", exNl: "Ik kreeg vanochtend een bericht van de bank." }
+  - { sv: "att växla", nl: "wisselen", ex: "Många ungdomar **växlar** mellan svenska och engelska.", exNl: "Veel jongeren wisselen tussen Zweeds en Engels." }
+  - { sv: "att behärska", nl: "beheersen", ex: "Hon **behärskar** fyra språk, bland annat finska och arabiska.", exNl: "Ze beheerst vier talen, waaronder Fins en Arabisch." }
+  - { sv: "att uttala", nl: "uitspreken", ex: "Hur **uttalar** man det här ordet?", exNl: "Hoe spreek je dit woord uit?" }
+  - { sv: "att meddela", nl: "mededelen", ex: "Vi **meddelar** dig så snart beslutet är fattat.", exNl: "We delen het je mee zodra het besluit genomen is." }
+  - { sv: "att erhålla", nl: "ontvangen (formeel)", ex: "Du **erhåller** svar inom fem arbetsdagar.", exNl: "U ontvangt binnen vijf werkdagen antwoord." }
+  - { sv: "att återkomma", nl: "erop terugkomen", ex: "Vi **återkommer** med mer information senare.", exNl: "We komen later terug met meer informatie." }
+  - { sv: "oavsett", nl: "ongeacht", ex: "**Oavsett** var man kommer ifrån är svenska ett gemensamt språk.", exNl: "Ongeacht waar je vandaan komt, is Zweeds een gemeenschappelijke taal." }
+  - { sv: "likadant", nl: "hetzelfde, op dezelfde manier", ex: "Det ordet uttalas nästan **likadant** på norska.", exNl: "Dat woord wordt in het Noors bijna hetzelfde uitgesproken." }
+  - { sv: "dock", nl: "echter", ex: "Ansökan kom in i tid. Den var **dock** inte komplett.", exNl: "De aanvraag kwam op tijd binnen. Hij was echter niet volledig." }
+  - { sv: "således", nl: "dus (formeel)", ex: "Beslutet gäller **således** från och med i dag.", exNl: "Het besluit geldt dus vanaf vandaag." }
+  - { sv: "vänligen", nl: "gelieve (formeel verzoek)", ex: "**Vänligen** svara på detta mejl senast på fredag.", exNl: "Gelieve uiterlijk vrijdag op deze mail te antwoorden." }
+  - { sv: "en brytning", nl: "een accent (buitenlands)", def: "brytningen", pl: "brytningar", plDef: "brytningarna", ex: "Hon talar svenska med lätt holländsk **brytning**.", exNl: "Ze spreekt Zweeds met een licht Nederlands accent." }
+  - { sv: "en slang", nl: "slang (straattaal)", def: "slangen", mass: true, ex: "Tonåringar använder mycket **slang** när de chattar.", exNl: "Tieners gebruiken veel slang als ze chatten." }
+  - { sv: "ett lånord", nl: "een leenwoord", def: "lånordet", pl: "lånord", plDef: "lånorden", ex: "Svenskan har många **lånord** från engelskan.", exNl: "Het Zweeds heeft veel leenwoorden uit het Engels." }
+  - { sv: "ett talesätt", nl: "een gezegde", def: "talesättet", pl: "talesätt", plDef: "talesätten", ex: "Det finns ett gammalt **talesätt**: borta bra men hemma bäst.", exNl: "Er is een oud gezegde: oost west, thuis best." }
+  - { sv: "ett ordspråk", nl: "een spreekwoord", def: "ordspråket", pl: "ordspråk", plDef: "ordspråken", ex: "Kan du något bra svenskt **ordspråk** om väder?", exNl: "Ken jij een goed Zweeds spreekwoord over het weer?" }
+  - { sv: "ett ordförråd", nl: "een woordenschat", def: "ordförrådet", pl: "ordförråd", plDef: "ordförråden", ex: "Genom att läsa mycket får du ett större **ordförråd**.", exNl: "Door veel te lezen krijg je een grotere woordenschat." }
+  - { sv: "en grammatik", nl: "een grammatica", def: "grammatiken", pl: "grammatiker", plDef: "grammatikerna", ex: "Svensk **grammatik** är inte så svår som många tror.", exNl: "Zweedse grammatica is niet zo moeilijk als velen denken." }
+  - { sv: "en betydelse", nl: "een betekenis", def: "betydelsen", pl: "betydelser", plDef: "betydelserna", ex: "Ordet 'rolig' har olika **betydelser** i svenska och norska.", exNl: "Het woord 'rolig' heeft verschillende betekenissen in het Zweeds en het Noors." }
+  - { sv: "ett missförstånd", nl: "een misverstand", def: "missförståndet", pl: "missförstånd", plDef: "missförstånden", ex: "Det var bara ett **missförstånd**, inget att bråka om.", exNl: "Het was maar een misverstand, niets om ruzie over te maken." }
+  - { sv: "en översättning", nl: "een vertaling", def: "översättningen", pl: "översättningar", plDef: "översättningarna", ex: "**Översättningen** av boken är tyvärr ganska dålig.", exNl: "De vertaling van het boek is helaas vrij slecht." }
+  - { sv: "ett skriftspråk", nl: "een schrijftaal", def: "skriftspråket", pl: "skriftspråk", plDef: "skriftspråken", ex: "I **skriftspråket** skriver man 'de' och 'dem', inte 'dom'.", exNl: "In de schrijftaal schrijf je 'de' en 'dem', niet 'dom'." }
+  - { sv: "ett talspråk", nl: "een spreektaal", def: "talspråket", pl: "talspråk", plDef: "talspråken", ex: "Ord som 'nåt' och 'mej' hör till **talspråket**.", exNl: "Woorden als 'nåt' en 'mej' horen bij de spreektaal." }
+  - { sv: "en hälsning", nl: "een groet", def: "hälsningen", pl: "hälsningar", plDef: "hälsningarna", ex: "Hon avslutade mejlet med en vänlig **hälsning**.", exNl: "Ze sloot de mail af met een vriendelijke groet." }
+  - { sv: "en ordbok", nl: "een woordenboek", def: "ordboken", pl: "ordböcker", plDef: "ordböckerna", ex: "Slå upp ordet i en **ordbok** om du är osäker.", exNl: "Zoek het woord op in een woordenboek als je het niet zeker weet." }
+  - { sv: "en stavning", nl: "een spelling", def: "stavningen", pl: "stavningar", plDef: "stavningarna", ex: "Kontrollera **stavningen** innan du skickar mejlet.", exNl: "Controleer de spelling voordat je de mail verstuurt." }
+  - { sv: "att översätta", nl: "vertalen", ex: "Kan du **översätta** brevet till engelska?", exNl: "Kun je de brief naar het Engels vertalen?" }
+  - { sv: "att slå upp", nl: "opzoeken (in een woordenboek)", ex: "Jag **slog upp** ordet i ordboken.", exNl: "Ik zocht het woord op in het woordenboek." }
+  - { sv: "att uttrycka sig", nl: "zich uitdrukken", ex: "Hon **uttrycker sig** väldigt elegant, både i tal och skrift.", exNl: "Ze drukt zich erg elegant uit, zowel mondeling als schriftelijk." }
+  - { sv: "att missförstå", nl: "verkeerd begrijpen", ex: "Förlåt, jag **missförstod** vad du menade i mejlet.", exNl: "Sorry, ik begreep verkeerd wat je in de mail bedoelde." }
+  - { sv: "att låta", nl: "klinken", ex: "Du **låter** som en riktig stockholmare!", exNl: "Je klinkt als een echte Stockholmer!" }
+  - { sv: "att härma", nl: "nadoen, imiteren", ex: "Barnen **härmar** hur deras föräldrar pratar.", exNl: "De kinderen doen na hoe hun ouders praten." }
+  - { sv: "att göra sig förstådd", nl: "zich verstaanbaar maken", ex: "Det är skönt att kunna **göra sig förstådd** på svenska.", exNl: "Het is fijn om je verstaanbaar te kunnen maken in het Zweeds." }
+  - { sv: "att ta efter", nl: "overnemen (van iemand), nadoen", ex: "Ungdomar **tar efter** uttryck från sociala medier.", exNl: "Jongeren nemen uitdrukkingen over van sociale media." }
+  - { sv: "att tilltala", nl: "aanspreken", ex: "I Sverige **tilltalar** man nästan alla med 'du'.", exNl: "In Zweden spreek je bijna iedereen aan met 'du'." }
+  - { sv: "att lägga märke till", nl: "opmerken", ex: "Jag **{lade|la} märke till** att hon pratade med brytning.", exNl: "Ik merkte op dat ze met een accent sprak." }
+  - { sv: "att fräscha upp", nl: "opfrissen", ex: "Jag måste **fräscha upp** min franska innan resan.", exNl: "Ik moet mijn Frans opfrissen voor de reis." }
+  - { sv: "att rätta", nl: "corrigeren, verbeteren", ex: "Kan du **rätta** mig när jag säger fel?", exNl: "Kun je me verbeteren als ik iets verkeerd zeg?" }
+  - { sv: "att påbörja", nl: "beginnen (formeel)", ex: "Vi **påbörjar** renoveringen av huset nästa vecka.", exNl: "We beginnen volgende week met de renovatie van het huis." }
+  - { sv: "att bistå", nl: "bijstaan, helpen (formeel)", ex: "Vår personal **bistår** er gärna under besöket.", exNl: "Ons personeel staat u graag bij tijdens uw bezoek." }
+  - { sv: "att ha is i magen", nl: "kalm blijven", ex: "Nu gäller det att **ha is i magen** och inte stressa.", exNl: "Nu komt het erop aan kalm te blijven en niet te stressen." }
+  - { sv: "att kasta yxan i sjön", nl: "de handdoek in de ring gooien", ex: "Det är för tidigt att **kasta yxan i sjön**.", exNl: "Het is te vroeg om de handdoek in de ring te gooien." }
+  - { sv: "att ana ugglor i mossen", nl: "onraad ruiken", ex: "Hon började **ana ugglor i mossen** när han slutade svara.", exNl: "Ze begon onraad te ruiken toen hij niet meer antwoordde." }
+  - { sv: "att ta med en nypa salt", nl: "met een korreltje zout nemen", ex: "Sådana nyheter ska man **ta med en nypa salt**.", exNl: "Zulk nieuws moet je met een korreltje zout nemen." }
+  - { sv: "det är ingen ko på isen", nl: "er is geen haast, geen probleem", ex: "**Det är ingen ko på isen**, vi har gott om tid.", exNl: "Er is geen haast, we hebben ruim de tijd." }
+  - { sv: "flytande", nl: "vloeiend", ex: "Efter tre år talade hon **flytande** svenska.", exNl: "Na drie jaar sprak ze vloeiend Zweeds." }
+  - { sv: "formell", nl: "formeel", ex: "Ett mejl till en myndighet ska vara ganska **formellt**.", exNl: "Een mail aan een instantie moet vrij formeel zijn." }
+  - { sv: "informell", nl: "informeel", ex: "Med vänner skriver vi på ett mer **informellt** sätt.", exNl: "Met vrienden schrijven we op een informelere manier." }
+  - { sv: "artig", nl: "beleefd", ex: "Svenskar är **artiga** men ganska direkta.", exNl: "Zweden zijn beleefd maar vrij direct." }
+  - { sv: "otydlig", nl: "onduidelijk", ex: "Instruktionerna var **otydliga**, så jag ringde och frågade.", exNl: "De instructies waren onduidelijk, dus ik belde om het te vragen." }
+  - { sv: "bokstavligen", nl: "letterlijk", ex: "Uttrycket 'ingen ko på isen' ska man inte ta **bokstavligen**.", exNl: "De uitdrukking 'ingen ko på isen' moet je niet letterlijk nemen." }
+  - { sv: "typ", nl: "zo'n beetje, ongeveer (spreektaal)", ex: "Vi ses **typ** vid sju, okej?", exNl: "We zien elkaar zo'n beetje om zeven uur, oké?" }
+  - { sv: "hur som helst", nl: "hoe dan ook", ex: "**Hur som helst** måste vi bestämma oss i dag.", exNl: "Hoe dan ook moeten we vandaag een beslissing nemen." }

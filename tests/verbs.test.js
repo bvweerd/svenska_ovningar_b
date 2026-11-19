@@ -2,7 +2,7 @@ import { describe, it, expect } from 'vitest';
 import fs from 'node:fs';
 import path from 'node:path';
 import yaml from 'js-yaml';
-import { verbItem, naiveForms, pretOptions, pickVerbItem, TENSES } from '../src/verbs.js';
+import { verbItem, naiveForms, pretOptions, pickVerbItem, withNewKinds, TENSES, KINDS } from '../src/verbs.js';
 import { gradeText } from '../src/check/grade.js';
 
 const verbs = yaml.load(fs.readFileSync(path.resolve(import.meta.dirname, '../content/verbs.yaml'), 'utf8')).verbs;
@@ -11,7 +11,14 @@ describe('werkwoordenlijst', () => {
   it('heeft voor elk werkwoord alle vormen en een geldige soort', () => {
     for (const v of verbs) {
       for (const k of ['inf', 'nl', 'kind', 'pres', 'pret', 'sup']) expect(v[k], `${v.inf}.${k}`).toBeTruthy();
-      expect(['ar', 'er', 'kort', 'sterk']).toContain(v.kind);
+      expect(Object.keys(KINDS)).toContain(v.kind);
+      // Partikelwerkwoorden: elke vorm eindigt op hetzelfde partikel als de infinitief.
+      // Een infinitief van meer woorden is altijd een partikelwerkwoord (en omgekeerd).
+      expect(v.inf.includes(' '), `${v.inf} kind`).toBe(v.kind === 'partikel');
+      if (v.kind === 'partikel') {
+        const rest = v.inf.slice(v.inf.indexOf(' '));
+        for (const t of Object.keys(TENSES)) for (const f of [].concat(v[t] ?? [])) expect(f.endsWith(rest), `${v.inf} ${t} ${f}`).toBe(true);
+      }
     }
     expect(new Set(verbs.map((v) => v.inf)).size).toBe(verbs.length);
   });
@@ -55,6 +62,28 @@ describe('vragen', () => {
       expect(q.tense).toBe('pret');
     }
     expect(pickVerbItem(verbs, { tenses: [], kinds: ['ar'] })).toBeNull();
+  });
+
+  it('partikelwerkwoord: tip bij een vergeten partikel en bij een verkeerd vervoegd werkwoord', () => {
+    const ta = { inf: 'ta upp', nl: 'oppakken', kind: 'partikel', pres: 'tar upp', pret: 'tog upp', sup: 'tagit upp', imp: 'ta upp' };
+    const spec = verbItem(ta, 'pret').gaps[0];
+    expect(gradeText('tog upp', spec).correct).toBe(true);
+    expect(gradeText('tog', spec).tip).toMatch(/Vergeet „upp”/);
+    expect(gradeText('tade upp', spec).tip).toMatch(/partikelwerkwoord/);
+    const sup = verbItem(ta, 'sup').gaps[0];
+    expect(gradeText('har tagit upp', sup).correct).toBe(true);
+    expect(gradeText('har tagit', sup).tip).toMatch(/Vergeet/);
+  });
+
+  it('nieuwe soorten gaan aan bij oude instellingen, zonder die te wijzigen', () => {
+    const all = Object.keys(KINDS);
+    const old = { tenses: ['pret'], kinds: ['ar'] };
+    const s = withNewKinds(old, all);
+    expect(s.kinds).toEqual(['ar', 'partikel']);
+    expect(s.seen).toEqual(expect.arrayContaining(all));
+    expect(old).toEqual({ tenses: ['pret'], kinds: ['ar'] });
+    // Wie de nieuwe soort daarna uitzet, krijgt hem niet opnieuw.
+    expect(withNewKinds({ ...s, kinds: ['ar'] }, all).kinds).toEqual(['ar']);
   });
 
   it('spel: drie verschillende opties met de goede erbij', () => {

@@ -410,23 +410,63 @@ sections:
           - { id: ywge, type: findError, topic: relativ-som, sentence: "Jobbet som jag sökte det var på heltid.", wrong: [4], answers: ["Jobbet [som ]jag sökte var på heltid."], tip: "Jobbet is al het onderwerp van de hoofdzin: herhaal het niet met det." }
 
 vocab:
-  - { sv: "en arbetsgivare", nl: "een werkgever", def: "arbetsgivaren", pl: "arbetsgivare", plDef: "arbetsgivarna" }
-  - { sv: "en tjänst", nl: "een functie, een betrekking", def: "tjänsten", pl: "tjänster", plDef: "tjänsterna" }
-  - { sv: "en lön", nl: "een salaris, een loon", def: "lönen", pl: "löner", plDef: "lönerna" }
-  - { sv: "en erfarenhet", nl: "een ervaring", def: "erfarenheten", pl: "erfarenheter", plDef: "erfarenheterna" }
-  - { sv: "en utbildning", nl: "een opleiding", def: "utbildningen", pl: "utbildningar", plDef: "utbildningarna" }
-  - { sv: "en intervju", nl: "een sollicitatiegesprek, een interview", def: "intervjun", pl: "intervjuer", plDef: "intervjuerna" }
-  - { sv: "ett krav", nl: "een eis", def: "kravet", pl: "krav", plDef: "kraven" }
-  - { sv: "en kollega", nl: "een collega", def: "kollegan", pl: ["kollegor", "kolleger"], plDef: ["kollegorna", "kollegerna"] }
-  - { sv: "en chef", nl: "een leidinggevende, een baas", def: "chefen", pl: "chefer", plDef: "cheferna" }
-  - { sv: "ett företag", nl: "een bedrijf", def: "företaget", pl: "företag", plDef: "företagen" }
-  - { sv: "ett möte", nl: "een vergadering", def: "mötet", pl: "möten", plDef: "mötena" }
-  - { sv: "en ansökan", nl: "een sollicitatie, een aanvraag", pl: "ansökningar", plDef: "ansökningarna" }
-  - { sv: "en provanställning", nl: "een proeftijd", def: "provanställningen", pl: "provanställningar", plDef: "provanställningarna" }
-  - { sv: "en tillsvidareanställning", nl: "een vaste aanstelling", def: "tillsvidareanställningen", pl: "tillsvidareanställningar", plDef: "tillsvidareanställningarna" }
-  - { sv: "att anställa", nl: "aannemen, in dienst nemen" }
-  - { sv: "att söka", nl: "solliciteren, zoeken" }
-  - { sv: "att trivas", nl: "het naar je zin hebben" }
-  - { sv: "att säga upp sig", nl: "ontslag nemen" }
-  - { sv: "meriterande", nl: "een pré" }
-  - { sv: "noggrann", nl: "nauwkeurig, zorgvuldig" }
+  - { sv: "en arbetsgivare", nl: "een werkgever", def: "arbetsgivaren", pl: "arbetsgivare", plDef: "arbetsgivarna", ex: "Min **arbetsgivare** betalar för kursen i svenska.", exNl: "Mijn werkgever betaalt de cursus Zweeds." }
+  - { sv: "en tjänst", nl: "een functie, een betrekking", def: "tjänsten", pl: "tjänster", plDef: "tjänsterna", ex: "Hon sökte **tjänsten** som projektledare i Lund.", exNl: "Ze solliciteerde naar de functie van projectleider in Lund." }
+  - { sv: "en lön", nl: "een salaris, een loon", def: "lönen", pl: "löner", plDef: "lönerna", ex: "**Lönen** betalas ut den 25:e varje månad.", exNl: "Het salaris wordt de 25e van elke maand uitbetaald." }
+  - { sv: "en erfarenhet", nl: "een ervaring", def: "erfarenheten", pl: "erfarenheter", plDef: "erfarenheterna", ex: "Hon har tio års **erfarenhet** av kundservice.", exNl: "Ze heeft tien jaar ervaring met klantenservice." }
+  - { sv: "en utbildning", nl: "een opleiding", def: "utbildningen", pl: "utbildningar", plDef: "utbildningarna", ex: "Vilken **utbildning** har du för det här jobbet?", exNl: "Welke opleiding heb je voor deze baan?" }
+  - { sv: "en intervju", nl: "een sollicitatiegesprek, een interview", def: "intervjun", pl: "intervjuer", plDef: "intervjuerna", ex: "Jag är kallad till **intervju** på torsdag.", exNl: "Ik ben donderdag uitgenodigd voor een sollicitatiegesprek." }
+  - { sv: "ett krav", nl: "een eis", def: "kravet", pl: "krav", plDef: "kraven", ex: "Körkort är ett **krav** för den här tjänsten.", exNl: "Een rijbewijs is een eis voor deze functie." }
+  - { sv: "en kollega", nl: "een collega", def: "kollegan", pl: ["kollegor", "kolleger"], plDef: ["kollegorna", "kollegerna"], ex: "Mina **{kollegor|kolleger}** fikar varje dag klockan tre.", exNl: "Mijn collega's drinken elke dag om drie uur koffie." }
+  - { sv: "en chef", nl: "een leidinggevende, een baas", def: "chefen", pl: "chefer", plDef: "cheferna", ex: "Jag måste fråga min **chef** om ledigt.", exNl: "Ik moet mijn leidinggevende om vrij vragen." }
+  - { sv: "ett företag", nl: "een bedrijf", def: "företaget", pl: "företag", plDef: "företagen", ex: "Hon jobbar på ett litet **företag** i Örebro.", exNl: "Ze werkt bij een klein bedrijf in Örebro." }
+  - { sv: "ett möte", nl: "een vergadering", def: "mötet", pl: "möten", plDef: "mötena", ex: "**Mötet** ställdes in på grund av sjukdom.", exNl: "De vergadering werd afgelast wegens ziekte." }
+  - { sv: "en ansökan", nl: "een sollicitatie, een aanvraag", pl: "ansökningar", plDef: "ansökningarna", ex: "Vi har fått över hundra **ansökningar** till tjänsten.", exNl: "We hebben meer dan honderd sollicitaties voor de functie gekregen." }
+  - { sv: "en provanställning", nl: "een proeftijd", def: "provanställningen", pl: "provanställningar", plDef: "provanställningarna", ex: "Först har jag sex månaders **provanställning**.", exNl: "Eerst heb ik zes maanden proeftijd." }
+  - { sv: "en tillsvidareanställning", nl: "een vaste aanstelling", def: "tillsvidareanställningen", pl: "tillsvidareanställningar", plDef: "tillsvidareanställningarna", ex: "Efter ett år fick hon en **tillsvidareanställning**.", exNl: "Na een jaar kreeg ze een vaste aanstelling." }
+  - { sv: "att anställa", nl: "aannemen, in dienst nemen", ex: "Företaget **anställde** tre nya säljare i höstas.", exNl: "Het bedrijf nam afgelopen herfst drie nieuwe verkopers aan." }
+  - { sv: "att söka", nl: "solliciteren, zoeken", ex: "Jag har **sökt** fem jobb den här månaden.", exNl: "Ik heb deze maand op vijf banen gesolliciteerd." }
+  - { sv: "att trivas", nl: "het naar je zin hebben", ex: "Jag **trivs** jättebra med mina nya kollegor.", exNl: "Ik heb het erg naar mijn zin met mijn nieuwe collega's." }
+  - { sv: "att säga upp sig", nl: "ontslag nemen", ex: "Han **{sa|sade} upp sig** för att han ville plugga.", exNl: "Hij nam ontslag omdat hij wilde studeren." }
+  - { sv: "meriterande", nl: "een pré", ex: "Det är **meriterande** om du talar finska.", exNl: "Het is een pré als je Fins spreekt." }
+  - { sv: "noggrann", nl: "nauwkeurig, zorgvuldig", ex: "Hon är väldigt **noggrann** med alla detaljer.", exNl: "Ze is erg nauwkeurig met alle details." }
+  - { sv: "en arbetsplats", nl: "een werkplek", def: "arbetsplatsen", pl: "arbetsplatser", ex: "Det är förbjudet att röka på **arbetsplatsen**.", exNl: "Het is verboden om op de werkplek te roken." }
+  - { sv: "en arbetstid", nl: "een werktijd", def: "arbetstiden", pl: "arbetstider", ex: "Hur ser **arbetstiderna** ut på det nya jobbet?", exNl: "Hoe zien de werktijden eruit bij de nieuwe baan?" }
+  - { sv: "en anställning", nl: "een dienstverband, een baan", def: "anställningen", pl: "anställningar", ex: "Hon har en fast **anställning** på kommunen.", exNl: "Ze heeft een vast dienstverband bij de gemeente." }
+  - { sv: "en arbetsuppgift", nl: "een taak (op het werk)", def: "arbetsuppgiften", pl: "arbetsuppgifter", ex: "Vilka **arbetsuppgifter** har du på ditt nya jobb?", exNl: "Welke taken heb je in je nieuwe baan?" }
+  - { sv: "ett ansvar", nl: "een verantwoordelijkheid", def: "ansvaret", mass: true, ex: "Hon har **ansvaret** för alla beställningar.", exNl: "Zij heeft de verantwoordelijkheid voor alle bestellingen." }
+  - { sv: "en referens", nl: "een referentie", def: "referensen", pl: "referenser", ex: "Kan du ge oss namn på två **referenser**?", exNl: "Kun je ons de namen van twee referenties geven?" }
+  - { sv: "en medarbetare", nl: "een medewerker", def: "medarbetaren", pl: "medarbetare", ex: "Alla nya **medarbetare** får en introduktion den första dagen.", exNl: "Alle nieuwe medewerkers krijgen de eerste dag een introductie." }
+  - { sv: "en fackförening", nl: "een vakbond", def: "fackföreningen", pl: "fackföreningar", alt: ["ett fack"], ex: "Är du med i någon **fackförening**?", exNl: "Ben je lid van een vakbond?" }
+  - { sv: "ett kollektivavtal", nl: "een cao (collectieve arbeidsovereenkomst)", def: "kollektivavtalet", pl: "kollektivavtal", ex: "Företaget har **kollektivavtal**, så lönen är bra.", exNl: "Het bedrijf heeft een cao, dus het salaris is goed." }
+  - { sv: "en uppsägning", nl: "een ontslag, een opzegging", def: "uppsägningen", pl: "uppsägningar", ex: "Efter **uppsägningen** fick han lön i tre månader till.", exNl: "Na het ontslag kreeg hij nog drie maanden salaris." }
+  - { sv: "en löneförhöjning", nl: "een loonsverhoging", def: "löneförhöjningen", pl: "löneförhöjningar", ex: "Jag tänker be om en **löneförhöjning** i år.", exNl: "Ik ben van plan dit jaar om een loonsverhoging te vragen." }
+  - { sv: "en föräldraledighet", nl: "het ouderschapsverlof", def: "föräldraledigheten", mass: true, ex: "Han tar sex månaders **föräldraledighet** i vår.", exNl: "Hij neemt dit voorjaar zes maanden ouderschapsverlof." }
+  - { sv: "en arbetsmiljö", nl: "een werkomgeving, de arbeidsomstandigheden", def: "arbetsmiljön", pl: "arbetsmiljöer", ex: "Vi jobbar hela tiden med att förbättra **arbetsmiljön**.", exNl: "We werken voortdurend aan het verbeteren van de werkomgeving." }
+  - { sv: "en praktik", nl: "een stage", def: "praktiken", pl: "praktiker", ex: "Hon gör sin **praktik** på en bank i Stockholm.", exNl: "Ze loopt haar stage bij een bank in Stockholm." }
+  - { sv: "att jobba övertid", nl: "overwerken", alt: ["att arbeta övertid"], ex: "Jag fick **jobba övertid** hela förra veckan.", exNl: "Ik moest de hele vorige week overwerken." }
+  - { sv: "att gå i pension", nl: "met pensioen gaan", ex: "Min pappa **gick i pension** förra året.", exNl: "Mijn vader ging vorig jaar met pensioen." }
+  - { sv: "att bli uppsagd", nl: "ontslagen worden", ex: "Trettio personer **blev uppsagda** när fabriken stängde.", exNl: "Dertig mensen werden ontslagen toen de fabriek sloot." }
+  - { sv: "att rekrytera", nl: "werven (personeel), rekruteren", ex: "Vi behöver **rekrytera** fler sjuksköterskor till hösten.", exNl: "We moeten voor het najaar meer verpleegkundigen werven." }
+  - { sv: "att ta itu med", nl: "aanpakken", ex: "Chefen lovade att **ta itu med** problemet direkt.", exNl: "De baas beloofde het probleem meteen aan te pakken." }
+  - { sv: "att samarbeta", nl: "samenwerken", ex: "Vi **samarbetar** mycket med andra avdelningar.", exNl: "We werken veel samen met andere afdelingen." }
+  - { sv: "att ansvara för", nl: "verantwoordelijk zijn voor", ex: "Hon **ansvarar för** kontakten med kunderna.", exNl: "Zij is verantwoordelijk voor het contact met de klanten." }
+  - { sv: "att sköta", nl: "regelen, zorgen voor, beheren", ex: "Han **sköter** all ekonomi på företaget.", exNl: "Hij regelt alle financiën bij het bedrijf." }
+  - { sv: "att jobba hemifrån", nl: "thuiswerken", alt: ["att arbeta hemifrån"], ex: "Jag **jobbar hemifrån** på fredagar.", exNl: "Op vrijdag werk ik thuis." }
+  - { sv: "att gå ner i tid", nl: "minder gaan werken", ex: "Hon vill **gå ner i tid** och jobba 75 procent.", exNl: "Ze wil minder gaan werken: 75 procent." }
+  - { sv: "att ta ledigt", nl: "vrij nemen", ex: "Jag **tar ledigt** på fredag för att flytta.", exNl: "Ik neem vrijdag vrij om te verhuizen." }
+  - { sv: "att hoppa in", nl: "invallen", ex: "Kan du **hoppa in** för Sara i morgon?", exNl: "Kun je morgen voor Sara invallen?" }
+  - { sv: "att höra av sig", nl: "van zich laten horen, contact opnemen", ex: "Vi **hör av oss** så snart vi har bestämt oss.", exNl: "We laten van ons horen zodra we een besluit hebben genomen." }
+  - { sv: "att ställa in", nl: "afgelasten", ex: "De fick **ställa in** konferensen på grund av snöovädret.", exNl: "Ze moesten de conferentie afgelasten vanwege de sneeuwstorm." }
+  - { sv: "på heltid", nl: "voltijds, fulltime", ex: "Tjänsten är **på heltid** och börjar i augusti.", exNl: "De functie is voltijds en begint in augustus." }
+  - { sv: "på deltid", nl: "deeltijds, parttime", ex: "Hon jobbar **på deltid** eftersom hon har små barn.", exNl: "Ze werkt deeltijds omdat ze kleine kinderen heeft." }
+  - { sv: "arbetslös", nl: "werkloos", ex: "Han var **arbetslös** i ett halvår innan han fick jobbet.", exNl: "Hij was een halfjaar werkloos voordat hij de baan kreeg." }
+  - { sv: "tillfällig", nl: "tijdelijk", ex: "Jag har en **tillfällig** anställning till och med juni.", exNl: "Ik heb een tijdelijke aanstelling tot en met juni." }
+  - { sv: "flexibel", nl: "flexibel", ex: "Vi har **flexibla** arbetstider på kontoret.", exNl: "We hebben flexibele werktijden op kantoor." }
+  - { sv: "ansvarsfull", nl: "verantwoordelijk (van een taak of functie)", ex: "Det är ett **ansvarsfullt** jobb med mycket stress.", exNl: "Het is een verantwoordelijke baan met veel stress." }
+  - { sv: "självständig", nl: "zelfstandig", ex: "Hon är väldigt **självständig** i sitt arbete.", exNl: "Ze is erg zelfstandig in haar werk." }
+  - { sv: "obehindrat", nl: "vloeiend, zonder moeite", ex: "Du talar och skriver svenska **obehindrat**.", exNl: "Je spreekt en schrijft vloeiend Zweeds." }
+  - { sv: "angående", nl: "betreffende, in verband met", ex: "Jag ringer **angående** tjänsten som säljare.", exNl: "Ik bel in verband met de functie van verkoper." }
+  - { sv: "enligt överenskommelse", nl: "in overleg", ex: "I annonsen står det att lönen är **enligt överenskommelse**.", exNl: "In de advertentie staat dat het salaris in overleg is." }
+  - { sv: "löpande", nl: "doorlopend", ex: "Vi går igenom ansökningarna **löpande**, så vänta inte med att söka.", exNl: "We bekijken de sollicitaties doorlopend, dus wacht niet met solliciteren." }
+  - { sv: "stressig", nl: "hectisch, stressig", ex: "Det är alltid lite **stressigt** innan semestern.", exNl: "Het is altijd een beetje hectisch vóór de vakantie." }

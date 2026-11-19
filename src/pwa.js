@@ -5,8 +5,27 @@ import { h } from './dom.js';
 let installPrompt = null;
 // Waar: deze pagina heeft op „Bijwerken” geklikt en moet na de wissel opnieuw laden.
 let updateRequested = false;
-// De knop op de pagina Over (er is er hooguit één tegelijk).
-let onInstallChange = () => {};
+// Wie wil weten of „Installeren” kan (de pagina Over, het advies op de startpagina).
+const installListeners = new Set();
+const onInstallChange = () => installListeners.forEach((fn) => fn());
+
+/** Kan de browser zelf het installatievenster tonen (Chrome, Edge)? */
+export const canPromptInstall = () => !!installPrompt;
+/** fn wordt aangeroepen als dat verandert; geeft een functie terug om af te melden. */
+export function watchInstall(fn) {
+  installListeners.add(fn);
+  return () => installListeners.delete(fn);
+}
+/** Toont het installatievenster van de browser; true als de gebruiker installeerde. */
+export async function promptInstall() {
+  if (!installPrompt) return false;
+  const p = installPrompt;
+  installPrompt = null;
+  p.prompt();
+  const choice = await p.userChoice.catch(() => null);
+  onInstallChange();
+  return choice?.outcome === 'accepted';
+}
 
 export function isStandalone() {
   return matchMedia('(display-mode: standalone)').matches || navigator.standalone === true;
@@ -108,15 +127,13 @@ export function installSection() {
       h('p', {}, 'Je gebruikt de oefeningen als app. Alles werkt ook zonder internet, en je voortgang staat op dit apparaat. Is er een nieuwe versie, dan zie je onderin een melding.'),
     ];
   }
-  const btn = h('button', { type: 'button', class: 'btn primary', hidden: true, onclick: async () => {
-    if (!installPrompt) return;
-    installPrompt.prompt();
-    await installPrompt.userChoice.catch(() => null);
-    installPrompt = null;
-    update();
-  } }, 'Installeren als app');
-  const update = () => { btn.hidden = !installPrompt; };
-  onInstallChange = update;
+  const btn = h('button', { type: 'button', class: 'btn primary', hidden: true, onclick: () => promptInstall() }, 'Installeren als app');
+  const update = () => {
+    if (!btn.isConnected && btn.dataset.shown) return stop();
+    btn.hidden = !installPrompt;
+    btn.dataset.shown = '1';
+  };
+  const stop = watchInstall(update);
   update();
   const ios = isIos();
   return [

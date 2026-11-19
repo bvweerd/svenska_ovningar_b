@@ -15,6 +15,8 @@ describe('normalize', () => {
     expect(normalize('I dag jobbar jag')).toBe(normalize('Idag jobbar jag'));
     expect(normalize('Vi ses i morgon!')).toBe(normalize('Vi ses imorgon'));
     expect(normalize('Hon sade nej')).toBe(normalize('Hon sa nej'));
+    expect(normalize('Vi lade ned företaget')).toBe(normalize('Vi la ner företaget'));
+    expect(normalize('nedan')).toBe('nedan');
     expect(normalize('Han lade boken där')).toBe(normalize('Han la boken där'));
     expect(normalize('i dagens tidning')).toBe('i dagens tidning');
     expect(gradeText('I går var jag sjuk.', { answers: ['Igår var jag sjuk.'] }).correct).toBe(true);

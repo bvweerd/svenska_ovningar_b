@@ -119,7 +119,7 @@ sections:
         instruction: Herschrijf de zin met **väntas**, **beräknas** of **förväntas**.
         topic: framtid-b2
         items:
-          - { id: tjc3, type: transform, prompt: "Man väntar sig att priserna stiger.", answers: ["Priserna väntas stiga."], feedback: [{ contains: "väntas att", tip: "Zonder att: Priserna väntas stiga." }, { contains: "väntas stiger", tip: "Na väntas: infinitief, stiga." }] }
+          - { id: tjc3, type: transform, prompt: "Man väntar sig att priserna stiger.", answers: ["Priserna {väntas|förväntas} stiga."], feedback: [{ contains: "väntas att", tip: "Zonder att: Priserna väntas stiga." }, { contains: "väntas stiger", tip: "Na väntas: infinitief, stiga." }] }
           - { id: 94k3, type: transform, prompt: "Man beräknar att befolkningen ökar.", answers: ["Befolkningen beräknas öka."], feedback: [{ contains: "beräknas ökar", tip: "Na beräknas: infinitief, öka." }] }
           - { id: 4vch, type: transform, prompt: "Man förväntar sig att efterfrågan ökar.", answers: ["Efterfrågan förväntas öka.", "Efterfrågan väntas öka."] }
           - { id: zdx9, type: transform, prompt: "Man tror att arbetslösheten sjunker.", task: "Begin met: Arbetslösheten väntas …", answers: ["Arbetslösheten väntas sjunka."] }
@@ -239,7 +239,7 @@ sections:
           - { id: bgrg, type: transform, topic: bisats-adverb, prompt: "Han kom inte heller.", task: "Hon sa att …", answers: ["Hon sa att han inte heller kom."] }
           - { id: zbuf, type: transform, topic: fundament, prompt: "Många turister finns på museet.", answers: ["Det finns många turister på museet."] }
           - { id: yrse, type: gap, topic: bisats-adverb, text: "Vasa ___ (segla) bara 1 300 meter när det sjönk.", gaps: [{ answers: ["hade seglat"] }] }
-          - { id: n2s3, type: transform, topic: framtid-b2, prompt: "Man väntar sig att priserna stiger.", answers: ["Priserna väntas stiga."] }
+          - { id: n2s3, type: transform, topic: framtid-b2, prompt: "Man väntar sig att priserna stiger.", answers: ["Priserna {väntas|förväntas} stiga."] }
           - { id: abx5, type: gap, topic: framtid-b2, text: "Om tio år kommer jag ___ flyttat.", gaps: [{ answers: ["att ha"] }] }
           - { id: 65mx, type: transform, topic: subjunktioner-b1, prompt: "Det regnade. Vi gick ut ändå. (trots att)", answers: ["Trots att det regnade[,] gick vi ut.", "Vi gick ut[,] trots att det regnade."] }
           - { id: 6yth, type: gap, topic: bestamd-utan-artikel, text: "Vi ses nästa ___.", gaps: [{ answers: ["vecka"], options: ["vecka", "veckan"], shuffle: false }] }
@@ -253,30 +253,68 @@ sections:
         topic: framtid-b2
         shuffle: true
         items:
-          - { id: grsc, type: findError, sentence: "Priserna väntas att stiga.", wrong: [2], answers: ["Priserna väntas stiga."], tip: "Na väntas komt geen att." }
+          - { id: grsc, type: findError, sentence: "Priserna väntas att stiga.", wrong: [2], answers: ["Priserna {väntas|förväntas} stiga."], tip: "Na väntas komt geen att." }
           - { id: n85z, type: findError, sentence: "Befolkningen beräknar öka.", wrong: [1], answers: ["Befolkningen beräknas öka."], tip: "De bevolking rekent niet zelf." }
           - { id: 8rqr, type: findError, sentence: "Om tio år kommer jag att har flyttat.", wrong: [6], answers: ["Om tio år kommer jag att ha flyttat."], tip: "Na att: infinitief." }
           - { id: tn2j, type: findError, sentence: "Det tänker bli kallt i helgen.", wrong: [1], answers: ["Det {lär|kommer att|ska} bli kallt i helgen."], tip: "Het weer heeft geen plannen." }
           - { id: sdm2, type: findError, topic: bisats-adverb, sentence: "Jag tror att det blir inte lätt.", wrong: [4, 5], answers: ["Jag tror att det inte blir lätt."], tip: "Bijzinvolgorde." }
 
 vocab:
-  - { sv: "en framtid", nl: "de toekomst", def: "framtiden" }
-  - { sv: "en trend", nl: "een trend", def: "trenden", pl: "trender", plDef: "trenderna" }
-  - { sv: "en befolkning", nl: "de bevolking", def: "befolkningen" }
-  - { sv: "en prognos", nl: "een prognose, een verwachting", def: "prognosen", pl: "prognoser", plDef: "prognoserna" }
-  - { sv: "ett yrke", nl: "een beroep", def: "yrket", pl: "yrken", plDef: "yrkena" }
-  - { sv: "en förmåga", nl: "een vermogen, een vaardigheid", def: "förmågan", pl: "förmågor", plDef: "förmågorna" }
-  - { sv: "en egenskap", nl: "een eigenschap", def: "egenskapen", pl: "egenskaper", plDef: "egenskaperna" }
-  - { sv: "äldreomsorg", nl: "ouderenzorg" }
-  - { sv: "ett krav", nl: "een eis", def: "kravet", pl: "krav", plDef: "kraven" }
-  - { sv: "en självklarhet", nl: "een vanzelfsprekendheid", def: "självklarheten", pl: "självklarheter", plDef: "självklarheterna" }
-  - { sv: "att förvänta sig", nl: "verwachten" }
-  - { sv: "att beräkna", nl: "berekenen" }
-  - { sv: "att anpassa sig", nl: "zich aanpassen" }
-  - { sv: "att föreställa sig", nl: "zich voorstellen" }
-  - { sv: "att skapa", nl: "creëren, scheppen" }
-  - { sv: "att misslyckas", nl: "mislukken" }
-  - { sv: "att värdera", nl: "waarderen" }
-  - { sv: "sannolikt", nl: "waarschijnlijk" }
-  - { sv: "förhoppningsvis", nl: "hopelijk" }
-  - { sv: "ärligt talat", nl: "eerlijk gezegd" }
+  - { sv: "en framtid", nl: "de toekomst", def: "framtiden", ex: "Ingen vet hur **framtiden** kommer att se ut.", exNl: "Niemand weet hoe de toekomst eruit zal zien." }
+  - { sv: "en trend", nl: "een trend", def: "trenden", pl: "trender", plDef: "trenderna", ex: "**Trenden** är tydlig: allt fler jobbar hemifrån.", exNl: "De trend is duidelijk: steeds meer mensen werken vanuit huis." }
+  - { sv: "en befolkning", nl: "de bevolking", def: "befolkningen", ex: "**Befolkningen** beräknas öka till elva miljoner.", exNl: "De bevolking zal naar schatting groeien tot elf miljoen." }
+  - { sv: "en prognos", nl: "een prognose, een verwachting", def: "prognosen", pl: "prognoser", plDef: "prognoserna", ex: "Enligt den senaste **prognosen** kommer arbetslösheten att minska.", exNl: "Volgens de laatste prognose zal de werkloosheid dalen." }
+  - { sv: "ett yrke", nl: "een beroep", def: "yrket", pl: "yrken", plDef: "yrkena", ex: "Vilka **yrken** kommer att försvinna i framtiden?", exNl: "Welke beroepen zullen in de toekomst verdwijnen?" }
+  - { sv: "en förmåga", nl: "een vermogen, een vaardigheid", def: "förmågan", pl: "förmågor", plDef: "förmågorna", ex: "**Förmågan** att samarbeta blir allt viktigare.", exNl: "Het vermogen om samen te werken wordt steeds belangrijker." }
+  - { sv: "en egenskap", nl: "een eigenschap", def: "egenskapen", pl: "egenskaper", plDef: "egenskaperna", ex: "Nyfikenhet är en viktig **egenskap** hos en forskare.", exNl: "Nieuwsgierigheid is een belangrijke eigenschap van een onderzoeker." }
+  - { sv: "äldreomsorg", nl: "ouderenzorg", ex: "Behovet av personal inom **äldreomsorgen** ökar snabbt.", exNl: "De behoefte aan personeel in de ouderenzorg groeit snel." }
+  - { sv: "ett krav", nl: "een eis", def: "kravet", pl: "krav", plDef: "kraven", ex: "**Kraven** på digital kompetens ökar i nästan alla yrken.", exNl: "De eisen op het gebied van digitale vaardigheden nemen in bijna alle beroepen toe." }
+  - { sv: "en självklarhet", nl: "een vanzelfsprekendheid", def: "självklarheten", pl: "självklarheter", plDef: "självklarheterna", ex: "Att jobba hemifrån är i dag en **självklarhet** för många.", exNl: "Thuiswerken is tegenwoordig voor velen een vanzelfsprekendheid." }
+  - { sv: "att förvänta sig", nl: "verwachten", ex: "Jag hade inte **förväntat mig** så många svar.", exNl: "Ik had niet zoveel antwoorden verwacht." }
+  - { sv: "att beräkna", nl: "berekenen", ex: "Kostnaden **beräknas** till två miljarder kronor.", exNl: "De kosten worden berekend op twee miljard kronen." }
+  - { sv: "att anpassa sig", nl: "zich aanpassen", ex: "Vi måste **anpassa oss** till ett varmare klimat.", exNl: "We moeten ons aanpassen aan een warmer klimaat." }
+  - { sv: "att föreställa sig", nl: "zich voorstellen", ex: "Kan du **föreställa dig** ett liv utan internet?", exNl: "Kun jij je een leven zonder internet voorstellen?" }
+  - { sv: "att skapa", nl: "creëren, scheppen", ex: "Den nya tekniken kommer att **skapa** många nya jobb.", exNl: "De nieuwe technologie zal veel nieuwe banen creëren." }
+  - { sv: "att misslyckas", nl: "mislukken", ex: "Projektet **misslyckades** på grund av för lite pengar.", exNl: "Het project mislukte door te weinig geld." }
+  - { sv: "att värdera", nl: "waarderen", ex: "Vilka egenskaper kommer arbetsgivare att **värdera** högst?", exNl: "Welke eigenschappen zullen werkgevers het hoogst waarderen?" }
+  - { sv: "sannolikt", nl: "waarschijnlijk", ex: "Priserna kommer **sannolikt** att stiga ännu mer.", exNl: "De prijzen zullen waarschijnlijk nog meer stijgen." }
+  - { sv: "förhoppningsvis", nl: "hopelijk", ex: "**Förhoppningsvis** har vi löst problemet till dess.", exNl: "Hopelijk hebben we het probleem tegen die tijd opgelost." }
+  - { sv: "ärligt talat", nl: "eerlijk gezegd", ex: "**Ärligt talat** vet jag inte vad jag vill bli.", exNl: "Eerlijk gezegd weet ik niet wat ik wil worden." }
+  - { sv: "en utmaning", nl: "een uitdaging", def: "utmaningen", pl: "utmaningar", plDef: "utmaningarna", ex: "Klimatet är vår tids största **utmaning**.", exNl: "Het klimaat is de grootste uitdaging van onze tijd." }
+  - { sv: "en vision", nl: "een visie, een toekomstbeeld", def: "visionen", pl: "visioner", plDef: "visionerna", ex: "Regeringen har en **vision** om ett fossilfritt Sverige.", exNl: "De regering heeft een visie op een fossielvrij Zweden." }
+  - { sv: "ett scenario", nl: "een scenario", def: "scenariot", pl: ["scenarier", "scenarion"], plDef: ["scenarierna", "scenariona"], ex: "I det värsta **scenariot** stiger havsnivån med en meter.", exNl: "In het ergste scenario stijgt de zeespiegel met een meter." }
+  - { sv: "en robot", nl: "een robot", def: "roboten", pl: "robotar", plDef: "robotarna", ex: "I framtiden tar **robotar** kanske hand om de äldre.", exNl: "In de toekomst zorgen robots misschien voor de ouderen." }
+  - { sv: "en automatisering", nl: "de automatisering", def: "automatiseringen", mass: true, ex: "**Automatiseringen** gör att många enkla jobb försvinner.", exNl: "Door de automatisering verdwijnen veel eenvoudige banen." }
+  - { sv: "en digitalisering", nl: "de digitalisering", def: "digitaliseringen", mass: true, ex: "**Digitaliseringen** har förändrat hur vi arbetar.", exNl: "De digitalisering heeft veranderd hoe we werken." }
+  - { sv: "en medellivslängd", nl: "de gemiddelde levensverwachting", def: "medellivslängden", mass: true, ex: "**Medellivslängden** i Sverige har ökat kraftigt under de senaste hundra åren.", exNl: "De gemiddelde levensverwachting in Zweden is de afgelopen honderd jaar sterk gestegen." }
+  - { sv: "en pensionär", nl: "een gepensioneerde", def: "pensionären", pl: "pensionärer", plDef: "pensionärerna", ex: "Antalet **pensionärer** kommer att öka kraftigt.", exNl: "Het aantal gepensioneerden zal sterk toenemen." }
+  - { sv: "ett mål", nl: "een doel", def: "målet", pl: "mål", plDef: "målen", ex: "Mitt **mål** är att jobba som sjuksköterska om fem år.", exNl: "Mijn doel is om over vijf jaar als verpleegkundige te werken." }
+  - { sv: "en ovisshet", nl: "de onzekerheid", def: "ovissheten", mass: true, ex: "**Ovissheten** om framtiden gör många unga oroliga.", exNl: "De onzekerheid over de toekomst maakt veel jongeren ongerust." }
+  - { sv: "en innovation", nl: "een innovatie", def: "innovationen", pl: "innovationer", plDef: "innovationerna", ex: "Sverige är känt för sina många **innovationer**.", exNl: "Zweden staat bekend om zijn vele innovaties." }
+  - { sv: "en uppfinning", nl: "een uitvinding", def: "uppfinningen", pl: "uppfinningar", plDef: "uppfinningarna", ex: "Det moderna trepunktsbältet är en känd svensk **uppfinning**.", exNl: "De moderne driepuntsgordel is een bekende Zweedse uitvinding." }
+  - { sv: "en livsstil", nl: "een levensstijl", def: "livsstilen", pl: "livsstilar", plDef: "livsstilarna", ex: "Vi måste ändra vår **livsstil** för klimatets skull.", exNl: "We moeten onze levensstijl veranderen omwille van het klimaat." }
+  - { sv: "ett vägval", nl: "een richtingkeuze, een belangrijke keuze", def: "vägvalet", pl: "vägval", plDef: "vägvalen", ex: "Efter gymnasiet står många inför ett svårt **vägval**.", exNl: "Na de middelbare school staan velen voor een moeilijke richtingkeuze." }
+  - { sv: "ett hot", nl: "een bedreiging, een dreiging", def: "hotet", pl: "hot", plDef: "hoten", ex: "Klimatförändringarna är ett allvarligt **hot** mot framtiden.", exNl: "De klimaatverandering is een ernstige bedreiging voor de toekomst." }
+  - { sv: "en förutsägelse", nl: "een voorspelling", def: "förutsägelsen", pl: "förutsägelser", plDef: "förutsägelserna", ex: "Hans **förutsägelse** om internet visade sig stämma.", exNl: "Zijn voorspelling over het internet bleek te kloppen." }
+  - { sv: "att förutsäga", nl: "voorspellen", ex: "Ingen kan **förutsäga** exakt vad som kommer att hända.", exNl: "Niemand kan precies voorspellen wat er zal gebeuren." }
+  - { sv: "att ersätta", nl: "vervangen", ex: "Kommer robotar att **ersätta** lärarna i framtiden?", exNl: "Zullen robots in de toekomst de leraren vervangen?" }
+  - { sv: "att planera", nl: "plannen", ex: "Vi **planerar** att flytta utomlands om några år.", exNl: "We plannen over een paar jaar naar het buitenland te verhuizen." }
+  - { sv: "att se fram emot", nl: "uitkijken naar", ex: "Vi **ser fram emot** att flytta till landet.", exNl: "We kijken ernaar uit om naar het platteland te verhuizen." }
+  - { sv: "att bli av", nl: "doorgaan (van plannen)", ex: "Jag tror inte att resan **blir av** i år.", exNl: "Ik denk niet dat de reis dit jaar doorgaat." }
+  - { sv: "att utvecklas", nl: "zich ontwikkelen", ex: "Tekniken **utvecklas** snabbare än någonsin.", exNl: "De technologie ontwikkelt zich sneller dan ooit." }
+  - { sv: "att sträva efter", nl: "streven naar", ex: "Vi **strävar efter** ett mer hållbart samhälle.", exNl: "We streven naar een duurzamere samenleving." }
+  - { sv: "att förverkliga", nl: "verwezenlijken, waarmaken", ex: "Hon vill **förverkliga** sin dröm om att bli läkare.", exNl: "Ze wil haar droom om arts te worden waarmaken." }
+  - { sv: "att ta tillvara", nl: "benutten, gebruikmaken van", ex: "Vi måste **ta tillvara** de äldres erfarenhet.", exNl: "We moeten de ervaring van ouderen benutten." }
+  - { sv: "att stå inför", nl: "staan voor (een uitdaging, een keuze)", ex: "Vi **står inför** stora utmaningar de närmaste åren.", exNl: "We staan de komende jaren voor grote uitdagingen." }
+  - { sv: "osäker", nl: "onzeker", ex: "Framtiden känns **osäker** för många unga.", exNl: "De toekomst voelt voor veel jongeren onzeker." }
+  - { sv: "oundviklig", nl: "onvermijdelijk", ex: "Vissa förändringar i samhället är **oundvikliga**.", exNl: "Sommige veranderingen in de samenleving zijn onvermijdelijk." }
+  - { sv: "framtida", nl: "toekomstig", ex: "Vi måste tänka på **framtida** generationer.", exNl: "We moeten aan toekomstige generaties denken." }
+  - { sv: "långsiktig", nl: "voor de lange termijn, langetermijn-", ex: "Vi behöver en **långsiktig** plan för energiförsörjningen.", exNl: "We hebben een plan voor de lange termijn nodig voor de energievoorziening." }
+  - { sv: "på sikt", nl: "op termijn", ex: "**På sikt** kommer investeringen att löna sig.", exNl: "Op termijn zal de investering de moeite lonen." }
+  - { sv: "allt fler", nl: "steeds meer (in aantal)", ex: "**Allt fler** jobbar hemifrån flera dagar i veckan.", exNl: "Steeds meer mensen werken een paar dagen per week thuis." }
+  - { sv: "inom kort", nl: "binnenkort, binnen afzienbare tijd", ex: "Ett beslut i frågan väntas **inom kort**, enligt regeringen.", exNl: "Volgens de regering wordt binnenkort een besluit in deze kwestie verwacht." }
+  - { sv: "i längden", nl: "op den duur", ex: "**I längden** fungerar det inte att jobba så mycket.", exNl: "Op den duur werkt het niet om zoveel te werken." }
+  - { sv: "förr eller senare", nl: "vroeg of laat", ex: "**Förr eller senare** måste vi fatta ett beslut.", exNl: "Vroeg of laat moeten we een besluit nemen." }
+  - { sv: "hittills", nl: "tot nu toe", ex: "**Hittills** har allt gått enligt planen.", exNl: "Tot nu toe is alles volgens plan verlopen." }
+  - { sv: "optimistisk", nl: "optimistisch", ex: "Hon är **optimistisk** inför framtiden trots allt.", exNl: "Ze is ondanks alles optimistisch over de toekomst." }
+  - { sv: "pessimistisk", nl: "pessimistisch", ex: "Många unga är **pessimistiska** inför klimatets framtid.", exNl: "Veel jongeren zijn pessimistisch over de toekomst van het klimaat." }

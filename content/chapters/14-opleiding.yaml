@@ -194,7 +194,7 @@ sections:
         topic: particip
         shuffle: true
         items:
-          - { id: 3hvr, type: gap, text: "Jag hittade en ___ (glömma bort) väska på bussen.", hint: "Bij een deelwoord komt het partikel ervoor: glömma bort → bortglömd.", gaps: [{ answers: ["bortglömd"], feedback: [{ match: ["bortglömt", "bortglömda"], tip: "väska is een en-woord, onbepaald: bortglömd." }, { match: "glömd", tip: "Voor een vergeten voorwerp zeg je bortglömd (of kvarglömd)." }] }] }
+          - { id: 3hvr, type: gap, text: "Jag hittade en ___ (glömma bort) väska på bussen.", hint: "Bij een deelwoord komt het partikel ervoor: glömma bort → bortglömd.", gaps: [{ answers: ["bortglömd", "kvarglömd"], feedback: [{ match: ["bortglömt", "bortglömda"], tip: "väska is een en-woord, onbepaald: bortglömd." }, { match: "glömd", tip: "Voor een vergeten voorwerp zeg je bortglömd (of kvarglömd)." }] }] }
           - { id: 56dz, type: gap, text: "Vi bor i ett nyligen ___ (renovera) hus.", gaps: [{ answers: ["renoverat"], feedback: [{ match: "renoverad", tip: "hus is een ett-woord: renoverat." }] }] }
           - { id: f6m9, type: gap, text: "De ___ (stjäla) cyklarna hittades i skogen.", gaps: [{ answers: ["stulna"], feedback: [{ match: ["stulen", "stulet"], tip: "Na de en voor een meervoud: stulna." }] }] }
           - { id: b4fb, type: gap, text: "Den ___ (skriva) uppsatsen ska lämnas in på fredag.", gaps: [{ answers: ["skrivna"], feedback: [{ match: "skriven", tip: "Na den (bepaald) krijgt het deelwoord dezelfde vorm als het meervoud: skrivna." }] }] }
@@ -344,23 +344,62 @@ sections:
           - { id: 8mzh, type: findError, sentence: "Hon blev antaget till kursen.", wrong: [2], answers: ["Hon blev antagen till kursen."], tip: "Het onderwerp is hon." }
 
 vocab:
-  - { sv: "en utbildning", nl: "een opleiding", def: "utbildningen", pl: "utbildningar", plDef: "utbildningarna" }
-  - { sv: "en kurs", nl: "een cursus", def: "kursen", pl: "kurser", plDef: "kurserna" }
-  - { sv: "en tenta", nl: "een tentamen", def: "tentan", pl: "tentor", plDef: "tentorna" }
-  - { sv: "en föreläsning", nl: "een hoorcollege", def: "föreläsningen", pl: "föreläsningar", plDef: "föreläsningarna" }
-  - { sv: "en uppsats", nl: "een scriptie, een werkstuk", def: "uppsatsen", pl: "uppsatser", plDef: "uppsatserna" }
-  - { sv: "ett betyg", nl: "een cijfer, een beoordeling", def: "betyget", pl: "betyg", plDef: "betygen" }
-  - { sv: "en examen", nl: "een afgeronde opleiding, een graad", def: "examen" }
-  - { sv: "en lärare", nl: "een leraar, een docent", def: "läraren", pl: "lärare", plDef: "lärarna" }
-  - { sv: "en student", nl: "een student", def: "studenten", pl: "studenter", plDef: "studenterna" }
-  - { sv: "ett bibliotek", nl: "een bibliotheek", def: "biblioteket", pl: "bibliotek", plDef: "biblioteken" }
-  - { sv: "en anmälan", nl: "een aanmelding", pl: "anmälningar", plDef: "anmälningarna" }
-  - { sv: "en myndighet", nl: "een overheidsinstantie", def: "myndigheten", pl: "myndigheter", plDef: "myndigheterna" }
-  - { sv: "att plugga", nl: "studeren, blokken" }
-  - { sv: "att anmäla sig", nl: "zich aanmelden" }
-  - { sv: "att bli antagen", nl: "toegelaten worden" }
-  - { sv: "att undervisa", nl: "lesgeven" }
-  - { sv: "att klara", nl: "halen, slagen voor" }
-  - { sv: "på distans", nl: "op afstand, online" }
-  - { sv: "på halvfart", nl: "in deeltijd (50%)" }
-  - { sv: "spännande", nl: "spannend" }
+  - { sv: "en utbildning", nl: "een opleiding", def: "utbildningen", pl: "utbildningar", plDef: "utbildningarna", ex: "Det tog flera månader innan hans **utbildning** blev godkänd.", exNl: "Het duurde enkele maanden voordat zijn opleiding werd erkend." }
+  - { sv: "en kurs", nl: "een cursus", def: "kursen", pl: "kurser", plDef: "kurserna", ex: "Jag läser en **kurs** i svenska på kvällstid.", exNl: "Ik volg 's avonds een cursus Zweeds." }
+  - { sv: "en tenta", nl: "een tentamen", def: "tentan", pl: "tentor", plDef: "tentorna", ex: "De skriftliga **tentorna** är svårast för Joost.", exNl: "De schriftelijke tentamens zijn voor Joost het moeilijkst." }
+  - { sv: "en föreläsning", nl: "een hoorcollege", def: "föreläsningen", pl: "föreläsningar", plDef: "föreläsningarna", ex: "Han har **föreläsningar** tre dagar i veckan.", exNl: "Hij heeft drie dagen per week hoorcolleges." }
+  - { sv: "en uppsats", nl: "een scriptie, een werkstuk", def: "uppsatsen", pl: "uppsatser", plDef: "uppsatserna", ex: "Jag måste skicka min **uppsats** till läraren före fredag.", exNl: "Ik moet mijn scriptie vóór vrijdag naar de docent sturen." }
+  - { sv: "ett betyg", nl: "een cijfer, een beoordeling", def: "betyget", pl: "betyg", plDef: "betygen", ex: "Vilket **betyg** fick du på tentan?", exNl: "Welk cijfer kreeg je voor het tentamen?" }
+  - { sv: "en examen", nl: "een afgeronde opleiding, een graad", def: "examen", ex: "Hon tog **examen** från universitetet i juni.", exNl: "Ze studeerde in juni af aan de universiteit." }
+  - { sv: "en lärare", nl: "een leraar, een docent", def: "läraren", pl: "lärare", plDef: "lärarna", ex: "Min dotter vill bli **lärare** när hon blir stor.", exNl: "Mijn dochter wil leraar worden als ze groot is." }
+  - { sv: "en student", nl: "een student", def: "studenten", pl: "studenter", plDef: "studenterna", ex: "Många **studenter** jobbar extra på helgerna.", exNl: "Veel studenten hebben in het weekend een bijbaan." }
+  - { sv: "ett bibliotek", nl: "een bibliotheek", def: "biblioteket", pl: "bibliotek", plDef: "biblioteken", ex: "Han pluggar ofta på **biblioteket** efter föreläsningarna.", exNl: "Hij studeert vaak in de bibliotheek na de colleges." }
+  - { sv: "en anmälan", nl: "een aanmelding", pl: "anmälningar", plDef: "anmälningarna", ex: "Din **anmälan** måste vara inne senast den 15 april.", exNl: "Je aanmelding moet uiterlijk 15 april binnen zijn." }
+  - { sv: "en myndighet", nl: "een overheidsinstantie", def: "myndigheten", pl: "myndigheter", plDef: "myndigheterna", ex: "Hans betyg bedömdes av en svensk **myndighet**.", exNl: "Zijn cijfers werden door een Zweedse overheidsinstantie beoordeeld." }
+  - { sv: "att plugga", nl: "studeren, blokken", ex: "Jag **pluggade** hela natten inför tentan.", exNl: "Ik blokte de hele nacht voor het tentamen." }
+  - { sv: "att anmäla sig", nl: "zich aanmelden", ex: "Du kan **anmäla dig** till kursen på vår webbplats.", exNl: "Je kunt je op onze website aanmelden voor de cursus." }
+  - { sv: "att bli antagen", nl: "toegelaten worden", ex: "Hon **blev antagen** till läkarprogrammet i Lund.", exNl: "Ze werd toegelaten tot de opleiding geneeskunde in Lund." }
+  - { sv: "att undervisa", nl: "lesgeven", ex: "Hon **undervisar** i matematik på ett gymnasium.", exNl: "Ze geeft les in wiskunde op een middelbare school." }
+  - { sv: "att klara", nl: "halen, slagen voor", ex: "Jag **klarade** tentan på första försöket!", exNl: "Ik haalde het tentamen in één keer!" }
+  - { sv: "på distans", nl: "op afstand, online", ex: "Kursen går **på distans**, så du kan plugga hemifrån.", exNl: "De cursus wordt op afstand gegeven, dus je kunt thuis studeren." }
+  - { sv: "på halvfart", nl: "in deeltijd (50%)", ex: "Hon pluggar **på halvfart** och jobbar resten av tiden.", exNl: "Ze studeert in deeltijd en werkt de rest van de tijd." }
+  - { sv: "spännande", nl: "spannend", ex: "Det var en väldigt **spännande** föreläsning om hjärnan.", exNl: "Het was een heel spannend college over de hersenen." }
+  - { sv: "en termin", nl: "een semester (studiehalfjaar)", def: "terminen", pl: "terminer", ex: "Den här **terminen** läser jag tre kurser.", exNl: "Dit semester volg ik drie vakken." }
+  - { sv: "ett ämne", nl: "een vak (op school), een onderwerp", def: "ämnet", pl: "ämnen", ex: "Vilket **ämne** tyckte du bäst om i skolan?", exNl: "Welk vak vond je het leukst op school?" }
+  - { sv: "en högskola", nl: "een hogeschool", def: "högskolan", pl: "högskolor", ex: "Hon läser ekonomi på en **högskola** i Jönköping.", exNl: "Ze studeert economie aan een hogeschool in Jönköping." }
+  - { sv: "ett universitet", nl: "een universiteit", def: "universitetet", pl: "universitet", ex: "Joost läser andra året på **universitetet** i Umeå.", exNl: "Joost zit in het tweede jaar aan de universiteit van Umeå." }
+  - { sv: "en uppgift", nl: "een opdracht, een taak", def: "uppgiften", pl: "uppgifter", ex: "De flesta **uppgifterna** lämnas in på nätet.", exNl: "De meeste opdrachten worden online ingeleverd." }
+  - { sv: "en behörighet", nl: "de vereiste vooropleiding, een bevoegdheid", def: "behörigheten", pl: "behörigheter", ex: "Har du **behörighet** att söka till sjuksköterskeprogrammet?", exNl: "Heb je de vereiste vooropleiding om je aan te melden voor de opleiding verpleegkunde?" }
+  - { sv: "en studievägledare", nl: "een studieadviseur", def: "studievägledaren", pl: "studievägledare", ex: "Prata med en **studievägledare** innan du väljer kurser.", exNl: "Praat met een studieadviseur voordat je vakken kiest." }
+  - { sv: "en klasskamrat", nl: "een klasgenoot", def: "klasskamraten", pl: "klasskamrater", ex: "Jag pluggar ofta med två **klasskamrater** från Syrien.", exNl: "Ik studeer vaak met twee klasgenoten uit Syrië." }
+  - { sv: "en handledare", nl: "een begeleider (bij een scriptie of stage)", def: "handledaren", pl: "handledare", ex: "Min **handledare** läste uppsatsen och gav mig råd.", exNl: "Mijn begeleider las de scriptie en gaf me advies." }
+  - { sv: "en högskolepoäng", nl: "een studiepunt (EC)", def: "högskolepoängen", pl: "högskolepoäng", ex: "En termin på heltid ger trettio **högskolepoäng**.", exNl: "Een voltijds semester levert dertig studiepunten op." }
+  - { sv: "en kunskap", nl: "kennis (wat je weet)", def: "kunskapen", pl: "kunskaper", mass: true, ex: "**Kunskap** är något som ingen kan ta ifrån dig.", exNl: "Kennis is iets wat niemand je kan afnemen." }
+  - { sv: "en lektion", nl: "een les", def: "lektionen", pl: "lektioner", ex: "Vi har två **lektioner** i svenska varje dag.", exNl: "We hebben elke dag twee lessen Zweeds." }
+  - { sv: "ett gymnasium", nl: "een middelbare school (bovenbouw, 16–19 jaar)", def: "gymnasiet", pl: "gymnasier", ex: "Hon gick på **gymnasiet** i Malmö.", exNl: "Ze zat op de middelbare school in Malmö." }
+  - { sv: "en elev", nl: "een leerling", def: "eleven", pl: "elever", ex: "Det går tjugo **elever** i min dotters klass.", exNl: "Er zitten twintig leerlingen in de klas van mijn dochter." }
+  - { sv: "ett studielån", nl: "een studielening", def: "studielånet", pl: "studielån", ex: "Det tar många år att betala tillbaka **studielånet**.", exNl: "Het duurt vele jaren om de studielening terug te betalen." }
+  - { sv: "en omtenta", nl: "een herkansing", def: "omtentan", pl: "omtentor", ex: "Jag klarade inte tentan, så jag skriver **omtentan** i augusti.", exNl: "Ik haalde het tentamen niet, dus ik doe in augustus de herkansing." }
+  - { sv: "att vidareutbilda sig", nl: "zich bijscholen", ex: "Många sjuksköterskor **vidareutbildar sig** efter några år.", exNl: "Veel verpleegkundigen scholen zich na een paar jaar bij." }
+  - { sv: "att lämna in", nl: "inleveren", ex: "Du måste **lämna in** uppsatsen före fredag.", exNl: "Je moet de scriptie vóór vrijdag inleveren." }
+  - { sv: "att fuska", nl: "spieken, frauderen", ex: "Två studenter **fuskade** på tentan och blev avstängda.", exNl: "Twee studenten spiekten bij het tentamen en werden geschorst." }
+  - { sv: "att bli underkänd", nl: "zakken, een onvoldoende krijgen", ex: "Hon **blev underkänd** på den muntliga tentan.", exNl: "Ze zakte voor het mondelinge tentamen." }
+  - { sv: "att bli godkänd", nl: "een voldoende krijgen, slagen", ex: "Alla studenter i gruppen **blev godkända** på kursen.", exNl: "Alle studenten in de groep kregen een voldoende voor de cursus." }
+  - { sv: "att hoppa av", nl: "stoppen (met een opleiding), afhaken", ex: "Han **hoppade av** utbildningen efter ett år.", exNl: "Hij stopte na een jaar met de opleiding." }
+  - { sv: "att repetera", nl: "herhalen (leerstof)", ex: "Vi **repeterar** glosorna en gång till innan provet.", exNl: "We herhalen de woordjes nog een keer voor de toets." }
+  - { sv: "att sätta sig in i", nl: "zich verdiepen in", ex: "Det tar tid att **sätta sig in i** ett nytt ämne.", exNl: "Het kost tijd om je in een nieuw onderwerp te verdiepen." }
+  - { sv: "att bedöma", nl: "beoordelen", ex: "Alla uppsatser **bedöms** av två lärare.", exNl: "Alle scripties worden door twee docenten beoordeeld." }
+  - { sv: "att hänga med", nl: "kunnen volgen, bijbenen", ex: "Läraren pratar så snabbt att jag inte **hänger med**.", exNl: "De docent praat zo snel dat ik het niet kan volgen." }
+  - { sv: "att plugga in", nl: "erin stampen", ex: "Jag måste **plugga in** alla årtal före provet.", exNl: "Ik moet vóór de toets alle jaartallen erin stampen." }
+  - { sv: "att räcka upp handen", nl: "je vinger opsteken", ex: "**Räck upp handen** om du har en fråga!", exNl: "Steek je vinger op als je een vraag hebt!" }
+  - { sv: "att ta igen", nl: "inhalen (een achterstand)", ex: "Jag var sjuk en vecka och måste **ta igen** allt.", exNl: "Ik was een week ziek en moet alles inhalen." }
+  - { sv: "att lära ut", nl: "overbrengen (kennis), onderwijzen", ex: "Hon är väldigt bra på att **lära ut** svåra saker.", exNl: "Ze is heel goed in het overbrengen van moeilijke dingen." }
+  - { sv: "obligatorisk", nl: "verplicht", ex: "Det är **obligatorisk** närvaro på alla seminarier.", exNl: "Bij alle werkgroepen is aanwezigheid verplicht." }
+  - { sv: "skriftlig", nl: "schriftelijk", ex: "Kursen avslutas med en **skriftlig** tenta.", exNl: "De cursus wordt afgesloten met een schriftelijk tentamen." }
+  - { sv: "muntlig", nl: "mondeling", ex: "I morgon har vi ett **muntligt** prov i svenska.", exNl: "Morgen hebben we een mondelinge toets Zweeds." }
+  - { sv: "engagerad", nl: "betrokken, gedreven", ex: "Lärarna på Komvux var väldigt **engagerade**.", exNl: "De docenten bij Komvux waren erg betrokken." }
+  - { sv: "utantill", nl: "uit het hoofd", ex: "Vi måste kunna dikten **utantill** till fredag.", exNl: "We moeten het gedicht vrijdag uit het hoofd kennen." }
+  - { sv: "krävande", nl: "veeleisend, zwaar", ex: "Läkarprogrammet är en väldigt **krävande** utbildning.", exNl: "Geneeskunde is een erg veeleisende opleiding." }
+  - { sv: "givande", nl: "leerzaam, de moeite waard", ex: "Kursen var svår men väldigt **givande**.", exNl: "De cursus was moeilijk maar heel leerzaam." }
+  - { sv: "på egen hand", nl: "op eigen houtje, zelfstandig", ex: "Hon lärde sig svenska helt **på egen hand**.", exNl: "Ze leerde helemaal op eigen houtje Zweeds." }
+  - { sv: "i mån av plats", nl: "zolang er plaats is", ex: "Sena anmälningar tas emot **i mån av plats**.", exNl: "Late aanmeldingen worden aangenomen zolang er plaats is." }

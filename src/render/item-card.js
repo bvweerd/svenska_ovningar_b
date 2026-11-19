@@ -31,14 +31,20 @@ export function itemCard(item, ctx, number, onDone, label) {
   let check = () => {};
   let arrowNav = false; // keuze via pijltjestoetsen: niet meteen nakijken, wacht op Enter
   // Renderers roepen auto() aan zodra een antwoord compleet is (keuze gemaakt, laatste tegel gelegd).
+  // ready(): alle tegels liggen; niet vanzelf nakijken (je wilt misschien nog schuiven), wel de
+  // knop Controleer klaarzetten.
   const r = RENDERERS[item.type](item, { ...ctx, topic, auto: () => {
     if (arrowNav) arrowNav = false;
     else check();
+  }, ready: () => {
+    if (!checkBtn.hidden) checkBtn.focus({ preventScroll: true });
   } });
   const feedback = h('div', { class: 'feedback', 'aria-live': 'polite' });
   const checkBtn = h('button', { type: 'button', class: 'btn primary', hidden: selfChecking(item) }, 'Controleer');
   const revealBtn = h('button', { type: 'button', class: 'btn ghost', hidden: true }, 'Toon antwoord');
-  const actions = h('div', { class: 'actions' }, checkBtn, revealBtn);
+  // Vragen met de knop Controleer houden hun knoppenrij altijd even hoog, ook als de knop na
+  // afloop verdwijnt: dan verspringt de rest van de pagina niet.
+  const actions = h('div', { class: selfChecking(item) ? 'actions' : 'actions keep' }, checkBtn, revealBtn);
   const card = h('article', { class: `item type-${item.type}` },
     h('div', { class: 'item-head' },
       h('span', { class: 'item-no' }, String(number)),
@@ -179,10 +185,19 @@ export function itemCard(item, ctx, number, onDone, label) {
     const el = card.querySelector(
       'input[type="text"]:not(:disabled), textarea:not(:disabled), select:not(:disabled), input[type="radio"]:not(:disabled), input[type="checkbox"]:not(:disabled), button.chip:not(:disabled), button.move:not(:disabled)',
     );
-    if (scroll) card.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    // Bovenaan het scherm (onder de vaste balken, zie scroll-margin-top), zodat er zoveel mogelijk ruimte onder de vraag is.
+    if (scroll) card.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    // Op een telefoon geen tekstveld focussen: dan springt het toetsenbord open en schuift alles.
+    const touch = typeof matchMedia === 'function' && matchMedia('(pointer: coarse)').matches;
+    if (touch && el?.matches('input[type="text"], textarea')) return;
     el?.focus({ preventScroll: true });
   };
   card.isFinished = () => finished;
+  /** Knop om zelf verder te gaan op een telefoon (als het vanzelf verder gaan is afgebroken), op de plek van Controleer. */
+  card.offerNext = (text, go) => {
+    const btn = h('button', { type: 'button', class: 'btn ghost next-btn', onclick: go }, text);
+    actions.append(btn);
+  };
   revealBtn.addEventListener('click', () => {
     if (r.neutral) {
       r.reveal();

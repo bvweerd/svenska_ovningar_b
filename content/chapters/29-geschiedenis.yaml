@@ -3,7 +3,7 @@ chapter: 29
 grammar:
   - id: bisats-adverb
     title: Lange bijzinnen
-    summary: "In een bijzin staan **alle** zinsbijwoorden vóór het werkwoord: *att han **kanske inte längre** ville segla*. In de hoofdzin erna: *Han ville **kanske inte längre** segla.* In geschreven Zweeds mag **hade** (en ook **har**) in een bijzin wegvallen: *när skeppet (hade) sjunkit*."
+    summary: "In een bijzin staan **alle** zinsbijwoorden vóór het werkwoord: *att han **kanske inte längre** ville segla*. In een hoofdzin staan ze ná het werkwoord: *Han ville **kanske inte längre** segla.* In geschreven Zweeds mag **hade** (en ook **har**) in een bijzin wegvallen: *när skeppet (hade) sjunkit*."
     body: |
       ### Meerdere bijwoorden
       Zinsbijwoorden zoals *inte, aldrig, kanske, nog, ju, redan, längre, heller, alltid* staan:
@@ -129,7 +129,7 @@ sections:
           - { id: rjbc, type: transform, prompt: "Man hade redan märkt problemet.", task: "Det är känt att …", answers: ["Det är känt att man redan [hade ]märkt problemet."], feedback: [{ contains: "hade redan", tip: "In de bijzin: redan vóór het werkwoord." }] }
           - { id: vmwp, type: transform, prompt: "Skeppet sjönk inte på grund av stormen.", task: "Man vet att …", answers: ["Man vet att skeppet inte sjönk på grund av stormen."], feedback: [{ contains: "sjönk inte", tip: "In de bijzin: inte vóór het werkwoord." }] }
           - { id: aqym, type: transform, prompt: "Kungen ville alltid ha det största skeppet.", task: "Det sägs att …", answers: ["Det sägs att kungen alltid ville ha det största skeppet."], feedback: [{ contains: "ville alltid", tip: "In de bijzin: alltid vóór het werkwoord." }] }
-          - { id: 25df, type: transform, prompt: "Hon har aldrig besökt museet.", task: "Hon berättade att …", answers: ["Hon berättade att hon aldrig {hade|har} besökt museet."], feedback: [{ contains: ["hade aldrig", "har aldrig"], tip: "In de bijzin: aldrig vóór het werkwoord." }] }
+          - { id: 25df, type: transform, prompt: "Hon har aldrig besökt museet.", task: "Hon berättade att …", answers: ["Hon berättade att hon aldrig [{hade|har} ]besökt museet."], feedback: [{ contains: ["hade aldrig", "har aldrig"], tip: "In de bijzin: aldrig vóór het werkwoord." }] }
           - { id: h67m, type: transform, prompt: "Vi kan tyvärr inte komma.", task: "Vi skrev att …", answers: ["Vi skrev att vi tyvärr inte {kunde|kan} komma."], feedback: [{ contains: ["kunde tyvärr", "kan tyvärr"], tip: "In de bijzin: tyvärr inte vóór het werkwoord." }] }
 
       - id: hade-weg
@@ -306,23 +306,63 @@ sections:
           - { id: z6z2, type: findError, sentence: "Skeppet sjunkit inom några minuter.", wrong: [1], answers: ["Skeppet {hade sjunkit|sjönk} inom några minuter."], tip: "In een hoofdzin mag hade niet wegvallen." }
 
 vocab:
-  - { sv: "ett skepp", nl: "een schip", def: "skeppet", pl: "skepp", plDef: "skeppen" }
-  - { sv: "ett krigsskepp", nl: "een oorlogsschip", def: "krigsskeppet", pl: "krigsskepp", plDef: "krigsskeppen" }
-  - { sv: "ett vrak", nl: "een wrak", def: "vraket", pl: "vrak", plDef: "vraken" }
-  - { sv: "ett krig", nl: "een oorlog", def: "kriget", pl: "krig", plDef: "krigen" }
-  - { sv: "en kung", nl: "een koning", def: "kungen", pl: "kungar", plDef: "kungarna" }
-  - { sv: "en drottning", nl: "een koningin", def: "drottningen", pl: "drottningar", plDef: "drottningarna" }
-  - { sv: "en botten", nl: "een bodem", def: "botten", pl: "bottnar", plDef: "bottnarna" }
-  - { sv: "en strand", nl: "een strand, een oever", def: "stranden", pl: "stränder", plDef: "stränderna" }
-  - { sv: "en kanon", nl: "een kanon", def: "kanonen", pl: "kanoner", plDef: "kanonerna" }
-  - { sv: "ett århundrade", nl: "een eeuw", def: "århundradet", pl: "århundraden", plDef: "århundradena" }
-  - { sv: "en avfärd", nl: "een vertrek", def: "avfärden" }
-  - { sv: "en vindby", nl: "een windvlaag", def: "vindbyn", pl: "vindbyar", plDef: "vindbyarna" }
-  - { sv: "att sjunka", nl: "zinken" }
-  - { sv: "att bärga", nl: "bergen" }
-  - { sv: "att omkomma", nl: "omkomen" }
-  - { sv: "att våga", nl: "durven" }
-  - { sv: "att bevara", nl: "bewaren, conserveren" }
-  - { sv: "att befinna sig", nl: "zich bevinden" }
-  - { sv: "plötsligt", nl: "plotseling" }
-  - { sv: "fortfarande", nl: "nog steeds" }
+  - { sv: "ett skepp", nl: "een schip", def: "skeppet", pl: "skepp", plDef: "skeppen", ex: "Tusentals människor kom för att se det nya **skeppet** segla.", exNl: "Duizenden mensen kwamen kijken hoe het nieuwe schip uitvoer." }
+  - { sv: "ett krigsskepp", nl: "een oorlogsschip", def: "krigsskeppet", pl: "krigsskepp", plDef: "krigsskeppen", ex: "Kungen beställde ett nytt **krigsskepp** till flottan.", exNl: "De koning bestelde een nieuw oorlogsschip voor de vloot." }
+  - { sv: "ett vrak", nl: "een wrak", def: "vraket", pl: "vrak", plDef: "vraken", ex: "Dykarna hittade **vraket** på trettio meters djup.", exNl: "De duikers vonden het wrak op dertig meter diepte." }
+  - { sv: "ett krig", nl: "een oorlog", def: "kriget", pl: "krig", plDef: "krigen", ex: "Sverige har inte varit i **krig** sedan 1814.", exNl: "Zweden is sinds 1814 niet in oorlog geweest." }
+  - { sv: "en kung", nl: "een koning", def: "kungen", pl: "kungar", plDef: "kungarna", ex: "**Kungen** ville visa hela Europa hur mäktig han var.", exNl: "De koning wilde heel Europa laten zien hoe machtig hij was." }
+  - { sv: "en drottning", nl: "een koningin", def: "drottningen", pl: "drottningar", plDef: "drottningarna", ex: "Kristina var bara fem år när hon blev **drottning**.", exNl: "Kristina was pas vijf jaar toen ze koningin werd." }
+  - { sv: "en botten", nl: "een bodem", def: "botten", pl: "bottnar", plDef: "bottnarna", ex: "Skeppet låg på **botten** i över 300 år.", exNl: "Het schip lag meer dan 300 jaar op de bodem." }
+  - { sv: "en strand", nl: "een strand, een oever", def: "stranden", pl: "stränder", plDef: "stränderna", ex: "Folk stod på **stranden** och såg skeppet sjunka.", exNl: "Mensen stonden op de oever en zagen het schip zinken." }
+  - { sv: "en kanon", nl: "een kanon", def: "kanonen", pl: "kanoner", plDef: "kanonerna", ex: "Skeppet hade 64 **kanoner** ombord.", exNl: "Het schip had 64 kanonnen aan boord." }
+  - { sv: "ett århundrade", nl: "een eeuw", def: "århundradet", pl: "århundraden", plDef: "århundradena", ex: "Vasa byggdes för omkring fyra **århundraden** sedan.", exNl: "De Vasa werd ongeveer vier eeuwen geleden gebouwd." }
+  - { sv: "en avfärd", nl: "een vertrek", def: "avfärden", ex: "Bara några minuter efter **avfärden** började skeppet luta.", exNl: "Slechts een paar minuten na het vertrek begon het schip over te hellen." }
+  - { sv: "en vindby", nl: "een windvlaag", def: "vindbyn", pl: "vindbyar", plDef: "vindbyarna", ex: "En kraftig **vindby** fick skeppet att kränga.", exNl: "Een krachtige windvlaag deed het schip slagzij maken." }
+  - { sv: "att sjunka", nl: "zinken", ex: "Skeppet **sjönk** på sin första resa år 1628.", exNl: "Het schip zonk tijdens zijn eerste reis in 1628." }
+  - { sv: "att bärga", nl: "bergen", ex: "Vasa **bärgades** först år 1961, efter 333 år under vatten.", exNl: "De Vasa werd pas in 1961 geborgen, na 333 jaar onder water." }
+  - { sv: "att omkomma", nl: "omkomen", ex: "Omkring trettio personer **omkom** i olyckan.", exNl: "Ongeveer dertig mensen kwamen om bij het ongeluk." }
+  - { sv: "att våga", nl: "durven", ex: "Ingen **vågade** säga till kungen att skeppet var instabilt.", exNl: "Niemand durfde de koning te zeggen dat het schip instabiel was." }
+  - { sv: "att bevara", nl: "bewaren, conserveren", ex: "Tack vare det kalla vattnet är skeppet väl **bevarat**.", exNl: "Dankzij het koude water is het schip goed bewaard gebleven." }
+  - { sv: "att befinna sig", nl: "zich bevinden", ex: "Vraket **befann sig** mitt i Stockholms hamn.", exNl: "Het wrak bevond zich midden in de haven van Stockholm." }
+  - { sv: "plötsligt", nl: "plotseling", ex: "**Plötsligt** lutade skeppet kraftigt åt sidan.", exNl: "Plotseling helde het schip sterk over naar opzij." }
+  - { sv: "fortfarande", nl: "nog steeds", ex: "Vasamuseet är **fortfarande** ett av Stockholms populäraste museer.", exNl: "Het Vasamuseum is nog steeds een van de populairste musea van Stockholm." }
+  - { sv: "en historia", nl: "de geschiedenis", def: "historien", mass: true, ex: "Jag har alltid varit intresserad av **historia**.", exNl: "Ik ben altijd geïnteresseerd geweest in geschiedenis." }
+  - { sv: "en epok", nl: "een tijdperk", def: "epoken", pl: "epoker", plDef: "epokerna", ex: "Stormaktstiden var en viktig **epok** i Sveriges historia.", exNl: "De Grootmachttijd was een belangrijk tijdperk in de geschiedenis van Zweden." }
+  - { sv: "medeltiden", nl: "de middeleeuwen", ex: "Under **medeltiden** var Stockholm en ganska liten stad.", exNl: "In de middeleeuwen was Stockholm een vrij kleine stad." }
+  - { sv: "en stormakt", nl: "een grootmacht", def: "stormakten", pl: "stormakter", plDef: "stormakterna", ex: "På 1600-talet var Sverige en europeisk **stormakt**.", exNl: "In de 17e eeuw was Zweden een Europese grootmacht." }
+  - { sv: "ett rike", nl: "een rijk (koninkrijk)", def: "riket", pl: "riken", plDef: "rikena", ex: "Kungen ville göra sitt **rike** större och starkare.", exNl: "De koning wilde zijn rijk groter en sterker maken." }
+  - { sv: "en flotta", nl: "een vloot", def: "flottan", pl: "flottor", plDef: "flottorna", ex: "Vasa skulle bli stoltheten i den svenska **flottan**.", exNl: "De Vasa moest de trots van de Zweedse vloot worden." }
+  - { sv: "en sjöman", nl: "een zeeman", def: "sjömannen", pl: "sjömän", plDef: "sjömännen", ex: "Flera **sjömän** hade sina familjer med sig ombord.", exNl: "Verschillende zeelieden hadden hun familie bij zich aan boord." }
+  - { sv: "en besättning", nl: "een bemanning", def: "besättningen", pl: "besättningar", plDef: "besättningarna", ex: "**Besättningen** bestod av omkring 150 personer.", exNl: "De bemanning bestond uit ongeveer 150 personen." }
+  - { sv: "ett slag", nl: "een veldslag, een slag", def: "slaget", pl: "slag", plDef: "slagen", ex: "Sverige förlorade **slaget** vid Poltava år 1709.", exNl: "Zweden verloor de slag bij Poltava in 1709." }
+  - { sv: "en seger", nl: "een overwinning", def: "segern", pl: "segrar", plDef: "segrarna", ex: "Slaget slutade med en stor svensk **seger**.", exNl: "De slag eindigde met een grote Zweedse overwinning." }
+  - { sv: "ett nederlag", nl: "een nederlaag", def: "nederlaget", pl: "nederlag", plDef: "nederlagen", ex: "**Nederlaget** vid Poltava blev början på slutet för stormaktstiden.", exNl: "De nederlaag bij Poltava was het begin van het einde van de Grootmachttijd." }
+  - { sv: "en fred", nl: "de vrede", def: "freden", mass: true, ex: "**Freden** i Roskilde 1658 gav Skåne till Sverige.", exNl: "De vrede van Roskilde in 1658 gaf Skåne aan Zweden." }
+  - { sv: "en utgrävning", nl: "een opgraving", def: "utgrävningen", pl: "utgrävningar", plDef: "utgrävningarna", ex: "Under **utgrävningen** hittade man många gamla mynt.", exNl: "Tijdens de opgraving vond men veel oude munten." }
+  - { sv: "ett fynd", nl: "een vondst", def: "fyndet", pl: "fynd", plDef: "fynden", ex: "**Fynden** från vraket visas i dag på museet.", exNl: "De vondsten uit het wrak worden nu in het museum getoond." }
+  - { sv: "en arkeolog", nl: "een archeoloog", def: "arkeologen", pl: "arkeologer", plDef: "arkeologerna", ex: "**Arkeologerna** har undersökt varje del av skeppet.", exNl: "De archeologen hebben elk deel van het schip onderzocht." }
+  - { sv: "att erövra", nl: "veroveren", ex: "Gustav II Adolf **erövrade** stora områden i Tyskland.", exNl: "Gustaaf II Adolf veroverde grote gebieden in Duitsland." }
+  - { sv: "att härska", nl: "heersen", ex: "Kungen **härskade** över ett stort rike runt Östersjön.", exNl: "De koning heerste over een groot rijk rond de Oostzee." }
+  - { sv: "att kröna", nl: "kronen", ex: "Gustav Vasa **kröntes** till kung år 1528.", exNl: "Gustav Vasa werd in 1528 tot koning gekroond." }
+  - { sv: "att grunda", nl: "stichten, oprichten", ex: "Enligt traditionen **grundades** Stockholm i mitten av 1200-talet.", exNl: "Volgens de overlevering werd Stockholm halverwege de 13e eeuw gesticht." }
+  - { sv: "att utvandra", nl: "emigreren", ex: "Över en miljon svenskar **utvandrade** till Amerika.", exNl: "Meer dan een miljoen Zweden emigreerden naar Amerika." }
+  - { sv: "att gräva fram", nl: "opgraven", ex: "Arkeologerna **grävde fram** en gammal vikingagrav.", exNl: "De archeologen groeven een oud vikinggraf op." }
+  - { sv: "att få reda på", nl: "te weten komen", ex: "Det dröjde länge innan man **fick reda på** sanningen.", exNl: "Het duurde lang voordat men de waarheid te weten kwam." }
+  - { sv: "att kantra", nl: "kapseizen, omslaan", ex: "Skeppet **kantrade** och sjönk på bara några minuter.", exNl: "Het schip kapseisde en zonk in slechts een paar minuten." }
+  - { sv: "att pågå", nl: "duren, aan de gang zijn", ex: "Trettioåriga kriget **pågick** mellan 1618 och 1648.", exNl: "De Dertigjarige Oorlog duurde van 1618 tot 1648." }
+  - { sv: "att avskaffa", nl: "afschaffen", ex: "Dödsstraffet **avskaffades** i fredstid i Sverige år 1921.", exNl: "De doodstraf werd in Zweden in 1921 in vredestijd afgeschaft." }
+  - { sv: "att ta över", nl: "overnemen", ex: "Hans dotter **tog över** makten efter hans död.", exNl: "Zijn dochter nam na zijn dood de macht over." }
+  - { sv: "att föra krig", nl: "oorlog voeren", ex: "Sverige **förde krig** mot Danmark många gånger.", exNl: "Zweden voerde vaak oorlog tegen Denemarken." }
+  - { sv: "att lägga grunden till", nl: "de basis leggen voor", ex: "Reformen **{lade|la} grunden till** dagens svenska skola.", exNl: "De hervorming legde de basis voor de huidige Zweedse school." }
+  - { sv: "historisk", nl: "historisch", ex: "Det var en **historisk** dag för hela landet.", exNl: "Het was een historische dag voor het hele land." }
+  - { sv: "medeltida", nl: "middeleeuws", ex: "Visby har en välbevarad **medeltida** stadsmur.", exNl: "Visby heeft een goed bewaarde middeleeuwse stadsmuur." }
+  - { sv: "mäktig", nl: "machtig", ex: "Gustav II Adolf var en av Europas **mäktigaste** kungar.", exNl: "Gustaaf II Adolf was een van de machtigste koningen van Europa." }
+  - { sv: "ödesdiger", nl: "noodlottig", ex: "Kungens beslut visade sig vara **ödesdigert**.", exNl: "Het besluit van de koning bleek noodlottig te zijn." }
+  - { sv: "instabil", nl: "instabiel", ex: "Skeppet var för smalt och därför **instabilt**.", exNl: "Het schip was te smal en daardoor instabiel." }
+  - { sv: "tidigare", nl: "vroeger, eerder", ex: "**Tidigare** bodde de flesta svenskar på landet.", exNl: "Vroeger woonden de meeste Zweden op het platteland." }
+  - { sv: "så småningom", nl: "langzamerhand, uiteindelijk", ex: "**Så småningom** glömde man bort var vraket låg.", exNl: "Langzamerhand vergat men waar het wrak lag." }
+  - { sv: "under tiden", nl: "intussen", ex: "**Under tiden** fortsatte kriget nere i Tyskland.", exNl: "Intussen ging de oorlog in Duitsland verder." }
+  - { sv: "därefter", nl: "daarna", ex: "**Därefter** låg skeppet på botten i 333 år.", exNl: "Daarna lag het schip 333 jaar op de bodem." }
+  - { sv: "på sin tid", nl: "destijds, in die tijd", ex: "Vasa var **på sin tid** ett av världens största skepp.", exNl: "De Vasa was destijds een van de grootste schepen ter wereld." }
+  - { sv: "före Kristus", nl: "voor Christus", ex: "Rom grundades enligt legenden 753 år **före Kristus**.", exNl: "Rome werd volgens de legende in 753 voor Christus gesticht." }
+  - { sv: "nämligen", nl: "namelijk", ex: "Skeppet kantrade. Det var **nämligen** alldeles för tungt upptill.", exNl: "Het schip kapseisde. Het was namelijk veel te zwaar aan de bovenkant." }

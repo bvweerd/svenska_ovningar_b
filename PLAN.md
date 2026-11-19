@@ -75,7 +75,8 @@ Nieuw in deze repo:
 - [ ] Testen of de browserstemmen goed genoeg zijn (oordelen in GoatCounter: `/b/luisteren/oordeel/…`)
 - [x] **Fase 2** – hoofdstuk 14–24, één voor één (met eindtoets B1 in hoofdstuk 24)
 - [x] **Fase 3** – hoofdstuk 25–30 (met herhaling en eindtoets B2 in hoofdstuk 30)
-- [ ] Werkwoordtrainer uitbreiden met B1-werkwoorden en partikelwerkwoorden
+- [x] Werkwoordtrainer uitbreiden met B1-werkwoorden en partikelwerkwoorden
+      (45 partikelwerkwoorden als eigen soort in de trainer, na **taalreview**)
 
 ## 5. Kanttekeningen
 
@@ -111,8 +112,10 @@ Daarna leest de eigenaar steekproefsgewijs mee. Pas dan wordt er gepubliceerd.
 - [x] **Fase 2**: hoofdstuk 1–12 naar ±60 woorden per hoofdstuk, per hoofdstuk een **taalreview**.
       Hoofdstuk 1 en 3–12 naar 55–64 woorden (715 in totaal) → **taalreview** (twee rondes) →
       goedgekeurd door de eigenaar.
-- [ ] **Fase 3**: hoofdstuk 13–30 naar ±60 woorden (meer uitdrukkingen en partikelwerkwoorden),
+- [x] **Fase 3**: hoofdstuk 13–30 naar ±60 woorden (meer uitdrukkingen en partikelwerkwoorden),
       per hoofdstuk een **taalreview**.
+      Hoofdstuk 13–30 naar 58–62 woorden (1083 in totaal) → **taalreview** (twee rondes) →
+      goedgekeurd door de eigenaar.
 - [x] **Fase 4**: kernoefeningen naar 8–10 vragen, luistervragen in de A1–A2-site,
       ±80 werkwoorden erbij in de werkwoordtrainer; per hoofdstuk of per lijst een **taalreview**.
       Gedaan en na **taalreview** verwerkt: 82 werkwoorden erbij (146 in totaal); alle kernoefeningen
