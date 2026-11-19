@@ -129,6 +129,9 @@ nakijkt en naar de tekst toe werken (openingszin kiezen, bijzin afmaken, signaal
 laatste item de vrije tekst (`free`). Die stap is vrijblijvend: geen vinkjes en geen oordeel. Onder
 „Hulp” staan `minWords` („Ongeveer … woorden”) en de `label`s van `require`; na „Klaar” of „Toon voorbeeld”
 verschijnt `model`. `npm test` controleert dat `free` als laatste staat, na 3 tot 5 stappen, zonder `shuffle`.
+In H25–H30 staat vóór de schrijfopdracht ook „Betoog in stappen” (`skriva-betoog`): vier `steps`-vragen voor
+standpunt, argumenten, tegenargument met weerlegging en conclusie, en daarna een vrijblijvend betoog (in H27 is de
+schrijfopdracht zelf het betoog).
 
 ```yaml
 items:

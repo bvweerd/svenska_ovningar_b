@@ -248,6 +248,38 @@ sections:
     title: Skriva · schrijven
     intro: "Schrijfdoel: een betoog."
     exercises:
+      - id: skriva-betoog
+        title: Betoog in stappen
+        instruction: "Bouw een betoog op in vier delen: tes, argumenten, motargument met bemötande en slutsats. De app kijkt elke stap na. Je eigen betoog schrijf je daarna in de volgende oefening."
+        topic: argumentation
+        items:
+          - id: y7c5
+            type: steps
+            topic: argumentation
+            steps:
+              - { type: mc, prompt: "**Tes.** Welke zin is een goede tes (een standpunt)?", options: ["Alla gymnasieelever borde göra minst två veckors praktik på en arbetsplats.", "Många gymnasieelever har ett sommarjobb i en butik eller på ett kafé.", "Min dotter gjorde praktik på ett sjukhus förra året."], answer: 0, tip: "Een tes is een standpunt waarover je van mening kunt verschillen, geen feit en geen eigen ervaring." }
+              - { type: transform, topic: utbrytning, task: "**Tes.** Leg de nadruk op *skolan* met det är … som.", prompt: "Skolan måste ge eleverna kontakt med arbetslivet.", answers: ["Det är skolan som måste ge eleverna kontakt med arbetslivet."], feedback: [{ contains: "det är skolan att", tip: "Nadruk leg je met det är … som, niet met att." }] }
+          - id: cqzm
+            type: steps
+            topic: argumentation
+            steps:
+              - { type: order, prompt: "**Argument 1.** Begin met *För det första*. Let op de woordvolgorde.", start: "För det första", tokens: ["får", "eleverna", "en", "tydligare", "bild", "av", "hur", "arbetslivet", "ser", "ut"], answers: ["För det första får eleverna en tydligare bild av hur arbetslivet ser ut."], feedback: [{ contains: "för det första eleverna får", tip: "För det första is een zinsdeel: daarna komt meteen het werkwoord (För det första får eleverna …)." }, { contains: "hur ser arbetslivet ut", tip: "Na hur volgt hier een bijzin, zonder inversie: hur arbetslivet ser ut." }] }
+              - { type: gap, prompt: "**Argument 2.** Kies het signaalwoord.", text: "___ blir det lättare för eleverna att välja rätt utbildning efter gymnasiet.", gaps: [{ answers: ["För det andra"], options: ["För det andra", "Visserligen", "Kort sagt"], tip: "Je tweede argument kondig je aan met för det andra. Visserligen hoort bij het bemötande, kort sagt bij de slutsats." }] }
+              - { type: gap, topic: sambandsord, prompt: "**Argument 3.** Kies het signaalwoord.", text: "___ vill många arbetsgivare gärna anställa unga som redan har lite erfarenhet.", gaps: [{ answers: ["Dessutom"], options: ["Dessutom", "Kort sagt", "Visserligen"], tip: "Nog een argument erbij: dessutom (bovendien)." }] }
+          - id: 42tv
+            type: steps
+            topic: argumentation
+            steps:
+              - { type: mc, prompt: "**Motargument.** Welke zin geeft weer wat de andere kant vindt?", options: ["Kritiker menar att det är svårt att hitta praktikplatser åt alla elever.", "För det andra blir det lättare att välja rätt utbildning.", "Därför anser jag att alla elever borde göra praktik."], answer: 0, tip: "Een motargument is wat anderen vinden: Kritiker menar att … of Vissa hävdar att …" }
+              - { type: order, prompt: "**Bemötande.** Geef eerst toe, zet er dan iets tegenover.", start: "Visserligen kräver det mycket planering,", tokens: ["men", "många", "företag", "vill", "gärna", "ta", "emot", "praktikanter"], answers: ["Visserligen kräver det mycket planering, men många företag vill gärna ta emot praktikanter."] }
+              - { type: gap, prompt: "**Bemötande.** Kies het woord dat past.", text: "Det argumentet håller inte, ___ kommunen redan i dag har kontakt med många arbetsgivare.", gaps: [{ answers: ["eftersom"], options: ["eftersom", "därför", "men"], tip: "Je geeft de reden waarom het argument niet klopt: eftersom. Na därför zou het werkwoord direct volgen (därför har kommunen)." }] }
+          - id: aqng
+            type: steps
+            topic: argumentation
+            steps:
+              - { type: gap, prompt: "**Slutsats.** Je vat kort samen. Kies het signaalwoord.", text: "___ ger praktik eleverna erfarenheter som ingen lärobok kan ge dem.", gaps: [{ answers: ["Kort sagt"], options: ["Kort sagt", "Kritiker menar att", "För det andra"], tip: "Kort sagt (kortom) vat samen. Na Kritiker menar att zou geen inversie volgen, en för det andra is een nieuw argument." }] }
+              - { type: translate, prompt: "**Slutsats.** Vertaal: Daarom vind ik dat alle gymnasiasten (gymnasieelever) stage moeten lopen (göra praktik).", answers: ["Därför {anser|tycker|menar} jag att alla gymnasieelever {borde|bör|ska|måste} göra praktik.", "Jag {anser|tycker|menar} därför att alla gymnasieelever {borde|bör|ska|måste} göra praktik."], feedback: [{ contains: "därför jag", tip: "Na därför vooraan komt eerst het werkwoord: Därför anser jag …" }] }
+
       - id: skriva-debattartikel
         title: Schrijf een opiniestuk
         instruction: "Bouw eerst je debattartikel op in vijf stappen die de app nakijkt. Daarna schrijf je het hele betoog, als je wilt."

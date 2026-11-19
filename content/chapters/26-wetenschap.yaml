@@ -244,6 +244,48 @@ sections:
     title: Skriva · schrijven
     intro: "Schrijfdoel: een samenvatting van een artikel."
     exercises:
+      - id: skriva-betoog
+        title: Betoog in stappen
+        instruction: "Bouw een betoog op in vier delen: standpunt, argumenten, tegenargument met weerlegging en conclusie. De app kijkt elke stap na. Daarna schrijf je het hele betoog, als je wilt."
+        topic: asikt
+        items:
+          - id: 8sxj
+            type: steps
+            topic: asikt
+            steps:
+              - { type: mc, prompt: "**Standpunt.** Welke zin is een goede tes (een standpunt)?", options: ["Skoldagen på gymnasiet borde börja klockan nio i stället för klockan åtta.", "Skoldagen börjar klockan åtta på de flesta svenska gymnasieskolor.", "Forskare har länge undersökt hur sömnen påverkar tonåringar."], answer: 0, tip: "Een tes is een standpunt waarover je van mening kunt verschillen. De andere zinnen zijn feiten." }
+              - { type: order, prompt: "**Standpunt.** Ik vind dat het gymnasium niet vóór negen uur 's ochtends moet beginnen. Let op de plaats van *inte* in de bijzin.", start: "Jag anser att", tokens: ["gymnasieskolan", "inte", "borde", "börja", "förrän", "klockan", "nio", "på", "morgonen"], answers: ["Jag anser att gymnasieskolan inte borde börja förrän klockan nio på morgonen."], feedback: [{ contains: "gymnasieskolan borde inte", tip: "Na anser att volgt een bijzin: inte staat vóór het werkwoord (gymnasieskolan inte borde)." }] }
+          - id: j5nv
+            type: steps
+            topic: sambandsord
+            steps:
+              - { type: gap, prompt: "**Argument 1.** Kies het signaalwoord.", text: "___ visar forskningen att tonåringar blir trötta senare på kvällen än vuxna.", gaps: [{ answers: ["För det första"], options: ["För det första", "Å andra sidan", "Sammanfattningsvis"], tip: "Je eerste argument kondig je aan met för det första. Å andra sidan zet iets tegenover elkaar, sammanfattningsvis hoort bij de conclusie." }] }
+              - { type: gap, topic: particip-konstruktion, prompt: "**Argument 2.** Kies de goede vorm van het deelwoord.", text: "Dessutom visar en nyligen ___ studie att eleverna fick bättre betyg med senare skolstart.", gaps: [{ answers: ["publicerad"], options: ["publicerad", "publicerat", "publicerade"], tip: "studie is een en-woord, onbepaald (en studie): het deelwoord blijft publicerad." }] }
+              - { type: order, topic: subjunktioner-b1, prompt: "**Argument 3.** Maak de bijzin met *eftersom* af. Let op *då* en *inte*.", start: "Eleverna presterar bättre på förmiddagen,", tokens: ["eftersom", "de", "då", "inte", "är", "lika", "trötta"], answers: ["Eleverna presterar bättre på förmiddagen, eftersom de då inte är lika trötta.", "Eleverna presterar bättre på förmiddagen, eftersom de inte är lika trötta då."], feedback: [{ contains: ["de är inte", "de då är inte"], tip: "Na eftersom volgt een bijzin: inte staat vóór het werkwoord (de då inte är)." }] }
+          - id: mrpx
+            type: steps
+            topic: asikt
+            steps:
+              - { type: mc, prompt: "**Tegenargument.** Welke zin geeft weer wat de andere kant vindt?", options: ["Vissa menar att eleverna bara skulle gå och lägga sig ännu senare.", "Flera studier tyder på att tonåringar behöver mer sömn.", "Därför anser jag att skolan borde börja senare."], answer: 0, tip: "Een tegenargument is wat anderen vinden: Vissa menar att … of Många hävdar att …" }
+              - { type: order, prompt: "**Weerlegging.** Geef eerst toe, zet er dan iets tegenover.", start: "Visserligen finns det en sådan risk,", tokens: ["men", "studierna", "visar", "att", "eleverna", "ändå", "sover", "längre"], answers: ["Visserligen finns det en sådan risk, men studierna visar att eleverna ändå sover längre.", "Visserligen finns det en sådan risk, men studierna visar att eleverna sover längre ändå.", "Visserligen finns det en sådan risk, men studierna visar ändå att eleverna sover längre.", "Visserligen finns det en sådan risk, men ändå visar studierna att eleverna sover längre."] }
+              - { type: gap, prompt: "**Weerlegging.** Kies het woord dat past.", text: "Å ena sidan slutar skoldagen senare, ___ lär sig eleverna betydligt mer på lektionerna.", gaps: [{ answers: ["å andra sidan"], options: ["å andra sidan", "för det första", "sammanfattningsvis"], tip: "Bij å ena sidan hoort å andra sidan (enerzijds … anderzijds)." }] }
+          - id: 42hs
+            type: steps
+            topic: asikt
+            steps:
+              - { type: gap, prompt: "**Conclusie.** Je sluit af. Kies het signaalwoord.", text: "___ tyder mycket på att en senare skolstart skulle vara bra för både elever och lärare.", gaps: [{ answers: ["Sammanfattningsvis"], options: ["Sammanfattningsvis", "Visserligen", "Dessutom"], tip: "Een conclusie begin je met sammanfattningsvis. Dessutom voegt nog een argument toe, visserligen geeft iets toe." }] }
+              - { type: translate, prompt: "**Conclusie.** Vertaal: Daarom vind ik dat de lessen voor tieners (tonåringar) pas om negen uur moeten beginnen.", answers: ["Därför {anser|tycker|menar} jag att lektionerna för tonåringar {borde|bör|ska|måste} börja först {klockan|kl} {nio|9}.", "Därför {anser|tycker|menar} jag att lektionerna för tonåringar inte {borde|bör|ska} börja förrän {klockan|kl} {nio|9}.", "Därför {anser|tycker|menar} jag att lektionerna {borde|bör|ska|måste} börja först {klockan|kl} {nio|9} för tonåringar.", "Därför {anser|tycker|menar} jag att lektionerna inte {borde|bör|ska} börja förrän {klockan|kl} {nio|9} för tonåringar.", "Jag {anser|tycker|menar} därför att lektionerna för tonåringar {borde|bör|ska|måste} börja först {klockan|kl} {nio|9}.", "Jag {anser|tycker|menar} därför att lektionerna för tonåringar inte {borde|bör|ska} börja förrän {klockan|kl} {nio|9}.", "Jag {anser|tycker|menar} därför att lektionerna {borde|bör|ska|måste} börja först {klockan|kl} {nio|9} för tonåringar.", "Jag {anser|tycker|menar} därför att lektionerna inte {borde|bör|ska} börja förrän {klockan|kl} {nio|9} för tonåringar."], feedback: [{ contains: ["därför jag", "lektionerna för tonåringar borde inte", "lektionerna för tonåringar bör inte", "lektionerna för tonåringar ska inte"], tip: "Na därför vooraan komt eerst het werkwoord (Därför anser jag), en in de att-zin staat inte vóór het werkwoord." }] }
+          - id: 2fk3
+            type: free
+            prompt: "Schrijf nu het hele betoog (100–150 woorden) over de stelling *Skoldagen borde börja senare för tonåringar*, of kies zelf een stelling over onderzoek en wetenschap. Gebruik de vier delen: standpunt, twee of drie argumenten, een tegenargument met weerlegging en een conclusie. Formuleer voorzichtig waar het over onderzoek gaat (*tyder på, verkar*)."
+            minWords: 90
+            require:
+              - { any: ["anser", "tycker", "enligt min mening"], label: "Je geeft je standpunt" }
+              - { any: ["för det första", "dessutom", "eftersom"], label: "Je ordent je argumenten (för det första, dessutom, eftersom)" }
+              - { any: ["visserligen", "å andra sidan", "trots att", "det stämmer att"], label: "Je weerlegt een tegenargument (visserligen … men, å andra sidan)" }
+              - { any: ["sammanfattningsvis", "därför"], label: "Je sluit af met een conclusie" }
+            model: "Jag anser att gymnasieskolan inte borde börja förrän klockan nio på morgonen. För det första visar forskningen att tonåringar blir trötta senare på kvällen än vuxna. De behöver alltså sova längre på morgonen. Dessutom visar en nyligen publicerad studie att eleverna fick bättre betyg med senare skolstart. Eleverna presterar bättre på förmiddagen, eftersom de då inte är lika trötta. Vissa menar att eleverna bara skulle gå och lägga sig ännu senare. Visserligen finns det en sådan risk, men studierna visar att eleverna ändå sover längre. Å ena sidan slutar skoldagen senare, å andra sidan lär sig eleverna betydligt mer på lektionerna. Sammanfattningsvis tyder mycket på att en senare skolstart skulle vara bra för både elever och lärare. Därför anser jag att lektionerna för tonåringar borde börja först klockan nio."
+
       - id: skriva-sammanfattning
         title: Vat het onderzoek samen
         instruction: "Bouw eerst je samenvatting op in vier stappen die de app nakijkt. Daarna schrijf je de hele samenvatting, als je wilt."

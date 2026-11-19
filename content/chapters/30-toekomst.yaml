@@ -198,6 +198,49 @@ sections:
     title: Skriva · schrijven
     intro: "Schrijfdoel: een toekomstvisie."
     exercises:
+      - id: skriva-betoog
+        title: Betoog in stappen
+        instruction: "Bouw een betoog op in vier delen: tes, argumenten, motargument met bemötande en slutsats. De app kijkt elke stap na. Daarna schrijf je het hele betoog, als je wilt."
+        topic: argumentation
+        items:
+          - id: ssqe
+            type: steps
+            topic: argumentation
+            steps:
+              - { type: mc, prompt: "**Tes.** Welke zin is een goede tes (een standpunt)?", options: ["Robotar borde få en större roll i äldreomsorgen.", "Antalet pensionärer i Sverige väntas öka de närmaste åren.", "Min mormor fick besök av en robot på sitt boende förra veckan."], answer: 0, tip: "Een tes is een standpunt waarover je van mening kunt verschillen, geen verwachting die je meldt en geen eigen ervaring." }
+              - { type: order, topic: framtid-b2, prompt: "**Tes.** Ik ben ervan overtuigd dat robots het personeel niet zullen vervangen, maar helpen. Let op de plaats van *inte* in de bijzin.", start: "Jag är övertygad om att", tokens: ["robotar", "inte", "kommer", "att", "ersätta", "personalen", "utan", "hjälpa", "den"], answers: ["Jag är övertygad om att robotar inte kommer att ersätta personalen utan hjälpa den."], feedback: [{ contains: "robotar kommer inte", tip: "Na om att volgt een bijzin: inte staat vóór het werkwoord (robotar inte kommer att)." }] }
+          - id: aasu
+            type: steps
+            topic: argumentation
+            steps:
+              - { type: gap, topic: framtid-b2, prompt: "**Argument 1.** Je doet een voorspelling. Kies het woord dat past.", text: "För det första ___ antalet äldre att öka kraftigt de närmaste åren.", gaps: [{ answers: ["kommer"], options: ["kommer", "ska", "lär"], tip: "Een voorspelling met att: kommer att öka. Ska en lär staan zonder att." }] }
+              - { type: gap, prompt: "**Argument 2.** Kies het signaalwoord.", text: "___ kan robotar ta över tunga lyft, så att personalen orkar mer.", gaps: [{ answers: ["Dessutom"], options: ["Dessutom", "Å andra sidan", "Kort sagt"], tip: "Nog een argument erbij: dessutom (bovendien). Kort sagt hoort bij de slutsats." }] }
+              - { type: order, topic: framtid-b2, prompt: "**Argument 3.** Maak de bijzin met *eftersom* af.", start: "Vi måste planera redan nu,", tokens: ["eftersom", "det", "väntas", "bli", "brist", "på", "personal", "inom", "vården"], answers: ["Vi måste planera redan nu, eftersom det väntas bli brist på personal inom vården."], feedback: [{ contains: "eftersom väntas det", tip: "Na eftersom volgt een bijzin, zonder inversie: eftersom det väntas …" }] }
+          - id: ngg3
+            type: steps
+            topic: argumentation
+            steps:
+              - { type: mc, prompt: "**Motargument.** Welke zin geeft weer wat de andere kant vindt?", options: ["Vissa hävdar att äldre människor behöver mänsklig kontakt, inte maskiner.", "Dessutom kan robotar ta över tunga lyft.", "Sammanfattningsvis anser jag att robotar är en bra lösning."], answer: 0, tip: "Een motargument is wat anderen vinden: Vissa hävdar att … of Kritiker menar att …" }
+              - { type: order, prompt: "**Bemötande.** Geef eerst toe, zet er dan iets tegenover.", start: "Visserligen kan en robot aldrig ersätta en människa,", tokens: ["men", "den", "kan", "frigöra", "tid", "för", "samtal"], answers: ["Visserligen kan en robot aldrig ersätta en människa, men den kan frigöra tid för samtal."] }
+              - { type: gap, topic: framtid-b2, prompt: "**Bemötande.** Kies het woord dat past.", text: "___ tekniken kostar mycket i början, kommer den att löna sig på sikt.", gaps: [{ answers: ["Trots att"], options: ["Trots att", "Eftersom", "Därför"], tip: "Hoewel het in het begin veel kost: trots att. Eftersom geeft een reden, en na därför zou het werkwoord direct volgen." }] }
+          - id: hapw
+            type: steps
+            topic: argumentation
+            steps:
+              - { type: translate, topic: framtid-b2, prompt: "**Slutsats.** Vertaal: Over tien jaar zullen robots een vanzelfsprekend (självklar) deel van de zorg zijn.", answers: ["Om tio år kommer robotar [att ]{vara|utgöra} en självklar del {av|i} {vården|omsorgen|äldreomsorgen}.", "Robotar kommer [att ]{vara|utgöra} en självklar del {av|i} {vården|omsorgen|äldreomsorgen} om tio år.", "Om tio år {är|blir} robotar en självklar del {av|i} {vården|omsorgen|äldreomsorgen}."], feedback: [{ contains: "om tio år robotar", tip: "Na Om tio år vooraan komt eerst het werkwoord: Om tio år kommer robotar …" }] }
+              - { type: gap, prompt: "**Slutsats.** Je sluit af. Kies het signaalwoord.", text: "___ anser jag att robotar kan göra äldreomsorgen både bättre och mer mänsklig.", gaps: [{ answers: ["Sammanfattningsvis"], options: ["Sammanfattningsvis", "Visserligen", "Dessutom"], tip: "Een slutsats begin je met sammanfattningsvis. Dessutom voegt nog een argument toe, visserligen geeft iets toe." }] }
+          - id: nw2m
+            type: free
+            prompt: "Schrijf nu het hele betoog (100–150 woorden) over de stelling *Robotar borde få en större roll i äldreomsorgen*, of kies zelf een stelling over de toekomst (bijvoorbeeld: *Alla borde få jobba fyra dagar i veckan*). Gebruik de vier delen: tes, twee of drie argumenten, een motargument met bemötande en een slutsats, en minstens één voorspelling met *kommer att* of *väntas*."
+            minWords: 90
+            require:
+              - { any: ["anser", "tycker", "övertygad", "borde"], label: "Je geeft je tes" }
+              - { any: ["för det första", "dessutom", "eftersom"], label: "Je ordent je argumenten (för det första, dessutom, eftersom)" }
+              - { any: ["visserligen", "trots att", "å andra sidan", "det stämmer att"], label: "Je bemöter een motargument (visserligen … men, trots att)" }
+              - { any: ["sammanfattningsvis", "därför", "kort sagt"], label: "Je sluit af met een slutsats" }
+              - { any: ["kommer att", "väntas", "beräknas"], label: "Je doet een voorspelling (kommer att, väntas)" }
+            model: "Robotar borde få en större roll i äldreomsorgen. Jag är övertygad om att robotar inte kommer att ersätta personalen utan hjälpa den. För det första kommer antalet äldre att öka kraftigt de närmaste åren. Vi måste planera redan nu, eftersom det väntas bli brist på personal inom vården. Dessutom kan robotar ta över tunga lyft, så att personalen orkar mer. Vissa hävdar att äldre människor behöver mänsklig kontakt, inte maskiner. Visserligen kan en robot aldrig ersätta en människa, men den kan frigöra tid för samtal. Trots att tekniken kostar mycket i början, kommer den att löna sig på sikt. Om tio år kommer robotar att vara en självklar del av vården. Sammanfattningsvis anser jag att robotar kan göra äldreomsorgen både bättre och mer mänsklig."
+
       - id: skriva-framtid
         title: Jouw toekomst
         instruction: "Bouw eerst je toekomstvisie op in vijf stappen die de app nakijkt. Daarna schrijf je de hele tekst, als je wilt."
