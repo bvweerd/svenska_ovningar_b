@@ -73,9 +73,15 @@ sections:
 
           Polisen spärrade av flera gator, och trafiken stod still i nästan en timme. Ingen människa skadades.
 
+          Många som såg älgen filmade den med sina mobiler, och snart spreds filmerna i sociala medier. En av dem som filmade var Omar Hassan, som kör buss i Uppsala.
+
+          – Jag fick stanna bussen mitt på gatan. Passagerarna frågade vad som hade hänt, och när jag pekade på älgen började alla skratta, berättar han.
+
           – Älgen var troligen ung och hade gått vilse, säger polisens presstalesperson Anders Berg. Till slut lyckades vi leda den ut ur staden mot skogen.
 
-          Enligt Berg är det inte ovanligt att älgar kommer in i städer på våren, när de unga djuren lämnar sina mödrar.
+          Enligt Berg är det inte ovanligt att älgar kommer in i städer på våren, när de unga djuren lämnar sina mödrar. Polisen vill ändå påminna om att en älg kan bli farlig om den känner sig stressad. Man ska hålla avstånd och inte försöka ta bilder på nära håll. Den som ser en älg i staden bör ringa 112.
+
+          Senare samma dag sågs älgen i ett skogsområde norr om staden. Enligt polisen mådde den bra.
         items:
           - { id: dwrr, type: mc, prompt: "Var sågs älgen först?", options: ["vid järnvägsstationen", "i stadsparken", "vid Fyrisån", "i skogen"], answer: 0 }
           - { id: qcwm, type: truefalse, statement: "Älgen sågs på kvällen.", answer: false, correction: { answers: ["{Älgen|Den} sågs [på morgonen ]strax efter klockan sex[ på morgonen].", "{Älgen|Den} sågs på morgonen."] } }
@@ -84,6 +90,9 @@ sections:
           - { id: rcwa, type: mc, prompt: "Varför kom älgen in i staden, enligt polisen?", options: ["Den var ung och hade gått vilse.", "Den letade efter mat.", "Den var sjuk.", "Någon hade jagat den."], answer: 0 }
           - { id: b7rs, type: mc, prompt: "När kommer älgar ofta in i städer?", options: ["på våren", "på vintern", "på natten", "på hösten"], answer: 0 }
           - { id: wf7p, type: mc, prompt: "Wat betekent *spärrade av flera gator*?", options: ["sloot meerdere straten af", "maakte meerdere straten schoon", "reed door meerdere straten", "zocht in meerdere straten"], answer: 0 }
+          - { id: 43pp, type: mc, prompt: "Vad gjorde många som såg älgen?", options: ["De filmade den med sina mobiler.", "De ringde polisen.", "De gav den mat.", "De sprang hem."], answer: 0 }
+          - { id: a4aa, type: truefalse, statement: "Passagerarna på bussen blev rädda.", answer: false, correction: { answers: ["{Passagerarna|De|Alla} började skratta.", "{Passagerarna|De} skrattade."] } }
+          - { id: cufb, type: mc, prompt: "Vad ska man göra om man ser en älg i staden, enligt polisen?", options: ["hålla avstånd och ringa 112", "ta bilder på nära håll", "försöka leda den till skogen", "ringa tidningen"], answer: 0 }
 
   - id: ord
     title: Ord och fraser · woorden en uitdrukkingen
@@ -144,6 +153,11 @@ sections:
           - { id: tjnr, type: transform, prompt: "Meteorologen: ”Det kommer att snöa i helgen.”", task: "Meteorologen sa att …", answers: ["Meteorologen sa att det skulle snöa i helgen."], feedback: [{ contains: "kommer att", tip: "kommer att → skulle." }] }
           - { id: frth, type: transform, prompt: "Nils: ”Jag tycker inte om fisk.”", task: "Nils sa att …", answers: ["Nils sa att han inte tyckte om fisk."], feedback: [{ contains: "tyckte inte om", tip: "In de bijzin staat inte vóór het werkwoord: att han inte tyckte om." }, { contains: "tycker", tip: "Schuif de tijd terug: tycker → tyckte." }] }
           - { id: xbxg, type: transform, prompt: "Ingrid: ”Vi har aldrig varit i Lappland.”", task: "Ingrid sa att …", answers: ["Ingrid sa att de aldrig hade varit i Lappland."], feedback: [{ contains: "att vi", tip: "Ingrid praat over haar gezin: vi wordt de." }, { contains: "hade aldrig", tip: "In de bijzin staat aldrig vóór het werkwoord: de aldrig hade varit." }] }
+          - { id: m2ux, type: transform, prompt: "Karin: ”Jag har aldrig sett en älg så nära förut.”", task: "Karin berättade att …", answers: ["Karin berättade att hon aldrig hade sett en älg så nära förut."], feedback: [{ contains: "hade aldrig sett", tip: "In de bijzin staat aldrig vóór het werkwoord: att hon aldrig hade sett." }, { contains: "aldrig har sett", tip: "Schuif de tijd terug: har sett → hade sett." }, { contains: "att jag", tip: "Karin vertelt over zichzelf: jag wordt hon." }] }
+          - { id: jrnw, type: transform, prompt: "Polisen: ”Vi kommer att hålla gatorna stängda i en timme till.”", task: "Polisen sa att …", answers: ["Polisen sa att de skulle hålla gatorna stängda i en timme till."], feedback: [{ contains: "kommer att", tip: "kommer att → skulle." }, { contains: "att vi", tip: "Vertel je na wat de politie zei, dan wordt vi de." }] }
+          - { id: 9xgz, type: transform, prompt: "Chefredaktören: ”Vi har fått över tusen mejl om älgen.”", task: "Chefredaktören sa att …", answers: ["Chefredaktören sa att de hade fått över tusen {mejl|mail} om älgen."], feedback: [{ contains: "har fått", tip: "Schuif de tijd terug: har fått → hade fått." }, { contains: "att vi", tip: "Vertel je het na, dan wordt vi de." }] }
+          - { id: bxpa, type: transform, prompt: "Omar: ”Jag kan inte köra vidare förrän älgen har gått.”", task: "Omar sa att …", answers: ["Omar sa att han inte kunde köra vidare förrän älgen hade gått."], feedback: [{ contains: "kunde inte", tip: "In de bijzin staat inte vóór het werkwoord: att han inte kunde." }, { contains: "inte kan", tip: "Schuif de tijd terug: kan → kunde." }, { contains: "älgen har gått", tip: "Schuif ook hier de tijd terug: har gått → hade gått." }] }
+          - { id: um9k, type: transform, prompt: "Ministern: ”Jag tänker inte avgå, eftersom jag inte har gjort något fel.”", task: "Ministern sa att …", answers: ["Ministern sa att {hon inte tänkte avgå[,] eftersom hon|han inte tänkte avgå[,] eftersom han} inte hade gjort något fel."], feedback: [{ contains: "tänkte inte", tip: "In de bijzin staat inte vóór het werkwoord: att hon inte tänkte avgå." }, { contains: "hade inte gjort", tip: "Ook na eftersom is het een bijzin: eftersom hon inte hade gjort." }, { contains: ["inte har gjort", "inte tänker"], tip: "Schuif de tijd terug: tänker → tänkte, har gjort → hade gjort." }] }
 
       - id: indirekt-vragen
         title: Wat vroeg ze?
@@ -158,6 +172,9 @@ sections:
           - { id: gx92, type: transform, prompt: "”Har du sett min nyckel?” frågade Bram.", task: "Bram frågade …", answers: ["Bram frågade om jag hade sett hans nyckel."], feedback: [{ contains: "min nyckel", tip: "Het is Brams sleutel: hans nyckel." }, { contains: "sin nyckel", tip: "In de bijzin is jag het onderwerp, dus geen sin: hans nyckel." }] }
           - { id: dunt, type: transform, prompt: "”När börjar filmen?” undrade Wilma.", task: "Wilma undrade …", answers: ["Wilma undrade när filmen {började|skulle börja}."], feedback: [{ contains: "när började filmen", tip: "Bijzinvolgorde: eerst het onderwerp, när filmen började." }] }
           - { id: 55we, type: transform, prompt: "”Vad heter din syster?” frågade Olle.", task: "Olle frågade …", answers: ["Olle frågade vad min syster {hette|heter}."], feedback: [{ contains: "vad hette", tip: "Bijzinvolgorde: eerst het onderwerp, vad min syster hette." }, { contains: "din syster", tip: "Olle vraagt naar jouw zus; vanuit jou gezien: min syster." }] }
+          - { id: 9gz2, type: transform, prompt: "”Varför har ni inte spärrat av gatan?” frågade en journalist.", task: "Journalisten frågade polisen …", answers: ["Journalisten frågade polisen varför de inte hade spärrat av gatan."], feedback: [{ contains: "varför ni", tip: "Vertel je het na, dan wordt ni (de politie) de." }, { contains: "hade inte spärrat", tip: "In de bijzin staat inte vóór het werkwoord: varför de inte hade spärrat." }, { contains: "varför hade de", tip: "Bijzinvolgorde: eerst het onderwerp, varför de inte hade spärrat." }] }
+          - { id: wwwy, type: transform, prompt: "”Vet du om älgen har skadat någon?” frågade Tom.", task: "Tom frågade om jag …", answers: ["Tom frågade om jag visste om älgen {hade|har} skadat någon."], feedback: [{ contains: "om har älgen", tip: "Bijzinvolgorde: eerst het onderwerp, om älgen hade skadat." }, { contains: "om jag vet", tip: "Schuif de tijd terug: vet → visste." }] }
+          - { id: yfp2, type: transform, prompt: "”Vem var det som filmade älgen först?” undrade reportern.", task: "Reportern undrade …", answers: ["Reportern undrade {vem som|vem det var som} {hade filmat|filmade} älgen först."], feedback: [{ contains: ["vem hade filmat", "vem filmade"], tip: "vem is het onderwerp: vem som hade filmat." }, { contains: "vem var det", tip: "Bijzinvolgorde: vem det var som …" }] }
 
       - id: vem-som
         title: Vem som of vem?
@@ -173,6 +190,9 @@ sections:
           - { id: 5ywz, type: gap, text: "Kan du säga ___ jag ska ringa?", gaps: [{ answers: ["vem"], options: ["vem som", "vem", "vad som", "vad"], shuffle: false }] }
           - { id: fj9g, type: gap, text: "Jag vet inte ___ du pratar om.", gaps: [{ answers: ["vem", "vad"], options: ["vem som", "vem", "vad som", "vad"], shuffle: false, feedback: [{ match: ["vem som", "vad som"], tip: "du is het onderwerp: geen som." }] }] }
           - { id: gc96, type: gap, text: "Säg ___ du vill ha till middag!", gaps: [{ answers: ["vad"], options: ["vem som", "vem", "vad som", "vad"], shuffle: false, feedback: [{ match: "vad som", tip: "du is het onderwerp: geen som." }] }] }
+          - { id: kmc5, type: gap, text: "Ingen på tidningen vet ännu ___ skrev den anonyma insändaren i lördags.", gaps: [{ answers: ["vem som"], options: ["vem som", "vem", "vad som", "vad"], shuffle: false, feedback: [{ match: "vem", tip: "vem is hier het onderwerp (wie schreef de brief?): vem som." }] }] }
+          - { id: fe7w, type: gap, text: "Kan du berätta för mig ___ du gjorde när du kom till stationen?", gaps: [{ answers: ["vad"], options: ["vem som", "vem", "vad som", "vad"], shuffle: false, feedback: [{ match: "vad som", tip: "du is het onderwerp: geen som." }] }] }
+          - { id: ytvm, type: gap, text: "Mamma ringde och undrade ___ jag tänkte göra i sommar när skolan slutar.", gaps: [{ answers: ["vad"], options: ["vem som", "vem", "vad som", "vad"], shuffle: false, feedback: [{ match: "vad som", tip: "jag is het onderwerp: geen som." }] }] }
 
       - id: indirekt-zinsbouw
         title: Bijzinnen bouwen
@@ -188,6 +208,8 @@ sections:
           - { id: qhyw, type: order, start: "Jag vet inte", tokens: ["vad", "som", "hände"], answers: ["Jag vet inte vad som hände."] }
           - { id: 3u8z, type: order, start: "Hon undrade", tokens: ["om", "vi", "redan", "hade", "ätit"], answers: ["Hon undrade om vi redan hade ätit."] }
           - { id: cnuc, type: order, start: "Han frågade", tokens: ["vem", "som", "hade", "skrivit", "artikeln"], answers: ["Han frågade vem som hade skrivit artikeln."] }
+          - { id: 2w3d, type: order, start: "Passagerarna frågade", tokens: ["vad", "som", "hade", "hänt", "och", "varför", "bussen", "stod", "still"], answers: ["Passagerarna frågade vad som hade hänt och varför bussen stod still.", "Passagerarna frågade varför bussen stod still och vad som hade hänt."] }
+          - { id: qf7q, type: order, start: "Polisen ville veta", tokens: ["om", "någon", "hade", "sett", "älgen", "innan", "den", "kom", "till", "stationen"], answers: ["Polisen ville veta om någon hade sett älgen innan den kom till stationen."] }
 
   - id: zoek-de-fout
     title: Zoek de fout
@@ -203,6 +225,8 @@ sections:
           - { id: mv2r, type: findError, topic: indirekt-tal-b1, sentence: "Han sa att han kunde inte komma.", wrong: [4, 5], answers: ["Han sa att han inte kunde komma."], tip: "Waar staat inte in een bijzin?" }
           - { id: gfvj, type: findError, sentence: "Jag undrar att du vill följa med.", wrong: [2], answers: ["Jag undrar om du vill följa med."], tip: "Een ja/nee-vraag in een bijzin." }
           - { id: qqpy, type: findError, topic: indirekt-tal-b1, sentence: "Det sa i tidningen att det skulle snöa.", wrong: [1], answers: ["Det stod i tidningen att det skulle snöa."], tip: "Wat zeg je over een tekst in de krant?" }
+          - { id: bpf8, type: findError, sentence: "Journalisten frågade ministern varför hon hade inte svarat på mejlet.", wrong: [5, 6], answers: ["Journalisten frågade ministern varför hon inte hade svarat på {mejlet|mailet}."], tip: "Waar staat inte in een bijzin?" }
+          - { id: zdcp, type: findError, topic: indirekt-tal-b1, sentence: "Hon sa att hon ska ringa tillbaka så snart hon hade tid.", wrong: [4], answers: ["Hon sa att hon skulle ringa tillbaka så snart hon hade tid."], tip: "Na sa att schuift de tijd een stap terug." }
 
   - id: lyssna
     title: Lyssna · luisteren

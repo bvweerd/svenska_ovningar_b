@@ -72,9 +72,9 @@ sections:
         topic: rad-onskan
         textTitle: Fråga Frida
         text: |
-          **Hej Frida!** Jag och min sambo Erik har bott tillsammans i Stockholm i fem år. Nu har Erik fått ett jobberbjudande i Luleå, där han växte upp, och han vill gärna flytta tillbaka. Men jag trivs i Stockholm. Här har jag mitt jobb, mina vänner och min kör. Om vi flyttade skulle jag inte känna någon. Samtidigt vet jag att Erik har längtat hem länge. Vad ska jag göra? *Kluven i Stockholm*
+          **Hej Frida!** Jag och min sambo Erik har bott tillsammans i Stockholm i fem år. Nu har Erik fått ett jobberbjudande i Luleå, där han växte upp, och han vill gärna flytta tillbaka. Men jag trivs i Stockholm. Här har jag mitt jobb, mina vänner och min kör. Om vi flyttade skulle jag inte känna någon. Samtidigt vet jag att Erik har längtat hem länge. Hans föräldrar börjar bli gamla, och han skulle vilja bo närmare dem. I helgen grälade vi om det för första gången på länge. Jag önskar att jag kunde vara lika glad som han är. Vad ska jag göra? *Kluven i Stockholm*
 
-          **Hej Kluven!** Det låter som ett svårt beslut, och det är bra att du tar det på allvar. Om jag var du skulle jag först prata öppet med Erik om vad ni båda vill de närmaste åren. Ni kanske kan hitta en kompromiss? Erik skulle kunna ta jobbet på prov i ett år, och ni skulle kunna hälsa på varandra varannan helg. Du borde också åka upp till Luleå en vecka och se hur det känns. Kanske finns det en kör där också! Om ni bestämmer er tillsammans blir det lättare, vad ni än väljer. Lycka till! *Frida*
+          **Hej Kluven!** Det låter som ett svårt beslut, och det är bra att du tar det på allvar. Om jag var du skulle jag först prata öppet med Erik om vad ni båda vill de närmaste åren. Ni kanske kan hitta en kompromiss? Erik skulle kunna ta jobbet på prov i ett år, och ni skulle kunna hälsa på varandra varannan helg. Du borde också åka upp till Luleå en vecka och se hur det känns. Kanske finns det en kör där också! Har ni tänkt på att du kanske kan jobba på distans några dagar i veckan? Då skulle du inte behöva säga upp dig direkt. Det vore också bra om ni skrev ner vad som är viktigast för var och en av er. Om ni bestämmer er tillsammans blir det lättare, vad ni än väljer. Lycka till! *Frida*
         items:
           - { id: zagv, type: mc, prompt: "Varför vill Erik flytta till Luleå?", options: ["Han har fått ett jobberbjudande där.", "Han tycker inte om Stockholm.", "Hans föräldrar är sjuka.", "Han vill sjunga i en kör."], answer: 0 }
           - { id: vugf, type: truefalse, statement: "Kluven trivs inte i Stockholm.", answer: false, correction: { answers: ["{Kluven|Hon|Han} trivs [bra ]i Stockholm."] } }
@@ -88,6 +88,9 @@ sections:
             options: ["Om jag var du skulle jag först prata öppet med Erik.", "Du borde också åka upp till Luleå.", "Erik skulle kunna ta jobbet på prov.", "Om vi flyttade skulle jag inte känna någon.", "Han vill gärna flytta tillbaka."]
             answers: [0, 1, 2]
             tip: "Om vi flyttade … is een denkbeeldige situatie, geen advies."
+          - { id: 4u2f, type: mc, prompt: "Varför vill Erik bo närmare sina föräldrar?", options: ["De börjar bli gamla.", "De har köpt ett hus i Luleå.", "De är arga på honom.", "De vill träffa Kluven oftare."], answer: 0 }
+          - { id: hmqy, type: truefalse, statement: "Frida föreslår att Kluven säger upp sig direkt.", answer: false, correction: { answers: ["{Frida|Hon} föreslår att {Kluven|hon|han} [kanske ]jobbar på distans[ några dagar i veckan].", "{Kluven|Hon|Han} kan kanske jobba på distans[ några dagar i veckan].", "{Kluven|Hon|Han} {behöver|ska} inte säga upp sig direkt."] } }
+          - { id: s2kn, type: mc, topic: rad-onskan, prompt: "Wat betekent *Jag önskar att jag kunde vara lika glad som han är*?", options: ["Ik wou dat ik net zo blij kon zijn als hij.", "Ik hoop dat ik net zo blij word als hij.", "Ik ben net zo blij als hij.", "Ik wens hem veel geluk."], answer: 0 }
 
   - id: ord
     title: Ord och fraser · woorden en uitdrukkingen
@@ -164,6 +167,17 @@ sections:
           - { id: bk3u, type: transform, prompt: "Om det är soligt, går vi till stranden.", answers: ["Om det {var|vore} soligt, [så ]skulle vi gå till stranden.", "Om det {var|vore} soligt, [så ]gick vi till stranden."], feedback: [{ contains: ["soligt vi skulle", "soligt, vi skulle"], tip: "Na de om-zin komt eerst het werkwoord: skulle vi." }] }
           - { id: n5fb, type: transform, prompt: "Han ringde inte, så hon blev arg. (Begin met: Om han hade …)", answers: ["Om han hade ringt, [så ]skulle hon inte ha blivit arg.", "Om han hade ringt, [så ]hade hon inte blivit arg."], feedback: [{ contains: "hade ringat", tip: "ringa – ringde – ringt." }] }
 
+      - id: villkor-vertalen
+        title: Vertaal
+        instruction: Vertaal naar het Zweeds. Is de voorwaarde echt of denkbeeldig?
+        topic: villkor
+        shuffle: true
+        items:
+          - { id: gnpq, type: translate, prompt: "Als ik een auto had, zou ik elk weekend naar mijn ouders rijden.", answers: ["Om jag hade {en bil|bil} [så ]skulle jag {köra|åka} [hem ]till mina föräldrar varje helg.", "Om jag hade {en bil|bil} [så ]{körde|åkte} jag [hem ]till mina föräldrar varje helg.", "Jag skulle {köra|åka} [hem ]till mina föräldrar varje helg om jag hade {en bil|bil}."], feedback: [{ contains: "om jag har", tip: "Je hebt geen auto: denkbeeldig, dus verleden tijd, om jag hade." }, { contains: "bil jag skulle", tip: "Na de om-zin komt eerst het werkwoord: skulle jag köra." }, { contains: ["skulle jag körde", "skulle jag åkte"], tip: "Na skulle komt de infinitief: skulle jag köra." }] }
+          - { id: nxcr, type: translate, prompt: "Als je het me eerder had verteld, had ik je kunnen helpen.", answers: ["Om du [hade ]{berättat det[ för mig]|sagt det[ till mig]} tidigare [så ]{hade jag kunnat|skulle jag ha kunnat} hjälpa dig.", "{Jag hade kunnat|Jag skulle ha kunnat} hjälpa dig om du hade {berättat det[ för mig]|sagt det[ till mig]} tidigare."], feedback: [{ contains: ["om du berättade", "om du sa"], tip: "Het is niet gebeurd, in het verleden: om du hade berättat." }, { contains: "tidigare jag", tip: "Na de om-zin komt eerst het werkwoord: hade jag kunnat." }, { contains: "skulle jag kunnat", tip: "Schrijf ha erbij: skulle jag ha kunnat." }] }
+          - { id: e9r4, type: translate, prompt: "Wat zou je doen als je een jaar niet hoefde te werken?", answers: ["Vad skulle du göra om du inte behövde {jobba|arbeta} {på|under|i} ett år?", "Om du inte behövde {jobba|arbeta} {på|under|i} ett år[,] vad skulle du göra[ då]?"], feedback: [{ contains: "om du behövde inte", tip: "In een bijzin (na om) staat inte vóór het werkwoord: om du inte behövde." }, { contains: "om du behöver", tip: "Denkbeeldig: verleden tijd, om du inte behövde." }, { contains: "skulle du gör", tip: "Na skulle komt de infinitief: skulle du göra." }] }
+          - { id: k2cn, type: translate, prompt: "Als het morgen mooi weer is, gaan we met de kinderen naar het strand.", answers: ["Om {det är fint väder|det är soligt väder|det är fint|det är soligt|det blir fint väder|det blir fint|vädret är fint|vädret blir fint} {i morgon|imorgon} [så ]{går vi|åker vi|ska vi gå|ska vi åka} {till stranden med barnen|med barnen till stranden}.", "Vi {går|åker|ska gå|ska åka} {till stranden med barnen|med barnen till stranden} om {det är fint väder|det är soligt väder|det är fint|det är soligt|det blir fint väder|det blir fint|vädret är fint|vädret blir fint} {i morgon|imorgon}."], feedback: [{ contains: ["om det var", "om det vore", "skulle vi"], tip: "Het kan echt gebeuren: gewone presens, om det är fint väder går vi …" }, { contains: ["morgon vi går", "imorgon vi"], tip: "Na de om-zin komt eerst het werkwoord: går vi." }] }
+
   - id: rad
     title: "Grammatik: advies en wensen"
     exercises:
@@ -195,6 +209,10 @@ sections:
           - { id: gwvu, type: translate, prompt: "Je zou eens met een dokter moeten praten.", answers: ["Du borde [kanske ]prata med en {läkare|doktor}.", "Du borde [kanske ]prata med {läkaren|doktorn|din läkare}.", "Du skulle [kanske ]behöva prata med en {läkare|doktor}."], feedback: [{ contains: "skulle måste", tip: "Moeten (advies) = borde." }] }
           - { id: 3zre, type: translate, prompt: "Als ik jou was, zou ik dat niet doen.", answers: ["Om jag {var|vore} du, [så ]skulle jag inte göra det.", "Om jag {var|vore} du, [så ]hade jag inte gjort det."], feedback: [{ contains: "jag skulle inte", tip: "Na de om-zin komt eerst het werkwoord: skulle jag." }] }
           - { id: m5nb, type: translate, prompt: "Ik wou dat het zomer was.", answers: ["Jag önskar [att ]det {var|vore} sommar."], feedback: [{ contains: "det är sommar", tip: "Na önskar att: verleden tijd, det var." }] }
+          - { id: b9mk, type: translate, prompt: "Je zou je baas om een vrije dag moeten vragen.", answers: ["Du {borde|bör|skulle behöva} [kanske ]{be|fråga} din chef om {en ledig dag|ledigt en dag}."], feedback: [{ contains: "skulle måste", tip: "Moeten (advies) = borde." }, { contains: "borde att", tip: "Na borde komt geen att." }] }
+          - { id: u3w6, type: translate, prompt: "Ik wou dat mijn ouders dichter bij ons woonden.", answers: ["Jag önskar [att ]mina föräldrar bodde närmare oss."], feedback: [{ contains: ["föräldrar bor", "föräldrar ska bo"], tip: "Een onwerkelijke wens: na önskar att komt de verleden tijd, bodde." }] }
+          - { id: mma2, type: translate, prompt: "Zou je me morgen naar het ziekenhuis kunnen brengen?", answers: ["Skulle du kunna {köra|skjutsa} mig till sjukhuset {i morgon|imorgon}?"], feedback: [{ contains: "skulle du kan", tip: "Na skulle komt de infinitief: skulle du kunna." }] }
+          - { id: maff, type: translate, prompt: "Het zou goed zijn als je je vrienden wat vaker belde.", answers: ["Det {vore|skulle vara} bra om du ringde {[till ]dina {vänner|kompisar} [lite ]oftare|[lite ]oftare till dina {vänner|kompisar}}."], feedback: [{ contains: "om du ringer", tip: "Het is een wens, niet de werkelijkheid: na Det vore bra om komt de verleden tijd, ringde." }] }
 
   - id: zoek-de-fout
     title: Zoek de fout

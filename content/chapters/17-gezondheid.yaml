@@ -73,6 +73,10 @@ sections:
 
           Knät blev inte bättre, så Ruud bokade en tid i vårdcentralens app. Läkaren undersökte honom och trodde inte att det var något allvarligt. ”Du kommer att bli bra, men det kommer att ta tid”, sa hon. Nu ska Ruud träffa en fysioterapeut två gånger i veckan.
 
+          Fysioterapeuten heter Amira. Hon undersökte knät noga och gav Ruud ett träningsprogram med fem enkla övningar. ”Du ska göra övningarna varje dag, även när det gör lite ont”, sa hon. ”Om tre veckor kommer du att märka skillnad.” Ruud var först orolig för att knät skulle bli sämre, men han litade på henne och gjorde som hon sa.
+
+          Efter en månad kunde han gå i trappor utan smärta, och nu cyklar han till jobbet i stället för att ta bussen. Han är nöjd med behandlingen, men han saknar sina löprundor på morgonen.
+
           ”Jag tänker inte springa något maraton i år”, säger han. ”Men nästa år ska jag försöka igen.”
         items:
           - { id: 8e39, type: mc, prompt: "Hur länge har Ruud sprungit varje morgon?", options: ["i två år", "i två månader", "sedan oktober", "i tio år"], answer: 0 }
@@ -82,6 +86,14 @@ sections:
           - { id: 9uau, type: truefalse, statement: "Ruud ska träffa en fysioterapeut.", answer: true }
           - { id: be3u, type: mc, prompt: "Wat betekent *Du kommer att bli bra* hier?", options: ["Een voorspelling: je wordt (vanzelf) weer beter.", "Een plan: je gaat zorgen dat je beter wordt.", "Een bevel: word beter!", "Een vraag: word je beter?"], answer: 0 }
           - { id: uw95, type: mc, prompt: "Wat betekent *Jag tänker inte springa något maraton i år*?", options: ["Hij heeft besloten dit jaar geen marathon te lopen.", "Hij denkt niet aan de marathon.", "Hij weet niet of hij kan lopen.", "Hij mag geen marathon lopen van de dokter."], answer: 0 }
+          - { id: rbcu, type: mc, prompt: "Vad fick Ruud av fysioterapeuten?", options: ["ett träningsprogram med fem övningar", "en remiss till sjukhuset", "ett recept på tabletter", "en ny tid hos läkaren"], answer: 0 }
+          - { id: by6v, type: truefalse, statement: "Nu tar Ruud bussen till jobbet.", answer: false, correction: { answers: ["{Ruud|Han} cyklar [nu ]till jobbet[ i stället för att ta bussen].", "Nu cyklar {Ruud|han} till jobbet[ i stället för att ta bussen]."] } }
+          - id: mk24
+            type: multi
+            prompt: "Welke zinnen uit de tekst zijn een voorspelling?"
+            options: ["Du kommer att bli bra.", "Om tre veckor kommer du att märka skillnad.", "Nu ska Ruud träffa en fysioterapeut.", "Jag tänker inte springa något maraton i år.", "Du ska göra övningarna varje dag."]
+            answers: [0, 1]
+            tip: "Een voorspelling is kommer att. ska is een plan of iets wat moet volgens een ander, tänker een eigen besluit."
 
   - id: ord
     title: Ord och fraser · woorden en uitdrukkingen
@@ -138,6 +150,11 @@ sections:
           - { id: fj6e, type: gap, text: "Forskarna tror att fler människor ___ jobba hemifrån om tio år.", gaps: [{ answers: ["kommer att"], options: ["ska", "kommer att", "tänker"], shuffle: false, feedback: [{ match: "ska", tip: "Een voorspelling (tror att): kommer att." }] }] }
           - { id: sfjs, type: gap, text: "Läkaren säger att du ___ ta tabletterna tre gånger om dagen.", gaps: [{ answers: ["ska"], options: ["ska", "kommer att", "tänker"], shuffle: false, tip: "ska = moeten volgens iemand anders (hier de arts)." }] }
           - { id: bkg7, type: gap, text: "Enligt prognosen ___ det bli kallare i helgen.", gaps: [{ answers: ["kommer att", "ska"], options: ["ska", "kommer att", "tänker"], shuffle: false, feedback: [{ match: "tänker", tip: "Het weer heeft geen plannen: een voorspelling is kommer att (of ska: zo wordt het verwacht)." }] }] }
+          - { id: f2bz, type: gap, text: "Om du inte vilar ordentligt, ___ det ta ännu längre tid innan du blir frisk.", gaps: [{ answers: ["kommer att"], options: ["ska", "kommer att", "tänker"], shuffle: false, feedback: [{ match: "ska", tip: "Hoe lang genezen duurt, beslist niemand: een voorspelling, kommer att." }] }] }
+          - { id: jqsy, type: gap, text: "Jag har bestämt mig: jag ___ inte äta socker längre, vad mina vänner än säger.", gaps: [{ answers: ["tänker", "ska"], options: ["ska", "kommer att", "tänker"], shuffle: false, feedback: [{ match: "kommer att", tip: "Een eigen, vast besluit is geen voorspelling: tänker (of ska)." }] }] }
+          - { id: q37h, type: gap, text: "Vi ___ träffa en sjuksköterska på vårdcentralen på torsdag, det är redan bokat.", gaps: [{ answers: ["ska"], options: ["ska", "kommer att", "tänker"], shuffle: false, feedback: [{ match: "kommer att", tip: "Een afspraak die al geboekt is: ska." }] }] }
+          - { id: ynjk, type: gap, text: "Många experter tror att ännu fler människor ___ få problem med ryggen i framtiden.", gaps: [{ answers: ["kommer att"], options: ["ska", "kommer att", "tänker"], shuffle: false, feedback: [{ match: "ska", tip: "Een voorspelling (tror att): kommer att." }] }] }
+          - { id: x9x8, type: gap, text: "Titta så blek han är! Jag tror att han ___ svimma när han ser sprutan.", gaps: [{ answers: ["kommer att"], options: ["ska", "kommer att", "tänker"], shuffle: false, feedback: [{ match: "ska", tip: "Flauwvallen beslist niemand: een voorspelling, kommer att." }] }] }
 
       - id: framtid-sorteren
         title: Plan of voorspelling?
@@ -168,6 +185,10 @@ sections:
           - { id: 2yu9, type: translate, prompt: "Ik ga niet naar dat feest. (Dat heb ik zelf besloten.)", answers: ["Jag tänker inte gå på {den festen|den där festen|festen}.", "Jag ska inte gå på {den festen|den där festen|festen}."], feedback: [{ contains: "kommer inte att gå", tip: "Een eigen besluit: tänker inte (of ska inte). kommer att is een voorspelling." }] }
           - { id: dyqw, type: translate, prompt: "Over een week krijg je de uitslag.", answers: ["Du {kommer att få|kommer få|får} {svaret|resultatet|provsvaret} om en vecka.", "Om en vecka {kommer du att få|kommer du få|får du} {svaret|resultatet|provsvaret}."], feedback: [{ contains: "i en vecka", tip: "Over een week (in de toekomst) = om en vecka." }] }
           - { id: 54p7, type: translate, prompt: "Volgend jaar verhuizen we. (Dat hebben we besloten.)", answers: ["Vi ska flytta nästa år.", "Nästa år ska vi flytta.", "Vi flyttar nästa år.", "Nästa år flyttar vi."], feedback: [{ contains: "nästa år vi", tip: "Na Nästa år vooraan komt eerst het werkwoord." }] }
+          - { id: udab, type: translate, prompt: "Ik denk dat de behandeling bij de fysiotherapeut drie maanden gaat duren.", answers: ["Jag tror [att ]behandlingen hos fysioterapeuten {kommer att ta|kommer ta|tar} tre månader.", "Jag tror [att ]behandlingen hos fysioterapeuten {kommer att pågå|kommer pågå|pågår} [i ]tre månader."], feedback: [{ contains: ["går att ta", "går ta"], tip: "Nederlands gaan + infinitief is geen gå in het Zweeds: gebruik kommer att." }, { contains: "ska ta", tip: "Een verwachting (Jag tror att): kommer att." }, { contains: "jag tänker att", tip: "Denken dat (een verwachting) = tro att." }] }
+          - { id: j58q, type: translate, prompt: "Morgen ga ik de huisartsenpraktijk bellen om een nieuwe afspraak te maken.", answers: ["{I morgon|Imorgon} {ska jag ringa|tänker jag ringa|ringer jag} [till ]vårdcentralen {för att|och} {boka [en ]ny tid|få en ny tid}.", "Jag {ska ringa|tänker ringa|ringer} [till ]vårdcentralen {i morgon|imorgon} {för att|och} {boka [en ]ny tid|få en ny tid}."], feedback: [{ contains: ["går att ringa", "går ringa"], tip: "Nederlands gaan + infinitief is geen gå in het Zweeds: gebruik ska." }, { contains: ["kommer att ringa", "kommer ringa"], tip: "Het is jouw plan, geen voorspelling: ska." }, { contains: ["i morgon jag", "imorgon jag"], tip: "Na I morgon vooraan komt eerst het werkwoord: I morgon ska jag ringa." }] }
+          - { id: d8ta, type: translate, prompt: "Als je nu stopt met roken, zul je je over een jaar veel beter voelen.", answers: ["Om du {slutar [att ]röka nu|nu slutar [att ]röka} [så ]kommer du[ att] {må|känna dig} mycket bättre om ett år.", "Du kommer[ att] {må|känna dig} mycket bättre om ett år om du {slutar [att ]röka nu|nu slutar [att ]röka}."], feedback: [{ contains: ["ska må", "ska känna"], tip: "Beter voelen kun je niet beslissen: een voorspelling is kommer att." }, { contains: ["nu du kommer", "röka du kommer"], tip: "Na de om-zin komt eerst het werkwoord: …, kommer du att må bättre." }, { contains: "i ett år", tip: "Over een jaar (in de toekomst) = om ett år." }] }
+          - { id: zhvu, type: translate, prompt: "Na de operatie is Ruud van plan om elke dag een uur te wandelen.", answers: ["Efter operationen {tänker|ska} Ruud {promenera|gå} [i ]en timme varje dag.", "Efter operationen {har Ruud tänkt|planerar Ruud [att ]} {promenera|gå} [i ]en timme varje dag.", "Ruud {tänker|ska|har tänkt|planerar [att ]} {promenera|gå} [i ]en timme varje dag efter operationen."], feedback: [{ contains: ["operationen ruud tänker", "operationen ruud ska"], tip: "Na Efter operationen vooraan komt eerst het werkwoord: Efter operationen tänker Ruud." }, { contains: ["kommer att promenera", "kommer promenera", "kommer att gå"], tip: "Een eigen plan is geen voorspelling: tänker (of ska)." }, { contains: "tänker att", tip: "Na tänker (van plan zijn) komt geen att: tänker promenera." }] }
 
       - id: framtid-kiezen-maken
         title: Plan of voorspelling? Kies en vertaal
@@ -242,6 +263,19 @@ sections:
           - { id: k52z, type: gap, text: "Barnet drömmer ___ en hund.", gaps: [{ answers: ["om"], feedback: [{ match: "av", tip: "Dromen van = drömma om." }] }] }
           - { id: 9jt7, type: gap, text: "Vad pratade ni ___?", gaps: [{ answers: ["om"], feedback: [{ match: "över", tip: "Praten over = prata om." }] }] }
 
+      - id: prep-vertalen
+        title: Vertaal met het vaste voorzetsel
+        instruction: Vertaal naar het Zweeds. Let op het vaste voorzetsel.
+        topic: prep-verb
+        shuffle: true
+        items:
+          - { id: qtx9, type: translate, prompt: "Ik denk vaak aan mijn oma, die alleen in Groningen woont.", answers: ["Jag tänker ofta på {min mormor|min farmor|mormor|farmor}[,] som bor {ensam|själv} i Groningen."], feedback: [{ contains: ["tänker ofta om", "tänker ofta åt"], tip: "Denken aan = tänka på." }, { contains: "tänker på min mormor ofta", tip: "ofta staat direct na het werkwoord: Jag tänker ofta på …" }] }
+          - { id: k2av, type: translate, prompt: "We wachten al een uur in de wachtkamer op de dokter.", answers: ["Vi har [redan ]väntat på {läkaren|doktorn} i väntrummet [i ]{en timme|över en timme}.", "Vi har [redan ]väntat på {läkaren|doktorn} [i ]{en timme|över en timme} i väntrummet.", "Vi har [redan ]väntat [i ]{en timme|över en timme} på {läkaren|doktorn} i väntrummet.", "Vi har [redan ]väntat i väntrummet på {läkaren|doktorn} [i ]{en timme|över en timme}."], feedback: [{ contains: ["väntat för", "väntar för"], tip: "Wachten op = vänta på." }, { contains: "vi väntar", tip: "Het wachten duurt tot nu toe: perfectum, vi har väntat … i en timme." }, { contains: "sedan en timme", tip: "Hoe lang iets al duurt: i en timme." }] }
+          - { id: q5bu, type: translate, prompt: "Mijn zoon is bang voor honden, maar hij is niet bang voor katten.", answers: ["Min son är rädd för hundar, men {han är inte rädd för katter|inte för katter}."], feedback: [{ contains: ["rädd av", "rädd från"], tip: "Bang voor = rädd för." }] }
+          - { id: duxs, type: translate, prompt: "Ze is erg tevreden met de behandeling die ze in het ziekenhuis kreeg.", answers: ["Hon är {mycket|väldigt} nöjd med behandlingen [som ]hon fick på sjukhuset."], feedback: [{ contains: ["nöjd av", "nöjd på", "nöjd för"], tip: "Tevreden met = nöjd med." }, { contains: "i sjukhuset", tip: "In het ziekenhuis = på sjukhuset." }] }
+          - { id: pn4e, type: translate, prompt: "Ik vertrouw op mijn dokter, want ze luistert altijd naar haar patiënten.", answers: ["Jag litar på min {läkare|doktor}[,] {för hon lyssnar alltid|eftersom hon alltid lyssnar} på sina patienter."], feedback: [{ contains: ["litar i", "litar av", "litar till"], tip: "Vertrouwen op = lita på." }, { contains: ["hennes patienter"], tip: "De patiënten horen bij hon, het onderwerp van dezelfde zin: sina patienter." }, { contains: "eftersom hon lyssnar alltid", tip: "In een bijzin (na eftersom) staat alltid vóór het werkwoord: eftersom hon alltid lyssnar." }] }
+          - { id: zd49, type: translate, prompt: "Waar wacht je op? De bus naar het ziekenhuis vertrekt over vijf minuten.", answers: ["Vad väntar du på? Bussen till sjukhuset {går|avgår} om fem minuter.", "Vad väntar du på? Om fem minuter {går|avgår} bussen till sjukhuset."], feedback: [{ contains: "på vad väntar", tip: "In een Zweedse vraag blijft het voorzetsel achteraan: Vad väntar du på?" }, { contains: "i fem minuter", tip: "Over vijf minuten (in de toekomst) = om fem minuter." }] }
+
   - id: zoek-de-fout
     title: Zoek de fout
     exercises:
@@ -256,6 +290,8 @@ sections:
           - { id: rvs2, type: findError, topic: prep-verb, sentence: "Hon är intresserad i medicin.", wrong: [3], answers: ["Hon är intresserad av medicin."], tip: "Welk voorzetsel hoort bij intresserad?" }
           - { id: rptb, type: findError, topic: prep-verb, sentence: "Vi väntar för bussen.", wrong: [2], answers: ["Vi väntar på bussen."], tip: "Wachten op …" }
           - { id: mqf9, type: findError, sentence: "Jag går att ringa läkaren i morgon.", wrong: [1, 2], answers: ["Jag ska ringa läkaren {i morgon|imorgon}.", "Jag tänker ringa läkaren {i morgon|imorgon}."], tip: "Nederlands gaan + infinitief." }
+          - { id: tm4m, type: findError, sentence: "Enligt läkaren tänker knät bli bra om några veckor.", wrong: [2], answers: ["Enligt läkaren kommer knät[ att] bli bra om några veckor.", "Enligt läkaren ska knät bli bra om några veckor."], tip: "Een knie neemt geen besluit." }
+          - { id: 9z4k, type: findError, topic: prep-verb, sentence: "Anna är fortfarande orolig om sin son, som har haft hög feber i tre dagar.", wrong: [4], answers: ["Anna är fortfarande orolig för sin son[,] som har haft hög feber i tre dagar."], tip: "Ongerust over iemand of iets wat kan gebeuren: welk voorzetsel?" }
 
   - id: lyssna
     title: Lyssna · luisteren
