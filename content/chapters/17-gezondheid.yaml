@@ -320,6 +320,98 @@ sections:
           - { id: 4bpx, type: mc, prompt: "Je wilt naar een specialist.", options: ["Kan jag få en remiss till en specialist?", "Kan jag få ett recept till en specialist?", "Kan jag ringa 112?", "Kan jag bli specialist?"], answer: 0 }
           - { id: 667f, type: mc, prompt: "Je zegt sinds wanneer je klachten hebt.", options: ["Det började för tre dagar sedan.", "Det börjar om tre dagar.", "Det har slutat i tre dagar.", "Det var tre dagar sedan i morgon."], answer: 0 }
 
+      - id: taak-apotheek
+        title: "Taak: bij de apotheek"
+        instruction: "Je dochter van zes heeft sinds gisteren koorts en oorpijn. De huisarts heeft vanochtend antibiotica voorgeschreven; het recept staat al bij de apotheek. **Doel:** haal het medicijn op, vraag hoe ze het moet innemen, koop iets zonder recept tegen de koorts dat geschikt is voor kinderen, en controleer wanneer je opnieuw moet bellen. Kies of schrijf bij elke stap wat jij zegt."
+        topic: framtid
+        items:
+          - id: sjjq
+            type: steps
+            explain: "Gelukt: je hebt de antibiotica en een koortsmiddel voor kinderen, en je weet wanneer je de huisarts moet bellen."
+            steps:
+              - type: mc
+                topic: woordenschat
+                prompt: "**Farmaceuten:** Hej! Vad kan jag hjälpa dig med? — *Je komt het voorgeschreven medicijn ophalen.*"
+                options:
+                  - "Hej! Jag skulle vilja hämta ut en medicin åt min dotter. Läkaren skrev ut den i morse."
+                  - "Hej! Jag skulle vilja skriva ut en medicin åt min dotter. Läkaren skrev ut den i morse."
+                  - "Hej! Jag skulle vilja köpa ett recept åt min dotter. Läkaren skrev ut det i morse."
+                  - "Hej! Jag skulle vilja hämta ut en medicin åt min dotter. Läkaren kommer att skriva ut den i morse."
+                answer: 0
+                optionTips:
+                  - null
+                  - "*skriva ut* is voorschrijven: dat doet de arts. Jij haalt het medicijn op: *hämta ut*."
+                  - "Een recept koop je niet; het staat al klaar. Je haalt het medicijn op: *hämta ut en medicin*."
+                  - "Het voorschrijven is vanochtend al gebeurd: *Läkaren skrev ut den i morse.* *Kommer att* gaat over de toekomst."
+              - type: mc
+                topic: framtid
+                prompt: "**Farmaceuten:** Här är den. Hon ska ta fem milliliter tre gånger om dagen i fem dagar. — *Je wilt weten of dat vóór of na het eten moet.*"
+                options:
+                  - "Ska hon ta den före eller efter maten?"
+                  - "Kommer hon att ta den före eller efter maten?"
+                  - "Tänker hon ta den före eller efter maten?"
+                  - "Ska hon tar den före eller efter maten?"
+                answer: 0
+                optionTips:
+                  - null
+                  - "*kommer att* is een voorspelling. Je vraagt wat volgens de arts moet: *ska*."
+                  - "*tänker* gaat over een eigen besluit van je dochter. Je vraagt wat volgens de arts moet: *ska*."
+                  - "Na *ska* komt de infinitief: *ska hon ta*."
+              - type: translate
+                topic: prep-verb
+                prompt: "Farmaceuten: Till maten. — Zeg: Ik maak me een beetje zorgen over de bijwerkingen."
+                answers:
+                  - "Jag är lite {orolig|oroad|bekymrad} {för|över} biverkningarna."
+                  - "Jag oroar mig lite {för|över} biverkningarna."
+                  - "Jag är lite {orolig|oroad|bekymrad} {för|över} biverkningar."
+                  - "Jag oroar mig lite {för|över} biverkningar."
+                feedback:
+                  - { contains: "orolig om", tip: "Ongerust over iets wat kan gebeuren: *orolig **för***." }
+                  - { contains: "orolig med", tip: "Ongerust over iets wat kan gebeuren: *orolig **för***." }
+                  - { contains: "orolig på", tip: "Ongerust over iets wat kan gebeuren: *orolig **för***." }
+                  - { contains: "orolig av", tip: "Ongerust over iets wat kan gebeuren: *orolig **för***." }
+              - type: mc
+                topic: woordenschat
+                prompt: "**Farmaceuten:** Det är inget farligt. Hon kan få lite ont i magen, men det brukar gå över av sig själv. — *Ze heeft ook koorts. Je wilt iets zonder recept dat geschikt is voor kinderen.*"
+                options:
+                  - "Bra. Har ni också något receptfritt mot feber som passar för barn?"
+                  - "Bra. Kan ni också skriva ut något mot feber till henne?"
+                  - "Bra. Har ni också något receptfritt mot feber som passar för vuxna?"
+                  - "Bra. Har ni också något receptfritt mot feber som passa för barn?"
+                answer: 0
+                optionTips:
+                  - null
+                  - "Bij de apotheek schrijven ze niets voor; dat doet de arts. Je wilt iets kopen dat *receptfritt* is."
+                  - "Het is voor je dochter: iets wat geschikt is voor kinderen (*barn*)."
+                  - "Een bijzin met *som* heeft een persoonsvorm nodig: *som passar*."
+              - type: translate
+                topic: woordenschat
+                prompt: "Farmaceuten: Javisst. Hur gammal är hon, och hur mycket väger hon? — Zeg: Ze is zes en ze weegt ongeveer twintig kilo."
+                answers:
+                  - "Hon är sex[ år[ gammal]] och [hon ]väger {ungefär|cirka|ca|runt|omkring} {tjugo|20} {kilo|kg}."
+              - type: translate
+                topic: framtid
+                prompt: "Farmaceuten: Då passar den här bra. Doseringen står på förpackningen. Om febern inte går ner inom tre dagar ska du kontakta vårdcentralen. — Controleer: Dus ik moet de huisarts bellen als de koorts niet binnen drie dagen zakt?"
+                answers:
+                  - "{Så|Alltså} jag {ska|måste|behöver} {ringa [till ]|kontakta }{vårdcentralen|läkaren} om febern inte går ner inom tre dagar?"
+                  - "Jag {ska|måste} [alltså ]{ringa [till ]|kontakta }{vårdcentralen|läkaren} om febern inte går ner inom tre dagar?"
+                  - "{Ska|Måste|Behöver} jag [alltså ]{ringa [till ]|kontakta }{vårdcentralen|läkaren} om febern inte går ner inom tre dagar?"
+                  - "[Så ]om febern inte går ner inom tre dagar[,] {ska|måste|behöver} jag [alltså ]{ringa [till ]|kontakta }{vårdcentralen|läkaren}?"
+                feedback:
+                  - { contains: "febern går inte", tip: "In een bijzin (na *om*) staat *inte* vóór het werkwoord: *om febern **inte går** ner*." }
+                  - { contains: "dagar jag ska", tip: "Begint de zin met de bijzin, dan komt daarna eerst het werkwoord: *…, **ska jag** ringa*." }
+              - type: gap
+                topic: prep-verb
+                prompt: "**Farmaceuten:** Precis. Och se till att hon dricker mycket. — *Je zegt dat je eraan zult denken en bedankt.*"
+                text: "Okej, det ska jag tänka ___. Tack för hjälpen!"
+                gaps:
+                  - answers: ["på"]
+                    options: ["på", "om", "över", "åt"]
+                    feedback:
+                      - { match: "om", tip: "*tänka om* (klemtoon op *om*) is opnieuw nadenken, van mening veranderen. *Denken aan* is *tänka **på***." }
+                      - { match: "över", tip: "*tänka över* is ergens over nadenken. *Denken aan* is *tänka **på***." }
+                      - { match: "åt", tip: "*Denken aan* is *tänka **på***. In zo'n zin blijft het voorzetsel achteraan: *det ska jag tänka på*." }
+
   - id: skriva
     title: Skriva · schrijven
     intro: "Schrijfdoel: een afspraak verzetten met een beleefd verzoek."

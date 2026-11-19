@@ -281,6 +281,96 @@ sections:
           - { id: 6tzy, type: mc, prompt: "Je wilt weten waar je moet overstappen.", options: ["Var ska jag byta?", "Var ska jag stiga på?", "Var ska jag komma fram?", "Var ska jag åka om?"], answer: 0 }
           - { id: s9fh, type: mc, prompt: "Je wilt compensatie voor de vertraging.", options: ["Jag vill ansöka om ersättning för förseningen.", "Jag vill betala för förseningen.", "Jag vill boka en försening.", "Jag vill hinna med förseningen."], answer: 0 }
 
+      - id: taak-trein-geschrapt
+        title: "Taak: je trein is geschrapt"
+        instruction: "Je staat op het centraal station van Stockholm. Je trein naar Göteborg van 14.10 is net geschrapt, en je moet vóór zeven uur 's avonds in Göteborg zijn voor een bruiloft. **Doel:** laat je kaartje omboeken naar een trein die op tijd aankomt, vraag naar een vergoeding en zorg dat je de trein haalt. Kies of schrijf bij elke stap wat jij zegt."
+        topic: partikelverb-2
+        items:
+          - id: 57vw
+            type: steps
+            explain: "Gelukt: je zit in de trein van 15.20, die om 18.30 in Göteborg is, en je kunt via de website een vergoeding aanvragen."
+            steps:
+              - type: mc
+                topic: partikelverb-2
+                prompt: "**Personalen:** Hej, vad kan jag hjälpa till med? — *Vertel wat er is en vraag om je kaartje om te boeken.*"
+                options:
+                  - "Hej! Mitt tåg till Göteborg är inställt. Kan jag boka om biljetten?"
+                  - "Hej! Mitt tåg till Göteborg är ställt in. Kan jag boka om biljetten?"
+                  - "Hej! Mitt tåg till Göteborg är inställd. Kan jag boka om biljetten?"
+                  - "Hej! Mitt tåg till Göteborg är inställt. Kan jag boka in biljetten?"
+                answer: 0
+                optionTips:
+                  - null
+                  - "Als deelwoord komt het partikel vooraan en plak je het eraan: *ställa in → inställt*."
+                  - "*tåg* is een ett-woord, dus het deelwoord krijgt -t: *tåget är inställt*."
+                  - "Omboeken is *boka om*. *Boka in* gebruik je voor iets nieuws inplannen."
+              - type: translate
+                topic: partikelverb-2
+                prompt: "Personalen: Absolut. Det går ett tåg klockan 15.20 och ett klockan 16.05. — Vraag: Wanneer komt de trein van 15.20 aan in Göteborg?"
+                answers:
+                  - "{När|Hur dags|Vilken tid} kommer tåget {klockan 15.20|som {går|avgår} [klockan ]15.20} fram [till Göteborg]?"
+                  - "{När|Hur dags|Vilken tid} är tåget {klockan 15.20|som {går|avgår} [klockan ]15.20} framme [i Göteborg]?"
+                  - "{När|Hur dags|Vilken tid} kommer 15.20-tåget fram [till Göteborg]?"
+                  - "{När|Hur dags|Vilken tid} är 15.20-tåget framme [i Göteborg]?"
+                  - "{När|Hur dags|Vilken tid} anländer tåget {klockan 15.20|som {går|avgår} [klockan ]15.20} [till Göteborg]?"
+                feedback:
+                  - { contains: "kommer fram tåget", tip: "In een vraag komt het onderwerp tussen werkwoord en partikel: *När kommer **tåget** fram?*" }
+              - type: gap
+                topic: sambandsord
+                prompt: "**Personalen:** Det är framme i Göteborg 18.30. Tåget klockan 16.05 kommer fram först 19.15. — *Je kiest de trein van 15.20.*"
+                text: "Då tar jag tåget klockan 15.20, ___ jag måste vara i Göteborg före sju."
+                gaps:
+                  - answers: ["eftersom"]
+                    options: ["eftersom", "därför", "dessutom", "ändå"]
+                    feedback:
+                      - { match: "därför", tip: "*därför* betekent *daarom* (een gevolg) en geeft inversie. Hier geef je een reden: *eftersom*." }
+                      - { match: "dessutom", tip: "*dessutom* (bovendien) voegt iets toe. Hier geef je een reden: *eftersom*." }
+                      - { match: "ändå", tip: "*ändå* (toch) is een tegenstelling. Hier geef je een reden: *eftersom*." }
+              - type: mc
+                topic: partikelverb-2
+                prompt: "**Personalen:** Så, nu är biljetten ombokad. Du har plats 54 i vagn 3. — *Je wilt ook een vergoeding, omdat je trein geschrapt is.*"
+                options:
+                  - "Tack! Kan jag också få ersättning för det inställda tåget?"
+                  - "Tack! Kan jag också få ersättning för det ställda in tåget?"
+                  - "Tack! Kan jag också få ersättning för den inställda tåget?"
+                  - "Tack! Kan jag också betala ersättning för det inställda tåget?"
+                answer: 0
+                optionTips:
+                  - null
+                  - "Als deelwoord komt het partikel vooraan: *det inställda tåget*."
+                  - "*tåg* is een ett-woord: *det inställda tåget*."
+                  - "Jij wilt geld krijgen, niet betalen: *få ersättning*."
+              - type: translate
+                topic: woordenschat
+                prompt: "Personalen: Ja, du kan ansöka om ersättning på vår hemsida. Men tåget går om tio minuter, så du måste skynda dig! — Vraag: Van welk spoor vertrekt hij?"
+                answers:
+                  - "{Från|På} vilket spår {går|avgår} {det|tåget}?"
+                  - "Vilket spår {går|avgår} {det|tåget} {från|på}?"
+                feedback:
+                  - { contains: "går den", tip: "*tåg* is een ett-woord. Je verwijst ernaar met *det*: *Från vilket spår går det?*" }
+                  - { contains: "vilken spår", tip: "*spår* is een ett-woord: *vilket spår*." }
+              - type: translate
+                topic: sambandsord
+                prompt: "Personalen: Spår 12, längst bort. — Zeg: Dan ren ik, anders haal ik de trein niet!"
+                answers:
+                  - "{Då springer jag|Jag springer|Då får jag springa|Då måste jag springa}, [för ]annars hinner jag inte[ med tåget]!"
+                  - "{Då springer jag|Jag springer|Då får jag springa|Då måste jag springa}, [för ]annars missar jag tåget!"
+                feedback:
+                  - { contains: "annars jag", tip: "*annars* vooraan in de zin geeft inversie: *annars **hinner jag** inte med tåget*." }
+                  - { contains: "då jag springer", tip: "Na *då* vooraan komt het werkwoord op plaats 2: *då **springer jag***." }
+                  - { contains: "hinner jag med inte", tip: "*inte* staat vóór het partikel: *hinner jag **inte med** tåget*." }
+              - type: translate
+                topic: partikelverb-2
+                prompt: "Konduktören (in de trein): Biljetterna, tack! — Zeg: Hier is mijn kaartje. Het is omgeboekt, omdat mijn trein geschrapt was."
+                answers:
+                  - "Här är min biljett. Den {är|har blivit|blev} ombokad[,] {eftersom|för|för att} mitt tåg {var inställt|ställdes in|hade ställts in}."
+                  - "Här är min biljett. Den {har bokats|bokades} om[,] {eftersom|för|för att} mitt tåg {var inställt|ställdes in|hade ställts in}."
+                feedback:
+                  - { contains: "är ombokat", tip: "*biljett* is een en-woord: *den är ombokad*." }
+                  - { contains: "är bokad om", tip: "Als deelwoord komt het partikel vooraan: *ombokad*." }
+                  - { contains: "var inställd", tip: "*tåg* is een ett-woord: *mitt tåg var inställt*." }
+                  - { contains: "eftersom mitt tåg inställt", tip: "Je mist het werkwoord: *eftersom mitt tåg **var** inställt*." }
+
   - id: skriva
     title: Skriva · schrijven
     intro: "Schrijfdoel: een klachtmail."
