@@ -8,7 +8,7 @@ import {
   dueItems, srsStats, streak, weakItems, saveTest, getTest, saveGame, getGame,
   getPref, setPref, INTERVALS, rateCard, pickCards, cardProgress,
 } from '../progress.js';
-import { TENSES, KINDS, pickVerbItem, pretOptions } from '../verbs.js';
+import { TENSES, KINDS, pickVerbItem, pretOptions, withNewKinds } from '../verbs.js';
 import { trackEvent, scoreBucket } from '../analytics.js';
 import { speak, speechSupported } from '../speech.js';
 
@@ -139,11 +139,10 @@ export function viewVerbTrainer() {
   document.title = 'Werkwoordtrainer · Svenska övningar';
   // Alleen soorten die in deze site voorkomen (partikelwerkwoorden alleen op B1–B2).
   const kindKeys = Object.keys(KINDS).filter((k) => verbs.some((v) => v.kind === k));
-  const settings = getPref('verbs', { tenses: ['pres', 'pret', 'sup'], kinds: kindKeys });
   // Een soort die er later bij kwam, staat ook bij bestaande instellingen aan.
-  const seen = settings.seen ?? ['ar', 'er', 'kort', 'sterk'];
-  settings.kinds = [...new Set([...settings.kinds, ...kindKeys.filter((k) => !seen.includes(k))])];
-  settings.seen = [...new Set([...seen, ...kindKeys])];
+  const saved = getPref('verbs', null);
+  const settings = withNewKinds(saved ?? { tenses: ['pres', 'pret', 'sup'], kinds: kindKeys }, kindKeys);
+  if (saved && JSON.stringify(saved) !== JSON.stringify(settings)) setPref('verbs', settings);
   let done = 0;
   let good = 0;
   let run = 0;
@@ -167,7 +166,7 @@ export function viewVerbTrainer() {
     last = q.verb.inf;
     const card = itemCard(q.item, { topic: q.item.topic, findTopic: (t) => findTopic(t) }, done + 1, (r) => {
       done++;
-      trackEvent(`werkwoord/${q.tense}/${q.verb.inf}/${r.firstTry ? 'goed' : r.revealed ? 'bekeken' : 'fout'}`, `${q.verb.inf} (${q.verb.nl}) · ${TENSES[q.tense].label}`);
+      trackEvent(`werkwoord/${q.tense}/${q.verb.inf.replaceAll(' ', '-')}/${r.firstTry ? 'goed' : r.revealed ? 'bekeken' : 'fout'}`, `${q.verb.inf} (${q.verb.nl}) · ${TENSES[q.tense].label}`);
       if (r.firstTry) {
         good++;
         run++;
@@ -457,8 +456,10 @@ export const GAMES = {
     title: 'Verleden tijd',
     intro: 'Kies de juiste preteritum.',
     make() {
-      if (!verbs.length) return null;
-      const verb = verbs[Math.floor(Math.random() * verbs.length)];
+      // Partikelwerkwoorden niet: daar zijn de fouten dezelfde als bij het werkwoord zelf.
+      const pool = verbs.filter((v) => v.kind !== 'partikel');
+      if (!pool.length) return null;
+      const verb = pool[Math.floor(Math.random() * pool.length)];
       const { correct, options } = pretOptions(verb);
       const opts = shuffle(options);
       return { prompt: verb.inf, sub: verb.nl, options: opts, answer: opts.indexOf(correct), solution: `${verb.inf} – ${correct}` };

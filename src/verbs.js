@@ -1,5 +1,7 @@
 // Werkwoordtrainer en spelvragen: vragen genereren uit content/verbs.yaml.
 
+import { list } from './build.js';
+
 export const TENSES = {
   pres: { label: 'presens', topic: 'presens' },
   pret: { label: 'preteritum', topic: 'preteritum' },
@@ -19,17 +21,30 @@ export const KINDS = {
 // (partikel, voorzetsel, zelfstandig naamwoord) blijft onveranderd achter elke vorm staan.
 const head = (s) => s.split(' ')[0];
 const tail = (verb) => verb.inf.slice(head(verb.inf).length); // " upp", " överens", " reda på"
-const withoutTail = (verb, f) => (tail(verb) && f.endsWith(tail(verb)) ? f.slice(0, -tail(verb).length) : f);
+const withoutTail = (f, rest) => (f.endsWith(rest) ? f.slice(0, -rest.length) : f);
+const withHar = (forms, tense) => (tense === 'sup' ? forms.map((f) => `[har ]${f}`) : forms);
 
-import { list } from './build.js';
+// Soorten die al bestonden voordat de instellingen bijhielden welke soorten iemand al kende.
+// Deze lijst nooit uitbreiden: een nieuwe soort in KINDS gaat vanzelf aan voor bestaande gebruikers.
+const KINDS_BEFORE_SEEN = ['ar', 'er', 'kort', 'sterk'];
+
+/** Zet soorten aan die er sinds de vorige keer bij kwamen; geeft een nieuw object terug. */
+export function withNewKinds(settings, kindKeys) {
+  const seen = settings.seen ?? KINDS_BEFORE_SEEN;
+  return {
+    ...settings,
+    kinds: [...new Set([...settings.kinds, ...kindKeys.filter((k) => !seen.includes(k))])],
+    seen: [...new Set([...seen, ...kindKeys])],
+  };
+}
 
 /** Vormen die een leerling vaak "regelmatig" raadt. */
 export function naiveForms(verb, tense) {
-  if (tail(verb)) {
+  const rest = tail(verb);
+  if (rest) {
     // Dezelfde fouten als bij het werkwoord zelf, met het partikel erachter.
-    const base = { inf: head(verb.inf), [tense]: list(verb[tense]).map((f) => withoutTail(verb, f)) };
-    const correct = new Set(list(verb[tense]));
-    return naiveForms(base, tense).map((f) => f + tail(verb)).filter((f) => !correct.has(f));
+    const base = { inf: head(verb.inf), [tense]: list(verb[tense]).map((f) => withoutTail(f, rest)) };
+    return naiveForms(base, tense).map((f) => f + rest);
   }
   const stem = verb.inf.endsWith('a') ? verb.inf.slice(0, -1) : verb.inf;
   const forms = {
@@ -69,7 +84,8 @@ function kindTip(verb, tense) {
 /** Maakt een invulvraag voor één werkwoord en één tijd. */
 export function verbItem(verb, tense) {
   const forms = list(verb[tense]);
-  const answers = tense === 'sup' ? forms.map((f) => `[har ]${f}`) : forms;
+  const answers = withHar(forms, tense);
+  const rest = tail(verb);
   const feedback = [];
   for (const [other, info] of Object.entries(TENSES)) {
     if (other === tense) continue;
@@ -78,10 +94,10 @@ export function verbItem(verb, tense) {
   }
   const naive = naiveForms(verb, tense).filter((f) => !feedback.some((fb) => fb.match.includes(f)));
   if (naive.length) feedback.push({ match: naive, tip: kindTip(verb, tense) });
-  if (tail(verb)) {
+  if (rest) {
     // Alleen het werkwoord, zonder partikel: tagit in plaats van tagit upp.
-    const bare = forms.map((f) => withoutTail(verb, f)).filter((f) => f !== verb.inf && !forms.includes(f));
-    if (bare.length) feedback.push({ match: tense === 'sup' ? bare.map((f) => `[har ]${f}`) : bare, tip: `Vergeet „${tail(verb).trim()}” niet: dat hoort bij dit werkwoord.` });
+    const bare = forms.map((f) => withoutTail(f, rest)).filter((f) => !forms.includes(f));
+    if (bare.length) feedback.push({ match: withHar(bare, tense), tip: `Vergeet „${rest.trim()}” niet: dat hoort bij dit werkwoord.` });
   }
   return {
     type: 'gap',
