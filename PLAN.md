@@ -208,7 +208,7 @@ docent of taalpartner aanraden.
       uit latere hoofdstukken verbeterd. Let op: feedbackregels worden vóór het verplaatsen van een
       tijdsbepaling getoetst; een `contains`-regel mag dus geen goede volgorde-variant raken.
       `difficulty-report` werkt nu ook op Windows.
-- [ ] **Fase 3 – schrijven, lezen en taken**
+- [x] **Fase 3 – schrijven, lezen en taken**
   - [x] Geleid schrijven: elke schrijfopdracht voorafgaan door 3–5 stappen die de app nakijkt
         (openingszin kiezen, bijzin afmaken, tegenargument ordenen, signaalwoord kiezen). De vrije
         tekst blijft als laatste, optionele stap met voorbeeldantwoord, zonder vinkjes of oordeel;
@@ -216,11 +216,15 @@ docent of taalpartner aanraden.
         Gedaan (november 2026): 124 stappen vóór de 30 schrijfopdrachten (4–5 per opdracht); de vrije tekst
         is het laatste item, zonder oordeel, met „Klaar”, „Toon voorbeeld” en de lijst „Hulp”
         (`checkWriting` in `src/validate.js`: 3–5 stappen, `free` als laatste).
-  - [ ] Langere leesteksten volgens de moeilijkheidslijn: A-site de bestaande tekst per hoofdstuk
+  - [x] Langere leesteksten volgens de moeilijkheidslijn: A-site de bestaande tekst per hoofdstuk
         (nu 61–94 woorden, 6 vragen) met 8–10 vragen; B-site naar 200–350 (B1) en 350–500 (B2).
         Vaste personages, alleen stof uit dit en eerdere hoofdstukken. Eerst H1–H4 en H13–H16, dan meten.
         Eerste ronde gedaan (november 2026): H1–H4 naar 98–113 woorden en 9–10 vragen, H13–H16 naar
-        211–226 woorden en 10 vragen. Na het meten: H5–H12 en H17–H30.
+        211–226 woorden en 10 vragen. Tweede ronde (zonder tussentijdse meting, op verzoek van de
+        eigenaar): H5–H12 naar 104–151 woorden, H17–H24 naar 220–280, H25–H30 naar 382–409, elk met 10
+        vragen; daarbij langere productievragen tot alle hoofdstukken op de moeilijkheidslijn zitten
+        (`difficulty-report`: 0 hoofdstukken eronder). Nakijker: een tijdsbepaling wordt alleen nog
+        binnen een eenvoudige hoofdzin verplaatst, en de tip bij `fixedOrder` volgt de opdracht.
   - [x] Taken met een doel (situatie + dialoog met keuzes), te beginnen met H2, H6, H11, H17, H22.
         Gedaan (november 2026): vijf taken van 6–7 beurten (sportafspraak, jeugdherberg, 112 bellen,
         apotheek, geschrapte trein); op de A-site vlak vóór „Zoek de fout” (volgorde-test).
