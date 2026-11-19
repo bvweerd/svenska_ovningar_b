@@ -129,3 +129,49 @@ Daarna leest de eigenaar steekproefsgewijs mee. Pas dan wordt er gepubliceerd.
       zachte klinkers (hoofdstuk 0: tips verduidelijkt, vragen erbij) en op de correctievraag in
       lasa-annons (meer goede antwoorden). Op de B1–B2-site meldt Chrome vaak geen Zweedse stem.
       Over een paar weken opnieuw meten, met `--min 5`.
+
+## Verbeterplan didactiek (plan van november 2026)
+
+Uitgangspunt: een didactische review van beide sites. Sterk zijn de directe, gerichte feedback,
+de herhaling met intervallen en de uitleg die Nederlands en Zweeds vergelijkt. Zwak: bijna 90% van
+de vragen gaat over vorm, vertalen of herkennen, vrij schrijven is ±1% en spreken ontbreekt. Op B2
+toetst de site vooral grammatica, en de eindtoetsen beloven meer dan ze meten.
+Dit plan geldt voor beide sites. Elke stap met nieuwe of gewijzigde Zweedse stof krijgt een
+**taalreview** (zie hierboven); gedeelde code gaat naar beide repo's (`npm run check-sync`).
+Elke fase eindigt met een meetmoment; pas daarna begint de volgende fase.
+
+- [ ] **Fase 1 – snelle verbeteringen**
+  - [ ] Eindtoetsen H24 en H30 herformuleren: „Herhaling B1-/B2-grammatica”, met wat 16/20
+        betekent en dat B1/B2 ook lezen, luisteren, spreken en schrijven omvat. Id's blijven gelijk.
+  - [ ] Per hoofdstuk 2–3 kan-doen-uitspraken (ERK) in een veld `canDo`, met validatietest.
+  - [ ] Zelfscore per uitspraak op de hoofdstukpagina (nog niet / een beetje / ja), in
+        `progress.js`, export en import; telling `kandoen/<hoofdstuk>/<nr>/<score>`.
+  - [ ] Bij luisteroefeningen melden dat het een computerstem is.
+- [ ] **Fase 2 – keuzeoefeningen**: per grammaticaonderwerp één oefening waarin de leerling eerst
+      kiest welke vorm past en die dan maakt (8–10 vragen, `shuffle`, tips die de keuze uitleggen,
+      één `steps`-vraag met „Waarom?”). Onderwerpen: inversie (H1), subjekt/objekt/possessief (H4),
+      preteritum/perfekt en hemma/hem (H5), om/för … sedan/i (H6), tycka/tro/tänka (H8),
+      sin/hans (H10), ligger/står/sitter (H11), adjectiefvormen (H12), där/dit/vars (H15),
+      ska/kommer att/tänker (H17), någon/ingen (H20).
+- [ ] **Fase 3 – schrijven, lezen en taken**
+  - [ ] Type `free`: veld `rubric` (criteria om zelf af te vinken na het voorbeeldantwoord),
+        knop „Verbeter en herschrijf”; de `require`-controle heet voortaan „Hulp”.
+        Rubrics voor alle 30 schrijfopdrachten.
+  - [ ] A-site: onderdeel Läsa in H1–H12, tekst van 100–250 woorden met de vaste personages en
+        de stof van het hoofdstuk, 5–8 vragen. Eerst H1–H4, dan meten.
+  - [ ] Taken met een doel (situatie + dialoog met keuzes), te beginnen met H2, H6, H11, H17, H22.
+  - [ ] H25–H30: een betoog in stappen bouwen (standpunt, argumenten, tegenargument, conclusie).
+- [ ] **Fase 4 – spreken**
+  - [ ] Vraagtype `speak`: luisteren, nazeggen en opnemen (`MediaRecorder`, niets bewaard of
+        verstuurd), opname en voorbeeld afspelen, zelf scoren (goed / bijna / nog niet) in de
+        Leitner-dozen. Zonder microfoon: hardop nazeggen met dezelfde zelfscore.
+  - [ ] H0: ±50 woorden en woordparen ingesproken door een moedertaalspreker (veld `audio`,
+        browserstem als terugval, in de PWA-cache).
+  - [ ] Per hoofdstuk 5–8 nazegzinnen en 2–3 vragen om hardop te beantwoorden.
+- [ ] **Meten na elke fase** (`npm run stats -- --min 5`): kan-doen-scores (fase 1); fout/bekeken
+      bij keuzeoefeningen en aandeel vragen in doos 4+ (fase 2); herschreven teksten en afgemaakte
+      leesteksten (fase 3); gebruik van spreken en `spreken/geen-microfoon` (fase 4).
+      Na fase 2 ook een gebruikerstest: 3–5 leerlingen doen hardop denkend een hoofdstuk.
+
+Open vragen: wie spreekt de woorden voor H0 in en onder welke licentie; tellen de kan-doen-scores
+mee in de statistieken; eerst fase 3 of eerst fase 4; is er een vaste groep voor de gebruikerstest.
