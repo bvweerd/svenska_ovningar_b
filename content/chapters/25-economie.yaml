@@ -257,6 +257,48 @@ sections:
     title: Skriva · schrijven
     intro: "Schrijfdoel: een kort verslag."
     exercises:
+      - id: skriva-betoog
+        title: Betoog in stappen
+        instruction: "Bouw een betoog op in vier delen: standpunt, argumenten, tegenargument met weerlegging en conclusie. De app kijkt elke stap na. Daarna schrijf je het hele betoog, als je wilt."
+        topic: asikt
+        items:
+          - id: py4z
+            type: steps
+            topic: asikt
+            steps:
+              - { type: mc, prompt: "**Standpunt.** Welke zin is een goede tes (een standpunt)?", options: ["Fler företag borde låta de anställda arbeta hemifrån två dagar i veckan.", "Många anställda arbetar i dag hemifrån en eller två dagar i veckan.", "Jag arbetade hemifrån i går, och det gick ganska bra."], answer: 0, tip: "Een tes is een standpunt waarover je van mening kunt verschillen, geen feit en geen eigen ervaring." }
+              - { type: order, prompt: "**Standpunt.** Ik vind dat werkgevers niet moeten eisen dat het personeel elke dag op kantoor zit. Let op de plaats van *inte* in de bijzin.", start: "Jag anser att", tokens: ["arbetsgivare", "inte", "borde", "kräva", "att", "personalen", "sitter", "på", "kontoret", "varje", "dag"], answers: ["Jag anser att arbetsgivare inte borde kräva att personalen sitter på kontoret varje dag.", "Jag anser att arbetsgivare inte borde kräva att personalen varje dag sitter på kontoret."], feedback: [{ contains: "arbetsgivare borde inte", tip: "Na anser att volgt een bijzin: inte staat vóór het werkwoord (arbetsgivare inte borde)." }, { contains: "personalen inte sitter", tip: "Let op de betekenis: werkgevers moeten iets níet eisen. inte hoort bij borde kräva: arbetsgivare inte borde kräva." }] }
+          - id: fsyc
+            type: steps
+            topic: sambandsord
+            steps:
+              - { type: gap, prompt: "**Argument 1.** Kies het signaalwoord.", text: "___ sparar de anställda tid och pengar när de slipper resa till jobbet.", gaps: [{ answers: ["För det första"], options: ["För det första", "Visserligen", "Sammanfattningsvis"], tip: "Je eerste argument kondig je aan met för det första. Visserligen hoort bij een tegenargument, sammanfattningsvis bij de conclusie." }] }
+              - { type: order, prompt: "**Argument 2.** Begin met *Dessutom*. Let op de woordvolgorde.", start: "Dessutom", tokens: ["visar", "flera", "undersökningar", "att", "många", "arbetar", "mer", "effektivt", "hemma"], answers: ["Dessutom visar flera undersökningar att många arbetar mer effektivt hemma.", "Dessutom visar flera undersökningar att många arbetar hemma mer effektivt."], feedback: [{ contains: "dessutom flera undersökningar visar", tip: "dessutom vooraan is een zinsdeel: daarna komt meteen het werkwoord (Dessutom visar …)." }] }
+              - { type: gap, topic: subjunktioner-b1, prompt: "**Argument 3.** Kies de goede volgorde in de bijzin.", text: "Företagen kan också spara pengar, eftersom de ___ lika stora kontor längre.", gaps: [{ answers: ["inte behöver"], options: ["inte behöver", "behöver inte"], shuffle: false, tip: "Na eftersom volgt een bijzin: inte staat vóór het werkwoord." }] }
+          - id: vryn
+            type: steps
+            topic: asikt
+            steps:
+              - { type: mc, prompt: "**Tegenargument.** Welke zin geeft weer wat de andere kant vindt?", options: ["Många chefer menar att samarbetet blir sämre när kollegorna sällan träffas.", "För det första sparar de anställda tid och pengar.", "Därför anser jag att fler borde få arbeta hemifrån."], answer: 0, tip: "Een tegenargument is wat anderen vinden: Många chefer menar att … of Vissa hävdar att …" }
+              - { type: order, prompt: "**Weerlegging.** Geef eerst toe, zet er dan iets tegenover.", start: "Visserligen är det viktigt att träffas,", tokens: ["men", "det", "räcker", "med", "ett", "par", "dagar", "i", "veckan"], answers: ["Visserligen är det viktigt att träffas, men det räcker med ett par dagar i veckan."] }
+              - { type: order, topic: subjunktioner-b1, prompt: "**Weerlegging.** Maak de zin af. De bijzin met *trots att* staat vooraan.", start: "Trots att många chefer är skeptiska,", tokens: ["har", "hemarbetet", "fungerat", "bra", "på", "de", "flesta", "arbetsplatser"], answers: ["Trots att många chefer är skeptiska, har hemarbetet fungerat bra på de flesta arbetsplatser."], feedback: [{ contains: "skeptiska hemarbetet har", tip: "Staat de bijzin vooraan, dan begint de hoofdzin met het werkwoord: …, har hemarbetet fungerat …" }] }
+          - id: ukax
+            type: steps
+            topic: asikt
+            steps:
+              - { type: transform, topic: nominalisering, task: "**Conclusie.** Vat je sterkste argument zakelijk samen: gebruik *leder till en minskning av*.", prompt: "Hemarbete gör att utsläppen från trafiken minskar.", answers: ["{Hemarbete|Hemarbetet} leder till en minskning av {utsläppen från trafiken|trafikens utsläpp|trafikutsläppen}."], feedback: [{ contains: "minskningen av", tip: "Na leder till en … komt de onbepaalde vorm: en minskning." }] }
+              - { type: gap, prompt: "**Conclusie.** Je sluit af. Kies het signaalwoord.", text: "___ anser jag att hemarbete är bra för både anställda och arbetsgivare.", gaps: [{ answers: ["Sammanfattningsvis"], options: ["Sammanfattningsvis", "Visserligen", "För det första"], tip: "Een conclusie begin je met sammanfattningsvis of därför." }] }
+          - id: bvat
+            type: free
+            prompt: "Schrijf nu het hele betoog (100–150 woorden) over de stelling *Fler företag borde låta de anställda arbeta hemifrån två dagar i veckan*, of kies zelf een stelling over werk en geld. Gebruik de vier delen: standpunt, twee of drie argumenten, een tegenargument met weerlegging en een conclusie."
+            minWords: 90
+            require:
+              - { any: ["anser", "tycker", "enligt min mening"], label: "Je geeft je standpunt" }
+              - { any: ["för det första", "dessutom", "eftersom"], label: "Je ordent je argumenten (för det första, dessutom, eftersom)" }
+              - { any: ["visserligen", "trots att", "å andra sidan", "det stämmer att"], label: "Je weerlegt een tegenargument (visserligen … men, trots att)" }
+              - { any: ["sammanfattningsvis", "därför"], label: "Je sluit af met een conclusie" }
+            model: "Jag anser att arbetsgivare inte borde kräva att personalen sitter på kontoret varje dag. Fler företag borde låta de anställda arbeta hemifrån två dagar i veckan. För det första sparar de anställda tid och pengar när de slipper resa till jobbet. Dessutom visar flera undersökningar att många arbetar mer effektivt hemma. Företagen kan också spara pengar, eftersom de inte behöver lika stora kontor längre. Hemarbete leder dessutom till en minskning av utsläppen från trafiken. Många chefer menar att samarbetet blir sämre när kollegorna sällan träffas. Visserligen är det viktigt att träffas, men det räcker med ett par dagar i veckan. Trots att många chefer är skeptiska, har hemarbetet fungerat bra på de flesta arbetsplatser. Sammanfattningsvis anser jag att hemarbete är bra för både anställda och arbetsgivare."
+
       - id: skriva-rapport
         title: Beschrijf de cijfers
         instruction: "Bouw eerst je verslag op in vier stappen die de app nakijkt. Daarna schrijf je het hele verslag, als je wilt."

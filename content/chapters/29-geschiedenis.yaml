@@ -279,6 +279,47 @@ sections:
     title: Skriva · schrijven
     intro: "Schrijfdoel: een verhalende tekst."
     exercises:
+      - id: skriva-betoog
+        title: Betoog in stappen
+        instruction: "Bouw een betoog op in vier delen: tes, argumenten, motargument met bemötande en slutsats. De app kijkt elke stap na. Daarna schrijf je het hele betoog, als je wilt."
+        topic: argumentation
+        items:
+          - id: wy97
+            type: steps
+            topic: argumentation
+            steps:
+              - { type: mc, prompt: "**Tes.** Welke zin is een goede tes (een standpunt)?", options: ["Historia borde vara ett obligatoriskt ämne under hela gymnasiet.", "Historia är ett av de äldsta ämnena i den svenska skolan.", "Vasaskeppet sjönk i Stockholm år 1628."], answer: 0, tip: "Een tes is een standpunt waarover je van mening kunt verschillen. De andere zinnen zijn feiten." }
+              - { type: order, topic: fundament, prompt: "**Tes.** Begin met de voorwaarde *Utan kunskaper om historien*. Let op de woordvolgorde.", start: "Utan kunskaper om historien", tokens: ["kan", "vi", "inte", "förstå", "dagens", "samhälle"], answers: ["Utan kunskaper om historien kan vi inte förstå dagens samhälle."], feedback: [{ contains: "historien vi kan", tip: "Het zinsdeel vooraan telt als plaats 1: daarna komt meteen het werkwoord (… kan vi inte förstå)." }] }
+          - id: 4sdj
+            type: steps
+            topic: argumentation
+            steps:
+              - { type: gap, prompt: "**Argument 1.** Kies het signaalwoord.", text: "___ hjälper historia oss att förstå varför världen ser ut som den gör i dag.", gaps: [{ answers: ["För det första"], options: ["För det första", "Å andra sidan", "Sammanfattningsvis"], tip: "Je eerste argument kondig je aan met för det första. Sammanfattningsvis hoort bij de slutsats." }] }
+              - { type: gap, topic: bisats-adverb, prompt: "**Argument 2.** Kies de goede volgorde in de att-zin.", text: "Dessutom visar undersökningar att många unga ___ hur demokratin växte fram i Sverige.", gaps: [{ answers: ["aldrig har lärt sig"], options: ["aldrig har lärt sig", "har aldrig lärt sig", "har lärt sig aldrig"], shuffle: false, tip: "In de bijzin (na att) staat aldrig vóór het werkwoord: att många unga aldrig har lärt sig …" }] }
+              - { type: order, topic: bisats-adverb, prompt: "**Argument 3.** Maak de bijzin met *eftersom* af. Let op *då* en *inte*.", start: "Kunskaper om historien skyddar demokratin,", tokens: ["eftersom", "människor", "då", "inte", "lika", "lätt", "luras", "av", "propaganda"], answers: ["Kunskaper om historien skyddar demokratin, eftersom människor då inte luras lika lätt av propaganda.", "Kunskaper om historien skyddar demokratin, eftersom människor då inte lika lätt luras av propaganda.", "Kunskaper om historien skyddar demokratin, eftersom människor då inte luras av propaganda lika lätt."], feedback: [{ contains: "luras inte", tip: "In de bijzin (na eftersom) staat inte vóór het werkwoord: människor då inte lika lätt luras." }] }
+          - id: xnpa
+            type: steps
+            topic: argumentation
+            steps:
+              - { type: mc, prompt: "**Motargument.** Welke zin geeft weer wat de andere kant vindt?", options: ["Vissa hävdar att eleverna hellre borde lägga tiden på matematik och programmering.", "För det första hjälper historia oss att förstå världen.", "Därför anser jag att historia borde vara ett obligatoriskt ämne."], answer: 0, tip: "Een motargument is wat anderen vinden: Vissa hävdar att … of Kritiker menar att …" }
+              - { type: order, topic: fundament, prompt: "**Bemötande.** Maak de zin af. De bijzin met *trots att* staat vooraan.", start: "Trots att matematik och programmering är viktiga,", tokens: ["behöver", "eleverna", "också", "förstå", "sin", "egen", "historia"], answers: ["Trots att matematik och programmering är viktiga, behöver eleverna också förstå sin egen historia."], feedback: [{ contains: "viktiga eleverna", tip: "De bijzin vooraan telt als plaats 1: daarna komt meteen het werkwoord (…, behöver eleverna …)." }] }
+          - id: b8ef
+            type: steps
+            topic: argumentation
+            steps:
+              - { type: transform, topic: fundament, task: "**Slutsats.** Begin de zin met *Av det förflutna*.", prompt: "Vi kan lära oss mycket om framtiden av det förflutna.", answers: ["Av det förflutna kan vi lära oss mycket om framtiden."], feedback: [{ contains: "av det förflutna vi", tip: "Het zinsdeel vooraan telt als plaats 1: daarna komt meteen het werkwoord (Av det förflutna kan vi …)." }] }
+              - { type: gap, prompt: "**Slutsats.** Je sluit af. Kies het signaalwoord.", text: "___ anser jag att historia borde vara ett obligatoriskt ämne under alla tre åren.", gaps: [{ answers: ["Därför"], options: ["Därför", "Visserligen", "För det första"], tip: "Een slutsats trek je met därför (daarom) of sammanfattningsvis." }] }
+          - id: 7ep8
+            type: free
+            prompt: "Schrijf nu het hele betoog (100–150 woorden) over de stelling *Historia borde vara ett obligatoriskt ämne under hela gymnasiet*, of kies zelf een stelling over geschiedenis (bijvoorbeeld: *Alla elever borde besöka ett historiskt museum varje år*). Gebruik de vier delen: tes, twee of drie argumenten, een motargument met bemötande en een slutsats."
+            minWords: 90
+            require:
+              - { any: ["anser", "tycker", "enligt min mening", "borde"], label: "Je geeft je tes" }
+              - { any: ["för det första", "dessutom", "eftersom"], label: "Je ordent je argumenten (för det första, dessutom, eftersom)" }
+              - { any: ["visserligen", "trots att", "å andra sidan", "det stämmer att"], label: "Je bemöter een motargument (trots att, visserligen … men)" }
+              - { any: ["därför", "sammanfattningsvis", "kort sagt"], label: "Je sluit af met een slutsats" }
+            model: "Historia borde vara ett obligatoriskt ämne under hela gymnasiet. Utan kunskaper om historien kan vi inte förstå dagens samhälle. För det första hjälper historia oss att förstå varför världen ser ut som den gör i dag. Dessutom visar undersökningar att många unga aldrig har lärt sig hur demokratin växte fram i Sverige. Kunskaper om historien skyddar demokratin, eftersom människor då inte luras lika lätt av propaganda. Vissa hävdar att eleverna hellre borde lägga tiden på matematik och programmering. Trots att matematik och programmering är viktiga, behöver eleverna också förstå sin egen historia. Av det förflutna kan vi lära oss mycket om framtiden. Därför anser jag att historia borde vara ett obligatoriskt ämne under alla tre åren."
+
       - id: skriva-historia
         title: Vertel een gebeurtenis
         instruction: "Bouw eerst je verhaal op in vier stappen die de app nakijkt. Daarna schrijf je het hele verhaal, als je wilt."

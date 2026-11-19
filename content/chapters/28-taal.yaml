@@ -263,6 +263,48 @@ sections:
     title: Skriva · schrijven
     intro: "Schrijfdoel: dezelfde boodschap formeel en informeel."
     exercises:
+      - id: skriva-betoog
+        title: Betoog in stappen
+        instruction: "Bouw een betoog voor een debattartikel op in vier delen: tes, argumenten, motargument met bemötande en slutsats. De app kijkt elke stap na. Daarna schrijf je het hele betoog, als je wilt."
+        topic: argumentation
+        items:
+          - id: ggwb
+            type: steps
+            topic: register
+            steps:
+              - { type: mc, prompt: "**Tes.** Welke zin is een goede tes voor een debattartikel?", options: ["Jag anser att vi inte behöver vara rädda för engelska lånord i svenskan.", "Asså, engelska ord är typ helt okej, liksom.", "Svenskan har lånat ord från tyska, franska och engelska."], answer: 0, tip: "Een tes is een standpunt, en in een debattartikel schrijf je formeel. Asså, typ en liksom zijn spreektaal; de derde zin is een feit." }
+              - { type: order, topic: asikt, prompt: "**Tes.** Begin met *Enligt min mening*. Let op de woordvolgorde.", start: "Enligt min mening", tokens: ["är", "engelska", "lånord", "inget", "hot", "mot", "det", "svenska", "språket"], answers: ["Enligt min mening är engelska lånord inget hot mot det svenska språket."], feedback: [{ contains: "enligt min mening engelska lånord är", tip: "Enligt min mening is een zinsdeel: daarna komt meteen het werkwoord (Enligt min mening är …)." }] }
+          - id: u3ed
+            type: steps
+            topic: argumentation
+            steps:
+              - { type: gap, prompt: "**Argument 1.** Kies het signaalwoord.", text: "___ har svenskan alltid lånat ord från andra språk, till exempel från tyska och franska.", gaps: [{ answers: ["För det första"], options: ["För det första", "Å andra sidan", "Kort sagt"], tip: "Je eerste argument kondig je aan met för det första. Kort sagt hoort bij de slutsats." }] }
+              - { type: order, prompt: "**Argument 2.** Begin met *Dessutom*. Let op de woordvolgorde.", start: "Dessutom", tokens: ["blir", "många", "lånord", "med", "tiden", "en", "naturlig", "del", "av", "svenskan"], answers: ["Dessutom blir många lånord med tiden en naturlig del av svenskan.", "Dessutom blir många lånord en naturlig del av svenskan med tiden."], feedback: [{ contains: "dessutom många lånord blir", tip: "dessutom vooraan is een zinsdeel: daarna komt meteen het werkwoord (Dessutom blir …)." }] }
+              - { type: gap, topic: sambandsord, prompt: "**Argument 3.** Kies het woord dat past.", text: "Många engelska ord får svensk stavning och böjning, ___ de ofta används i vardagen.", gaps: [{ answers: ["eftersom"], options: ["eftersom", "därför", "trots att"], tip: "Je geeft de reden: eftersom. Na därför zou het werkwoord direct volgen, en trots att (hoewel) past niet bij de betekenis." }] }
+          - id: 8dd6
+            type: steps
+            topic: argumentation
+            steps:
+              - { type: mc, prompt: "**Motargument.** Welke zin geeft weer wat de andere kant vindt?", options: ["Kritiker menar att svenskan håller på att tappa mark mot engelskan.", "Enligt min mening är lånord inget hot mot svenskan.", "Kort sagt är svenskan ett levande språk."], answer: 0, tip: "Een motargument is wat anderen vinden: Kritiker menar att … of Vissa hävdar att …" }
+              - { type: order, prompt: "**Bemötande.** Geef eerst toe, zet er dan iets tegenover.", start: "Det stämmer att engelskan dominerar inom forskningen,", tokens: ["men", "i", "vardagen", "talar", "de", "flesta", "fortfarande", "svenska"], answers: ["Det stämmer att engelskan dominerar inom forskningen, men i vardagen talar de flesta fortfarande svenska.", "Det stämmer att engelskan dominerar inom forskningen, men de flesta talar fortfarande svenska i vardagen."], feedback: [{ contains: "men i vardagen de flesta talar", tip: "i vardagen vooraan in de hoofdzin na men: daarna komt meteen het werkwoord (i vardagen talar de flesta …)." }] }
+              - { type: gap, topic: idiom, prompt: "**Bemötande.** Maak de uitdrukking af.", text: "Varningarna för att svenskan ska dö ut bör man ta med en nypa ___.", gaps: [{ answers: ["salt"], options: ["salt", "socker", "peppar"], tip: "ta något med en nypa salt = iets met een korreltje zout nemen." }] }
+          - id: fcfv
+            type: steps
+            topic: argumentation
+            steps:
+              - { type: gap, prompt: "**Slutsats.** Je sluit af. Kies het signaalwoord.", text: "___ är svenskan ett levande språk som utan problem kan ta upp nya ord.", gaps: [{ answers: ["Sammanfattningsvis"], options: ["Sammanfattningsvis", "Visserligen", "För det första"], tip: "Een slutsats begin je met sammanfattningsvis of därför." }] }
+              - { type: order, topic: register, prompt: "**Slutsats.** Maak de formele slotzin. Begin met *Därför*.", start: "Därför", tokens: ["finns", "det", "ingen", "anledning", "att", "oroa", "sig", "för", "engelska", "lånord"], answers: ["Därför finns det ingen anledning att oroa sig för engelska lånord."], feedback: [{ contains: "därför det finns", tip: "därför vooraan is een zinsdeel: daarna komt meteen het werkwoord (Därför finns det …)." }] }
+          - id: 6vak
+            type: free
+            prompt: "Schrijf nu het hele betoog (100–150 woorden) als formele debattartikel over de stelling *Vi behöver inte vara rädda för engelska lånord*, of kies zelf een stelling over taal. Gebruik de vier delen: tes, twee of drie argumenten, een motargument met bemötande en een slutsats. Schrijf formeel, zonder spreektaal."
+            minWords: 90
+            require:
+              - { any: ["anser", "enligt min mening", "menar"], label: "Je geeft je tes" }
+              - { any: ["för det första", "dessutom", "eftersom"], label: "Je ordent je argumenten (för det första, dessutom, eftersom)" }
+              - { any: ["visserligen", "det stämmer att", "trots att", "å andra sidan"], label: "Je bemöter een motargument (det stämmer att … men, visserligen)" }
+              - { any: ["sammanfattningsvis", "därför", "kort sagt"], label: "Je sluit af met een slutsats" }
+            model: "Jag anser att vi inte behöver vara rädda för engelska lånord i svenskan. För det första har svenskan alltid lånat ord från andra språk, till exempel från tyska och franska. Dessutom blir många lånord med tiden en naturlig del av svenskan. Många engelska ord får svensk stavning och böjning, eftersom de ofta används i vardagen. Kritiker menar att svenskan håller på att tappa mark mot engelskan. Det stämmer att engelskan dominerar inom forskningen, men i vardagen talar de flesta fortfarande svenska. Varningarna för att svenskan ska dö ut bör man därför ta med en nypa salt. Sammanfattningsvis är svenskan ett levande språk som utan problem kan ta upp nya ord. Därför finns det ingen anledning att oroa sig för engelska lånord."
+
       - id: skriva-tva-register
         title: Twee keer hetzelfde
         instruction: "Bouw eerst je twee berichten op in vier stappen die de app nakijkt. Daarna schrijf je ze allebei, als je wilt."
