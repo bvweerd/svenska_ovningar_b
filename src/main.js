@@ -536,9 +536,9 @@ function charBar() {
       },
     }, c));
   }
-  // Toetsenbord dicht: de balk staat in de knoppenrij van de vraag, naast „Controleer” (in de pagina,
-  // niet zwevend), zodat de vraag niet langer wordt en er niets verspringt. Buiten een vraag staat hij
-  // onder het veld. Toetsenbord open (het zichtbare deel van het scherm is dan veel lager): de balk ligt
+  // Computer (geen schermtoetsenbord): de balk staat in de knoppenrij van de vraag, naast „Controleer”
+  // (in de pagina, niet zwevend), zodat de vraag niet langer wordt en er niets verspringt. Buiten een
+  // vraag staat hij onder het veld. Touchscreen met het toetsenbord dicht: geen balk. Toetsenbord open (het zichtbare deel van het scherm is dan veel lager): de balk ligt
   // vast direct boven het toetsenbord, over de hele breedte en met hoofdletters. Ook dan verspringt de
   // pagina niet; hooguit één keer bijscrollen als het veld anders achter de balk zou vallen, pas als het
   // toetsenbord stilstaat (tijdens de animatie scrollt de browser zelf naar het veld).
@@ -551,6 +551,8 @@ function charBar() {
   const dock = () => {
     if (bar.hidden) return;
     const vv = window.visualViewport;
+    // Op een touchscreen heb je de letters alleen nodig terwijl het toetsenbord open is.
+    bar.classList.toggle('away', matchMedia('(pointer: coarse)').matches && !keyboardOpen());
     if (!keyboardOpen()) {
       bar.classList.remove('docked');
       bar.style.top = '';

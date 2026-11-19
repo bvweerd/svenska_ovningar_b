@@ -531,6 +531,7 @@ main.wide { max-width: 1240px; }
 .charbar.docked, .actions .charbar.docked { position: fixed; left: 6px; right: 6px; bottom: auto; width: auto; max-width: none; margin: 0; padding: 6px; z-index: 30; background: var(--surface); border: 1px solid var(--line); border-radius: 12px; box-shadow: 0 2px 12px rgb(0 0 0 / 0.18); }
 .charbar.docked button { width: auto; height: 44px; }
 .charbar.docked .upper { display: block; }
+.charbar.away { display: none; }
 .settings > summary { cursor: pointer; }
 .dialogue.tap li.placeholder { counter-increment: none; } .dialogue.tap li.placeholder::before { content: none; }
 
