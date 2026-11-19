@@ -268,17 +268,17 @@ sections:
           - { id: q472, type: findError, topic: argumentation, sentence: "Kritiker betyder att förbudet är omodernt.", wrong: [1], answers: ["Kritiker menar att förbudet är omodernt.", "Kritiker hävdar att förbudet är omodernt."], tip: "Welk werkwoord betekent een mening hebben?" }
 
 vocab:
-  - { sv: "en debatt", nl: "een debat", def: "debatten" }
-  - { sv: "en debattartikel", nl: "een opiniestuk", def: "debattartikeln" }
-  - { sv: "en tes", nl: "een stelling, een standpunt", def: "tesen" }
-  - { sv: "ett argument", nl: "een argument", def: "argumentet" }
-  - { sv: "ett motargument", nl: "een tegenargument", def: "motargumentet" }
-  - { sv: "ett förbud", nl: "een verbod", def: "förbudet" }
-  - { sv: "en kritiker", nl: "een criticus", def: "kritikern" }
-  - { sv: "ett verktyg", nl: "een instrument, een hulpmiddel", def: "verktyget" }
-  - { sv: "ett straff", nl: "een straf", def: "straffet" }
-  - { sv: "en förebild", nl: "een voorbeeld, een rolmodel", def: "förebilden" }
-  - { sv: "ett elevråd", nl: "een leerlingenraad", def: "elevrådet" }
+  - { sv: "en debatt", nl: "een debat", def: "debatten", pl: "debatter", plDef: "debatterna" }
+  - { sv: "en debattartikel", nl: "een opiniestuk", def: "debattartikeln", pl: "debattartiklar", plDef: "debattartiklarna" }
+  - { sv: "en tes", nl: "een stelling, een standpunt", def: "tesen", pl: "teser", plDef: "teserna" }
+  - { sv: "ett argument", nl: "een argument", def: "argumentet", pl: "argument", plDef: "argumenten" }
+  - { sv: "ett motargument", nl: "een tegenargument", def: "motargumentet", pl: "motargument", plDef: "motargumenten" }
+  - { sv: "ett förbud", nl: "een verbod", def: "förbudet", pl: "förbud", plDef: "förbuden" }
+  - { sv: "en kritiker", nl: "een criticus", def: "kritikern", pl: "kritiker", plDef: "kritikerna" }
+  - { sv: "ett verktyg", nl: "een instrument, een hulpmiddel", def: "verktyget", pl: "verktyg", plDef: "verktygen" }
+  - { sv: "ett straff", nl: "een straf", def: "straffet", pl: "straff", plDef: "straffen" }
+  - { sv: "en förebild", nl: "een voorbeeld, een rolmodel", def: "förebilden", pl: "förebilder", plDef: "förebilderna" }
+  - { sv: "ett elevråd", nl: "een leerlingenraad", def: "elevrådet", pl: "elevråd", plDef: "elevråden" }
   - { sv: "att hävda", nl: "beweren" }
   - { sv: "att invända", nl: "tegenwerpen" }
   - { sv: "att bemöta", nl: "reageren op, ingaan op" }

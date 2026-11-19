@@ -279,15 +279,15 @@ sections:
           - { id: fkg9, type: findError, topic: rad-onskan, sentence: "Du borde att sova mer.", wrong: [2], answers: ["Du borde sova mer."], tip: "Na borde komt geen att." }
 
 vocab:
-  - { sv: "en sambo", nl: "een samenwonende partner", def: "sambon" }
-  - { sv: "en särbo", nl: "een LAT-partner", def: "särbon" }
-  - { sv: "ett förhållande", nl: "een relatie", def: "förhållandet" }
-  - { sv: "en vänskap", nl: "een vriendschap", def: "vänskapen" }
-  - { sv: "ett råd", nl: "een advies, een raad", def: "rådet" }
-  - { sv: "ett beslut", nl: "een besluit", def: "beslutet" }
-  - { sv: "en kompromiss", nl: "een compromis", def: "kompromissen" }
-  - { sv: "ett bröllop", nl: "een bruiloft", def: "bröllopet" }
-  - { sv: "en svärmor", nl: "een schoonmoeder", def: "svärmodern" }
+  - { sv: "en sambo", nl: "een samenwonende partner", def: "sambon", pl: "sambor", plDef: "samborna" }
+  - { sv: "en särbo", nl: "een LAT-partner", def: "särbon", pl: "särbor", plDef: "särborna" }
+  - { sv: "ett förhållande", nl: "een relatie", def: "förhållandet", pl: "förhållanden", plDef: "förhållandena" }
+  - { sv: "en vänskap", nl: "een vriendschap", def: "vänskapen", pl: "vänskaper", plDef: "vänskaperna" }
+  - { sv: "ett råd", nl: "een advies, een raad", def: "rådet", pl: "råd", plDef: "råden" }
+  - { sv: "ett beslut", nl: "een besluit", def: "beslutet", pl: "beslut", plDef: "besluten" }
+  - { sv: "en kompromiss", nl: "een compromis", def: "kompromissen", pl: "kompromisser", plDef: "kompromisserna" }
+  - { sv: "ett bröllop", nl: "een bruiloft", def: "bröllopet", pl: "bröllop", plDef: "bröllopen" }
+  - { sv: "en svärmor", nl: "een schoonmoeder", def: "svärmodern", pl: "svärmödrar", plDef: "svärmödrarna" }
   - { sv: "att gifta sig", nl: "trouwen" }
   - { sv: "att skilja sig", nl: "scheiden" }
   - { sv: "att gräla", nl: "ruziemaken" }

@@ -248,15 +248,15 @@ sections:
 
 vocab:
   - { sv: "en framtid", nl: "de toekomst", def: "framtiden" }
-  - { sv: "en trend", nl: "een trend", def: "trenden" }
+  - { sv: "en trend", nl: "een trend", def: "trenden", pl: "trender", plDef: "trenderna" }
   - { sv: "en befolkning", nl: "de bevolking", def: "befolkningen" }
-  - { sv: "en prognos", nl: "een prognose, een verwachting", def: "prognosen" }
-  - { sv: "ett yrke", nl: "een beroep", def: "yrket" }
-  - { sv: "en förmåga", nl: "een vermogen, een vaardigheid", def: "förmågan" }
-  - { sv: "en egenskap", nl: "een eigenschap", def: "egenskapen" }
+  - { sv: "en prognos", nl: "een prognose, een verwachting", def: "prognosen", pl: "prognoser", plDef: "prognoserna" }
+  - { sv: "ett yrke", nl: "een beroep", def: "yrket", pl: "yrken", plDef: "yrkena" }
+  - { sv: "en förmåga", nl: "een vermogen, een vaardigheid", def: "förmågan", pl: "förmågor", plDef: "förmågorna" }
+  - { sv: "en egenskap", nl: "een eigenschap", def: "egenskapen", pl: "egenskaper", plDef: "egenskaperna" }
   - { sv: "äldreomsorg", nl: "ouderenzorg" }
-  - { sv: "ett krav", nl: "een eis", def: "kravet" }
-  - { sv: "en självklarhet", nl: "een vanzelfsprekendheid", def: "självklarheten" }
+  - { sv: "ett krav", nl: "een eis", def: "kravet", pl: "krav", plDef: "kraven" }
+  - { sv: "en självklarhet", nl: "een vanzelfsprekendheid", def: "självklarheten", pl: "självklarheter", plDef: "självklarheterna" }
   - { sv: "att förvänta sig", nl: "verwachten" }
   - { sv: "att beräkna", nl: "berekenen" }
   - { sv: "att anpassa sig", nl: "zich aanpassen" }

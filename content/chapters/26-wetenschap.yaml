@@ -259,18 +259,18 @@ sections:
           - { id: kh7a, type: findError, sentence: "Den av forskarna föreslådda förklaringen är enkel.", wrong: [3], answers: ["Den av forskarna föreslagna förklaringen är enkel."], tip: "föreslå is een sterk werkwoord." }
 
 vocab:
-  - { sv: "en studie", nl: "een studie, een onderzoek", def: "studien" }
-  - { sv: "en forskare", nl: "een onderzoeker", def: "forskaren" }
+  - { sv: "en studie", nl: "een studie, een onderzoek", def: "studien", pl: "studier", plDef: "studierna" }
+  - { sv: "en forskare", nl: "een onderzoeker", def: "forskaren", pl: "forskare", plDef: "forskarna" }
   - { sv: "forskning", nl: "onderzoek (wetenschap)" }
-  - { sv: "en deltagare", nl: "een deelnemer", def: "deltagaren" }
-  - { sv: "en slutsats", nl: "een conclusie", def: "slutsatsen" }
-  - { sv: "ett resultat", nl: "een resultaat", def: "resultatet" }
-  - { sv: "en metod", nl: "een methode", def: "metoden" }
-  - { sv: "ett syfte", nl: "een doel", def: "syftet" }
-  - { sv: "en förklaring", nl: "een verklaring", def: "förklaringen" }
-  - { sv: "en begränsning", nl: "een beperking", def: "begränsningen" }
-  - { sv: "ett minne", nl: "een geheugen, een herinnering", def: "minnet" }
-  - { sv: "en hjärna", nl: "een brein, de hersenen", def: "hjärnan" }
+  - { sv: "en deltagare", nl: "een deelnemer", def: "deltagaren", pl: "deltagare", plDef: "deltagarna" }
+  - { sv: "en slutsats", nl: "een conclusie", def: "slutsatsen", pl: "slutsatser", plDef: "slutsatserna" }
+  - { sv: "ett resultat", nl: "een resultaat", def: "resultatet", pl: "resultat", plDef: "resultaten" }
+  - { sv: "en metod", nl: "een methode", def: "metoden", pl: "metoder", plDef: "metoderna" }
+  - { sv: "ett syfte", nl: "een doel", def: "syftet", pl: "syften", plDef: "syftena" }
+  - { sv: "en förklaring", nl: "een verklaring", def: "förklaringen", pl: "förklaringar", plDef: "förklaringarna" }
+  - { sv: "en begränsning", nl: "een beperking", def: "begränsningen", pl: "begränsningar", plDef: "begränsningarna" }
+  - { sv: "ett minne", nl: "een geheugen, een herinnering", def: "minnet", pl: "minnen", plDef: "minnena" }
+  - { sv: "en hjärna", nl: "een brein, de hersenen", def: "hjärnan", pl: "hjärnor", plDef: "hjärnorna" }
   - { sv: "att undersöka", nl: "onderzoeken" }
   - { sv: "att påverka", nl: "beïnvloeden" }
   - { sv: "att tyda på", nl: "erop wijzen" }

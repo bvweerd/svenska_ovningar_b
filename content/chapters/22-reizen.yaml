@@ -303,18 +303,18 @@ sections:
           - { id: butj, type: findError, sentence: "Tåget var sent, så missade vi bussen.", wrong: [4, 5], answers: ["Tåget var sent, så vi missade bussen."], tip: "Na het voegwoord så (= dus): geen inversie. In spreektaal hoor je ook så missade vi, maar schrijf så vi missade." }
 
 vocab:
-  - { sv: "ett nattåg", nl: "een nachttrein", def: "nattåget" }
-  - { sv: "en sovvagn", nl: "een slaaprijtuig", def: "sovvagnen" }
-  - { sv: "en biljett", nl: "een kaartje", def: "biljetten" }
-  - { sv: "en försening", nl: "een vertraging", def: "förseningen" }
-  - { sv: "ett spår", nl: "een spoor", def: "spåret" }
-  - { sv: "en avgång", nl: "een vertrek", def: "avgången" }
-  - { sv: "en ankomst", nl: "een aankomst", def: "ankomsten" }
-  - { sv: "ett byte", nl: "een overstap", def: "bytet" }
-  - { sv: "ett klagomål", nl: "een klacht", def: "klagomålet" }
-  - { sv: "en ersättning", nl: "een vergoeding", def: "ersättningen" }
-  - { sv: "ett tält", nl: "een tent", def: "tältet" }
-  - { sv: "en resenär", nl: "een reiziger", def: "resenären" }
+  - { sv: "ett nattåg", nl: "een nachttrein", def: "nattåget", pl: "nattåg", plDef: "nattågen" }
+  - { sv: "en sovvagn", nl: "een slaaprijtuig", def: "sovvagnen", pl: "sovvagnar", plDef: "sovvagnarna" }
+  - { sv: "en biljett", nl: "een kaartje", def: "biljetten", pl: "biljetter", plDef: "biljetterna" }
+  - { sv: "en försening", nl: "een vertraging", def: "förseningen", pl: "förseningar", plDef: "förseningarna" }
+  - { sv: "ett spår", nl: "een spoor", def: "spåret", pl: "spår", plDef: "spåren" }
+  - { sv: "en avgång", nl: "een vertrek", def: "avgången", pl: "avgångar", plDef: "avgångarna" }
+  - { sv: "en ankomst", nl: "een aankomst", def: "ankomsten", pl: "ankomster", plDef: "ankomsterna" }
+  - { sv: "ett byte", nl: "een overstap", def: "bytet", pl: "byten", plDef: "bytena" }
+  - { sv: "ett klagomål", nl: "een klacht", def: "klagomålet", pl: "klagomål", plDef: "klagomålen" }
+  - { sv: "en ersättning", nl: "een vergoeding", def: "ersättningen", pl: "ersättningar", plDef: "ersättningarna" }
+  - { sv: "ett tält", nl: "een tent", def: "tältet", pl: "tält", plDef: "tälten" }
+  - { sv: "en resenär", nl: "een reiziger", def: "resenären", pl: "resenärer", plDef: "resenärerna" }
   - { sv: "att stiga på", nl: "instappen" }
   - { sv: "att stiga av", nl: "uitstappen" }
   - { sv: "att komma fram", nl: "aankomen" }

@@ -286,17 +286,17 @@ sections:
           - { id: qqpy, type: findError, topic: indirekt-tal-b1, sentence: "Det sa i tidningen att det skulle snöa.", wrong: [1], answers: ["Det stod i tidningen att det skulle snöa."], tip: "Wat zeg je over een tekst in de krant?" }
 
 vocab:
-  - { sv: "en nyhet", nl: "een nieuwsbericht, een nieuwtje", def: "nyheten" }
-  - { sv: "en tidning", nl: "een krant", def: "tidningen" }
-  - { sv: "en artikel", nl: "een artikel", def: "artikeln" }
-  - { sv: "en rubrik", nl: "een kop", def: "rubriken" }
-  - { sv: "en källa", nl: "een bron", def: "källan" }
-  - { sv: "en insändare", nl: "een ingezonden brief", def: "insändaren" }
-  - { sv: "en journalist", nl: "een journalist", def: "journalisten" }
-  - { sv: "en olycka", nl: "een ongeluk", def: "olyckan" }
-  - { sv: "en brand", nl: "een brand", def: "branden" }
-  - { sv: "en älg", nl: "een eland", def: "älgen" }
-  - { sv: "ett snöfall", nl: "een sneeuwval", def: "snöfallet" }
+  - { sv: "en nyhet", nl: "een nieuwsbericht, een nieuwtje", def: "nyheten", pl: "nyheter", plDef: "nyheterna" }
+  - { sv: "en tidning", nl: "een krant", def: "tidningen", pl: "tidningar", plDef: "tidningarna" }
+  - { sv: "en artikel", nl: "een artikel", def: "artikeln", pl: "artiklar", plDef: "artiklarna" }
+  - { sv: "en rubrik", nl: "een kop", def: "rubriken", pl: "rubriker", plDef: "rubrikerna" }
+  - { sv: "en källa", nl: "een bron", def: "källan", pl: "källor", plDef: "källorna" }
+  - { sv: "en insändare", nl: "een ingezonden brief", def: "insändaren", pl: "insändare", plDef: "insändarna" }
+  - { sv: "en journalist", nl: "een journalist", def: "journalisten", pl: "journalister", plDef: "journalisterna" }
+  - { sv: "en olycka", nl: "een ongeluk", def: "olyckan", pl: "olyckor", plDef: "olyckorna" }
+  - { sv: "en brand", nl: "een brand", def: "branden", pl: "bränder", plDef: "bränderna" }
+  - { sv: "en älg", nl: "een eland", def: "älgen", pl: "älgar", plDef: "älgarna" }
+  - { sv: "ett snöfall", nl: "een sneeuwval", def: "snöfallet", pl: "snöfall", plDef: "snöfallen" }
   - { sv: "(stor) uppståndelse", nl: "(grote) opschudding" }
   - { sv: "att orsaka", nl: "veroorzaken" }
   - { sv: "att skadas", nl: "gewond raken" }

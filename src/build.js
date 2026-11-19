@@ -22,7 +22,8 @@ export function shuffle(arr, rand = Math.random) {
 const article = (sv) => (sv.match(/^(en|ett) /) ?? [])[1];
 // Soort woord, zodat de foute keuzes op het goede antwoord lijken (zelfstandig naamwoord met lidwoord, werkwoord …).
 const kind = (v) => (article(v.sv) ? 'noun' : v.sv.startsWith('att ') ? 'verb' : 'other');
-const nlBare = (nl) => nl.replace(/^(een|de|het) /, '');
+// Nederlandse vertaling zonder lidwoorden: "een buurman, een buurvrouw" → "buurman, buurvrouw".
+const nlBare = (nl) => nl.replace(/(^|, )(een|de|het) /g, '$1');
 const bare = (sv) => sv.replace(/^(en|ett|att) /, '');
 
 /** Lange woordenlijsten worden per ronde van zoveel woorden geoefend (zie pickRound in progress.js). */
@@ -42,8 +43,11 @@ export function exampleGap(ex) {
 }
 
 /**
- * Woord-entry in content: { sv, nl, def?, pl?, alt?, ex?, exNl? }
+ * Woord-entry in content: { sv, nl, def?, pl?, plDef?, mass?, alt?, ex?, exNl? }
  *   def  bepaalde vorm enkelvoud (bilen), pl  meervoud (bilar; of een lijst als beide goed zijn),
+ *   plDef  bepaalde vorm meervoud (bilarna; alleen voor de tip bij die veelgemaakte fout),
+ *   mass  true als het woord meestal zonder lidwoord wordt gebruikt (ha feber, fira jul);
+ *         dan is het woord zonder en/ett ook goed, met een uitleg over het geslacht,
  *   ex   Zweedse voorbeeldzin met het woord **vet**, exNl  de Nederlandse vertaling daarvan.
  * @param nounTopic    onderwerp voor de en/ett-oefening: "substantiv" als de cursus daar een
  *                     uitlegkaart voor heeft (A1–A2), anders "woordenschat". Zo ook pluralTopic.
@@ -80,15 +84,24 @@ export function vocabExercises(vocab, chapterNo, { nounTopic = 'woordenschat', p
     items: vocab.map((v) => {
       const feedback = [];
       const art = article(v.sv);
-      if (art) {
+      if (art && !v.mass) {
         feedback.push({ match: bare(v.sv), tip: `Vergeet het lidwoord niet: is „${bare(v.sv)}” een en-woord of een ett-woord?` });
         feedback.push({
           match: `${art === 'en' ? 'ett' : 'en'} ${bare(v.sv)}`,
           tip: `Bijna: „${bare(v.sv)}” is een ${art}-woord.`,
         });
       }
+      if (art && v.def && v.def !== bare(v.sv)) {
+        feedback.push({ match: v.def, tip: `Dat is de bepaalde vorm. Gevraagd wordt de onbepaalde vorm: ${v.mass ? `„${bare(v.sv)}”` : `„${v.sv}”`}.` });
+      }
       if (v.sv.startsWith('att ')) {
         feedback.push({ match: bare(v.sv), tip: 'Zet „att” voor de infinitief, net als „te” in het Nederlands.' });
+      }
+      if (art && v.mass) {
+        return {
+          id: v.sv, type: 'translate', prompt: v.nl, answers: [v.sv, bare(v.sv), ...(v.alt ?? [])], feedback,
+          explain: `„${bare(v.sv)}” gebruik je meestal zonder lidwoord. Het is wel een ${art}-woord: ${v.def ?? v.sv}.`,
+        };
       }
       return { id: v.sv, type: 'translate', prompt: v.nl, answers: [v.sv, ...(v.alt ?? [])], feedback };
     }),
@@ -141,6 +154,8 @@ export function vocabExercises(vocab, chapterNo, { nounTopic = 'woordenschat', p
         const feedback = [];
         if (!pl.includes(bare(v.sv))) feedback.push({ match: [bare(v.sv), v.sv], tip: 'Dat is nog enkelvoud. Welke uitgang krijgt dit woord in het meervoud?' });
         if (v.def && !pl.includes(v.def)) feedback.push({ match: v.def, tip: 'Dat is de bepaalde vorm enkelvoud. Gevraagd wordt het meervoud.' });
+        const plDef = list(v.plDef).filter((d) => !pl.includes(d));
+        if (plDef.length) feedback.push({ match: plDef, tip: 'Dat is de bepaalde vorm meervoud („de …”). Gevraagd wordt het onbepaalde meervoud.' });
         return {
           id: v.sv,
           type: 'gap',

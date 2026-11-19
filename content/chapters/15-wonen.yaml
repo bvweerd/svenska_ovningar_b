@@ -294,19 +294,19 @@ sections:
           - { id: 554k, type: findError, sentence: "Vi ska hälsa hos mormor i helgen.", wrong: [3], answers: ["Vi ska hälsa på mormor i helgen."], tip: "Op bezoek gaan = hälsa …?" }
 
 vocab:
-  - { sv: "en hyresvärd", nl: "een verhuurder", def: "hyresvärden" }
-  - { sv: "en hyresgäst", nl: "een huurder", def: "hyresgästen" }
-  - { sv: "en hyra", nl: "de huur", def: "hyran" }
-  - { sv: "ett hyreshus", nl: "een huurflat", def: "hyreshuset" }
-  - { sv: "ett hyreskontrakt", nl: "een huurcontract", def: "hyreskontraktet" }
-  - { sv: "en tvättstuga", nl: "een gezamenlijke wasruimte", def: "tvättstugan" }
-  - { sv: "en källare", nl: "een kelder", def: "källaren" }
-  - { sv: "ett trapphus", nl: "een trappenhuis", def: "trapphuset" }
-  - { sv: "en granne", nl: "een buurman, een buurvrouw", def: "grannen" }
-  - { sv: "ett kvarter", nl: "een buurt, een blok", def: "kvarteret" }
-  - { sv: "ett element", nl: "een radiator", def: "elementet" }
-  - { sv: "en kran", nl: "een kraan", def: "kranen" }
-  - { sv: "en felanmälan", nl: "een storingsmelding" }
+  - { sv: "en hyresvärd", nl: "een verhuurder", def: "hyresvärden", pl: "hyresvärdar", plDef: "hyresvärdarna" }
+  - { sv: "en hyresgäst", nl: "een huurder", def: "hyresgästen", pl: "hyresgäster", plDef: "hyresgästerna" }
+  - { sv: "en hyra", nl: "de huur", def: "hyran", pl: "hyror", plDef: "hyrorna" }
+  - { sv: "ett hyreshus", nl: "een huurflat", def: "hyreshuset", pl: "hyreshus", plDef: "hyreshusen" }
+  - { sv: "ett hyreskontrakt", nl: "een huurcontract", def: "hyreskontraktet", pl: "hyreskontrakt", plDef: "hyreskontrakten" }
+  - { sv: "en tvättstuga", nl: "een gezamenlijke wasruimte", def: "tvättstugan", pl: "tvättstugor", plDef: "tvättstugorna" }
+  - { sv: "en källare", nl: "een kelder", def: "källaren", pl: "källare", plDef: "källarna" }
+  - { sv: "ett trapphus", nl: "een trappenhuis", def: "trapphuset", pl: "trapphus", plDef: "trapphusen" }
+  - { sv: "en granne", nl: "een buurman, een buurvrouw", def: "grannen", pl: "grannar", plDef: "grannarna" }
+  - { sv: "ett kvarter", nl: "een buurt, een blok", def: "kvarteret", pl: "kvarter", plDef: "kvarteren" }
+  - { sv: "ett element", nl: "een radiator", def: "elementet", pl: "element", plDef: "elementen" }
+  - { sv: "en kran", nl: "een kraan", def: "kranen", pl: "kranar", plDef: "kranarna" }
+  - { sv: "en felanmälan", nl: "een storingsmelding", pl: "felanmälningar", plDef: "felanmälningarna" }
   - { sv: "att flytta in", nl: "intrekken" }
   - { sv: "att stänga av", nl: "uitzetten" }
   - { sv: "att sätta på", nl: "aanzetten" }

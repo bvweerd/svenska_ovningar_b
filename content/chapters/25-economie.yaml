@@ -275,18 +275,18 @@ sections:
           - { id: thad, type: findError, topic: trender, sentence: "Andelen nådde botten på 82 procent.", wrong: [2], answers: ["Andelen nådde {toppen|en topp|sin högsta nivå} på 82 procent."], tip: "82 procent was het hoogste punt." }
 
 vocab:
-  - { sv: "en ökning", nl: "een stijging, een toename", def: "ökningen" }
-  - { sv: "en minskning", nl: "een daling, een afname", def: "minskningen" }
+  - { sv: "en ökning", nl: "een stijging, een toename", def: "ökningen", pl: "ökningar", plDef: "ökningarna" }
+  - { sv: "en minskning", nl: "een daling, een afname", def: "minskningen", pl: "minskningar", plDef: "minskningarna" }
   - { sv: "en utveckling", nl: "een ontwikkeling", def: "utvecklingen" }
-  - { sv: "en förändring", nl: "een verandering", def: "förändringen" }
+  - { sv: "en förändring", nl: "een verandering", def: "förändringen", pl: "förändringar", plDef: "förändringarna" }
   - { sv: "en försäljning", nl: "de verkoop, de omzet", def: "försäljningen" }
-  - { sv: "en andel", nl: "een aandeel", def: "andelen" }
-  - { sv: "en nivå", nl: "een niveau", def: "nivån" }
+  - { sv: "en andel", nl: "een aandeel", def: "andelen", pl: "andelar", plDef: "andelarna" }
+  - { sv: "en nivå", nl: "een niveau", def: "nivån", pl: "nivåer", plDef: "nivåerna" }
   - { sv: "en ledning", nl: "de directie, de leiding", def: "ledningen" }
-  - { sv: "ett kvartal", nl: "een kwartaal", def: "kvartalet" }
-  - { sv: "en tillväxt", nl: "de groei", def: "tillväxten" }
-  - { sv: "en procentenhet", nl: "een procentpunt", def: "procentenheten" }
-  - { sv: "ett diagram", nl: "een grafiek", def: "diagrammet" }
+  - { sv: "ett kvartal", nl: "een kwartaal", def: "kvartalet", pl: "kvartal", plDef: "kvartalen" }
+  - { sv: "en tillväxt", nl: "de groei", def: "tillväxten", mass: true }
+  - { sv: "en procentenhet", nl: "een procentpunt", def: "procentenheten", pl: "procentenheter", plDef: "procentenheterna" }
+  - { sv: "ett diagram", nl: "een grafiek", def: "diagrammet", pl: "diagram", plDef: "diagrammen" }
   - { sv: "att öka", nl: "toenemen, stijgen" }
   - { sv: "att minska", nl: "afnemen, dalen" }
   - { sv: "att uppge", nl: "verklaren, opgeven" }

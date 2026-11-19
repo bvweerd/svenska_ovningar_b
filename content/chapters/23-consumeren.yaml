@@ -284,18 +284,18 @@ sections:
           - { id: kj9m, type: findError, sentence: "Priserna blir alla dyrare.", wrong: [2], answers: ["Priserna blir allt dyrare."], tip: "Steeds duurder …" }
 
 vocab:
-  - { sv: "en matkasse", nl: "een maaltijdbox", def: "matkassen" }
-  - { sv: "ett erbjudande", nl: "een aanbieding", def: "erbjudandet" }
-  - { sv: "ett pris", nl: "een prijs", def: "priset" }
-  - { sv: "en förpackning", nl: "een verpakking", def: "förpackningen" }
-  - { sv: "en råvara", nl: "een grondstof, een ingrediënt", def: "råvaran" }
-  - { sv: "en kvalitet", nl: "een kwaliteit", def: "kvaliteten" }
-  - { sv: "en garanti", nl: "een garantie", def: "garantin" }
-  - { sv: "en skillnad", nl: "een verschil", def: "skillnaden" }
-  - { sv: "en recension", nl: "een recensie", def: "recensionen" }
-  - { sv: "en säljare", nl: "een verkoper", def: "säljaren" }
-  - { sv: "en beställning", nl: "een bestelling", def: "beställningen" }
-  - { sv: "en möjlighet", nl: "een mogelijkheid", def: "möjligheten" }
+  - { sv: "en matkasse", nl: "een maaltijdbox", def: "matkassen", pl: "matkassar", plDef: "matkassarna" }
+  - { sv: "ett erbjudande", nl: "een aanbieding", def: "erbjudandet", pl: "erbjudanden", plDef: "erbjudandena" }
+  - { sv: "ett pris", nl: "een prijs", def: "priset", pl: "priser", plDef: "priserna" }
+  - { sv: "en förpackning", nl: "een verpakking", def: "förpackningen", pl: "förpackningar", plDef: "förpackningarna" }
+  - { sv: "en råvara", nl: "een grondstof, een ingrediënt", def: "råvaran", pl: "råvaror", plDef: "råvarorna" }
+  - { sv: "en kvalitet", nl: "een kwaliteit", def: "kvaliteten", pl: "kvaliteter", plDef: "kvaliteterna" }
+  - { sv: "en garanti", nl: "een garantie", def: "garantin", pl: "garantier", plDef: "garantierna" }
+  - { sv: "en skillnad", nl: "een verschil", def: "skillnaden", pl: "skillnader", plDef: "skillnaderna" }
+  - { sv: "en recension", nl: "een recensie", def: "recensionen", pl: "recensioner", plDef: "recensionerna" }
+  - { sv: "en säljare", nl: "een verkoper", def: "säljaren", pl: "säljare", plDef: "säljarna" }
+  - { sv: "en beställning", nl: "een bestelling", def: "beställningen", pl: "beställningar", plDef: "beställningarna" }
+  - { sv: "en möjlighet", nl: "een mogelijkheid", def: "möjligheten", pl: "möjligheter", plDef: "möjligheterna" }
   - { sv: "att jämföra", nl: "vergelijken" }
   - { sv: "att byta", nl: "ruilen" }
   - { sv: "att reklamera", nl: "een klacht indienen over een product" }

@@ -274,18 +274,18 @@ sections:
           - { id: z6z2, type: findError, sentence: "Skeppet sjunkit inom några minuter.", wrong: [1], answers: ["Skeppet {hade sjunkit|sjönk} inom några minuter."], tip: "In een hoofdzin mag hade niet wegvallen." }
 
 vocab:
-  - { sv: "ett skepp", nl: "een schip", def: "skeppet" }
-  - { sv: "ett krigsskepp", nl: "een oorlogsschip", def: "krigsskeppet" }
-  - { sv: "ett vrak", nl: "een wrak", def: "vraket" }
-  - { sv: "ett krig", nl: "een oorlog", def: "kriget" }
-  - { sv: "en kung", nl: "een koning", def: "kungen" }
-  - { sv: "en drottning", nl: "een koningin", def: "drottningen" }
-  - { sv: "en botten", nl: "een bodem", def: "botten" }
-  - { sv: "en strand", nl: "een strand, een oever", def: "stranden" }
-  - { sv: "en kanon", nl: "een kanon", def: "kanonen" }
-  - { sv: "ett århundrade", nl: "een eeuw", def: "århundradet" }
+  - { sv: "ett skepp", nl: "een schip", def: "skeppet", pl: "skepp", plDef: "skeppen" }
+  - { sv: "ett krigsskepp", nl: "een oorlogsschip", def: "krigsskeppet", pl: "krigsskepp", plDef: "krigsskeppen" }
+  - { sv: "ett vrak", nl: "een wrak", def: "vraket", pl: "vrak", plDef: "vraken" }
+  - { sv: "ett krig", nl: "een oorlog", def: "kriget", pl: "krig", plDef: "krigen" }
+  - { sv: "en kung", nl: "een koning", def: "kungen", pl: "kungar", plDef: "kungarna" }
+  - { sv: "en drottning", nl: "een koningin", def: "drottningen", pl: "drottningar", plDef: "drottningarna" }
+  - { sv: "en botten", nl: "een bodem", def: "botten", pl: "bottnar", plDef: "bottnarna" }
+  - { sv: "en strand", nl: "een strand, een oever", def: "stranden", pl: "stränder", plDef: "stränderna" }
+  - { sv: "en kanon", nl: "een kanon", def: "kanonen", pl: "kanoner", plDef: "kanonerna" }
+  - { sv: "ett århundrade", nl: "een eeuw", def: "århundradet", pl: "århundraden", plDef: "århundradena" }
   - { sv: "en avfärd", nl: "een vertrek", def: "avfärden" }
-  - { sv: "en vindby", nl: "een windvlaag", def: "vindbyn" }
+  - { sv: "en vindby", nl: "een windvlaag", def: "vindbyn", pl: "vindbyar", plDef: "vindbyarna" }
   - { sv: "att sjunka", nl: "zinken" }
   - { sv: "att bärga", nl: "bergen" }
   - { sv: "att omkomma", nl: "omkomen" }

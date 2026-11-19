@@ -276,17 +276,17 @@ sections:
           - { id: rdms, type: findError, sentence: "Eftersom jag har ingen bil cyklar jag.", wrong: [2, 3], answers: ["Eftersom jag inte har någon bil cyklar jag."], tip: "In een bijzin: inte … någon." }
 
 vocab:
-  - { sv: "en miljö", nl: "het milieu, een omgeving", def: "miljön" }
-  - { sv: "ett klimat", nl: "het klimaat", def: "klimatet" }
-  - { sv: "en påse", nl: "een zak", def: "påsen" }
-  - { sv: "en burk", nl: "een blik, een pot", def: "burken" }
-  - { sv: "en flaska", nl: "een fles", def: "flaskan" }
-  - { sv: "ett batteri", nl: "een batterij", def: "batteriet" }
-  - { sv: "en loppis", nl: "een rommelmarkt", def: "loppisen" }
-  - { sv: "ett utsläpp", nl: "de uitstoot", def: "utsläppet" }
-  - { sv: "ett kärl", nl: "een container, een bak", def: "kärlet" }
-  - { sv: "ett hushåll", nl: "een huishouden", def: "hushållet" }
-  - { sv: "en kommun", nl: "een gemeente", def: "kommunen" }
+  - { sv: "en miljö", nl: "het milieu, een omgeving", def: "miljön", pl: "miljöer", plDef: "miljöerna" }
+  - { sv: "ett klimat", nl: "het klimaat", def: "klimatet", pl: "klimat", plDef: "klimaten" }
+  - { sv: "en påse", nl: "een zak", def: "påsen", pl: "påsar", plDef: "påsarna" }
+  - { sv: "en burk", nl: "een blik, een pot", def: "burken", pl: "burkar", plDef: "burkarna" }
+  - { sv: "en flaska", nl: "een fles", def: "flaskan", pl: "flaskor", plDef: "flaskorna" }
+  - { sv: "ett batteri", nl: "een batterij", def: "batteriet", pl: "batterier", plDef: "batterierna" }
+  - { sv: "en loppis", nl: "een rommelmarkt", def: "loppisen", pl: "loppisar", plDef: "loppisarna" }
+  - { sv: "ett utsläpp", nl: "de uitstoot", def: "utsläppet", pl: "utsläpp", plDef: "utsläppen" }
+  - { sv: "ett kärl", nl: "een container, een bak", def: "kärlet", pl: "kärl", plDef: "kärlen" }
+  - { sv: "ett hushåll", nl: "een huishouden", def: "hushållet", pl: "hushåll", plDef: "hushållen" }
+  - { sv: "en kommun", nl: "een gemeente", def: "kommunen", pl: "kommuner", plDef: "kommunerna" }
   - { sv: "sopor", nl: "afval, vuilnis" }
   - { sv: "pant", nl: "statiegeld" }
   - { sv: "att sortera", nl: "sorteren, scheiden" }

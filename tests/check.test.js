@@ -162,6 +162,29 @@ describe('woordenlijst: meervoud en voorbeeldzin', async () => {
     expect(gradeText('springer', items[1].gaps[0]).correct).toBe(true);
   });
   it('lange lijsten krijgen rondes', () => expect(byId['woorden-sv-nl'].roundSize).toBe(15));
+  it('tip bij de bepaalde vorm meervoud', () => {
+    const v = [{ sv: 'en bil', nl: 'een auto', def: 'bilen', pl: 'bilar', plDef: 'bilarna' }];
+    const it0 = vocabExercises(v, 1).find((e) => e.id === 'woorden-meervoud').items[0];
+    expect(gradeText('bilarna', it0.gaps[0]).tip).toContain('bepaalde vorm meervoud');
+  });
+  it('haalt alle Nederlandse lidwoorden weg in de opdracht', () => {
+    const v = [{ sv: 'en granne', nl: 'een buurman, een buurvrouw', def: 'grannen', pl: 'grannar' }];
+    const it0 = vocabExercises(v, 1).find((e) => e.id === 'woorden-meervoud').items[0];
+    expect(it0.text).toBe('en granne (buurman, buurvrouw) → meervoud: ___');
+  });
+  it('nl→sv: tip bij de bepaalde vorm, en woorden zonder lidwoord (mass)', () => {
+    const v = [
+      { sv: 'en bil', nl: 'een auto', def: 'bilen' },
+      { sv: 'en feber', nl: 'de koorts', def: 'febern', mass: true },
+    ];
+    const items = vocabExercises(v, 1).find((e) => e.id === 'woorden-nl-sv').items;
+    expect(gradeText('bilen', items[0]).tip).toContain('bepaalde vorm');
+    expect(gradeText('bil', items[0]).tip).toContain('lidwoord');
+    expect(gradeText('febern', items[1]).tip).toContain('bepaalde vorm');
+    expect(gradeText('feber', items[1]).correct).toBe(true);
+    expect(gradeText('en feber', items[1]).correct).toBe(true);
+    expect(items[1].explain).toContain('en-woord');
+  });
   it('voorbeeldzin moet precies één vet stuk hebben', () => {
     expect(exampleGap('Jag **tar** **bussen**.')).toBe(null);
     expect(exampleGap('Geen vet')).toBe(null);

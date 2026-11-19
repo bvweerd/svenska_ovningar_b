@@ -83,7 +83,7 @@ function checkItem(item, where, errors, topics) {
   }
 }
 
-/** Woordenlijst: { sv, nl, def?, pl?, alt?, ex?, exNl? } (zie vocabExercises in build.js). */
+/** Woordenlijst: { sv, nl, def?, pl?, plDef?, mass?, alt?, ex?, exNl? } (zie vocabExercises in build.js). */
 function checkVocab(ch, errors) {
   const seen = new Set();
   (ch.vocab ?? []).forEach((v, i) => {
@@ -99,6 +99,12 @@ function checkVocab(ch, errors) {
       if (!noun) err('pl (meervoud) alleen bij een woord met en/ett');
       if (!pl.length || pl.some((p) => typeof p !== 'string' || !p.trim() || /^(en|ett) /.test(p))) err('pl moet een of meer vormen zonder lidwoord zijn');
     }
+    if (v.plDef !== undefined) {
+      const d = [].concat(v.plDef);
+      if (v.pl === undefined) err('plDef (bepaalde vorm meervoud) alleen samen met pl');
+      if (!d.length || d.some((p) => typeof p !== 'string' || !p.trim() || /^(en|ett) /.test(p))) err('plDef moet een of meer vormen zonder lidwoord zijn');
+    }
+    if (v.mass !== undefined && (v.mass !== true || !noun)) err('mass: true alleen bij een woord met en/ett');
     if (v.ex !== undefined && !exampleGap(v.ex)) err('ex moet precies één **vet** stuk bevatten');
     if (v.ex !== undefined && !v.exNl) err('bij ex hoort exNl (de Nederlandse vertaling)');
     if (v.exNl !== undefined && v.ex === undefined) err('exNl zonder ex');

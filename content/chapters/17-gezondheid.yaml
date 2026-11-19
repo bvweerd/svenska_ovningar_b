@@ -294,17 +294,17 @@ sections:
           - { id: mqf9, type: findError, sentence: "Jag går att ringa läkaren i morgon.", wrong: [1, 2], answers: ["Jag ska ringa läkaren {i morgon|imorgon}.", "Jag tänker ringa läkaren {i morgon|imorgon}."], tip: "Nederlands gaan + infinitief." }
 
 vocab:
-  - { sv: "en vårdcentral", nl: "een huisartsenpraktijk, een gezondheidscentrum", def: "vårdcentralen" }
-  - { sv: "en läkare", nl: "een arts", def: "läkaren" }
-  - { sv: "en sjuksköterska", nl: "een verpleegkundige", def: "sjuksköterskan" }
-  - { sv: "ett apotek", nl: "een apotheek", def: "apoteket" }
-  - { sv: "ett recept", nl: "een recept (van de arts)", def: "receptet" }
-  - { sv: "en remiss", nl: "een verwijzing", def: "remissen" }
-  - { sv: "en feber", nl: "de koorts", def: "febern" }
-  - { sv: "en förkylning", nl: "een verkoudheid", def: "förkylningen" }
-  - { sv: "en spruta", nl: "een injectie, een spuit", def: "sprutan" }
-  - { sv: "ett knä", nl: "een knie", def: "knät" }
-  - { sv: "en behandling", nl: "een behandeling", def: "behandlingen" }
+  - { sv: "en vårdcentral", nl: "een huisartsenpraktijk, een gezondheidscentrum", def: "vårdcentralen", pl: "vårdcentraler", plDef: "vårdcentralerna" }
+  - { sv: "en läkare", nl: "een arts, een dokter", def: "läkaren", pl: "läkare", plDef: "läkarna" }
+  - { sv: "en sjuksköterska", nl: "een verpleegkundige", def: "sjuksköterskan", pl: "sjuksköterskor", plDef: "sjuksköterskorna" }
+  - { sv: "ett apotek", nl: "een apotheek", def: "apoteket", pl: "apotek", plDef: "apoteken" }
+  - { sv: "ett recept", nl: "een recept (van de arts)", def: "receptet", pl: "recept", plDef: "recepten" }
+  - { sv: "en remiss", nl: "een verwijzing", def: "remissen", pl: "remisser", plDef: "remisserna" }
+  - { sv: "en feber", nl: "de koorts", def: "febern", mass: true }
+  - { sv: "en förkylning", nl: "een verkoudheid", def: "förkylningen", pl: "förkylningar", plDef: "förkylningarna" }
+  - { sv: "en spruta", nl: "een injectie, een spuit", def: "sprutan", pl: "sprutor", plDef: "sprutorna" }
+  - { sv: "ett knä", nl: "een knie", def: "knät", pl: "knän", plDef: "knäna" }
+  - { sv: "en behandling", nl: "een behandeling", def: "behandlingen", pl: "behandlingar", plDef: "behandlingarna" }
   - { sv: "yr", nl: "duizelig" }
   - { sv: "svullen", nl: "gezwollen" }
   - { sv: "allvarlig", nl: "ernstig" }

@@ -98,7 +98,7 @@ sections:
               - ["en föreläsning", "een hoorcollege"]
               - ["en uppsats", "een scriptie, werkstuk"]
               - ["ett betyg", "een cijfer, beoordeling"]
-              - ["en examen", "een diploma (einde opleiding)"]
+              - ["en examen", "een afgeronde opleiding, een graad"]
               - ["studiemedel", "studiefinanciering"]
           - id: 36gb
             type: match
@@ -337,18 +337,18 @@ sections:
           - { id: 8mzh, type: findError, sentence: "Hon blev antaget till kursen.", wrong: [2], answers: ["Hon blev antagen till kursen."], tip: "Het onderwerp is hon." }
 
 vocab:
-  - { sv: "en utbildning", nl: "een opleiding", def: "utbildningen" }
-  - { sv: "en kurs", nl: "een cursus", def: "kursen" }
-  - { sv: "en tenta", nl: "een tentamen", def: "tentan" }
-  - { sv: "en föreläsning", nl: "een hoorcollege", def: "föreläsningen" }
-  - { sv: "en uppsats", nl: "een scriptie, een werkstuk", def: "uppsatsen" }
-  - { sv: "ett betyg", nl: "een cijfer, een beoordeling", def: "betyget" }
-  - { sv: "en examen", nl: "een diploma (afsluiting van een opleiding)", def: "examen" }
-  - { sv: "en lärare", nl: "een leraar, een docent", def: "läraren" }
-  - { sv: "en student", nl: "een student", def: "studenten" }
-  - { sv: "ett bibliotek", nl: "een bibliotheek", def: "biblioteket" }
-  - { sv: "en anmälan", nl: "een aanmelding" }
-  - { sv: "en myndighet", nl: "een overheidsinstantie", def: "myndigheten" }
+  - { sv: "en utbildning", nl: "een opleiding", def: "utbildningen", pl: "utbildningar", plDef: "utbildningarna" }
+  - { sv: "en kurs", nl: "een cursus", def: "kursen", pl: "kurser", plDef: "kurserna" }
+  - { sv: "en tenta", nl: "een tentamen", def: "tentan", pl: "tentor", plDef: "tentorna" }
+  - { sv: "en föreläsning", nl: "een hoorcollege", def: "föreläsningen", pl: "föreläsningar", plDef: "föreläsningarna" }
+  - { sv: "en uppsats", nl: "een scriptie, een werkstuk", def: "uppsatsen", pl: "uppsatser", plDef: "uppsatserna" }
+  - { sv: "ett betyg", nl: "een cijfer, een beoordeling", def: "betyget", pl: "betyg", plDef: "betygen" }
+  - { sv: "en examen", nl: "een afgeronde opleiding, een graad", def: "examen" }
+  - { sv: "en lärare", nl: "een leraar, een docent", def: "läraren", pl: "lärare", plDef: "lärarna" }
+  - { sv: "en student", nl: "een student", def: "studenten", pl: "studenter", plDef: "studenterna" }
+  - { sv: "ett bibliotek", nl: "een bibliotheek", def: "biblioteket", pl: "bibliotek", plDef: "biblioteken" }
+  - { sv: "en anmälan", nl: "een aanmelding", pl: "anmälningar", plDef: "anmälningarna" }
+  - { sv: "en myndighet", nl: "een overheidsinstantie", def: "myndigheten", pl: "myndigheter", plDef: "myndigheterna" }
   - { sv: "att plugga", nl: "studeren, blokken" }
   - { sv: "att anmäla sig", nl: "zich aanmelden" }
   - { sv: "att bli antagen", nl: "toegelaten worden" }

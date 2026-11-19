@@ -48,7 +48,7 @@ const STEPS = {
     steps: [
       'Open **Systeeminstellingen → Toegankelijkheid → Lezen en spreken** (tot en met macOS 15 heet dit **Gesproken materiaal**).',
       'Klik op het **ⓘ-knopje** naast **Systeemstem**.',
-      'Kies **Zweeds** en download **Alva**, **Klara** of **Oskar** (een stem met een downloadsymbool wordt eerst gedownload).',
+      'Kies **Zweeds** en download **Alva**, **Klara** of **Oskar** (een stem met een downloadsymbool staat nog niet op je Mac).',
       '**Start de browser opnieuw** en kies hieronder de stem. In Firefox verschijnt een nieuwe stem soms pas na het **herstarten van de Mac**.',
     ],
   },

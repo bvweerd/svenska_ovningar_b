@@ -404,20 +404,20 @@ sections:
           - { id: ywge, type: findError, topic: relativ-som, sentence: "Jobbet som jag sökte det var på heltid.", wrong: [4], answers: ["Jobbet [som ]jag sökte var på heltid."], tip: "Jobbet is al het onderwerp van de hoofdzin: herhaal het niet met det." }
 
 vocab:
-  - { sv: "en arbetsgivare", nl: "een werkgever", def: "arbetsgivaren" }
-  - { sv: "en tjänst", nl: "een functie, een betrekking", def: "tjänsten" }
-  - { sv: "en lön", nl: "een salaris, een loon", def: "lönen" }
-  - { sv: "en erfarenhet", nl: "een ervaring", def: "erfarenheten" }
-  - { sv: "en utbildning", nl: "een opleiding", def: "utbildningen" }
-  - { sv: "en intervju", nl: "een sollicitatiegesprek, een interview", def: "intervjun" }
-  - { sv: "ett krav", nl: "een eis", def: "kravet" }
-  - { sv: "en kollega", nl: "een collega", def: "kollegan" }
-  - { sv: "en chef", nl: "een leidinggevende, een baas", def: "chefen" }
-  - { sv: "ett företag", nl: "een bedrijf", def: "företaget" }
-  - { sv: "ett möte", nl: "een vergadering", def: "mötet" }
-  - { sv: "en ansökan", nl: "een sollicitatie, een aanvraag" }
-  - { sv: "en provanställning", nl: "een proeftijd", def: "provanställningen" }
-  - { sv: "en tillsvidareanställning", nl: "een vaste aanstelling", def: "tillsvidareanställningen" }
+  - { sv: "en arbetsgivare", nl: "een werkgever", def: "arbetsgivaren", pl: "arbetsgivare", plDef: "arbetsgivarna" }
+  - { sv: "en tjänst", nl: "een functie, een betrekking", def: "tjänsten", pl: "tjänster", plDef: "tjänsterna" }
+  - { sv: "en lön", nl: "een salaris, een loon", def: "lönen", pl: "löner", plDef: "lönerna" }
+  - { sv: "en erfarenhet", nl: "een ervaring", def: "erfarenheten", pl: "erfarenheter", plDef: "erfarenheterna" }
+  - { sv: "en utbildning", nl: "een opleiding", def: "utbildningen", pl: "utbildningar", plDef: "utbildningarna" }
+  - { sv: "en intervju", nl: "een sollicitatiegesprek, een interview", def: "intervjun", pl: "intervjuer", plDef: "intervjuerna" }
+  - { sv: "ett krav", nl: "een eis", def: "kravet", pl: "krav", plDef: "kraven" }
+  - { sv: "en kollega", nl: "een collega", def: "kollegan", pl: ["kollegor", "kolleger"], plDef: ["kollegorna", "kollegerna"] }
+  - { sv: "en chef", nl: "een leidinggevende, een baas", def: "chefen", pl: "chefer", plDef: "cheferna" }
+  - { sv: "ett företag", nl: "een bedrijf", def: "företaget", pl: "företag", plDef: "företagen" }
+  - { sv: "ett möte", nl: "een vergadering", def: "mötet", pl: "möten", plDef: "mötena" }
+  - { sv: "en ansökan", nl: "een sollicitatie, een aanvraag", pl: "ansökningar", plDef: "ansökningarna" }
+  - { sv: "en provanställning", nl: "een proeftijd", def: "provanställningen", pl: "provanställningar", plDef: "provanställningarna" }
+  - { sv: "en tillsvidareanställning", nl: "een vaste aanstelling", def: "tillsvidareanställningen", pl: "tillsvidareanställningar", plDef: "tillsvidareanställningarna" }
   - { sv: "att anställa", nl: "aannemen, in dienst nemen" }
   - { sv: "att söka", nl: "solliciteren, zoeken" }
   - { sv: "att trivas", nl: "het naar je zin hebben" }

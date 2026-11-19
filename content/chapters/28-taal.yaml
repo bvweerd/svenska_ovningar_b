@@ -277,15 +277,15 @@ sections:
           - { id: 9hwv, type: findError, topic: idiom, sentence: "Hon hade eld i magen under intervjun.", wrong: [2], answers: ["Hon hade is i magen under intervjun."], tip: "Kalm blijven: … i magen." }
 
 vocab:
-  - { sv: "en dialekt", nl: "een dialect", def: "dialekten" }
-  - { sv: "ett modersmål", nl: "een moedertaal", def: "modersmålet" }
-  - { sv: "ett register", nl: "een register (taalgebruik)", def: "registret" }
-  - { sv: "en förort", nl: "een buitenwijk", def: "förorten" }
-  - { sv: "ett minoritetsspråk", nl: "een minderheidstaal", def: "minoritetsspråket" }
-  - { sv: "ett uttryck", nl: "een uitdrukking", def: "uttrycket" }
-  - { sv: "ett uttal", nl: "een uitspraak", def: "uttalet" }
-  - { sv: "en identitet", nl: "een identiteit", def: "identiteten" }
-  - { sv: "ett meddelande", nl: "een bericht", def: "meddelandet" }
+  - { sv: "en dialekt", nl: "een dialect", def: "dialekten", pl: "dialekter", plDef: "dialekterna" }
+  - { sv: "ett modersmål", nl: "een moedertaal", def: "modersmålet", pl: "modersmål", plDef: "modersmålen" }
+  - { sv: "ett register", nl: "een register (taalgebruik)", def: "registret", pl: "register", plDef: "registren" }
+  - { sv: "en förort", nl: "een buitenwijk", def: "förorten", pl: "förorter", plDef: "förorterna" }
+  - { sv: "ett minoritetsspråk", nl: "een minderheidstaal", def: "minoritetsspråket", pl: "minoritetsspråk", plDef: "minoritetsspråken" }
+  - { sv: "ett uttryck", nl: "een uitdrukking", def: "uttrycket", pl: "uttryck", plDef: "uttrycken" }
+  - { sv: "ett uttal", nl: "een uitspraak", def: "uttalet", pl: "uttal", plDef: "uttalen" }
+  - { sv: "en identitet", nl: "een identiteit", def: "identiteten", pl: "identiteter", plDef: "identiteterna" }
+  - { sv: "ett meddelande", nl: "een bericht", def: "meddelandet", pl: "meddelanden", plDef: "meddelandena" }
   - { sv: "att växla", nl: "wisselen" }
   - { sv: "att behärska", nl: "beheersen" }
   - { sv: "att uttala", nl: "uitspreken" }
