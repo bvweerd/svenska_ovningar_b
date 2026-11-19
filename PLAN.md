@@ -143,6 +143,11 @@ Elke fase eindigt met een meetmoment; pas daarna begint de volgende fase.
 opnames naar een server (alleen de bestaande anonieme tellingen via GoatCounter blijven).
 **De app kijkt na, niet de leerling**: geen zelfbeoordeling; wat de app niet kan nakijken, is
 oefenen zonder oordeel.
+**Buiten het plan: spreken en uitspraak.** Spraakherkenning is niet goed genoeg om uitspraak na te
+kijken en werkt in de browser alleen via een externe dienst, zelf terugluisteren vraagt
+zelfbeoordeling, en er is geen moedertaalspreker voor echte opnames. Spreken en de computerstem
+blijven daarom open punten; fase 1 meldt de computerstem, en de handleiding kan voor spreken een
+docent of taalpartner aanraden.
 
 - [ ] **Fase 1 – snelle verbeteringen**
   - [ ] Eindtoetsen H24 en H30 herformuleren: „Herhaling B1-/B2-grammatica”, met wat 16/20
@@ -169,17 +174,9 @@ oefenen zonder oordeel.
   - [ ] Taken met een doel (situatie + dialoog met keuzes), te beginnen met H2, H6, H11, H17, H22.
   - [ ] H25–H30: een betoog in stappen bouwen (standpunt, argumenten, tegenargument, conclusie),
         elke stap nagekeken; de vrije versie is optioneel.
-- [ ] **Fase 4 – echte opnames**
-  - [ ] H0: ±50 woorden en woordparen ingesproken door een moedertaalspreker (veld `audio`,
-        browserstem als terugval, in de PWA-cache).
-  - Spreken zelf valt bewust buiten het plan: spraakherkenning is niet goed genoeg om uitspraak
-    na te kijken en werkt in de browser alleen via een externe dienst, en zelf beoordelen of
-    terugluisteren past niet bij de spelregels. De handleiding kan een docent of taalpartner aanraden.
 - [ ] **Meten na elke fase** (`npm run stats -- --min 5`): behaalde kan-doen-doelen (fase 1);
       fout/bekeken bij keuzeoefeningen en aandeel vragen in doos 4+ (fase 2); afgemaakte geleide
-      stappen, vrije teksten en leesteksten (fase 3); goed/fout bij de luistervragen in H0, voor en
-      na de echte opnames (fase 4).
+      stappen, vrije teksten en leesteksten (fase 3).
       Na fase 2 ook een gebruikerstest: 3–5 leerlingen doen hardop denkend een hoofdstuk.
 
-Open vragen: wie spreekt de woorden voor H0 in en onder welke licentie; is er een vaste groep
-voor de gebruikerstest.
+Open vraag: is er een vaste groep leerlingen voor de gebruikerstest?
