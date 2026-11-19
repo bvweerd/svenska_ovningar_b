@@ -161,6 +161,33 @@ docent of taalpartner aanraden.
       Gedaan in november 2026: 2–4 uitspraken per hoofdstuk (31 hoofdstukken), afgevinkt bij 80% in
       doos 3 of hoger (`canDoStatus` in `src/progress.js`), getoond op de hoofdstukpagina en bij een
       nieuw behaald doel op het eindscherm.
+- [ ] **Fase 1b – opbouw, volgorde en moeilijkheid** (vóór fase 2). Analyse van november 2026:
+      geen grammatica uit latere hoofdstukken (goed), nieuwe woorden gelijkmatig (55–64), zinnen in
+      leesteksten worden langer (goed). Maar: antwoordzinnen blijven 4–8 woorden van H1 tot H30,
+      leesteksten groeien nauwelijks (A 61–94, B 117–170 woorden; B-plan noemt 300–600), het aantal
+      vragen daalt juist (A 150 → 67, B 91 → 50), Zoek de fout staat in H14–H30 ná de herhaling,
+      herkennen komt in 15 oefeningen na zelf maken, en de woordenschat staat steeds onderaan.
+  - [ ] Vaste volgorde. A-site: woorden (eerste ronde) → per onderwerp herkennen → vorm → kiezen →
+        gemengd (vertalen, zoek de fout) → gebruiken (lezen, dialoog/taak, geleid schrijven) →
+        luisteren → herhaling → overige woordenoefeningen. B-site: Läsa → Ord (met eerste
+        woordenronde) → Grammatik (herkennen → maken → kiezen) → Zoek de fout → Lyssna → Praktiskt →
+        Skriva → Herhaling → overige woordenoefeningen.
+  - [ ] Verplaatsen: Zoek de fout vóór Lyssna (H13–H30); herkennen vóór maken in modaal-vorm (H2),
+        var-vart (H5), seizoenen (H6), biff-kiezen (H10), ligt-of-staat (H11), mer-mest (H12),
+        passiv-of-niet en som-weglaten (H13), vara-of-bli (H14), villkor-sorteren en rad-kiezen
+        (H18), nagon-goed-fout (H20), samband-sorteren (H22), hade-weg en bekend-nieuw (H29), per
+        geval nagekeken; lezen/dialoog/zoek de fout op vaste plek in H1, H4, H6, H9; in H10
+        „För att of eftersom?” direct na „Welk voegwoord?”.
+  - [ ] Eerste woordenoefening vooraan (`build.js`); „Begin/Verder” slaat een oefening in rondes over
+        zodra één ronde gedaan is.
+  - [ ] Test: onderdelen in de vaste volgorde, geen topic uit een later hoofdstuk.
+  - [ ] Moeilijkheidslijn (zaagtand: binnen een hoofdstuk oplopend, oudere stof in de herhaling op
+        het niveau van toen; getallen zijn een eigen richtlijn, A1/A2-grens bij H6/H7 een aanname):
+        H1–H6 (A1) tekst 70–120 woorden, antwoordzin 4–6, ≥ 80 vragen; H7–H12 (A2) 120–200, 6–9,
+        ≥ 80; H13–H24 (B1) 200–350, 8–12, ≥ 70; H25–H30 (B2) 350–500, 10–15, ≥ 70.
+  - [ ] `npm run difficulty-report` (zoals vocab-report) om de lijn te bewaken; aanvullen waar een
+        hoofdstuk eronder zit (vooral H9–H12 en H16–H30); B-herhalingssets naar 10 vragen; taalreview
+        controleert ook „alleen stof uit dit en eerdere hoofdstukken” en de lijn.
 - [ ] **Fase 2 – keuzeoefeningen**: per grammaticaonderwerp één oefening waarin de leerling eerst
       kiest welke vorm past en die dan maakt (8–10 vragen, `shuffle`, tips die de keuze uitleggen,
       één `steps`-vraag met „Waarom?”). Onderwerpen: inversie (H1), subjekt/objekt/possessief (H4),
@@ -172,12 +199,14 @@ docent of taalpartner aanraden.
         (openingszin kiezen, bijzin afmaken, tegenargument ordenen, signaalwoord kiezen). De vrije
         tekst blijft als laatste, optionele stap met voorbeeldantwoord, zonder vinkjes of oordeel;
         de `require`-controle heet voortaan „Hulp”. Stappen voor alle 30 schrijfopdrachten.
-  - [ ] A-site: onderdeel Läsa in H1–H12, tekst van 100–250 woorden met de vaste personages en
-        de stof van het hoofdstuk, 5–8 vragen. Eerst H1–H4, dan meten.
+  - [ ] Langere leesteksten volgens de moeilijkheidslijn: A-site de bestaande tekst per hoofdstuk
+        (nu 61–94 woorden, 6 vragen) met 8–10 vragen; B-site naar 200–350 (B1) en 350–500 (B2).
+        Vaste personages, alleen stof uit dit en eerdere hoofdstukken. Eerst H1–H4 en H13–H16, dan meten.
   - [ ] Taken met een doel (situatie + dialoog met keuzes), te beginnen met H2, H6, H11, H17, H22.
   - [ ] H25–H30: een betoog in stappen bouwen (standpunt, argumenten, tegenargument, conclusie),
         elke stap nagekeken; de vrije versie is optioneel.
 - [ ] **Meten na elke fase** (`npm run stats -- --min 5`): behaalde kan-doen-doelen (fase 1);
+      `difficulty-report` en fout/bekeken per hoofdstuk (fase 1b);
       fout/bekeken bij keuzeoefeningen en aandeel vragen in doos 4+ (fase 2); afgemaakte geleide
       stappen, vrije teksten en leesteksten (fase 3).
       Na fase 2 ook een gebruikerstest: 3–5 leerlingen doen hardop denkend een hoofdstuk.
