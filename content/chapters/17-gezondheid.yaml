@@ -322,7 +322,7 @@ vocab:
   - { sv: "en akutmottagning", nl: "een spoedeisende hulp (in het ziekenhuis)", def: "akutmottagningen", pl: "akutmottagningar", ex: "Vi fick vänta fem timmar på **akutmottagningen**.", exNl: "We moesten vijf uur wachten op de spoedeisende hulp." }
   - { sv: "en fysioterapeut", nl: "een fysiotherapeut", def: "fysioterapeuten", pl: "fysioterapeuter", ex: "Nu ska Ruud träffa en **fysioterapeut** två gånger i veckan.", exNl: "Nu gaat Ruud twee keer per week naar een fysiotherapeut." }
   - { sv: "ett symtom", nl: "een symptoom", def: "symtomet", pl: "symtom", alt: ["ett symptom"], ex: "Vilka **{symtom|symptom}** har du haft de senaste dagarna?", exNl: "Welke symptomen heb je de afgelopen dagen gehad?" }
-  - { sv: "en smärta", nl: "een pijn", def: "smärtan", pl: "smärtor", ex: "Tabletterna tar bort **smärtan** ganska snabbt.", exNl: "De tabletten nemen de pijn vrij snel weg." }
+  - { sv: "en smärta", nl: "de pijn", mass: true, def: "smärtan", pl: "smärtor", ex: "Tabletterna tar bort **smärtan** ganska snabbt.", exNl: "De tabletten nemen de pijn vrij snel weg." }
   - { sv: "ett besvär", nl: "klachten, last (lichamelijk)", def: "besväret", pl: "besvär", ex: "Har du haft de här **besvären** länge?", exNl: "Heb je al lang last van deze klachten?" }
   - { sv: "en vaccination", nl: "een vaccinatie, een inenting", def: "vaccinationen", pl: "vaccinationer", ex: "Har du fått din **vaccination** mot influensa i år?", exNl: "Heb je dit jaar je vaccinatie tegen griep al gehad?" }
   - { sv: "en biverkning", nl: "een bijwerking", def: "biverkningen", pl: "biverkningar", ex: "Den här medicinen kan ge **biverkningar** som huvudvärk.", exNl: "Dit medicijn kan bijwerkingen geven, zoals hoofdpijn." }

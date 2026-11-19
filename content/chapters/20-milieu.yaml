@@ -295,7 +295,7 @@ vocab:
   - { sv: "en flaska", nl: "een fles", def: "flaskan", pl: "flaskor", plDef: "flaskorna", ex: "Hon tog med sig en **flaska** vatten på promenaden.", exNl: "Ze nam een fles water mee op de wandeling." }
   - { sv: "ett batteri", nl: "een batterij", def: "batteriet", pl: "batterier", plDef: "batterierna", ex: "Gamla **batterier** får man inte slänga bland soporna.", exNl: "Oude batterijen mag je niet bij het afval gooien." }
   - { sv: "en loppis", nl: "een rommelmarkt", def: "loppisen", pl: "loppisar", plDef: "loppisarna", ex: "Jag köpte soffan på en **loppis** för 300 kronor.", exNl: "Ik kocht de bank voor 300 kronen op een rommelmarkt." }
-  - { sv: "ett utsläpp", nl: "een uitstoot, een emissie", def: "utsläppet", pl: "utsläpp", plDef: "utsläppen", ex: "Vi måste minska **{utsläppen|utsläppet}** av koldioxid.", exNl: "We moeten de uitstoot van CO2 verminderen." }
+  - { sv: "ett utsläpp", nl: "een emissie, uitstoot", def: "utsläppet", pl: "utsläpp", plDef: "utsläppen", ex: "Vi måste minska **{utsläppen|utsläppet}** av koldioxid.", exNl: "We moeten de uitstoot van CO2 verminderen." }
   - { sv: "ett kärl", nl: "een container, een bak", def: "kärlet", pl: "kärl", plDef: "kärlen", ex: "Matavfallet lägger man i det bruna **kärlet**.", exNl: "Etensresten gooi je in de bruine bak." }
   - { sv: "ett hushåll", nl: "een huishouden", def: "hushållet", pl: "hushåll", plDef: "hushållen", ex: "Varje **hushåll** får en ny soptunna.", exNl: "Elk huishouden krijgt een nieuwe vuilnisbak." }
   - { sv: "en kommun", nl: "een gemeente", def: "kommunen", pl: "kommuner", plDef: "kommunerna", ex: "**Kommunen** hämtar soporna varannan vecka.", exNl: "De gemeente haalt het afval om de week op." }
