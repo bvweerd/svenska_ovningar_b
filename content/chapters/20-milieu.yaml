@@ -150,6 +150,59 @@ sections:
           - { id: medb, type: transform, prompt: "Jag känner någon i Umeå.", answers: ["Jag känner ingen i Umeå.", "Jag känner inte någon i Umeå."] }
           - { id: brqb, type: transform, prompt: "Vi har köpt några presenter.", answers: ["Vi har inte köpt några presenter."], feedback: [{ match: "Vi har köpt inga presenter.", tip: "Bij har + supinum: inte … några." }] }
 
+      - id: nagon-ingen-kiezen-maken
+        title: Ingen of inte någon? Kies en vertaal
+        instruction: Kies eerst welke vorm past. Vertaal daarna de zin.
+        topic: nagon-ingen
+        shuffle: true
+        items:
+          - id: gav8
+            type: steps
+            steps:
+              - { type: mc, prompt: "We hebben geen auto, dus we fietsen naar het inzamelpunt. Welke vorm?", options: ["ingen / inget / inga kan hier", "het moet inte … någon / något / några zijn", "någon / något / några (geen ontkenning)"], answer: 0, shuffle: false, tip: "har is één werkwoord in een hoofdzin: ingen staat op de plek van inte. Vi har ingen bil (inte någon bil kan ook)." }
+              - { type: translate, prompt: "Vertaal: We hebben geen auto, dus we fietsen naar het inzamelpunt.", answers: ["Vi har {ingen|inte någon} bil, {så vi cyklar|så cyklar vi|därför cyklar vi} till {återvinningsstationen|återvinningscentralen}."], feedback: [{ contains: "inte en bil", tip: "Geen + en-woord: ingen bil (of inte någon bil)." }, { contains: "inget bil", tip: "bil is een en-woord: ingen bil." }] }
+          - id: zurr
+            type: steps
+            steps:
+              - { type: mc, prompt: "Niemand in ons gebouw scheidt het plastic op de goede manier. Welke vorm?", options: ["ingen / inget / inga kan hier", "het moet inte … någon / något / några zijn", "någon / något / några (geen ontkenning)"], answer: 0, shuffle: false, tip: "Niemand is hier het onderwerp, vooraan in de zin: dan kan ingen altijd." }
+              - { type: translate, prompt: "Vertaal: Niemand in ons gebouw scheidt het plastic op de goede manier.", answers: ["Ingen i {vårt hus|huset|vårt hyreshus|vår byggnad|byggnaden} {sorterar|källsorterar} {plasten|plast} {på rätt sätt|rätt|ordentligt}."], feedback: [{ contains: "inget i", tip: "Niemand (een persoon) = ingen. inget = niets." }, { contains: ["plastet", "sitt plast"], tip: "plast is een en-woord: plasten." }] }
+          - id: p2aj
+            type: steps
+            steps:
+              - { type: mc, prompt: "De gemeente heeft dit jaar geen geld voor nieuwe zonnepanelen. Welke vorm?", options: ["ingen / inget / inga kan hier", "het moet inte … någon / något / några zijn", "någon / något / några (geen ontkenning)"], answer: 0, shuffle: false, tip: "har is één werkwoord in een hoofdzin: inga kan hier. pengar is meervoud, dus inga (niet ingen)." }
+              - { type: translate, prompt: "Vertaal: De gemeente heeft dit jaar geen geld voor nieuwe zonnepanelen.", answers: ["Kommunen har {inga|inte några} pengar {till|för} nya {solceller|solpaneler} i år.", "I år har kommunen {inga|inte några} pengar {till|för} nya {solceller|solpaneler}."], feedback: [{ contains: ["ingen pengar", "inget pengar", "inte någon pengar", "inte något pengar"], tip: "pengar is meervoud: inga pengar (of inte några pengar)." }, { contains: "i år kommunen", tip: "Na I år vooraan komt eerst het werkwoord: I år har kommunen." }] }
+          - id: fk2y
+            type: steps
+            steps:
+              - { type: mc, prompt: "Ik heb deze week niets weggegooid. Welke vorm?", options: ["ingen / inget / inga kan hier", "het moet inte … någon / något / några zijn", "någon / något / några (geen ontkenning)"], answer: 1, shuffle: false, tip: "har + supinum (har slängt): ingenting kan hier niet, dus inte … något." }
+              - { type: mc, prompt: "**Waarom?** Waarom niet *Jag har slängt ingenting*?", options: ["ingen/inget kan alleen staan waar inte zou staan, en bij har + supinum staat inte vóór slängt.", "ingenting bestaat niet in het Zweeds.", "Na har moet het woord något altijd volgen."], answer: 0, tip: "Kijk waar inte zou staan: Jag har inte slängt. Het lijdend voorwerp komt pas na slängt, dus het wordt inte … något: Jag har inte slängt något." }
+              - { type: translate, prompt: "Vertaal: Ik heb deze week niets weggegooid.", answers: ["Jag har inte {slängt|kastat} {något|någonting} {den här veckan|denna vecka|i veckan}.", "{Den här veckan|Denna vecka|I veckan} har jag inte {slängt|kastat} {något|någonting}."], feedback: [{ contains: ["slängt ingenting", "slängt inget", "kastat ingenting", "kastat inget"], tip: "Bij har + supinum: inte … något. Jag har inte slängt något." }, { contains: ["har ingenting slängt", "har inget slängt"], tip: "Gebruik inte … något: Jag har inte slängt något." }] }
+          - id: 3dnz
+            type: steps
+            steps:
+              - { type: mc, prompt: "We kunnen dit jaar geen elektrische auto kopen. Welke vorm?", options: ["ingen / inget / inga kan hier", "het moet inte … någon / något / några zijn", "någon / något / några (geen ontkenning)"], answer: 1, shuffle: false, tip: "Met een hulpwerkwoord (kan köpa) staat inte na kan en het voorwerp pas na köpa: inte … någon." }
+              - { type: translate, prompt: "Vertaal: We kunnen dit jaar geen elektrische auto kopen.", answers: ["Vi kan inte köpa {någon|en} {elbil|elektrisk bil} i år.", "I år kan vi inte köpa {någon|en} {elbil|elektrisk bil}."], feedback: [{ contains: ["köpa ingen", "kan ingen"], tip: "Na een hulpwerkwoord: inte … någon. Vi kan inte köpa någon elbil." }, { contains: "något elbil", tip: "elbil is een en-woord: någon elbil." }] }
+          - id: cd8a
+            type: steps
+            steps:
+              - { type: mc, prompt: "Bas zegt dat hij geen plastic tassen meer koopt. Welke vorm?", options: ["ingen / inget / inga kan hier", "het moet inte … någon / något / några zijn", "någon / något / några (geen ontkenning)"], answer: 1, shuffle: false, tip: "Het staat in een bijzin (att han …): daar gebruik je inte … några." }
+              - { type: translate, prompt: "Vertaal: Bas zegt dat hij geen plastic tassen meer koopt.", answers: ["Bas säger att han inte köper [några ]{plastpåsar|plastkassar} längre.", "Bas säger att han inte längre köper [några ]{plastpåsar|plastkassar}."], feedback: [{ contains: ["han köper inga", "han inte köper inga"], tip: "In een bijzin: inte … några. att han inte köper några plastpåsar." }, { contains: "han köper inte", tip: "In een bijzin staat inte vóór het werkwoord: att han inte köper." }, { contains: ["någon plastpåsar", "något plastpåsar"], tip: "plastpåsar is meervoud: några." }] }
+          - id: 329c
+            type: steps
+            steps:
+              - { type: mc, prompt: "Op het feest praatte Femke met niemand over het klimaat. Welke vorm?", options: ["ingen / inget / inga kan hier", "het moet inte … någon / något / några zijn", "någon / något / några (geen ontkenning)"], answer: 1, shuffle: false, tip: "Na een voorzetsel (med) kan ingen niet: pratade inte med någon." }
+              - { type: translate, prompt: "Vertaal: Op het feest praatte Femke met niemand over het klimaat.", answers: ["På festen {pratade|talade} Femke inte {med någon om klimatet|om klimatet med någon}.", "Femke {pratade|talade} inte {med någon om klimatet|om klimatet med någon} på festen."], feedback: [{ contains: "med ingen", tip: "Na een voorzetsel: inte … någon. Femke pratade inte med någon." }, { contains: "på festen femke", tip: "Na På festen vooraan komt eerst het werkwoord: På festen pratade Femke." }, { contains: "över klimatet", tip: "Praten over = prata om." }] }
+          - id: e6cm
+            type: steps
+            steps:
+              - { type: mc, prompt: "Weet je of er hier ergens een inzamelpunt is? Welke vorm?", options: ["ingen / inget / inga kan hier", "het moet inte … någon / något / några zijn", "någon / något / några (geen ontkenning)"], answer: 2, shuffle: false, tip: "Er is geen ontkenning: je vraagt of er een is. Dan någon (of gewoon en)." }
+              - { type: translate, prompt: "Vertaal: Weet je of er hier ergens een inzamelpunt is?", answers: ["Vet du om det finns {någon|en} {återvinningsstation|återvinningscentral} {här någonstans|någonstans här}?"], feedback: [{ contains: ["ingen återvinningsstation", "ingen återvinningscentral"], tip: "Er staat geen ontkenning in de zin: någon (of en)." }, { contains: ["något återvinningsstation", "något återvinningscentral"], tip: "återvinningsstation is een en-woord: någon." }, { contains: "om finns det", tip: "In een bijzin met om blijft de volgorde onderwerp – werkwoord: om det finns." }] }
+          - id: wsq7
+            type: steps
+            steps:
+              - { type: mc, prompt: "Hebben jullie oude kleren die jullie naar de rommelmarkt kunnen brengen? Welke vorm?", options: ["ingen / inget / inga kan hier", "het moet inte … någon / något / några zijn", "någon / något / några (geen ontkenning)"], answer: 2, shuffle: false, tip: "Een gewone vraag zonder ontkenning: några (kläder is meervoud)." }
+              - { type: translate, prompt: "Vertaal: Hebben jullie oude kleren die jullie naar de rommelmarkt kunnen brengen?", answers: ["Har ni några gamla kläder som ni kan {ta med|ta|lämna|skänka|ge} till loppisen?", "Har ni gamla kläder som ni kan {ta med|ta|lämna|skänka|ge} till loppisen?"], feedback: [{ contains: ["någon gamla", "något gamla"], tip: "kläder is meervoud: några gamla kläder." }, { contains: "inga gamla", tip: "Er staat geen ontkenning in de vraag: några." }] }
+
   - id: man
     title: "Grammatik: man, en, ens"
     exercises:

@@ -16,9 +16,9 @@ Nederlands; de interface en de uitleg zijn Nederlands, commitberichten Engels.
 **`PLAN.md`, onderdeel „Verbeterplan didactiek”** is de bron van waarheid. Dat onderdeel is in beide
 repo's gelijk: pas het in één repo aan en kopieer het hele onderdeel naar de andere.
 
-- Fase 1 en 1b zijn klaar (kan-doen-uitspraken, eindtoetsen herschreven, melding computerstem; vaste
-  volgorde per hoofdstuk, moeilijkheidslijn, `npm run difficulty-report`).
-- **Volgende stap: fase 2** (keuzeoefeningen), daarna fase 3 (geleid schrijven, langere leesteksten,
+- Fase 1, 1b en 2 zijn klaar (kan-doen-uitspraken, eindtoetsen herschreven, melding computerstem; vaste
+  volgorde per hoofdstuk, moeilijkheidslijn, `npm run difficulty-report`; keuzeoefeningen „Kies en …”).
+- **Volgende stap: fase 3** (geleid schrijven, langere leesteksten,
   taken en betogen). Vul daarbij aan tot de moeilijkheidslijn: `difficulty-report` markeert met `!` waar
   een hoofdstuk eronder zit.
 - Nieuwe oefeningen komen op de plek die de vaste volgorde voorschrijft (README, „Volgorde in een

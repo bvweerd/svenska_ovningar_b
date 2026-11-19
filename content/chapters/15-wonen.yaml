@@ -198,6 +198,59 @@ sections:
           - { id: g28s, type: transform, prompt: "Där är affären. Vi ska gå dit.", answers: ["Där är affären dit vi ska gå.", "Där är affären [som ]vi ska gå till."] }
           - { id: fg76, type: transform, prompt: "Jag har en granne. Grannens bil står alltid på min plats.", answers: ["Jag har en granne vars bil alltid står på min plats."], feedback: [{ contains: "vars bil står alltid", tip: "In de bijzin staat alltid vóór het werkwoord." }, { contains: "vars bilen", tip: "Na vars staat het woord onbepaald: vars bil." }] }
 
+      - id: dar-dit-vars-kiezen-maken
+        title: Där, dit, vars of när? Kies en maak
+        instruction: Kies eerst welk woord de bijzin begint. Maak daarna de zin zelf.
+        topic: dar-dit-vars
+        shuffle: true
+        items:
+          - id: snjs
+            type: steps
+            steps:
+              - { type: mc, prompt: "Ik woon in een huurflat waar alle huurders één wasruimte delen. Welk woord begint de bijzin?", options: ["där (plaats)", "dit (richting)", "vars (bezit)", "när (tijd)"], answer: 0, shuffle: false, tip: "De huurders zijn op die plek, er is geen beweging naartoe: där." }
+              - { type: translate, prompt: "Vertaal: Ik woon in een huurflat waar alle huurders één wasruimte delen.", answers: ["Jag bor i ett hyreshus där alla hyresgäster delar[ på] en [gemensam ]tvättstuga."], feedback: [{ contains: "dit alla", tip: "Delen is geen beweging naar een plek: där." }, { contains: "där delar", tip: "In de bijzin komt het onderwerp direct na där: där alla hyresgäster delar." }] }
+          - id: q875
+            type: steps
+            steps:
+              - { type: mc, prompt: "Uppsala is de stad waar Lotte na haar opleiding naartoe wil verhuizen. Welk woord begint de bijzin?", options: ["där (plaats)", "dit (richting)", "vars (bezit)", "när (tijd)"], answer: 1, shuffle: false, tip: "Verhuizen naar een plek is een beweging: dit (waarheen)." }
+              - { type: mc, prompt: "**Waarom?** Waarom *dit* en niet *där*, terwijl het Nederlands gewoon *waar* zegt?", options: ["Verhuizen is een beweging naar die plek toe.", "Bij namen van steden gebruik je altijd dit.", "Na *staden* volgt altijd dit."], answer: 0, tip: "dit = waarheen, net als hit en hem. Woont Lotte er al (bo), dan is het där: staden där Lotte bor." }
+              - { type: translate, prompt: "Vertaal: Uppsala is de stad waar Lotte na haar opleiding naartoe wil verhuizen.", answers: ["Uppsala är staden dit Lotte vill flytta efter {sin utbildning|utbildningen}.", "Uppsala är staden [som ]Lotte vill flytta till efter {sin utbildning|utbildningen}."], feedback: [{ contains: "där lotte", tip: "flytta is een beweging naartoe: dit." }, { contains: "hennes utbildning", tip: "De opleiding is van Lotte zelf, het onderwerp van de bijzin: sin utbildning." }] }
+          - id: zdmz
+            type: steps
+            steps:
+              - { type: mc, prompt: "Ik ga naar Gotland, waar mijn ouders vorig jaar naartoe zijn verhuisd. Welk woord begint de bijzin?", options: ["där (plaats)", "dit (richting)", "vars (bezit)", "när (tijd)"], answer: 1, shuffle: false, tip: "De ouders zijn naar Gotland verhuisd: een beweging, dus dit." }
+              - { type: translate, prompt: "Vertaal: Ik ga naar Gotland, waar mijn ouders vorig jaar naartoe zijn verhuisd.", answers: ["Jag {ska åka|åker|ska|ska resa|reser} till Gotland, dit mina föräldrar flyttade {förra året|i fjol}.", "Jag {ska åka|åker|ska|ska resa|reser} till Gotland, som mina föräldrar flyttade till {förra året|i fjol}."], feedback: [{ contains: "där mina föräldrar", tip: "flytta is een beweging naartoe: dit." }, { contains: "dit flyttade", tip: "In de bijzin komt het onderwerp direct na dit: dit mina föräldrar flyttade." }, { contains: "har flyttat", tip: "Er staat een tijdstip in het verleden bij (förra året): preteritum, flyttade." }] }
+          - id: rjkb
+            type: steps
+            steps:
+              - { type: mc, prompt: "De kelder waar we de oude meubels naartoe hebben gebracht, is vochtig. Welk woord begint de bijzin?", options: ["där (plaats)", "dit (richting)", "vars (bezit)", "när (tijd)"], answer: 1, shuffle: false, tip: "De meubels zijn naar de kelder gebracht: een beweging, dus dit." }
+              - { type: translate, prompt: "Vertaal: De kelder waar we de oude meubels naartoe hebben gebracht, is vochtig.", answers: ["Källaren dit vi {har burit|har flyttat|har tagit|bar|flyttade|tog}[ ner] de gamla möblerna är fuktig.", "Källaren [som ]vi {har burit|har flyttat|har tagit|bar|flyttade|tog}[ ner] de gamla möblerna till är fuktig."], feedback: [{ contains: "där vi har", tip: "Iets naar de kelder brengen is een beweging: dit." }, { contains: "möblerna ner", tip: "Het partikel komt vóór het lijdend voorwerp: burit ner de gamla möblerna." }] }
+          - id: 9vq2
+            type: steps
+            steps:
+              - { type: mc, prompt: "Ken je het café waar Femke en Ingrid elke zaterdag koffie drinken? Welk woord begint de bijzin?", options: ["där (plaats)", "dit (richting)", "vars (bezit)", "när (tijd)"], answer: 0, shuffle: false, tip: "Ze zitten in het café, er is geen beweging naartoe: där." }
+              - { type: translate, prompt: "Vertaal: Ken je het café waar Femke en Ingrid elke zaterdag koffie drinken?", answers: ["Känner du [till ]{kaféet|caféet|fiket} där Femke och Ingrid {fikar|dricker kaffe|brukar fika|brukar dricka kaffe} {på lördagarna|på lördagar|varje lördag}?"], feedback: [{ contains: "dit femke", tip: "Koffie drinken is geen beweging: där." }, { contains: "där fikar", tip: "In de bijzin komt het onderwerp direct na där: där Femke och Ingrid fikar." }] }
+          - id: aydv
+            type: steps
+            steps:
+              - { type: mc, prompt: "Maak één zin: *Linnea har en hyresvärd. Hans telefon är alltid avstängd.* Welk woord begint de bijzin?", options: ["där (plaats)", "dit (richting)", "vars (bezit)", "när (tijd)"], answer: 2, shuffle: false, tip: "Het gaat om de telefoon ván de verhuurder (hans telefon): vars." }
+              - { type: transform, prompt: "Maak één zin: Linnea har en hyresvärd. Hans telefon är alltid avstängd.", answers: ["Linnea har en hyresvärd vars telefon alltid är avstängd."], feedback: [{ contains: "vars telefonen", tip: "Na vars staat het woord onbepaald: vars telefon." }, { contains: "vars telefon är alltid", tip: "In de bijzin staat alltid vóór het werkwoord: vars telefon alltid är avstängd." }, { contains: "som hans telefon", tip: "som + hans wordt in één woord vars: vars telefon." }] }
+          - id: setz
+            type: steps
+            steps:
+              - { type: mc, prompt: "Wij huren het huis van een gezin waarvan de kinderen in Amerika wonen. Welk woord begint de bijzin?", options: ["där (plaats)", "dit (richting)", "vars (bezit)", "när (tijd)"], answer: 2, shuffle: false, tip: "waarvan de kinderen = de kinderen van dat gezin: vars." }
+              - { type: translate, prompt: "Vertaal: Wij huren het huis van een gezin waarvan de kinderen in Amerika wonen.", answers: ["Vi hyr huset {av|från} en familj vars barn bor i {USA|Amerika}."], feedback: [{ contains: "vars barnen", tip: "Na vars staat het woord onbepaald: vars barn." }] }
+          - id: vfzw
+            type: steps
+            steps:
+              - { type: mc, prompt: "Maak één zin met *dagen*: *Jag minns dagen. Den dagen fick vi nycklarna till lägenheten.* Welk woord begint de bijzin?", options: ["där (plaats)", "dit (richting)", "vars (bezit)", "när (tijd)"], answer: 3, shuffle: false, tip: "dagen is een tijd: när (of då)." }
+              - { type: transform, prompt: "Maak één zin met *dagen*: Jag minns dagen. Den dagen fick vi nycklarna till lägenheten.", answers: ["Jag minns [den ]dagen {när|då} vi fick nycklarna till lägenheten."], feedback: [{ contains: "där vi fick", tip: "Het gaat om een tijd (dagen), niet om een plaats: när." }, { contains: "när fick vi", tip: "In de bijzin komt het onderwerp direct na när: när vi fick." }] }
+          - id: q9sr
+            type: steps
+            steps:
+              - { type: mc, prompt: "Ik was ziek in de week dat we naar het nieuwe appartement verhuisden. Welk woord begint de bijzin?", options: ["där (plaats)", "dit (richting)", "vars (bezit)", "när (tijd)"], answer: 3, shuffle: false, tip: "de week is een tijd: när. Dat er een verhuizing in zit, maakt het geen dit: de bijzin hoort bij veckan." }
+              - { type: translate, prompt: "Vertaal: Ik was ziek in de week dat we naar het nieuwe appartement verhuisden.", answers: ["Jag var sjuk {den veckan|veckan|under den veckan|under veckan} {när |då |}vi flyttade {till|in i} den nya lägenheten."], feedback: [{ contains: "dit vi flyttade", tip: "De bijzin zegt wannéér: bij veckan hoort när, ook al gaat het om een verhuizing." }, { contains: "där vi flyttade", tip: "Het gaat om een tijd (veckan), niet om een plaats: när." }] }
+
   - id: zoek-de-fout
     title: Zoek de fout
     exercises:

@@ -195,12 +195,19 @@ docent of taalpartner aanraden.
       verschijnt nu pas vanaf het hoofdstuk met die uitleg; B-herhalingssets van 6 naar 10 vragen
       (60 nieuwe vragen, na taalreview). Aanvullen tot de lijn (meer vragen, langere zinnen en teksten)
       loopt mee in fase 2 en 3; `npm run difficulty-report` laat zien waar.
-- [ ] **Fase 2 – keuzeoefeningen**: per grammaticaonderwerp één oefening waarin de leerling eerst
+- [x] **Fase 2 – keuzeoefeningen**: per grammaticaonderwerp één oefening waarin de leerling eerst
       kiest welke vorm past en die dan maakt (8–10 vragen, `shuffle`, tips die de keuze uitleggen,
       één `steps`-vraag met „Waarom?”). Onderwerpen: inversie (H1), subjekt/objekt/possessief (H4),
       preteritum/perfekt en hemma/hem (H5), om/för … sedan/i (H6), tycka/tro/tänka (H8),
       sin/hans (H10), ligger/står/sitter (H11), adjectiefvormen (H12), där/dit/vars (H15),
       ska/kommer att/tänker (H17), någon/ingen (H20).
+      Gedaan in november 2026: 12 oefeningen „… Kies en vertaal/maak” (108 vragen), telkens eerst
+      een keuze (mc) en dan zelf maken (vertalen of omzetten), met één „Waarom?”-stap per oefening;
+      inversie, voornaamwoorden (H3/H4), tijd en plaats/richting (H5) enz. als in de lijst hierboven.
+      Taalreview door aparte reviewers: vooral ontbrekende goede varianten, dubbele zinnen en woorden
+      uit latere hoofdstukken verbeterd. Let op: feedbackregels worden vóór het verplaatsen van een
+      tijdsbepaling getoetst; een `contains`-regel mag dus geen goede volgorde-variant raken.
+      `difficulty-report` werkt nu ook op Windows.
 - [ ] **Fase 3 – schrijven, lezen en taken**
   - [ ] Geleid schrijven: elke schrijfopdracht voorafgaan door 3–5 stappen die de app nakijkt
         (openingszin kiezen, bijzin afmaken, tegenargument ordenen, signaalwoord kiezen). De vrije

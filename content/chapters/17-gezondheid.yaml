@@ -169,6 +169,59 @@ sections:
           - { id: dyqw, type: translate, prompt: "Over een week krijg je de uitslag.", answers: ["Du {kommer att få|kommer få|får} {svaret|resultatet|provsvaret} om en vecka.", "Om en vecka {kommer du att få|kommer du få|får du} {svaret|resultatet|provsvaret}."], feedback: [{ contains: "i en vecka", tip: "Over een week (in de toekomst) = om en vecka." }] }
           - { id: 54p7, type: translate, prompt: "Volgend jaar verhuizen we. (Dat hebben we besloten.)", answers: ["Vi ska flytta nästa år.", "Nästa år ska vi flytta.", "Vi flyttar nästa år.", "Nästa år flyttar vi."], feedback: [{ contains: "nästa år vi", tip: "Na Nästa år vooraan komt eerst het werkwoord." }] }
 
+      - id: framtid-kiezen-maken
+        title: Plan of voorspelling? Kies en vertaal
+        instruction: Kies eerst welke vorm voor de toekomst past. Vertaal daarna de zin.
+        topic: framtid
+        shuffle: true
+        items:
+          - id: wqfy
+            type: steps
+            steps:
+              - { type: mc, prompt: "Na de operatie ga je je veel beter voelen. Welke vorm past het best?", options: ["ska (plan, afspraak)", "kommer att (voorspelling)", "tänker (eigen besluit)", "presens (vaste tijd)"], answer: 1, shuffle: false, tip: "Niemand kan beslissen dat je je beter voelt: het is een voorspelling, dus kommer att." }
+              - { type: mc, prompt: "**Waarom?** Waarom *kommer att* en niet *ska*?", options: ["Je beter voelen gaat vanzelf; niemand kan het beslissen.", "Na *operationen* volgt altijd kommer att.", "ska kan niet met *du* als onderwerp."], answer: 0, tip: "De test uit de uitleg: kan iemand het beslissen? Dan ska. Gaat het vanzelf, zoals gevoelens en gezondheid? Dan kommer att. Du ska må bättre klinkt als een opdracht." }
+              - { type: translate, prompt: "Vertaal: Na de operatie ga je je veel beter voelen.", answers: ["Efter operationen kommer du[ att] {må|känna dig} mycket bättre.", "Du kommer[ att] {må|känna dig} mycket bättre efter operationen."], feedback: [{ contains: ["du ska må", "ska du må", "du ska känna", "ska du känna"], tip: "Beter voelen kun je niet beslissen: een voorspelling is kommer att." }, { contains: ["går du att", "du går att", "går du må"], tip: "Nederlands gaan + infinitief is geen gå in het Zweeds: gebruik kommer att." }] }
+          - id: pk65
+            type: steps
+            steps:
+              - { type: mc, prompt: "Ik denk dat de wachttijd bij de huisartsenpraktijk lang zal zijn. Welke vorm past het best?", options: ["ska (plan, afspraak)", "kommer att (voorspelling)", "tänker (eigen besluit)", "presens (vaste tijd)"], answer: 1, shuffle: false, tip: "Ik denk dat … is een verwachting over iets waar je niet over beslist: kommer att." }
+              - { type: translate, prompt: "Vertaal: Ik denk dat de wachttijd bij de huisartsenpraktijk lang zal zijn.", answers: ["Jag tror att väntetiden {på|hos|vid} vårdcentralen {kommer att bli|kommer bli|kommer att vara|kommer vara|blir} lång.", "Jag tror att det {kommer att bli|kommer bli|kommer att vara|kommer vara|blir} lång väntetid {på|hos|vid} vårdcentralen."], feedback: [{ contains: ["ska bli", "ska vara"], tip: "Een verwachting (Jag tror att): kommer att." }, { contains: "jag tänker att", tip: "Denken dat (een mening, verwachting) = tro att." }] }
+          - id: 9yg5
+            type: steps
+            steps:
+              - { type: mc, prompt: "Het zal een tijdje duren voordat je knie weer helemaal goed is. Welke vorm past het best?", options: ["ska (plan, afspraak)", "kommer att (voorspelling)", "tänker (eigen besluit)", "presens (vaste tijd)"], answer: 1, shuffle: false, tip: "Hoe lang genezen duurt, beslist niemand: kommer att." }
+              - { type: translate, prompt: "Vertaal: Het zal een tijdje duren voordat je knie weer helemaal goed is.", answers: ["Det kommer[ att] ta {ett tag|en stund|tid|lite tid} innan {knät|ditt knä} {är|blir} helt bra igen.", "Det tar {ett tag|en stund|tid|lite tid} innan {knät|ditt knä} {är|blir} helt bra igen."], feedback: [{ contains: "det ska ta", tip: "Hoe lang het duurt, beslist niemand: kommer att." }, { contains: ["ditt knät", "din knä"], tip: "knä is een ett-woord: ditt knä, of gewoon knät." }] }
+          - id: 5fyr
+            type: steps
+            steps:
+              - { type: mc, prompt: "Erik en ik gaan zaterdag samen hardlopen. (Dat hebben we afgesproken.) Welke vorm?", options: ["ska (plan, afspraak)", "kommer att (voorspelling)", "tänker (eigen besluit)", "presens (vaste tijd)"], answer: 0, shuffle: false, tip: "Een afspraak die je samen gemaakt hebt: ska." }
+              - { type: translate, prompt: "Vertaal: Erik en ik gaan zaterdag samen hardlopen.", answers: ["{Erik och jag|Jag och Erik} ska {springa|jogga} tillsammans på lördag.", "På lördag ska {Erik och jag|jag och Erik} {springa|jogga} tillsammans.", "{Erik och jag|Jag och Erik} {springer|joggar} tillsammans på lördag.", "På lördag {springer|joggar} {Erik och jag|jag och Erik} tillsammans."], feedback: [{ contains: ["kommer att springa", "kommer springa", "kommer att jogga"], tip: "Een afspraak is geen voorspelling: ska." }, { contains: ["går att springa", "går springa", "går och springa"], tip: "Nederlands gaan + infinitief is geen gå in het Zweeds: gebruik ska." }] }
+          - id: kwx3
+            type: steps
+            steps:
+              - { type: mc, prompt: "Lotte gaat volgende week haar medicijnen ophalen bij de apotheek. (Dat is haar plan.) Welke vorm?", options: ["ska (plan, afspraak)", "kommer att (voorspelling)", "tänker (eigen besluit)", "presens (vaste tijd)"], answer: 0, shuffle: false, tip: "Een plan, iets wat Lotte zelf regelt: ska." }
+              - { type: translate, prompt: "Vertaal: Lotte gaat volgende week haar medicijnen ophalen bij de apotheek.", answers: ["Lotte ska hämta[ ut] {sin medicin|sina mediciner|medicinen|medicinerna|sina läkemedel} {på|från} apoteket nästa vecka.", "Nästa vecka ska Lotte hämta[ ut] {sin medicin|sina mediciner|medicinen|medicinerna|sina läkemedel} {på|från} apoteket.", "Lotte hämtar[ ut] {sin medicin|sina mediciner|medicinen|medicinerna|sina läkemedel} {på|från} apoteket nästa vecka."], feedback: [{ contains: ["hennes medicin", "hennes mediciner"], tip: "De medicijnen zijn van Lotte zelf, het onderwerp: sin medicin." }, { contains: ["kommer att hämta", "kommer hämta"], tip: "Een plan is geen voorspelling: ska." }, { contains: "nästa vecka lotte", tip: "Na Nästa vecka vooraan komt eerst het werkwoord: Nästa vecka ska Lotte." }] }
+          - id: j4hk
+            type: steps
+            steps:
+              - { type: mc, prompt: "Mijn vrienden lachen erom, maar ik heb het zelf besloten: dit jaar ga ik elke dag bewegen. Welke vorm past het best?", options: ["ska (plan, afspraak)", "kommer att (voorspelling)", "tänker (eigen besluit)", "presens (vaste tijd)"], answer: 2, shuffle: false, tip: "Een eigen, vast besluit, wat anderen ook vinden: tänker. (ska kan ook, maar tänker zegt duidelijker dat het jouw besluit is.)" }
+              - { type: translate, prompt: "Vertaal: Dit jaar ga ik elke dag bewegen. (Dat heb ik zelf besloten.)", answers: ["I år {tänker jag|ska jag|har jag tänkt} {röra på mig|motionera} varje dag.", "Jag {tänker|ska|har tänkt} {röra på mig|motionera} varje dag i år."], feedback: [{ contains: ["kommer att röra", "kommer röra", "kommer att motionera", "kommer motionera"], tip: "Een eigen besluit is geen voorspelling: tänker (of ska)." }, { contains: "röra mig på", tip: "Het partikel komt direct na het werkwoord: röra på mig." }, { contains: "i år jag", tip: "Na I år vooraan komt eerst het werkwoord: I år tänker jag." }] }
+          - id: h3yp
+            type: steps
+            steps:
+              - { type: mc, prompt: "Iedereen zegt dat het te zwaar is, maar Ruud is vastbesloten: volgend jaar loopt hij weer een marathon. Welke vorm past het best?", options: ["ska (plan, afspraak)", "kommer att (voorspelling)", "tänker (eigen besluit)", "presens (vaste tijd)"], answer: 2, shuffle: false, tip: "Ruud beslist het zelf, tegen de anderen in: tänker." }
+              - { type: translate, prompt: "Vertaal: Ruud gaat volgend jaar weer een marathon lopen. (Dat heeft hij zelf besloten.)", answers: ["{Ruud|Han} {tänker|ska} springa {ett maraton|maraton} igen nästa år.", "Nästa år {tänker|ska} {Ruud|han} springa ett maraton igen."], feedback: [{ contains: ["kommer att springa", "kommer springa"], tip: "Een eigen besluit is geen voorspelling: tänker (of ska)." }, { contains: "en maraton", tip: "maraton is een ett-woord: ett maraton." }, { contains: ["går att springa", "går springa"], tip: "Nederlands gaan + infinitief is geen gå in het Zweeds: gebruik tänker of ska." }] }
+          - id: gzn6
+            type: steps
+            steps:
+              - { type: mc, prompt: "Mijn ziekteverlof stopt vrijdag, en maandag begin ik weer te werken. Welke vorm past het best?", options: ["ska (plan, afspraak)", "kommer att (voorspelling)", "tänker (eigen besluit)", "presens (vaste tijd)"], answer: 3, shuffle: false, tip: "Het staat vast en er staat een tijd bij (vrijdag, maandag): gewoon de presens, net als in het Nederlands." }
+              - { type: translate, prompt: "Vertaal: Mijn ziekteverlof stopt vrijdag, en maandag begin ik weer te werken.", answers: ["Min sjukskrivning {slutar|tar slut|går ut} på fredag, och på måndag {börjar jag|ska jag börja} {|att }{jobba|arbeta} igen.", "Min sjukskrivning {slutar|tar slut|går ut} på fredag, och jag {börjar|ska börja} {|att }{jobba|arbeta} igen på måndag."], feedback: [{ contains: ["på måndag jag", "på fredag min"], tip: "Na een tijdsbepaling vooraan komt eerst het werkwoord: och på måndag börjar jag." }] }
+          - id: qx4y
+            type: steps
+            steps:
+              - { type: mc, prompt: "Schiet op, de bus naar het ziekenhuis vertrekt over tien minuten! Welke vorm?", options: ["ska (plan, afspraak)", "kommer att (voorspelling)", "tänker (eigen besluit)", "presens (vaste tijd)"], answer: 3, shuffle: false, tip: "Een dienstregeling: de tijd ligt vast, dus de presens." }
+              - { type: translate, prompt: "Vertaal: Schiet op, de bus naar het ziekenhuis vertrekt over tien minuten!", answers: ["{Skynda dig|Skynda på|Skynda er}, bussen till sjukhuset {går|avgår|åker} om tio minuter!", "{Skynda dig|Skynda på|Skynda er}, bussen till sjukhuset ska {gå|avgå|åka} om tio minuter!", "{Skynda dig|Skynda på|Skynda er}, om tio minuter {går|avgår|åker} bussen till sjukhuset!"], feedback: [{ contains: "i tio minuter", tip: "Over tien minuten (in de toekomst) = om tio minuter. i tio minuter = tien minuten lang." }, { contains: ["kommer att gå", "kommer gå", "kommer att åka"], tip: "Een dienstregeling is geen voorspelling: gewoon de presens, bussen går." }] }
+
   - id: prep
     title: "Grammatik: vaste voorzetsels"
     exercises:

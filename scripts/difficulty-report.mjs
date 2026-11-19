@@ -10,6 +10,7 @@
 // - zelf maken: translate, transform, order, findError, gap en free t.o.v. alle vragen.
 import fs from 'node:fs';
 import path from 'node:path';
+import { pathToFileURL } from 'node:url';
 import yaml from 'js-yaml';
 
 import { root } from './sibling.mjs';
@@ -54,7 +55,7 @@ export function measure(ch) {
 
 const lineFor = (n) => LINE.find((l) => n >= l.from && n <= l.to);
 
-if (import.meta.url === `file://${process.argv[1]}`) {
+if (import.meta.url === pathToFileURL(process.argv[1]).href) {
   const dir = path.join(root, 'content', 'chapters');
   const chapters = fs.readdirSync(dir).filter((f) => f.endsWith('.yaml')).sort()
     .map((f) => yaml.load(fs.readFileSync(path.join(dir, f), 'utf8')));
