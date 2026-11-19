@@ -494,8 +494,11 @@ main.wide { max-width: 1240px; }
 .chip-link.num { min-width: 2.6em; justify-content: center; }
 
 /* Letterbalk: direct onder het invoerveld, in de pagina (nooit achter het toetsenbord) */
-.charbar { position: static; transform: none; width: fit-content; margin: 6px 0; box-shadow: none; }
-.charbar button { width: 44px; height: 40px; }
+.charbar { position: static; transform: none; width: fit-content; max-width: 100%; margin: 6px 0; box-shadow: none; }
+.charbar button { flex: 1 1 0; min-width: 34px; width: 44px; height: 40px; padding: 0; }
+/* Boven het schermtoetsenbord (zie charBar in main.js): over de hele breedte */
+.charbar.docked { position: fixed; left: 6px; right: 6px; bottom: auto; width: auto; max-width: none; margin: 0; z-index: 30; box-shadow: 0 2px 12px rgb(0 0 0 / 0.18); }
+.charbar.docked button { width: auto; height: 44px; }
 .settings > summary { cursor: pointer; }
 .dialogue.tap li.placeholder { counter-increment: none; } .dialogue.tap li.placeholder::before { content: none; }
 

@@ -523,35 +523,47 @@ function charBar() {
       },
     }, c));
   }
-  // De balk staat direct onder het invoerveld (in de pagina, niet zwevend), zodat hij nooit
-  // achter het schermtoetsenbord verdwijnt. Als het toetsenbord opent, scrollt de pagina mee.
-  let settleUntil = 0; // alleen kort na focus of toetsenbord bijsturen, nooit tijdens gewoon scrollen
-  const keepVisible = () => {
-    if (bar.hidden || Date.now() > settleUntil) return;
+  // Zonder schermtoetsenbord staat de balk direct onder het invoerveld. Is het toetsenbord open
+  // (het zichtbare deel van het scherm is dan veel lager), dan ligt de balk vast direct erboven,
+  // over de hele breedte: zo zie je hem op Android en iPhone zonder te scrollen.
+  const keyboardOpen = () => {
     const vv = window.visualViewport;
-    const bottom = vv ? vv.offsetTop + vv.height : window.innerHeight;
-    const r = bar.getBoundingClientRect();
-    if (r.bottom > bottom - 8) window.scrollBy({ top: r.bottom - bottom + 8 });
+    return !!vv && matchMedia('(pointer: coarse)').matches && window.innerHeight - vv.height > 120;
   };
-  // Het toetsenbord schuift de eerste keer met een animatie omhoog en de browser scrollt zelf
-  // naar het veld: daarom een paar keer kort na elkaar controleren.
-  const settle = () => {
-    settleUntil = Date.now() + 1200;
-    [60, 250, 500, 900].forEach((ms) => setTimeout(keepVisible, ms));
+  const place = () => {
+    if (bar.hidden) return;
+    const vv = window.visualViewport;
+    if (!keyboardOpen()) {
+      bar.classList.remove('docked');
+      bar.style.top = '';
+      return;
+    }
+    bar.classList.add('docked');
+    const top = vv.offsetTop + vv.height - bar.offsetHeight - 6;
+    bar.style.top = `${Math.round(top)}px`;
+    // Het veld zelf moet boven de balk zichtbaar blijven.
+    const r = target?.getBoundingClientRect();
+    if (r && r.bottom > top - 6) window.scrollBy({ top: r.bottom - top + 12 });
   };
+  // Het toetsenbord schuift met een animatie omhoog: daarom een paar keer kort na elkaar plaatsen.
+  const settle = () => [0, 120, 300, 600].forEach((ms) => setTimeout(place, ms));
   window.visualViewport?.addEventListener('resize', settle);
+  window.visualViewport?.addEventListener('scroll', place);
   document.addEventListener('focusin', (e) => {
     if (!e.target.matches('input[type="text"], textarea')) return;
     target = e.target;
-    // Onder de hele zin of het zinsveld; in een tabelcel direct onder het veld.
-    const anchor = target.closest('td') ? target : target.closest('.sentence-input, .gap-text') ?? target;
+    // Onder de hele zin of het zinsveld; in een tabelcel onder de hele tabel (een cel is te smal).
+    const anchor = target.closest('.table-wrap') ?? target.closest('.sentence-input, .gap-text') ?? target;
     if (bar.previousElementSibling !== anchor) anchor.after(bar);
     bar.hidden = false;
     settle();
   });
   document.addEventListener('focusout', () => {
     setTimeout(() => {
-      if (!document.activeElement?.matches('input[type="text"], textarea')) bar.hidden = true;
+      if (!document.activeElement?.matches('input[type="text"], textarea')) {
+        bar.hidden = true;
+        bar.classList.remove('docked');
+      }
     }, 150);
   });
 }
