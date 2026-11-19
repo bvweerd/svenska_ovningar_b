@@ -162,6 +162,14 @@ describe('woordenlijst: meervoud en voorbeeldzin', async () => {
     expect(gradeText('springer', items[1].gaps[0]).correct).toBe(true);
   });
   it('lange lijsten krijgen rondes', () => expect(byId['woorden-sv-nl'].roundSize).toBe(15));
+  it('def mag een lijst zijn (knät of knäet)', () => {
+    const knä = { sv: 'ett knä', nl: 'een knie', def: ['knät', 'knäet'], pl: 'knän' };
+    const byKnä = Object.fromEntries(vocabExercises([knä], 1).map((e) => [e.id, e]));
+    const step = byKnä['woorden-en-ett'].items[0].steps[1].gaps[0];
+    expect(gradeText('knät', step).correct).toBe(true);
+    expect(gradeText('knäet', step).correct).toBe(true);
+    expect(gradeText('knäet', byKnä['woorden-meervoud'].items[0].gaps[0]).tip).toContain('bepaalde vorm');
+  });
   it('voorbeeldzin moet precies één vet stuk hebben', () => {
     expect(exampleGap('Jag **tar** **bussen**.')).toBe(null);
     expect(exampleGap('Geen vet')).toBe(null);

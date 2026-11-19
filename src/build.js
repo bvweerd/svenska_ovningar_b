@@ -45,7 +45,7 @@ export function exampleGap(ex) {
 
 /**
  * Woord-entry in content: { sv, nl, def?, pl?, alt?, ex?, exNl? }
- *   def  bepaalde vorm enkelvoud (bilen), pl  meervoud (bilar; of een lijst als beide goed zijn),
+ *   def  bepaalde vorm enkelvoud (bilen; of een lijst als beide goed zijn), pl  meervoud (bilar; of een lijst als beide goed zijn),
  *   ex   Zweedse voorbeeldzin met het woord **vet**, exNl  de Nederlandse vertaling daarvan.
  * @param nounTopic    onderwerp voor de en/ett-oefening: "substantiv" als de cursus daar een
  *                     uitlegkaart voor heeft (A1–A2), anders "woordenschat". Zo ook pluralTopic.
@@ -121,7 +121,7 @@ export function vocabExercises(vocab, chapterNo, { nounTopic = 'woordenschat', p
           {
             type: 'gap',
             text: `${v.sv} → ___`,
-            gaps: [{ answers: [v.def] }],
+            gaps: [{ answers: list(v.def) }],
           },
         ],
       })),
@@ -142,7 +142,7 @@ export function vocabExercises(vocab, chapterNo, { nounTopic = 'woordenschat', p
         const pl = list(v.pl);
         const feedback = [];
         if (!pl.includes(bare(v.sv))) feedback.push({ match: [bare(v.sv), v.sv], tip: 'Dat is nog enkelvoud. Welke uitgang krijgt dit woord in het meervoud?' });
-        if (v.def && !pl.includes(v.def)) feedback.push({ match: v.def, tip: 'Dat is de bepaalde vorm enkelvoud. Gevraagd wordt het meervoud.' });
+        for (const d of list(v.def).filter((d) => !pl.includes(d))) feedback.push({ match: d, tip: 'Dat is de bepaalde vorm enkelvoud. Gevraagd wordt het meervoud.' });
         return {
           id: v.sv,
           type: 'gap',
