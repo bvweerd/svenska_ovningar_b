@@ -90,8 +90,17 @@ voor een volledig hoofdstuk.
 De nakijker keurt een tijdsbepaling vooraan (met inversie) én achteraan goed, ook als het
 antwoord in de content maar één volgorde heeft: *På kvällen tittar Bram på tv* = *Bram tittar på tv
 på kvällen*. Een vastgelegde fout in `feedback` gaat voor. Vraagt de opdracht om een vaste volgorde
-(„Begin de zin met de tijdsbepaling”), zet dan `fixedOrder: true` bij de oefening (of bij één vraag).
-De andere volgorde telt dan niet als fout, maar de leerling krijgt de tip om de opdracht te volgen.
+(„Begin de zin met de tijdsbepaling” of „Begin met het onderwerp”), zet dan `fixedOrder: true` bij de
+oefening (of bij één vraag). De andere volgorde telt dan niet als fout, maar de leerling krijgt een tip om
+de opdracht te volgen: begint het goede antwoord met de tijdsbepaling, dan „begin de zin met de
+tijdsbepaling”; begint het met iets anders, dan „begin de zin zoals gevraagd”.
+
+Bewust voorzichtig: de nakijker verplaatst alleen een tijdsbepaling tussen plaats 1 (met inversie) en het
+eind van één enkelvoudige hoofdzin met een herkenbaar onderwerp (*Bram*, *min syster*, *Olles fru*,
+*Fleur och Bram*, *Erik och jag*). Niet bij een vraag, een komma, een
+voegwoord of bijzinwoord (*att, som, när, där, dit, vars, eftersom, medan …*; *kommer att* mag wel) of een
+werkwoord als *tror/vet/hoppas* (bijzin zonder *att*). Wil je een andere volgorde in zo'n zin goedkeuren,
+zet die dan zelf bij de antwoorden.
 
 ### Vraag-id's en voortgang
 
