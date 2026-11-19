@@ -62,13 +62,17 @@ sections:
         topic: jamforelse
         textTitle: Matkassar – värda pengarna?
         text: |
-          Allt fler svenskar köper matkassar: en låda med recept och ingredienser som levereras hem till dörren. Vi testade tre olika matkassar under en vecka.
+          Allt fler svenskar köper matkassar: en låda med recept och ingredienser som levereras hem till dörren. Vi testade tre olika matkassar under en vecka. Vi är en familj på fyra personer i Västerås, och vi lagade alla rätter själva. Efter varje middag fick alla ge betyg från ett till fem, även barnen.
 
           **Kasse A** var billigast, men också minst varierad. Nästan alla rätter innehöll pasta, och efter tre dagar var vi trötta på den.
 
           **Kasse B** kostade ungefär lika mycket som en vanlig veckohandling. Recepten var både goda och hälsosamma, och tillagningen tog sällan mer än trettio minuter.
 
           **Kasse C** var dyrast. Råvarorna höll hög kvalitet, men tillagningen tog betydligt längre tid än utlovat. Dessutom var förpackningarna inte särskilt miljövänliga.
+
+          Barnen gav kasse A högst betyg, eftersom de älskar pasta. De vuxna gav den däremot lägst betyg. Kasse B var den enda som alla i familjen tyckte om.
+
+          Vi jämförde också priserna med vår vanliga veckohandling. Kasse A var ungefär femton procent billigare, och kasse C kostade nästan dubbelt så mycket. Men med en matkasse slänger man mindre mat, eftersom man bara får det man behöver. Det är både bra för plånboken och mer miljövänligt än att köpa för mycket och slänga resten.
 
           Ju mer man tycker om att planera och laga mat själv, desto mindre behöver man en matkasse. Men för den som har ont om tid kan det vara en bra lösning. **Vårt betyg:** Kasse B är mest prisvärd.
         items:
@@ -79,6 +83,9 @@ sections:
           - { id: bvzj, type: mc, prompt: "Vad var negativt med kasse C?", options: ["Tillagningen tog lång tid och förpackningarna var inte miljövänliga.", "Råvarorna var dåliga.", "Den var billigast.", "Den innehöll bara fisk."], answer: 0 }
           - { id: r2pd, type: mc, prompt: "Vilken kasse rekommenderar testarna?", options: ["kasse B", "kasse A", "kasse C", "ingen"], answer: 0 }
           - { id: kzr2, type: mc, prompt: "Wat betekent *för den som har ont om tid*?", options: ["voor wie weinig tijd heeft", "voor wie pijn heeft", "voor wie veel tijd heeft", "voor wie slecht kookt"], answer: 0 }
+          - { id: hk9q, type: mc, prompt: "Hur gav familjen betyg på rätterna?", options: ["Alla gav betyg från ett till fem efter varje middag.", "Bara de vuxna gav betyg.", "En kock gav betyg.", "De gav betyg en gång i slutet av veckan."], answer: 0 }
+          - { id: j49w, type: truefalse, statement: "Barnen tyckte minst om kasse A.", answer: false, correction: { answers: ["{Barnen|De} gav kasse A högst betyg.", "{Barnen|De} tyckte bäst om kasse A."] } }
+          - { id: ax3x, type: mc, prompt: "Varför slänger man mindre mat med en matkasse?", options: ["för att man bara får det man behöver", "för att maten är godare", "för att barnen äter mer", "för att förpackningarna är mindre"], answer: 0 }
 
   - id: ord
     title: Ord och fraser · woorden en uitdrukkingen
@@ -143,6 +150,22 @@ sections:
               - { text: "beställa → bestelling", cat: 1 }
               - { text: "arbeta → arbeider", cat: 2 }
 
+      - id: ordbildning-in-zinnen
+        title: Nieuwe woorden in een zin
+        instruction: Maak van het woord tussen haakjes het gevraagde woord en vul het in, in de vorm die in de zin past.
+        topic: ordbildning
+        shuffle: true
+        items:
+          - { id: ncbb, type: gap, text: "Säljaren gav oss ingen bra ___ (förklara → zelfst. naamwoord) till varför priset hade höjts.", gaps: [{ answers: ["förklaring"], feedback: [{ match: "förklaraning", tip: "Haal de -a weg: förklar + ing." }] }] }
+          - { id: srfd, type: gap, text: "Det är ___ (möjlig → tegendeel) att hitta svenska jordgubbar i butiken på vintern.", gaps: [{ answers: ["omöjligt"], feedback: [{ match: "omöjlig", tip: "Na det är krijgt het bijvoeglijk naamwoord -t: omöjligt." }] }] }
+          - { id: gyhb, type: gap, text: "Min dotter dricker bara ___ (laktos + zonder) mjölk, eftersom hon får ont i magen av vanlig mjölk.", gaps: [{ answers: ["laktosfri"], feedback: [{ match: "laktoslös", tip: "Bij eten en drinken: -fri. laktosfri." }] }] }
+          - { id: 8awz, type: gap, text: "Kasse C hade snygga men inte särskilt ___ (miljö + goed voor) förpackningar.", gaps: [{ answers: ["miljövänliga"], feedback: [{ match: "miljövänlig", tip: "förpackningar is meervoud: miljövänliga." }] }] }
+          - { id: gcp7, type: gap, text: "Den nya ___ (sälja → persoon, bepaald) i butiken hjälpte oss att jämföra tre olika dammsugare.", gaps: [{ answers: ["säljaren"], feedback: [{ match: "säljare", tip: "Na den nya: de bepaalde vorm, säljaren." }] }] }
+          - { id: s3rd, type: gap, text: "___ (betala → zelfst. naamwoord, bepaald) ska göras senast tio dagar efter att du har fått varan.", gaps: [{ answers: ["Betalningen"], feedback: [{ match: "betalning", tip: "Het gaat om een bepaalde betaling: betalningen." }] }] }
+          - { id: 3mgc, type: gap, text: "Efter tre dagar med pasta tyckte vi att maten var nästan ___ (smak + zonder, negatief).", gaps: [{ answers: ["smaklös"], feedback: [{ match: "smakfri", tip: "Negatief 'zonder': -lös. smaklös." }] }] }
+          - { id: vhx4, type: gap, text: "Den här soppan är inte ___ (äta + kan … worden) längre, för den har stått framme i en vecka!", gaps: [{ answers: ["ätbar"], tip: "Kan gegeten worden: äta + -bar, ätbar." }] }
+          - { id: w66z, type: gap, text: "Varje morgon läser jag de senaste ___ (ny → zelfst. naamwoord, meervoud) om matpriserna på nätet.", gaps: [{ answers: ["nyheterna"], feedback: [{ match: "nyheter", tip: "Na de senaste: de bepaalde vorm, nyheterna." }] }] }
+
   - id: jamforelse
     title: "Grammatik: vergelijken"
     exercises:
@@ -189,6 +212,77 @@ sections:
           - { id: 29kg, type: translate, prompt: "Deze jas is iets duurder dan die.", answers: ["Den här {jackan|rocken|kappan} är {lite|något} dyrare än den där."], feedback: [{ contains: "mer dyr", tip: "dyr is een gewoon bijvoeglijk naamwoord: dyrare." }, { contains: "dyrare som", tip: "Na een vergrotende trap: än." }] }
           - { id: d3n3, type: translate, prompt: "Vlees wordt steeds duurder.", answers: ["{Kött|Köttet} blir {allt dyrare|dyrare och dyrare}."] }
 
+      - id: jamfor-zinnen
+        title: Vertaal de langere zinnen
+        instruction: Vertaal naar het Zweeds.
+        topic: jamforelse
+        shuffle: true
+        items:
+          - id: 3sx7
+            type: translate
+            prompt: "Hoe meer je zelf kookt, hoe minder geld je aan eten uitgeeft."
+            answers:
+              - "Ju mer man {lagar mat själv|själv lagar mat}, {desto|ju} mindre pengar {lägger|spenderar|använder} man på mat."
+              - "Ju mer du {lagar mat själv|själv lagar mat}, {desto|ju} mindre pengar {lägger|spenderar|använder} du på mat."
+            feedback:
+              - { contains: "pengar man lägger", tip: "Na *desto* + vergrotende trap: inversie, *desto mindre pengar lägger man*." }
+              - { contains: "pengar du lägger", tip: "Na *desto* + vergrotende trap: inversie, *desto mindre pengar lägger du*." }
+              - { contains: "ju mer lagar", tip: "Het *ju*-deel is een bijzin: *ju mer man lagar*." }
+          - id: 8ccn
+            type: translate
+            prompt: "Box B was even duur als onze gewone weekboodschappen, maar veel gezonder."
+            answers: ["Kasse B var lika dyr som vår vanliga veckohandling, men {mycket|betydligt} {nyttigare|hälsosammare}."]
+            feedback:
+              - { contains: "lika dyr än", tip: "Na *lika*: *som*." }
+              - { contains: "mer nyttigare", tip: "*nyttigare* is al een vergrotende trap: *mycket nyttigare*." }
+          - id: 29g2
+            type: translate
+            prompt: "Omdat de prijzen steeds hoger worden, kopen veel gezinnen goedkoper eten."
+            answers:
+              - "Eftersom priserna blir {allt högre|högre och högre}, köper många familjer billigare mat."
+              - "Många familjer köper billigare mat[,] eftersom priserna blir {allt högre|högre och högre}."
+            feedback:
+              - { contains: "blir alla högre", tip: "Steeds hoger: *allt högre*." }
+              - { contains: "högre många familjer köper", tip: "Na de bijzin vooraan komt eerst het werkwoord: *köper många familjer*." }
+          - id: 3umt
+            type: translate
+            prompt: "Deze stofzuiger is niet zo duur als die, maar hij is net zo goed."
+            answers: ["Den här dammsugaren är inte {lika|så} dyr som den där, men den är [precis ]lika bra."]
+            feedback:
+              - { contains: "dyr än", tip: "Na *lika* (of *så*): *som*." }
+              - { contains: "är lika god", tip: "Over een apparaat zeg je *bra*: *lika bra*." }
+          - id: 8gch
+            type: translate
+            prompt: "We proberen zo weinig mogelijk eten weg te gooien."
+            answers: ["Vi försöker [att ]{slänga|kasta} så lite mat som möjligt."]
+            feedback:
+              - { contains: "lite mat än", tip: "zo … mogelijk = *så … som möjligt*." }
+          - id: ugvv
+            type: translate
+            prompt: "Dit is de populairste maaltijdbox van Zweden, maar niet de goedkoopste."
+            answers:
+              - "{Det här|Detta} är den {populäraste|mest populära} matkassen i Sverige, men inte den billigaste."
+              - "{Det här|Detta} är Sveriges {populäraste|mest populära} matkasse, men inte den billigaste."
+            feedback:
+              - { contains: "den populärast ", tip: "Na *den* + bepaalde vorm: *den populäraste matkassen*." }
+              - { contains: "den billigast ", tip: "Na *den*: *den billigaste*." }
+          - id: abma
+            type: translate
+            prompt: "Biologische bananen zijn iets duurder dan gewone, maar ze smaken veel beter."
+            answers: ["Ekologiska bananer är {lite|något} dyrare än vanliga[ bananer], men de smakar {mycket|betydligt} bättre."]
+            feedback:
+              - { contains: "dyrare som", tip: "Na een vergrotende trap: *än*." }
+              - { contains: "mer bättre", tip: "*bättre* is al een vergrotende trap: *mycket bättre*." }
+          - id: gzm7
+            type: translate
+            prompt: "Hoe langer je wacht, hoe moeilijker het wordt om een goedkope vlucht te vinden."
+            answers:
+              - "Ju längre man väntar, {desto|ju} svårare blir det att hitta {ett billigt flyg|en billig flygresa|en billig flygbiljett}."
+              - "Ju längre du väntar, {desto|ju} svårare blir det att hitta {ett billigt flyg|en billig flygresa|en billig flygbiljett}."
+            feedback:
+              - { contains: "svårare det blir", tip: "Na *desto* + vergrotende trap: inversie, *desto svårare blir det*." }
+              - { contains: "billig flyg", tip: "*flyg* is een ett-woord: *ett billigt flyg*." }
+
   - id: zoek-de-fout
     title: Zoek de fout
     exercises:
@@ -203,6 +297,9 @@ sections:
           - { id: ucgz, type: findError, sentence: "Den här är mer billigare.", wrong: [3], answers: ["Den här är {mycket|lite} billigare.", "Den här är billigare."], tip: "billigare is al een vergrotende trap." }
           - { id: xemf, type: findError, topic: ordbildning, sentence: "Det är en mycket vanlig och sällsynt växt.", wrong: [4], answers: ["Det är en mycket ovanlig och sällsynt växt."], tip: "sällsynt = zeldzaam." }
           - { id: kj9m, type: findError, sentence: "Priserna blir alla dyrare.", wrong: [2], answers: ["Priserna blir allt dyrare."], tip: "Steeds duurder …" }
+          - { id: akmb, type: findError, sentence: "Ju längre vi väntade med att boka, desto dyrare biljetterna blev.", wrong: [9, 10], answers: ["Ju längre vi väntade med att boka, desto dyrare blev biljetterna."], tip: "Wat komt er na desto + vergrotende trap?" }
+          - { id: svmk, type: findError, sentence: "Den nya mobilen är inte lika snabb än den gamla, men den är mycket billigare.", wrong: [7], answers: ["Den nya mobilen är inte lika snabb som den gamla, men den är mycket billigare."], tip: "Welk woord hoort bij lika?" }
+          - { id: tteb, type: findError, topic: ordbildning, sentence: "Kortläsaren var trasig, så det var möjligt att betala med kort hela dagen.", wrong: [6], answers: ["Kortläsaren var trasig, så det var {omöjligt|inte möjligt} att betala med kort hela dagen."], tip: "Kon je met de kaart betalen als het apparaat kapot was?" }
 
   - id: lyssna
     title: Lyssna · luisteren
