@@ -107,7 +107,7 @@ Daarna leest de eigenaar steekproefsgewijs mee. Pas dan wordt er gepubliceerd.
       foute woorden; voortgang blijft bewaard); per woord optioneel meervoud (`pl`) en een
       voorbeeldzin (`ex`, `exNl`) met automatisch gemaakte oefeningen; controle op dubbele
       woorden; `npm run vocab-report`.
-- [ ] **Proef**: hoofdstuk 2 naar ±60 woorden → **taalreview** (twee rondes, gedaan) → nalezen door de eigenaar.
+- [x] **Proef**: hoofdstuk 2 naar 63 woorden → **taalreview** (twee rondes) → goedgekeurd door de eigenaar.
 - [ ] **Fase 2**: hoofdstuk 1–12 naar ±60 woorden per hoofdstuk, per hoofdstuk een **taalreview**.
 - [ ] **Fase 3**: hoofdstuk 13–30 naar ±60 woorden (meer uitdrukkingen en partikelwerkwoorden),
       per hoofdstuk een **taalreview**.
