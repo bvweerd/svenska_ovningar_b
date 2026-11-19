@@ -232,6 +232,7 @@ docent of taalpartner aanraden.
       `difficulty-report` en fout/bekeken per hoofdstuk (fase 1b);
       fout/bekeken bij keuzeoefeningen en aandeel vragen in doos 4+ (fase 2); afgemaakte geleide
       stappen, vrije teksten en leesteksten (fase 3).
-      Na fase 2 ook een gebruikerstest: 3–5 leerlingen doen hardop denkend een hoofdstuk.
+      Geen gebruikerstest: er is geen vaste groep leerlingen (besloten november 2026); meten gaat alleen
+      via de tellingen.
 
-Open vraag: is er een vaste groep leerlingen voor de gebruikerstest?
+Geen open vragen meer: een testgroep is er niet.
