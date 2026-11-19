@@ -320,7 +320,7 @@ sections:
           - { id: zgad, type: gap, topic: partikelverb-2, text: "Vi måste ___ vid nästa station, annars missar vi bussen.", gaps: [{ answers: ["stiga av"], options: ["stiga av", "stiga på", "hinna med"], shuffle: false }] }
           - { id: djva, type: gap, topic: sambandsord, text: "Tåget var försenat, ___ missade vi vårt flyg till Luleå.", gaps: [{ answers: ["därför"], options: ["därför", "för", "men"], shuffle: false }] }
           - { id: quzd, type: gap, topic: bestamd-utan-artikel, text: "Vi var ute och reste hela ___ (vecka).", gaps: [{ answers: ["veckan"] }] }
-          - { id: 4c6b, type: transform, topic: passiv-s, task: "Maak er een lijdende zin van met -s.", prompt: "Man ställde in flyget på grund av stormen.", answers: ["Flyget ställdes in på grund av stormen."] }
+          - { id: 4c6b, type: transform, topic: passiv-s, task: "Maak er een lijdende zin van met -s.", prompt: "Man ställde in flyget på grund av stormen.", answers: ["Flyget {ställdes in|inställdes} på grund av stormen."] }
 
 vocab:
   - { sv: "ett nattåg", nl: "een nachttrein", def: "nattåget", pl: "nattåg", plDef: "nattågen", ex: "Vi tog **nattåget** från Stockholm till Abisko.", exNl: "We namen de nachttrein van Stockholm naar Abisko." }

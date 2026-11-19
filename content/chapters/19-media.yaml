@@ -304,7 +304,7 @@ sections:
           - { id: z3j5, type: transform, topic: indirekt-tal-b1, prompt: "Sara: ”Jag kan inte komma på mötet.”", task: "Sara sa att …", answers: ["Sara sa att hon inte kunde komma på mötet."], feedback: [{ match: "Sara sa att hon kunde inte komma på mötet.", tip: "In de bijzin staat inte vóór het werkwoord: att hon inte kunde." }] }
           - { id: c36d, type: gap, topic: indirekt-fraga, text: "Journalisten frågade ___ ministern tänkte avgå.", gaps: [{ answers: ["om"], options: ["om", "att", "som"], shuffle: false }] }
           - { id: 2hvs, type: gap, topic: villkor, text: "Om tidningen ___ (vara) gratis, skulle fler människor läsa den.", gaps: [{ answers: ["var"] }] }
-          - { id: qakw, type: gap, topic: passiv-s, text: "Nyheten ___ (sända) i alla kanaler i går kväll.", gaps: [{ answers: ["sändes"] }] }
+          - { id: qakw, type: gap, topic: passiv-s, text: "Nyheten ___ (sända) på alla kanaler i går kväll.", gaps: [{ answers: ["sändes"] }] }
 
 vocab:
   - { sv: "en nyhet", nl: "een nieuwsbericht, een nieuwtje", def: "nyheten", pl: "nyheter", plDef: "nyheterna", ex: "Har du hört **nyheten**? Simon och Ella har förlovat sig.", exNl: "Heb je het nieuwtje gehoord? Simon en Ella hebben zich verloofd." }

@@ -309,8 +309,8 @@ sections:
           - { id: ys8v, type: transform, topic: utbrytning, prompt: "**Kungen** ville ha skeppet klart snabbt.", answers: ["Det var kungen som ville ha skeppet klart snabbt."] }
           - { id: qd95, type: gap, topic: sambandsord, text: "Skeppet var instabilt. ___ sjönk det.", gaps: [{ answers: ["Därför"], options: ["Därför", "Dessutom", "Däremot"], shuffle: false }] }
           - { id: dc83, type: transform, topic: fundament, prompt: "En kanon ligger fortfarande på botten.", answers: ["Det ligger fortfarande en kanon på botten.", "Det ligger en kanon på botten fortfarande."] }
-          - { id: 8axe, type: transform, topic: bisats-adverb, prompt: "Han vill inte längre bo i Stockholm.", task: "Han sa att …", answers: ["Han sa att han inte längre ville bo i Stockholm."], feedback: [{ match: "Han sa att han ville inte längre bo i Stockholm.", tip: "In de bijzin staan inte en längre vóór het werkwoord." }] }
-          - { id: 9gqc, type: transform, topic: fundament, task: "Begin de zin met de tijd.", prompt: "Vasa bärgades år 1961.", answers: ["År 1961 bärgades Vasa."] }
+          - { id: 8axe, type: transform, topic: bisats-adverb, prompt: "Han vill inte längre bo i Stockholm.", task: "Han sa att …", answers: ["Han sa att han inte {längre ville bo i Stockholm|ville bo i Stockholm längre}."], feedback: [{ match: "Han sa att han ville inte längre bo i Stockholm.", tip: "In de bijzin staan inte en längre vóór het werkwoord." }] }
+          - { id: 9gqc, type: transform, topic: fundament, task: "Begin de zin met de tijd.", prompt: "Vasa bärgades år 1961.", answers: ["[År ]1961 bärgades Vasa."] }
           - { id: ya7c, type: gap, topic: passiv-s, text: "Skeppet ___ (bygga) på order av kungen.", gaps: [{ answers: ["byggdes"] }] }
           - { id: hkc4, type: gap, topic: indirekt-fraga, text: "Historikerna undrar fortfarande ___ skeppet sjönk så snabbt.", gaps: [{ answers: ["varför"], options: ["varför", "som", "att"], shuffle: false }] }
 

@@ -298,7 +298,7 @@ sections:
           - { id: cwyz, type: gap, topic: bestamd-utan-artikel, text: "Förra ___ (vinter) firade vi jul hos mormor i Dalarna.", gaps: [{ answers: ["vintern"] }] }
           - { id: mqzt, type: gap, topic: sammansattning, text: "I år köpte vi ___ julgran som var nästan tre meter hög.", gaps: [{ answers: ["en"], options: ["en", "ett"], shuffle: false }] }
           - { id: w5xd, type: transform, topic: indirekt-tal-b1, prompt: "Mormor: ”Jag är trött efter julen.”", task: "Mormor sa att …", answers: ["Mormor sa att hon var trött efter julen."] }
-          - { id: rkv7, type: transform, topic: relativ-som, task: "Maak er één zin van met som.", prompt: "Vi åt en tårta. Min syster hade bakat den.", answers: ["Vi åt en tårta[ som] min syster hade bakat."] }
+          - { id: rkv7, type: transform, topic: relativ-som, task: "Maak er één zin van met som.", prompt: "Vi åt en tårta. Min syster hade bakat den.", answers: ["Vi åt en tårta[ som] min syster [hade ]bakat."] }
 
 vocab:
   - { sv: "en tradition", nl: "een traditie", def: "traditionen", pl: "traditioner", plDef: "traditionerna", ex: "Att äta semlor på fettisdagen är en gammal **tradition**.", exNl: "Semla's eten op vastenavond is een oude traditie." }

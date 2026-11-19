@@ -293,8 +293,8 @@ sections:
           - { id: qrk9, type: transform, topic: nagon-ingen, prompt: "Jag har köpt något.", answers: ["Jag har inte köpt {något|någonting}."] }
           - { id: sgmj, type: gap, topic: man-en-ens, text: "___ måste sortera plasten och pappret i olika kärl.", gaps: [{ answers: ["Man"], options: ["Man", "En", "Ens"], shuffle: false }] }
           - { id: 9yyj, type: gap, topic: nagon-ingen, text: "Vi har inte ___ kompost i trädgården.", gaps: [{ answers: ["någon"], options: ["någon", "ingen", "några"], shuffle: false }] }
-          - { id: q6yn, type: transform, topic: villkor, task: "Maak de voorwaarde denkbeeldig, met skulle.", prompt: "Om vi cyklar mer, minskar utsläppen.", answers: ["Om vi cyklade mer, skulle utsläppen minska.", "Om vi cyklade mer skulle utsläppen minska."] }
-          - { id: tfbq, type: gap, topic: framtid, text: "Klimatet ___ att bli varmare de närmaste åren.", gaps: [{ answers: ["kommer"] }] }
+          - { id: q6yn, type: transform, topic: villkor, task: "Maak de voorwaarde denkbeeldig, met skulle.", prompt: "Om vi cyklar mer, minskar utsläppen.", answers: ["Om vi cyklade mer[,] skulle utsläppen minska.", "Om vi skulle cykla mer[,] skulle utsläppen minska."] }
+          - { id: tfbq, type: gap, topic: framtid, text: "Klimatet ___ att bli varmare de närmaste åren.", gaps: [{ answers: ["kommer"], options: ["kommer", "ska", "tänker"], shuffle: false }] }
 
 vocab:
   - { sv: "en miljö", nl: "het milieu, een omgeving", def: "miljön", pl: "miljöer", plDef: "miljöerna", ex: "Vi måste ta bättre hand om **miljön**.", exNl: "We moeten beter voor het milieu zorgen." }

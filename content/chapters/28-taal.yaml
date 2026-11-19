@@ -293,7 +293,7 @@ sections:
           - { id: 6bty, type: transform, topic: utbrytning, prompt: "**Dialekterna** gör svenskan rik.", answers: ["Det är dialekterna som gör svenskan rik."] }
           - { id: n8ey, type: gap, topic: argumentation, text: "___ låter förortssvenska annorlunda, ___ grammatiken är densamma.", gaps: [{ answers: ["Visserligen"], options: ["Visserligen", "Därför"], shuffle: false }, { answers: ["men"], options: ["men", "utan"], shuffle: false }] }
           - { id: d7vp, type: gap, topic: register, text: "Har du pratat med ___?", gaps: [{ answers: ["dem"], options: ["de", "dem"], shuffle: false }] }
-          - { id: 6mam, type: gap, topic: register, text: "___ meddela oss om du inte kan komma på intervjun.", gaps: [{ answers: ["Vänligen"], options: ["Vänligen", "Typ", "Tja"], shuffle: false }] }
+          - { id: 6mam, type: gap, topic: register, text: "___ meddela oss om du inte kan komma på intervjun.", gaps: [{ answers: ["Vänligen"], options: ["Vänligen", "Tja", "Asså"], shuffle: false }] }
           - { id: g5fg, type: gap, topic: idiom, text: "Det är ingen ___ på isen, vi har gott om tid.", gaps: [{ answers: ["ko"] }] }
           - { id: apk2, type: transform, topic: utbrytning, task: "Leg de nadruk op het vetgedrukte deel, met det är … som.", prompt: "**Ungdomarna** förändrar språket snabbast.", answers: ["Det är ungdomarna som förändrar språket snabbast."] }
           - { id: 4xaz, type: gap, topic: nominalisering, text: "förändra → en ___", gaps: [{ answers: ["förändring"] }] }

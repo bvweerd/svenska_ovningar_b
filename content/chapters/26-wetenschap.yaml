@@ -276,7 +276,7 @@ sections:
           - { id: hyv3, type: gap, topic: subjunktioner-b1, text: "___ studien är liten, är resultaten intressanta.", gaps: [{ answers: ["Även om", "Trots att"], options: ["Även om", "Trots att", "Innan"], shuffle: false }] }
           - { id: zr5j, type: transform, topic: particip-konstruktion, prompt: "metoden som används", task: "Begin met: den …", answers: ["den använda metoden"] }
           - { id: ytyf, type: gap, topic: particip-konstruktion, text: "Den nyligen ___ (publicera) studien visar att sömnen påverkar minnet.", gaps: [{ answers: ["publicerade"] }] }
-          - { id: gfre, type: gap, topic: nominalfras, text: "Resultaten ___ tyda på att motion förbättrar sömnen.", gaps: [{ answers: ["kan"], options: ["kan", "måste", "ska"], shuffle: false }] }
+          - { id: gfre, type: gap, topic: nominalfras, text: "Resultaten ___ tyda på att motion förbättrar sömnen.", gaps: [{ answers: ["kan"], options: ["kan", "tänker", "vill"], shuffle: false }] }
           - { id: y2te, type: gap, topic: trender, text: "Antalet deltagare ___ (fördubblas) mellan 2010 och 2020.", gaps: [{ answers: ["fördubblades"] }] }
           - { id: xpd8, type: gap, topic: indirekt-fraga, text: "Forskarna undersökte ___ sömnen påverkar minnet hos äldre.", gaps: [{ answers: ["hur"], options: ["hur", "vad", "som"], shuffle: false }] }
 

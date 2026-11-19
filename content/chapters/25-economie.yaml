@@ -287,10 +287,10 @@ sections:
           - { id: gh9b, type: gap, topic: jamforelse, text: "Försäljningen var ___ hög som i fjol.", gaps: [{ answers: ["lika"], options: ["lika", "mer", "än"], shuffle: false }] }
           - { id: hzr3, type: gap, topic: sambandsord, text: "E-handeln växte. ___ minskade butiksförsäljningen.", gaps: [{ answers: ["Däremot"], options: ["Däremot", "Dessutom", "Därför"], shuffle: false }] }
           - { id: bybc, type: gap, topic: nominalisering, text: "minska → ___", gaps: [{ answers: ["en minskning"] }] }
-          - { id: aqtc, type: gap, topic: trender, text: "Arbetslösheten ___ (sjunka) med två procent förra året.", gaps: [{ answers: ["sjönk"] }] }
+          - { id: aqtc, type: gap, topic: trender, text: "Arbetslösheten ___ (sjunka) med två procentenheter förra året.", gaps: [{ answers: ["sjönk"] }] }
           - { id: cmc2, type: gap, topic: nominalisering, text: "minska → en ___", gaps: [{ answers: ["minskning"] }] }
-          - { id: f9n7, type: gap, topic: subjunktioner-b1, text: "___ priserna steg, köpte folk lika mycket som förut.", gaps: [{ answers: ["Trots att"], options: ["Trots att", "Även om", "Medan"], shuffle: false }] }
-          - { id: ny5w, type: gap, topic: asikt, text: "Jag ___ att distansarbete passar de flesta som arbetar på kontor.", gaps: [{ answers: ["anser"], options: ["anser", "undrar", "hoppas på"], shuffle: false }] }
+          - { id: f9n7, type: gap, topic: subjunktioner-b1, text: "___ priserna steg, köpte folk lika mycket som förut.", gaps: [{ answers: ["Trots att"], options: ["Trots att", "Eftersom", "Så att"], shuffle: false }] }
+          - { id: ny5w, type: gap, topic: asikt, text: "Jag ___ att distansarbete passar de flesta som arbetar på kontor.", gaps: [{ answers: ["anser"], options: ["anser", "undrar", "frågar"], shuffle: false }] }
 
 vocab:
   - { sv: "en ökning", nl: "een stijging, een toename", def: "ökningen", pl: "ökningar", plDef: "ökningarna", ex: "Under pandemin skedde en kraftig **ökning** av e-handeln.", exNl: "Tijdens de pandemie was er een sterke toename van de online handel." }

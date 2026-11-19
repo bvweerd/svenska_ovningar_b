@@ -283,7 +283,7 @@ sections:
           - { id: ps3m, type: gap, topic: utbrytning, text: "Det är skolan ___ måste ta ansvar för problemet.", gaps: [{ answers: ["som"] }] }
           - { id: z3dv, type: gap, topic: argumentation, text: "För det ___ stör mobilerna undervisningen.", gaps: [{ answers: ["första"] }] }
           - { id: vv7z, type: gap, topic: particip-konstruktion, text: "Den av eleverna ___ (skriva) debattartikeln publicerades i lokaltidningen.", gaps: [{ answers: ["skrivna"] }] }
-          - { id: 6n67, type: gap, topic: subjunktioner-b1, text: "___ många elever håller med, vill rektorn inte ändra reglerna.", gaps: [{ answers: ["Trots att"], options: ["Trots att", "Eftersom", "Medan"], shuffle: false }] }
+          - { id: 6n67, type: gap, topic: subjunktioner-b1, text: "___ många elever har protesterat, vill rektorn inte ändra reglerna.", gaps: [{ answers: ["Trots att"], options: ["Trots att", "Eftersom", "Så att"], shuffle: false }] }
 
 vocab:
   - { sv: "en debatt", nl: "een debat", def: "debatten", pl: "debatter", plDef: "debatterna", ex: "Efter programmet blev det en het **debatt** i sociala medier.", exNl: "Na het programma ontstond er een fel debat op sociale media." }
