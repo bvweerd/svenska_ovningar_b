@@ -190,7 +190,18 @@ export function tileBoard(opts) {
   });
   const bankFirst = () => bank.querySelector('.chip:not(.used):not(:disabled)');
 
+  // Getoond goed antwoord (reveal): blijft staan, ook als lock() de regel daarna opnieuw tekent.
+  let revealedText = null;
+
   function draw() {
+    if (revealedText !== null) {
+      line.replaceChildren(h('span', { class: 'chip revealed' }, revealedText));
+      line.classList.remove('has-cursor', 'ok', 'bad');
+      line.style.minHeight = '';
+      bank.replaceChildren();
+      bank.hidden = true; // geen lege ruimte waar de tegels stonden
+      return;
+    }
     const kids = [];
     if (opts.start) kids.push(h('span', { class: 'chip fixed' }, opts.start));
     chosen.forEach((c, i) => {
@@ -243,7 +254,7 @@ export function tileBoard(opts) {
   let fittedWidth = 0;
   const fitLine = () => {
     const width = line.offsetWidth;
-    if (locked || !width || width === fittedWidth) return;
+    if (locked || revealedText !== null || !width || width === fittedWidth) return;
     fittedWidth = width;
     const probe = h('div', { class: 'chips line', 'aria-hidden': 'true', style: `position: absolute; visibility: hidden; width: ${width}px` },
       opts.start ? h('span', { class: 'chip fixed' }, opts.start) : null,
@@ -261,11 +272,11 @@ export function tileBoard(opts) {
     bank,
     tokens: () => chosen.map((c) => c.t),
     reveal(text) {
-      line.replaceChildren(h('span', { class: 'chip revealed' }, text));
-      bank.replaceChildren();
-      line.style.minHeight = '';
+      revealedText = text;
+      draw();
     },
     mark(ok) {
+      if (revealedText !== null) return;
       line.classList.toggle('ok', ok === true);
       line.classList.toggle('bad', ok === false);
     },
