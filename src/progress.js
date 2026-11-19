@@ -4,7 +4,9 @@
 //   v: 2,
 //   items: { "<hoofdstuk>/<oefening>/<vraag-id>": { s: 'good'|'wrong'|'revealed'|'free', at, h, x? } },
 //   ex:    { "<hoofdstuk>/<oefening>": { best, score, total, completedAt?, runStart?, pick? } },
-//   last:  { href, title, at }
+//   last:  { href, title, at },
+//   cards: { "<hoofdstuk>/<sv|nl>/<Zweeds woord>": 'known'|'unknown' }   (flitskaarten, per richting)
+//   dictee: { "<gesproken tekst>": 'good'|'wrong' }
 // }
 // - 'good' = in één keer goed, 'wrong' = goed na fouten, 'revealed' = antwoord bekeken.
 // - Elke vraag heeft een vaste id (content/…yaml, of het Zweedse woord bij woordenschat), zodat
@@ -21,7 +23,7 @@ import { STORAGE_PREFIX } from './config.js';
 
 export const KEY = `${STORAGE_PREFIX}:progress:v2`;
 const OLD_KEY = `${STORAGE_PREFIX}:progress:v1`;
-const empty = () => ({ v: 2, items: {}, ex: {}, last: null, srs: {}, days: [], tests: {}, games: {}, prefs: {} });
+const empty = () => ({ v: 2, items: {}, ex: {}, last: null, srs: {}, days: [], tests: {}, games: {}, prefs: {}, cards: {}, dictee: {} });
 let memory = empty();
 // Laatst gelezen of geschreven opslag: zo wordt de JSON niet bij elke aanroep opnieuw ontleed.
 let cachedRaw = null;
@@ -440,8 +442,69 @@ export function importProgress(text) {
   const optional = (x) => x === undefined || x === null || isObj(x);
   if (!isObj(data) || data.v !== 2 || !isObj(data.items) || !isObj(data.ex)
     || !optional(data.srs) || !optional(data.tests) || !optional(data.games) || !optional(data.prefs)
+    || !optional(data.cards) || !optional(data.dictee)
     || (data.days !== undefined && !Array.isArray(data.days))) {
     throw new Error('Dit is geen geldig voortgangsbestand.');
   }
   save({ ...empty(), ...data });
+}
+
+// ---------- Flitskaarten en dictee: eigen geheugen, los van de oefeningen ----------
+const mixed = (a, rand) => {
+  const out = [...a];
+  for (let i = out.length - 1; i > 0; i--) {
+    const j = Math.floor(rand() * (i + 1));
+    [out[i], out[j]] = [out[j], out[i]];
+  }
+  return out;
+};
+/** Eerst wat nieuw is, dan wat fout ging; pas als dat op is een herhaling van wat al goed was. */
+function pickDue(keys, statusOf, size, bad, rand) {
+  const fresh = keys.filter((k) => !statusOf(k));
+  const wrong = keys.filter((k) => statusOf(k) === bad);
+  const due = [...mixed(fresh, rand), ...mixed(wrong, rand)];
+  return (due.length ? due : mixed(keys, rand)).slice(0, size);
+}
+
+const cardKey = (ch, dir, sv) => `${ch}/${dir}/${sv}`;
+
+/** Zelfbeoordeling bij een flitskaart: alleen de eerste beoordeling per stapel telt (zie viewFlashcards). */
+export function rateCard(ch, dir, sv, known) {
+  const state = load();
+  state.cards = { ...(state.cards ?? {}), [cardKey(ch, dir, sv)]: known ? 'known' : 'unknown' };
+  markDay(state);
+  save(state);
+}
+
+/** Woorden (Zweeds) voor de volgende stapel flitskaarten. */
+export function pickCards(ch, dir, words, size, rand = Math.random) {
+  const cards = load().cards ?? {};
+  return pickDue(words, (sv) => cards[cardKey(ch, dir, sv)], size, 'unknown', rand);
+}
+
+export function cardProgress(ch, dir, words) {
+  const cards = load().cards ?? {};
+  const st = words.map((sv) => cards[cardKey(ch, dir, sv)]);
+  const known = st.filter((x) => x === 'known').length;
+  const unknown = st.filter((x) => x === 'unknown').length;
+  return { total: words.length, known, unknown, fresh: words.length - known - unknown };
+}
+
+export function recordDictation(say, good) {
+  const state = load();
+  state.dictee = { ...(state.dictee ?? {}), [say]: good ? 'good' : 'wrong' };
+  markDay(state);
+  save(state);
+}
+
+/** Zinnen of woorden voor een dictee: eerst nieuw, dan fout. */
+export function pickDictation(says, size, rand = Math.random) {
+  const d = load().dictee ?? {};
+  return pickDue(says, (k) => d[k], size, 'wrong', rand);
+}
+
+export function dictationProgress(says) {
+  const d = load().dictee ?? {};
+  const st = says.map((k) => d[k]);
+  return { total: says.length, seen: st.filter(Boolean).length, wrong: st.filter((x) => x === 'wrong').length };
 }

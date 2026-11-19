@@ -298,6 +298,11 @@ function viewWeak(ch) {
     entries: shuffle(entries).slice(0, 15),
     again: `#/k/${ch.chapter}/fouten?${Date.now()}`,
     empty: 'Er staan geen fouten meer open in dit hoofdstuk. Goed bezig!',
+    left: {
+      count: () => weakItems(ch).filter(({ ex }) => !ex.text).length,
+      more: (n) => `Er ${n === 1 ? 'staat' : 'staan'} in dit hoofdstuk nog ${plural(n, 'fout', 'fouten')} open.`,
+      done: 'Alle fouten in dit hoofdstuk zijn opgelost. Goed bezig!',
+    },
   });
 }
 
@@ -310,6 +315,11 @@ function viewWeakAll() {
     instruction: 'Je openstaande fouten uit alle hoofdstukken. Heb je een vraag in één keer goed, dan verdwijnt hij uit de lijst.',
     entries: shuffle(entries).slice(0, 15),
     again: `#/herhalen?${Date.now()}`,
+    left: {
+      count: () => course.filter((c) => c.available).reduce((n, c) => n + weakItems(c).filter(({ ex }) => !ex.text).length, 0),
+      more: (n) => `Er ${n === 1 ? 'staat' : 'staan'} nog ${plural(n, 'fout', 'fouten')} open.`,
+      done: 'Alle fouten zijn opgelost. Goed bezig!',
+    },
     empty: 'Er staan geen fouten open. Vragen die je fout hebt of waarvan je het antwoord bekijkt, komen hier vanzelf terug.',
   });
 }

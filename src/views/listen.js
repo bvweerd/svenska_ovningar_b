@@ -10,6 +10,7 @@ import {
 } from '../speech.js';
 import { speakButton } from '../render/speak.js';
 import { trackEvent } from '../analytics.js';
+import { recordDictation, pickDictation, dictationProgress } from '../progress.js';
 
 const TEST_SENTENCE = 'Hej! Jag heter Sanne och jag bor i Uppsala. Nu ska jag dricka en kopp kaffe, sju sjösjuka sjömän och en tjock kjol.';
 
@@ -332,7 +333,11 @@ export function viewDictation(query) {
   document.title = 'Dictee · Svenska övningar';
   const kind = query?.get('soort') ?? 'zin';
   const pool = dictationPool().filter((p) => p.kind === kind);
-  const picked = shuffle(pool).slice(0, 10);
+  // Eerst wat je nog niet gehad hebt of fout had, zodat je niet steeds dezelfde zinnen krijgt.
+  const says = pool.map((p) => p.say);
+  const chosen = new Set(pickDictation(says, 10));
+  const picked = shuffle(pool.filter((p) => chosen.has(p.say)));
+  const label = kind === 'zin' ? ['zin', 'zinnen'] : ['woord', 'woorden'];
   const head = h('header', { class: 'page-head' },
     h('h1', {}, 'Dictee'),
     h('p', { class: 'instruction' }, kind === 'zin'
@@ -353,10 +358,16 @@ export function viewDictation(query) {
   }));
   const [list, score, summary] = exerciseRunner(items, {
     advanceAfterReveal: true,
+    onItem: (entry, r) => recordDictation(entry.item.say, r.firstTry && !r.revealed),
     onFinish: (good, total) => {
       trackEvent(`luisteren/dictee/${kind}/${good}-van-${total}`, 'Dictee');
+      const p = dictationProgress(says);
+      const left = p.total - p.seen;
       return [
         h('h2', {}, `Klaar! ${good} van ${total} in één keer goed.`),
+        h('p', {}, left || p.wrong
+          ? `Je hebt nu ${p.seen} van de ${p.total} ${label[1]} gehad${left ? `; ${left} nog nieuw` : ''}${p.wrong ? `${left ? ',' : ';'} ${p.wrong} om te herhalen` : ''}.`
+          : `Je hebt alle ${p.total} ${label[1]} gehad en de laatste keer goed geschreven. Nog een ronde wordt een herhaling.`),
         h('div', { class: 'actions' },
           h('a', { class: 'btn primary', href: `#/oefenen/luisteren?soort=${kind}&${Date.now()}` }, 'Nog een ronde'),
           h('a', { class: 'btn ghost', href: '#/oefenen' }, 'Terug naar oefenen')),

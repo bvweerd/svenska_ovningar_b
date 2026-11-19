@@ -1,12 +1,12 @@
 // Extra oefenvormen: dagelijkse herhaling, werkwoordtrainer, flitskaarten, toetsen en snelle rondes.
 import { h } from '../dom.js';
 import { course, verbs, practiceEntries, balancedSample } from '../content.js';
-import { crumbs, practiceView, exerciseRunner, findTopic } from '../ui.js';
+import { crumbs, practiceView, exerciseRunner, findTopic, progressBar } from '../ui.js';
 import { itemCard } from '../render/item-card.js';
 import { shuffle } from '../build.js';
 import {
-  dueItems, srsStats, streak, weakItems, recordItem, saveTest, getTest, saveGame, getGame,
-  getPref, setPref, INTERVALS,
+  dueItems, srsStats, streak, weakItems, saveTest, getTest, saveGame, getGame,
+  getPref, setPref, INTERVALS, rateCard, pickCards, cardProgress,
 } from '../progress.js';
 import { TENSES, KINDS, pickVerbItem, pretOptions } from '../verbs.js';
 import { trackEvent, scoreBucket } from '../analytics.js';
@@ -126,6 +126,11 @@ export function viewDaily() {
     entries: due.slice(0, 20),
     again: `#/oefenen/herhaling?${Date.now()}`,
     empty: '',
+    left: {
+      count: () => dueItems(practiceEntries()).length,
+      more: (n) => `Er ${n === 1 ? 'staat' : 'staan'} vandaag nog ${plural(n, 'vraag', 'vragen')} klaar.`,
+      done: 'Voor vandaag ben je klaar! Wat je fout had, komt morgen terug.',
+    },
   });
 }
 
@@ -210,17 +215,20 @@ export function viewVerbTrainer() {
 }
 
 // ---------- Flitskaarten ----------
+/** Zoveel kaarten per stapel; daarna zie je hoe ver je bent (net als de rondes van een woordenlijst). */
+const CARD_STACK = 15;
+
 export function viewFlashcards(ch) {
   document.title = `Flitskaarten · ${ch.title}`;
   const vocab = ch.vocab ?? [];
   const ex = ch.exercises.find((e) => e.id === 'woorden-sv-nl');
+  const words = vocab.map((v) => v.sv);
   let dir = getPref('cardsDir', 'sv');
   let deck;
   let current;
   let flipped;
-  let known;
+  let stackSize;
   let wrongOnce;
-  const total = vocab.length;
 
   const face = h('div', { class: 'flash-face' });
   const card = h('button', { type: 'button', class: 'flashcard', 'aria-live': 'polite', onclick: () => flip() }, face);
@@ -230,19 +238,38 @@ export function viewFlashcards(ch) {
 
   const front = (v) => (dir === 'sv' ? v.sv : v.nl);
   const back = (v) => (dir === 'sv' ? v.nl : v.sv);
+  const typing = () => (ex ? h('a', { class: 'btn ghost', href: `#/k/${ch.chapter}/o/woorden-nl-sv` }, 'Oefen de woorden met typen') : null);
+
+  const finish = () => {
+    const p = cardProgress(ch.chapter, dir, words);
+    const again = wrongOnce.size ? h('p', {}, `${plural(wrongOnce.size, 'kaart', 'kaarten')} moest je vaker zien; ${wrongOnce.size === 1 ? 'die komt' : 'die komen'} in een volgende stapel terug.`) : null;
+    if (!p.fresh && !p.unknown) {
+      return [
+        h('h2', {}, `Je kent alle ${p.total} woorden!`),
+        again,
+        h('div', { class: 'actions' },
+          ex ? h('a', { class: 'btn primary', href: `#/k/${ch.chapter}/o/woorden-nl-sv` }, 'Oefen de woorden met typen') : h('a', { class: 'btn primary', href: `#/k/${ch.chapter}` }, 'Terug naar het hoofdstuk'),
+          h('button', { type: 'button', class: 'btn ghost', onclick: start }, 'Nog een stapel (herhalen)')),
+      ];
+    }
+    const todo = [p.fresh ? `${p.fresh} nog nieuw` : null, p.unknown ? `${p.unknown} nog niet gekend` : null].filter(Boolean).join(', ');
+    return [
+      h('h2', {}, 'Stapel klaar!'),
+      h('p', {}, `Je kent nu ${p.known} van de ${p.total} woorden (${todo}).`),
+      progressBar(p.known, p.total, `${p.known} van ${p.total} woorden gekend`),
+      again,
+      h('div', { class: 'actions' }, h('button', { type: 'button', class: 'btn primary', onclick: start }, 'Volgende stapel'), typing()),
+    ];
+  };
 
   const show = () => {
-    progress.textContent = `${known} van ${total} gekend · nog ${deck.length + (current ? 1 : 0)} kaarten`;
+    const p = cardProgress(ch.chapter, dir, words);
+    progress.textContent = `Stapel: nog ${deck.length + (current ? 1 : 0)} van ${stackSize} kaarten · ${p.known} van ${p.total} woorden gekend`;
     if (!current) {
       card.hidden = true;
       actions.replaceChildren();
       summary.hidden = false;
-      summary.replaceChildren(
-        h('h2', {}, 'Alle kaarten gekend!'),
-        h('p', {}, wrongOnce.size ? `${plural(wrongOnce.size, 'woord', 'woorden')} moest je vaker zien. Die komen terug in de dagelijkse herhaling.` : 'Je kende alles in één keer. Knap!'),
-        h('div', { class: 'actions' },
-          h('button', { type: 'button', class: 'btn primary', onclick: start }, 'Nog een keer'),
-          ex ? h('a', { class: 'btn ghost', href: `#/k/${ch.chapter}/o/woorden-nl-sv` }, 'Oefen de woorden met typen') : null));
+      summary.replaceChildren(...finish().filter(Boolean));
       setTimeout(() => summary.querySelector('.btn.primary')?.focus(), 0);
       return;
     }
@@ -266,11 +293,11 @@ export function viewFlashcards(ch) {
   };
   const rate = (ok) => {
     if (!current || !flipped) return;
-    if (ex && !current.rated) recordItem(ch.chapter, ex, current.i, ok ? 'good' : 'wrong', { outside: true });
+    // Alleen de eerste beoordeling telt: wat je pas na herhalen wist, komt in een volgende stapel terug.
+    if (!current.rated) rateCard(ch.chapter, dir, current.v.sv, ok);
     current.rated = true;
-    if (ok) known++;
-    else {
-      wrongOnce.add(current.i);
+    if (!ok) {
+      wrongOnce.add(current.v.sv);
       deck.splice(Math.min(3, deck.length), 0, current);
     }
     current = deck.shift() ?? null;
@@ -279,10 +306,11 @@ export function viewFlashcards(ch) {
     card.focus();
   };
   function start() {
-    deck = shuffle(vocab.map((v, i) => ({ v, i, rated: false })));
+    const pick = new Set(pickCards(ch.chapter, dir, words, CARD_STACK));
+    deck = shuffle(vocab.filter((v) => pick.has(v.sv)).map((v) => ({ v, rated: false })));
+    stackSize = deck.length;
     current = deck.shift() ?? null;
     flipped = false;
-    known = 0;
     wrongOnce = new Set();
     show();
     card.focus();
@@ -304,7 +332,7 @@ export function viewFlashcards(ch) {
     crumbs({ label: 'Start', href: '#/' }, { label: ch.title, href: `#/k/${ch.chapter}` }, { label: 'Flitskaarten' }),
     h('header', { class: 'page-head' },
       h('h1', {}, `Flitskaarten: ${ch.title}`),
-      h('p', { class: 'instruction' }, 'Draai de kaart om en geef eerlijk aan of je het wist. Wat je nog niet wist, komt een paar kaarten later terug.'),
+      h('p', { class: 'instruction' }, `Draai de kaart om en geef eerlijk aan of je het wist. Je oefent in stapels van ${CARD_STACK}: eerst wat nieuw is of wat je nog niet wist. Wat je in de stapel niet wist, komt een paar kaarten later terug.`),
       h('div', { class: 'actions' }, dirButtons)),
     progress, card, actions, summary,
   );
@@ -317,7 +345,7 @@ export function viewFlashcards(ch) {
     else if (e.key === '2' || e.key.toLowerCase() === 'n') rate(false);
     else if (e.key.toLowerCase() === 'l' && current) speak(current.v.sv);
   });
-  if (!total) return h('div', {}, h('p', {}, 'Dit hoofdstuk heeft geen woordenlijst.'));
+  if (!vocab.length) return h('div', {}, h('p', {}, 'Dit hoofdstuk heeft geen woordenlijst.'));
   start();
   setTimeout(() => card.focus(), 0);
   return view;

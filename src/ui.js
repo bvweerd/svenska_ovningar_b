@@ -99,7 +99,7 @@ export function exerciseRunner(items, { onFinish, offset = { done: 0, good: 0, t
  * Oefenronde met losse vragen uit één of meer hoofdstukken (mix, fouten).
  * entries: [{ item, ex, idx, chapter }]
  */
-export function practiceView(ch, { title, instruction, entries, again, empty }) {
+export function practiceView(ch, { title, instruction, entries, again, empty, left }) {
   const trail = ch
     ? [{ label: 'Start', href: '#/' }, { label: ch.title, href: `#/k/${ch.chapter}` }, { label: title }]
     : [{ label: 'Start', href: '#/' }, { label: title }];
@@ -120,10 +120,20 @@ export function practiceView(ch, { title, instruction, entries, again, empty }) 
     };
   });
   const [list, score, summary] = exerciseRunner(items, {
-    onFinish: (good, total) => [
-      h('h2', {}, `Klaar! ${good} van ${total} in één keer goed.`),
-      h('div', { class: 'actions' }, h('a', { class: 'btn primary', href: again }, 'Nog een ronde'), back),
-    ],
+    onFinish: (good, total) => {
+      const heading = h('h2', {}, `Klaar! ${good} van ${total} in één keer goed.`);
+      // left: hoeveel er na deze ronde nog openstaat (fouten, herhaalvragen); 0 = alles klaar.
+      const n = left ? left.count() : null;
+      if (n === 0) {
+        back.className = 'btn primary';
+        return [heading, h('p', {}, left.done), h('div', { class: 'actions' }, back)];
+      }
+      return [
+        heading,
+        n ? h('p', {}, left.more(n)) : null,
+        h('div', { class: 'actions' }, h('a', { class: 'btn primary', href: again }, 'Nog een ronde'), back),
+      ];
+    },
   });
   return h('div', {},
     crumbs(...trail),

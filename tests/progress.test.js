@@ -244,3 +244,30 @@ describe('ronde afronden bij een lange oefening', () => {
     expect(res.pick).toBeUndefined();
   });
 });
+
+describe('flitskaarten en dictee', () => {
+  beforeEach(() => { store.clear(); P.resetProgress(); });
+  const words = ['en bil', 'ett hus', 'en katt', 'en hund'];
+  it('stapels: eerst nieuw, dan nog niet gekend, dan herhaling', () => {
+    P.rateCard(1, 'sv', 'en bil', true);
+    P.rateCard(1, 'sv', 'ett hus', false);
+    expect(P.pickCards(1, 'sv', words, 10).sort()).toEqual(['en hund', 'en katt', 'ett hus']);
+    expect(P.cardProgress(1, 'sv', words)).toEqual({ total: 4, known: 1, unknown: 1, fresh: 2 });
+    expect(P.cardProgress(1, 'nl', words).fresh).toBe(4);
+    for (const w of words) P.rateCard(1, 'sv', w, true);
+    expect(P.pickCards(1, 'sv', words, 2)).toHaveLength(2);
+    expect(P.cardProgress(1, 'sv', words)).toEqual({ total: 4, known: 4, unknown: 0, fresh: 0 });
+  });
+  it('flitskaarten tellen niet als antwoord in een oefening', () => {
+    P.rateCard(1, 'sv', 'en bil', true);
+    expect(Object.keys(JSON.parse(store.get(P.KEY)).items)).toHaveLength(0);
+  });
+  it('dictee: eerst nieuw, dan fout', () => {
+    const says = ['Hej.', 'Tack.', 'Hej då.'];
+    P.recordDictation('Hej.', true);
+    P.recordDictation('Tack.', false);
+    expect(P.pickDictation(says, 1)).toEqual(['Hej då.']);
+    expect(P.pickDictation(says, 5).sort()).toEqual(['Hej då.', 'Tack.']);
+    expect(P.dictationProgress(says)).toEqual({ total: 3, seen: 2, wrong: 1 });
+  });
+});
