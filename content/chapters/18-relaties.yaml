@@ -287,7 +287,7 @@ vocab:
   - { sv: "ett beslut", nl: "een besluit", def: "beslutet", pl: "beslut", plDef: "besluten" }
   - { sv: "en kompromiss", nl: "een compromis", def: "kompromissen", pl: "kompromisser", plDef: "kompromisserna" }
   - { sv: "ett bröllop", nl: "een bruiloft", def: "bröllopet", pl: "bröllop", plDef: "bröllopen" }
-  - { sv: "en svärmor", nl: "een schoonmoeder", def: "svärmodern", pl: "svärmödrar", plDef: "svärmödrarna" }
+  - { sv: "en svärmor", nl: "een schoonmoeder", def: ["svärmodern", "svärmorn"], pl: "svärmödrar", plDef: "svärmödrarna" }
   - { sv: "att gifta sig", nl: "trouwen" }
   - { sv: "att skilja sig", nl: "scheiden" }
   - { sv: "att gräla", nl: "ruziemaken" }

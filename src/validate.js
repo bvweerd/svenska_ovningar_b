@@ -93,7 +93,7 @@ function checkVocab(ch, errors) {
     if (seen.has(v.sv)) err('staat dubbel in dit hoofdstuk');
     seen.add(v.sv);
     const noun = /^(en|ett) /.test(v.sv);
-    if (v.def !== undefined && (!noun || typeof v.def !== 'string' || !v.def)) err('def (bepaalde vorm) alleen bij een woord met en/ett');
+    if (v.def !== undefined && (!noun || ![].concat(v.def).length || [].concat(v.def).some((d) => typeof d !== 'string' || !d.trim()))) err('def (bepaalde vorm) alleen bij een woord met en/ett');
     if (v.pl !== undefined) {
       const pl = [].concat(v.pl);
       if (!noun) err('pl (meervoud) alleen bij een woord met en/ett');

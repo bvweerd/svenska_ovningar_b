@@ -300,7 +300,7 @@ vocab:
   - { sv: "en handläggare", nl: "een behandelend ambtenaar", def: "handläggaren", pl: "handläggare", plDef: "handläggarna" }
   - { sv: "ett ärende", nl: "een zaak, een dossier", def: "ärendet", pl: "ärenden", plDef: "ärendena" }
   - { sv: "ett beslut", nl: "een besluit", def: "beslutet", pl: "beslut", plDef: "besluten" }
-  - { sv: "en avgift", nl: "een bijdrage, een heffing (kosten die je betaalt)", def: "avgiften", pl: "avgifter", plDef: "avgifterna" }
+  - { sv: "en avgift", nl: "een heffing, een tarief", def: "avgiften", pl: "avgifter", plDef: "avgifterna" }
   - { sv: "ett id-kort", nl: "een identiteitskaart", def: "id-kortet", pl: "id-kort", plDef: "id-korten" }
   - { sv: "ett bankkonto", nl: "een bankrekening", def: "bankkontot", pl: "bankkonton", plDef: "bankkontona" }
   - { sv: "ett kvitto", nl: "een bonnetje, een bon", def: "kvittot", pl: "kvitton", plDef: "kvittona" }

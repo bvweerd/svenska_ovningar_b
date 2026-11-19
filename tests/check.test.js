@@ -170,7 +170,7 @@ describe('woordenlijst: meervoud en voorbeeldzin', async () => {
   it('haalt alle Nederlandse lidwoorden weg in de opdracht', () => {
     const v = [{ sv: 'en granne', nl: 'een buurman, een buurvrouw', def: 'grannen', pl: 'grannar' }];
     const it0 = vocabExercises(v, 1).find((e) => e.id === 'woorden-meervoud').items[0];
-    expect(it0.text).toBe('en granne (buurman, buurvrouw) → meervoud: ___');
+    expect(it0.text).toBe('en granne – buurman, buurvrouw → meervoud: ___');
   });
   it('nl→sv: tip bij de bepaalde vorm, en woorden zonder lidwoord (mass)', () => {
     const v = [
@@ -180,10 +180,20 @@ describe('woordenlijst: meervoud en voorbeeldzin', async () => {
     const items = vocabExercises(v, 1).find((e) => e.id === 'woorden-nl-sv').items;
     expect(gradeText('bilen', items[0]).tip).toContain('bepaalde vorm');
     expect(gradeText('bil', items[0]).tip).toContain('lidwoord');
-    expect(gradeText('febern', items[1]).tip).toContain('bepaalde vorm');
+    expect(gradeText('febern', items[1]).correct).toBe(true);
     expect(gradeText('feber', items[1]).correct).toBe(true);
     expect(gradeText('en feber', items[1]).correct).toBe(true);
     expect(items[1].explain).toContain('en-woord');
+  });
+  it('nl→sv: bij „het weer” is ook „vädret” goed', () => {
+    const v = [{ sv: 'ett väder', nl: 'het weer', def: 'vädret', mass: true }, { sv: 'en bror', nl: 'een broer', def: ['brodern', 'brorn'] }];
+    const ex = vocabExercises(v, 1);
+    const items = ex.find((e) => e.id === 'woorden-nl-sv').items;
+    expect(gradeText('vädret', items[0]).correct).toBe(true);
+    expect(gradeText('väder', items[0]).correct).toBe(true);
+    expect(gradeText('brorn', items[1]).tip).toContain('bepaalde vorm');
+    const step = ex.find((e) => e.id === 'woorden-en-ett').items[1].steps[1];
+    expect(gradeText('brorn', step.gaps[0]).correct).toBe(true);
   });
   it('voorbeeldzin moet precies één vet stuk hebben', () => {
     expect(exampleGap('Jag **tar** **bussen**.')).toBe(null);

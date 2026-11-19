@@ -44,7 +44,7 @@ export function exampleGap(ex) {
 
 /**
  * Woord-entry in content: { sv, nl, def?, pl?, plDef?, mass?, alt?, ex?, exNl? }
- *   def  bepaalde vorm enkelvoud (bilen), pl  meervoud (bilar; of een lijst als beide goed zijn),
+ *   def  bepaalde vorm enkelvoud (bilen; of een lijst als beide goed zijn: brodern, brorn), pl  meervoud (bilar; of een lijst als beide goed zijn),
  *   plDef  bepaalde vorm meervoud (bilarna; alleen voor de tip bij die veelgemaakte fout),
  *   mass  true als het woord meestal zonder lidwoord wordt gebruikt (ha feber, fira jul);
  *         dan is het woord zonder en/ett ook goed, met een uitleg over het geslacht,
@@ -91,19 +91,21 @@ export function vocabExercises(vocab, chapterNo, { nounTopic = 'woordenschat', p
           tip: `Bijna: „${bare(v.sv)}” is een ${art}-woord.`,
         });
       }
-      if (art && v.def && v.def !== bare(v.sv)) {
-        feedback.push({ match: v.def, tip: `Dat is de bepaalde vorm. Gevraagd wordt de onbepaalde vorm: ${v.mass ? `„${bare(v.sv)}”` : `„${v.sv}”`}.` });
+      const defs = list(v.def).filter((d) => d !== bare(v.sv));
+      // Nederlands met de/het („het weer”): dan is de bepaalde vorm (vädret) ook een goede vertaling.
+      const nlDefinite = /^(de|het) /.test(v.nl);
+      if (art && defs.length && !nlDefinite) {
+        feedback.push({ match: defs, tip: `Dat is de bepaalde vorm. Gevraagd wordt de onbepaalde vorm: ${v.mass ? `„${bare(v.sv)}”` : `„${v.sv}”`}.` });
       }
       if (v.sv.startsWith('att ')) {
         feedback.push({ match: bare(v.sv), tip: 'Zet „att” voor de infinitief, net als „te” in het Nederlands.' });
       }
-      if (art && v.mass) {
-        return {
-          id: v.sv, type: 'translate', prompt: v.nl, answers: [v.sv, bare(v.sv), ...(v.alt ?? [])], feedback,
-          explain: `„${bare(v.sv)}” gebruik je meestal zonder lidwoord. Het is wel een ${art}-woord: ${v.def ?? v.sv}.`,
-        };
-      }
-      return { id: v.sv, type: 'translate', prompt: v.nl, answers: [v.sv, ...(v.alt ?? [])], feedback };
+      const answers = [v.sv, ...(art && v.mass ? [bare(v.sv)] : []), ...(art && nlDefinite ? defs : []), ...(v.alt ?? [])];
+      const notes = [];
+      if (art && v.mass) notes.push(`„${bare(v.sv)}” gebruik je vaak zonder en/ett.`);
+      if (art && (v.mass || nlDefinite)) notes.push(`Het is een ${art}-woord: ${[v.sv, ...list(v.def)].join(', ')}.`);
+      if (notes.length) return { id: v.sv, type: 'translate', prompt: v.nl, answers, feedback, explain: notes.join(' ') };
+      return { id: v.sv, type: 'translate', prompt: v.nl, answers, feedback };
     }),
   });
 
@@ -132,7 +134,7 @@ export function vocabExercises(vocab, chapterNo, { nounTopic = 'woordenschat', p
           {
             type: 'gap',
             text: `${v.sv} → ___`,
-            gaps: [{ answers: [v.def] }],
+            gaps: [{ answers: list(v.def) }],
           },
         ],
       })),
@@ -152,14 +154,15 @@ export function vocabExercises(vocab, chapterNo, { nounTopic = 'woordenschat', p
       items: plurals.map((v) => {
         const pl = list(v.pl);
         const feedback = [];
-        if (!pl.includes(bare(v.sv))) feedback.push({ match: [bare(v.sv), v.sv], tip: 'Dat is nog enkelvoud. Welke uitgang krijgt dit woord in het meervoud?' });
-        if (v.def && !pl.includes(v.def)) feedback.push({ match: v.def, tip: 'Dat is de bepaalde vorm enkelvoud. Gevraagd wordt het meervoud.' });
+        if (!pl.includes(bare(v.sv))) feedback.push({ match: [bare(v.sv), v.sv], tip: 'Dat is nog enkelvoud. Hoe luidt het meervoud? Let op: sommige woorden krijgen geen uitgang of veranderen van klinker.' });
+        const defSg = list(v.def).filter((d) => !pl.includes(d));
+        if (defSg.length) feedback.push({ match: defSg, tip: 'Dat is de bepaalde vorm enkelvoud. Gevraagd wordt het meervoud.' });
         const plDef = list(v.plDef).filter((d) => !pl.includes(d));
         if (plDef.length) feedback.push({ match: plDef, tip: 'Dat is de bepaalde vorm meervoud („de …”). Gevraagd wordt het onbepaalde meervoud.' });
         return {
           id: v.sv,
           type: 'gap',
-          text: `${v.sv} (${nlBare(v.nl)}) → meervoud: ___`,
+          text: `${v.sv} – ${nlBare(v.nl)} → meervoud: ___`,
           gaps: [{ answers: pl, feedback }],
         };
       }),
