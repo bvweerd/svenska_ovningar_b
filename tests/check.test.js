@@ -123,6 +123,54 @@ describe('tijdsbepaling vooraan of achteraan', () => {
     expect(gradeText('Jag vet att han kommer på måndag på måndag', { answers: ['Jag vet att han kommer på måndag.'] }).correct).toBe(false);
     expect(gradeText('På måndag vet jag att han kommer', { answers: ['Jag vet att han kommer på måndag.'] }).correct).toBe(false);
   });
+  it('alleen het echte onderwerp, geen woordensla (H30: „Om tio år kommer robotar[ att] vara …”)', () => {
+    const s = { answers: ['Om tio år kommer robotar [att ]{vara|utgöra} en självklar del {av|i} vården.'] };
+    expect(gradeText('Robotar kommer vara en självklar del av vården om tio år', s).correct).toBe(true);
+    expect(gradeText('Robotar kommer att vara en självklar del av vården om tio år', s).correct).toBe(true);
+    expect(gradeText('Robotar vara kommer en självklar del av vården om tio år', s).correct).toBe(false);
+    expect(gradeText('Robotar att kommer vara en självklar del av vården om tio år', s).correct).toBe(false);
+    const back = { answers: ['Robotar kommer [att ]vara en självklar del av vården om tio år.'] };
+    expect(gradeText('Om tio år kommer robotar vara en självklar del av vården', back).correct).toBe(true);
+    expect(gradeText('Om tio år vara robotar kommer en självklar del av vården', back).correct).toBe(false);
+  });
+  it('onderwerp van meer woorden', () => {
+    const s = { answers: ['Idag läser min bror tidningen.'] };
+    expect(gradeText('Min bror läser tidningen idag', s).correct).toBe(true);
+    expect(gradeText('Min läser bror tidningen idag', s).correct).toBe(false);
+    expect(gradeText('Min bror tidningen läser idag', s).correct).toBe(false);
+    expect(gradeText('På lördag kommer de flesta gästerna', { answers: ['De flesta gästerna kommer på lördag.'] }).correct).toBe(true);
+  });
+  it('haalt de tijdsbepaling niet uit een bijzin (H15 zdmz: dit)', () => {
+    const s = { answers: ['Jag {ska åka|åker} till Gotland, dit mina föräldrar flyttade {förra året|i fjol}.'] };
+    expect(gradeText('Jag åker till Gotland, dit mina föräldrar flyttade förra året', s).correct).toBe(true);
+    expect(gradeText('Förra året åker jag till Gotland, dit mina föräldrar flyttade', s).correct).toBe(false);
+    expect(gradeText('I fjol åker jag till Gotland dit mina föräldrar flyttade', s).correct).toBe(false);
+    // Ook zonder komma: dit, där, vars, när enz. beginnen een bijzin.
+    for (const w of ['dit', 'där', 'vars', 'när', 'som', 'medan', 'innan', 'tills', 'fastän']) {
+      expect(gradeText(`Igår ser jag huset ${w} hon bor`, { answers: [`Jag ser huset ${w} hon bor igår.`] }).correct).toBe(false);
+    }
+    expect(gradeText('Idag stannar jag hemma så att jag kan vila', { answers: ['Jag stannar hemma så att jag kan vila idag.'] }).correct).toBe(false);
+  });
+  it('de tijdsbepaling slokt geen werkwoord of onderwerp op en laat geen voorzetsel achter', () => {
+    const s = { answers: ['Varje kväll tittar Bram på tv.'] };
+    expect(gradeText('Bram tittar på tv varje kväll', s).correct).toBe(true);
+    expect(gradeText('Tv på varje kväll tittar Bram', s).correct).toBe(false);
+    expect(gradeText('På Bram tv varje kväll tittar', s).correct).toBe(false);
+    expect(gradeText('Ett år har de bott i Västerås i nästan', { answers: ['De har bott i Västerås i nästan ett år.'] }).correct).toBe(false);
+    expect(gradeText('I nästan ett år har de bott i Västerås', { answers: ['De har bott i Västerås i nästan ett år.'] }).correct).toBe(true);
+    expect(gradeText('Igår har jag haft feber sen', { answers: ['Jag har haft feber sen igår.'] }).correct).toBe(false);
+    expect(gradeText('På middag blev jag bjuden', { answers: ['Jag blev bjuden på middag.'] }).correct).toBe(false);
+    expect(gradeText('På fredagar slutar Bram klockan tre', { answers: ['Bram slutar klockan tre på fredagar.'] }).correct).toBe(true);
+  });
+  it('vragen en bijzinnen zonder att blijven zoals ze zijn', () => {
+    expect(gradeText('Nu bor var ni', { answers: ['Var bor ni nu?'] }).correct).toBe(false);
+    expect(gradeText('Idag Fleur jobbar hemma', { answers: ['Jobbar Fleur hemma idag?'] }).correct).toBe(false);
+    expect(gradeText('Imorgon tror jag Olle kommer', { answers: ['Jag tror Olle kommer imorgon.'] }).correct).toBe(false);
+    expect(gradeText('På torsdag hoppas jag jag mår bättre', { answers: ['Jag hoppas jag mår bättre på torsdag.'] }).correct).toBe(false);
+  });
+  it('een komma in het antwoord: geen verplaatsing', () => {
+    expect(gradeText('På måndag ringer jag dig, om jag hinner', { answers: ['Jag ringer dig, om jag hinner på måndag.'] }).correct).toBe(false);
+  });
   it('vastgelegde fouten gaan voor', () => {
     const s = { answers: ['På kvällen tittar Bram på tv.'], feedback: [{ match: ['Bram tittar på tv på kvällen'], tip: 'Begin met de tijdsbepaling.' }] };
     expect(gradeText('Bram tittar på tv på kvällen', s)).toMatchObject({ correct: false, tip: 'Begin met de tijdsbepaling.' });
@@ -139,6 +187,25 @@ describe('vaste volgorde (fixedOrder)', () => {
   });
   it('de gevraagde volgorde blijft goed', () => {
     expect(gradeText('På kvällen tittar Bram på tv', spec, { fixedOrder: true }).correct).toBe(true);
+  });
+  it('opdracht begint met het onderwerp: tip zonder „begin met de tijdsbepaling”', () => {
+    // Zoals H1 v2-kiezen-maken: „Schrijf de zin, beginnend met Jag”.
+    const s = { answers: ['Jag dricker kaffe {idag|i dag}.'] };
+    const r = gradeText('Idag dricker jag kaffe', s, { fixedOrder: true });
+    expect(r).toMatchObject({ correct: false, retry: true, kind: 'order' });
+    expect(r.tip).toContain('begin de zin zoals gevraagd');
+    expect(r.tip).not.toContain('met de tijdsbepaling');
+    const r2 = gradeText('På kvällen läser Wilma en bok', { answers: ['Wilma läser en bok på kvällen.'], fixedOrder: true });
+    expect(r2.tip).toContain('begin de zin zoals gevraagd');
+  });
+  it('opdracht begint met de tijdsbepaling: de bestaande tip', () => {
+    const r = gradeText('Wilma läser en bok på kvällen', { answers: ['På kvällen läser Wilma en bok.'] }, { fixedOrder: true });
+    expect(r).toMatchObject({ correct: false, retry: true });
+    expect(r.tip).toContain('begin de zin met de tijdsbepaling');
+  });
+  it('zonder vaste volgorde blijft het in beide richtingen goed', () => {
+    expect(gradeText('Idag dricker jag kaffe', { answers: ['Jag dricker kaffe idag.'] }).correct).toBe(true);
+    expect(gradeText('Jag dricker kaffe idag', { answers: ['Idag dricker jag kaffe.'] }).correct).toBe(true);
   });
 });
 

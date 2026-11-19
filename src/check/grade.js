@@ -1,6 +1,6 @@
 // Pure nakijkfuncties per vraagtype. Geven altijd { correct, tip?, kind? } terug.
-import { normalize, variants, displayAnswer } from './normalize.js';
-import { movedAdverbials } from './adverbial.js';
+import { normalize, variants, displayAnswer, expand } from './normalize.js';
+import { movedAdverbialOrders } from './adverbial.js';
 import { diagnose } from './diagnose.js';
 import { clockAnswers, clockFeedback } from './clock.js';
 
@@ -24,9 +24,16 @@ export function gradeText(input, spec, ctx = {}) {
     if (hitMatch || hitContains) return { correct: false, kind: 'feedback', tip: f.tip };
   }
   // Tijdsbepaling vooraan of achteraan: ook goed (vastgelegde fouten hierboven gaan voor).
-  if (!spec.options && expected.some((e) => movedAdverbials(e).includes(n))) {
+  // Uit de patronen mét leestekens, zodat een komma (bijzin) een verplaatsing tegenhoudt.
+  const moved = spec.options ? undefined : asList(spec.answers).flatMap((a) => expand(a))
+    .flatMap((e) => movedAdverbialOrders(e, opts)).find((m) => m.text === n);
+  if (moved) {
     if (spec.fixedOrder || ctx.fixedOrder) {
-      return { correct: false, retry: true, kind: 'order', tip: 'Dat is goed Zweeds, maar de opdracht is anders: begin de zin met de tijdsbepaling, net als in het Nederlands. Let dan op de inversie.' };
+      // fronted: de leerling zette de tijdsbepaling vooraan, terwijl de opdracht met iets anders begint.
+      const tip = moved.fronted
+        ? 'Dat is goed Zweeds, maar volg de opdracht: begin de zin zoals gevraagd.'
+        : 'Dat is goed Zweeds, maar de opdracht is anders: begin de zin met de tijdsbepaling, net als in het Nederlands. Let dan op de inversie.';
+      return { correct: false, retry: true, kind: 'order', tip };
     }
     return { correct: true, moved: true, note: `Het voorbeeldantwoord zet de tijdsbepaling op een andere plek: „${displayAnswer(spec.answers)}”` };
   }
