@@ -113,9 +113,9 @@ Daarna leest de eigenaar steekproefsgewijs mee. Pas dan wordt er gepubliceerd.
       goedgekeurd door de eigenaar.
 - [ ] **Fase 3**: hoofdstuk 13–30 naar ±60 woorden (meer uitdrukkingen en partikelwerkwoorden),
       per hoofdstuk een **taalreview**.
-- [ ] **Fase 4**: kernoefeningen naar 8–10 vragen, luistervragen in de A1–A2-site,
+- [x] **Fase 4**: kernoefeningen naar 8–10 vragen, luistervragen in de A1–A2-site,
       ±80 werkwoorden erbij in de werkwoordtrainer; per hoofdstuk of per lijst een **taalreview**.
-      Gedaan, wacht op **taalreview**: 82 werkwoorden erbij (146 in totaal); alle kernoefeningen
+      Gedaan en na **taalreview** verwerkt: 82 werkwoorden erbij (146 in totaal); alle kernoefeningen
       (grammatica, zonder lezen/luisteren/schrijven/herhaling) hebben nu minstens 8 vragen
       (±420 vragen erbij); in hoofdstuk 0–12 een onderdeel Luisteren met een meerkeuze-
       luisteroefening en een dictee (130 vragen).
