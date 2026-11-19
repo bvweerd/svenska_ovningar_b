@@ -83,3 +83,10 @@ describe('geen Zweedse stem', () => {
     expect(isMobileDevice('Mozilla/5.0 (Windows NT 10.0) Chrome/130', 'Win32', 0)).toBe(false);
   });
 });
+
+describe('voiceGender op Android en ChromeOS', () => {
+  it('herkent de Zweedse labels van Google', () => {
+    expect(voiceGender({ name: 'Kvinnlig röst 1' })).toBe('v');
+    expect(voiceGender({ name: 'Mansröst 2' })).toBe('m');
+  });
+});

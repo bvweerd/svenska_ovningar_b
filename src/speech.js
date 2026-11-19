@@ -80,8 +80,8 @@ export function voiceScore(v) {
 }
 
 // De Web Speech API zegt niet of een stem een man of een vrouw is; we herkennen bekende namen.
-const FEMALE = /alva|klara|sofie|hillevi|astrid|elin|ingrid|karin|female|kvinna|woman/i;
-const MALE = /oskar|mattias|bengt|erik|\bmale\b|\bman\b/i;
+const FEMALE = /alva|klara|sofie|hillevi|astrid|elin|ingrid|karin|female|kvinna|kvinnlig|woman/i;
+const MALE = /oskar|mattias|bengt|erik|mansröst|\bmale\b|\bman\b/i;
 
 /** 'v' (vrouw), 'm' (man) of null (onbekend). */
 export function voiceGender(v) {

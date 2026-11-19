@@ -37,34 +37,34 @@ const STEPS = {
   windows: {
     title: 'Windows: Zweedse stem installeren',
     steps: [
-      'Open **Instellingen → Tijd en taal → Taal en regio**.',
-      'Kies **Een taal toevoegen**, zoek **Svenska (Sverige)** en vink bij de opties **Tekst-naar-spraak** aan. De rest (weergavetaal, handschrift) mag uit.',
+      'Open **Instellingen → Tijd en taal → Spraak**.',
+      'Kies bij **Stemmen beheren** de knop **Stemmen toevoegen**, zoek **Zweeds** op en kies **Toevoegen**. Lukt dat niet, open dan Verteller-instellingen met **Windows-toets + Ctrl + N** en kies **Verouderde stemmen toevoegen** (Windows 10: **Meer stemmen toevoegen**); dat brengt je naar dezelfde pagina.',
       'Wacht tot het downloaden klaar is en **start de browser opnieuw**.',
-      'Kies hieronder de stem **Microsoft Bengt** (of een andere Zweedse stem).',
+      'Kies hieronder de stem **Microsoft Bengt**. Dat is de enige Zweedse stem van Windows zelf (een mannenstem). Op een computer van je werk kan het toevoegen van stemmen geblokkeerd zijn; gebruik dan Edge (zie hierboven).',
     ],
   },
   mac: {
     title: 'macOS: Zweedse stem downloaden',
     steps: [
-      'Open **Systeeminstellingen → Toegankelijkheid → Gesproken materiaal**.',
-      'Klik bij **Systeemstem** op het **ⓘ-knopje** (of „Beheer stemmen”).',
-      'Zoek **Zweeds** en download bijvoorbeeld **Alva**, **Klara** of **Oskar**. Kies bij voorkeur de versie **(Verbeterd)** of **(Premium)**: die klinkt veel natuurlijker.',
-      '**Start de browser opnieuw** en kies hieronder de stem.',
+      'Open **Systeeminstellingen → Toegankelijkheid → Lezen en spreken** (tot en met macOS 15 heet dit **Gesproken materiaal**).',
+      'Klik op het **ⓘ-knopje** naast **Systeemstem**.',
+      'Kies **Zweeds** en download **Alva**, **Klara** of **Oskar** (een stem met een downloadsymbool wordt eerst gedownload).',
+      '**Start de browser opnieuw** en kies hieronder de stem. In Firefox verschijnt een nieuwe stem soms pas na het **herstarten van de Mac**.',
     ],
   },
   linux: {
     title: 'Linux: spraak via speech-dispatcher',
     steps: [
-      'Firefox en Chromium gebruiken **speech-dispatcher**. Installeer bijvoorbeeld `speech-dispatcher` en `espeak-ng` met je pakketbeheerder.',
-      'espeak-ng heeft een Zweedse stem, maar die klinkt robotachtig. Voor betere kwaliteit kun je een module als **RHVoice** of **Piper** installeren, als die een Zweedse stem heeft.',
+      'Browsers lezen op Linux voor via **speech-dispatcher**. Installeer `speech-dispatcher` en `espeak-ng` met je pakketbeheerder.',
+      'espeak-ng heeft een Zweedse stem, maar die klinkt robotachtig. Een natuurlijker Zweedse stem kan met **Piper** (stem `sv_SE`), maar dat vraagt extra instellingen in speech-dispatcher.',
       'Start de browser opnieuw.',
     ],
   },
   ios: {
     title: 'iPhone en iPad: Zweedse stem downloaden',
     steps: [
-      'Open **Instellingen → Toegankelijkheid → Gesproken materiaal → Stemmen**.',
-      'Kies **Zweeds** en download **Alva**, **Klara** of **Oskar** (bij voorkeur „Verbeterd”).',
+      'Open **Instellingen → Toegankelijkheid → Lezen en spreken → Stemmen** (tot en met iOS 18: **Gesproken materiaal → Stemmen**).',
+      'Kies **Zweeds** en download **Alva**, **Klara** of **Oskar**.',
       'Sluit Safari helemaal af (omhoog vegen in de appkiezer) en open de site opnieuw.',
       'Hoor je niets? Zet het volume omhoog en controleer de **stille modus**: daarin blijft voorlezen soms stil.',
     ],
@@ -72,9 +72,9 @@ const STEPS = {
   android: {
     title: 'Android: Zweedse spraakgegevens installeren',
     steps: [
-      'Open **Instellingen → Systeem → Talen en invoer → Tekst-naar-spraak-uitvoer** (de plek verschilt per telefoon; zoek in de instellingen op „tekst-naar-spraak”).',
-      'Kies als engine **Spraakservices van Google** en tik op het tandwiel → **Spraakgegevens installeren** → **Svenska (Sverige)**.',
-      'Open Chrome opnieuw. Chrome op Android toont soms geen stemmenlijst, maar leest Zweeds dan toch met de Zweedse stem.',
+      'Open **Instellingen → Toegankelijkheid → Tekst-naar-spraak-uitvoer**. De plek verschilt per telefoon (bij Samsung bijvoorbeeld onder **Algemeen beheer**); de zoekfunctie in Instellingen vindt het ook.',
+      'Kies als voorkeursengine de engine van **Google** en tik op het tandwiel ernaast → **Spraakgegevens installeren** → **Zweeds**.',
+      'Open Chrome opnieuw. Chrome op Android toont geen echte stemmenlijst, maar leest Zweeds dan wel met de Zweedse stem voor.',
     ],
   },
 };
@@ -82,19 +82,19 @@ const STEPS = {
 const BROWSERS = [
   {
     id: 'edge', name: 'Microsoft Edge',
-    text: 'Edge heeft ingebouwde **online stemmen** van goede kwaliteit, zoals **Microsoft Sofie Online (Natural)**, **Mattias** en **Hillevi**. Kies die hieronder; meestal hoef je niets te installeren. Je hebt wel internet nodig.',
+    text: 'Edge heeft ingebouwde **online stemmen** van goede kwaliteit: **Microsoft Sofie Online (Natural)** (vrouw) en **Microsoft Mattias Online (Natural)** (man). Kies die hieronder; je hoeft niets te installeren, maar je hebt wel internet nodig. Edge op Android kan niet voorlezen; gebruik daar Chrome.',
   },
   {
     id: 'chrome', name: 'Google Chrome',
-    text: 'Chrome gebruikt de stemmen van je **besturingssysteem** (zie hieronder) en heeft daarnaast een paar eigen online stemmen. Staat er geen Zweedse stem in de lijst, installeer er dan een in Windows of macOS en start Chrome opnieuw. Stopt het voorlezen halverwege, klik dan nog een keer op Luister.',
+    text: 'Chrome heeft eigen online stemmen, maar **geen Zweedse**. Het gebruikt daarom de Zweedse stem van je **besturingssysteem** (zie hieronder). Staat er geen Zweedse stem in de lijst, installeer er dan een en start Chrome opnieuw. Stopt het voorlezen halverwege, klik dan nog een keer op Luister.',
   },
   {
     id: 'firefox', name: 'Firefox',
-    text: 'Firefox gebruikt alleen de stemmen van je **besturingssysteem**. Installeer een Zweedse stem (zie hieronder) en start Firefox opnieuw. Op Linux is speech-dispatcher nodig. Staat in `about:config` de instelling `media.webspeech.synth.enabled` op `false`, zet die dan op `true`.',
+    text: 'Firefox gebruikt alleen de stemmen van je **besturingssysteem**: op Windows **Microsoft Bengt**, op de Mac **Alva**, **Klara** of **Oskar**. Installeer een Zweedse stem (zie hieronder) en start Firefox opnieuw. Op Linux is speech-dispatcher nodig. Werkt voorlezen helemaal niet, kijk dan in `about:config` of `media.webspeech.synth.enabled` op `true` staat.',
   },
   {
     id: 'safari', name: 'Safari op de Mac',
-    text: 'Safari gebruikt de stemmen van **macOS**. Download een Zweedse stem (zie hieronder) en start Safari opnieuw. De versies „Verbeterd” en „Premium” klinken het best.',
+    text: 'Safari gebruikt de stemmen van **macOS**. Download een Zweedse stem (zie hieronder) en start Safari opnieuw. Verschijnt de stem daarna niet in de lijst, of verdwijnt hij na het downloaden van een betere versie, probeer dan Chrome of Edge.',
   },
   {
     id: 'ios', name: 'Safari en Chrome op iPhone en iPad',
@@ -136,7 +136,7 @@ function statusBox() {
 
 const GENDER_LABEL = { v: 'vrouw', m: 'man' };
 const NO_MALE = 'Er is geen mannenstem gevonden. In Edge heet die Mattias, op Mac en iPhone Oskar (downloaden bij de stemmen), op Windows Bengt. Zie de uitleg hieronder.';
-const NO_FEMALE = 'Er is geen vrouwenstem gevonden. In Edge heet die Sofie of Hillevi, op Mac en iPhone Alva of Klara. Zie de uitleg hieronder.';
+const NO_FEMALE = 'Er is geen vrouwenstem gevonden. In Edge heet die Sofie, op Mac en iPhone Alva of Klara. Windows zelf heeft alleen een mannenstem (Bengt); gebruik voor een vrouwenstem Edge. Zie de uitleg hieronder.';
 
 function voicePicker(onChange) {
   const select = h('select', { class: 'answer-input', 'aria-label': 'Zweedse stem' });
