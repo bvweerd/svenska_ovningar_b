@@ -108,9 +108,9 @@ Daarna leest de eigenaar steekproefsgewijs mee. Pas dan wordt er gepubliceerd.
       voorbeeldzin (`ex`, `exNl`) met automatisch gemaakte oefeningen; controle op dubbele
       woorden; `npm run vocab-report`.
 - [x] **Proef**: hoofdstuk 2 naar 63 woorden → **taalreview** (twee rondes) → goedgekeurd door de eigenaar.
-- [ ] **Fase 2**: hoofdstuk 1–12 naar ±60 woorden per hoofdstuk, per hoofdstuk een **taalreview**.
-      Stand: hoofdstuk 1 en 3–12 uitgebreid tot 55–64 woorden (715 in totaal) → **taalreview**
-      (twee rondes) gedaan; wacht op de steekproef van de eigenaar.
+- [x] **Fase 2**: hoofdstuk 1–12 naar ±60 woorden per hoofdstuk, per hoofdstuk een **taalreview**.
+      Hoofdstuk 1 en 3–12 naar 55–64 woorden (715 in totaal) → **taalreview** (twee rondes) →
+      goedgekeurd door de eigenaar.
 - [ ] **Fase 3**: hoofdstuk 13–30 naar ±60 woorden (meer uitdrukkingen en partikelwerkwoorden),
       per hoofdstuk een **taalreview**.
 - [ ] **Fase 4**: kernoefeningen naar 8–10 vragen, luistervragen in de A1–A2-site,
