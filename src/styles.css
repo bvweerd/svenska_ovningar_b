@@ -152,7 +152,7 @@ select.answer-input { padding-right: 4px; }
 .option input { accent-color: var(--accent); }
 
 .chips { display: flex; flex-wrap: wrap; gap: 8px; min-height: 48px; padding: 8px; border-radius: 10px; }
-.chips.line { border: 1.5px dashed var(--line); margin: 8px 0; align-items: center; }
+.chips.line { border: 1.5px dashed var(--line); margin: 8px 0; align-items: center; align-content: flex-start; }
 .chips.line.ok { border-style: solid; border-color: var(--good); background: var(--good-soft); }
 .chips.line.bad { border-style: solid; border-color: var(--bad); background: var(--bad-soft); }
 .chip { font: inherit; padding: 6px 12px; border-radius: 8px; border: 1.5px solid var(--line); background: var(--surface); color: var(--text); cursor: pointer; }
@@ -397,7 +397,8 @@ details.howto ol { margin: 8px 0 4px; }
 /* ---------- Woordtegels ---------- */
 .sentence-input { display: flex; flex-direction: column; align-items: flex-start; gap: 4px; width: 100%; }
 .tiles { width: 100%; }
-.tiles .chips.bank { padding-left: 0; }
+/* Zelfde rand en binnenruimte als de zinsregel, zodat de tegels in beide recht onder elkaar beginnen. */
+.tiles .chips.bank { border: 1.5px solid transparent; }
 .link-btn { background: none; border: none; padding: 2px 0; font: inherit; font-size: 0.85rem; color: var(--accent); text-decoration: underline; cursor: pointer; }
 @media (pointer: coarse) { .tiles .chip { padding: 9px 14px; font-size: 1.02rem; } }
 

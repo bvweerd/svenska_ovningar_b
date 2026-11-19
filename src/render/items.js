@@ -321,6 +321,13 @@ function clock(item, ctx) {
 }
 
 // ---------- Zinsbouw ----------
+/** De tegels in de volgorde van het eerste goede antwoord (voor het meten van de zinsregel). */
+function orderedTokens(item) {
+  const answer = ` ${String(item.answers?.[0] ?? '').toLowerCase()}`;
+  const at = (t) => answer.indexOf(` ${t.toLowerCase()}`) >>> 0;
+  return [...item.tokens].sort((a, b) => at(a) - at(b));
+}
+
 function order(item, ctx) {
   const board = tileBoard({
     tiles: shuffle(item.tokens.map((t, i) => ({ t, i }))),
@@ -328,6 +335,7 @@ function order(item, ctx) {
     label: 'Jouw zin',
     placeholder: 'Tik de woorden aan in de goede volgorde.',
     needed: item.tokens.length,
+    sample: orderedTokens(item),
     onComplete: () => ctx.ready?.(),
   });
   const el = h('div', {}, prompt(item.prompt), board.el);

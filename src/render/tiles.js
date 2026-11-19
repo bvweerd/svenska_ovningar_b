@@ -139,7 +139,7 @@ function typedImpl(spec, opts) {
  *   ←/→ het woord, Delete/Backspace haalt het weg.
  * - Er wordt niet vanzelf nagekeken: onComplete meldt alleen dat alle woorden liggen.
  * opts: { tiles: [{ t }], start (vaste tekst vooraan), label, placeholder, needed (aantal woorden
- *   van een volledige zin), onComplete }
+ *   van een volledige zin), sample (de woorden van de goede zin, om de hoogte te meten), onComplete }
  */
 export function tileBoard(opts) {
   const all = opts.tiles;
@@ -236,12 +236,24 @@ export function tileBoard(opts) {
   }
   draw();
 
-  // De zinsregel krijgt de hoogte van de bank, zodat hij niet groeit terwijl je tegels legt.
+  // De zinsregel krijgt meteen de hoogte van de volledige zin, zodat hij niet groeit terwijl je
+  // tegels legt. Gemeten met een onzichtbare kopie van de goede zin (of anders de langste tegels).
   const el = h('div', { class: 'tiles' }, line, bank, live);
+  const sample = opts.sample ?? [...all].sort((a, b) => b.t.length - a.t.length).slice(0, opts.needed ?? all.length).map((c) => c.t);
+  let fittedWidth = 0;
   const fitLine = () => {
-    if (!locked && bank.offsetHeight) line.style.minHeight = `${bank.offsetHeight}px`;
+    const width = line.offsetWidth;
+    if (locked || !width || width === fittedWidth) return;
+    fittedWidth = width;
+    const probe = h('div', { class: 'chips line', 'aria-hidden': 'true', style: `position: absolute; visibility: hidden; width: ${width}px` },
+      opts.start ? h('span', { class: 'chip fixed' }, opts.start) : null,
+      ...sample.flatMap((t) => [h('span', { class: 'slot' }), h('span', { class: 'chip' }, t)]),
+      h('span', { class: 'slot end' }));
+    el.append(probe);
+    line.style.minHeight = `${probe.offsetHeight}px`;
+    probe.remove();
   };
-  if (typeof ResizeObserver === 'function') new ResizeObserver(fitLine).observe(bank);
+  if (typeof ResizeObserver === 'function') new ResizeObserver(fitLine).observe(line);
 
   return {
     el,
@@ -270,7 +282,7 @@ export function tileBoard(opts) {
 function tileImpl(spec, opts) {
   const answer = answerTiles(spec.answers);
   const tiles = shuffle([...answer, ...distractorTiles(spec, { source: opts.source })].map((t, i) => ({ t, i })));
-  const board = tileBoard({ tiles, label: opts.label, needed: answer.length, onComplete: opts.onComplete });
+  const board = tileBoard({ tiles, label: opts.label, needed: answer.length, sample: answer, onComplete: opts.onComplete });
   return {
     kind: 'tiles',
     el: board.el,
