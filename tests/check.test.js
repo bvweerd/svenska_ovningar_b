@@ -135,3 +135,35 @@ describe('vaste volgorde (fixedOrder)', () => {
     expect(gradeText('På kvällen tittar Bram på tv', spec, { fixedOrder: true }).correct).toBe(true);
   });
 });
+
+describe('woordenlijst: meervoud en voorbeeldzin', async () => {
+  const { vocabExercises, exampleGap } = await import('../src/build.js');
+  const vocab = [
+    { sv: 'en buss', nl: 'een bus', def: 'bussen', pl: 'bussar', ex: 'Jag tar **bussen** till jobbet.', exNl: 'Ik neem de bus naar mijn werk.' },
+    { sv: 'ett hus', nl: 'een huis', def: 'huset', pl: 'hus' },
+    { sv: 'att springa', nl: 'rennen', ex: 'Hon **springer** varje morgon.', exNl: 'Zij rent elke ochtend.' },
+  ];
+  const exs = vocabExercises(vocab, 1, { pluralTopic: 'plural' });
+  const byId = Object.fromEntries(exs.map((e) => [e.id, e]));
+  it('maakt een meervoudsoefening met tips', () => {
+    const it0 = byId['woorden-meervoud'].items[0];
+    expect(byId['woorden-meervoud'].topic).toBe('plural');
+    expect(gradeText('bussar', it0.gaps[0]).correct).toBe(true);
+    expect(gradeText('bussen', it0.gaps[0]).tip).toContain('bepaalde vorm');
+    expect(gradeText('buss', it0.gaps[0]).tip).toContain('enkelvoud');
+  });
+  it('„hus” blijft goed als meervoud gelijk is aan enkelvoud', () => {
+    const it1 = byId['woorden-meervoud'].items[1];
+    expect(gradeText('hus', it1.gaps[0]).correct).toBe(true);
+  });
+  it('maakt invulzinnen van de voorbeeldzinnen', () => {
+    const items = byId['woorden-in-zin'].items;
+    expect(items.map((i) => i.text)).toEqual(['Jag tar ___ till jobbet.', 'Hon ___ varje morgon.']);
+    expect(gradeText('springer', items[1].gaps[0]).correct).toBe(true);
+  });
+  it('lange lijsten krijgen rondes', () => expect(byId['woorden-sv-nl'].roundSize).toBe(15));
+  it('voorbeeldzin moet precies één vet stuk hebben', () => {
+    expect(exampleGap('Jag **tar** **bussen**.')).toBe(null);
+    expect(exampleGap('Geen vet')).toBe(null);
+  });
+});

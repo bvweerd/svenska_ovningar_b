@@ -182,3 +182,29 @@ describe('vragen buiten de oefening', () => {
     expect(() => P.importProgress(JSON.stringify({ v: 2, items: {}, ex: {} }))).not.toThrow();
   });
 });
+
+describe('rondes bij een lange oefening', () => {
+  const long = { id: 'lang', items: Array.from({ length: 6 }, (_, i) => ({ id: `w${i}`, type: 'gap', text: `${i} ___`, gaps: [{ answers: [`x${i}`] }] })) };
+  beforeEach(() => { store.clear(); P.resetProgress(); });
+  it('kiest eerst nieuwe, dan foute vragen', () => {
+    P.recordItem(1, long, 0, 'good');
+    P.recordItem(1, long, 1, 'wrong');
+    P.recordItem(1, long, 2, 'good');
+    P.recordItem(1, long, 3, 'good');
+    expect(P.pickRound(1, long, 3)).toEqual([1, 4, 5]);
+  });
+  it('de ronde telt alleen de gekozen vragen en de voortgang blijft bewaard', () => {
+    P.startRun(1, long, [4, 5]);
+    let run = P.runState(1, long);
+    expect(run.total).toBe(2);
+    expect(run.inRound(4)).toBe(true);
+    expect(run.inRound(0)).toBe(false);
+    P.recordItem(1, long, 4, 'good');
+    P.recordItem(1, long, 5, 'wrong');
+    run = P.runState(1, long);
+    expect(run.done.size).toBe(2);
+    expect(P.completeRun(1, long)).toEqual({ score: 1, total: 2 });
+    P.startRun(1, long);
+    expect(P.runState(1, long).total).toBe(6);
+  });
+});

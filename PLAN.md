@@ -84,3 +84,34 @@ Nieuw in deze repo:
 - Nuances (partikels, register, ska/kommer att) vragen eigenlijk controle door een moedertaalspreker.
 - De kwaliteit van het voorlezen hangt af van het apparaat. Edge (online stemmen) en
   macOS/iOS met „Verbeterd”-stemmen klinken het best; espeak op Linux het slechtst.
+
+## Uitbreiding: meer woorden en oefeningen (plan van november 2026)
+
+Uitgangspunt (gemeten): de woordenlijsten zijn klein (A1–A2: 284 woorden, B1–B2: 348) en
+oefeningen hebben 4–5 vragen, waardoor herhalen steeds dezelfde zinnen oplevert.
+Dit plan geldt voor beide sites; de code is gedeeld (zie README, „Twee sites, één code”).
+
+**Taalreview.** Elke stap met nieuwe of gewijzigde Zweedse stof krijgt een aparte reviewronde
+op Zweedse taal en grammatica, vóórdat de stof wordt gepubliceerd. De reviewer is iemand (of
+een aparte AI-sessie) die de stof leest zonder het werk van de schrijver te kennen. Die
+controleert:
+- spelling, woordgeslacht (en/ett), bepaalde vorm, meervoud en werkwoordsvormen;
+- grammatica en woordvolgorde van voorbeeldzinnen en antwoorden;
+- of de Nederlandse vertaling klopt en eenduidig is (geen tweede lezing die ook goed is);
+- of woorden en zinnen passen bij het niveau (A1–A2 of B1–B2) en idiomatisch Zweeds zijn;
+- of alle goede antwoorden worden goedgekeurd en de foutregels (`feedback`) terecht zijn.
+Bevindingen worden verwerkt of met reden afgewezen; twijfelgevallen gaan naar de eigenaar.
+Daarna leest de eigenaar steekproefsgewijs mee. Pas dan wordt er gepubliceerd.
+
+- [ ] **Fase 1 – techniek**: rondes van 15 woorden bij lange woordenlijsten (eerst nieuwe en
+      foute woorden; voortgang blijft bewaard); per woord optioneel meervoud (`pl`) en een
+      voorbeeldzin (`ex`, `exNl`) met automatisch gemaakte oefeningen; controle op dubbele
+      woorden; `npm run vocab-report`.
+- [ ] **Proef**: hoofdstuk 2 naar ±60 woorden → **taalreview** → nalezen door de eigenaar.
+- [ ] **Fase 2**: hoofdstuk 1–12 naar ±60 woorden per hoofdstuk, per hoofdstuk een **taalreview**.
+- [ ] **Fase 3**: hoofdstuk 13–30 naar ±60 woorden (meer uitdrukkingen en partikelwerkwoorden),
+      per hoofdstuk een **taalreview**.
+- [ ] **Fase 4**: kernoefeningen naar 8–10 vragen, luistervragen in de A1–A2-site,
+      ±80 werkwoorden erbij in de werkwoordtrainer; per hoofdstuk of per lijst een **taalreview**.
+- [ ] **Fase 5**: aan de hand van GoatCounter kijken welke oefeningen gebruikt worden en vaak
+      fout gaan, en daar verder uitbreiden (met **taalreview** voor nieuwe stof).

@@ -19,7 +19,7 @@ import {
 import { chapterByNo, findTopic, crumbs, progressBar, exerciseRunner, practiceView, splitTheme, plural } from './ui.js';
 import { shuffle } from './build.js';
 import {
-  getResult, chapterProgress, resetProgress, recordItem, runState, startRun, completeRun,
+  getResult, chapterProgress, resetProgress, recordItem, runState, startRun, completeRun, pickRound,
   weakItems, setLast, getLast, exportProgress, importProgress, migrateToIds,
 } from './progress.js';
 
@@ -130,7 +130,7 @@ function viewChapter(ch) {
           return h('li', {},
             h('a', { href: `#/k/${ch.chapter}/o/${ex.id}` },
               h('span', { class: 'ex-title' }, ex.title),
-              h('span', { class: 'ex-meta' }, `${plural(ex.items.length, 'vraag', 'vragen')} · ${types.map(typeName).join(', ')}`),
+              h('span', { class: 'ex-meta' }, `${plural(ex.items.length, 'vraag', 'vragen')}${ex.roundSize && ex.items.length > ex.roundSize ? `, ${ex.roundSize} per ronde` : ''} · ${types.map(typeName).join(', ')}`),
               exerciseBadge(ch, ex),
             ));
         })),
@@ -155,14 +155,16 @@ function viewExercise(ch, ex, query) {
   let run = runState(ch.chapter, ex);
   const restart = query.has('opnieuw');
   if (restart) history.replaceState(null, '', href);
+  // Lange oefening (roundSize, bijv. een woordenlijst): een ronde met een deel van de vragen.
+  const partial = ex.roundSize && ex.items.length > ex.roundSize;
   if (restart || !run.started || run.done.size >= run.total) {
-    startRun(ch.chapter, ex);
+    startRun(ch.chapter, ex, partial ? pickRound(ch.chapter, ex, ex.roundSize) : null);
     run = runState(ch.chapter, ex);
   }
   const resumed = run.done.size > 0;
   const goodBefore = [...run.done.values()].filter((s) => s === 'good').length;
 
-  const remaining = ex.items.map((item, idx) => ({ item, idx })).filter(({ idx }) => !run.done.has(idx));
+  const remaining = ex.items.map((item, idx) => ({ item, idx })).filter(({ idx }) => run.inRound(idx) && !run.done.has(idx));
   const ordered = ex.shuffle ? shuffle(remaining) : remaining;
   const items = ordered.map(({ item, idx }) => ({
     item,
@@ -174,17 +176,20 @@ function viewExercise(ch, ex, query) {
   const next = ch.exercises[pos + 1];
   const topicCard = ex.topic ? findTopic(ex.topic, ch) : null;
   const [list, score, summary] = exerciseRunner(items, {
-    offset: { done: run.done.size, good: goodBefore, total: ex.items.length },
+    offset: { done: run.done.size, good: goodBefore, total: run.total },
     onFinish: () => {
       const { score: good, total } = completeRun(ch.chapter, ex);
       trackEvent(`oefening/${ch.chapter}/${ex.id}/klaar/${total ? scoreBucket(good / total) : 'schrijven'}`, `H${ch.chapter} · ${ex.title}`);
       return [
         h('h2', {}, total ? `Klaar! ${good} van ${total} in één keer goed.` : 'Klaar!'),
         h('p', {}, !total || good / total >= 0.8 ? 'Knap gedaan.' : 'Wat je fout had, kun je straks herhalen via „Oefen je fouten” bij het hoofdstuk.'),
-        h('div', { class: 'actions' },
-          next ? h('a', { class: 'btn primary', href: `#/k/${ch.chapter}/o/${next.id}` }, `Volgende: ${next.title}`) : h('a', { class: 'btn primary', href: `#/k/${ch.chapter}` }, 'Terug naar het hoofdstuk'),
-          h('a', { class: 'btn ghost', href: `${href}?opnieuw` }, 'Opnieuw'),
-        ),
+        partial
+          ? h('div', { class: 'actions' },
+              h('a', { class: 'btn primary', href: `${href}?opnieuw` }, 'Volgende ronde'),
+              next ? h('a', { class: 'btn ghost', href: `#/k/${ch.chapter}/o/${next.id}` }, `Volgende: ${next.title}`) : h('a', { class: 'btn ghost', href: `#/k/${ch.chapter}` }, 'Terug naar het hoofdstuk'))
+          : h('div', { class: 'actions' },
+              next ? h('a', { class: 'btn primary', href: `#/k/${ch.chapter}/o/${next.id}` }, `Volgende: ${next.title}`) : h('a', { class: 'btn primary', href: `#/k/${ch.chapter}` }, 'Terug naar het hoofdstuk'),
+              h('a', { class: 'btn ghost', href: `${href}?opnieuw` }, 'Opnieuw')),
       ];
     },
   });
@@ -193,6 +198,9 @@ function viewExercise(ch, ex, query) {
     h('header', { class: 'page-head' },
       h('h1', {}, ex.title),
       h('p', { class: 'instruction', html: inline(ex.instruction) }),
+      run.total < ex.items.length
+        ? h('p', { class: 'muted' }, `Een ronde van ${run.total} van de ${ex.items.length} vragen: eerst wat nieuw is of fout ging. Daarna kies je „Volgende ronde”.`)
+        : null,
       topicCard ? h('p', { class: 'muted' }, 'Uitleg: ', h('a', { href: topicCard.href }, topicCard.card.title)) : null,
     ),
     resumed

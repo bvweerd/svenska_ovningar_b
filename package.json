@@ -10,7 +10,8 @@
     "preview": "vite preview",
     "test": "vitest run",
     "ids": "node scripts/add-ids.mjs",
-    "check-sync": "node scripts/check-sync.mjs"
+    "check-sync": "node scripts/check-sync.mjs",
+    "vocab-report": "node scripts/vocab-report.mjs"
   },
   "devDependencies": {
     "js-yaml": "4.1.0",
