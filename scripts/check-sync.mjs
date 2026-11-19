@@ -7,10 +7,7 @@
 import fs from 'node:fs';
 import path from 'node:path';
 
-const root = path.resolve(import.meta.dirname, '..');
-const name = path.basename(root);
-const siblingName = name.endsWith('_b') ? name.slice(0, -2) : `${name}_b`;
-const sibling = path.resolve(root, '..', siblingName);
+import { root, name, siblingName, sibling } from './sibling.mjs';
 
 if (!fs.existsSync(sibling)) {
   console.log(`Zusterrepo ${siblingName} niet gevonden naast ${name}; niets te vergelijken.`);

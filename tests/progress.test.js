@@ -208,3 +208,25 @@ describe('rondes bij een lange oefening', () => {
     expect(P.runState(1, long).total).toBe(6);
   });
 });
+
+describe('ronde afronden bij een lange oefening', () => {
+  const long = { id: 'lang2', items: Array.from({ length: 4 }, (_, i) => ({ id: `v${i}`, type: 'gap', text: `${i} ___`, gaps: [{ answers: [`y${i}`] }] })) };
+  const ch = { chapter: 1, exercises: [long] };
+  beforeEach(() => { store.clear(); P.resetProgress(); });
+  it('is pas afgerond als elke vraag een keer gemaakt is', () => {
+    P.startRun(1, long, [0, 1]);
+    P.recordItem(1, long, 0, 'good');
+    P.recordItem(1, long, 1, 'good');
+    expect(P.completeRun(1, long)).toEqual({ score: 2, total: 2 });
+    expect(P.getResult(1, 'lang2').completedAt).toBeUndefined();
+    expect(P.chapterProgress(ch).completed).toBe(0);
+    P.startRun(1, long, [2, 3]);
+    P.recordItem(1, long, 2, 'good');
+    P.recordItem(1, long, 3, 'wrong');
+    P.completeRun(1, long);
+    const res = P.getResult(1, 'lang2');
+    expect(res.completedAt).toBeTruthy();
+    expect(res.best).toBe(0.75); // 3 van de 4 woorden in één keer goed, over de hele oefening
+    expect(res.pick).toBeUndefined();
+  });
+});

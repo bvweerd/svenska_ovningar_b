@@ -1,7 +1,7 @@
 import './styles.css';
 import { h } from './dom.js';
 import { markdown, inline } from './md.js';
-import { course, levels } from './content.js';
+import { course, levels, practiceEntries, balancedSample } from './content.js';
 import { SITE_TEXT, SIBLING } from './config.js';
 import { reportConfigured } from './report.js';
 import { speakButton, speedSelect } from './render/speak.js';
@@ -255,13 +255,11 @@ function textButton(ex) {
 
 function viewMix(ch) {
   document.title = `Mix · ${ch.title}`;
-  const pool = ch.exercises
-    .filter((ex) => !ex.text)
-    .flatMap((ex) => ex.items.map((item, idx) => ({ item, ex, idx })).filter(({ item }) => item.type !== 'free'));
+  const pool = practiceEntries([ch]);
   return practiceView(ch, {
     title: 'Mix',
     instruction: 'Tien willekeurige vragen uit het hele hoofdstuk.',
-    entries: shuffle(pool).slice(0, 10),
+    entries: balancedSample(pool, 10, shuffle),
     again: `#/k/${ch.chapter}/mix?${Date.now()}`,
     empty: 'Dit hoofdstuk heeft nog geen vragen voor een mix.',
   });

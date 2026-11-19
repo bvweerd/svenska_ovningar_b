@@ -5,10 +5,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 import yaml from 'js-yaml';
 
-const root = path.resolve(import.meta.dirname, '..');
-const name = path.basename(root);
-const siblingName = name.endsWith('_b') ? name.slice(0, -2) : `${name}_b`;
-const sibling = path.resolve(root, '..', siblingName);
+import { root, name, siblingName, sibling } from './sibling.mjs';
 
 function chapters(repo) {
   const dir = path.join(repo, 'content', 'chapters');

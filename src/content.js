@@ -8,6 +8,19 @@ export const course = buildCourse(index, Object.values(files));
 export const verbs = verbData.verbs;
 export const levels = index.levels ?? [];
 
+/**
+ * Neemt n willekeurige vragen, waarvan hooguit een derde uit automatisch gemaakte
+ * woordenschatoefeningen (generated). Anders overheersen die in mix en toets zodra de
+ * woordenlijsten groeien, en komt de grammatica van het hoofdstuk nauwelijks aan bod.
+ */
+export function balancedSample(entries, n, shuffleFn) {
+  const vocab = shuffleFn(entries.filter((e) => e.ex.generated));
+  const other = shuffleFn(entries.filter((e) => !e.ex.generated));
+  const maxVocab = Math.max(Math.floor(n / 3), n - other.length);
+  const pickedVocab = vocab.slice(0, maxVocab);
+  return shuffleFn([...other.slice(0, n - pickedVocab.length), ...pickedVocab]).slice(0, n);
+}
+
 /** Alle losse vragen die buiten hun oefening te gebruiken zijn (geen leesteksten of schrijfopdrachten). */
 export function practiceEntries(chapters = course) {
   return chapters

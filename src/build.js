@@ -28,7 +28,9 @@ const bare = (sv) => sv.replace(/^(en|ett|att) /, '');
 /** Lange woordenlijsten worden per ronde van zoveel woorden geoefend (zie pickRound in progress.js). */
 export const VOCAB_ROUND = 15;
 
-const list = (x) => [].concat(x ?? []);
+export const list = (x) => [].concat(x ?? []);
+/** Eerste betekenis zonder lidwoord en toelichting: "een klok, een horloge" → "klok". */
+const firstSense = (nl) => nlBare(nl.replace(/\s*\([^)]*\)/g, '').split(',')[0].trim());
 const BOLD = /\*\*([^*]+)\*\*/g;
 
 /**
@@ -144,7 +146,7 @@ export function vocabExercises(vocab, chapterNo, { nounTopic = 'woordenschat', p
         return {
           id: v.sv,
           type: 'gap',
-          text: `${v.sv} (${nlBare(v.nl)}) → meervoud: ___`,
+          text: `${v.sv} (${firstSense(v.nl)}) → meervoud: ___`,
           gaps: [{ answers: pl, feedback }],
         };
       }),
@@ -166,7 +168,9 @@ export function vocabExercises(vocab, chapterNo, { nounTopic = 'woordenschat', p
         type: 'gap',
         prompt: v.exNl,
         text: gap.text,
-        hint: `(${bare(v.sv)})`,
+        // Woorden die niet verbuigen (nu, snart, varje …) zouden met het grondwoord als hint
+        // hun antwoord verklappen: geef daar de Nederlandse betekenis.
+        hint: `(${kind(v) === 'other' ? firstSense(v.nl) : bare(v.sv)})`,
         gaps: [{ answers: [gap.answer] }],
       })),
     });

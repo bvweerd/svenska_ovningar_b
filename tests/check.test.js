@@ -167,3 +167,21 @@ describe('woordenlijst: meervoud en voorbeeldzin', async () => {
     expect(exampleGap('Geen vet')).toBe(null);
   });
 });
+
+describe('mix en toets: niet alleen woordenschat', async () => {
+  const { balancedSample } = await import('../src/content.js');
+  const { shuffle } = await import('../src/build.js');
+  const entries = [
+    ...Array.from({ length: 90 }, (_, i) => ({ ex: { generated: true }, i })),
+    ...Array.from({ length: 30 }, (_, i) => ({ ex: {}, i: 100 + i })),
+  ];
+  it('hooguit een derde gegenereerde woordvragen', () => {
+    const s = balancedSample(entries, 20, shuffle);
+    expect(s).toHaveLength(20);
+    expect(s.filter((e) => e.ex.generated).length).toBeLessThanOrEqual(6);
+  });
+  it('vult aan met woordvragen als er te weinig andere vragen zijn', () => {
+    const s = balancedSample(entries.filter((e) => e.ex.generated || e.i < 105), 20, shuffle);
+    expect(s).toHaveLength(20);
+  });
+});

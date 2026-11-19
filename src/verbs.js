@@ -14,7 +14,7 @@ export const KINDS = {
   sterk: 'sterk en onregelmatig (gå, äta)',
 };
 
-const list = (x) => [].concat(x ?? []);
+import { list } from './build.js';
 
 /** Vormen die een leerling vaak "regelmatig" raadt. */
 export function naiveForms(verb, tense) {
