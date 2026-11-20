@@ -131,6 +131,15 @@ sections:
           - { id: tu8y, type: mc, prompt: "*Ange ärendenummer vid kontakt med oss.*", options: ["Noem je dossiernummer als je contact opneemt.", "Bel ons niet.", "Je krijgt een nummer als je belt.", "Neem contact op met de behandelaar."], answer: 0 }
           - { id: a4er, type: mc, prompt: "*Handläggningstiden är för närvarande cirka åtta veckor.*", options: ["Het duurt op dit moment ongeveer acht weken.", "Je moet binnen acht weken reageren.", "Het loket is acht weken dicht.", "De afspraak duurt acht minuten."], answer: 0 }
 
+      - id: brief-vertalen
+        title: Vertaal de zin uit de brief
+        instruction: Vertaal naar het Zweeds. Gebruik de woorden van instanties.
+        topic: myndighetssprak
+        shuffle: true
+        items:
+          - { id: 4edn, type: translate, prompt: "Je kunt binnen drie weken in beroep gaan tegen het besluit van Skatteverket.", answers: ["{Du|Man} kan överklaga {Skatteverkets beslut|beslutet från Skatteverket} inom tre veckor.", "Inom tre veckor kan {du|man} överklaga {Skatteverkets beslut|beslutet från Skatteverket}."], feedback: [{ contains: ["överklaga mot", "överklaga emot"], tip: "In beroep gaan tegen iets: överklaga + voorwerp, zonder voorzetsel." }, { contains: "i tre veckor", tip: "Binnen drie weken = inom tre veckor." }] }
+          - { id: hmr6, type: translate, prompt: "De behandeltijd is op dit moment ongeveer acht weken, volgens de website van Skatteverket.", answers: ["Handläggningstiden är {just nu|för närvarande|för tillfället|i dag|nu} {ungefär|cirka|omkring} åtta veckor, enligt {Skatteverkets webbplats|Skatteverkets hemsida|webbplatsen för Skatteverket}.", "Enligt {Skatteverkets webbplats|Skatteverkets hemsida|webbplatsen för Skatteverket} är handläggningstiden {just nu|för närvarande|för tillfället|i dag|nu} {ungefär|cirka|omkring} åtta veckor."], feedback: [{ contains: ["webbplats handläggningstiden är", "hemsida handläggningstiden är"], tip: "Na Enligt … vooraan komt eerst het werkwoord: Enligt Skatteverkets webbplats är handläggningstiden …" }, { contains: ["handläggningstid är", "handläggningstid för"], tip: "Bepaald: handläggningstiden (de behandeltijd)." }] }
+
   - id: deponens
     title: "Grammatik: werkwoorden op -s"
     exercises:
@@ -178,6 +187,8 @@ sections:
           - { id: zmv6, type: gap, text: "Jag ringer i kväll. Vi ___!", gaps: [{ answers: ["hörs"], options: ["hörs", "hör", "hördes"], tip: "Vi hörs! = we spreken elkaar (nog)." }] }
           - { id: 83z3, type: gap, text: "De ___ och gick sedan hem.", gaps: [{ answers: ["kramades"], options: ["kramades", "kramade", "kramas"] }] }
           - { id: zapa, type: gap, text: "Vi ___ vid stationen klockan fem, okej?", gaps: [{ answers: ["ses"], options: ["ses", "ser", "sågs"], feedback: [{ match: "sågs", tip: "Een afspraak voor straks: presens, ses." }] }] }
+          - { id: 4uw5, type: gap, text: "Marloes och hennes kollega ___ varje fredag efter jobbet och fikar tillsammans.", gaps: [{ answers: ["träffas"], options: ["träffas", "träffar", "träffade"], feedback: [{ match: "träffar", tip: "Elkaar ontmoeten, zonder voorwerp: träffas." }, { match: "träffade", tip: "fikar staat in de presens en varje fredag is een gewoonte: träffas." }] }] }
+          - { id: jgg3, type: gap, text: "Vi hade inte ___ sedan i somras, så det var roligt att ses igen.", gaps: [{ answers: ["setts"], options: ["setts", "sett", "ses"], feedback: [{ match: "sett", tip: "Elkaar gezien: ook het supinum houdt de -s, setts." }, { match: "ses", tip: "Na hade komt het supinum: setts." }] }] }
 
       - id: s-sorteren
         title: Welke -s is het?
@@ -197,6 +208,21 @@ sections:
               - { text: "Hon **lyckades** till slut.", cat: 1 }
               - { text: "Vi **hörs**!", cat: 2 }
 
+      - id: deponens-vertalen
+        title: Vertaal met een werkwoord op -s
+        instruction: Vertaal naar het Zweeds. Elke zin heeft een werkwoord dat altijd op **-s** eindigt, of een **-s** voor *elkaar*.
+        topic: deponens
+        shuffle: true
+        items:
+          - { id: ze6h, type: translate, prompt: "Ik hoop dat mijn aanvraag voor een persoonsnummer snel behandeld wordt.", answers: ["Jag hoppas [att ]min ansökan om [ett ]personnummer {handläggs|behandlas|blir behandlad|kommer att handläggas|kommer att behandlas} {snabbt|fort}."], feedback: [{ contains: "hoppar", tip: "hopen = hoppas (altijd met -s). hoppa is springen." }, { contains: ["ansökan för", "ansökan till"], tip: "Een aanvraag voor iets = en ansökan om." }] }
+          - { id: uezk, type: translate, prompt: "In het begin had Marloes het niet naar haar zin in Göteborg, maar nu wel.", answers: ["{I början|Till en början|Först} trivdes Marloes inte i Göteborg, men nu {trivs hon[ där]|gör hon det}.", "Marloes trivdes inte i Göteborg i början, men nu {trivs hon[ där]|gör hon det}.", "Marloes trivdes inte i början i Göteborg, men nu {trivs hon[ där]|gör hon det}."], feedback: [{ contains: ["trivades", "trivde "], tip: "trivas is onregelmatig: trivs – trivdes – trivts." }, { contains: ["början marloes trivdes", "början marloes trivs"], tip: "Na I början vooraan komt eerst het werkwoord: I början trivdes Marloes inte." }, { contains: "nu hon trivs", tip: "Na nu vooraan komt eerst het werkwoord: men nu trivs hon." }] }
+          - { id: 2f6k, type: translate, prompt: "Weet je nog hoe we elkaar voor het eerst ontmoetten op de cursus Zweeds?", answers: ["{Minns du|Kommer du ihåg} hur vi träffades {första gången|för första gången} {på kursen i svenska|på svenskkursen|på svenskakursen}?", "{Minns du|Kommer du ihåg} hur vi träffades {på kursen i svenska|på svenskkursen|på svenskakursen} {första gången|för första gången}?"], feedback: [{ contains: ["minnas du", "minnes du"], tip: "Presens van minnas: minns." }, { contains: "hur träffades vi", tip: "In een indirecte vraag komt eerst het onderwerp: hur vi träffades." }, { contains: "vi träffade", tip: "Elkaar ontmoeten, zonder voorwerp: träffades." }] }
+          - { id: 8pxc, type: translate, prompt: "Na zes weken is het me eindelijk gelukt om een bankrekening te openen.", answers: ["Efter sex veckor {har jag äntligen lyckats|lyckades jag äntligen|har jag till slut lyckats|lyckades jag till slut} öppna ett bankkonto.", "Jag har {äntligen|till slut} lyckats öppna ett bankkonto efter sex veckor.", "Jag lyckades {äntligen|till slut} öppna ett bankkonto efter sex veckor."], feedback: [{ contains: ["lyckat", "lyckade"], tip: "lyckas houdt in alle vormen de -s: lyckades, har lyckats." }, { contains: "veckor jag", tip: "Na Efter sex veckor vooraan komt eerst het werkwoord: Efter sex veckor har jag …" }, { contains: "har jag lyckats äntligen", tip: "äntligen staat direct na het onderwerp: har jag äntligen lyckats." }] }
+          - { id: gctr, type: translate, prompt: "Er waren geen tijden meer vrij, dus ik moest drie weken op een afspraak wachten.", answers: ["Det fanns inga [fler ]lediga tider[ kvar], så {jag fick|jag måste|jag behövde|jag var tvungen att|fick jag|måste jag|behövde jag|var jag tvungen att} vänta {tre veckor på en tid|på en tid i tre veckor|i tre veckor på en tid}."], feedback: [{ contains: ["det finnas", "det fannas", "det finns inga"], tip: "Verleden tijd van finnas: fanns." }, { contains: ["vänta för", "vänta om"], tip: "Wachten op = vänta på." }] }
+          - { id: rwb5, type: translate, prompt: "We spreken elkaar volgende week, als ik meer weet over het besluit.", answers: ["Vi hörs nästa vecka, {när|om} jag vet mer om beslutet.", "Nästa vecka hörs vi, {när|om} jag vet mer om beslutet."], feedback: [{ contains: ["vi hör nästa", "vecka hör vi"], tip: "Elkaar spreken: hörs (met -s)." }, { contains: ["när vet jag", "om vet jag"], tip: "In een bijzin komt het onderwerp direct na när: när jag vet mer." }] }
+          - { id: yj26, type: translate, prompt: "Mijn collega's en ik gaan ook buiten het werk vaak met elkaar om.", answers: ["{Mina kollegor och jag|Mina kolleger och jag|Jag och mina kollegor|Jag och mina kolleger} umgås [med varandra ]ofta {även|också} {utanför jobbet|utanför arbetet|på fritiden}.", "{Mina kollegor och jag|Mina kolleger och jag|Jag och mina kollegor|Jag och mina kolleger} umgås ofta [med varandra ]{även|också} {utanför jobbet|utanför arbetet|på fritiden}."], feedback: [{ contains: ["umgår", "umgåss"], tip: "umgås heeft in de presens ook umgås." }] }
+          - { id: bejh, type: translate, prompt: "Je ziet helemaal niet dat ze pas sinds januari Zweeds leert.", answers: ["Det syns inte alls att hon {bara har läst|bara har lärt sig|bara har studerat|bara har pluggat|har läst|har lärt sig|har studerat|har pluggat} svenska sedan [i ]januari.", "Det märks inte alls att hon {bara har läst|bara har lärt sig|bara har studerat|bara har pluggat|har läst|har lärt sig|har studerat|har pluggat} svenska sedan [i ]januari.", "Man ser inte alls att hon {bara har läst|bara har lärt sig|bara har studerat|bara har pluggat|har läst|har lärt sig|har studerat|har pluggat} svenska sedan [i ]januari."], feedback: [{ contains: ["det ses inte", "det ser inte"], tip: "Te zien zijn = synas: det syns inte alls." }, { contains: ["svenska i januari", "hon i januari"], tip: "Sinds januari = sedan januari." }] }
+
   - id: zoek-de-fout
     title: Zoek de fout
     exercises:
@@ -211,6 +237,10 @@ sections:
           - { id: acnk, type: findError, sentence: "Vi träffar i morgon klockan tio.", wrong: [1], answers: ["Vi {träffas|ses} {i morgon|imorgon} klockan tio."], tip: "We zien elkaar." }
           - { id: gemj, type: findError, sentence: "Jag har aldrig lyckat med det.", wrong: [3], answers: ["Jag har aldrig lyckats med det."], tip: "lyckas houdt altijd de -s." }
           - { id: hhae, type: findError, sentence: "Hon trivs inte på jobbet förra året.", wrong: [1], answers: ["Hon trivdes inte på jobbet förra året."], tip: "Kijk naar förra året." }
+          - { id: f7fc, type: findError, sentence: "Vi umgådde mycket när vi pluggade tillsammans i Utrecht för fem år sedan.", wrong: [1], answers: ["Vi umgicks mycket när vi pluggade tillsammans i Utrecht för fem år sedan."], tip: "umgås gaat in de verleden tijd als gå." }
+          - { id: yqse, type: findError, sentence: "Det syndes inte att hon var nervös när hon pratade med handläggaren.", wrong: [1], answers: ["Det syntes inte att hon var nervös när hon pratade med handläggaren."], tip: "Verleden tijd van synas." }
+          - { id: r8vt, type: findError, sentence: "Jag minnas inte exakt vad handläggaren sa när jag ringde i tisdags.", wrong: [1], answers: ["Jag minns inte exakt vad handläggaren sa när jag ringde i tisdags."], tip: "Presens van minnas." }
+          - { id: x4fj, type: findError, sentence: "Det kännde konstigt att betala med ett nederländskt bankkort överallt.", wrong: [1], answers: ["Det kändes konstigt att betala med ett nederländskt bankkort överallt."], tip: "Verleden tijd van kännas." }
 
   - id: lyssna
     title: Lyssna · luisteren
