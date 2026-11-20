@@ -281,7 +281,9 @@ describe('kan-doen-uitspraken', () => {
   };
 
   it('telt alleen nakijkbare vragen over de onderwerpen', () => {
-    expect(P.canDoStatus(ch)).toEqual([{ text: 'Ik kan het', total: 5, known: 0, share: 0, done: false }]);
+    expect(P.canDoStatus(ch)).toEqual([{ text: 'Ik kan het', total: 5, seen: 0, known: 0, share: 0, done: false }]);
+    P.recordItem(7, oef, 0, 'wrong');
+    expect(P.canDoStatus(ch)[0]).toMatchObject({ seen: 1, known: 0 });
   });
 
   it('behaald pas als 80% van de vragen in doos 3 of hoger staat', () => {

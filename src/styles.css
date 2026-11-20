@@ -619,9 +619,16 @@ del { text-decoration-color: var(--bad); text-decoration-thickness: 2px; color: 
 .cando-mark { flex: none; display: inline-grid; place-items: center; width: 1.3em; height: 1.3em; border-radius: 50%; border: 1.5px solid var(--line); color: var(--good); font-weight: 700; font-size: 0.9rem; transform: translateY(0.15em); }
 .cando li.done .cando-mark { border-color: var(--good); background: var(--good-soft); }
 .cando-text { flex: 1; }
-.cando-pct { flex: none; font-size: 0.85rem; color: var(--muted); }
 .cando p { margin: 10px 0 0; }
 /* Eindscherm: net behaalde doelen. */
 .achieved { margin: 4px 0 12px; padding: 10px 14px; border-radius: 10px; background: var(--good-soft); border: 1px solid var(--good); }
 .achieved ul { list-style: none; margin: 4px 0 0; padding: 0; }
 .voice-note { margin-top: 6px; }
+
+/* Voortgang per kan-doen-uitspraak: licht = gemaakt, donker = beheerst. */
+.cando-body { flex: 1; display: flex; flex-direction: column; gap: 5px; }
+.cando-bar { position: relative; display: block; height: 6px; max-width: 320px; border-radius: 3px; background: var(--surface-2); overflow: hidden; }
+.cando-bar > span { position: absolute; left: 0; top: 0; bottom: 0; border-radius: 3px; }
+.cando-bar .seen, .cando-key.seen { background: color-mix(in srgb, var(--good) 35%, transparent); }
+.cando-bar .known, .cando-key.known { background: var(--good); }
+.cando-key { display: inline-block; width: 12px; height: 6px; border-radius: 3px; vertical-align: middle; }

@@ -116,11 +116,23 @@ function canDoList(ch) {
   if (!st.length) return null;
   return h('section', { class: 'cando', 'aria-labelledby': 'cando-title' },
     h('h2', { id: 'cando-title' }, 'Dit kun je na dit hoofdstuk'),
-    h('ul', {}, st.map((x) => h('li', { class: x.done ? 'done' : '' },
-      h('span', { class: 'cando-mark', 'aria-hidden': 'true' }, x.done ? '✓' : ''),
-      h('span', { class: 'cando-text' }, x.text, x.done ? h('span', { class: 'sr-only' }, ' (behaald)') : null),
-      !x.done && x.known ? h('span', { class: 'cando-pct', title: `${x.known} van ${x.total} vragen beheerst` }, `${Math.round(x.share * 100)}%`) : null))),
-    h('p', { class: 'muted small' }, 'Het vinkje komt vanzelf: als je de meeste vragen hierover een paar keer achter elkaar in één keer goed hebt, ook in de dagelijkse herhaling.'));
+    h('ul', {}, st.map((x) => {
+      const pct = (n) => (x.total ? Math.round((n / x.total) * 100) : 0);
+      const label = `${x.seen} van ${x.total} vragen gemaakt, ${x.known} beheerst`;
+      return h('li', { class: x.done ? 'done' : '' },
+        h('span', { class: 'cando-mark', 'aria-hidden': 'true' }, x.done ? '✓' : ''),
+        h('span', { class: 'cando-body' },
+          h('span', { class: 'cando-text' }, x.text, x.done ? h('span', { class: 'sr-only' }, ' (behaald)') : null),
+          // Twee tinten: licht = gemaakt, donker = beheerst. Zo is er al voortgang te zien vóór het vinkje.
+          !x.done && x.seen
+            ? h('span', { class: 'cando-bar', role: 'img', 'aria-label': label, title: label },
+                h('span', { class: 'seen', style: `width:${pct(x.seen)}%` }),
+                h('span', { class: 'known', style: `width:${pct(x.known)}%` }))
+            : null));
+    })),
+    h('p', { class: 'muted small' },
+      st.some((x) => !x.done && x.seen) ? [h('span', { class: 'cando-key seen', 'aria-hidden': 'true' }), ' gemaakt · ', h('span', { class: 'cando-key known', 'aria-hidden': 'true' }), ' beheerst. '] : null,
+      'Het vinkje komt vanzelf: als je de meeste vragen hierover een paar keer achter elkaar in één keer goed hebt, ook in de dagelijkse herhaling.'));
 }
 
 /** Eigen kleur per hoofdstuk (een tint op de kleurencirkel), voor een streep op kaart en kop. */

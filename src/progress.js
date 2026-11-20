@@ -219,18 +219,21 @@ export function canDoItems(ch, topics) {
 /**
  * Stand van de kan-doen-uitspraken van een hoofdstuk, afgeleid uit de herhaaldozen.
  * De leerling beoordeelt niets zelf: een uitspraak is behaald als CANDO_SHARE van zijn vragen
- * in doos CANDO_BOX of hoger staat. → [{ text, total, known, share, done }]
+ * in doos CANDO_BOX of hoger staat. → [{ text, total, seen, known, share, done }]
  */
 export function canDoStatus(ch) {
   const srs = load().srs ?? {};
+  const state = load();
   return (ch.canDo ?? []).map(({ text, topics }) => {
     const list = canDoItems(ch, topics);
+    // seen: minstens één keer gemaakt (goed of fout); known: beheerst (doos CANDO_BOX of hoger).
+    const seen = list.filter(({ ex, idx }) => itemRecord(state, ch.chapter, ex, idx)).length;
     const known = list.filter(({ ex, item, idx }) => {
       const r = srs[itemKey(ch.chapter, ex, idx)];
       return r && r.h === answerHash(item) && r.box >= CANDO_BOX;
     }).length;
     const share = list.length ? known / list.length : 0;
-    return { text, total: list.length, known, share, done: list.length > 0 && share >= CANDO_SHARE };
+    return { text, total: list.length, seen, known, share, done: list.length > 0 && share >= CANDO_SHARE };
   });
 }
 
