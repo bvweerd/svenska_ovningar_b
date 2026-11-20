@@ -61,6 +61,9 @@ export function itemCard(item, ctx, number, onDone, label) {
   const finish = (revealed) => {
     finished = true;
     fieldWatcher.disconnect();
+    // Stond de cursor in een tekstveld van deze vraag (toetsenbord open)? Dan mag het volgende veld hem overnemen.
+    const active = document.activeElement;
+    const typed = !!active?.matches?.('input[type="text"], textarea') && card.contains(active);
     r.lock();
     checkBtn.hidden = true;
     revealBtn.hidden = true;
@@ -69,7 +72,7 @@ export function itemCard(item, ctx, number, onDone, label) {
     const say = spokenText(item);
     const btn = say ? speakButton(say, { label: 'Beluister de zin', className: 'after' }) : null;
     if (btn) feedback.append(h('p', { class: 'listen-after speech-extra' }, btn, h('span', { class: 'muted', lang: 'sv' }, say)));
-    onDone({ firstTry: !hadError && !revealed, revealed, neutral: !!r.neutral });
+    onDone({ firstTry: !hadError && !revealed, revealed, neutral: !!r.neutral, typed });
   };
 
   const rule = () => {
@@ -177,17 +180,29 @@ export function itemCard(item, ctx, number, onDone, label) {
   const fieldWatcher = new MutationObserver(labelEnterKeys);
   fieldWatcher.observe(card, { childList: true, subtree: true });
 
-  /** Zet de focus op het eerste invulbare element van deze vraag. */
-  card.focusFirst = ({ scroll = true } = {}) => {
-    const el = card.querySelector(
-      'input[type="text"]:not(:disabled), textarea:not(:disabled), select:not(:disabled), input[type="radio"]:not(:disabled), input[type="checkbox"]:not(:disabled), button.chip:not(:disabled), button.move:not(:disabled)',
-    );
+  const firstField = () => card.querySelector(
+    'input[type="text"]:not(:disabled), textarea:not(:disabled), select:not(:disabled), input[type="radio"]:not(:disabled), input[type="checkbox"]:not(:disabled), button.chip:not(:disabled), button.move:not(:disabled)',
+  );
+  /**
+   * Zet de focus op het eerste invulbare element van deze vraag.
+   * @param keyboard  ook op een telefoon een tekstveld focussen (toetsenbord open): alleen als de gebruiker
+   *                  net typte of zelf op „Volgende vraag” tikte.
+   */
+  card.focusFirst = ({ scroll = true, keyboard = false } = {}) => {
+    const el = firstField();
     // Bovenaan het scherm (onder de vaste balken, zie scroll-margin-top), zodat er zoveel mogelijk ruimte onder de vraag is.
     if (scroll) card.scrollIntoView({ behavior: 'smooth', block: 'start' });
-    // Op een telefoon geen tekstveld focussen: dan springt het toetsenbord open en schuift alles.
+    // Op een telefoon anders geen tekstveld focussen: dan springt het toetsenbord open en schuift alles.
     const touch = typeof matchMedia === 'function' && matchMedia('(pointer: coarse)').matches;
-    if (touch && el?.matches('input[type="text"], textarea')) return;
+    if (touch && !keyboard && el?.matches('input[type="text"], textarea')) return;
     el?.focus({ preventScroll: true });
+  };
+  /** Begint deze vraag met een tekstveld? Zet de cursor erin zonder te scrollen (het toetsenbord blijft open). */
+  card.takeKeyboard = () => {
+    const el = firstField();
+    if (!el?.matches('input[type="text"], textarea')) return false;
+    el.focus({ preventScroll: true });
+    return true;
   };
   card.isFinished = () => finished;
   /** Knop om zelf verder te gaan op een telefoon (als het vanzelf verder gaan is afgebroken), op de plek van Controleer. */

@@ -2,7 +2,11 @@
 import { h } from './dom.js';
 import { course } from './content.js';
 import { itemCard } from './render/item-card.js';
-import { recordItem } from './progress.js';
+import { recordItem, getPref, setPref } from './progress.js';
+
+/** Na een goed antwoord vanzelf naar de volgende vraag (instelling op de pagina Over, per apparaat). */
+export const autoNext = () => getPref('autoNext', true) !== false;
+export const setAutoNext = (on) => setPref('autoNext', !!on);
 import { trackEvent, itemSummary, STATUS_LABEL } from './analytics.js';
 import { spokenText } from './render/speak.js';
 
@@ -113,10 +117,13 @@ export function exerciseRunner(items, { onFinish, offset = { done: 0, good: 0, t
         updateScore();
         // Vanzelf door naar de volgende vraag. Op een telefoon iets later, en niet als je intussen
         // tikt of scrolt (dan zou de pagina onder je vinger wegschuiven); de knop blijft als uitweg.
+        // Staat „vanzelf verder” uit (pagina Over), dan alleen de knop.
         const touch = matchMedia('(pointer: coarse)').matches;
+        const auto = autoNext();
         const advance = (label, go, ms) => {
+          if (!auto) return void card.offerNext(label, () => go({ tapped: true }));
           if (!touch) return void setTimeout(go, ms);
-          card.offerNext(label, go);
+          card.offerNext(label, () => go({ tapped: true }));
           afterPause(go, ms + 600);
         };
         if (finished === items.length) {
@@ -133,7 +140,13 @@ export function exerciseRunner(items, { onFinish, offset = { done: 0, good: 0, t
         if (r.revealed && !advanceAfterReveal) return;
         const next = cards.slice(i + 1).find((c) => !c.isFinished()) ?? cards.find((c) => !c.isFinished());
         if (!next) return;
-        advance('Volgende vraag ↓', () => next.focusFirst(), r.revealed ? 1500 : 700);
+        // Getypt op een telefoon: de cursor meteen in het volgende tekstveld, nog tijdens de tik of Enter,
+        // zodat het toetsenbord open blijft (iOS opent het alleen vanuit een tik). Daarna schuift de pagina mee.
+        if (touch && auto && r.typed && !r.revealed && next.takeKeyboard()) {
+          setTimeout(() => next.scrollIntoView({ behavior: 'smooth', block: 'start' }), 700);
+          return;
+        }
+        advance('Volgende vraag ↓', ({ tapped = false } = {}) => next.focusFirst({ keyboard: tapped }), r.revealed ? 1500 : 700);
       }, label);
       cards.push(card);
       return card;

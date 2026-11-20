@@ -18,7 +18,7 @@ import { initAnalytics, trackPage, trackEvent, scoreBucket, analyticsConfigured,
 import {
   viewPracticeHub, viewDaily, viewVerbTrainer, viewFlashcards, viewTest, viewGames, viewGame, GAMES, dueCount, streakText,
 } from './views/practice.js';
-import { chapterByNo, findTopic, crumbs, progressBar, exerciseRunner, practiceView, splitTheme, plural, scoreMessage, missedList } from './ui.js';
+import { autoNext, setAutoNext, chapterByNo, findTopic, crumbs, progressBar, exerciseRunner, practiceView, splitTheme, plural, scoreMessage, missedList } from './ui.js';
 import { shuffle } from './build.js';
 import {
   getResult, chapterProgress, resetProgress, recordItem, runState, startRun, completeRun, pickRound,
@@ -486,7 +486,7 @@ function viewAbout() {
       h('li', {}, 'Meerkeuze, keuzelijsten en koppelen worden meteen nagekeken zodra je antwoord compleet is.'),
       h('li', {}, 'Bij woordtegels druk je zelf op Controleer, zodat je eerst nog kunt schuiven. Tik tussen twee woorden in je zin om daar een woord in te voegen; tik op een woord in je zin om het weg te halen.'),
       h('li', {}, 'Typ je antwoord en druk op Enter. Bij meerkeuze kun je de cijfertoetsen 1–9 gebruiken.'),
-      h('li', {}, 'Na een goed antwoord ga je vanzelf door naar de volgende vraag. Op een telefoon wacht de site even; tik of scrol je intussen, dan blijf je staan en tik je zelf op „Volgende vraag”. Aan het eind brengt Enter je naar de volgende oefening.'),
+      h('li', {}, 'Na een goed antwoord ga je vanzelf door naar de volgende vraag. Op een telefoon wacht de site even; tik of scrol je intussen, dan blijf je staan en tik je zelf op „Volgende vraag”. Dit kun je hieronder uitzetten. Aan het eind brengt Enter je naar de volgende oefening.'),
     ),
     h('h2', {}, 'Oefenvormen'),
     h('ul', {},
@@ -508,6 +508,12 @@ function viewAbout() {
         [['auto', 'Automatisch (tegels op een touchscreen)'], ['tiles', 'Altijd woordtegels'], ['type', 'Altijd typen']]
           .map(([v, l]) => h('option', { value: v, selected: getInputMode() === v }, l)));
       return sel;
+    })(),
+    h('h2', {}, 'Naar de volgende vraag'),
+    h('p', {}, 'Na een goed antwoord gaat de site vanzelf naar de volgende vraag. Typte je je antwoord op een telefoon, dan staat de cursor meteen in het volgende invulvak en blijft het toetsenbord open. Wil je eerst rustig de uitleg lezen, zet dit dan uit: je tikt dan zelf op „Volgende vraag”.'),
+    (() => {
+      const box = h('input', { type: 'checkbox', checked: autoNext(), onchange: () => setAutoNext(box.checked) });
+      return h('label', { class: 'option inline' }, box, h('span', {}, 'Vanzelf naar de volgende vraag'));
     })(),
     h('h2', {}, 'Privacy en statistieken'),
     analyticsConfigured()
