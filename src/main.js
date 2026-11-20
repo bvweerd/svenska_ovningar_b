@@ -578,7 +578,11 @@ function viewAbout() {
     h('h3', {}, 'Exporteren en importeren'),
     h('p', {}, 'Je kunt je voortgang ook als bestand bewaren en op een ander apparaat importeren. Importeren voegt samen: wat je op dit apparaat al gedaan hebt, blijft staan, en per vraag telt je laatste poging.'),
     progressTools(),
-    h('p', { class: 'muted version' }, `Versie ${import.meta.env.APP_VERSION ?? 'onbekend'}`),
+    h('h2', {}, 'Steun deze site'),
+    h('p', {}, 'Deze site is gratis en zonder reclame, en dat blijft zo. Heb je er iets aan en wil je iets terugdoen? Een kleine bijdrage via Ko-fi helpt om de site te onderhouden en uit te breiden.'),
+    h('div', { class: 'actions' },
+      h('a', { class: 'btn primary', href: 'https://ko-fi.com/bvweerd', target: '_blank', rel: 'noopener' }, 'Steun via Ko-fi ☕')),
+    h('p', { class: 'muted version' },`Versie ${import.meta.env.APP_VERSION ?? 'onbekend'}`),
   );
 }
 
