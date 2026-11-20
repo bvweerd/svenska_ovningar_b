@@ -12,8 +12,18 @@ const ITEMS = /^ {8}items:\s*$/; // de lijst met vragen van een oefening
 const ITEM = /^ {10}- /; // één vraag in die lijst
 
 function newId(used) {
+  const alphabet = 'abcdefghjkmnpqrstuvwxyz23456789';
+  const limit = 256 - (256 % alphabet.length);
   for (;;) {
-    const id = [...randomBytes(4)].map((b) => 'abcdefghjkmnpqrstuvwxyz23456789'[b % 31]).join('');
+    const chars = [];
+    while (chars.length < 4) {
+      for (const b of randomBytes(4)) {
+        if (b >= limit) continue; // rejection sampling om modulo-bias te vermijden
+        chars.push(alphabet[b % alphabet.length]);
+        if (chars.length === 4) break;
+      }
+    }
+    const id = chars.join('');
     if (!used.has(id) && !/^\d+$/.test(id)) {
       used.add(id);
       return id;
