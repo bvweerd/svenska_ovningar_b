@@ -23,5 +23,5 @@ SYNC_SITES = "svensk-ovningar,svensk-ovningar-b"
 [[d1_databases]]
 binding = "DB"
 database_name = "svensk-ovningar-sync"
-database_id = "VUL-IN-NA-wrangler-d1-create"
+database_id = "02b0eb11-2b2c-416a-b96d-1b7637bb08bd"
 migrations_dir = "migrations"
