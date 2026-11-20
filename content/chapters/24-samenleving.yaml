@@ -41,6 +41,8 @@ grammar:
 
       In de hoofdzin na *trots att* zeggen Zweden vaak nog extra *ändå*: *Trots att det regnade gick vi ut **ändå**.* Dat is correct, maar niet nodig.
 
+      *Även om* hoor je ook bij iets wat echt zo is: *Även om det regnade gick vi ut.* Dat is goed Zweeds. Met *trots att* leg je meer nadruk op het feit; bij iets wat (nog) niet vaststaat, past alleen *även om*: *Jag går **även om** det blir sent.*
+
       ### Woordvolgorde
       Het zijn bijzinnen: *inte* vóór het werkwoord. Staat de bijzin **vooraan**, dan begint de hoofdzin met het **werkwoord** (V2):
 
@@ -242,7 +244,7 @@ sections:
             feedback:
               - { contains: "dig du måste", tip: "Na de bijzin vooraan komt eerst het werkwoord: *måste du*." }
               - { contains: "sig man måste", tip: "Na de bijzin vooraan komt eerst het werkwoord: *måste man*." }
-              - { contains: "sidor ", tip: "Na *båda*: bepaald, *båda sidorna*." }
+              - { contains: "sidor ", tip: "*båda sidor* hoor je ook, maar oefen hier de regel uit hoofdstuk 21: na *båda* de bepaalde vorm, *båda sidorna*." }
           - id: n5g2
             type: translate
             prompt: "Sinds ik naar Zweden ben verhuisd, lees ik elke dag de krant in het Zweeds."

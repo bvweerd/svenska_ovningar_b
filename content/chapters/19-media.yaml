@@ -79,7 +79,7 @@ sections:
 
           – Älgen var troligen ung och hade gått vilse, säger polisens presstalesperson Anders Berg. Till slut lyckades vi leda den ut ur staden mot skogen.
 
-          Enligt Berg är det inte ovanligt att älgar kommer in i städer på våren, när de unga djuren lämnar sina mödrar. Polisen vill ändå påminna om att en älg kan bli farlig om den känner sig stressad. Man ska hålla avstånd och inte försöka ta bilder på nära håll. Den som ser en älg i staden bör ringa 112.
+          Enligt Berg är det inte ovanligt att älgar kommer in i städer på våren, när de unga djuren lämnar sina mödrar. Polisen vill ändå påminna om att en älg kan bli farlig om den känner sig stressad. Man ska hålla avstånd och inte försöka ta bilder på nära håll. Den som ser en älg i staden kan ringa polisen på 114 14. Är någon i fara ska man ringa 112.
 
           Senare samma dag sågs älgen i ett skogsområde norr om staden. Enligt polisen mådde den bra.
         items:
@@ -92,7 +92,7 @@ sections:
           - { id: wf7p, type: mc, prompt: "Wat betekent *spärrade av flera gator*?", options: ["sloot meerdere straten af", "maakte meerdere straten schoon", "reed door meerdere straten", "zocht in meerdere straten"], answer: 0 }
           - { id: 43pp, type: mc, prompt: "Vad gjorde många som såg älgen?", options: ["De filmade den med sina mobiler.", "De ringde polisen.", "De gav den mat.", "De sprang hem."], answer: 0 }
           - { id: a4aa, type: truefalse, statement: "Passagerarna på bussen blev rädda.", answer: false, correction: { answers: ["{Passagerarna|De|Alla} började skratta.", "{Passagerarna|De} skrattade."] } }
-          - { id: cufb, type: mc, prompt: "Vad ska man göra om man ser en älg i staden, enligt polisen?", options: ["hålla avstånd och ringa 112", "ta bilder på nära håll", "försöka leda den till skogen", "ringa tidningen"], answer: 0 }
+          - { id: cufb, type: mc, prompt: "Vad bör man göra om man ser en älg i staden, enligt polisen?", options: ["hålla avstånd och ringa polisen på 114 14", "ta bilder på nära håll", "försöka leda den till skogen", "ringa tidningen"], answer: 0 }
 
   - id: ord
     title: Ord och fraser · woorden en uitdrukkingen
@@ -301,7 +301,7 @@ sections:
         items:
           - { id: enrs, type: mc, prompt: "Welke zin is een goede eerste zin van je samenvatting?", options: ["I tisdags gick en ung älg rakt genom centrala Uppsala.", "Jag tycker att älgar är väldigt fina djur.", "Det här är en text som jag har läst om en älg."], answer: 0, tip: "Een samenvatting begint met wat er gebeurde, waar en wanneer, zonder je eigen mening." }
           - { id: yfgh, type: order, topic: indirekt-tal-b1, prompt: "De politie zei: „Älgen har troligen gått vilse.” Vertel het verder.", start: "Polisen sa att", tokens: ["älgen", "troligen", "hade", "gått", "vilse"], answers: ["Polisen sa att älgen troligen hade gått vilse."] }
-          - { id: 58st, type: translate, prompt: "Volgens de politie is dat niet ongewoon.", answers: ["Enligt polisen är {det|detta} inte ovanligt.", "{Det|Detta} är inte ovanligt[,] enligt polisen."], feedback: [{ contains: "polisen det är", tip: "Enligt polisen staat vooraan, dus het werkwoord komt op plaats 2: Enligt polisen är det …" }] }
+          - { id: 58st, type: translate, prompt: "Volgens de politie is dat niet ongewoon.", answers: ["Enligt polisen är {det|detta} {inte ovanligt|inget ovanligt|inte något ovanligt}.", "{Det|Detta} är {inte ovanligt|inget ovanligt|inte något ovanligt}[,] enligt polisen."], feedback: [{ contains: "polisen det är", tip: "Enligt polisen staat vooraan, dus het werkwoord komt op plaats 2: Enligt polisen är det …" }] }
           - { id: zb7b, type: gap, topic: indirekt-fraga, prompt: "Kies het goede woord.", text: "Polisen vet inte ___ såg älgen först.", gaps: [{ answers: ["vem som"], options: ["vem som", "vem", "vilken"], tip: "Is het vraagwoord het onderwerp van de indirecte vraag, dan komt er som achter: vem som såg …" }] }
           - id: 78ks
             type: free
