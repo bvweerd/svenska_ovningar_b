@@ -158,9 +158,8 @@ function viewChapter(ch) {
   // Waar ga je verder? De oefening die bezig is, anders de eerste die nog niet af is. Een lange
   // oefening in rondes (woordenschat) telt na één ronde als gedaan: die oefen je verder in rondes en
   // in de herhaling, zonder dat de leerling eerst de hele lijst moet afmaken.
-  const roundDone = (ex) => ex.roundSize && ex.items.length > ex.roundSize && roundProgress(ch.chapter, ex).seen >= ex.roundSize;
   const next = ch.exercises.find((ex) => { const r = runState(ch.chapter, ex); return r.started && r.done.size > 0 && r.done.size < r.total; })
-    ?? ch.exercises.find((ex) => !getResult(ch.chapter, ex.id)?.completedAt && !roundDone(ex));
+    ?? ch.exercises.find((ex) => !exerciseDone(ch, ex));
   return h('div', {},
     crumbs({ label: 'Start', href: '#/' }, { label: ch.title }),
     h('header', { class: 'page-head chapter-head', style: chapterHue(ch) },
@@ -232,6 +231,25 @@ function roundIntro(size, p) {
   return p.seen ? `${start} Je hebt er al ${p.seen} gehad.` : `${start} Daarna kies je „Volgende ronde”.`;
 }
 
+/**
+ * Is een oefening af? Afgerond, of bij een lange oefening in rondes (woordenschat): na één ronde.
+ * Die oefen je verder in rondes en in de herhaling, zonder eerst de hele lijst af te maken.
+ */
+function exerciseDone(ch, ex) {
+  if (getResult(ch.chapter, ex.id)?.completedAt) return true;
+  return !!(ex.roundSize && ex.items.length > ex.roundSize && roundProgress(ch.chapter, ex).seen >= ex.roundSize);
+}
+
+/** Waar na deze oefening heen: de eerstvolgende die nog niet af is (daarna vooraan in het hoofdstuk verder zoeken). */
+function onwardFrom(ch, ex) {
+  const pos = ch.exercises.indexOf(ex);
+  const after = ch.exercises.slice(pos + 1).find((e) => !exerciseDone(ch, e));
+  if (after) return { ex: after, label: `Volgende: ${after.title}` };
+  const before = ch.exercises.slice(0, pos).find((e) => !exerciseDone(ch, e));
+  if (before) return { ex: before, label: `Nog niet gedaan: ${before.title}` };
+  return { chapter: course.find((c) => c.chapter > ch.chapter && c.available) ?? null };
+}
+
 function viewExercise(ch, ex, query) {
   document.title = `${ex.title} · ${ch.title}`;
   const href = `#/k/${ch.chapter}/o/${ex.id}`;
@@ -257,8 +275,6 @@ function viewExercise(ch, ex, query) {
     ctx: { topic: ex.topic, fixedOrder: !!ex.fixedOrder, findTopic: (t) => findTopic(t, ch) },
   }));
 
-  const pos = ch.exercises.indexOf(ex);
-  const next = ch.exercises[pos + 1];
   const topicCard = ex.topic ? findTopic(ex.topic, ch) : null;
   const [list, score, summary] = exerciseRunner(items, {
     offset: { done: run.done.size, good: goodBefore, total: run.total },
@@ -272,9 +288,14 @@ function viewExercise(ch, ex, query) {
         : null;
       trackEvent(`oefening/${ch.chapter}/${ex.id}/klaar/${total ? scoreBucket(good / total) : 'schrijven'}`, `H${ch.chapter} · ${ex.title}`);
       const heading = h('h2', {}, total ? `Klaar! ${good} van ${total} in één keer goed.` : 'Klaar!');
-      const onward = (cls) => (next
-        ? h('a', { class: `btn ${cls}`, href: `#/k/${ch.chapter}/o/${next.id}` }, `Volgende: ${next.title}`)
-        : h('a', { class: `btn ${cls}`, href: `#/k/${ch.chapter}` }, 'Terug naar het hoofdstuk'));
+      // Pas hier bepalen: deze oefening is nu af en telt niet meer mee als „nog te doen”.
+      const to = onwardFrom(ch, ex);
+      const onward = (cls) => {
+        if (to.ex) return h('a', { class: `btn ${cls}`, href: `#/k/${ch.chapter}/o/${to.ex.id}` }, to.label);
+        const back = h('a', { class: `btn ${to.chapter ? 'ghost' : cls}`, href: `#/k/${ch.chapter}` }, 'Terug naar het hoofdstuk');
+        if (!to.chapter) return back;
+        return [h('a', { class: `btn ${cls}`, href: `#/k/${to.chapter.chapter}` }, `Hoofdstuk af! Verder met ${to.chapter.title.toLowerCase()}`), back];
+      };
       if (!partial) {
         const hard = total && good / total < 0.5;
         return [
