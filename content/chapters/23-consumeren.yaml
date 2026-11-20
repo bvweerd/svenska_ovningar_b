@@ -163,7 +163,7 @@ sections:
           - { id: gcp7, type: gap, text: "Den nya ___ (sälja → persoon, bepaald) i butiken hjälpte oss att jämföra tre olika dammsugare.", gaps: [{ answers: ["säljaren"], feedback: [{ match: "säljare", tip: "Na den nya: de bepaalde vorm, säljaren." }] }] }
           - { id: s3rd, type: gap, text: "___ (betala → zelfst. naamwoord, bepaald) ska göras senast tio dagar efter att du har fått varan.", gaps: [{ answers: ["Betalningen"], feedback: [{ match: "betalning", tip: "Het gaat om een bepaalde betaling: betalningen." }] }] }
           - { id: 3mgc, type: gap, text: "Efter tre dagar med pasta tyckte vi att maten var nästan ___ (smak + zonder, negatief).", gaps: [{ answers: ["smaklös"], feedback: [{ match: "smakfri", tip: "Negatief 'zonder': -lös. smaklös." }] }] }
-          - { id: vhx4, type: gap, text: "Den här soppan är inte ___ (äta + kan … worden) längre, för den har stått framme i en vecka!", gaps: [{ answers: ["ätbar"], tip: "Kan gegeten worden: äta + -bar, ätbar." }] }
+          - { id: vhx4, type: gap, text: "Den här soppan är inte ___ (äta + kan … worden) längre, för den har stått framme i en vecka!", gaps: [{ answers: ["ätbar"], feedback: [{ match: "ätlig", tip: "ätlig bestaat ook (eetbaar van nature, zoals paddenstoelen), maar oefen hier het achtervoegsel -bar: ätbar." }], tip: "Kan gegeten worden: äta + -bar, ätbar." }] }
           - { id: w66z, type: gap, text: "Varje morgon läser jag de senaste ___ (ny → zelfst. naamwoord, meervoud) om matpriserna på nätet.", gaps: [{ answers: ["nyheterna"], feedback: [{ match: "nyheter", tip: "Na de senaste: de bepaalde vorm, nyheterna." }] }] }
 
   - id: jamforelse

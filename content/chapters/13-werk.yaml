@@ -95,11 +95,11 @@ sections:
         text: |
           Lindhem AB säljer möbler och inredning på nätet. Företaget grundades 2009 i Örebro och har i dag 120 anställda. Våra möbler tillverkas i Sverige och Polen, och alla varor som beställs på webbplatsen levereras inom fem arbetsdagar. Under det senaste året har antalet kunder ökat kraftigt, och därför behöver vi förstärka vår kundtjänst.
 
-          Vi söker nu en kundtjänstmedarbetare på heltid. Du kommer att svara på frågor från kunder via telefon, chatt och mejl. Arbetet sker på vårt kontor i Örebro, men en dag i veckan kan du arbeta hemifrån. I arbetet ingår också att hantera reklamationer och returer. Du blir en del av ett team på åtta personer, och du får en grundlig introduktion under de första veckorna.
+          Vi söker nu en kundtjänstmedarbetare på heltid. Du kommer att svara på frågor från kunder via telefon, chatt och mejl. Arbetet sker på vårt kontor i Örebro, men en dag i veckan kan du arbeta hemifrån. I arbetet ingår också att ta hand om klagomål och returer. Du blir en del av ett team på åtta personer, och du får en grundlig introduktion under de första veckorna.
 
           Vi söker dig som har minst ett års erfarenhet av kundservice, talar och skriver svenska och engelska obehindrat och tycker om att lösa problem. Det är meriterande om du kan ett tredje språk, till exempel tyska eller nederländska.
 
-          Tjänsten är en tillsvidareanställning med sex månaders provanställning. Vi erbjuder flexibla arbetstider och friskvårdsbidrag, och kontoret ligger bara fem minuters promenad från centralstationen. Lön enligt överenskommelse. Intervjuer hålls löpande, så skicka din ansökan så snart som möjligt, dock senast den 15 maj. Ansökan skickas via vår webbplats. Frågor om tjänsten besvaras av rekryteringsansvarig Petra Lind.
+          Tjänsten är en tillsvidareanställning med sex månaders provanställning. Vi erbjuder flexibla arbetstider och betalar halva ditt gymkort. Kontoret ligger bara fem minuters promenad från centralstationen. Lön enligt överenskommelse. Intervjuer hålls löpande, så skicka din ansökan så snart som möjligt, dock senast den 15 maj. Ansökan skickas via vår webbplats. Frågor om tjänsten besvaras av rekryteringsansvarig Petra Lind.
         items:
           - { id: mtu8, type: mc, prompt: "Vad säljer Lindhem?", options: ["möbler och inredning", "kläder och skor", "resor", "telefoner"], answer: 0 }
           - { id: rpdg, type: mc, prompt: "Hur ofta kan man arbeta hemifrån?", options: ["en dag i veckan", "två dagar i veckan", "varje dag", "aldrig"], answer: 0 }

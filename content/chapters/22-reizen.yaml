@@ -430,11 +430,11 @@ sections:
                 topic: partikelverb-2
                 prompt: "Personalen: Absolut. Det går ett tåg klockan 15.20 och ett klockan 16.05. — Vraag: Wanneer komt de trein van 15.20 aan in Göteborg?"
                 answers:
-                  - "{När|Hur dags|Vilken tid} kommer tåget {klockan 15.20|som {går|avgår} [klockan ]15.20} fram [till Göteborg]?"
-                  - "{När|Hur dags|Vilken tid} är tåget {klockan 15.20|som {går|avgår} [klockan ]15.20} framme [i Göteborg]?"
+                  - "{När|Hur dags|Vilken tid} kommer tåget {{klockan|kl.} 15.20|som {går|avgår} [klockan ]15.20} fram [till Göteborg]?"
+                  - "{När|Hur dags|Vilken tid} är tåget {{klockan|kl.} 15.20|som {går|avgår} [klockan ]15.20} framme [i Göteborg]?"
                   - "{När|Hur dags|Vilken tid} kommer 15.20-tåget fram [till Göteborg]?"
                   - "{När|Hur dags|Vilken tid} är 15.20-tåget framme [i Göteborg]?"
-                  - "{När|Hur dags|Vilken tid} anländer tåget {klockan 15.20|som {går|avgår} [klockan ]15.20} [till Göteborg]?"
+                  - "{När|Hur dags|Vilken tid} anländer tåget {{klockan|kl.} 15.20|som {går|avgår} [klockan ]15.20} [till Göteborg]?"
                 feedback:
                   - { contains: "kommer fram tåget", tip: "In een vraag komt het onderwerp tussen werkwoord en partikel: *När kommer **tåget** fram?*" }
               - type: gap
@@ -485,8 +485,8 @@ sections:
                 topic: partikelverb-2
                 prompt: "Konduktören (in de trein): Biljetterna, tack! — Zeg: Hier is mijn kaartje. Het is omgeboekt, omdat mijn trein geschrapt was."
                 answers:
-                  - "Här är min biljett. Den {är|har blivit|blev} ombokad[,] {eftersom|för|för att} mitt tåg {var inställt|ställdes in|hade ställts in}."
-                  - "Här är min biljett. Den {har bokats|bokades} om[,] {eftersom|för|för att} mitt tåg {var inställt|ställdes in|hade ställts in}."
+                  - "[Varsågod, ]{Här är|Här har du} min biljett. Den {är|har blivit|blev} ombokad, {eftersom|för|för att} mitt tåg {var inställt|ställdes in|hade ställts in}."
+                  - "[Varsågod, ]{Här är|Här har du} min biljett. Den {har bokats|bokades} om, {eftersom|för|för att} mitt tåg {var inställt|ställdes in|hade ställts in}."
                 feedback:
                   - { contains: "är ombokat", tip: "*biljett* is een en-woord: *den är ombokad*." }
                   - { contains: "är bokad om", tip: "Als deelwoord komt het partikel vooraan: *ombokad*." }
