@@ -23,7 +23,7 @@ import { shuffle } from './build.js';
 import {
   getResult, chapterProgress, resetProgress, recordItem, runState, startRun, completeRun, pickRound,
   weakItems, setLast, getLast, exportProgress, importProgress, migrateToIds,
-  roundProgress, canDoStatus, newCanDo,
+  roundProgress, canDoStatus, newCanDo, getPref, setPref,
 } from './progress.js';
 
 const app = document.getElementById('app');
@@ -509,6 +509,11 @@ function viewAbout() {
           .map(([v, l]) => h('option', { value: v, selected: getInputMode() === v }, l)));
       return sel;
     })(),
+    h('p', {}, 'Bij het typen staan er knoppen voor å, ä en ö: op een computer naast „Controleer”, op een telefoon boven het toetsenbord. Heeft je toetsenbord die letters zelf al, dan kun je de knoppen uitzetten.'),
+    (() => {
+      const box = h('input', { type: 'checkbox', checked: charBarOn(), onchange: () => { setPref('charBar', box.checked); applyCharBar(); } });
+      return h('label', { class: 'option inline' }, box, h('span', {}, 'Knoppen voor å, ä en ö'));
+    })(),
     h('h2', {}, 'Naar de volgende vraag'),
     h('p', {}, 'Na een goed antwoord gaat de site vanzelf naar de volgende vraag. Typte je je antwoord op een telefoon, dan staat de cursor meteen in het volgende invulvak en blijft het toetsenbord open. Wil je eerst rustig de uitleg lezen, zet dit dan uit: je tikt dan zelf op „Volgende vraag”.'),
     (() => {
@@ -729,7 +734,12 @@ function route() {
 }
 
 // ---------- Å Ä Ö-knoppen ----------
+// Aan of uit op de pagina Over (per apparaat, standaard aan). Uit: de klasse no-charbar verbergt de balk.
+const charBarOn = () => getPref('charBar', true) !== false;
+const applyCharBar = () => document.documentElement.classList.toggle('no-charbar', !charBarOn());
+
 function charBar() {
+  applyCharBar();
   const bar = h('div', { class: 'charbar', hidden: true, role: 'toolbar', 'aria-label': 'Zweedse letters' });
   let target = null;
   for (const c of ['å', 'ä', 'ö', 'Å', 'Ä', 'Ö']) {

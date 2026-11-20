@@ -636,3 +636,4 @@ del { text-decoration-color: var(--bad); text-decoration-thickness: 2px; color: 
 /* Synchroniseren (pagina Over) */
 .sync-code { font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; letter-spacing: 0.02em; white-space: nowrap; }
 .sync .actions input.answer-input { flex: 1 1 12rem; min-width: 0; max-width: 16rem; font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; }
+.no-charbar .charbar { display: none !important; }
