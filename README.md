@@ -170,10 +170,17 @@ vastgelegde fout als fout.
 
 De knop „Begin/Verder” loopt de oefeningen af in de volgorde van het bestand, dus die volgorde ligt vast
 (fase 1b in `PLAN.md`; `npm test` controleert hem). A-site: woorden → per onderwerp herkennen, vorm, kiezen →
-gemengd (vertalen, zoek de fout) → lezen → dialoog → schrijven → luisteren → herhaling → overige woordenschat.
+gemengd (vertalen, zoek de fout) → lezen → dialoog en taak → schrijven → luisteren → herhaling → overige woordenschat.
 B-site: Läsa → Ord → Grammatik → Zoek de fout → Lyssna → Praktiskt → Skriva → Herhaling → overige woordenschat.
 De eerste woordenoefening („Wat betekent het?”) zet de app zelf vooraan; „Verder” slaat een woordenoefening
 over na één ronde van 15. Gebruik geen grammatica uit een later hoofdstuk: ook dat test `npm test`.
+
+**Doeltaken (`kind: taak`).** Een taak is een oefening met `steps` waarin de leerling een gesprek voert om
+een doel te bereiken. Zet `kind: taak` bij de oefening: op de A-site staat hij dan bij de dialoog (na lezen,
+vóór schrijven); zonder `kind` telt een oefening met alleen `steps` als gewone oefening en hoort hij vóór
+„Zoek de fout”. Op de B-site staan taken in het onderdeel `praktiskt`, dat hun plek al bepaalt; `kind` mag
+daar, maar is niet nodig. Geef een taak geen `text`: dan blijven de stappen in de dagelijkse herhaling.
+`npm test` controleert de waarde (alleen `taak`), het ontbreken van `text` en de plek.
 
 ### Kan-doen-uitspraken
 

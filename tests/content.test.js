@@ -6,6 +6,7 @@ import path from 'node:path';
 import yaml from 'js-yaml';
 import { buildCourse } from '../src/build.js';
 import { validateChapter, WRITING_STEPS } from '../src/validate.js';
+import { practiceEntries } from '../src/content.js';
 import { gradeText, gradeOrder, clockSpec } from '../src/check/grade.js';
 import { expand, normalize } from '../src/check/normalize.js';
 
@@ -117,9 +118,11 @@ for (const ch of course) {
 // B-site: woorden in „ord” → läsa → ord → grammatica → zoek de fout → lyssna → praktiskt → skriva → herhaling → woordenschat.
 const SECTION_RANK = { woorden: 0, lasa: 1, ord: 2, oefeningen: 3, 'zoek-de-fout': 4, luisteren: 5, lyssna: 5, praktiskt: 6, skriva: 7, herhaling: 8, eindtoets: 8, woordenschat: 9 };
 const GRAMMAR_RANK = 3;
-// Binnen „oefeningen” (A-site): eerst de onderwerpen en gemengd, dan zoek de fout, dan lezen, dialoog, schrijven.
+// Binnen „oefeningen” (A-site): eerst de onderwerpen en gemengd, dan zoek de fout, dan lezen, dialoog en taak, schrijven.
+// Een doeltaak (kind: taak) hoort bij de dialoog, ook al bestaat hij uit steps.
 const exercisePhase = (ex) => {
   const types = new Set(ex.items.map((i) => i.type));
+  if (ex.kind === 'taak') return 3;
   if (ex.text && !ex.listen) return 2;
   if (types.size === 1 && types.has('findError')) return 1;
   if (types.size === 1 && types.has('dialogue')) return 3;
@@ -153,11 +156,29 @@ describe('opbouw van de hoofdstukken', () => {
       }
     });
 
+    it(`hoofdstuk ${ch.chapter}: een taak (kind: taak) blijft in de dagelijkse herhaling`, () => {
+      for (const ex of ch.exercises.filter((x) => x.kind === 'taak')) {
+        expect(ex.text, ex.id).toBeUndefined();
+        expect(practiceEntries([ch]).some((e) => e.ex.id === ex.id), ex.id).toBe(true);
+      }
+    });
+
     it.runIf(ch.vocab?.length)(`hoofdstuk ${ch.chapter}: de eerste woordenoefening staat vooraan`, () => {
       const first = ch.sections.find((s) => s.id === 'woorden' || s.id === 'ord');
       expect(first?.exercises.some((ex) => ex.id === 'woorden-sv-nl')).toBe(true);
     });
   }
+});
+
+describe('kind: taak', () => {
+  const steps = { id: 's', type: 'steps', steps: [{ type: 'mc', prompt: 'p', options: ['a', 'b'], answer: 0 }] };
+  const chapter = (extra) => ({ chapter: 1, canDo: [], exercises: [{ id: 'taak', title: 't', instruction: 'i', items: [steps], ...extra }] });
+  const kindErrors = (ch) => validateChapter(ch).filter((e) => e.includes('/ taak:') && /kind|taak heeft/.test(e));
+  it('alleen bekende waarden, en een taak zonder text', () => {
+    expect(kindErrors(chapter({ kind: 'taak' }))).toEqual([]);
+    expect(kindErrors(chapter({ kind: 'dialoog' })).join()).toMatch(/onbekende kind/);
+    expect(kindErrors(chapter({ kind: 'taak', text: 'tekst' })).join()).toMatch(/geen text/);
+  });
 });
 
 // ---------- Geleid schrijven (fase 3 van het verbeterplan) ----------

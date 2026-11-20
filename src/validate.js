@@ -148,6 +148,8 @@ function checkWriting(ex, where, errors) {
   if (steps < WRITING_STEPS[0] || steps > WRITING_STEPS[1]) err(`${steps} voorbereidende stappen vóór de schrijfopdracht, verwacht ${WRITING_STEPS[0]} tot ${WRITING_STEPS[1]}`);
 }
 
+export const EXERCISE_KINDS = new Set(['taak']);
+
 /** @param extraTopics  grammatica-onderwerpen uit andere hoofdstukken (voor herhaling) */
 export function validateChapter(ch, extraTopics = []) {
   const errors = [];
@@ -166,6 +168,9 @@ export function validateChapter(ch, extraTopics = []) {
     if (!ex.title || !ex.instruction) errors.push(`${where}: title en instruction zijn verplicht`);
     if (ex.topic && !topics.has(ex.topic)) errors.push(`${where}: onbekend topic "${ex.topic}"`);
     if (!ex.items?.length) errors.push(`${where}: geen items`);
+    // kind: taak = doeltaak; staat in de volgorde bij de dialoog (tests/content.test.js, exercisePhase).
+    if (ex.kind !== undefined && !EXERCISE_KINDS.has(ex.kind)) errors.push(`${where}: onbekende kind "${ex.kind}" (bekend: ${[...EXERCISE_KINDS].join(', ')})`);
+    if (ex.kind === 'taak' && ex.text) errors.push(`${where}: een taak heeft geen text (anders valt hij uit de dagelijkse herhaling)`);
     // Elke vraag heeft een vaste id (npm run ids); daar hangt de voortgang van gebruikers aan.
     const itemIds = new Set();
     ex.items?.forEach((it, i) => {
