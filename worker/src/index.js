@@ -1,3 +1,5 @@
+import { handleSync } from './sync.js';
+
 // Cloudflare Worker: ontvangt een foutmelding van de oefensite en maakt er een GitHub-issue van.
 // Gebruikers hebben geen GitHub-account nodig. Turnstile houdt bots tegen; het GitHub-token
 // staat alleen hier, als secret, en kan alleen issues aanmaken in de ingestelde repo.
@@ -10,6 +12,8 @@
 //   GITHUB_TOKEN      secret: fine-grained token met alleen "Issues: Read and write" op de repo's in GITHUB_REPO
 //   TURNSTILE_SECRET  secret: geheime sleutel van de Turnstile-widget
 //   TURNSTILE_HOSTNAMES optioneel, komma-gescheiden: Turnstile-tokens van andere hostnamen worden geweigerd
+//
+// Daarnaast synchroniseert de Worker voortgang tussen apparaten onder /sync/<code> (zie sync.js).
 
 export const LIMITS = { message: 2000, answer: 1000, item: 6000, short: 200 };
 
@@ -76,7 +80,7 @@ export function buildIssue(p) {
 function cors(origin) {
   return {
     'Access-Control-Allow-Origin': origin,
-    'Access-Control-Allow-Methods': 'POST, OPTIONS',
+    'Access-Control-Allow-Methods': 'GET, PUT, POST, OPTIONS',
     'Access-Control-Allow-Headers': 'Content-Type',
     'Access-Control-Max-Age': '86400',
     Vary: 'Origin',
@@ -101,6 +105,10 @@ export async function handle(request, env, fetchImpl = fetch) {
   const headers = cors(origin);
 
   if (request.method === 'OPTIONS') return new Response(null, { status: 204, headers });
+  const url = new URL(request.url);
+  if (url.pathname.startsWith('/sync/')) {
+    return handleSync(request, env, url, (status, data) => json(status, data, { ...headers, 'Cache-Control': 'no-store' }));
+  }
   if (request.method !== 'POST') return json(405, { ok: false, error: 'method' }, headers);
 
   const raw = await request.text();

@@ -632,3 +632,7 @@ del { text-decoration-color: var(--bad); text-decoration-thickness: 2px; color: 
 .cando-bar .seen, .cando-key.seen { background: color-mix(in srgb, var(--good) 35%, transparent); }
 .cando-bar .known, .cando-key.known { background: var(--good); }
 .cando-key { display: inline-block; width: 12px; height: 6px; border-radius: 3px; vertical-align: middle; }
+
+/* Synchroniseren (pagina Over) */
+.sync-code { font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; letter-spacing: 0.02em; white-space: nowrap; }
+.sync .actions input.answer-input { flex: 1 1 12rem; min-width: 0; max-width: 16rem; font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; }

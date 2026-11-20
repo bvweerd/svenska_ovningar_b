@@ -63,3 +63,45 @@ GITHUB_TOKEN=<token, of een token voor een testrepo>
 - Alleen tokens van je eigen site: zet `TURNSTILE_HOSTNAMES = "bvweerd.github.io"` bij `[vars]`. Laat het leeg als je lokaal met de testsleutels van Turnstile werkt (die geven een andere hostnaam).
 - Extra site of repo: voeg de repo toe aan `GITHUB_REPO` (komma-gescheiden; de eerste is de standaard) en zo nodig de origin aan `ALLOWED_ORIGINS`. Geef het token toegang tot die repo en maak daar het label `melding` aan. Zet in de site `REPORT_REPO` op die repo.
 - De opbouw van het issue staat in `buildIssue()` in `src/index.js`. De tests staan in `tests/report.test.js` in de hoofdmap.
+
+## Synchronisatie van voortgang
+
+Dezelfde Worker bewaart voortgang voor het synchroniseren tussen apparaten (`src/sync.js`), in een
+Cloudflare **D1**-database. Per synccode en site staat er één rij: een SHA-256-hash van de code (niet de
+code zelf), een volgnummer en de voortgang als JSON. Samenvoegen gebeurt in de browser; bij een verouderd
+volgnummer geeft de Worker een 409 met de huidige stand, en de site voegt samen en probeert opnieuw.
+
+```
+GET /sync/<code>?site=<STORAGE_PREFIX>[&since=<rev>]   → { ok, rev, data? }
+PUT /sync/<code>?site=<STORAGE_PREFIX>   { rev, data }  → { ok, rev } of 409 { rev, data }
+```
+
+Gratis limieten (november 2026): 100.000 Worker-verzoeken en 100.000 geschreven rijen per dag, 500 MB per
+database. Een sync kost 1–2 verzoeken en hooguit 1 geschreven rij: ruim voor duizenden gebruikers per dag.
+Een voortgang mag hooguit 1 MB JSON zijn.
+
+### Eenmalig instellen
+```bash
+cd worker
+npx wrangler d1 create svensk-ovningar-sync
+```
+Zet het `database_id` uit de uitvoer in `wrangler.toml` (bij `[[d1_databases]]`). Daarna:
+```bash
+npx wrangler d1 migrations apply svensk-ovningar-sync --remote
+npx wrangler deploy
+```
+Zet in **beide** repo's de repository-variabele `SYNC_URL` op het Worker-adres (hetzelfde als `REPORT_URL`)
+en start de Pages-workflow opnieuw. Pas daarna verschijnt „Synchroniseren tussen apparaten” op de pagina Over.
+
+Let op: met de plaatshouder `VUL-IN-NA-wrangler-d1-create` in `wrangler.toml` lukt `wrangler deploy` niet.
+Wil je de Worker opnieuw deployen zonder synchronisatie, haal dan het blok `[[d1_databases]]` weg; `/sync/`
+geeft dan een 503 en meldingen werken gewoon.
+
+`SYNC_SITES` in `wrangler.toml` bepaalt welke sites mogen synchroniseren (hun `STORAGE_PREFIX`).
+
+### Lokaal testen
+```bash
+npx wrangler d1 migrations apply svensk-ovningar-sync --local
+npx wrangler dev
+```
+En de site met `VITE_SYNC_URL=http://localhost:8787/`.

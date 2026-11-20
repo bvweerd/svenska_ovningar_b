@@ -42,3 +42,7 @@ export const GOATCOUNTER_CODE = import.meta.env?.VITE_GOATCOUNTER || 'bvweerd';
 // openbare sitekey van Turnstile. Laat een van beide leeg om de knop „Fout gezien?” te verbergen.
 export const REPORT_URL = import.meta.env?.VITE_REPORT_URL || '';
 export const TURNSTILE_SITEKEY = import.meta.env?.VITE_TURNSTILE_SITEKEY || '';
+
+// Synchronisatie van voortgang tussen apparaten: adres van dezelfde Worker (map worker/ in de B1–B2-repo,
+// met een D1-database). Laat leeg om synchroniseren te verbergen.
+export const SYNC_URL = import.meta.env?.VITE_SYNC_URL || '';

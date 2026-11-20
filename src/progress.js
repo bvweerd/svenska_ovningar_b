@@ -7,6 +7,7 @@
 //   last:  { href, title, at },
 //   cards: { "<hoofdstuk>/<sv|nl>/<Zweeds woord>": 'known'|'unknown' }   (flitskaarten, per richting)
 //   dictee: { "<gesproken tekst>": 'good'|'wrong' }
+//   t:     { "c/<flitskaartsleutel>" | "d/<gesproken tekst>": tijdstip }   (voor samenvoegen, zie mergeStates)
 // }
 // - 'good' = in één keer goed, 'wrong' = goed na fouten, 'revealed' = antwoord bekeken.
 // - Elke vraag heeft een vaste id (content/…yaml, of het Zweedse woord bij woordenschat), zodat
@@ -16,6 +17,7 @@
 // - ids: true betekent dat oude voortgang (op plek) is omgezet naar ids (zie migrateToIds).
 // - Een "ronde" van een oefening begint bij runStart; vragen met at >= runStart zijn in deze ronde gedaan.
 // - pick: bij een lange oefening (roundSize) de vraag-id's van deze ronde; zonder pick telt de hele oefening.
+// - at bij ex: laatste wijziging, zodat samenvoegen (import, synchronisatie) de nieuwste ronde kiest.
 //   x: 1 = gemaakt buiten de oefening (toets, mix, herhaling, flitskaarten): telt wel als voortgang,
 //   maar niet als gedaan in de lopende ronde van de oefening.
 
@@ -23,7 +25,7 @@ import { STORAGE_PREFIX } from './config.js';
 
 export const KEY = `${STORAGE_PREFIX}:progress:v2`;
 const OLD_KEY = `${STORAGE_PREFIX}:progress:v1`;
-const empty = () => ({ v: 2, items: {}, ex: {}, last: null, srs: {}, days: [], tests: {}, games: {}, prefs: {}, cards: {}, dictee: {} });
+const empty = () => ({ v: 2, items: {}, ex: {}, last: null, srs: {}, days: [], tests: {}, games: {}, prefs: {}, cards: {}, dictee: {}, t: {} });
 let memory = empty();
 // Laatst gelezen of geschreven opslag: zo wordt de JSON niet bij elke aanroep opnieuw ontleed.
 let cachedRaw = null;
@@ -370,7 +372,7 @@ export function startRun(ch, ex, pick = null) {
   const state = load();
   const k = exKey(ch, ex.id);
   const { pick: _old, ...rest } = state.ex[k] ?? { best: 0 };
-  state.ex[k] = { ...rest, runStart: Date.now(), ...(pick ? { pick: pick.map((idx) => itemId(ex, idx)) } : {}) };
+  state.ex[k] = { ...rest, runStart: Date.now(), at: Date.now(), ...(pick ? { pick: pick.map((idx) => itemId(ex, idx)) } : {}) };
   save(state);
 }
 
@@ -385,7 +387,7 @@ export function completeRun(ch, ex) {
   const prev = state.ex[k] ?? { best: 0 };
   if (!prev.pick) {
     const ratio = total ? score / total : 1;
-    state.ex[k] = { best: Math.max(prev.best ?? 0, ratio), score, total, completedAt: Date.now() };
+    state.ex[k] = { best: Math.max(prev.best ?? 0, ratio), score, total, completedAt: Date.now(), at: Date.now() };
   } else {
     // Ronde van een lange oefening: pas afgerond als elke vraag een keer gemaakt is. De beste
     // score geldt dan voor de hele oefening (laatste poging per vraag), niet voor deze ronde.
@@ -399,6 +401,7 @@ export function completeRun(ch, ex) {
       score,
       total,
       best: complete ? Math.max(prev.best ?? 0, whole) : prev.best ?? 0,
+      at: Date.now(),
       ...(complete ? { completedAt: Date.now() } : {}),
     };
   }
@@ -495,18 +498,106 @@ export function exportProgress() {
   return JSON.stringify(load(), null, 2);
 }
 
-/** Importeert een export. Gooit een fout bij een ongeldig bestand. */
-export function importProgress(text) {
-  const data = JSON.parse(text);
+/** Kopie van de hele voortgang (voor synchronisatie). */
+export function progressSnapshot() {
+  return JSON.parse(JSON.stringify(load()));
+}
+
+/** Controleert een export (tekst of object) en geeft de voortgang terug. Gooit een fout bij een ongeldig bestand. */
+export function parseProgress(input) {
+  const data = typeof input === 'string' ? JSON.parse(input) : input;
   const isObj = (x) => x !== null && typeof x === 'object' && !Array.isArray(x);
   const optional = (x) => x === undefined || x === null || isObj(x);
   if (!isObj(data) || data.v !== 2 || !isObj(data.items) || !isObj(data.ex)
     || !optional(data.srs) || !optional(data.tests) || !optional(data.games) || !optional(data.prefs)
-    || !optional(data.cards) || !optional(data.dictee)
+    || !optional(data.cards) || !optional(data.dictee) || !optional(data.t)
     || (data.days !== undefined && !Array.isArray(data.days))) {
     throw new Error('Dit is geen geldig voortgangsbestand.');
   }
-  save({ ...empty(), ...data });
+  return { ...empty(), ...data };
+}
+
+/**
+ * Voegt andere voortgang samen met die van dit apparaat en slaat het resultaat op.
+ * Geeft true als er op dit apparaat iets veranderd is.
+ */
+export function mergeProgress(input) {
+  const local = load();
+  const merged = mergeStates(local, parseProgress(input));
+  const changed = JSON.stringify(merged) !== JSON.stringify(local);
+  if (changed) save(merged);
+  return changed;
+}
+
+/** Importeert een export en voegt die samen met wat er al staat. Gooit een fout bij een ongeldig bestand. */
+export function importProgress(text) {
+  return mergeProgress(text);
+}
+
+// ---------- Samenvoegen (import en synchronisatie) ----------
+function stamp(state, key) {
+  state.t = { ...(state.t ?? {}), [key]: Date.now() };
+}
+
+/** De nieuwste van twee records; bij gelijke tijd een vaste keuze, zodat beide kanten hetzelfde kiezen. */
+function newest(x, y, time) {
+  const tx = time(x);
+  const ty = time(y);
+  if (tx !== ty) return ty > tx ? y : x;
+  return JSON.stringify(y) > JSON.stringify(x) ? y : x;
+}
+
+function mergeMap(a, b, pick) {
+  const out = { ...(a ?? {}) };
+  for (const [k, v] of Object.entries(b ?? {})) out[k] = k in out ? pick(out[k], v, k) : v;
+  return out;
+}
+
+const atOf = (r) => r?.at ?? 0;
+const exTime = (r) => r?.at ?? Math.max(r?.completedAt ?? 0, r?.runStart ?? 0);
+
+/**
+ * Voegt twee voortgangen samen zonder iets kwijt te raken. a is dit apparaat, b de andere kant.
+ * - Per vraag telt de laatst gemaakte poging; de Leitner-doos hoort bij die poging.
+ * - Per oefening, toets en spel: de nieuwste ronde, met de hoogste beste score van beide.
+ * - Flitskaarten en dictee: het nieuwste oordeel. Oefendagen: allebei.
+ * - Instellingen (stem, invoer, enz.) horen bij het apparaat: die van a blijven staan, b vult alleen aan.
+ */
+export function mergeStates(a, b) {
+  a = { ...empty(), ...a };
+  b = { ...empty(), ...b };
+  const items = mergeMap(a.items, b.items, (x, y) => newest(x, y, atOf));
+  const srs = mergeMap(a.srs, b.srs, (x, y, k) => {
+    if (items[k] === b.items[k] && items[k] !== a.items[k]) return y;
+    if (items[k] === a.items[k] && items[k] !== b.items[k]) return x;
+    return newest(x, y, () => 0);
+  });
+  const best = (x, y, time) => ({ ...newest(x, y, time), best: Math.max(x?.best ?? 0, y?.best ?? 0) });
+  const t = mergeMap(a.t, b.t, (x, y) => Math.max(x ?? 0, y ?? 0));
+  const byStamp = (prefix) => (x, y, k) => {
+    const ta = a.t?.[prefix + k] ?? 0;
+    const tb = b.t?.[prefix + k] ?? 0;
+    if (ta !== tb) return tb > ta ? y : x;
+    return x;
+  };
+  const prefs = mergeMap(a.prefs, b.prefs, (x, y) => (Array.isArray(x) && Array.isArray(y) ? [...new Set([...x, ...y])] : x));
+  return {
+    ...b,
+    ...a,
+    v: 2,
+    ids: !!(a.ids || b.ids) || undefined,
+    items,
+    srs,
+    ex: mergeMap(a.ex, b.ex, (x, y) => best(x, y, exTime)),
+    tests: mergeMap(a.tests, b.tests, (x, y) => best(x, y, atOf)),
+    games: mergeMap(a.games, b.games, (x, y) => best(x, y, atOf)),
+    last: a.last && b.last ? newest(a.last, b.last, atOf) : a.last ?? b.last ?? null,
+    days: [...new Set([...(a.days ?? []), ...(b.days ?? [])])].sort().slice(-400),
+    prefs,
+    cards: mergeMap(a.cards, b.cards, byStamp('c/')),
+    dictee: mergeMap(a.dictee, b.dictee, byStamp('d/')),
+    t,
+  };
 }
 
 // ---------- Flitskaarten en dictee: eigen geheugen, los van de oefeningen ----------
@@ -532,6 +623,7 @@ const cardKey = (ch, dir, sv) => `${ch}/${dir}/${sv}`;
 export function rateCard(ch, dir, sv, known) {
   const state = load();
   state.cards = { ...(state.cards ?? {}), [cardKey(ch, dir, sv)]: known ? 'known' : 'unknown' };
+  stamp(state, `c/${cardKey(ch, dir, sv)}`);
   markDay(state);
   save(state);
 }
@@ -553,6 +645,7 @@ export function cardProgress(ch, dir, words) {
 export function recordDictation(say, good) {
   const state = load();
   state.dictee = { ...(state.dictee ?? {}), [say]: good ? 'good' : 'wrong' };
+  stamp(state, `d/${say}`);
   markDay(state);
   save(state);
 }

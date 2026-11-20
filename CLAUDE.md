@@ -26,8 +26,9 @@ planbestand en de bron van waarheid, ook voor werk aan de B-site. De B-repo heef
 
 ## Spelregels (afgesproken met de eigenaar)
 
-- **Geen AI en geen externe diensten.** Alles werkt offline in de browser. Alleen de bestaande anonieme
-  tellingen via GoatCounter blijven.
+- **Geen AI en geen externe diensten.** Alles werkt offline in de browser. Uitzonderingen: de anonieme
+  tellingen via GoatCounter, „Fout gezien?” en het synchroniseren van voortgang (opt-in, met een synccode),
+  beide via de eigen Cloudflare Worker (`worker/` in de B-repo). Samenvoegen gebeurt in de browser.
 - **De app kijkt na, niet de leerling.** Geen zelfbeoordeling, geen rubrics om zelf af te vinken.
   Wat de app niet kan nakijken, is oefenen zonder oordeel.
 - **Geen spreken, opnemen of spraakherkenning**, en geen echte opnames (er is geen moedertaalspreker).

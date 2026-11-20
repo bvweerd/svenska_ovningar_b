@@ -40,6 +40,20 @@ build ziet de gebruiker onderin „Er is een nieuwe versie” met een knop om bi
 De voortgang blijft gewoon in localStorage; in de app vraagt de site om blijvende opslag.
 Op iPhone/iPad heeft de app een eigen opslag, los van Safari: overzetten gaat via exporteren en importeren.
 
+## Voortgang op meer apparaten
+
+Op de pagina Over kan de gebruiker de voortgang exporteren en importeren. **Importeren voegt samen**
+(`mergeStates` in `src/progress.js`): per vraag telt de laatste poging (met de Leitner-doos die daarbij
+hoort), per oefening, toets en spel de nieuwste ronde met de hoogste beste score, bij flitskaarten en dictee
+het nieuwste oordeel (tijdstippen in `t`), oefendagen van allebei; instellingen van het apparaat blijven staan.
+
+**Synchroniseren** (`src/sync.js`, opt-in) gebruikt dezelfde samenvoeging. Een synccode van 16 tekens
+(geen account) koppelt apparaten, ook via een koppellink `#/koppel/<code>`. De code staat onder een
+sleutel die beide sites delen, dus één keer koppelen geldt voor A1–A2 en B1–B2; de voortgang blijft per site
+apart. De site synchroniseert bij openen, bij weggaan, bij weer online komen en hooguit eens per twee
+minuten bij het wisselen van pagina. De opslag is de Worker met een D1-database; zie `worker/README.md`,
+„Synchronisatie”. Zonder `SYNC_URL` (repository-variabele) is synchroniseren verborgen.
+
 ## Statistieken (GoatCounter)
 
 De site kan anoniem meten via [GoatCounter](https://www.goatcounter.com): zonder cookies en

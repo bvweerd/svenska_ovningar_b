@@ -309,3 +309,65 @@ describe('kan-doen-uitspraken', () => {
     expect(P.newCanDo(ch)).toEqual([]);
   });
 });
+
+describe('samenvoegen (import en synchronisatie)', () => {
+  const st = (over) => ({ v: 2, items: {}, ex: {}, last: null, srs: {}, days: [], tests: {}, games: {}, prefs: {}, cards: {}, dictee: {}, t: {}, ...over });
+
+  it('houdt per vraag de laatste poging, met de doos die daarbij hoort', () => {
+    const a = st({
+      items: { '1/oef/a': { s: 'good', at: 100, h: 'x' }, '1/oef/b': { s: 'wrong', at: 300, h: 'x' } },
+      srs: { '1/oef/a': { box: 3, due: '2026-01-01', h: 'x' }, '1/oef/b': { box: 1, due: '2026-01-02', h: 'x' } },
+    });
+    const b = st({
+      items: { '1/oef/a': { s: 'wrong', at: 200, h: 'x' }, '1/oef/b': { s: 'good', at: 250, h: 'x' }, '1/oef/c': { s: 'good', at: 1, h: 'x' } },
+      srs: { '1/oef/a': { box: 1, due: '2026-02-01', h: 'x' }, '1/oef/b': { box: 4, due: '2026-03-01', h: 'x' }, '1/oef/c': { box: 1, due: '2026-01-05', h: 'x' } },
+    });
+    const m = P.mergeStates(a, b);
+    expect(m.items['1/oef/a'].s).toBe('wrong');
+    expect(m.srs['1/oef/a'].box).toBe(1);
+    expect(m.items['1/oef/b'].s).toBe('wrong');
+    expect(m.srs['1/oef/b'].box).toBe(1);
+    expect(m.items['1/oef/c'].s).toBe('good');
+    expect(m.srs['1/oef/c']).toBeTruthy();
+  });
+
+  it('geeft in beide richtingen hetzelfde resultaat voor oefeningen', () => {
+    const a = st({ ex: { '1/oef': { best: 0.9, score: 5, total: 10, completedAt: 100, at: 100 } }, days: ['2026-01-01', '2026-01-03'] });
+    const b = st({ ex: { '1/oef': { best: 0.5, runStart: 200, at: 200 }, '1/twee': { best: 1, at: 5 } }, days: ['2026-01-02'] });
+    const ab = P.mergeStates(a, b);
+    const ba = P.mergeStates(b, a);
+    expect(ab.ex).toEqual(ba.ex);
+    expect(ab.ex['1/oef']).toEqual({ best: 0.9, runStart: 200, at: 200 });
+    expect(ab.days).toEqual(['2026-01-01', '2026-01-02', '2026-01-03']);
+  });
+
+  it('flitskaarten en dictee: het nieuwste oordeel telt', () => {
+    const a = st({ cards: { '1/sv/hej': 'unknown', '1/sv/tack': 'known' }, t: { 'c/1/sv/hej': 10, 'c/1/sv/tack': 50 } });
+    const b = st({ cards: { '1/sv/hej': 'known', '1/sv/tack': 'unknown' }, t: { 'c/1/sv/hej': 20, 'c/1/sv/tack': 40 } });
+    const m = P.mergeStates(a, b);
+    expect(m.cards).toEqual({ '1/sv/hej': 'known', '1/sv/tack': 'known' });
+    expect(m.t['c/1/sv/hej']).toBe(20);
+  });
+
+  it('instellingen van dit apparaat blijven staan, lijsten worden samengevoegd', () => {
+    const m = P.mergeStates(
+      st({ prefs: { voice: 'a', canDoSeen: ['1-1'] } }),
+      st({ prefs: { voice: 'b', verbs: { x: 1 }, canDoSeen: ['2-1'] } }),
+    );
+    expect(m.prefs).toEqual({ voice: 'a', verbs: { x: 1 }, canDoSeen: ['1-1', '2-1'] });
+  });
+
+  it('importeren voegt samen in plaats van te overschrijven', () => {
+    P.recordItem(1, ex, 0, 'good');
+    const other = st({ items: { '1/oef/x': { s: 'good', at: 1, h: 'h' } } });
+    expect(P.importProgress(JSON.stringify(other))).toBe(true);
+    const all = P.progressSnapshot();
+    expect(Object.keys(all.items).sort()).toEqual(['1/oef/0', '1/oef/x']);
+    expect(P.importProgress(JSON.stringify(other))).toBe(false);
+  });
+
+  it('een flitskaart krijgt een tijdstip', () => {
+    P.rateCard(1, 'sv', 'hej', true);
+    expect(P.progressSnapshot().t['c/1/sv/hej']).toBeGreaterThan(0);
+  });
+});
