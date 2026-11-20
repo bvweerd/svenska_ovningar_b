@@ -12,6 +12,7 @@ import { expand } from './check/normalize.js';
 import { viewListenSettings, viewDictation, reportSpeechStatus } from './views/listen.js';
 import { itemCard } from './render/item-card.js';
 import { createMenu } from './menu.js';
+import { initAppNav, navigate } from './nav.js';
 import { initPwa, installSection, isStandalone, syncThemeColor } from './pwa.js';
 import { homeNotices, countVisit } from './onboarding.js';
 import { initAnalytics, trackPage, trackEvent, scoreBucket, analyticsConfigured, optedOut, setOptOut } from './analytics.js';
@@ -663,7 +664,7 @@ function viewLink(raw) {
     status.textContent = 'Bezig met synchroniseren…';
     try {
       await syncNow();
-      location.hash = '#/';
+      navigate('#/');
     } catch (e) {
       status.textContent = `Gekoppeld, maar synchroniseren lukt nu niet (${e.message}). Het wordt later vanzelf opnieuw geprobeerd.`;
     }
@@ -901,6 +902,8 @@ initAnalytics();
 initPwa();
 countVisit();
 reportSpeechStatus();
+// Geïnstalleerde app: de terugknop gaat naar de bovenliggende pagina (zie nav.js).
+if (isStandalone()) initAppNav();
 window.addEventListener('hashchange', route);
 charBar();
 themeToggle();
