@@ -13,18 +13,16 @@ Nederlands; de interface en de uitleg zijn Nederlands, commitberichten Engels.
 
 ## Waar het werk staat
 
-**`PLAN.md`, onderdeel „Verbeterplan didactiek”** is de bron van waarheid. Dat onderdeel is in beide
-repo's gelijk: pas het in één repo aan en kopieer het hele onderdeel naar de andere.
+**`PLAN.md` in de repo `svenska_ovningar`** (vanuit de B-repo: `../svenska_ovningar/PLAN.md`) is het enige
+planbestand en de bron van waarheid, ook voor werk aan de B-site. De B-repo heeft geen eigen plan.
 
-- Fase 1, 1b, 2 en 3 zijn klaar (kan-doen-uitspraken, eindtoetsen herschreven, melding computerstem; vaste
-  volgorde per hoofdstuk, moeilijkheidslijn, `npm run difficulty-report`; keuzeoefeningen „Kies en …”).
+- Alle fasen van het verbeterplan didactiek (1, 1b, 2, 3), de woordenuitbreiding en de twijfelronde zijn klaar.
 - **Volgende stap: meten** na publicatie (`npm run stats -- --min 5`): fout/bekeken per oefening, doos 4+,
-  geleide stappen. Er is geen testgroep. Houd nieuwe stof op de moeilijkheidslijn: `difficulty-report`
-  markeert met `!` waar een hoofdstuk eronder zit.
+  kan-doen-doelen, geleide stappen. Er is geen testgroep. Houd nieuwe stof op de moeilijkheidslijn:
+  `difficulty-report` markeert met `!` waar een hoofdstuk eronder zit.
 - Nieuwe oefeningen komen op de plek die de vaste volgorde voorschrijft (README, „Volgorde in een
   hoofdstuk”); `npm test` faalt anders.
-- Vink af in `PLAN.md` en zet onder een afgeronde fase een regel „Gedaan (maand jaar): …”.
-- Er is ook een gedeeld document (claude.ai) met dezelfde inhoud; `PLAN.md` gaat voor.
+- Houd `PLAN.md` kort: een afgerond stuk werk wordt één regel onder „Gedaan”; details horen in README of code.
 
 ## Spelregels (afgesproken met de eigenaar)
 
@@ -36,14 +34,15 @@ repo's gelijk: pas het in één repo aan en kopieer het hele onderdeel naar de a
 - **Taalreview** voor elke nieuwe of gewijzigde Zweedse zin, vóór publicatie: door een aparte sessie of
   subagent die het werk van de schrijver niet kent (spelling, en/ett, vormen, woordvolgorde, eenduidige
   vertaling, niveau, idiomatisch, alle goede antwoorden en foutregels). Ook: alleen grammatica en woorden
-  uit dit en eerdere hoofdstukken, en passend in de moeilijkheidslijn van fase 1b. Twijfel → eigenaar.
-- Alle oefenstof is zelf geschreven; niets overnemen uit een lesmethode (zie PLAN.md, auteursrecht).
+  uit dit en eerdere hoofdstukken, en passend in de moeilijkheidslijn (`PLAN.md`). Twijfel → eigenaar.
+- Alle oefenstof is zelf geschreven; niets overnemen uit een lesmethode (zie `PLAN.md`, auteursrecht).
 
 ## Code en inhoud
 
 - **Gedeelde code** is in beide repo's gelijk: `src/` (behalve `src/config.js`), `tests/`, `scripts/`,
   `vite.config.js`, `package.json`. Wijzig in één repo, kopieer naar de andere, draai `npm run check-sync`.
-  `content/`, `README.md`, `PLAN.md`, `CLAUDE.md`, `index.html`, `public/icons/` en `worker/` zijn per site.
+  `content/`, `README.md`, `CLAUDE.md`, `index.html`, `public/icons/` en `worker/` zijn per site;
+  `PLAN.md` staat alleen in `svenska_ovningar`.
 - **Voortgang hangt aan id's**: verander nooit een vraag-id, oefening-id of hoofdstuknummer. Nieuwe vragen
   zonder id → `npm run ids`. Oefeningen verplaatsen of herordenen is veilig.
 - **Onderwerpen**: elke oefening (of vraag) heeft een `topic` = id van een grammaticakaart (of

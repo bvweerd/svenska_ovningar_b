@@ -15,7 +15,7 @@ npm install
 npm run dev      # ontwikkelserver
 npm test         # nakijklogica + controle van alle oefenstof
 npm run build    # statische site in dist/
-npm run difficulty-report   # moeilijkheid per hoofdstuk naast de moeilijkheidslijn (PLAN.md)
+npm run difficulty-report   # moeilijkheid per hoofdstuk naast de moeilijkheidslijn (PLAN.md in svenska_ovningar)
 ```
 
 ## Publiceren
@@ -82,7 +82,7 @@ Achter een proxy heeft Node ook `NODE_USE_ENV_PROXY=1` nodig.
 
 De oefenstof staat in `content/chapters/NN-onderwerp.yaml`, één bestand per hoofdstuk.
 Een hoofdstuk verschijnt automatisch zodra het bestand bestaat (het nummer moet in
-`content/index.yaml` staan, met `level`). Zie `PLAN.md` voor de opzet en `content/chapters/13-werk.yaml`
+`content/index.yaml` staan, met `level`). Zie [PLAN.md](https://github.com/bvweerd/svenska_ovningar/blob/main/PLAN.md) (in de A1–A2-repo) voor het plan en `content/chapters/13-werk.yaml`
 voor een volledig hoofdstuk.
 
 ### Woordvolgorde: tijdsbepaling vooraan of achteraan
@@ -169,7 +169,7 @@ vastgelegde fout als fout.
 ### Volgorde in een hoofdstuk
 
 De knop „Begin/Verder” loopt de oefeningen af in de volgorde van het bestand, dus die volgorde ligt vast
-(fase 1b in `PLAN.md`; `npm test` controleert hem). A-site: woorden → per onderwerp herkennen, vorm, kiezen →
+(zie [PLAN.md](https://github.com/bvweerd/svenska_ovningar/blob/main/PLAN.md); `npm test` controleert hem). A-site: woorden → per onderwerp herkennen, vorm, kiezen →
 gemengd (vertalen, zoek de fout) → lezen → dialoog en taak → schrijven → luisteren → herhaling → overige woordenschat.
 B-site: Läsa → Ord → Grammatik → Zoek de fout → Lyssna → Praktiskt → Skriva → Herhaling → overige woordenschat.
 De eerste woordenoefening („Wat betekent het?”) zet de app zelf vooraan; „Verder” slaat een woordenoefening

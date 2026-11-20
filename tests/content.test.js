@@ -112,7 +112,7 @@ for (const ch of course) {
   });
 }
 
-// ---------- Opbouw (fase 1b van het verbeterplan, PLAN.md) ----------
+// ---------- Opbouw: vaste volgorde per hoofdstuk (PLAN.md in svenska_ovningar) ----------
 // Vaste volgorde van de onderdelen. Onbekende id's zijn grammatica-onderdelen (B-site).
 // A-site: woorden → oefeningen → luisteren → herhaling → woordenschat.
 // B-site: woorden in „ord” → läsa → ord → grammatica → zoek de fout → lyssna → praktiskt → skriva → herhaling → woordenschat.

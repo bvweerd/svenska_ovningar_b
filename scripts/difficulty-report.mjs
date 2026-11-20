@@ -1,4 +1,4 @@
-// Moeilijkheid per hoofdstuk, naast de moeilijkheidslijn uit PLAN.md (fase 1b van het verbeterplan).
+// Moeilijkheid per hoofdstuk, naast de moeilijkheidslijn (PLAN.md in svenska_ovningar).
 // Gebruik: npm run difficulty-report
 //
 // Meetregels (zie ook CLAUDE.md):
