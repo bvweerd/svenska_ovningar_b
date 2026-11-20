@@ -371,3 +371,15 @@ describe('samenvoegen (import en synchronisatie)', () => {
     expect(P.progressSnapshot().t['c/1/sv/hej']).toBeGreaterThan(0);
   });
 });
+
+describe('open vragen', () => {
+  it('telt nooit gemaakte en gewijzigde vragen', () => {
+    expect(P.openItems(1, ex)).toEqual([0, 1, 2]);
+    P.recordItem(1, ex, 0, 'good');
+    P.recordItem(1, ex, 2, 'free');
+    expect(P.openItems(1, ex)).toEqual([1]);
+    // Ander goed antwoord bij vraag 0: telt niet meer mee.
+    const changed = { ...ex, items: [{ ...ex.items[0], gaps: [{ answers: ['z'] }] }, ex.items[1], ex.items[2]] };
+    expect(P.openItems(1, changed)).toEqual([0, 1]);
+  });
+});

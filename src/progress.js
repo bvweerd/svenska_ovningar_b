@@ -367,6 +367,16 @@ export function roundProgress(ch, ex) {
   return { total: all.length, seen, fresh: all.length - seen, wrong };
 }
 
+/**
+ * Vragen van een oefening die (nog) niet meetellen: nooit gemaakt (bijv. later toegevoegd, of bij een
+ * woordenlijst nog niet aan de beurt geweest), of gemaakt toen het goede antwoord nog anders was.
+ * Geeft vraagnummers (idx) terug. Dit zijn precies de vragen die in chapterProgress ontbreken.
+ */
+export function openItems(ch, ex) {
+  const state = load();
+  return ex.items.map((_, idx) => idx).filter((idx) => !itemRecord(state, ch, ex, idx));
+}
+
 /** Start een nieuwe ronde; pick (vraagnummers) beperkt de ronde tot die vragen. */
 export function startRun(ch, ex, pick = null) {
   const state = load();

@@ -24,7 +24,7 @@ import { shuffle } from './build.js';
 import {
   getResult, chapterProgress, resetProgress, recordItem, runState, startRun, completeRun, pickRound,
   weakItems, setLast, getLast, exportProgress, importProgress, migrateToIds,
-  roundProgress, canDoStatus, newCanDo, getPref, setPref,
+  roundProgress, canDoStatus, newCanDo, getPref, setPref, openItems,
 } from './progress.js';
 
 const app = document.getElementById('app');
@@ -146,6 +146,13 @@ function exerciseBadge(ch, ex) {
   const res = getResult(ch.chapter, ex.id);
   const inProgress = run.started && run.done.size > 0 && run.done.size < run.total;
   if (inProgress) return h('span', { class: 'badge mid', title: 'Bezig' }, `${run.done.size}/${run.total}`);
+  // Afgerond, maar met vragen die nog niet meetellen (later toegevoegd, gewijzigd, of woorden die nog niet aan de beurt waren).
+  const open = res?.completedAt || exerciseDone(ch, ex) ? openItems(ch.chapter, ex).length : 0;
+  if (open) {
+    const words = ex.roundSize && ex.items.length > ex.roundSize;
+    return h('span', { class: 'badge mid', title: words ? `${open} woorden nog niet gehad` : `${open} ${open === 1 ? 'vraag' : 'vragen'} nieuw of nog niet gemaakt` },
+      words ? `${open} te gaan` : `${open} nieuw`);
+  }
   if (res?.completedAt) return h('span', { class: `badge ${res.best >= 0.8 ? 'good' : 'mid'}`, title: 'Beste score' }, `${Math.round(res.best * 100)}%`);
   return null;
 }
@@ -159,7 +166,8 @@ function viewChapter(ch) {
   // oefening in rondes (woordenschat) telt na één ronde als gedaan: die oefen je verder in rondes en
   // in de herhaling, zonder dat de leerling eerst de hele lijst moet afmaken.
   const next = ch.exercises.find((ex) => { const r = runState(ch.chapter, ex); return r.started && r.done.size > 0 && r.done.size < r.total; })
-    ?? ch.exercises.find((ex) => !exerciseDone(ch, ex));
+    ?? ch.exercises.find((ex) => !exerciseDone(ch, ex))
+    ?? ch.exercises.find((ex) => openItems(ch.chapter, ex).length);
   return h('div', {},
     crumbs({ label: 'Start', href: '#/' }, { label: ch.title }),
     h('header', { class: 'page-head chapter-head', style: chapterHue(ch) },
@@ -194,8 +202,12 @@ function viewChapter(ch) {
     ch.sections.map((s, i) => {
       const done = s.exercises.filter((ex) => getResult(ch.chapter, ex.id)?.completedAt).length;
       const open = next ? s.exercises.includes(next) : i === 0;
+      // Alles afgerond maar nog vragen open (nieuw, gewijzigd, of woorden die nog niet aan de beurt waren): geen vinkje.
+      const left = done === s.exercises.length ? s.exercises.reduce((n, ex) => n + openItems(ch.chapter, ex).length, 0) : 0;
       return foldSection(s.title, open,
-        done === s.exercises.length ? `✓ ${plural(done, 'oefening', 'oefeningen')} afgerond` : `${done} van ${s.exercises.length} afgerond`,
+        done === s.exercises.length
+          ? (left ? `${plural(done, 'oefening', 'oefeningen')} afgerond · ${plural(left, 'vraag', 'vragen')} open` : `✓ ${plural(done, 'oefening', 'oefeningen')} afgerond`)
+          : `${done} van ${s.exercises.length} afgerond`,
         s.intro ? h('p', { class: 'muted' }, s.intro) : null,
         h('ol', { class: 'exercise-list' }, s.exercises.map((ex) => {
           const types = [...new Set(ex.items.flatMap((i) => (i.type === 'steps' ? i.steps.map((s) => s.type) : [i.type])))];
@@ -247,6 +259,9 @@ function onwardFrom(ch, ex) {
   if (after) return { ex: after, label: `Volgende: ${after.title}` };
   const before = ch.exercises.slice(0, pos).find((e) => !exerciseDone(ch, e));
   if (before) return { ex: before, label: `Nog niet gedaan: ${before.title}` };
+  // Alles afgerond: dan de oefeningen met vragen die nog openstaan.
+  const open = [...ch.exercises.slice(pos + 1), ...ch.exercises.slice(0, pos)].find((e) => openItems(ch.chapter, e).length);
+  if (open) return { ex: open, label: `Nog open: ${open.title}` };
   return { chapter: course.find((c) => c.chapter > ch.chapter && c.available) ?? null };
 }
 
@@ -260,8 +275,10 @@ function viewExercise(ch, ex, query) {
   if (restart) history.replaceState(null, '', href);
   // Lange oefening (roundSize, bijv. een woordenlijst): een ronde met een deel van de vragen.
   const partial = ex.roundSize && ex.items.length > ex.roundSize;
+  // Al afgerond, maar met nieuwe of gewijzigde vragen: alleen die, niet de hele oefening opnieuw.
+  const openOnly = !partial && !restart && getResult(ch.chapter, ex.id)?.completedAt ? openItems(ch.chapter, ex) : [];
   if (restart || !run.started || run.done.size >= run.total) {
-    startRun(ch.chapter, ex, partial ? pickRound(ch.chapter, ex, ex.roundSize) : null);
+    startRun(ch.chapter, ex, partial ? pickRound(ch.chapter, ex, ex.roundSize) : openOnly.length ? openOnly : null);
     run = runState(ch.chapter, ex);
   }
   const resumed = run.done.size > 0;
@@ -338,7 +355,10 @@ function viewExercise(ch, ex, query) {
       h('h1', {}, ex.title),
       h('p', { class: 'instruction', html: inline(ex.instruction) }),
       run.total < ex.items.length
-        ? h('p', { class: 'muted' }, roundIntro(run.total, roundProgress(ch.chapter, ex)))
+        ? h('p', { class: 'muted' }, partial
+            ? roundIntro(run.total, roundProgress(ch.chapter, ex))
+            : [`Je hebt deze oefening al afgerond. Hier ${run.total === 1 ? 'staat alleen de vraag die' : `staan alleen de ${run.total} vragen die`} nieuw ${run.total === 1 ? 'is' : 'zijn'} of sinds je oefende ${run.total === 1 ? 'is' : 'zijn'} verbeterd. `,
+               h('a', { href: `${href}?opnieuw` }, 'Alles opnieuw')])
         : null,
       topicCard ? h('p', { class: 'muted' }, 'Uitleg: ', h('a', { href: topicCard.href }, topicCard.card.title)) : null,
       ex.listen || ex.items.some((i) => i.type === 'listen') ? voiceNote() : null,
