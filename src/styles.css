@@ -637,3 +637,6 @@ del { text-decoration-color: var(--bad); text-decoration-thickness: 2px; color: 
 .sync-code { font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; letter-spacing: 0.02em; white-space: nowrap; }
 .sync .actions input.answer-input { flex: 1 1 12rem; min-width: 0; max-width: 16rem; font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; }
 .no-charbar .charbar { display: none !important; }
+.support-ask { margin-top: 16px; padding: 12px 14px; border: 1px solid var(--line); border-radius: 12px; background: var(--surface-2); }
+.support-ask p { margin: 0 0 10px; }
+.support-ask .actions { margin: 0; }

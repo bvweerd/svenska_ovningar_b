@@ -252,6 +252,44 @@ function exerciseDone(ch, ex) {
   return !!(ex.roundSize && ex.items.length > ex.roundSize && roundProgress(ch.chapter, ex).seen >= ex.roundSize);
 }
 
+// ---------- Steun via Ko-fi ----------
+const KOFI_URL = 'https://ko-fi.com/bvweerd';
+const chapterDone = (c) => c.available && c.exercises?.length > 0 && c.exercises.every((e) => exerciseDone(c, e));
+
+/**
+ * Vraag om steun, onder de uitslag van de oefening waarmee een hoofdstuk af is: de eerste keer vanaf
+ * 3 afgeronde hoofdstukken, nog één keer vanaf 10 als de vraag toen is overgeslagen. Na „Nee, dank je”
+ * of een klik op Ko-fi nooit meer. Geen venster: een blokje onder de knoppen. Per apparaat (prefs).
+ * supportAsked: 0 = nog niet, 1 = één keer getoond, 2 = twee keer, 99 = beantwoord.
+ */
+function supportAsk(ch) {
+  if (!chapterDone(ch)) return null;
+  const asked = getPref('supportAsked', 0);
+  const done = course.filter(chapterDone).length;
+  if (!((asked === 0 && done >= 3) || (asked === 1 && done >= 10))) return null;
+  setPref('supportAsked', asked + 1);
+  trackEvent(`steun/getoond/${asked + 1}`, 'Steun: vraag getoond');
+  const box = h('div', { class: 'support-ask' });
+  const answered = (what) => {
+    setPref('supportAsked', 99);
+    trackEvent(`steun/${what}`, what === 'kofi' ? 'Steun: naar Ko-fi' : 'Steun: nee, dank je');
+  };
+  box.append(
+    h('p', {}, h('strong', {}, `Al ${done} hoofdstukken af, knap!`), ' Deze site is gratis en zonder reclame. Wil je iets terugdoen? Een kleine bijdrage helpt om de site te onderhouden en uit te breiden.'),
+    h('div', { class: 'actions' },
+      h('a', { class: 'btn ghost', href: KOFI_URL, target: '_blank', rel: 'noopener', onclick: () => {
+        answered('kofi');
+        // Pas na de klik vervangen: een link die tijdens de klik uit de pagina verdwijnt, opent niet.
+        setTimeout(() => box.replaceChildren(h('p', {}, 'Dank je wel! ❤')), 0);
+      } }, 'Steun via Ko-fi ☕'),
+      h('button', { type: 'button', class: 'btn ghost', onclick: () => {
+        answered('nee');
+        box.remove();
+      } }, 'Nee, dank je')),
+  );
+  return box;
+}
+
 /** Waar na deze oefening heen: de eerstvolgende die nog niet af is (daarna vooraan in het hoofdstuk verder zoeken). */
 function onwardFrom(ch, ex) {
   const pos = ch.exercises.indexOf(ex);
@@ -307,6 +345,7 @@ function viewExercise(ch, ex, query) {
       const heading = h('h2', {}, total ? `Klaar! ${good} van ${total} in één keer goed.` : 'Klaar!');
       // Pas hier bepalen: deze oefening is nu af en telt niet meer mee als „nog te doen”.
       const to = onwardFrom(ch, ex);
+      const ask = supportAsk(ch);
       const onward = (cls) => {
         if (to.ex) return h('a', { class: `btn ${cls}`, href: `#/k/${ch.chapter}/o/${to.ex.id}` }, to.label);
         const back = h('a', { class: `btn ${to.chapter ? 'ghost' : cls}`, href: `#/k/${ch.chapter}` }, 'Terug naar het hoofdstuk');
@@ -327,6 +366,7 @@ function viewExercise(ch, ex, query) {
             hard ? h('a', { class: `btn ${topicCard ? 'ghost' : 'primary'}`, href: `${href}?opnieuw` }, 'Opnieuw') : null,
             onward(hard ? 'ghost' : 'primary'),
             hard ? null : h('a', { class: 'btn ghost', href: `${href}?opnieuw` }, 'Opnieuw')),
+          ask,
         ];
       }
       // Lange oefening in rondes: laat zien hoe ver je bent, en wanneer de hele lijst af is.
@@ -337,6 +377,7 @@ function viewExercise(ch, ex, query) {
           achieved,
           h('p', {}, `Je hebt alle ${p.total} woorden gehad, en de laatste keer had je ze allemaal goed. Deze oefening is af!`),
           h('div', { class: 'actions' }, onward('primary'), h('a', { class: 'btn ghost', href: `${href}?opnieuw` }, 'Nog een ronde')),
+          ask,
         ];
       }
       const todo = [p.fresh ? `${p.fresh} nog nieuw` : null, p.wrong ? `${p.wrong} om te herhalen` : null].filter(Boolean).join(', ');
@@ -346,6 +387,7 @@ function viewExercise(ch, ex, query) {
         h('p', {}, `Je hebt nu ${p.seen} van de ${p.total} woorden gehad (${todo}).`),
         progressBar(p.seen - p.wrong, p.total, `${p.seen - p.wrong} van ${p.total} woorden goed`),
         h('div', { class: 'actions' }, h('a', { class: 'btn primary', href: `${href}?opnieuw` }, 'Volgende ronde'), onward('ghost')),
+        ask,
       ];
     },
   });
@@ -581,7 +623,7 @@ function viewAbout() {
     h('h2', {}, 'Steun deze site'),
     h('p', {}, 'Deze site is gratis en zonder reclame, en dat blijft zo. Heb je er iets aan en wil je iets terugdoen? Een kleine bijdrage via Ko-fi helpt om de site te onderhouden en uit te breiden.'),
     h('div', { class: 'actions' },
-      h('a', { class: 'btn primary', href: 'https://ko-fi.com/bvweerd', target: '_blank', rel: 'noopener' }, 'Steun via Ko-fi ☕')),
+      h('a', { class: 'btn primary', href: KOFI_URL, target: '_blank', rel: 'noopener' }, 'Steun via Ko-fi ☕')),
     h('p', { class: 'muted version' },`Versie ${import.meta.env.APP_VERSION ?? 'onbekend'}`),
   );
 }
