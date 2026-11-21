@@ -40,6 +40,9 @@ planbestand en de bron van waarheid, ook voor werk aan de B-site. De B-repo heef
 
 ## Code en inhoud
 
+- **Architectuur**: lagen `core`, `platform`, `app`, `ui`, `main.js` (alleen naar lagere lagen importeren), vraagtypen en
+  als register; de stappen ernaartoe staan in `../svenska_ovningar/ARCHITECTURE.md` (alleen in `svenska_ovningar`). Nieuwe code volgt die
+  doelstructuur, ook als de overgang nog niet klaar is.
 - **Gedeelde code** is in beide repo's gelijk: `src/` (behalve `src/config.js`), `tests/`, `scripts/`,
   `vite.config.js`, `package.json`. Wijzig in één repo, kopieer naar de andere, draai `npm run check-sync`.
   `content/`, `README.md`, `CLAUDE.md`, `index.html`, `public/icons/` en `worker/` zijn per site;
