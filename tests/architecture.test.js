@@ -45,7 +45,7 @@ const KNOWN = {
   layers: [],
   browserInCore: [],
   storage: [],
-  big: ['app/progress.js', 'main.js', 'ui/views/practice.js'],
+  big: ['app/progress.js'],
 };
 
 const graph = Object.fromEntries(all.map((f) => [f, imports(f)]));
