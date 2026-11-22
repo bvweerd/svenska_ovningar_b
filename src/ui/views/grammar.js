@@ -15,6 +15,7 @@ export function viewGrammarIndex() {
     chapters.map((ch) =>
       h('section', { class: 'block' },
         h('h2', {}, h('a', { href: `#/k/${ch.chapter}`, class: 'plain' }, ch.title), h('span', { class: 'h2-sub' }, ch.theme)),
+        h('p', { class: 'small' }, h('a', { href: `#/k/${ch.chapter}/print` }, '🖨 Alle uitleg van dit hoofdstuk afdrukken (A4)')),
         h('ul', { class: 'cards' }, ch.grammar.map((g) =>
           h('li', {}, h('a', { class: 'card', href: `#/k/${ch.chapter}/g/${g.id}` }, h('strong', {}, g.title), h('span', { html: inline(g.summary) }))))),
       ),
@@ -32,6 +33,8 @@ export function viewGrammar(ch, card) {
       h('h1', {}, card.title),
       h('p', { class: 'summary-rule', html: inline(card.summary) }),
       h('div', { class: 'prose', html: markdown(card.body) }),
+      h('div', { class: 'actions' },
+        h('a', { class: 'btn ghost', href: `#/k/${ch.chapter}/g/${card.id}/print` }, '🖨 Afdrukken als A4')),
     ),
     related.length
       ? h('section', { class: 'block' }, h('h2', {}, 'Oefen dit'),
