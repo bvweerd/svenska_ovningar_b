@@ -28,7 +28,7 @@ const nlBare = (nl) => nl.replace(/(^|, )(een|de|het) /g, '$1');
 const bare = (sv) => sv.replace(/^(en|ett|att) /, '');
 
 /** Lange woordenlijsten worden per ronde van zoveel woorden geoefend (zie pickRound in core/progress/record.js). */
-export const VOCAB_ROUND = 15;
+export const VOCAB_ROUND = 10;
 
 export const list = (x) => [].concat(x ?? []);
 /** Eerste betekenis zonder lidwoord en toelichting: "een klok, een horloge" → "klok". */
@@ -214,7 +214,7 @@ export function buildChapter(raw, opts = {}) {
     const [first, ...rest] = generated;
     const ord = sections.find((s) => s.id === 'ord');
     if (ord) ord.exercises.unshift(first);
-    else sections.unshift({ id: 'woorden', title: 'Woorden', intro: 'Eerst de woorden van dit hoofdstuk, in rondes van 15. De andere woordenoefeningen staan onderaan.', exercises: [first] });
+    else sections.unshift({ id: 'woorden', title: 'Woorden', intro: 'Eerst de woorden van dit hoofdstuk, in rondes van 10. De andere woordenoefeningen staan onderaan.', exercises: [first] });
     if (rest.length) {
       let w = sections.find((s) => s.id === 'woordenschat');
       if (!w) {

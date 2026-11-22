@@ -6,7 +6,7 @@ import { speakButton } from '../components/speak.js';
 import { spokenText, selfChecking, hintFor } from '../../core/items/index.js';
 import { reportButton } from '../components/report.js';
 
-const GENERIC_WRONG = 'Nog niet goed. Probeer het nog eens.';
+const GENERIC_WRONG = 'Nog niet goed.';
 
 /**
  * @param item    de vraag
@@ -37,7 +37,20 @@ export function itemCard(item, ctx, number, onDone, label) {
   const hint = ctx.testMode ? null : hintFor(item);
   const hintBox = h('p', { class: 'hint-help', hidden: true, 'aria-live': 'polite' });
   const hintBtn = hint ? h('button', { type: 'button', class: 'btn ghost hint-btn' }, 'Hint') : null;
-  const actions = h('div', { class: selfChecking(item) ? 'actions' : 'actions keep' }, checkBtn, hintBtn, revealBtn);
+  // Later: de vraag naar het eind van de ronde (telt niet mee). Handig als je even niet kunt luisteren,
+  // of als je eerst de rest wilt doen. Niet in een toets.
+  const skipBtn = ctx.onSkip && !ctx.testMode
+    ? h('button', { type: 'button', class: 'btn ghost skip-btn', title: 'Deze vraag komt aan het eind van de ronde terug' },
+        item.type === 'listen' ? 'Nu niet luisteren' : 'Later')
+    : null;
+  const actions = h('div', { class: selfChecking(item) ? 'actions' : 'actions keep' }, checkBtn, hintBtn, revealBtn, skipBtn);
+  // Een knop aantikken haalt de cursor niet uit het tekstveld: op een telefoon blijft het toetsenbord
+  // dan open en verspringt het scherm niet.
+  for (const b of [checkBtn, hintBtn]) {
+    b?.addEventListener('mousedown', (e) => {
+      if (document.activeElement?.matches?.('input[type="text"], textarea') && card.contains(document.activeElement)) e.preventDefault();
+    });
+  }
   const card = h('article', { class: `item type-${item.type}` },
     h('div', { class: 'item-head' },
       h('span', { class: 'item-no' }, String(number)),
@@ -48,6 +61,9 @@ export function itemCard(item, ctx, number, onDone, label) {
 
   let attempts = 0;
   let hadError = false;
+  // Vraag met meer vakjes (tabel, meer gaten): welk deel was bij de eerste poging goed? Telt naar rato
+  // mee in de score van de oefening, zodat één fout in een tabel niet 0% geeft.
+  let share;
   let finished = false;
 
   const finish = (revealed) => {
@@ -60,12 +76,13 @@ export function itemCard(item, ctx, number, onDone, label) {
     checkBtn.hidden = true;
     revealBtn.hidden = true;
     if (hintBtn) hintBtn.hidden = true;
+    if (skipBtn) skipBtn.hidden = true;
     card.classList.add(revealed ? 'is-revealed' : 'is-done');
     // Na afloop: de goede zin beluisteren (als de browser kan voorlezen).
     const say = spokenText(item);
     const btn = say ? speakButton(say, { label: 'Beluister de zin', className: 'after' }) : null;
     if (btn) feedback.append(h('p', { class: 'listen-after speech-extra' }, btn, h('span', { class: 'muted', lang: 'sv' }, say)));
-    onDone({ firstTry: !hadError && !revealed, revealed, neutral: !!r.neutral, typed });
+    onDone({ firstTry: !hadError && !revealed, revealed, neutral: !!r.neutral, typed, share: revealed ? undefined : share });
   };
 
   const rule = () => {
@@ -111,6 +128,7 @@ export function itemCard(item, ctx, number, onDone, label) {
       return;
     }
 
+    if (attempts === 0 && !hadError && res.fields?.length > 1) share = res.fields.filter(Boolean).length / res.fields.length;
     attempts++;
     hadError = true;
     if (ctx.testMode) {
@@ -121,14 +139,19 @@ export function itemCard(item, ctx, number, onDone, label) {
       return;
     }
     const tip = h('p', {}, res.tip ?? GENERIC_WRONG);
+    // Wat nu? Voor wie net begint is niet vanzelf duidelijk dat je zelf verbetert.
+    const next = h('p', { class: 'next-step' }, selfChecking(item) && !card.querySelector('input[type="text"]:not(:disabled)')
+      ? 'Kies opnieuw.'
+      : attempts >= 3 ? 'Verbeter je antwoord, of kijk naar het goede antwoord.' : 'Verbeter je antwoord en kijk opnieuw na.');
     // Eerste fout met een eigen tip: alleen die tip. Zonder eigen tip meteen de regel erbij,
     // anders leert de leerling niets van de eerste poging.
-    if (attempts === 1 && res.tip) show('bad', tip);
-    else show('bad', tip, rule());
+    if (attempts === 1 && res.tip) show('bad', tip, next);
+    else show('bad', tip, rule(), next);
     if (attempts >= 3) revealBtn.hidden = false;
   };
 
   checkBtn.addEventListener('click', check);
+  skipBtn?.addEventListener('click', () => ctx.onSkip(card));
   hintBtn?.addEventListener('click', () => {
     hadError = true;
     hintBtn.hidden = true;

@@ -383,3 +383,17 @@ describe('open vragen', () => {
     expect(P.openItems(1, changed)).toEqual([0, 1]);
   });
 });
+
+describe('deelpunten bij vragen met meer vakjes (issue #6)', () => {
+  it('een tabel met 7 van 10 goed telt als 0,7 in de score', async () => {
+    const R = await import('../src/core/progress/record.js');
+    const { empty } = await import('../src/core/progress/schema.js');
+    const ex = { id: 't', items: [{ id: 'a', type: 'table', columns: ['x', 'y'], rows: [['a', { answers: ['b'] }]] }] };
+    let s = R.startRun(empty(), 2, ex, null, 1);
+    s = R.recordItem(s, 2, ex, 0, 'wrong', { share: 0.7, now: 2 });
+    expect(s.items['2/t/a'].p).toBe(0.7);
+    const out = R.completeRun(s, 2, ex, 3);
+    expect(out.score).toBe(0.7);
+    expect(out.state.ex['2/t'].best).toBe(0.7);
+  });
+});

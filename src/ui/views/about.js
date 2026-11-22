@@ -24,7 +24,7 @@ export function viewAbout() {
     h('ol', {},
       h('li', {}, 'Kies op de startpagina een hoofdstuk. Elk hoofdstuk heeft uitleg (grammatica), oefeningen, woorden en een toets.'),
       h('li', {}, 'Lees eerst de uitleg of begin direct met de eerste oefening. Bij elke vraag staat een link naar de uitleg die erbij hoort.'),
-      h('li', {}, 'Maak de oefeningen van boven naar beneden. Lange woordenlijsten oefen je in rondes van 15 woorden: eerst nieuwe en foute woorden.'),
+      h('li', {}, 'Maak de oefeningen van boven naar beneden. Lange woordenlijsten oefen je in rondes van 10 woorden: eerst nieuwe en foute woorden.'),
       h('li', {}, 'Kom elke dag even terug: de dagelijkse herhaling op de startpagina zet klaar wat je weer moet oefenen.'),
       h('li', {}, 'Op je telefoon? Zet de site als app op je beginscherm (zie „Als app installeren” hieronder).'),
     ),

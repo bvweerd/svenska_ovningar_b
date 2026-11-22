@@ -10,19 +10,35 @@ export function charBar() {
   applyCharBar();
   const bar = h('div', { class: 'charbar', hidden: true, role: 'toolbar', 'aria-label': 'Zweedse letters' });
   let target = null;
+  // Met de muis komt de letter er al bij het indrukken (niet pas bij loslaten): wie snel verder typt,
+  // krijgt de letters dan in de goede volgorde. Touch en toetsenbord gaan via click.
+  let pressed = false;
   for (const c of ['å', 'ä', 'ö', 'Å', 'Ä', 'Ö']) {
+    const insert = () => {
+      if (!target) return;
+      const s = target.selectionStart ?? target.value.length;
+      const e = target.selectionEnd ?? s;
+      target.value = target.value.slice(0, s) + c + target.value.slice(e);
+      target.setSelectionRange(s + 1, s + 1);
+      target.dispatchEvent(new Event('input', { bubbles: true }));
+      target.focus();
+    };
     bar.append(h('button', {
       class: c === c.toUpperCase() ? 'upper' : null,
       type: 'button',
       onmousedown: (e) => e.preventDefault(),
+      onpointerdown: (e) => {
+        if (e.pointerType !== 'mouse' || e.button !== 0) return;
+        e.preventDefault();
+        pressed = true;
+        insert();
+      },
       onclick: () => {
-        if (!target) return;
-        const s = target.selectionStart ?? target.value.length;
-        const e = target.selectionEnd ?? s;
-        target.value = target.value.slice(0, s) + c + target.value.slice(e);
-        target.setSelectionRange(s + 1, s + 1);
-        target.dispatchEvent(new Event('input', { bubbles: true }));
-        target.focus();
+        if (pressed) {
+          pressed = false;
+          return;
+        }
+        insert();
       },
     }, c));
   }

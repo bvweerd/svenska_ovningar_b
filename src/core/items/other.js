@@ -48,7 +48,6 @@ export const match = {
 export const dialogue = {
   type: 'dialogue',
   name: 'dialoog',
-  selfChecking: () => true,
   validate(item, err) {
     if (!item.lines || item.lines.length < 3) err('dialogue heeft minstens 3 regels nodig');
   },

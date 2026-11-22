@@ -92,57 +92,52 @@ export function match(item, ctx) {
 }
 
 // ---------- Dialoog: tik de regels aan in de goede volgorde ----------
-export function dialogue(item, ctx = {}) {
-  const order = (() => {
-    let o = item.lines.map((_, i) => i);
-    while (o.length > 1 && o.every((v, i) => v === i)) o = shuffle(o);
-    return o;
-  })();
-  let placed = [];
+export function dialogue(item) {
+  // Eén lijst in willekeurige volgorde (nooit al goed). Tik een regel aan en dan een andere: ze wisselen
+  // van plaats. Na Controleer staan goede regels vast (groen); de rest wissel je verder.
+  let order = item.lines.map((_, i) => i);
+  while (order.length > 1 && order.every((v, i) => v === i)) order = shuffle(order);
+  let selected = null;
   let locked = false;
-  let marks = null;
-  const list = h('ol', { class: 'dialogue tap', lang: 'sv', 'aria-label': 'Jouw volgorde' });
-  const bank = h('div', { class: 'dialogue-bank', lang: 'sv', 'aria-label': 'Regels' });
-  const draw = () => {
-    fill(list, placed.length
-      ? placed.map((lineNo, pos) => h('li', { class: marks ? (marks[pos] ? 'ok' : 'bad') : '' },
-          h('button', { type: 'button', class: 'line-btn', disabled: locked, onclick: () => { placed = placed.filter((x) => x !== lineNo); marks = null; draw(); } }, item.lines[lineNo])))
-      : h('li', { class: 'placeholder' }, 'Tik de regels hieronder aan in de goede volgorde.'));
-    fill(bank, order.map((lineNo) => placed.includes(lineNo)
-      ? h('button', { type: 'button', class: 'line-btn used', disabled: true, tabindex: '-1', 'aria-hidden': 'true' }, item.lines[lineNo])
-      : h('button', {
+  let marks = order.map(() => null); // per plek: true = goed (vast), false = fout, null = nog niet nagekeken
+  const list = h('ol', { class: 'dialogue tap swap', lang: 'sv', 'aria-label': 'Dialoog: tik twee regels aan om ze te wisselen' });
+  const tap = (pos) => {
+    if (selected === null) selected = pos;
+    else if (selected === pos) selected = null;
+    else {
+      [order[selected], order[pos]] = [order[pos], order[selected]];
+      marks[selected] = marks[pos] = null;
+      selected = null;
+    }
+    draw();
+    list.querySelectorAll('button')[pos]?.focus({ preventScroll: true });
+  };
+  const draw = () => fill(list, order.map((lineNo, pos) =>
+    h('li', { class: [marks[pos] === true ? 'ok' : marks[pos] === false ? 'bad' : '', selected === pos ? 'selected' : ''].join(' ').trim() },
+      h('button', {
         type: 'button',
         class: 'line-btn',
-        disabled: locked,
-        onclick: () => {
-          placed.push(lineNo);
-          marks = null;
-          draw();
-          if (placed.length === item.lines.length) ctx.auto?.();
-          else bank.querySelector('button:not(.used)')?.focus({ preventScroll: true });
-        },
-      }, item.lines[lineNo])));
-  };
+        disabled: locked || marks[pos] === true,
+        'aria-pressed': String(selected === pos),
+        onclick: () => tap(pos),
+      }, item.lines[lineNo]))));
   draw();
-  const el = h('div', {}, prompt(item.prompt ?? 'Zet de dialoog in de goede volgorde.'), list, bank);
+  const el = h('div', {},
+    prompt(item.prompt ?? 'Zet de dialoog in de goede volgorde.'),
+    h('p', { class: 'hint' }, 'Tik een regel aan en daarna de plek waar hij hoort: de twee wisselen van plaats.'),
+    list);
   return {
     el,
     check() {
-      if (placed.length < item.lines.length) return { correct: false, empty: true, tip: 'Zet eerst alle regels op hun plek.' };
-      const res = gradeDialogue(placed, item);
-      marks = placed.map((v, i) => v === i);
-      if (!res.correct) {
-        // Alles vanaf de eerste fout terug naar de stapel.
-        const first = marks.indexOf(false);
-        placed = placed.slice(0, first);
-        marks = marks.slice(0, first);
-      }
+      const res = gradeDialogue(order, item);
+      marks = order.map((v, i) => v === i);
+      selected = null;
       draw();
       return res;
     },
     reveal() {
-      placed = item.lines.map((_, i) => i);
-      marks = placed.map(() => true);
+      order = item.lines.map((_, i) => i);
+      marks = order.map(() => true);
       draw();
     },
     lock() {

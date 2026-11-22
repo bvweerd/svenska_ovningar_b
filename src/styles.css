@@ -708,3 +708,15 @@ del { text-decoration-color: var(--bad); text-decoration-thickness: 2px; color: 
   .sheet-frame:last-child { break-after: auto; }
   .sheet { position: relative; transform: none !important; box-shadow: none; border-radius: 0; }
 }
+
+.feedback .next-step { font-size: 0.88rem; font-weight: 600; margin-top: 4px; }
+.skip-btn { margin-left: auto; }
+.exercise-foot { margin-top: 28px; padding-top: 16px; border-top: 1px solid var(--line); }
+.all-done { margin: 0; font-weight: 600; align-self: center; }
+.dialogue.swap li.selected { border-color: var(--accent); background: var(--accent-soft); box-shadow: 0 0 0 2px var(--accent); }
+.dialogue.swap li.ok .line-btn:disabled { color: var(--text); }
+.drag-ghost { position: fixed; z-index: 70; pointer-events: none; margin: 0; box-shadow: 0 6px 18px rgb(0 0 0 / 0.25); opacity: 0.95; }
+.chip.dragging { opacity: 0.35; }
+.chip.held { transform: scale(1.06); }
+.chips.line .slot.drop::before { background: var(--accent); width: 4px; margin-left: -2px; }
+.chips.line.drop-out { outline: 2px dashed var(--bad); outline-offset: 2px; }

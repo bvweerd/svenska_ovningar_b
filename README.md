@@ -199,7 +199,7 @@ De knop „Begin/Verder” loopt de oefeningen af in de volgorde van het bestand
 gemengd (vertalen, zoek de fout) → lezen → dialoog en taak → schrijven → luisteren → herhaling → overige woordenschat.
 B-site: Läsa → Ord → Grammatik → Zoek de fout → Lyssna → Praktiskt → Skriva → Herhaling → overige woordenschat.
 De eerste woordenoefening („Wat betekent het?”) zet de app zelf vooraan; „Verder” slaat een woordenoefening
-over na één ronde van 15. Gebruik geen grammatica uit een later hoofdstuk: ook dat test `npm test`.
+over na één ronde van 10. Gebruik geen grammatica uit een later hoofdstuk: ook dat test `npm test`.
 
 **Doeltaken (`kind: taak`).** Een taak is een oefening met `steps` waarin de leerling een gesprek voert om
 een doel te bereiken. Zet `kind: taak` bij de oefening: op de A-site staat hij dan bij de dialoog (na lezen,

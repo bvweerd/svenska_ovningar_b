@@ -1,7 +1,7 @@
 // Gedeelde bouwstenen voor de renderers per vraagtype (zie index.js).
 import { h } from '../dom.js';
 import { inline } from '../md.js';
-import { displayAnswer } from '../../core/check/normalize.js';
+import { displayAnswer, expand } from '../../core/check/normalize.js';
 import { gradeText } from '../../core/check/grade.js';
 import { sentenceInput } from './tiles.js';
 
@@ -11,14 +11,23 @@ export function markFields(inputs, fields) {
   inputs.forEach((inp, i) => {
     inp.classList.toggle('ok', fields?.[i] === true);
     inp.classList.toggle('bad', fields?.[i] === false);
+    // Een goed vakje blijft staan: je verbetert alleen wat rood is.
+    if (fields?.[i] === true && fields.length > 1) inp.disabled = true;
   });
 }
 
-/** Aantal tekens van het langste goede antwoord (minstens 4), voor de breedte van een veld. */
-export const fieldChars = (spec) => Math.max(...[].concat(spec.answers ?? ['']).map((a) => displayAnswer([a]).length), 4) + 1;
+/**
+ * Breedte van een veld in tekens. Niet precies de lengte van het antwoord: dan verraadt het veld of
+ * er bijvoorbeeld nog -en achter moet. Daarom vaste maten: 14, 22 of 30 tekens, naar het langste
+ * goede antwoord (alle varianten).
+ */
+export function fieldChars(spec) {
+  const longest = Math.max(...[].concat(spec.answers ?? ['']).flatMap((a) => expand(String(a))).map((a) => a.length), 1);
+  return longest <= 12 ? 14 : longest <= 20 ? 22 : 30;
+}
 
 export function textInput(spec, { size, label, wide } = {}) {
-  const longest = fieldChars(spec) - 1;
+  const longest = fieldChars(spec) - 2;
   return h('input', {
     type: 'text',
     class: `answer-input${wide ? ' wide' : ''}`,

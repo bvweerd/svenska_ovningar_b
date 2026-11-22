@@ -55,14 +55,22 @@ export function viewExercise(ch, ex, query) {
             h('ul', {}, fresh.map((f) => h('li', {}, '✓ ', f.text))))
         : null;
       trackEvent(`oefening/${ch.chapter}/${ex.id}/klaar/${total ? scoreBucket(good / total) : 'schrijven'}`, `H${ch.chapter} · ${ex.title}`);
-      const heading = h('h2', {}, total ? `Klaar! ${good} van ${total} in één keer goed.` : 'Klaar!');
+      // Deelpunten (tabel met een paar foute vakjes): dan een percentage in plaats van „x van y”.
+      const heading = h('h2', {}, !total ? 'Klaar!'
+        : Number.isInteger(good) ? `Klaar! ${good} van ${total} in één keer goed.`
+          : `Klaar! ${Math.round((good / total) * 100)}% goed bij de eerste poging.`);
       // Pas hier bepalen: deze oefening is nu af en telt niet meer mee als „nog te doen”.
       const to = onwardFrom(ch, ex);
+      // „Verder waar je gebleven was” op de start wijst nu naar wat hierna komt, niet naar deze oefening.
+      if (to.ex) setLast(`#/k/${ch.chapter}/o/${to.ex.id}`, `${ch.title} · ${to.ex.title}`);
+      else if (to.chapter) setLast(`#/k/${to.chapter.chapter}`, to.chapter.title);
+      else setLast(`#/k/${ch.chapter}`, ch.title);
       const ask = supportAsk(ch);
+      // De knop verder, en altijd ook terug naar het hoofdstuk.
       const onward = (cls) => {
-        if (to.ex) return h('a', { class: `btn ${cls}`, href: `#/k/${ch.chapter}/o/${to.ex.id}` }, to.label);
-        const back = h('a', { class: `btn ${to.chapter ? 'ghost' : cls}`, href: `#/k/${ch.chapter}` }, 'Terug naar het hoofdstuk');
-        if (!to.chapter) return back;
+        const back = h('a', { class: 'btn ghost', href: `#/k/${ch.chapter}` }, 'Terug naar het hoofdstuk');
+        if (to.ex) return [h('a', { class: `btn ${cls}`, href: `#/k/${ch.chapter}/o/${to.ex.id}` }, to.label), back];
+        if (!to.chapter) return [h('p', { class: 'all-done' }, 'Alle hoofdstukken zijn af. Knap gedaan!'), back];
         return [h('a', { class: `btn ${cls}`, href: `#/k/${to.chapter.chapter}` }, `Hoofdstuk af! Verder met ${to.chapter.title.toLowerCase()}`), back];
       };
       if (!partial) {
@@ -70,7 +78,7 @@ export function viewExercise(ch, ex, query) {
         return [
           heading,
           achieved,
-          total ? progressBar(good, total, `${good} van ${total} in één keer goed`) : null,
+          total ? progressBar(good, total, Number.isInteger(good) ? `${good} van ${total} in één keer goed` : `${Math.round((good / total) * 100)}% goed bij de eerste poging`) : null,
           h('p', {}, scoreMessage(good, total)),
           missedList(missed),
           // Lage score: eerst de uitleg en opnieuw, pas daarna verder.
@@ -126,6 +134,8 @@ export function viewExercise(ch, ex, query) {
     ex.text && !ex.listen
       ? h('div', { class: 'reading-layout' }, passage(ex), h('div', { class: 'reading-questions' }, score, list, summary), textButton(ex))
       : [ex.text ? passage(ex) : null, score, list, summary],
+    // Altijd een weg terug, ook halverwege.
+    h('p', { class: 'exercise-foot' }, h('a', { class: 'btn ghost', href: `#/k/${ch.chapter}` }, `← Terug naar ${ch.title.toLowerCase()}`)),
   );
 }
 

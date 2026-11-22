@@ -99,12 +99,22 @@ export function exerciseRunner(items, { onFinish, offset = { done: 0, good: 0, t
   updateScore();
   const cards = [];
   let finished = 0;
+  // „Later”: de vraag gaat naar het eind van de ronde; door naar de volgende open vraag.
+  const skip = (card) => {
+    const pos = cards.indexOf(card);
+    const next = cards.slice(pos + 1).find((c) => !c.isFinished()) ?? cards.slice(0, pos).find((c) => !c.isFinished());
+    if (!next) return; // de laatste open vraag: overslaan kan niet meer
+    cards.splice(pos, 1);
+    cards.push(card);
+    list.append(card);
+    next.focusFirst();
+  };
   const list = h('div', { class: 'items' },
     items.map(({ item, ctx, label, ref }, i) => {
-      const card = itemCard(item, ref ? { ...ctx, ref } : ctx, offset.done + i + 1, (r) => {
+      const card = itemCard(item, { ...ctx, ...(ref ? { ref } : {}), onSkip: skip }, offset.done + i + 1, (r) => {
         if (ref) {
           const status = statusOf(r);
-          recordItem(ref.ch, ref.ex, ref.idx, status, { outside: !!ref.outside });
+          recordItem(ref.ch, ref.ex, ref.idx, status, { outside: !!ref.outside, share: r.share });
           // De vaste vraag-id (spaties → -), zodat tellingen bij een vraag blijven als de volgorde verandert.
           const qid = String(ref.ex.items[ref.idx]?.id ?? ref.idx + 1).replace(/\s+/g, '-');
           trackEvent(`vraag/${ref.ch}/${ref.ex.id}/${qid}/${STATUS_LABEL[status]}`, `H${ref.ch} · ${ref.ex.title} · ${itemSummary(item)}`);
@@ -115,7 +125,8 @@ export function exerciseRunner(items, { onFinish, offset = { done: 0, good: 0, t
         if (r.firstTry && !r.neutral) good++;
         else if (!r.neutral) missed.push(item);
         updateScore();
-        // Vanzelf door naar de volgende vraag. Op een telefoon iets later, en niet als je intussen
+        // Vanzelf door naar de volgende vraag. Op een telefoon iets later (net genoeg om „Goed!” te
+        // zien), en niet als je intussen
         // tikt of scrolt (dan zou de pagina onder je vinger wegschuiven); de knop blijft als uitweg.
         // Staat „vanzelf verder” uit (pagina Over), dan alleen de knop.
         const touch = matchMedia('(pointer: coarse)').matches;
@@ -124,7 +135,7 @@ export function exerciseRunner(items, { onFinish, offset = { done: 0, good: 0, t
           if (!auto) return void card.offerNext(label, () => go({ tapped: true }));
           if (!touch) return void setTimeout(go, ms);
           card.offerNext(label, () => go({ tapped: true }));
-          afterPause(go, ms + 600);
+          afterPause(go, ms + 200);
         };
         if (finished === items.length) {
           summary.hidden = false;
@@ -133,12 +144,13 @@ export function exerciseRunner(items, { onFinish, offset = { done: 0, good: 0, t
             summary.scrollIntoView({ behavior: 'smooth', block: 'center' });
             summary.querySelector('.btn.primary')?.focus({ preventScroll: true });
           };
-          advance('Naar de uitslag ↓', toSummary, r.revealed ? 1200 : 700);
+          advance('Naar de uitslag ↓', toSummary, r.revealed ? 1200 : 600);
           return;
         }
         // Na een goed antwoord door naar de volgende open vraag.
         if (r.revealed && !advanceAfterReveal) return;
-        const next = cards.slice(i + 1).find((c) => !c.isFinished()) ?? cards.find((c) => !c.isFinished());
+        const pos = cards.indexOf(card);
+        const next = cards.slice(pos + 1).find((c) => !c.isFinished()) ?? cards.find((c) => !c.isFinished());
         if (!next) return;
         // Getypt op een telefoon: de cursor meteen in het volgende tekstveld, nog tijdens de tik of Enter,
         // zodat het toetsenbord open blijft (iOS opent het alleen vanuit een tik). Daarna schuift de pagina mee.
@@ -146,7 +158,7 @@ export function exerciseRunner(items, { onFinish, offset = { done: 0, good: 0, t
           setTimeout(() => next.scrollIntoView({ behavior: 'smooth', block: 'start' }), 700);
           return;
         }
-        advance('Volgende vraag ↓', ({ tapped = false } = {}) => next.focusFirst({ keyboard: tapped }), r.revealed ? 1500 : 700);
+        advance('Volgende vraag ↓', ({ tapped = false } = {}) => next.focusFirst({ keyboard: tapped }), r.revealed ? 1500 : 600);
       }, label);
       cards.push(card);
       return card;
