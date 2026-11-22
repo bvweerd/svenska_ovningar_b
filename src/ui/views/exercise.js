@@ -47,7 +47,10 @@ export function viewExercise(ch, ex, query) {
   const [list, score, summary] = exerciseRunner(items, {
     offset: { done: run.done.size, good: goodBefore, total: run.total },
     onFinish: (_good, _done, missed) => {
-      const { score: good, total } = completeRun(ch.chapter, ex);
+      const { score: good, total, firstTry } = completeRun(ch.chapter, ex);
+      // Deelpunten (tabel met een paar foute vakjes) maken de score anders dan het aantal vragen in één
+      // keer goed; ook als de som toevallig een heel getal is (twee keer 0,5).
+      const whole = good === firstTry;
       const fresh = claimCanDo(ch);
       const achieved = fresh.length
         ? h('div', { class: 'achieved' },
@@ -57,7 +60,7 @@ export function viewExercise(ch, ex, query) {
       trackEvent(`oefening/${ch.chapter}/${ex.id}/klaar/${total ? scoreBucket(good / total) : 'schrijven'}`, `H${ch.chapter} · ${ex.title}`);
       // Deelpunten (tabel met een paar foute vakjes): dan een percentage in plaats van „x van y”.
       const heading = h('h2', {}, !total ? 'Klaar!'
-        : Number.isInteger(good) ? `Klaar! ${good} van ${total} in één keer goed.`
+        : whole ? `Klaar! ${good} van ${total} in één keer goed.`
           : `Klaar! ${Math.round((good / total) * 100)}% goed bij de eerste poging.`);
       // Pas hier bepalen: deze oefening is nu af en telt niet meer mee als „nog te doen”.
       const to = onwardFrom(ch, ex);
@@ -78,7 +81,7 @@ export function viewExercise(ch, ex, query) {
         return [
           heading,
           achieved,
-          total ? progressBar(good, total, Number.isInteger(good) ? `${good} van ${total} in één keer goed` : `${Math.round((good / total) * 100)}% goed bij de eerste poging`) : null,
+          total ? progressBar(good, total, whole ? `${good} van ${total} in één keer goed` : `${Math.round((good / total) * 100)}% goed bij de eerste poging`) : null,
           h('p', {}, scoreMessage(good, total)),
           missedList(missed),
           // Lage score: eerst de uitleg en opnieuw, pas daarna verder.

@@ -107,13 +107,14 @@ export function startRun(state, ch, ex, pick = null, now = Date.now()) {
   return { ...state, ex: { ...state.ex, [k]: rec } };
 }
 
-/** Sluit een ronde af. → { state, score, total } (score van deze ronde) */
+/** Sluit een ronde af. → { state, score, total, firstTry } (score van deze ronde, met deelpunten; firstTry: vragen in één keer goed) */
 export function completeRun(state, ch, ex, now = Date.now()) {
   const run = runState(state, ch, ex);
   const items = gradable(ex).filter(({ idx }) => run.inRound(idx));
   // Score met deelpunten voor vragen met meer vakjes; op twee decimalen.
   const score = Math.round(items.reduce((n, { idx }) => n + run.points(idx), 0) * 100) / 100;
   const total = items.length;
+  const firstTry = items.filter(({ idx }) => run.done.get(idx) === 'good').length;
   const k = exKey(ch, ex.id);
   const prev = state.ex[k] ?? { best: 0 };
   let rec;
@@ -137,7 +138,7 @@ export function completeRun(state, ch, ex, now = Date.now()) {
       ...(complete ? { completedAt: now } : {}),
     };
   }
-  return { state: { ...state, ex: { ...state.ex, [k]: rec } }, score, total };
+  return { state: { ...state, ex: { ...state.ex, [k]: rec } }, score, total, firstTry };
 }
 
 export const getResult = (state, ch, exId) => state.ex[exKey(ch, exId)] ?? null;

@@ -172,7 +172,6 @@ export function viewGame(id, { signal } = {}) {
     mistakes = [];
     endAt = Date.now() + GAME_SECONDS * 1000;
     clearInterval(timer);
-    signal?.addEventListener('abort', () => clearInterval(timer), { once: true });
     timer = setInterval(() => {
       if (!document.body.contains(stage)) return clearInterval(timer);
       if (Date.now() >= endAt) finish();
@@ -186,6 +185,8 @@ export function viewGame(id, { signal } = {}) {
     h('header', { class: 'page-head' }, h('h1', {}, game.title)),
     stage,
   );
+  // Pagina verlaten: klok en ingeplande volgende vraag stoppen (één luisteraar, ook na „Nog een keer”).
+  signal?.addEventListener('abort', () => { clearInterval(timer); clearTimeout(pending); }, { once: true });
   onKeys(view, (e) => {
     if (!q && e.key === 'Enter' && Date.now() >= restartAfter && !e.target.matches('a, button, input, textarea, select')) {
       e.preventDefault();

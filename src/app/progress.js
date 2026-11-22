@@ -33,7 +33,7 @@ export const startRun = (ch, ex, pick = null) => void update((s) => rec.startRun
 export function completeRun(ch, ex) {
   const out = rec.completeRun(load(), ch, ex);
   progressStore.set(out.state);
-  return { score: out.score, total: out.total };
+  return { score: out.score, total: out.total, firstTry: out.firstTry };
 }
 export const getResult = (ch, exId) => rec.getResult(load(), ch, exId);
 export const chapterProgress = (chapter) => rec.chapterProgress(load(), chapter);

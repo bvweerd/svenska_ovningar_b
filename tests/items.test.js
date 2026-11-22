@@ -30,3 +30,12 @@ describe('register van vraagtypen', () => {
     expect(typeName('findError')).toBe('zoek de fout');
   });
 });
+
+describe('hint bij zinsbouw met een vast begin', () => {
+  it('noemt niet het begin dat al in beeld staat', async () => {
+    const { hintFor } = await import('../src/core/items/index.js');
+    const item = { type: 'order', start: 'På morgonen', tokens: ['dricker', 'Bram', 'kaffe'], answers: ['På morgonen dricker Bram kaffe.'] };
+    expect(hintFor(item)).toBe('Na „På morgonen” komt „dricker …”.');
+    expect(hintFor({ ...item, tokens: ['vaknar', 'Fleur'], answers: ['På morgonen vaknar Fleur.'] })).toBe(null);
+  });
+});

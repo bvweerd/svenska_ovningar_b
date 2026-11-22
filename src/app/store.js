@@ -23,6 +23,12 @@ export function createStore({ storage, key, oldKey }) {
     if (storage.write(key, raw)) {
       cachedRaw = raw;
       cachedState = state;
+    } else {
+      // Opslaan mislukt (bijv. opslag vol) terwijl lezen nog werkt: de oude tekst in de opslag hoort nu
+      // bij de nieuwere toestand in het geheugen, anders geeft get() de oude terug en raakt elk
+      // antwoord kwijt. Verandert een ander tabblad de opslag, dan geldt die weer.
+      cachedRaw = storage.read(key);
+      cachedState = state;
     }
   }
 

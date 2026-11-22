@@ -40,7 +40,7 @@ describe('voortgang', () => {
     P.recordItem(1, ex, 0, 'good');
     P.recordItem(1, ex, 1, 'wrong');
     P.recordItem(1, ex, 2, 'free');
-    expect(P.completeRun(1, ex)).toEqual({ score: 1, total: 2 });
+    expect(P.completeRun(1, ex)).toEqual({ score: 1, total: 2, firstTry: 1 });
     expect(P.getResult(1, 'oef').best).toBe(0.5);
     expect(P.runState(1, ex).started).toBe(false);
   });
@@ -218,7 +218,7 @@ describe('rondes bij een lange oefening', () => {
     P.recordItem(1, long, 5, 'wrong');
     run = P.runState(1, long);
     expect(run.done.size).toBe(2);
-    expect(P.completeRun(1, long)).toEqual({ score: 1, total: 2 });
+    expect(P.completeRun(1, long)).toEqual({ score: 1, total: 2, firstTry: 1 });
     P.startRun(1, long);
     expect(P.runState(1, long).total).toBe(6);
   });
@@ -232,7 +232,7 @@ describe('ronde afronden bij een lange oefening', () => {
     P.startRun(1, long, [0, 1]);
     P.recordItem(1, long, 0, 'good');
     P.recordItem(1, long, 1, 'good');
-    expect(P.completeRun(1, long)).toEqual({ score: 2, total: 2 });
+    expect(P.completeRun(1, long)).toEqual({ score: 2, total: 2, firstTry: 2 });
     expect(P.getResult(1, 'lang2').completedAt).toBeUndefined();
     expect(P.chapterProgress(ch).completed).toBe(0);
     P.startRun(1, long, [2, 3]);
@@ -395,6 +395,7 @@ describe('deelpunten bij vragen met meer vakjes (issue #6)', () => {
     expect(s.items['2/t/a'].p).toBe(0.7);
     const out = R.completeRun(s, 2, ex, 3);
     expect(out.score).toBe(0.7);
+    expect(out.firstTry).toBe(0); // deelpunten: niet „in één keer goed”
     expect(out.state.ex['2/t'].best).toBe(0.7);
   });
 });

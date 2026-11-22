@@ -12,8 +12,8 @@ const BOX_TEXT = [
   null,
   'Net fout gegaan of nog onzeker: komt morgen terug.',
   'Eén keer goed: komt over twee dagen terug.',
-  'Twee keer goed: dit begint te zitten.',
-  'Beheerst: komt pas na een week terug.',
+  'Twee keer goed: beheerst, komt over vier dagen terug.',
+  'Zit erin: komt pas na een week terug.',
   'Stevig: twee weken.',
   'Heel stevig: een maand.',
   'Lange termijn: twee maanden.',
@@ -79,13 +79,15 @@ export function viewStats() {
               h('h2', {}, 'Per hoofdstuk'),
               h('ul', { class: 'chapter-stats' }, started.map((ch) => {
                 const p = chapterProgress(ch);
-                const known = srsStats(practiceEntries([ch])).reduce((n, v, box) => n + (box >= CANDO_BOX ? v : 0), 0);
+                // Beheerst: van de vragen die in de herhaling kunnen komen (zonder vrij schrijven en leesteksten).
+                const pool = practiceEntries([ch]);
+                const known = srsStats(pool).reduce((n, v, box) => n + (box >= CANDO_BOX ? v : 0), 0);
                 const goals = canDoStatus(ch);
                 const test = getTest(ch.chapter);
                 return h('li', {},
                   h('a', { href: `#/k/${ch.chapter}` }, h('strong', {}, `${ch.chapter} · ${splitTheme(ch.theme).name}`)),
                   h('span', { class: 'stat-row' }, h('span', { class: 'muted small' }, 'Gemaakt'), progressBar(p.itemsDone, p.itemsTotal, `${p.itemsDone} van ${p.itemsTotal} vragen gemaakt`)),
-                  h('span', { class: 'stat-row' }, h('span', { class: 'muted small' }, 'Beheerst'), progressBar(known, p.itemsTotal, `${known} van ${p.itemsTotal} vragen beheerst (doos ${CANDO_BOX} of hoger)`)),
+                  h('span', { class: 'stat-row' }, h('span', { class: 'muted small' }, 'Beheerst'), progressBar(known, pool.length, `${known} van ${pool.length} vragen beheerst (doos ${CANDO_BOX} of hoger)`)),
                   h('span', { class: 'muted small' }, [
                     goals.length ? `Doelen ${goals.filter((g) => g.done).length} van ${goals.length}` : null,
                     test ? `toets ${Math.round(test.best * 100)}%` : 'nog geen toets',

@@ -31,7 +31,13 @@ export const order = {
   validate(item, err) {
     if (!item.tokens?.length || !item.answers?.length) err('order heeft tokens en antwoorden nodig');
   },
-  hint: (item) => firstWords(item.answers),
+  hint(item) {
+    if (!item.start) return firstWords(item.answers);
+    // Het vaste begin (start) staat al in beeld: geef het eerste woord daarna, zolang dat niet de
+    // hele rest van de zin verklapt.
+    const rest = displayAnswer(item.answers).split(/\s+/).filter(Boolean).slice(item.start.split(/\s+/).filter(Boolean).length);
+    return rest.length > 2 ? `Na „${item.start}” komt „${rest[0]} …”.` : null;
+  },
   spoken: (item) => (item.answers?.length ? displayAnswer(item.answers) : null),
 };
 

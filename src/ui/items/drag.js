@@ -22,6 +22,9 @@ export function draggable(el, { onMove = () => {}, onDrop, onEnd = () => {}, dis
     let ghost = null;
     let holdTimer = null;
     let armed = !touch; // touch: pas na vasthouden
+    // Echt versleept (niet alleen vastgehouden)? Zonder beweging is het gewoon een tik: dan geen
+    // onDrop en mag de klik door, ook als de vinger langer dan HOLD_MS bleef liggen.
+    let dragged = false;
 
     const begin = () => {
       const r = el.getBoundingClientRect();
@@ -32,6 +35,7 @@ export function draggable(el, { onMove = () => {}, onDrop, onEnd = () => {}, dis
       el.classList.add('dragging');
     };
     const position = (e) => {
+      if (Math.hypot(e.clientX - start.x, e.clientY - start.y) > MOVE_PX) dragged = true;
       ghost.style.transform = `translate(${e.clientX - start.x}px, ${e.clientY - start.y}px)`;
       onMove({ x: e.clientX, y: e.clientY });
     };
@@ -45,13 +49,13 @@ export function draggable(el, { onMove = () => {}, onDrop, onEnd = () => {}, dis
       document.removeEventListener('touchmove', noScroll);
       ghost?.remove();
       el.classList.remove('dragging', 'held');
-      if (ghost) {
+      if (ghost && dragged) {
         // De klik die op het loslaten volgt, mag de tegel niet ook nog verplaatsen.
         const block = (c) => { c.stopImmediatePropagation(); c.preventDefault(); };
         el.addEventListener('click', block, { capture: true, once: true });
         setTimeout(() => el.removeEventListener('click', block, { capture: true }), 0);
-        setTimeout(onEnd, 0);
       }
+      if (ghost) setTimeout(onEnd, 0);
     };
     const move = (e) => {
       const far = Math.hypot(e.clientX - start.x, e.clientY - start.y) > MOVE_PX;
@@ -66,7 +70,7 @@ export function draggable(el, { onMove = () => {}, onDrop, onEnd = () => {}, dis
       position(e);
     };
     const up = (e) => {
-      if (ghost) onDrop({ x: e.clientX, y: e.clientY });
+      if (ghost && dragged) onDrop({ x: e.clientX, y: e.clientY });
       cleanup();
     };
     const cancel = () => cleanup();

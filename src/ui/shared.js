@@ -99,11 +99,19 @@ export function exerciseRunner(items, { onFinish, offset = { done: 0, good: 0, t
   updateScore();
   const cards = [];
   let finished = 0;
+  // Nog maar één open vraag: dan kan „Later” niets meer, dus weg met die knop.
+  const hideLastSkip = () => {
+    const open = cards.filter((c) => !c.isFinished());
+    if (open.length === 1) {
+      const btn = open[0].querySelector('.skip-btn');
+      if (btn) btn.hidden = true;
+    }
+  };
   // „Later”: de vraag gaat naar het eind van de ronde; door naar de volgende open vraag.
   const skip = (card) => {
     const pos = cards.indexOf(card);
     const next = cards.slice(pos + 1).find((c) => !c.isFinished()) ?? cards.slice(0, pos).find((c) => !c.isFinished());
-    if (!next) return; // de laatste open vraag: overslaan kan niet meer
+    if (!next) return void hideLastSkip(); // de laatste open vraag: overslaan kan niet meer
     cards.splice(pos, 1);
     cards.push(card);
     list.append(card);
@@ -125,6 +133,7 @@ export function exerciseRunner(items, { onFinish, offset = { done: 0, good: 0, t
         if (r.firstTry && !r.neutral) good++;
         else if (!r.neutral) missed.push(item);
         updateScore();
+        hideLastSkip();
         // Vanzelf door naar de volgende vraag. Op een telefoon iets later (net genoeg om „Goed!” te
         // zien), en niet als je intussen
         // tikt of scrolt (dan zou de pagina onder je vinger wegschuiven); de knop blijft als uitweg.
