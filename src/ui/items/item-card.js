@@ -29,18 +29,18 @@ export function itemCard(item, ctx, number, onDone, label) {
   const feedback = h('div', { class: 'feedback', 'aria-live': 'polite' });
   // Vrij schrijven wordt niet nagekeken („Klaar”) en mag je overslaan („Toon voorbeeld”).
   const checkBtn = h('button', { type: 'button', class: 'btn primary', hidden: selfChecking(item) }, r.neutral ? 'Klaar' : 'Controleer');
-  const revealBtn = h('button', { type: 'button', class: 'btn ghost', hidden: !r.neutral }, r.neutral ? 'Toon voorbeeld' : 'Toon antwoord');
+  const revealBtn = h('button', { type: 'button', class: 'btn ghost small', hidden: !r.neutral }, r.neutral ? 'Toon voorbeeld' : 'Toon antwoord');
   // Vragen met de knop Controleer houden hun knoppenrij altijd even hoog, ook als de knop na
   // afloop verdwijnt: dan verspringt de rest van de pagina niet.
   // Hint: het begin van het antwoord (of een eigen help-tekst). Wie hem gebruikt, heeft de vraag niet
   // „in één keer goed”: hij telt als goed na hulp en komt in de herhaling terug. Niet in een toets.
   const hint = ctx.testMode ? null : hintFor(item);
   const hintBox = h('p', { class: 'hint-help', hidden: true, 'aria-live': 'polite' });
-  const hintBtn = hint ? h('button', { type: 'button', class: 'btn ghost hint-btn' }, 'Hint') : null;
+  const hintBtn = hint ? h('button', { type: 'button', class: 'btn ghost small hint-btn' }, 'Hint') : null;
   // Later: de vraag naar het eind van de ronde (telt niet mee). Handig als je even niet kunt luisteren,
   // of als je eerst de rest wilt doen. Niet in een toets.
   const skipBtn = ctx.onSkip && !ctx.testMode
-    ? h('button', { type: 'button', class: 'btn ghost skip-btn', title: 'Deze vraag komt aan het eind van de ronde terug' },
+    ? h('button', { type: 'button', class: 'btn ghost small skip-btn', title: 'Deze vraag komt aan het eind van de ronde terug' },
         item.type === 'listen' ? 'Nu niet luisteren' : 'Later')
     : null;
   const actions = h('div', { class: selfChecking(item) ? 'actions' : 'actions keep' }, checkBtn, hintBtn, revealBtn, skipBtn);

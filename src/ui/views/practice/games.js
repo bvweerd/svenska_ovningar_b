@@ -96,7 +96,7 @@ export function viewGame(id, { signal } = {}) {
     stage.replaceChildren(
       h('p', { class: 'lead' }, game.intro),
       h('p', { class: 'muted' }, best ? `Je record: ${best}` : 'Nog geen record.'),
-      h('button', { type: 'button', class: 'btn primary big', onclick: start }, 'Start (Enter)'),
+      h('button', { type: 'button', class: 'btn primary big', onclick: start }, 'Start', h('span', { class: 'kbd-only' }, ' (Enter)')),
     );
     setTimeout(() => stage.querySelector('button')?.focus(), 0);
   };
@@ -157,7 +157,7 @@ export function viewGame(id, { signal } = {}) {
       h('p', {}, record && score > 0 ? 'Nieuw record!' : `Je record: ${getGame(id)?.best ?? score}`),
       mistakes.length ? h('div', {}, h('p', {}, 'Deze had je fout:'), h('ul', { class: 'mistakes', lang: 'sv' }, [...new Set(mistakes)].map((m) => h('li', {}, m)))) : null,
       h('div', { class: 'actions' },
-        h('button', { type: 'button', class: 'btn primary', onclick: start }, 'Nog een keer (Enter)'),
+        h('button', { type: 'button', class: 'btn primary', onclick: start }, 'Nog een keer', h('span', { class: 'kbd-only' }, ' (Enter)')),
         h('a', { class: 'btn ghost', href: '#/oefenen/spel' }, 'Andere rondes')),
     );
     // Even geen nieuwe ronde: een tik of toets die nog voor de laatste vraag bedoeld was, start hem niet.
