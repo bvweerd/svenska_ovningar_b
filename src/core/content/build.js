@@ -1,5 +1,6 @@
 // Zet ruwe hoofdstukinhoud (YAML) om naar het model dat de site gebruikt,
 // inclusief automatisch gegenereerde woordenschatoefeningen.
+import { normalize, variants } from '../check/normalize.js';
 
 /** Eenvoudige, voorspelbare pseudo-random generator (zodat builds en tests stabiel zijn). */
 export function rng(seed) {
@@ -177,21 +178,28 @@ export function vocabExercises(vocab, chapterNo, { nounTopic = 'woordenschat', p
     exercises.push({
       id: 'woorden-in-zin',
       title: 'Woorden in een zin',
-      instruction: 'Vul het woord in de goede vorm in. De Nederlandse zin helpt je op weg.',
+      instruction: 'Vul het Zweedse woord in, in de goede vorm. De Nederlandse zin staat erboven. Weet je het woord niet, tik dan op Hint.',
       topic: 'woordenschat',
       generated: true,
       shuffle: true,
       roundSize: VOCAB_ROUND,
-      items: examples.map(({ v, gap }) => ({
-        id: v.sv,
-        type: 'gap',
-        prompt: v.exNl,
-        text: gap.text,
-        // Woorden die niet verbuigen (nu, snart, varje …) zouden met het grondwoord als hint
-        // hun antwoord verklappen: geef daar de Nederlandse betekenis.
-        hint: `(${kind(v) === 'other' ? firstSense(v.nl) : bare(v.sv)})`,
-        gaps: [{ answers: [gap.answer] }],
-      })),
+      // Geen zichtbare hint met het grondwoord: die verklapte vaak het antwoord (förmiddag →
+      // förmiddagen). Wie het woord niet weet, vraagt het met de knop Hint (telt dan niet als in één
+      // keer goed). Het grondwoord typen waar een andere vorm hoort, geeft een gerichte tip.
+      items: examples.map(({ v, gap }) => {
+        const base = bare(v.sv);
+        // Is het grondwoord zelf al goed (een woord dat niet verbuigt)? Dan geen tip over de vorm.
+        const same = variants([gap.answer]).includes(normalize(base)) || /[()[\]{}|]/.test(base);
+        const feedback = same ? [] : [{ match: base, tip: `Goed woord! Maar in deze zin hoort een andere vorm van „${base}”.` }];
+        return {
+          id: v.sv,
+          type: 'gap',
+          prompt: v.exNl,
+          text: gap.text,
+          help: `Het woord is „${base}” (${firstSense(v.nl)}).${same ? '' : ' Welke vorm hoort in deze zin?'}`,
+          gaps: [{ answers: [gap.answer], ...(feedback.length ? { feedback } : {}) }],
+        };
+      }),
     });
   }
   return exercises;

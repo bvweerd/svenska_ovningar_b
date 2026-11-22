@@ -11,6 +11,7 @@
 //   produce                        telt als „zelf maken” (moeilijkheidsrapport)
 //   answerSentence                 lengte van het eerste goede antwoord telt als antwoordzin
 //   gradable                       false: de app kijkt het niet na (vrij schrijven)
+//   hint(item)                     tekst achter de knop Hint (een eigen `help` in de vraag gaat voor)
 // }
 // Nakijken zelf staat in core/check/grade.js; de renderers roepen dat aan.
 import * as choice from './choice.js';
@@ -30,7 +31,7 @@ const steps = {
 };
 
 export const ITEM_TYPES = Object.freeze(Object.fromEntries(
-  [...Object.values(choice), ...Object.values(text), ...Object.values(other), steps].map((t) => [t.type, t]),
+  [...Object.values(choice), ...Object.values(text), ...Object.values(other), steps].filter((t) => t?.type).map((t) => [t.type, t]),
 ));
 
 export const itemType = (type) => ITEM_TYPES[type] ?? null;
@@ -53,6 +54,16 @@ export function spokenText(item) {
 /** Kijkt de vraag zichzelf na zodra je kiest? (Enter blijft werken.) */
 export function selfChecking(item) {
   return !!itemType(item?.type)?.selfChecking?.(item, selfChecking);
+}
+
+/**
+ * Hint achter de knop „Hint”: een eigen `help` in de vraag, anders wat het type kan geven
+ * (het begin van het antwoord), of null.
+ */
+export function hintFor(item) {
+  if (!item) return null;
+  if (item.help) return item.help;
+  return itemType(item.type)?.hint?.(item, hintFor) ?? null;
 }
 
 /** Kijkt de app deze vraag na? (Niet bij vrij schrijven.) */

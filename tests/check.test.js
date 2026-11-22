@@ -343,3 +343,14 @@ describe('vrij schrijven: hulp zonder oordeel', () => {
     expect(freeHelp({})).toEqual([]);
   });
 });
+
+describe('hoofdlettergevoelig (issue #11)', () => {
+  const spec = { answers: ['Vi ses på måndag.'], caseSensitive: true };
+  it('de kleine letter van de woordtegels aan het begin telt niet', () => {
+    expect(gradeText('vi ses på måndag', spec).correct).toBe(true);
+    expect(gradeText('Vi ses på måndag.', spec).correct).toBe(true);
+  });
+  it('een hoofdletter midden in de zin telt wel', () => {
+    expect(gradeText('vi ses på Måndag', spec).correct).toBe(false);
+  });
+});

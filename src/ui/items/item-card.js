@@ -3,7 +3,7 @@ import { h } from '../dom.js';
 import { inline } from '../md.js';
 import { RENDERERS } from './index.js';
 import { speakButton } from '../components/speak.js';
-import { spokenText, selfChecking } from '../../core/items/index.js';
+import { spokenText, selfChecking, hintFor } from '../../core/items/index.js';
 import { reportButton } from '../components/report.js';
 
 const GENERIC_WRONG = 'Nog niet goed. Probeer het nog eens.';
@@ -32,13 +32,18 @@ export function itemCard(item, ctx, number, onDone, label) {
   const revealBtn = h('button', { type: 'button', class: 'btn ghost', hidden: !r.neutral }, r.neutral ? 'Toon voorbeeld' : 'Toon antwoord');
   // Vragen met de knop Controleer houden hun knoppenrij altijd even hoog, ook als de knop na
   // afloop verdwijnt: dan verspringt de rest van de pagina niet.
-  const actions = h('div', { class: selfChecking(item) ? 'actions' : 'actions keep' }, checkBtn, revealBtn);
+  // Hint: het begin van het antwoord (of een eigen help-tekst). Wie hem gebruikt, heeft de vraag niet
+  // „in één keer goed”: hij telt als goed na hulp en komt in de herhaling terug. Niet in een toets.
+  const hint = ctx.testMode ? null : hintFor(item);
+  const hintBox = h('p', { class: 'hint-help', hidden: true, 'aria-live': 'polite' });
+  const hintBtn = hint ? h('button', { type: 'button', class: 'btn ghost hint-btn' }, 'Hint') : null;
+  const actions = h('div', { class: selfChecking(item) ? 'actions' : 'actions keep' }, checkBtn, hintBtn, revealBtn);
   const card = h('article', { class: `item type-${item.type}` },
     h('div', { class: 'item-head' },
       h('span', { class: 'item-no' }, String(number)),
       label ? h('span', { class: 'item-label' }, label) : null,
       reportButton(item, ctx.ref, number, () => card)),
-    r.el, actions, feedback,
+    r.el, hintBox, actions, feedback,
   );
 
   let attempts = 0;
@@ -54,6 +59,7 @@ export function itemCard(item, ctx, number, onDone, label) {
     r.lock();
     checkBtn.hidden = true;
     revealBtn.hidden = true;
+    if (hintBtn) hintBtn.hidden = true;
     card.classList.add(revealed ? 'is-revealed' : 'is-done');
     // Na afloop: de goede zin beluisteren (als de browser kan voorlezen).
     const say = spokenText(item);
@@ -123,6 +129,14 @@ export function itemCard(item, ctx, number, onDone, label) {
   };
 
   checkBtn.addEventListener('click', check);
+  hintBtn?.addEventListener('click', () => {
+    hadError = true;
+    hintBtn.hidden = true;
+    hintBox.replaceChildren(h('strong', {}, 'Hint: '), h('span', { html: inline(hint) }), ' ',
+      h('span', { class: 'muted small' }, 'Met hint telt deze vraag als goed na hulp; hij komt in de herhaling terug.'));
+    hintBox.hidden = false;
+    card.querySelector('input[type="text"]:not(:disabled), textarea:not(:disabled)')?.focus({ preventScroll: true });
+  });
   card.addEventListener('keydown', (e) => {
     if (e.key.startsWith('Arrow') && e.target.matches('input[type="radio"]')) {
       // De browser verplaatst de keuze (en stuurt change) direct na deze toets. Gebeurt dat niet,

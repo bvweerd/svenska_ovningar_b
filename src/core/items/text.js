@@ -4,6 +4,20 @@ import { stripHints, cutLabel } from './spoken.js';
 
 const answersSpoken = (item) => (item.answers?.length ? displayAnswer(item.answers) : null);
 
+/** Hint: het begin van het goede antwoord (eerste woord), zonder het hele antwoord te verklappen. */
+export function firstWords(answers) {
+  const ws = displayAnswer(answers).split(/\s+/).filter(Boolean);
+  return ws.length > 1 ? `Het antwoord begint met „${ws[0]} …”.` : null;
+}
+
+/** Hint voor één woord: de eerste letter(s). */
+export function firstLetters(answers) {
+  const w = displayAnswer(answers);
+  if (!w) return null;
+  const n = w.length > 6 ? 2 : 1;
+  return `${w.slice(0, n)}…`;
+}
+
 export const gap = {
   type: 'gap',
   name: 'invullen',
@@ -20,6 +34,11 @@ export const gap = {
     });
   },
   answerPart: (item) => ['gap', (item.gaps ?? []).map((g) => g.answers)],
+  hint(item) {
+    const open = (item.gaps ?? []).filter((g) => !g.options);
+    if (!open.length) return null;
+    return `Begint met: ${open.map((g) => `„${firstLetters(g.answers)}”`).join(', ')}`;
+  },
   spoken(item) {
     if (/→|___.*:/.test(item.text) || item.noSpeak) return null;
     const parts = cutLabel(item.text).split('___');
@@ -36,6 +55,7 @@ export const translate = {
     if (!item.prompt || !item.answers?.length) err('translate heeft prompt en antwoorden nodig');
   },
   spoken: answersSpoken,
+  hint: (item) => firstWords(item.answers) ?? (item.answers?.length ? `Begint met: „${firstLetters(item.answers)}”` : null),
 };
 
 export const transform = {
@@ -47,6 +67,7 @@ export const transform = {
     if (!item.prompt || !item.answers?.length) err('transform heeft prompt en antwoorden nodig');
   },
   spoken: answersSpoken,
+  hint: (item) => firstWords(item.answers),
 };
 
 export const table = {

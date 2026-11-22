@@ -582,7 +582,9 @@ details.fold.block { margin: 18px 0; }
 
 /* Invullen: het veld en de hint erna („(arbeta)”) blijven samen op één regel. */
 .gap-field { white-space: nowrap; }
-.gap-hint { color: var(--muted); white-space: normal; } /* een lange hint mag afbreken */
+.gap-hint { color: var(--muted); white-space: normal; }
+.hint-help { margin: 8px 0 0; padding: 8px 12px; border-radius: 10px; background: var(--surface-2); border: 1px dashed var(--line); }
+.hint-help .muted { display: block; margin-top: 2px; } /* een lange hint mag afbreken */
 
 /* Doorgestreept in de uitleg: het foute voorbeeld. */
 del { text-decoration-color: var(--bad); text-decoration-thickness: 2px; color: var(--muted); }
