@@ -6,7 +6,7 @@ import { claimCanDo, exerciseDone } from '../../app/course-progress.js';
 /** Eigen kleur per hoofdstuk (een tint op de kleurencirkel), voor een streep op kaart en kop. */
 export const chapterHue = (ch) => `--ch-hue:${(ch.chapter * 137) % 360}`;
 
-/** Wat je na dit hoofdstuk kunt; de app vinkt het zelf af (zie canDoStatus in progress.js). */
+/** Wat je na dit hoofdstuk kunt; de app vinkt het zelf af (zie canDoStatus in core/progress/cando.js). */
 export function canDoList(ch) {
   claimCanDo(ch);
   const st = canDoStatus(ch);

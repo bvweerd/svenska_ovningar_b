@@ -37,7 +37,7 @@ function fakeServer() {
 }
 
 const ex = { id: 'oef', items: [{ id: 'a', type: 'gap', gaps: [{ answers: ['x'] }] }, { id: 'b', type: 'gap', gaps: [{ answers: ['y'] }] }] };
-// Een nieuw apparaat begint leeg (anders valt progress.js terug op de voortgang in het geheugen).
+// Een nieuw apparaat begint leeg (anders valt de store terug op de voortgang in het geheugen).
 const on = (d) => {
   store = devices[d];
   if (!store.size) P.resetProgress();

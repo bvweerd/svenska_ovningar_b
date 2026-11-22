@@ -43,11 +43,11 @@ Op iPhone/iPad heeft de app een eigen opslag, los van Safari: overzetten gaat vi
 ## Voortgang op meer apparaten
 
 Op de pagina Over kan de gebruiker de voortgang exporteren en importeren. **Importeren voegt samen**
-(`mergeStates` in `src/progress.js`): per vraag telt de laatste poging (met de Leitner-doos die daarbij
+(`mergeStates` in `src/core/progress/merge.js`): per vraag telt de laatste poging (met de Leitner-doos die daarbij
 hoort), per oefening, toets en spel de nieuwste ronde met de hoogste beste score, bij flitskaarten en dictee
 het nieuwste oordeel (tijdstippen in `t`), oefendagen van allebei; instellingen van het apparaat blijven staan.
 
-**Synchroniseren** (`src/sync.js`, opt-in) gebruikt dezelfde samenvoeging. Een synccode van 16 tekens
+**Synchroniseren** (`src/platform/sync.js`, opt-in) gebruikt dezelfde samenvoeging. Een synccode van 16 tekens
 (geen account) koppelt apparaten, ook via een koppellink `#/koppel/<code>`. De code staat onder een
 sleutel die beide sites delen, dus één keer koppelen geldt voor A1–A2 en B1–B2; de voortgang blijft per site
 apart. De site synchroniseert bij openen, bij weggaan, bij weer online komen en hooguit eens per twee
@@ -205,6 +205,8 @@ herhaling staat (drie keer achter elkaar in één keer goed). `npm test` control
 bestaan en dat er minstens 5 vragen over zijn.
 
 ## Twee sites, één code
+
+De code in `src/` is in lagen opgebouwd (zie `ARCHITECTURE.md` in svenska_ovningar): `core/` (puur: inhoud, nakijken, register van vraagtypen, voortgangsregels), `platform/` (opslag, synchroniseren, spraak, PWA, GoatCounter), `app/` (de store met de voortgang), `ui/` (router, pagina's, componenten, renderers per vraagtype) en `main.js` (alles aan elkaar). `tests/architecture.test.js` bewaakt dat elke laag alleen lagere lagen gebruikt.
 
 Deze site en zijn zusterrepo (svenska_ovningar voor A1–A2, svenska_ovningar_b voor B1–B2) delen dezelfde code. `src/`, `tests/`, `scripts/`, `vite.config.js` en `package.json` zijn in beide repo's gelijk. Wat per site verschilt, staat in `src/config.js`: opslagsleutel, app-naam, GoatCounter-voorvoegsel, issue-repo, teksten en de link naar de andere site. Daarnaast verschillen de inhoud (`content/`), `index.html`, de app-iconen (`public/icons/`) en de Worker (alleen in de B1–B2-repo).
 

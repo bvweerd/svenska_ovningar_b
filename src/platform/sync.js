@@ -2,7 +2,7 @@
 //
 // Een synccode (16 tekens, geen account) koppelt apparaten. De code staat in de opslag van de browser onder een
 // sleutel die beide sites delen (zelfde domein): één keer koppelen geldt voor de A1–A2- én de B1–B2-site.
-// Elke site bewaart wel zijn eigen voortgang. Samenvoegen gebeurt hier, met mergeStates (progress.js).
+// Elke site bewaart wel zijn eigen voortgang. Samenvoegen gebeurt hier, met mergeStates (core/progress/merge.js).
 import { SYNC_URL, STORAGE_PREFIX } from '../config.js';
 import { hashItem } from '../core/hash.js';
 import { read, write } from './storage.js';
@@ -111,9 +111,10 @@ async function doSync({ onlyIfChanged = false, fetchImpl = globalThis.fetch } = 
 /**
  * Synchroniseert vanzelf: bij het openen, bij weggaan (tabblad of app op de achtergrond),
  * bij weer online komen en hooguit eens per twee minuten bij het wisselen van pagina.
- * @param onChange  wordt aangeroepen als er voortgang van een ander apparaat is bijgekomen
+ * @param onChange  wordt aangeroepen als er voortgang van een ander apparaat is bijgekomen (optioneel;
+ *                  de app luistert zelf naar de voortgang, zie main.js)
  */
-export function initSync(onChange) {
+export function initSync(onChange = () => {}) {
   if (!syncConfigured()) return;
   const run = (opts) => syncNow(opts).then((r) => { if (r?.changed) onChange(); }).catch(() => { /* offline: later opnieuw */ });
   run();

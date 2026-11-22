@@ -2,7 +2,7 @@
 import './styles.css';
 import { course } from './app/content.js';
 import {
-  getPref, setPref, migrateToIds, progressSnapshot, mergeProgress,
+  getPref, setPref, migrateToIds, progressSnapshot, mergeProgress, progressStore,
 } from './app/progress.js';
 import { bindProgress, initSync } from './platform/sync.js';
 import { usePrefs } from './platform/speech.js';
@@ -48,5 +48,8 @@ const router = createRouter({
 charBar();
 themeToggle();
 router.start();
-// Voortgang van een ander apparaat binnengekomen: pagina's zonder invoer opnieuw tekenen.
-initSync(() => router.refresh());
+// Voortgang van buiten (ander apparaat, import, wissen): pagina's zonder invoer opnieuw tekenen.
+progressStore.subscribe((_state, { reason }) => {
+  if (reason !== 'local') router.refresh();
+});
+initSync();

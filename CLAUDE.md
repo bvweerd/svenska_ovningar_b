@@ -52,9 +52,9 @@ planbestand en de bron van waarheid, ook voor werk aan de B-site. De B-repo heef
 - **Onderwerpen**: elke oefening (of vraag) heeft een `topic` = id van een grammaticakaart (of
   `woordenschat`). Kan-doen-uitspraken (`canDo` bovenaan elk hoofdstuk) tellen vragen per topic: een
   nieuwe oefening met het goede topic telt mee voor het vinkje. Validatie: 2–4 uitspraken, bekende
-  topics, minstens 5 vragen per uitspraak. Logica: `canDoStatus`/`newCanDo` in `src/progress.js`
+  topics, minstens 5 vragen per uitspraak. Logica: `canDoStatus`/`newCanDo` in `src/core/progress/cando.js`
   (`CANDO_BOX = 3`, `CANDO_SHARE = 0.8`).
-- **Woordenschatoefeningen** worden gemaakt uit `vocab:` in `src/build.js`: de eerste („Wat betekent
+- **Woordenschatoefeningen** worden gemaakt uit `vocab:` in `src/core/content/build.js`: de eerste („Wat betekent
   het?”) vooraan (onderdeel `woorden`, of bovenaan `ord` op de B-site), de rest onderaan in `woordenschat`.
   De meervoudsoefening verschijnt pas vanaf het hoofdstuk met de grammaticakaart `plural`.
 - `npm test` controleert o.a. dat elk goed antwoord goed gerekend wordt en elke `feedback.match` fout.

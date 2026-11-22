@@ -5,7 +5,7 @@
 // - sw.js: een service worker die alle gebouwde bestanden bij installatie in de cache zet
 //   en daarna uit de cache serveert (ook zonder internet);
 // - in index.html de links naar het manifest en het iPhone-icoon.
-// Bij elke nieuwe build verandert de cachenaam; de app meldt dan dat er een nieuwe versie is (src/pwa.js).
+// Bij elke nieuwe build verandert de cachenaam; de app meldt dan dat er een nieuwe versie is (src/ui/components/pwa.js).
 // In de ontwikkelserver gebeurt niets van dit alles.
 import fs from 'node:fs';
 import path from 'node:path';
@@ -98,7 +98,7 @@ export function pwaPlugin() {
     transformIndexHtml() {
       return [
         { tag: 'link', attrs: { rel: 'manifest', href: './manifest.webmanifest' }, injectTo: 'head' },
-        // src/pwa.js (syncThemeColor) zet dit bij het laden gelijk aan het gekozen thema.
+        // src/platform/pwa.js (syncThemeColor) zet dit bij het laden gelijk aan het gekozen thema.
         { tag: 'meta', attrs: { name: 'theme-color', content: THEME.light, media: '(prefers-color-scheme: light)' }, injectTo: 'head' },
         { tag: 'meta', attrs: { name: 'theme-color', content: THEME.dark, media: '(prefers-color-scheme: dark)' }, injectTo: 'head' },
         { tag: 'link', attrs: { rel: 'apple-touch-icon', href: './icons/apple-touch-icon.png' }, injectTo: 'head' },

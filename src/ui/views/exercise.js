@@ -135,7 +135,7 @@ function passage(ex) {
   const body = h('div', { class: 'passage-body', html: markdown(ex.text) });
   const read = speakButton(ex.text, { label: listenMode ? 'Luister naar de tekst' : 'Lees voor', className: listenMode ? 'big' : '' });
   const head = h('div', { class: 'passage-head' }, ex.textTitle ? h('h2', {}, ex.textTitle) : null,
-    // speech-extra: verborgen als er geen Zweedse stem is (zie speech.js).
+    // speech-extra: verborgen als er geen Zweedse stem is (zie platform/speech.js).
     read ? h('div', { class: 'passage-controls speech-extra', lang: 'nl' }, read, speedSelect()) : null);
   if (!listenMode) return h('section', { class: 'passage', lang: 'sv' }, head, body);
   return h('section', { class: 'passage listen', lang: 'sv' }, head,

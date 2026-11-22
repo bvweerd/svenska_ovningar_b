@@ -26,7 +26,7 @@ const kind = (v) => (article(v.sv) ? 'noun' : v.sv.startsWith('att ') ? 'verb' :
 const nlBare = (nl) => nl.replace(/(^|, )(een|de|het) /g, '$1');
 const bare = (sv) => sv.replace(/^(en|ett|att) /, '');
 
-/** Lange woordenlijsten worden per ronde van zoveel woorden geoefend (zie pickRound in progress.js). */
+/** Lange woordenlijsten worden per ronde van zoveel woorden geoefend (zie pickRound in core/progress/record.js). */
 export const VOCAB_ROUND = 15;
 
 export const list = (x) => [].concat(x ?? []);
