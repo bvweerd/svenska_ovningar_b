@@ -30,6 +30,14 @@ Naast de oefeningen per hoofdstuk zijn er onder **Oefenen**: dagelijkse herhalin
 intervallen (Leitner-dozen), een werkwoordtrainer (`content/verbs.yaml`), toetsen per
 hoofdstuk, flitskaarten en snelle rondes van 60 seconden. Alle voortgang staat in de browser.
 
+**Prestaties** (`#/prestaties`, `src/core/rewards/badges.js`): badges die de app zelf uitreikt op basis van
+wat hij nakijkt: afgeronde oefeningen en hoofdstukken, kan-doen-doelen, vragen in doos 4+, toetsen ≥ 80%,
+oefendagen (in totaal, niet op rij), dictee en snelle rondes. Flitskaarten tellen niet mee (zelfbeoordeling).
+Een behaalde badge blijft staan en synchroniseert mee. De badge-id's zijn vast: niet veranderen.
+
+**Hint**: bij vragen waar je iets typt geeft de knop Hint het begin van het antwoord (of een eigen `help`
+in de vraag). Met hint telt een vraag als goed na hulp, niet als in één keer goed.
+
 ## Als app (PWA)
 
 De site is te installeren als app op telefoon, tablet en computer (iPhone/iPad: Safari → Delen →
