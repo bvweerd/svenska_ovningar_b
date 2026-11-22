@@ -8,6 +8,7 @@ import { viewGrammarIndex, viewGrammar } from './views/grammar.js';
 import { viewAbout } from './views/about.js';
 import { viewLink } from './views/sync.js';
 import { viewBadges } from './views/badges.js';
+import { viewPrintCard, viewPrintChapter } from './views/print.js';
 import { viewListenSettings, viewDictation } from './views/listen.js';
 import { viewPracticeHub } from './views/practice/hub.js';
 import { viewDaily } from './views/practice/daily.js';
@@ -46,6 +47,11 @@ export const routes = [
     const card = ch.grammar.find((g) => g.id === params.id);
     return card ? viewGrammar(ch, card) : null;
   }) },
+  { path: '/k/:ch/g/:id/print', view: inChapter((ch, { params, signal }) => {
+    const card = ch.grammar.find((g) => g.id === params.id);
+    return card ? viewPrintCard(ch, card, { signal }) : null;
+  }) },
+  { path: '/k/:ch/print', view: inChapter((ch, { signal }) => (ch.grammar.length ? viewPrintChapter(ch, { signal }) : null)) },
   { path: '/k/:ch/mix', view: inChapter((ch) => viewMix(ch)) },
   { path: '/k/:ch/fouten', view: inChapter((ch) => viewWeak(ch)) },
   { path: '/k/:ch/toets', view: inChapter((ch) => viewTest(ch)) },

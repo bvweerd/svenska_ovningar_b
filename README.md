@@ -38,6 +38,10 @@ Een behaalde badge blijft staan en synchroniseert mee. De badge-id's zijn vast: 
 **Hint**: bij vragen waar je iets typt geeft de knop Hint het begin van het antwoord (of een eigen `help`
 in de vraag). Met hint telt een vraag als goed na hulp, niet als in één keer goed.
 
+**Hand-outs** (`#/k/<hoofdstuk>/g/<kaart>/print`, of `#/k/<hoofdstuk>/print` voor alle kaarten): elke
+grammaticakaart als A4 om op te hangen, met de kernregel groot in een kader en de uitleg in twee kolommen.
+Lange uitleg krijgt automatisch een kleinere letter tot hij op één vel past (`src/ui/views/print.js`).
+
 ## Als app (PWA)
 
 De site is te installeren als app op telefoon, tablet en computer (iPhone/iPad: Safari → Delen →

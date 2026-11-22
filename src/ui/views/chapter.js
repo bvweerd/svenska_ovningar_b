@@ -47,7 +47,8 @@ export function viewChapter(ch) {
     ch.grammar.length
       ? foldSection('Grammatica', !p.itemsDone, plural(ch.grammar.length, 'onderwerp', 'onderwerpen'),
           h('ul', { class: 'cards' }, ch.grammar.map((g) =>
-            h('li', {}, h('a', { class: 'card', href: `#/k/${ch.chapter}/g/${g.id}` }, h('strong', {}, g.title), h('span', { html: inline(g.summary) }))))))
+            h('li', {}, h('a', { class: 'card', href: `#/k/${ch.chapter}/g/${g.id}` }, h('strong', {}, g.title), h('span', { html: inline(g.summary) }))))),
+          h('p', { class: 'small' }, h('a', { href: `#/k/${ch.chapter}/print` }, '🖨 Alle uitleg afdrukken als hand-out (A4)')))
       : null,
     ch.sections.map((s, i) => {
       const done = s.exercises.filter((ex) => getResult(ch.chapter, ex.id)?.completedAt).length;
