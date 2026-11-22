@@ -1,5 +1,5 @@
 import { describe, it, expect } from 'vitest';
-import { installAdvice, showIntro } from '../src/onboarding.js';
+import { installAdvice, showIntro } from '../src/ui/onboarding.js';
 
 const base = { standalone: false, touch: true, canPrompt: false, ios: false, used: true, visits: 1, hint: null, now: 1000 };
 

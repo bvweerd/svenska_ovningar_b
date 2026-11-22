@@ -1,7 +1,6 @@
 // Luisterknoppen en de tekst die bij een vraag hoort om voor te lezen.
 import { h } from '../dom.js';
-import { displayAnswer } from '../check/normalize.js';
-import { speak, stop, isSpeaking, speechSupported, speechStatus, getRate, setRate } from '../speech.js';
+import { speak, stop, isSpeaking, speechSupported, speechStatus, getRate, setRate } from '../../platform/speech.js';
 
 /** Kleine keuzelijst voor de voorleessnelheid (geldt overal). */
 /**
@@ -70,45 +69,3 @@ export function speakButton(text, { label = 'Luister', rate, className = '', get
   return btn;
 }
 
-const stripHints = (s) => String(s)
-  .replace(/\s*\([^)]*\)/g, '')
-  .replace(/\*\*|\*/g, '')
-  .replace(/\s+([.,!?])/g, '$1')
-  .replace(/\s+/g, ' ')
-  .trim();
-
-// "**stanna** (blijven): Vi ___ hemma." → "Vi ___ hemma."
-const cutLabel = (s) => {
-  const blank = s.indexOf('___');
-  const colon = s.lastIndexOf(': ', blank < 0 ? s.length : blank);
-  return colon >= 0 ? s.slice(colon + 2) : s;
-};
-
-/** De goede Zweedse zin bij een vraag, of null als er niets zinnigs voor te lezen is. */
-export function spokenText(item) {
-  if (!item) return null;
-  if (item.say) return item.say;
-  switch (item.type) {
-    case 'gap': {
-      if (/→|___.*:/.test(item.text) || item.noSpeak) return null;
-      const parts = cutLabel(item.text).split('___');
-      return stripHints(parts.map((p, i) => p + (i < item.gaps.length ? displayAnswer(item.gaps[i].answers) : '')).join(''));
-    }
-    case 'translate':
-    case 'transform':
-    case 'order':
-    case 'findError':
-    case 'listen':
-      return item.answers?.length ? displayAnswer(item.answers) : null;
-    case 'truefalse':
-      return item.correction ? displayAnswer(item.correction.answers) : item.statement;
-    case 'mc':
-      return item.prompt?.includes('___') ? stripHints(cutLabel(item.prompt).replace('___', String(item.options[item.answer]))) : null;
-    case 'dialogue':
-      return item.lines.map((l) => l.replace(/^[^:]{1,20}:\s*/, '')).join(' ');
-    case 'steps':
-      return [...item.steps].reverse().map(spokenText).find(Boolean) ?? null;
-    default:
-      return null;
-  }
-}

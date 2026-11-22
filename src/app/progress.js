@@ -1,4 +1,4 @@
-// Voortgang in localStorage: per vraag én per oefening.
+// Voortgang in de opslag van de browser (platform/storage.js): per vraag én per oefening.
 //
 // state = {
 //   v: 2,
@@ -21,7 +21,10 @@
 //   x: 1 = gemaakt buiten de oefening (toets, mix, herhaling, flitskaarten): telt wel als voortgang,
 //   maar niet als gedaan in de lopende ronde van de oefening.
 
-import { STORAGE_PREFIX } from './config.js';
+import { STORAGE_PREFIX } from '../config.js';
+import { hashItem } from '../core/hash.js';
+import { answerPart, isGradable } from '../core/items/index.js';
+import * as storage from '../platform/storage.js';
 
 export const KEY = `${STORAGE_PREFIX}:progress:v2`;
 const OLD_KEY = `${STORAGE_PREFIX}:progress:v1`;
@@ -33,13 +36,13 @@ let cachedState = null;
 
 function migrate() {
   try {
-    const old = JSON.parse(localStorage.getItem(OLD_KEY) ?? 'null');
+    const old = JSON.parse(storage.read(OLD_KEY) ?? 'null');
     if (!old) return null;
     const state = empty();
     for (const [k, r] of Object.entries(old)) {
       state.ex[k] = { best: r.best ?? 0, score: r.score, total: r.total, completedAt: r.at };
     }
-    localStorage.removeItem(OLD_KEY);
+    storage.remove(OLD_KEY);
     return state;
   } catch {
     return null;
@@ -48,7 +51,7 @@ function migrate() {
 
 function load() {
   try {
-    const raw = localStorage.getItem(KEY);
+    const raw = storage.read(KEY);
     if (raw && raw === cachedRaw) return cachedState;
     if (raw) {
       const s = JSON.parse(raw);
@@ -71,44 +74,15 @@ function load() {
 
 function save(state) {
   memory = state;
-  try {
-    const raw = JSON.stringify(state);
-    localStorage.setItem(KEY, raw);
+  const raw = JSON.stringify(state);
+  // Lukt schrijven niet (privévenster, vol), dan blijft de voortgang alleen in het geheugen.
+  if (storage.write(KEY, raw)) {
     cachedRaw = raw;
     cachedState = state;
-  } catch {
-    /* geen opslag beschikbaar: alleen in het geheugen */
   }
 }
 
-export function hashItem(item) {
-  const s = JSON.stringify(item);
-  let h = 5381;
-  for (let i = 0; i < s.length; i++) h = ((h << 5) + h + s.charCodeAt(i)) >>> 0;
-  return h.toString(36);
-}
-
-/** Het deel van een vraag dat bepaalt wat goed is. */
-function answerPart(item) {
-  if (!item || typeof item !== 'object') return item ?? null;
-  const cells = (rows) => (rows ?? []).map((r) => r.map((c) => (c && typeof c === 'object' ? c.answers : c)));
-  switch (item.type) {
-    case 'mc': return ['mc', item.options?.[item.answer]];
-    case 'multi': return ['multi', (item.answers ?? []).map((i) => item.options?.[i]).sort()];
-    case 'gap': return ['gap', (item.gaps ?? []).map((g) => g.answers)];
-    case 'table': return ['table', cells(item.rows)];
-    case 'truefalse': return ['truefalse', item.statement, item.answer, item.correction?.answers ?? null];
-    case 'findError': return ['findError', item.sentence, item.wrong, item.answers];
-    case 'match': return ['match', item.pairs];
-    case 'dialogue': return ['dialogue', item.lines];
-    case 'sort': return ['sort', item.categories, (item.items ?? []).map((x) => [x.text, x.cat])];
-    case 'clock': return ['clock', item.time];
-    case 'listen': return ['listen', item.say, item.options ? item.options[item.answer] : item.answers ?? null];
-    case 'steps': return ['steps', (item.steps ?? []).map(answerPart)];
-    case 'free': return ['free'];
-    default: return [item.type, item.answers ?? null];
-  }
-}
+export { hashItem };
 
 /** Vingerafdruk van de goede antwoorden van een vraag (per vraag-object onthouden: de inhoud verandert niet). */
 const hashes = new WeakMap();
@@ -121,7 +95,7 @@ export function answerHash(item) {
 const exKey = (ch, exId) => `${ch}/${exId}`;
 const itemId = (ex, idx) => ex.items[idx]?.id ?? idx;
 const itemKey = (ch, ex, idx) => `${ch}/${ex.id}/${itemId(ex, idx)}`;
-const gradable = (ex) => ex.items.map((it, idx) => ({ it, idx })).filter(({ it }) => it.type !== 'free');
+const gradable = (ex) => ex.items.map((it, idx) => ({ it, idx })).filter(({ it }) => isGradable(it));
 
 /** Status van één vraag, of null als die (nog) niet of in een oudere versie gemaakt is. */
 function itemRecord(state, ch, ex, idx) {
@@ -335,7 +309,7 @@ export function pickRound(ch, ex, size, rand = Math.random) {
   const state = load();
   const groups = [[], [], []];
   ex.items.forEach((item, idx) => {
-    if (item.type === 'free') return;
+    if (!isGradable(item)) return;
     const r = itemRecord(state, ch, ex, idx);
     groups[!r ? 0 : r.s === 'wrong' || r.s === 'revealed' ? 1 : 2].push(idx);
   });

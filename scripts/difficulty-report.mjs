@@ -14,6 +14,7 @@ import { pathToFileURL } from 'node:url';
 import yaml from 'js-yaml';
 
 import { root } from './sibling.mjs';
+import { isProduce, hasAnswerSentence } from '../src/core/items/index.js';
 
 /** De moeilijkheidslijn: per niveau leestekst (woorden), antwoordzin (woorden) en minimum aantal vragen. */
 export const LINE = [
@@ -26,7 +27,6 @@ export const LINE = [
 const words = (s) => (String(s).match(/[\p{L}\d'-]+/gu) ?? []).length;
 const firstAnswer = (a) => String([].concat(a)[0] ?? '').replace(/\[[^\]]*\]/g, '').replace(/\{([^|}]*)[^}]*\}/g, '$1');
 const mean = (xs) => (xs.length ? xs.reduce((a, b) => a + b, 0) / xs.length : 0);
-const PRODUCE = new Set(['translate', 'transform', 'order', 'findError', 'gap', 'free']);
 
 export function measure(ch) {
   const lens = [];
@@ -37,8 +37,8 @@ export function measure(ch) {
     for (const ex of s.exercises) for (const it of ex.items) {
       for (const x of it.type === 'steps' ? it.steps : [it]) {
         total++;
-        if (PRODUCE.has(x.type)) produce++;
-        if (['translate', 'transform', 'order', 'findError'].includes(x.type) && x.answers) lens.push(words(firstAnswer(x.answers)));
+        if (isProduce(x)) produce++;
+        if (hasAnswerSentence(x) && x.answers) lens.push(words(firstAnswer(x.answers)));
         else if (x.type === 'gap' && x.text) lens.push(words(x.text.replace(/___/g, 'x')));
       }
     }

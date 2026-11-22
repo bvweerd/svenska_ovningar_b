@@ -1,5 +1,5 @@
 import { describe, it, expect } from 'vitest';
-import { parentOf, ancestors, nextStack } from '../src/nav.js';
+import { parentOf, ancestors, nextStack } from '../src/ui/nav.js';
 
 const go = (...hrefs) => hrefs.reduce((s, h) => nextStack(s, h), ['#/']);
 

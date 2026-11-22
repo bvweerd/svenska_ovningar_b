@@ -1,10 +1,19 @@
 // Synchronisatie van voortgang tussen apparaten via de Cloudflare Worker (worker/src/sync.js).
 //
-// Een synccode (16 tekens, geen account) koppelt apparaten. De code staat in localStorage onder een
+// Een synccode (16 tekens, geen account) koppelt apparaten. De code staat in de opslag van de browser onder een
 // sleutel die beide sites delen (zelfde domein): één keer koppelen geldt voor de A1–A2- én de B1–B2-site.
 // Elke site bewaart wel zijn eigen voortgang. Samenvoegen gebeurt hier, met mergeStates (progress.js).
-import { SYNC_URL, STORAGE_PREFIX } from './config.js';
-import { progressSnapshot, mergeProgress, hashItem } from './progress.js';
+import { SYNC_URL, STORAGE_PREFIX } from '../config.js';
+import { hashItem } from '../core/hash.js';
+import { read, write } from './storage.js';
+
+// De voortgang zelf: main.js geeft mee hoe je hem leest en samenvoegt (bindProgress).
+let progress = { snapshot: () => ({}), merge: () => false };
+export function bindProgress(snapshot, merge) {
+  progress = { snapshot, merge };
+}
+const progressSnapshot = () => progress.snapshot();
+const mergeProgress = (data) => progress.merge(data);
 
 const CODE_KEY = 'svensk-ovningar:sync-code';
 const META_KEY = `${STORAGE_PREFIX}:sync`;
@@ -12,8 +21,6 @@ const ALPHABET = '0123456789abcdefghjkmnpqrstvwxyz';
 
 export const syncConfigured = () => !!SYNC_URL;
 
-const read = (k) => { try { return localStorage.getItem(k); } catch { return null; } };
-const write = (k, v) => { try { if (v === null) localStorage.removeItem(k); else localStorage.setItem(k, v); } catch { /* */ } };
 
 /** Code zoals iemand hem intypt → 16 tekens, of null. Spaties, streepjes, hoofdletters en o/i/l mogen. */
 export function normalizeCode(input) {

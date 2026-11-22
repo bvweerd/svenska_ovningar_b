@@ -2,8 +2,8 @@ import { describe, it, expect } from 'vitest';
 import fs from 'node:fs';
 import path from 'node:path';
 import yaml from 'js-yaml';
-import { verbItem, naiveForms, pretOptions, pickVerbItem, withNewKinds, TENSES, KINDS } from '../src/verbs.js';
-import { gradeText } from '../src/check/grade.js';
+import { verbItem, naiveForms, pretOptions, pickVerbItem, withNewKinds, TENSES, KINDS } from '../src/core/verbs.js';
+import { gradeText } from '../src/core/check/grade.js';
 
 const verbs = yaml.load(fs.readFileSync(path.resolve(import.meta.dirname, '../content/verbs.yaml'), 'utf8')).verbs;
 

@@ -2,8 +2,8 @@
 // hem als app te installeren. Allebei op de startpagina, nooit als venster dat de pagina blokkeert,
 // en allebei weg te klikken.
 import { h } from './dom.js';
-import { getPref, setPref, hasProgress } from './progress.js';
-import { isStandalone, isIos, canPromptInstall, promptInstall, watchInstall } from './pwa.js';
+import { getPref, setPref, hasProgress } from '../app/progress.js';
+import { isStandalone, isIos, canPromptInstall, promptInstall, watchInstall } from '../platform/pwa.js';
 
 const DAY = 24 * 60 * 60 * 1000;
 /** Na „Niet nu” komt het advies na zoveel dagen terug. */

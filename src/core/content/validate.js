@@ -1,86 +1,13 @@
 // Controleert de structuur van een (gebouwd) hoofdstuk. Geeft een lijst foutmeldingen.
 import { exampleGap } from './build.js';
-
-const TYPES = new Set(['mc', 'multi', 'gap', 'translate', 'order', 'match', 'table', 'truefalse', 'clock', 'dialogue', 'free', 'steps', 'findError', 'transform', 'listen', 'sort']);
+import { itemType, isGradable } from '../items/index.js';
 
 function checkItem(item, where, errors, topics) {
   const err = (msg) => errors.push(`${where}: ${msg}`);
-  if (!TYPES.has(item.type)) return err(`onbekend type "${item.type}"`);
+  const t = itemType(item.type);
+  if (!t) return err(`onbekend type "${item.type}"`);
   if (item.topic && !topics.has(item.topic)) err(`onbekend topic "${item.topic}"`);
-  switch (item.type) {
-    case 'mc':
-      if (!Array.isArray(item.options) || item.options.length < 2) err('mc heeft minstens 2 opties nodig');
-      if (!Number.isInteger(item.answer) || item.answer < 0 || item.answer >= (item.options?.length ?? 0)) err('mc-antwoord buiten bereik');
-      if (new Set(item.options).size !== item.options?.length) err('mc heeft dubbele opties');
-      break;
-    case 'multi':
-      if (!Array.isArray(item.answers) || !item.answers.length) err('multi heeft antwoorden nodig');
-      if (!Array.isArray(item.options) || item.options.length < 2) err('multi heeft minstens 2 opties nodig');
-      if (item.answers?.some((a) => !Number.isInteger(a) || a < 0 || a >= (item.options?.length ?? 0))) err('multi-antwoord buiten bereik');
-      break;
-    case 'gap': {
-      if (typeof item.text !== 'string') { err('gap heeft een tekst nodig'); break; }
-      const holes = (item.text.match(/___/g) ?? []).length;
-      if (!holes) err('gap-tekst bevat geen ___');
-      if (holes !== item.gaps?.length) err(`gap: ${holes} gaten maar ${item.gaps?.length ?? 0} antwoorden`);
-      item.gaps?.forEach((g, i) => {
-        if (!g.answers?.length) err(`gap ${i + 1} heeft geen antwoorden`);
-        if (g.options && !g.answers?.every((a) => g.options.includes(a))) err(`gap ${i + 1}: antwoord staat niet tussen de opties`);
-      });
-      break;
-    }
-    case 'translate':
-      if (!item.prompt || !item.answers?.length) err('translate heeft prompt en antwoorden nodig');
-      break;
-    case 'order':
-      if (!item.tokens?.length || !item.answers?.length) err('order heeft tokens en antwoorden nodig');
-      break;
-    case 'match':
-      if (!item.pairs?.length || item.pairs.some((p) => p.length !== 2)) err('match heeft paren [links, rechts] nodig');
-      break;
-    case 'table':
-      if (!item.columns?.length || !item.rows?.length) err('table heeft kolommen en rijen nodig');
-      item.rows?.forEach((r, i) => {
-        if (!Array.isArray(r)) err(`tabelrij ${i + 1} is geen lijst`);
-        else if (r.length !== item.columns?.length) err(`tabelrij ${i + 1} heeft ${r.length} cellen, verwacht ${item.columns?.length ?? 0}`);
-      });
-      break;
-    case 'truefalse':
-      if (typeof item.answer !== 'boolean' || !item.statement) err('truefalse heeft statement en answer (true/false) nodig');
-      if (item.correction && item.answer) err('truefalse: verbetering alleen bij een foute bewering');
-      if (!item.answer && item.correction && !item.correction.answers?.length) err('truefalse: verbetering zonder antwoorden');
-      break;
-    case 'transform':
-      if (!item.prompt || !item.answers?.length) err('transform heeft prompt en antwoorden nodig');
-      break;
-    case 'listen':
-      if (!item.say) err('listen heeft een tekst (say) nodig');
-      if (item.options && (!Number.isInteger(item.answer) || item.answer < 0 || item.answer >= item.options.length)) err('listen: antwoord buiten bereik');
-      break;
-    case 'sort':
-      if (!item.categories || item.categories.length < 2) err('sort heeft minstens 2 categorieën nodig');
-      if (!item.items?.length || item.items.some((x) => !x.text || !Number.isInteger(x.cat) || x.cat < 0 || x.cat >= (item.categories?.length ?? 0))) err('sort: elk item heeft text en een geldige cat nodig');
-      break;
-    case 'clock':
-      if (!/^\d{1,2}:\d{2}$/.test(item.time ?? '')) err('clock heeft een tijd "uu:mm" nodig');
-      break;
-    case 'dialogue':
-      if (!item.lines || item.lines.length < 3) err('dialogue heeft minstens 3 regels nodig');
-      break;
-    case 'free':
-      if (!item.prompt) err('free heeft een prompt nodig');
-      break;
-    case 'findError': {
-      const n = (item.sentence ?? '').split(' ').length;
-      if (!item.sentence || !item.answers?.length) err('findError heeft sentence en answers nodig');
-      if (!Array.isArray(item.wrong) || !item.wrong.length || item.wrong.some((i) => !Number.isInteger(i) || i < 0 || i >= n)) err('findError: wrong moet geldige woordnummers bevatten');
-      break;
-    }
-    case 'steps':
-      if (!item.steps?.length || item.steps.length < 2) err('steps heeft minstens 2 stappen nodig');
-      item.steps?.forEach((s, i) => checkItem(s, `${where} stap ${i + 1}`, errors, topics));
-      break;
-  }
+  t.validate?.(item, err, (sub, label) => checkItem(sub, `${where} ${label}`, errors, topics));
 }
 
 /** Woordenlijst: { sv, nl, def?, pl?, plDef?, mass?, alt?, ex?, exNl? } (zie vocabExercises in build.js). */
@@ -126,7 +53,7 @@ function checkCanDo(ch, topics, errors) {
     for (const t of c.topics) if (!topics.has(t)) err(`#${i + 1}: onbekend topic "${t}"`);
     // Zonder genoeg vragen in dit hoofdstuk kan de uitspraak nooit (eerlijk) worden afgevinkt.
     const set = new Set(c.topics);
-    const n = ch.exercises.reduce((sum, ex) => sum + ex.items.filter((it) => it.type !== 'free' && set.has(it.topic ?? ex.topic)).length, 0);
+    const n = ch.exercises.reduce((sum, ex) => sum + ex.items.filter((it) => isGradable(it) && set.has(it.topic ?? ex.topic)).length, 0);
     if (n < 5) err(`#${i + 1}: maar ${n} vragen over deze topics in dit hoofdstuk (minstens 5)`);
   });
 }

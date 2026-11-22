@@ -1,0 +1,41 @@
+// Klok: hoe laat is het?
+import { h } from '../dom.js';
+import { clockSpec } from '../../core/check/grade.js';
+import { prompt, lockInputs, sentenceField } from './fields.js';
+
+// ---------- Klok ----------
+function clockSvg(time) {
+  const [hh, mm] = time.split(':').map(Number);
+  const ns = 'http://www.w3.org/2000/svg';
+  const svg = document.createElementNS(ns, 'svg');
+  svg.setAttribute('viewBox', '0 0 100 100');
+  svg.setAttribute('class', 'clock');
+  svg.setAttribute('role', 'img');
+  svg.setAttribute('aria-label', `Klok die ${time} aanwijst`);
+  const add = (tag, attrs) => {
+    const e = document.createElementNS(ns, tag);
+    for (const [k, v] of Object.entries(attrs)) e.setAttribute(k, v);
+    svg.append(e);
+    return e;
+  };
+  add('circle', { cx: 50, cy: 50, r: 46, class: 'face' });
+  for (let i = 0; i < 12; i++) {
+    const a = (i / 12) * 2 * Math.PI;
+    add('line', {
+      x1: 50 + 38 * Math.sin(a), y1: 50 - 38 * Math.cos(a),
+      x2: 50 + 43 * Math.sin(a), y2: 50 - 43 * Math.cos(a), class: 'tick',
+    });
+  }
+  const hand = (angle, len, cls) => add('line', { x1: 50, y1: 50, x2: 50 + len * Math.sin(angle), y2: 50 - len * Math.cos(angle), class: cls });
+  hand((((hh % 12) + mm / 60) / 12) * 2 * Math.PI, 24, 'hour');
+  hand((mm / 60) * 2 * Math.PI, 35, 'minute');
+  add('circle', { cx: 50, cy: 50, r: 2.5, class: 'pin' });
+  return svg;
+}
+
+export function clock(item, ctx) {
+  const spec = clockSpec(item);
+  const f = sentenceField(spec, ctx, { label: 'Hoe laat is het?', topic: 'klockan' });
+  const el = h('div', { class: 'clock-item' }, clockSvg(item.time), h('div', {}, prompt(item.prompt ?? 'Hoe laat is het?'), f.field.el));
+  return { el, check: f.check, reveal: f.reveal, lock: () => { f.field.lock(); lockInputs(el); } };
+}

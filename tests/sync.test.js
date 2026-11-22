@@ -10,8 +10,9 @@ globalThis.localStorage = {
   setItem: (k, v) => store.set(k, String(v)),
   removeItem: (k) => store.delete(k),
 };
-const P = await import('../src/progress.js');
-const S = await import('../src/sync.js');
+const P = await import('../src/app/progress.js');
+const S = await import('../src/platform/sync.js');
+S.bindProgress(P.progressSnapshot, P.mergeProgress);
 
 /** Nep-Worker met dezelfde regels als worker/src/sync.js (volgnummer, 409 bij conflict). */
 function fakeServer() {

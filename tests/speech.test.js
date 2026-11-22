@@ -1,7 +1,7 @@
 import { describe, it, expect } from 'vitest';
-import { splitSentences, voiceScore, voiceGender, noSwedishVoice, isMobileDevice } from '../src/speech.js';
-import { spokenText } from '../src/render/speak.js';
-import { gradeSort } from '../src/check/grade.js';
+import { splitSentences, voiceScore, voiceGender, noSwedishVoice, isMobileDevice } from '../src/platform/speech.js';
+import { spokenText } from '../src/core/items/index.js';
+import { gradeSort } from '../src/core/check/grade.js';
 
 describe('splitSentences', () => {
   it('splitst op zinnen en haalt opmaak weg', () => {

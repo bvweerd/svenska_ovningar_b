@@ -1,5 +1,5 @@
 import { describe, it, expect, beforeEach } from 'vitest';
-import { answerTiles, distractorTiles, isSentence, setKnownWords } from '../src/render/tiles.js';
+import { answerTiles, distractorTiles, isSentence, setKnownWords } from '../src/ui/items/tiles.js';
 
 describe('woordtegels', () => {
   beforeEach(() => setKnownWords(['jag', 'mötet', 'det'], ['Anna']));

@@ -1,16 +1,16 @@
 // Luisteren: instellingen, uitleg per browser en een dicteeronde.
 import { h } from '../dom.js';
-import { course } from '../content.js';
-import { crumbs, exerciseRunner, findTopic } from '../ui.js';
-import { shuffle } from '../build.js';
-import { displayAnswer } from '../check/normalize.js';
+import { course } from '../../app/content.js';
+import { crumbs, exerciseRunner, findTopic } from '../shared.js';
+import { shuffle } from '../../core/content/build.js';
+import { displayAnswer } from '../../core/check/normalize.js';
 import {
   speechSupported, speechStatus, swedishVoices, chosenVoice, setVoice, getRate, setRate, speak, stop, onVoicesChanged,
   voiceGender, chooseGender, getPitch, setPitch,
-} from '../speech.js';
-import { speakButton, voiceNote } from '../render/speak.js';
-import { trackEvent } from '../analytics.js';
-import { recordDictation, pickDictation, dictationProgress } from '../progress.js';
+} from '../../platform/speech.js';
+import { speakButton, voiceNote } from '../components/speak.js';
+import { trackEvent } from '../../platform/analytics.js';
+import { recordDictation, pickDictation, dictationProgress } from '../../app/progress.js';
 
 const TEST_SENTENCE = 'Hej! Jag heter Sanne och jag bor i Uppsala. Nu ska jag dricka en kopp kaffe, sju sjösjuka sjömän och en tjock kjol.';
 

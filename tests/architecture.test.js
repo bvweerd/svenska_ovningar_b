@@ -41,16 +41,11 @@ function imports(f) {
 // Bekende uitzonderingen tijdens de overgang. Deze lijsten mogen alleen korter worden: de tests
 // vergelijken exact, dus een opgeloste uitzondering moet hier ook weg.
 const KNOWN = {
-  unplaced: [
-    'analytics.js', 'build.js', 'check/adverbial.js', 'check/clock.js', 'check/diagnose.js', 'check/grade.js',
-    'check/normalize.js', 'content.js', 'dom.js', 'md.js', 'menu.js', 'nav.js', 'onboarding.js', 'progress.js',
-    'pwa.js', 'render/item-card.js', 'render/items.js', 'render/speak.js', 'render/tap.js', 'render/tiles.js',
-    'report.js', 'speech.js', 'sync.js', 'ui.js', 'validate.js', 'verbs.js', 'views/listen.js', 'views/practice.js',
-  ],
+  unplaced: [],
   layers: [],
   browserInCore: [],
-  storage: ['analytics.js', 'main.js', 'progress.js', 'sync.js'],
-  big: ['main.js', 'progress.js', 'render/items.js', 'views/practice.js'],
+  storage: [],
+  big: ['app/progress.js', 'main.js', 'ui/views/practice.js'],
 };
 
 const graph = Object.fromEntries(all.map((f) => [f, imports(f)]));

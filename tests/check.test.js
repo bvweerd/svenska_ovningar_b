@@ -1,9 +1,9 @@
 import { describe, it, expect } from 'vitest';
-import { normalize, expand, variants, displayAnswer } from '../src/check/normalize.js';
-import { diagnose } from '../src/check/diagnose.js';
-import { gradeText, gradeMulti, gradeMatch, gradeDialogue, gradeOrder, clockSpec } from '../src/check/grade.js';
-import { swedishTime } from '../src/check/clock.js';
-import { markdown } from '../src/md.js';
+import { normalize, expand, variants, displayAnswer } from '../src/core/check/normalize.js';
+import { diagnose } from '../src/core/check/diagnose.js';
+import { gradeText, gradeMulti, gradeMatch, gradeDialogue, gradeOrder, clockSpec } from '../src/core/check/grade.js';
+import { swedishTime } from '../src/core/check/clock.js';
+import { markdown } from '../src/ui/md.js';
 
 describe('normalize', () => {
   it('negeert hoofdletters, leestekens en spaties', () => {
@@ -245,7 +245,7 @@ describe('vaste volgorde (fixedOrder)', () => {
 });
 
 describe('woordenlijst: meervoud en voorbeeldzin', async () => {
-  const { vocabExercises, exampleGap } = await import('../src/build.js');
+  const { vocabExercises, exampleGap } = await import('../src/core/content/build.js');
   const vocab = [
     { sv: 'en buss', nl: 'een bus', def: 'bussen', pl: 'bussar', ex: 'Jag tar **bussen** till jobbet.', exNl: 'Ik neem de bus naar mijn werk.' },
     { sv: 'ett hus', nl: 'een huis', def: 'huset', pl: 'hus' },
@@ -318,8 +318,8 @@ describe('woordenlijst: meervoud en voorbeeldzin', async () => {
 });
 
 describe('mix en toets: niet alleen woordenschat', async () => {
-  const { balancedSample } = await import('../src/content.js');
-  const { shuffle } = await import('../src/build.js');
+  const { balancedSample } = await import('../src/app/content.js');
+  const { shuffle } = await import('../src/core/content/build.js');
   const entries = [
     ...Array.from({ length: 90 }, (_, i) => ({ ex: { generated: true }, i })),
     ...Array.from({ length: 30 }, (_, i) => ({ ex: {}, i: 100 + i })),
@@ -337,7 +337,7 @@ describe('mix en toets: niet alleen woordenschat', async () => {
 
 describe('vrij schrijven: hulp zonder oordeel', () => {
   it('somt woordenaantal en hulpwoorden op', async () => {
-    const { freeHelp } = await import('../src/check/grade.js');
+    const { freeHelp } = await import('../src/core/check/grade.js');
     expect(freeHelp({ minWords: 25, require: [{ word: 'heter', label: 'Je vertelt hoe je heet' }, { any: ['bor', 'bodde'] }] }))
       .toEqual(['Ongeveer 25 woorden', 'Je vertelt hoe je heet', 'Gebruik „bor”']);
     expect(freeHelp({})).toEqual([]);

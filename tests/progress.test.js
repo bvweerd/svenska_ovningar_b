@@ -8,7 +8,7 @@ globalThis.localStorage = {
   removeItem: (k) => store.delete(k),
 };
 
-const P = await import('../src/progress.js');
+const P = await import('../src/app/progress.js');
 
 const ex = {
   id: 'oef',

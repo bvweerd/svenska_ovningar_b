@@ -1,5 +1,5 @@
 import { describe, it, expect } from 'vitest';
-import { reportPayload } from '../src/report.js';
+import { reportPayload } from '../src/ui/components/report.js';
 import { REPORT_REPO } from '../src/config.js';
 
 // De Worker zelf heeft eigen tests: worker/index.test.js (alleen in de B1–B2-repo).

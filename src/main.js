@@ -1,31 +1,34 @@
 import './styles.css';
-import { h } from './dom.js';
-import { markdown, inline } from './md.js';
-import { course, levels, practiceEntries, balancedSample } from './content.js';
+import { h } from './ui/dom.js';
+import { markdown, inline } from './ui/md.js';
+import { course, levels, practiceEntries, balancedSample } from './app/content.js';
 import { SITE_TEXT, SIBLING } from './config.js';
-import { reportConfigured } from './report.js';
-import { syncConfigured, syncNow, initSync, getCode, setCode, forgetCode, newCode, normalizeCode, formatCode, linkFor, lastSync } from './sync.js';
-import { speakButton, speedSelect, voiceNote } from './render/speak.js';
-import { speechSupported } from './speech.js';
-import { setKnownWords, getInputMode, setInputMode } from './render/tiles.js';
-import { expand } from './check/normalize.js';
-import { viewListenSettings, viewDictation, reportSpeechStatus } from './views/listen.js';
-import { itemCard } from './render/item-card.js';
-import { createMenu } from './menu.js';
-import { initAppNav, navigate } from './nav.js';
-import { initPwa, installSection, isStandalone, syncThemeColor } from './pwa.js';
-import { homeNotices, countVisit } from './onboarding.js';
-import { initAnalytics, trackPage, trackEvent, scoreBucket, analyticsConfigured, optedOut, setOptOut } from './analytics.js';
+import { reportConfigured } from './ui/components/report.js';
+import { bindProgress, syncConfigured, syncNow, initSync, getCode, setCode, forgetCode, newCode, normalizeCode, formatCode, linkFor, lastSync } from './platform/sync.js';
+import { speakButton, speedSelect, voiceNote } from './ui/components/speak.js';
+import { speechSupported, usePrefs } from './platform/speech.js';
+import { setKnownWords, getInputMode, setInputMode } from './ui/items/tiles.js';
+import { expand } from './core/check/normalize.js';
+import { typeName } from './core/items/index.js';
+import { viewListenSettings, viewDictation, reportSpeechStatus } from './ui/views/listen.js';
+import { itemCard } from './ui/items/item-card.js';
+import { createMenu } from './ui/menu.js';
+import { initAppNav, navigate } from './ui/nav.js';
+import * as storage from './platform/storage.js';
+import { initPwa, isStandalone, syncThemeColor } from './platform/pwa.js';
+import { installSection, showUpdate } from './ui/components/pwa.js';
+import { homeNotices, countVisit } from './ui/onboarding.js';
+import { initAnalytics, trackPage, trackEvent, scoreBucket, analyticsConfigured, optedOut, setOptOut } from './platform/analytics.js';
 import {
   viewPracticeHub, viewDaily, viewVerbTrainer, viewFlashcards, viewTest, viewGames, viewGame, GAMES, dueCount, streakText,
-} from './views/practice.js';
-import { autoNext, setAutoNext, chapterByNo, findTopic, crumbs, progressBar, exerciseRunner, practiceView, splitTheme, plural, scoreMessage, missedList } from './ui.js';
-import { shuffle } from './build.js';
+} from './ui/views/practice.js';
+import { autoNext, setAutoNext, chapterByNo, findTopic, crumbs, progressBar, exerciseRunner, practiceView, splitTheme, plural, scoreMessage, missedList } from './ui/shared.js';
+import { shuffle } from './core/content/build.js';
 import {
   getResult, chapterProgress, resetProgress, recordItem, runState, startRun, completeRun, pickRound,
   weakItems, setLast, getLast, exportProgress, importProgress, migrateToIds,
-  roundProgress, canDoStatus, newCanDo, getPref, setPref, openItems,
-} from './progress.js';
+  roundProgress, canDoStatus, newCanDo, getPref, setPref, openItems, progressSnapshot, mergeProgress,
+} from './app/progress.js';
 
 const app = document.getElementById('app');
 
@@ -229,12 +232,6 @@ function foldSection(title, open, meta, ...content) {
     ...content);
 }
 
-const TYPE_NAMES = {
-  mc: 'meerkeuze', multi: 'meerdere antwoorden', gap: 'invullen', translate: 'vertalen', order: 'zinsbouw',
-  match: 'koppelen', table: 'tabel', truefalse: 'rätt/fel', clock: 'klok', dialogue: 'dialoog', free: 'schrijven', findError: 'zoek de fout',
-  transform: 'omvormen', listen: 'luisteren', sort: 'sorteren',
-};
-const typeName = (t) => TYPE_NAMES[t] ?? t;
 
 // ---------- Oefening ----------
 /** Uitleg boven een ronde van een lange oefening. */
@@ -946,16 +943,14 @@ function themeToggle() {
     else delete document.documentElement.dataset.theme;
     syncThemeColor();
   };
-  let saved = null;
-  try { saved = localStorage.getItem(THEME_KEY); } catch { /* */ }
-  apply(saved);
+  apply(storage.read(THEME_KEY));
   btn?.addEventListener('click', () => {
     const dark = document.documentElement.dataset.theme
       ? document.documentElement.dataset.theme === 'dark'
       : matchMedia('(prefers-color-scheme: dark)').matches;
     const t = dark ? 'light' : 'dark';
     apply(t);
-    try { localStorage.setItem(THEME_KEY, t); } catch { /* */ }
+    storage.write(THEME_KEY, t);
   });
 }
 
@@ -981,12 +976,14 @@ function knownWords() {
   return [out, names];
 }
 
+usePrefs(getPref, setPref);
+bindProgress(progressSnapshot, mergeProgress);
 setKnownWords(...knownWords());
 // Oude voortgang (opgeslagen op de plek van een vraag) eenmalig omzetten naar vraag-id's.
 migrateToIds(course);
 const updateMenu = createMenu(course);
 initAnalytics();
-initPwa();
+initPwa({ onUpdate: showUpdate });
 countVisit();
 reportSpeechStatus();
 // Geïnstalleerde app: de terugknop gaat naar de bovenliggende pagina (zie nav.js).

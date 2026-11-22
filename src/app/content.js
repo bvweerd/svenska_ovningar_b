@@ -1,8 +1,9 @@
-import index from '../content/index.yaml';
-import verbData from '../content/verbs.yaml';
-import { buildCourse } from './build.js';
+import index from '../../content/index.yaml';
+import verbData from '../../content/verbs.yaml';
+import { buildCourse } from '../core/content/build.js';
+import { isGradable } from '../core/items/index.js';
 
-const files = import.meta.glob('../content/chapters/*.yaml', { eager: true, import: 'default' });
+const files = import.meta.glob('../../content/chapters/*.yaml', { eager: true, import: 'default' });
 
 export const course = buildCourse(index, Object.values(files));
 export const verbs = verbData.verbs;
@@ -27,5 +28,5 @@ export function practiceEntries(chapters = course) {
     .filter((c) => c.available)
     .flatMap((chapter) => chapter.exercises
       .filter((ex) => !ex.text)
-      .flatMap((ex) => ex.items.map((item, idx) => ({ chapter, ex, idx, item })).filter(({ item }) => item.type !== 'free')));
+      .flatMap((ex) => ex.items.map((item, idx) => ({ chapter, ex, idx, item })).filter(({ item }) => isGradable(item))));
 }

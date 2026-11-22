@@ -1,8 +1,8 @@
 // „Meld een fout”: een klein formulier per vraag. De melding gaat naar een Cloudflare Worker,
 // die er een GitHub-issue van maakt (zie worker/). Gebruikers hebben geen account nodig.
-import { h } from './dom.js';
-import { REPORT_URL, TURNSTILE_SITEKEY, REPORT_REPO } from './config.js';
-import { trackEvent } from './analytics.js';
+import { h } from '../dom.js';
+import { REPORT_URL, TURNSTILE_SITEKEY, REPORT_REPO } from '../../config.js';
+import { trackEvent } from '../../platform/analytics.js';
 
 export const reportConfigured = () => !!(REPORT_URL && TURNSTILE_SITEKEY);
 

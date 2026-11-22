@@ -1,25 +1,12 @@
 // Omhulsel rond één vraag: knop "Controleer", feedback en oplopende hulp.
 import { h } from '../dom.js';
 import { inline } from '../md.js';
-import { RENDERERS } from './items.js';
-import { speakButton, spokenText } from './speak.js';
-import { reportButton } from '../report.js';
+import { RENDERERS } from './index.js';
+import { speakButton } from '../components/speak.js';
+import { spokenText, selfChecking } from '../../core/items/index.js';
+import { reportButton } from '../components/report.js';
 
 const GENERIC_WRONG = 'Nog niet goed. Probeer het nog eens.';
-
-/**
- * Vragen die zichzelf nakijken zodra je kiest: daar is de knop Controleer overbodig.
- * (Enter blijft werken.) Bij een vervolgstap met typen of tegels komt de knop wel tevoorschijn.
- */
-export function selfChecking(item) {
-  switch (item.type) {
-    case 'mc': case 'truefalse': case 'sort': case 'match': case 'dialogue': case 'findError': return true;
-    case 'listen': return !!item.options;
-    case 'gap': return (item.gaps ?? []).every((g) => g.options);
-    case 'steps': return selfChecking(item.steps?.[0] ?? {});
-    default: return false;
-  }
-}
 
 /**
  * @param item    de vraag

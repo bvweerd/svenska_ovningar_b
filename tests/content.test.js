@@ -4,11 +4,11 @@ import { describe, it, expect } from 'vitest';
 import fs from 'node:fs';
 import path from 'node:path';
 import yaml from 'js-yaml';
-import { buildCourse } from '../src/build.js';
-import { validateChapter, WRITING_STEPS } from '../src/validate.js';
-import { practiceEntries } from '../src/content.js';
-import { gradeText, gradeOrder, clockSpec } from '../src/check/grade.js';
-import { expand, normalize } from '../src/check/normalize.js';
+import { buildCourse } from '../src/core/content/build.js';
+import { validateChapter, WRITING_STEPS } from '../src/core/content/validate.js';
+import { practiceEntries } from '../src/app/content.js';
+import { gradeText, gradeOrder, clockSpec } from '../src/core/check/grade.js';
+import { expand, normalize } from '../src/core/check/normalize.js';
 
 const root = path.resolve(import.meta.dirname, '..', 'content');
 const index = yaml.load(fs.readFileSync(path.join(root, 'index.yaml'), 'utf8'));

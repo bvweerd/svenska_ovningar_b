@@ -1,6 +1,6 @@
 // Werkwoordtrainer en spelvragen: vragen genereren uit content/verbs.yaml.
 
-import { list } from './build.js';
+import { list } from './content/build.js';
 
 export const TENSES = {
   pres: { label: 'presens', topic: 'presens' },

@@ -1,6 +1,7 @@
 // Anonieme statistieken via GoatCounter: paginabezoeken en events (zoals goed/fout per vraag).
 // Geen cookies en geen persoonsgegevens. Bezoekers kunnen het uitzetten op de pagina "Over".
-import { GOATCOUNTER_CODE, PATH_PREFIX } from './config.js';
+import { GOATCOUNTER_CODE, PATH_PREFIX } from '../config.js';
+import { read, write } from './storage.js';
 
 const OPT_OUT_KEY = 'svensk-ovningar:analytics-opt-out';
 let loaded = false;
@@ -8,21 +9,10 @@ const queue = [];
 
 export const analyticsConfigured = () => !!GOATCOUNTER_CODE;
 
-export function optedOut() {
-  try {
-    return localStorage.getItem(OPT_OUT_KEY) === '1';
-  } catch {
-    return false;
-  }
-}
+export const optedOut = () => read(OPT_OUT_KEY) === '1';
 
 export function setOptOut(value) {
-  try {
-    if (value) localStorage.setItem(OPT_OUT_KEY, '1');
-    else localStorage.removeItem(OPT_OUT_KEY);
-  } catch {
-    /* geen opslag beschikbaar */
-  }
+  write(OPT_OUT_KEY, value ? '1' : null);
   if (!value) initAnalytics();
 }
 

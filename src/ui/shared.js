@@ -1,14 +1,14 @@
 // Gedeelde onderdelen voor alle pagina's.
 import { h } from './dom.js';
-import { course } from './content.js';
-import { itemCard } from './render/item-card.js';
-import { recordItem, getPref, setPref } from './progress.js';
+import { course } from '../app/content.js';
+import { itemCard } from './items/item-card.js';
+import { recordItem, getPref, setPref } from '../app/progress.js';
 
 /** Na een goed antwoord vanzelf naar de volgende vraag (instelling op de pagina Over, per apparaat). */
 export const autoNext = () => getPref('autoNext', true) !== false;
 export const setAutoNext = (on) => setPref('autoNext', !!on);
-import { trackEvent, itemSummary, STATUS_LABEL } from './analytics.js';
-import { spokenText } from './render/speak.js';
+import { trackEvent, itemSummary, STATUS_LABEL } from '../platform/analytics.js';
+import { spokenText } from '../core/items/index.js';
 
 export const chapterByNo = (n) => course.find((c) => c.chapter === Number(n));
 

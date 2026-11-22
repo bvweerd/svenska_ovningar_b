@@ -1,9 +1,9 @@
 // Menubalk bovenaan: hoofdstukken (uitklapmenu), grammatica, herhalen, over.
 // Op smalle schermen klapt alles in achter één menuknop.
 import { h } from './dom.js';
-import { splitTheme } from './ui.js';
-import { dueItems } from './progress.js';
-import { practiceEntries, levels } from './content.js';
+import { splitTheme } from './shared.js';
+import { dueItems } from '../app/progress.js';
+import { practiceEntries, levels } from '../app/content.js';
 
 export function createMenu(course) {
   const nav = document.getElementById('menu');

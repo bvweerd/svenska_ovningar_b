@@ -1,6 +1,13 @@
 // Voorlezen met de spraakfunctie van de browser (Web Speech API, speechSynthesis).
 // Geen eigen geluidsbestanden: de kwaliteit hangt af van de Zweedse stemmen op het apparaat.
-import { getPref, setPref } from './progress.js';
+// Voorkeuren (stem, snelheid, toonhoogte) worden met de voortgang bewaard en gesynchroniseerd;
+// main.js geeft de functies daarvoor mee (usePrefs), zodat deze module niets van de voortgang weet.
+let prefs = { get: (_k, fallback) => fallback, set: () => {} };
+export function usePrefs(get, set) {
+  prefs = { get, set };
+}
+const getPref = (k, fallback) => prefs.get(k, fallback);
+const setPref = (k, v) => prefs.set(k, v);
 
 const synth = () => (typeof window !== 'undefined' ? window.speechSynthesis : undefined);
 

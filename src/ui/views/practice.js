@@ -1,16 +1,16 @@
 // Extra oefenvormen: dagelijkse herhaling, werkwoordtrainer, flitskaarten, toetsen en snelle rondes.
 import { h } from '../dom.js';
-import { course, verbs, practiceEntries, balancedSample } from '../content.js';
-import { crumbs, practiceView, exerciseRunner, findTopic, progressBar } from '../ui.js';
-import { itemCard } from '../render/item-card.js';
-import { shuffle } from '../build.js';
+import { course, verbs, practiceEntries, balancedSample } from '../../app/content.js';
+import { crumbs, practiceView, exerciseRunner, findTopic, progressBar } from '../shared.js';
+import { itemCard } from '../items/item-card.js';
+import { shuffle } from '../../core/content/build.js';
 import {
   dueItems, srsStats, streak, weakItems, saveTest, getTest, saveGame, getGame,
   getPref, setPref, INTERVALS, rateCard, pickCards, cardProgress,
-} from '../progress.js';
-import { TENSES, KINDS, pickVerbItem, pretOptions, withNewKinds } from '../verbs.js';
-import { trackEvent, scoreBucket } from '../analytics.js';
-import { speak, speechSupported } from '../speech.js';
+} from '../../app/progress.js';
+import { TENSES, KINDS, pickVerbItem, pretOptions, withNewKinds } from '../../core/verbs.js';
+import { trackEvent, scoreBucket } from '../../platform/analytics.js';
+import { speak, speechSupported } from '../../platform/speech.js';
 
 const available = () => course.filter((c) => c.available);
 const plural = (n, one, more) => `${n} ${n === 1 ? one : more}`;

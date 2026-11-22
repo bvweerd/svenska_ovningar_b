@@ -1,8 +1,8 @@
 // Koppelen en dialoog ordenen door te tikken (handig op een telefoon, werkt ook met toetsenbord).
 import { h } from '../dom.js';
 import { inline } from '../md.js';
-import { shuffle } from '../build.js';
-import { gradeMatch, gradeDialogue } from '../check/grade.js';
+import { shuffle } from '../../core/content/build.js';
+import { gradeMatch, gradeDialogue } from '../../core/check/grade.js';
 
 const prompt = (text) => (text ? h('p', { class: 'prompt', html: inline(text) }) : null);
 const fill = (el, ...kids) => el.replaceChildren(...kids.flat(Infinity).filter((k) => k !== null && k !== undefined && k !== false));

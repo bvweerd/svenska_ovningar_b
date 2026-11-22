@@ -2,9 +2,9 @@
 // Een zinsveld geeft { el, value(), reveal(text), mark(ok), lock(), focus() } terug,
 // zodat de vraagtypen niet hoeven te weten of er getypt of getikt wordt.
 import { h } from '../dom.js';
-import { displayAnswer, expand } from '../check/normalize.js';
-import { shuffle } from '../build.js';
-import { getPref, setPref } from '../progress.js';
+import { displayAnswer, expand } from '../../core/check/normalize.js';
+import { shuffle } from '../../core/content/build.js';
+import { getPref, setPref } from '../../app/progress.js';
 
 const MIN_WORDS = 3; // kortere antwoorden blijven gewoon typen
 const MAX_DISTRACTORS = 3;
