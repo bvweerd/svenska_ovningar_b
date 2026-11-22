@@ -21,4 +21,8 @@ describe('woordtegels', () => {
     expect(isSentence(['förra året'])).toBe(false);
     expect(isSentence(['Jag har ingen bil.'])).toBe(true);
   });
+  it('hoofdlettergevoelig: de verkeerde hoofdletter is een afleider (issue #11)', () => {
+    const spec = { answers: ['Vi ses på måndag.'], caseSensitive: true };
+    expect(distractorTiles(spec, { source: 'Vi ses på Måndag.' })).toEqual(['Måndag']);
+  });
 });

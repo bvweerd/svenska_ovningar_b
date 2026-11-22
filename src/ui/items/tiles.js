@@ -45,7 +45,9 @@ export function answerTiles(answers) {
  * die niet in het goede antwoord voorkomen.
  */
 export function distractorTiles(spec, { source } = {}) {
-  const inAnswer = new Set(words(displayAnswer(spec.answers)).map((w) => w.toLowerCase()));
+  // Gaat het om hoofdletters (caseSensitive), dan is „Måndag” naast „måndag” juist een goede afleider.
+  const keyOf = (w) => (spec.caseSensitive ? w : w.toLowerCase());
+  const inAnswer = new Set(words(displayAnswer(spec.answers)).map(keyOf));
   const pool = [];
   for (const f of spec.feedback ?? []) {
     for (const m of [].concat(f.match ?? [], f.contains ?? [])) pool.push(...words(expand(m)[0]));
@@ -54,10 +56,10 @@ export function distractorTiles(spec, { source } = {}) {
   const seen = new Set();
   const out = [];
   for (const w of pool) {
-    const key = w.toLowerCase();
+    const key = keyOf(w);
     if (inAnswer.has(key) || seen.has(key) || w.length < 2) continue;
     seen.add(key);
-    out.push(lowerWords.has(key) && !names.has(w) ? key : w);
+    out.push(!spec.caseSensitive && lowerWords.has(key) && !names.has(w) ? key : w);
   }
   return out.slice(0, MAX_DISTRACTORS);
 }

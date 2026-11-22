@@ -3,6 +3,7 @@
 /**
  * Maakt een antwoord vergelijkbaar: Unicode-normalisatie, typografische tekens
  * gelijktrekken, leestekens weghalen, spaties samenvoegen en (standaard) kleine letters.
+ * caseSensitive: hoofdletters tellen, behalve die van het eerste woord.
  */
 export function normalize(input, { caseSensitive = false } = {}) {
   const s = String(input ?? '')
@@ -12,7 +13,9 @@ export function normalize(input, { caseSensitive = false } = {}) {
     .replace(/[.,!?;:"“”„«»()]/g, ' ')
     .replace(/\s+/g, ' ')
     .trim();
-  return foldVariants(caseSensitive ? s : s.toLocaleLowerCase('sv'));
+  // Hoofdlettergevoelig gaat over woorden midden in de zin (dagen, maanden, talen). De hoofdletter
+  // aan het begin telt niet: woordtegels beginnen altijd met een kleine letter.
+  return foldVariants(caseSensitive ? s.charAt(0).toLocaleUpperCase('sv') + s.slice(1) : s.toLocaleLowerCase('sv'));
 }
 
 // Spellingsvarianten die allebei correct zijn (SAOL), zodat elk antwoordpatroon ze

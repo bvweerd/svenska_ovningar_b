@@ -1,5 +1,6 @@
 // Luisteren, klok, zinsbouw, koppelen en dialoog.
 import { displayAnswer } from '../check/normalize.js';
+import { firstWords } from './text.js';
 
 export const listen = {
   type: 'listen',
@@ -30,6 +31,7 @@ export const order = {
   validate(item, err) {
     if (!item.tokens?.length || !item.answers?.length) err('order heeft tokens en antwoorden nodig');
   },
+  hint: (item) => firstWords(item.answers),
   spoken: (item) => (item.answers?.length ? displayAnswer(item.answers) : null),
 };
 
