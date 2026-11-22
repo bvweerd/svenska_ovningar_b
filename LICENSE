@@ -1,16 +1,29 @@
-MIT License
+Copyright (c) 2026 bvweerd. All rights reserved.
 
-Copyright (c) 2026 bvweerd
+SOURCE CODE
 
-Permission is hereby granted, free of charge, to any person obtaining a copy
-of this software and associated documentation files (the "Software"), to deal
-in the Software without restriction, including without limitation the rights
-to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-copies of the Software, and to permit persons to whom the Software is
-furnished to do so, subject to the following conditions:
+The source code in this repository (everything outside the `content/`
+directory, including the Cloudflare Worker in `worker/` where present) is
+proprietary. It is published so that it can be read and reviewed.
 
-The above copyright notice and this permission notice shall be included in all
-copies or substantial portions of the Software.
+Without prior written permission from the copyright holder you may not, for
+commercial or non-commercial purposes:
+
+- use, run or host the code, or any part of it, as a website, app or service;
+- copy, modify, adapt, translate or create works based on the code;
+- publish, distribute, sublicense, sell or otherwise make the code or such
+  works available to others.
+
+Viewing the code on GitHub, and forking it on GitHub as far as the GitHub
+Terms of Service require, is allowed; any other use of a fork is not.
+
+To ask for permission, open an issue in this repository.
+
+Using the published website itself (doing the exercises in your browser,
+installing it as an app) is free and is not restricted by this notice.
+
+Versions of the code that were published earlier under the MIT License
+remain available under that license for those earlier copies only.
 
 THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
 IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
@@ -20,9 +33,8 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 
----
+EXERCISE CONTENT
 
-The MIT License above applies to the source code (everything outside the
-`content/` directory). The exercise content in `content/` is licensed under
-Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International
+The exercise content in `content/` is licensed separately under Creative
+Commons Attribution-NonCommercial-ShareAlike 4.0 International
 (CC BY-NC-SA 4.0). See content/LICENSE.md.

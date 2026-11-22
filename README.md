@@ -214,6 +214,9 @@ Pas je gedeelde code aan, kopieer die dan naar de andere repo en controleer met 
 
 ## Licentie
 
-- **Code**: [MIT](LICENSE).
+- **Code**: alle rechten voorbehouden ([LICENSE](LICENSE)). Je mag de code lezen, maar niet gebruiken,
+  kopiëren, aanpassen of verspreiden (ook niet niet-commercieel) zonder schriftelijke toestemming; vraag
+  die via een issue. De site zelf gebruiken is gratis. Eerder onder MIT gepubliceerde versies blijven
+  voor die kopieën onder MIT.
 - **Oefenstof** (`content/`): [CC BY-NC-SA 4.0](content/LICENSE.md): vrij te gebruiken en te bewerken
   met naamsvermelding, niet commercieel, en bewerkingen onder dezelfde licentie.

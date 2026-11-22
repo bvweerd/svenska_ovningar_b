@@ -17,4 +17,4 @@ De volledige juridische tekst staat op
 <https://creativecommons.org/licenses/by-nc-sa/4.0/legalcode.nl>.
 
 De oefenstof is zelf geschreven. De opbouw volgt die van gangbare cursussen Zweeds, maar er zijn geen teksten
-of oefeningen uit lesmethoden overgenomen. De broncode van de site valt onder de MIT-licentie (zie `LICENSE` in de hoofdmap).
+of oefeningen uit lesmethoden overgenomen. Voor de broncode van de site gelden alle rechten voorbehouden (zie `LICENSE` in de hoofdmap).
