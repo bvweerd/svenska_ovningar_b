@@ -4,6 +4,7 @@
 import { h } from '../dom.js';
 import { displayAnswer, expand } from '../../core/check/normalize.js';
 import { shuffle } from '../../core/content/build.js';
+import { draggable, dropIndex, inside } from './drag.js';
 import { getPref, setPref } from '../../app/progress.js';
 
 const MIN_WORDS = 3; // kortere antwoorden blijven gewoon typen
@@ -139,6 +140,7 @@ function typedImpl(spec, opts) {
  * - Een invoegcursor in de zin (standaard achteraan): tik tussen twee woorden om daar verder
  *   te gaan. Een tik op een woord in de zin haalt het weg. Op een woord in de zin verplaatsen
  *   ←/→ het woord, Delete/Backspace haalt het weg.
+ * - Tegels zijn ook te slepen (drag.js): naar een plek in de zin, of uit de zin weg.
  * - Er wordt niet vanzelf nagekeken: onComplete meldt alleen dat alle woorden liggen.
  * opts: { tiles: [{ t }], start (vaste tekst vooraan), label, placeholder, needed (aantal woorden
  *   van een volledige zin), sample (de woorden van de goede zin, om de hoogte te meten), onComplete }
@@ -192,6 +194,37 @@ export function tileBoard(opts) {
   });
   const bankFirst = () => bank.querySelector('.chip:not(.used):not(:disabled)');
 
+  // ---------- Slepen ----------
+  const lineChips = (except) => [...line.querySelectorAll('.chip:not(.fixed)')].filter((c) => c !== except);
+  const showDrop = (except) => (p) => {
+    const at = inside(line, p) ? dropIndex(lineChips(except), p) : -1;
+    line.querySelectorAll('.slot').forEach((s, k) => s.classList.toggle('drop', k === at));
+    line.classList.toggle('drop-out', at === -1 && !!except);
+  };
+  const endDrag = () => {
+    line.querySelectorAll('.slot.drop').forEach((s) => s.classList.remove('drop'));
+    line.classList.remove('drop-out');
+  };
+  /** Tegel uit de zin (plek i) losgelaten op p: verplaatsen binnen de zin, of weghalen. */
+  const dropFromLine = (i, el) => (p) => {
+    if (!inside(line, p)) return remove(i, { refocus: false });
+    const to = dropIndex(lineChips(el), p);
+    const [c] = chosen.splice(i, 1);
+    chosen.splice(to, 0, c);
+    cursor = chosen.length;
+    say(`„${c.t}” staat nu op plaats ${to + 1} van ${chosen.length}.`);
+    changed();
+  };
+  /** Tegel uit de bank losgelaten op p: invoegen op die plek in de zin. */
+  const dropFromBank = (c) => (p) => {
+    if (!inside(line, p) || chosen.includes(c)) return;
+    const to = dropIndex(lineChips(), p);
+    chosen.splice(to, 0, c);
+    cursor = chosen.length;
+    say(`„${c.t}” ingevoegd op plaats ${to + 1} van ${chosen.length}.`);
+    changed();
+  };
+
   // Getoond goed antwoord (reveal): blijft staan, ook als lock() de regel daarna opnieuw tekent.
   let revealedText = null;
 
@@ -207,7 +240,8 @@ export function tileBoard(opts) {
     const kids = [];
     if (opts.start) kids.push(h('span', { class: 'chip fixed' }, opts.start));
     chosen.forEach((c, i) => {
-      kids.push(slot(i), h('button', {
+      let chip;
+      kids.push(slot(i), chip = h('button', {
         type: 'button',
         class: 'chip',
         disabled: locked,
@@ -223,6 +257,7 @@ export function tileBoard(opts) {
           }
         },
       }, c.t));
+      draggable(chip, { disabled: () => locked, onMove: showDrop(chip), onDrop: dropFromLine(i, chip), onEnd: endDrag });
     });
     if (chosen.length || opts.start) kids.push(slot(chosen.length));
     if (!chosen.length && !opts.start) kids.push(h('span', { class: 'placeholder' }, opts.placeholder ?? 'Tik de woorden aan in de goede volgorde.'));
@@ -231,7 +266,7 @@ export function tileBoard(opts) {
     // Gebruikte tegels blijven als lege plek staan: de bank verspringt niet.
     bank.replaceChildren(...all.map((c) => {
       const used = chosen.includes(c);
-      return h('button', {
+      const chip = h('button', {
         type: 'button',
         class: `chip${used ? ' used' : ''}`,
         disabled: locked || used,
@@ -245,6 +280,8 @@ export function tileBoard(opts) {
           if (!changed()) bankFirst()?.focus({ preventScroll: true });
         },
       }, c.t);
+      if (!used) draggable(chip, { disabled: () => locked, onMove: showDrop(null), onDrop: dropFromBank(c), onEnd: endDrag });
+      return chip;
     }));
   }
   draw();

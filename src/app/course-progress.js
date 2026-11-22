@@ -18,7 +18,9 @@ export function onwardFrom(ch, ex) {
   // Alles afgerond: dan de oefeningen met vragen die nog openstaan.
   const open = [...ch.exercises.slice(pos + 1), ...ch.exercises.slice(0, pos)].find((e) => openItems(ch.chapter, e).length);
   if (open) return { ex: open, label: `Nog open: ${open.title}` };
-  return { chapter: course.find((c) => c.chapter > ch.chapter && c.available) ?? null };
+  // Hoofdstuk af: het eerstvolgende hoofdstuk dat nog niet af is (daarna een eerder hoofdstuk).
+  const open2 = course.filter((c) => c.available && c !== ch && !chapterDone(c));
+  return { chapter: open2.find((c) => c.chapter > ch.chapter) ?? open2[0] ?? null };
 }
 
 /** Behaalde kan-doen-uitspraken die nog niet gemeld waren: tellen (één keer) en teruggeven. */

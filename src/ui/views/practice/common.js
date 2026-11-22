@@ -1,7 +1,7 @@
 // Gedeeld door de oefenvormen (herhaling, werkwoorden, flitskaarten, toets, snelle rondes).
 import { h } from '../../dom.js';
 import { course, practiceEntries } from '../../../app/content.js';
-import { dueItems, streak } from '../../../app/progress.js';
+import { dueItems, reviewLeft, streak } from '../../../app/progress.js';
 
 export const available = () => course.filter((c) => c.available);
 export const plural = (n, one, more) => `${n} ${n === 1 ? one : more}`;
@@ -22,8 +22,9 @@ export function onKeys(root, handler, signal) {
   document.addEventListener('keydown', listener);
 }
 
+/** Herhaalvragen voor vandaag: wat klaarstaat, hooguit tot het dagdoel. */
 export function dueCount() {
-  return dueItems(practiceEntries()).length;
+  return reviewLeft(dueItems(practiceEntries()).length);
 }
 
 export function streakText() {

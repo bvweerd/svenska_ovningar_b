@@ -85,7 +85,7 @@ export function gradeDialogue(order, item) {
   return {
     correct: false,
     kind: 'dialogue',
-    tip: `Regel ${firstWrong + 1} staat nog niet op de goede plek. Welke zin is een logische reactie op de zin ervoor?`,
+    tip: `${order.filter((v, i) => v !== i).length} regels staan nog niet op de goede plek (rood); de groene staan goed. Kijk eerst naar regel ${firstWrong + 1}: welke zin is een logische reactie op de zin ervoor?`,
   };
 }
 
@@ -110,8 +110,11 @@ export function gradeFields(inputs, specs, ctx) {
   if (results.every((r) => r.correct)) return { correct: true, fields: results.map(() => true) };
   if (results.every((r) => r.empty)) return { correct: false, empty: true, tip: 'Je hebt nog niets ingevuld.' };
   const firstWrong = results.find((r) => !r.correct && !r.empty && r.tip) ?? results.find((r) => !r.correct);
-  const wrongCount = results.filter((r) => !r.correct).length;
-  const prefix = specs.length > 1 ? `${wrongCount} ${wrongCount === 1 ? 'antwoord is' : 'antwoorden zijn'} nog niet goed. ` : '';
+  const goodCount = results.filter((r) => r.correct).length;
+  // Bij meer vakjes: hoeveel er al goed zijn. Die worden groen en blijven staan (zie ui/items/fields.js).
+  const prefix = specs.length > 1
+    ? `${goodCount} van ${specs.length} goed.${goodCount ? ' De groene staan vast; verbeter de rode.' : ''} `
+    : '';
   return {
     correct: false,
     kind: firstWrong.kind,

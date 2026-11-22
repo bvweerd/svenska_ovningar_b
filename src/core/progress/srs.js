@@ -12,10 +12,14 @@ export function today(offsetDays = 0, now = Date.now()) {
   return `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, '0')}-${String(d.getDate()).padStart(2, '0')}`;
 }
 
-/** Volgende stand van een vraag: in één keer goed → doos hoger; anders terug naar doos 1 (morgen). */
+/**
+ * Volgende stand van een vraag: in één keer goed → doos hoger; anders terug naar doos 1 (morgen).
+ * De allereerste keer in één keer goed: meteen doos 2 (over twee dagen). Wie de stof al kent, krijgt zo
+ * minder herhaling; een fout zet de vraag altijd terug naar doos 1.
+ */
 export function nextSrs(prev, status, now = Date.now()) {
   if (status === 'free') return prev ?? null;
-  const box = status === 'good' ? Math.min((prev?.box ?? 0) + 1, MAX_BOX) : 1;
+  const box = status === 'good' ? Math.min((prev?.box ?? 1) + 1, MAX_BOX) : 1;
   return { box, due: today(INTERVALS[box], now) };
 }
 
@@ -36,6 +40,29 @@ export function dueItems(state, entries, date = today()) {
     .map((e) => ({ ...e, rec: srs[itemKey(e.chapter.chapter, e.ex, e.idx)] }))
     .filter((e) => e.rec && e.rec.h === answerHash(e.item) && e.rec.due <= date)
     .sort((a, b) => (a.rec.due < b.rec.due ? -1 : a.rec.due > b.rec.due ? 1 : a.rec.box - b.rec.box));
+}
+
+/** Zoveel herhaalvragen per dag is het doel; wie wil, doet er meer. */
+export const DAILY_GOAL = 20;
+
+/**
+ * Kiest n vragen uit de herhaalvragen (al op volgorde: oudste eerst) met afwisseling: om en om uit
+ * verschillende onderwerpen, zodat er niet tien vragen over hetzelfde achter elkaar komen.
+ * topicOf(entry) → onderwerp.
+ */
+export function pickReview(due, n, topicOf) {
+  const groups = new Map();
+  for (const e of due) {
+    const t = topicOf(e) ?? '';
+    if (!groups.has(t)) groups.set(t, []);
+    groups.get(t).push(e);
+  }
+  const queues = [...groups.values()];
+  const out = [];
+  while (out.length < n && queues.some((q) => q.length)) {
+    for (const q of queues) if (q.length && out.length < n) out.push(q.shift());
+  }
+  return out;
 }
 
 /** Hoeveel vragen zitten in welke doos (alleen bekende, actuele vragen). */

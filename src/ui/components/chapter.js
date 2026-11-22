@@ -1,9 +1,12 @@
 // Onderdelen van een hoofdstukpagina die ook elders gebruikt worden.
 import { h } from '../dom.js';
-import { getResult, runState, canDoStatus, openItems } from '../../app/progress.js';
+import { getResult, runState, canDoStatus, openItems, roundProgress } from '../../app/progress.js';
 import { claimCanDo, exerciseDone } from '../../app/course-progress.js';
 
 /** Eigen kleur per hoofdstuk (een tint op de kleurencirkel), voor een streep op kaart en kop. */
+/** Vinkje als SVG: staat altijd precies in het midden van het rondje (een ✓-teken verschuift per lettertype). */
+const CHECK = '<svg viewBox="0 0 16 16" width="0.8em" height="0.8em"><path d="M3.5 8.5l3 3 6-7" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>';
+
 export const chapterHue = (ch) => `--ch-hue:${(ch.chapter * 137) % 360}`;
 
 /** Wat je na dit hoofdstuk kunt; de app vinkt het zelf af (zie canDoStatus in core/progress/cando.js). */
@@ -17,7 +20,7 @@ export function canDoList(ch) {
       const pct = (n) => (x.total ? Math.round((n / x.total) * 100) : 0);
       const label = `${x.seen} van ${x.total} vragen gemaakt, ${x.known} beheerst`;
       return h('li', { class: x.done ? 'done' : '' },
-        h('span', { class: 'cando-mark', 'aria-hidden': 'true' }, x.done ? '✓' : ''),
+        h('span', { class: 'cando-mark', 'aria-hidden': 'true', html: x.done ? CHECK : '' }),
         h('span', { class: 'cando-body' },
           h('span', { class: 'cando-text' }, x.text, x.done ? h('span', { class: 'sr-only' }, ' (behaald)') : null),
           // Twee tinten: licht = gemaakt, donker = beheerst. Zo is er al voortgang te zien vóór het vinkje.
@@ -37,13 +40,18 @@ export function exerciseBadge(ch, ex) {
   const res = getResult(ch.chapter, ex.id);
   const inProgress = run.started && run.done.size > 0 && run.done.size < run.total;
   if (inProgress) return h('span', { class: 'badge mid', title: 'Bezig' }, `${run.done.size}/${run.total}`);
-  // Afgerond, maar met vragen die nog niet meetellen (later toegevoegd, gewijzigd, of woorden die nog niet aan de beurt waren).
-  const open = res?.completedAt || exerciseDone(ch, ex) ? openItems(ch.chapter, ex).length : 0;
-  if (open) {
-    const words = ex.roundSize && ex.items.length > ex.roundSize;
-    return h('span', { class: 'badge mid', title: words ? `${open} woorden nog niet gehad` : `${open} ${open === 1 ? 'vraag' : 'vragen'} nieuw of nog niet gemaakt` },
-      words ? `${open} te gaan` : `${open} nieuw`);
+  // Lange woordenlijst in rondes: net als bij andere oefeningen een percentage, hier van de woorden
+  // die je (de laatste keer) goed had.
+  if (ex.roundSize && ex.items.length > ex.roundSize) {
+    const p = roundProgress(ch.chapter, ex);
+    if (!p.seen) return null;
+    const good = p.seen - p.wrong;
+    const pct = Math.round((good / p.total) * 100);
+    return h('span', { class: `badge ${pct >= 80 ? 'good' : 'mid'}`, title: `${good} van ${p.total} woorden goed${p.fresh ? `, ${p.fresh} nog niet gehad` : ''}` }, `${pct}%`);
   }
+  // Afgerond, maar met vragen die nog niet meetellen (later toegevoegd of gewijzigd).
+  const open = res?.completedAt || exerciseDone(ch, ex) ? openItems(ch.chapter, ex).length : 0;
+  if (open) return h('span', { class: 'badge mid', title: `${open} ${open === 1 ? 'vraag' : 'vragen'} nieuw of nog niet gemaakt` }, `${open} nieuw`);
   if (res?.completedAt) return h('span', { class: `badge ${res.best >= 0.8 ? 'good' : 'mid'}`, title: 'Beste score' }, `${Math.round(res.best * 100)}%`);
   return null;
 }

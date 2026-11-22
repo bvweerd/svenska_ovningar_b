@@ -40,6 +40,7 @@ const STEPS = {
     steps: [
       'Open **Instellingen → Tijd en taal → Spraak**.',
       'Kies bij **Stemmen beheren** de knop **Stemmen toevoegen**, zoek **Zweeds** op en kies **Toevoegen**. Lukt dat niet, open dan Verteller-instellingen met **Windows-toets + Ctrl + N** en kies **Verouderde stemmen toevoegen** (Windows 10: **Meer stemmen toevoegen**); dat brengt je naar dezelfde pagina.',
+      'Staat Zweeds daar niet tussen, of verschijnt er na het toevoegen toch geen stem? Installeer dan eerst het **taalpakket**: **Instellingen → Tijd en taal → Taal en regio → Een taal toevoegen**, kies **Svenska (Sverige)** en vink **Tekst-naar-spraak** aan. Je hoeft Zweeds niet als weergavetaal te kiezen.',
       'Wacht tot het downloaden klaar is en **start de browser opnieuw**.',
       'Kies hieronder de stem **Microsoft Bengt**. Dat is de enige Zweedse stem van Windows zelf (een mannenstem). Op een computer van je werk kan het toevoegen van stemmen geblokkeerd zijn; gebruik dan Edge (zie hierboven).',
     ],

@@ -66,7 +66,7 @@ describe('andere vraagtypen', () => {
     expect(gradeMatch([0, 1], { pairs: [[1, 2], [3, 4]] }).correct).toBe(true);
     expect(gradeMatch([1, 0], { pairs: [[1, 2], [3, 4]] }).fields).toEqual([false, false]);
   });
-  it('dialogue', () => expect(gradeDialogue([0, 2, 1], {}).tip).toMatch(/Regel 2/));
+  it('dialogue', () => expect(gradeDialogue([0, 2, 1], {}).tip).toMatch(/regel 2/));
   it('order met vast begin', () => {
     const item = { start: 'Idag', tokens: ['jobbar', 'jag'], answers: ['Idag jobbar jag.'] };
     expect(gradeOrder(['jobbar', 'jag'], item).correct).toBe(true);
@@ -269,7 +269,7 @@ describe('woordenlijst: meervoud en voorbeeldzin', async () => {
     expect(items.map((i) => i.text)).toEqual(['Jag tar ___ till jobbet.', 'Hon ___ varje morgon.']);
     expect(gradeText('springer', items[1].gaps[0]).correct).toBe(true);
   });
-  it('lange lijsten krijgen rondes', () => expect(byId['woorden-sv-nl'].roundSize).toBe(15));
+  it('lange lijsten krijgen rondes', () => expect(byId['woorden-sv-nl'].roundSize).toBe(10));
   it('tip bij de bepaalde vorm meervoud', () => {
     const v = [{ sv: 'en bil', nl: 'een auto', def: 'bilen', pl: 'bilar', plDef: 'bilarna' }];
     const it0 = vocabExercises(v, 1).find((e) => e.id === 'woorden-meervoud').items[0];

@@ -2,7 +2,7 @@
 // Op smalle schermen klapt alles in achter één menuknop.
 import { h } from './dom.js';
 import { splitTheme } from './shared.js';
-import { dueItems } from '../app/progress.js';
+import { dueItems, reviewLeft } from '../app/progress.js';
 import { practiceEntries, levels } from '../app/content.js';
 
 export function createMenu(course) {
@@ -87,7 +87,7 @@ export function createMenu(course) {
       if (cur) a.setAttribute('aria-current', 'page');
       else a.removeAttribute('aria-current');
     }
-    const n = dueItems(practiceEntries(course)).length;
+    const n = reviewLeft(dueItems(practiceEntries(course)).length);
     weakCount.hidden = n === 0;
     weakCount.textContent = String(n);
     weakCount.setAttribute('aria-label', `${n} vragen om vandaag te herhalen`);

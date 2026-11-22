@@ -4,8 +4,12 @@ import { isGradable } from '../items/index.js';
 import { answerHash, exKey, itemId, itemKey, itemRecord, gradable } from './schema.js';
 import { nextSrs, withDay } from './srs.js';
 
-/** @param opts { outside: true } als de vraag buiten de oefening zelf gemaakt is (toets, mix, herhaling). */
-export function recordItem(state, ch, ex, idx, status, { outside = false, now = Date.now() } = {}) {
+/**
+ * @param opts.outside  true als de vraag buiten de oefening zelf gemaakt is (toets, mix, herhaling)
+ * @param opts.share    bij een vraag met meer vakjes die niet in één keer goed was: het deel dat bij de
+ *                      eerste poging goed was (0–1). Telt naar rato mee in de score (p).
+ */
+export function recordItem(state, ch, ex, idx, status, { outside = false, share, now = Date.now() } = {}) {
   const key = itemKey(ch, ex, idx);
   const h = answerHash(ex.items[idx]);
   const srs = state.srs ?? {};
@@ -13,7 +17,7 @@ export function recordItem(state, ch, ex, idx, status, { outside = false, now = 
   const next = nextSrs(prev, status, now);
   return {
     ...state,
-    items: { ...state.items, [key]: { s: status, at: now, h, ...(outside ? { x: 1 } : {}) } },
+    items: { ...state.items, [key]: { s: status, at: now, h, ...(outside ? { x: 1 } : {}), ...(status === 'wrong' && share > 0 ? { p: Math.round(share * 100) / 100 } : {}) } },
     srs: next ? { ...srs, [key]: { ...next, h } } : srs,
     days: withDay(state.days, now),
   };
@@ -26,6 +30,9 @@ function roundIndices(ex, rec) {
   const ids = new Set(rec.pick.map(String));
   return all.filter((idx) => ids.has(String(itemId(ex, idx))));
 }
+
+/** Punten voor één vraag: 1 als hij in één keer goed was, anders het deel dat de eerste keer goed was. */
+const points = (r) => (r?.s === 'good' ? 1 : r?.p ?? 0);
 
 /** Welke vragen zijn in de lopende ronde al gedaan? inRound(idx): hoort deze vraag bij de ronde? */
 export function runState(state, ch, ex) {
@@ -40,7 +47,7 @@ export function runState(state, ch, ex) {
       if (r && r.at >= start && !r.x) done.set(idx, r.s);
     });
   }
-  return { started: !!start, done, total: indices.length, inRound: (idx) => inRound.has(idx) };
+  return { started: !!start, done, total: indices.length, inRound: (idx) => inRound.has(idx), points: (idx) => (done.has(idx) ? points(itemRecord(state, ch, ex, idx)) : 0) };
 }
 
 const mix = (a, rand) => {
@@ -102,9 +109,10 @@ export function startRun(state, ch, ex, pick = null, now = Date.now()) {
 
 /** Sluit een ronde af. → { state, score, total } (score van deze ronde) */
 export function completeRun(state, ch, ex, now = Date.now()) {
-  const { done, inRound } = runState(state, ch, ex);
-  const items = gradable(ex).filter(({ idx }) => inRound(idx));
-  const score = items.filter(({ idx }) => done.get(idx) === 'good').length;
+  const run = runState(state, ch, ex);
+  const items = gradable(ex).filter(({ idx }) => run.inRound(idx));
+  // Score met deelpunten voor vragen met meer vakjes; op twee decimalen.
+  const score = Math.round(items.reduce((n, { idx }) => n + run.points(idx), 0) * 100) / 100;
   const total = items.length;
   const k = exKey(ch, ex.id);
   const prev = state.ex[k] ?? { best: 0 };
@@ -118,7 +126,7 @@ export function completeRun(state, ch, ex, now = Date.now()) {
     const all = gradable(ex);
     const records = all.map(({ idx }) => itemRecord(state, ch, ex, idx));
     const complete = records.every(Boolean);
-    const whole = all.length ? records.filter((r) => r?.s === 'good').length / all.length : 1;
+    const whole = all.length ? records.reduce((n, r) => n + points(r), 0) / all.length : 1;
     const { pick: _round, runStart: _start, ...rest } = prev;
     rec = {
       ...rest,
