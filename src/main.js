@@ -19,6 +19,8 @@ import { charBar } from './ui/components/charbar.js';
 import { themeToggle } from './ui/components/theme.js';
 import { createRouter } from './ui/router.js';
 import { routes } from './ui/routes.js';
+import { initBadges } from './app/rewards.js';
+import { announceBadges } from './ui/views/badges.js';
 
 const app = document.getElementById('app');
 
@@ -50,6 +52,7 @@ themeToggle();
 router.start();
 // Voortgang van buiten (ander apparaat, import, wissen): pagina's zonder invoer opnieuw tekenen.
 progressStore.subscribe((_state, { reason }) => {
-  if (reason !== 'local') router.refresh();
+  if (reason === 'sync' || reason === 'import' || reason === 'reset') router.refresh();
 });
+initBadges({ onAward: announceBadges });
 initSync();

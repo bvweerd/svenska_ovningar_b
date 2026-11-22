@@ -7,6 +7,7 @@ import { dueCount, streakText } from './practice/common.js';
 import { progressBar, splitTheme, plural } from '../shared.js';
 import { chapterProgress, getLast, canDoStatus } from '../../app/progress.js';
 import { chapterHue } from '../components/chapter.js';
+import { badgeSummary } from './badges.js';
 
 export function viewHome() {
   document.title = 'Svenska övningar';
@@ -50,6 +51,16 @@ export function viewHome() {
           h('strong', {}, due ? `${due} ${due === 1 ? 'vraag staat' : 'vragen staan'} voor je klaar` : 'Werkwoordtrainer, flitskaarten en snelle rondes'),
           h('span', { class: 'streak-line' }, streakText()));
       })(),
+      // Prestaties pas tonen als er al iets gemaakt is.
+      totals.done
+        ? (() => {
+            const b = badgeSummary();
+            return h('a', { class: 'continue alt', href: '#/prestaties' },
+              h('span', { class: 'eyebrow' }, 'Prestaties'),
+              h('strong', {}, b.earned ? `${b.earned} van ${b.total} behaald` : 'Je eerste prestatie is dichtbij'),
+              h('span', { class: 'streak-line' }, 'Wat je beheerst, doelen, toetsen en oefendagen.'));
+          })()
+        : null,
     ),
     (levels.length ? levels : [{ id: null }]).map((lv) => [
       lv.id ? h('div', { class: 'level-head' }, h('h2', {}, lv.title), lv.intro ? h('p', { class: 'muted' }, lv.intro) : null) : null,

@@ -162,6 +162,18 @@ export function weakItems(state, chapter) {
   return out;
 }
 
+/**
+ * Is een oefening af? Afgerond, of bij een lange oefening in rondes (woordenschat): na één ronde.
+ * Die oefen je verder in rondes en in de herhaling, zonder eerst de hele lijst af te maken.
+ */
+export function exerciseDone(state, ch, ex) {
+  if (getResult(state, ch.chapter, ex.id)?.completedAt) return true;
+  return !!(ex.roundSize && ex.items.length > ex.roundSize && roundProgress(state, ch.chapter, ex).seen >= ex.roundSize);
+}
+
+/** Alle oefeningen van een (open) hoofdstuk af? */
+export const chapterDone = (state, c) => c.available && c.exercises?.length > 0 && c.exercises.every((e) => exerciseDone(state, c, e));
+
 /** Heeft deze gebruiker al iets gemaakt (een vraag, flitskaart of dictee)? */
 export function hasProgress(state) {
   return Object.keys(state.items ?? {}).length > 0 || Object.keys(state.cards ?? {}).length > 0 || Object.keys(state.dictee ?? {}).length > 0;

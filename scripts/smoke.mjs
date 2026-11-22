@@ -50,7 +50,7 @@ async function session(scheme, visit) {
   await ctx.close();
 }
 
-const PAGES = ['/', '/over', '/luisteren', '/grammatica', '/herhalen', '/oefenen', '/oefenen/herhaling', '/oefenen/werkwoorden',
+const PAGES = ['/', '/over', '/luisteren', '/grammatica', '/herhalen', '/prestaties', '/oefenen', '/oefenen/herhaling', '/oefenen/werkwoorden',
   '/oefenen/luisteren', '/oefenen/spel', '/koppel/abcd', '/bestaat-niet'];
 
 for (const scheme of ['light', 'dark']) {

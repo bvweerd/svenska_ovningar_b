@@ -7,6 +7,7 @@ import { viewMix, viewWeak, viewWeakAll } from './views/review.js';
 import { viewGrammarIndex, viewGrammar } from './views/grammar.js';
 import { viewAbout } from './views/about.js';
 import { viewLink } from './views/sync.js';
+import { viewBadges } from './views/badges.js';
 import { viewListenSettings, viewDictation } from './views/listen.js';
 import { viewPracticeHub } from './views/practice/hub.js';
 import { viewDaily } from './views/practice/daily.js';
@@ -29,6 +30,7 @@ export const routes = [
   { path: '/luisteren', view: () => viewListenSettings() },
   { path: '/grammatica', view: () => viewGrammarIndex() },
   { path: '/herhalen', view: () => viewWeakAll(), refresh: true },
+  { path: '/prestaties', view: () => viewBadges(), refresh: true },
   { path: '/oefenen', view: () => viewPracticeHub(), refresh: true },
   { path: '/oefenen/herhaling', view: () => viewDaily() },
   { path: '/oefenen/werkwoorden', view: () => viewVerbTrainer() },

@@ -24,6 +24,7 @@ const exTime = (r) => r?.at ?? Math.max(r?.completedAt ?? 0, r?.runStart ?? 0);
  * - Per oefening, toets en spel: de nieuwste ronde, met de hoogste beste score van beide.
  * - Flitskaarten en dictee: het nieuwste oordeel. Oefendagen: allebei.
  * - Instellingen (stem, invoer, enz.) horen bij het apparaat: die van a blijven staan, b vult alleen aan.
+ * - Badges: allebei, met het vroegste tijdstip.
  */
 export function mergeStates(a, b) {
   a = { ...empty(), ...a };
@@ -59,5 +60,6 @@ export function mergeStates(a, b) {
     cards: mergeMap(a.cards, b.cards, byStamp('c/')),
     dictee: mergeMap(a.dictee, b.dictee, byStamp('d/')),
     t,
+    badges: mergeMap(a.badges, b.badges, (x, y) => Math.min(x ?? Infinity, y ?? Infinity)),
   };
 }

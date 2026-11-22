@@ -1,18 +1,12 @@
 // Wat er in een hoofdstuk af is en waar je verder gaat (hoofdstuk, oefening, start).
 import { course } from './content.js';
 import { trackEvent } from '../platform/analytics.js';
-import { getResult, roundProgress, newCanDo, openItems } from './progress.js';
+import { newCanDo, openItems, progressStore } from './progress.js';
+import * as rec from '../core/progress/record.js';
 
-/**
- * Is een oefening af? Afgerond, of bij een lange oefening in rondes (woordenschat): na één ronde.
- * Die oefen je verder in rondes en in de herhaling, zonder eerst de hele lijst af te maken.
- */
-export function exerciseDone(ch, ex) {
-  if (getResult(ch.chapter, ex.id)?.completedAt) return true;
-  return !!(ex.roundSize && ex.items.length > ex.roundSize && roundProgress(ch.chapter, ex).seen >= ex.roundSize);
-}
-
-export const chapterDone = (c) => c.available && c.exercises?.length > 0 && c.exercises.every((e) => exerciseDone(c, e));
+/** Is een oefening af? (zie core/progress/record.js) */
+export const exerciseDone = (ch, ex) => rec.exerciseDone(progressStore.get(), ch, ex);
+export const chapterDone = (c) => rec.chapterDone(progressStore.get(), c);
 
 /** Waar na deze oefening heen: de eerstvolgende die nog niet af is (daarna vooraan in het hoofdstuk verder zoeken). */
 export function onwardFrom(ch, ex) {
