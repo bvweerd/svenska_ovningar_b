@@ -4,6 +4,9 @@ import { getResult, runState, canDoStatus, openItems, roundProgress } from '../.
 import { claimCanDo, exerciseDone } from '../../app/course-progress.js';
 
 /** Eigen kleur per hoofdstuk (een tint op de kleurencirkel), voor een streep op kaart en kop. */
+/** Vinkje als SVG: staat altijd precies in het midden van het rondje (een ✓-teken verschuift per lettertype). */
+const CHECK = '<svg viewBox="0 0 16 16" width="0.8em" height="0.8em"><path d="M3.5 8.5l3 3 6-7" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>';
+
 export const chapterHue = (ch) => `--ch-hue:${(ch.chapter * 137) % 360}`;
 
 /** Wat je na dit hoofdstuk kunt; de app vinkt het zelf af (zie canDoStatus in core/progress/cando.js). */
@@ -17,7 +20,7 @@ export function canDoList(ch) {
       const pct = (n) => (x.total ? Math.round((n / x.total) * 100) : 0);
       const label = `${x.seen} van ${x.total} vragen gemaakt, ${x.known} beheerst`;
       return h('li', { class: x.done ? 'done' : '' },
-        h('span', { class: 'cando-mark', 'aria-hidden': 'true' }, x.done ? '✓' : ''),
+        h('span', { class: 'cando-mark', 'aria-hidden': 'true', html: x.done ? CHECK : '' }),
         h('span', { class: 'cando-body' },
           h('span', { class: 'cando-text' }, x.text, x.done ? h('span', { class: 'sr-only' }, ' (behaald)') : null),
           // Twee tinten: licht = gemaakt, donker = beheerst. Zo is er al voortgang te zien vóór het vinkje.

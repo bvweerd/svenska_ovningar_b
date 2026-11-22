@@ -48,7 +48,7 @@ export function viewAbout() {
     ),
     h('h2', {}, 'Oefenvormen'),
     h('ul', {},
-      h('li', {}, 'Dagelijkse herhaling: wat je in één keer goed hebt, komt steeds later terug (na 1, 2, 4, 7, 14 … dagen). Wat je fout had, komt de volgende dag terug.'),
+      h('li', {}, 'Dagelijkse herhaling: wat je in één keer goed hebt, komt steeds later terug (na 2, 4, 7, 14 … dagen). Wat je fout had, komt de volgende dag terug. Elke dag staan er hooguit 20 vragen klaar; wie meer wil, kan doorgaan.'),
       h('li', {}, 'Werkwoordtrainer: eindeloos werkwoordsvormen oefenen, met de tijden en soorten werkwoorden die jij kiest.'),
       h('li', {}, 'Zoek de fout: klik op het foute woord en verbeter de zin.'),
       h('li', {}, 'Toets: twintig vragen per hoofdstuk zonder tips, met een rapport per onderwerp.'),

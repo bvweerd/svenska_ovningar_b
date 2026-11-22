@@ -93,7 +93,7 @@ describe('voortgang', () => {
   });
 
   it('herhaling: goed in één keer → doos hoger, fout → morgen terug', () => {
-    expect(P.nextSrs(null, 'good')).toEqual({ box: 1, due: P.today(1) });
+    expect(P.nextSrs(null, 'good')).toEqual({ box: 2, due: P.today(2) });
     expect(P.nextSrs({ box: 3 }, 'good')).toEqual({ box: 4, due: P.today(7) });
     expect(P.nextSrs({ box: 5 }, 'wrong')).toEqual({ box: 1, due: P.today(1) });
     expect(P.nextSrs({ box: 7 }, 'good').box).toBe(7);
@@ -105,8 +105,9 @@ describe('voortgang', () => {
     P.recordItem(1, ex, 1, 'wrong');
     const entries = [0, 1].map((idx) => ({ chapter, ex, idx, item: ex.items[idx] }));
     expect(P.dueItems(entries)).toEqual([]);
-    expect(P.dueItems(entries, P.today(1)).map((e) => e.idx)).toEqual([0, 1]);
-    expect(P.srsStats(entries)[1]).toBe(2);
+    expect(P.dueItems(entries, P.today(1)).map((e) => e.idx)).toEqual([1]);
+    expect(P.dueItems(entries, P.today(2)).map((e) => e.idx)).toEqual([1, 0]);
+    expect(P.srsStats(entries).slice(1, 3)).toEqual([1, 1]);
   });
 
   it('telt dagen op rij', () => {
@@ -287,7 +288,7 @@ describe('kan-doen-uitspraken', () => {
   });
 
   it('behaald pas als 80% van de vragen in doos 3 of hoger staat', () => {
-    goodTimes(2);
+    goodTimes(1); // de eerste keer goed: doos 2
     expect(P.canDoStatus(ch)[0].done).toBe(false);
     goodTimes(1, 3); // 3 van 5 in doos 3: 60%
     expect(P.canDoStatus(ch)[0]).toMatchObject({ known: 3, done: false });

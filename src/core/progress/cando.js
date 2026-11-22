@@ -1,7 +1,7 @@
 // Kan-doen-uitspraken: afgeleid uit de herhaaldozen; de leerling beoordeelt niets zelf. Puur.
 import { answerHash, itemKey, itemRecord, gradable } from './schema.js';
 
-/** Vanaf deze doos telt een vraag als beheerst (drie keer achter elkaar in één keer goed). */
+/** Vanaf deze doos telt een vraag als beheerst: de eerste keer goed (doos 2) en daarna in de herhaling nog eens. */
 export const CANDO_BOX = 3;
 /** Zoveel van de vragen over de onderwerpen van een uitspraak moeten beheerst zijn voor een vinkje. */
 export const CANDO_SHARE = 0.8;

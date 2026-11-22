@@ -43,7 +43,7 @@ export const BADGES = [
   ...tiered('hoofdstuk', '📗', count.chapters, [[1, 'Hoofdstuk af'], [3, 'Drie op rij'], [6, 'Halverwege de berg'], [12, 'Bijna alles']],
     (n) => `Maak ${plural(n, 'hoofdstuk', 'hoofdstukken')} helemaal af.`),
   ...tiered('beheerst', '🧠', count.mastered, [[50, 'Het blijft hangen'], [250, 'Stevig geheugen'], [1000, 'Olifantengeheugen']],
-    (n) => `Krijg ${n} vragen in doos 4 of hoger: vier keer achter elkaar in één keer goed, ook in de herhaling.`),
+    (n) => `Krijg ${n} vragen in doos 4 of hoger: de eerste keer en daarna nog twee keer in de herhaling in één keer goed.`),
   ...tiered('toets', '📝', count.tests80, [[1, 'Geslaagd'], [5, 'Toetsbestendig']],
     (n) => (n === 1 ? 'Haal 80% of meer in een hoofdstuktoets.' : `Haal 80% of meer in ${n} hoofdstuktoetsen.`)),
   ...tiered('foutloos', '🏆', count.tests100, [[1, 'Foutloos']], () => 'Maak een hoofdstuktoets helemaal foutloos.'),

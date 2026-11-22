@@ -19,7 +19,7 @@ const update = (fn, reason) => progressStore.update(fn, reason);
 
 export { hashItem, mergeStates };
 export const { answerHash, parseProgress } = schema;
-export const { INTERVALS, today, nextSrs } = srs;
+export const { INTERVALS, DAILY_GOAL, today, nextSrs, pickReview } = srs;
 export const { CANDO_BOX, CANDO_SHARE, canDoItems } = cando;
 
 // ---------- Vragen en rondes ----------
@@ -44,6 +44,11 @@ export const hasProgress = () => rec.hasProgress(load());
 export const dueItems = (entries, date) => srs.dueItems(load(), entries, date);
 export const srsStats = (entries) => srs.srsStats(load(), entries);
 export const streak = () => srs.streak(load());
+/** Herhaalvragen die vandaag al gedaan zijn, en er één bij tellen. */
+export const reviewedToday = () => extras.reviewedToday(load(), srs.today());
+export const countReviewed = () => void update((s) => extras.addReviewed(s, srs.today()));
+/** Hoeveel herhaalvragen er vandaag nog op het dagdoel staan (hooguit DAILY_GOAL). */
+export const reviewLeft = (dueCount) => Math.max(0, Math.min(dueCount, srs.DAILY_GOAL - reviewedToday()));
 
 // ---------- Kan-doen ----------
 export const canDoStatus = (ch) => cando.canDoStatus(load(), ch);

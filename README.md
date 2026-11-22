@@ -30,6 +30,11 @@ Naast de oefeningen per hoofdstuk zijn er onder **Oefenen**: dagelijkse herhalin
 intervallen (Leitner-dozen), een werkwoordtrainer (`content/verbs.yaml`), toetsen per
 hoofdstuk, flitskaarten en snelle rondes van 60 seconden. Alle voortgang staat in de browser.
 
+**Dagelijkse herhaling**: een dagdoel van 20 vragen (`DAILY_GOAL`), om en om uit verschillende onderwerpen
+(`pickReview`); wie meer wil, gaat door met „extra herhaling”. Een vraag die de eerste keer in één keer goed
+is, start in doos 2 (over twee dagen terug). **Jouw statistieken** (`#/statistieken`) laten de dozen, de
+voortgang per hoofdstuk en de lastigste onderwerpen zien.
+
 **Prestaties** (`#/prestaties`, `src/core/rewards/badges.js`): badges die de app zelf uitreikt op basis van
 wat hij nakijkt: afgeronde oefeningen en hoofdstukken, kan-doen-doelen, vragen in doos 4+, toetsen ≥ 80%,
 oefendagen (in totaal, niet op rij), dictee en snelle rondes. Flitskaarten tellen niet mee (zelfbeoordeling).
@@ -213,7 +218,7 @@ daar, maar is niet nodig. Geef een taak geen `text`: dan blijven de stappen in d
 Elk hoofdstuk heeft bovenaan 2 tot 4 uitspraken (`canDo`), elk met de onderwerpen (`topics`) waar
 hij op rust: `{ text: "Ik kan …", topics: [presens, v2] }`. De leerling beoordeelt niets zelf: de app
 vinkt een uitspraak af als 80% van de vragen over die onderwerpen in doos 3 of hoger van de dagelijkse
-herhaling staat (drie keer achter elkaar in één keer goed). `npm test` controleert dat de topics
+herhaling staat (de eerste keer in één keer goed en daarna nog eens in de herhaling). `npm test` controleert dat de topics
 bestaan en dat er minstens 5 vragen over zijn.
 
 ## Twee sites, één code

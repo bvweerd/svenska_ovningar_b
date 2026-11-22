@@ -618,7 +618,8 @@ del { text-decoration-color: var(--bad); text-decoration-thickness: 2px; color: 
 .cando h2 { font-size: 1.05rem; margin: 0 0 8px; }
 .cando ul { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 6px; }
 .cando li { display: flex; align-items: baseline; gap: 10px; }
-.cando-mark { flex: none; display: inline-grid; place-items: center; width: 1.3em; height: 1.3em; border-radius: 50%; border: 1.5px solid var(--line); color: var(--good); font-weight: 700; font-size: 0.9rem; transform: translateY(0.15em); }
+.cando-mark { flex: none; display: inline-grid; place-items: center; box-sizing: border-box; width: 1.3em; height: 1.3em; line-height: 0; border-radius: 50%; border: 1.5px solid var(--line); color: var(--good); font-size: 0.9rem; transform: translateY(0.15em); }
+.cando-mark svg { display: block; }
 .cando li.done .cando-mark { border-color: var(--good); background: var(--good-soft); }
 .cando-text { flex: 1; }
 .cando p { margin: 10px 0 0; }
@@ -720,3 +721,15 @@ del { text-decoration-color: var(--bad); text-decoration-thickness: 2px; color: 
 .chip.held { transform: scale(1.06); }
 .chips.line .slot.drop::before { background: var(--accent); width: 4px; margin-left: -2px; }
 .chips.line.drop-out { outline: 2px dashed var(--bad); outline-offset: 2px; }
+
+/* ---------- Statistieken ---------- */
+.stat-tiles { display: grid; grid-template-columns: repeat(auto-fill, minmax(140px, 1fr)); gap: 10px; margin-bottom: 24px; }
+.stat-tile { display: flex; flex-direction: column; gap: 2px; padding: 12px 14px; border: 1px solid var(--line); border-radius: var(--radius); background: var(--surface); }
+.stat-tile strong { font-size: 1.5rem; line-height: 1.1; }
+.stat-tile span { font-size: 0.85rem; color: var(--muted); }
+.boxes .box-text { grid-column: 2 / -1; margin-top: -6px; }
+.chapter-stats { list-style: none; padding: 0; margin: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 10px; }
+.chapter-stats li { display: flex; flex-direction: column; gap: 4px; padding: 12px 14px; border: 1px solid var(--line); border-radius: var(--radius); background: var(--surface); }
+.stat-row { display: grid; grid-template-columns: 5.5em 1fr; align-items: center; gap: 8px; }
+.hard-list { padding-left: 1.2em; }
+.hard-list li { margin-bottom: 4px; }

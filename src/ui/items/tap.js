@@ -11,22 +11,29 @@ const fill = (el, ...kids) => el.replaceChildren(...kids.flat(Infinity).filter((
 export function match(item, ctx) {
   const n = item.pairs.length;
   const order = shuffle(item.pairs.map((_, i) => i));
+  // Ook de linkerkant in willekeurige volgorde (tenzij shuffle: false): anders verraadt een vaste
+  // reeks (maandag … zondag) het antwoord.
+  const rows0 = item.pairs.map((_, i) => i);
+  const rowOrder = item.shuffle === false ? rows0 : shuffle(rows0);
   const chosen = item.pairs.map(() => null); // chosen[rij] = index van de gekozen rechterkant
-  let active = 0;
+  let active = rowOrder[0];
   let locked = false;
   let marks = null; // na nakijken: true/false per rij
   const rows = h('div', { class: 'tap-match', role: 'list' });
   const bank = h('div', { class: 'chips bank', 'aria-label': 'Betekenissen' });
 
-  const nextEmpty = (from = 0) => {
+  /** De eerstvolgende lege rij (in de getoonde volgorde), vanaf de rij ná `after`. */
+  const nextEmpty = (after = null) => {
+    const start = after === null ? 0 : rowOrder.indexOf(after) + 1;
     for (let k = 0; k < n; k++) {
-      const i = (from + k) % n;
+      const i = rowOrder[(start + k) % n];
       if (chosen[i] === null) return i;
     }
     return -1;
   };
   const draw = () => {
-    fill(rows, item.pairs.map(([left], i) => {
+    fill(rows, rowOrder.map((i) => {
+      const [left] = item.pairs[i];
       const value = chosen[i];
       const slot = h('button', {
         type: 'button',
@@ -56,7 +63,7 @@ export function match(item, ctx) {
           if (active < 0) return;
           chosen[active] = r;
           marks = null;
-          const done = nextEmpty(active + 1);
+          const done = nextEmpty(active);
           active = done;
           draw();
           if (done < 0) ctx.auto?.();

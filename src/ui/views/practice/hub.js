@@ -2,14 +2,14 @@
 import { h } from '../../dom.js';
 import { practiceEntries } from '../../../app/content.js';
 import { crumbs } from '../../shared.js';
-import { dueItems, srsStats, weakItems, getTest } from '../../../app/progress.js';
+import { dueItems, srsStats, weakItems, getTest, reviewLeft } from '../../../app/progress.js';
 import { available, plural, chapterChips, streakText } from './common.js';
 import { badgeSummary } from '../badges.js';
 
 export function viewPracticeHub() {
   document.title = 'Oefenen · Svenska övningar';
   const entries = practiceEntries();
-  const due = dueItems(entries).length;
+  const due = reviewLeft(dueItems(entries).length);
   const known = srsStats(entries).reduce((a, b) => a + b, 0);
   const weak = available().reduce((n, c) => n + weakItems(c).filter(({ ex }) => !ex.text).length, 0);
   // quiet: er valt nog niets te doen; de kaart blijft een link (met uitleg), maar valt minder op.
@@ -30,6 +30,7 @@ export function viewPracticeHub() {
       tool('#/oefenen/werkwoorden', 'Werkwoordtrainer', 'Oefen werkwoordsvormen zo lang je wilt, met de tijden die jij kiest.'),
       tool('#/oefenen/spel', 'Snelle rondes', '60 seconden: en of ett, betekenis of verleden tijd. Haal je record?'),
       tool('#/oefenen/luisteren', 'Dictee', 'Luister naar een zin of woord en schrijf op wat je hoort.'),
+      tool('#/statistieken', 'Jouw statistieken', 'Hoeveel vragen in welke doos zitten, per hoofdstuk wat je beheerst, en wat nog lastig is.'),
       (() => {
         const b = badgeSummary();
         return tool('#/prestaties', 'Prestaties', `${b.earned} van ${b.total} behaald. Wat je beheerst, doelen, toetsen en oefendagen.`);

@@ -8,6 +8,7 @@ import { viewGrammarIndex, viewGrammar } from './views/grammar.js';
 import { viewAbout } from './views/about.js';
 import { viewLink } from './views/sync.js';
 import { viewBadges } from './views/badges.js';
+import { viewStats } from './views/stats.js';
 import { viewPrintCard, viewPrintChapter } from './views/print.js';
 import { viewListenSettings, viewDictation } from './views/listen.js';
 import { viewPracticeHub } from './views/practice/hub.js';
@@ -32,8 +33,9 @@ export const routes = [
   { path: '/grammatica', view: () => viewGrammarIndex() },
   { path: '/herhalen', view: () => viewWeakAll(), refresh: true },
   { path: '/prestaties', view: () => viewBadges(), refresh: true },
+  { path: '/statistieken', view: () => viewStats(), refresh: true },
   { path: '/oefenen', view: () => viewPracticeHub(), refresh: true },
-  { path: '/oefenen/herhaling', view: () => viewDaily() },
+  { path: '/oefenen/herhaling', view: ({ query }) => viewDaily({ query }) },
   { path: '/oefenen/werkwoorden', view: () => viewVerbTrainer() },
   { path: '/oefenen/luisteren', view: ({ query }) => viewDictation(query) },
   { path: '/oefenen/spel', view: () => viewGames() },

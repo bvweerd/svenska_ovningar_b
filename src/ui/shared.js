@@ -111,7 +111,7 @@ export function exerciseRunner(items, { onFinish, offset = { done: 0, good: 0, t
   };
   const list = h('div', { class: 'items' },
     items.map(({ item, ctx, label, ref }, i) => {
-      const card = itemCard(item, { ...ctx, ...(ref ? { ref } : {}), onSkip: skip }, offset.done + i + 1, (r) => {
+      const card = itemCard(item, { ...ctx, ...(ref ? { ref } : {}), onSkip: items.length > 1 ? skip : undefined }, offset.done + i + 1, (r) => {
         if (ref) {
           const status = statusOf(r);
           recordItem(ref.ch, ref.ex, ref.idx, status, { outside: !!ref.outside, share: r.share });
@@ -173,7 +173,7 @@ export function exerciseRunner(items, { onFinish, offset = { done: 0, good: 0, t
  * Oefenronde met losse vragen uit één of meer hoofdstukken (mix, fouten).
  * entries: [{ item, ex, idx, chapter }]
  */
-export function practiceView(ch, { title, instruction, entries, again, empty, left }) {
+export function practiceView(ch, { title, instruction, entries, again, empty, left, onItem, after }) {
   const trail = ch
     ? [{ label: 'Start', href: '#/' }, { label: ch.title, href: `#/k/${ch.chapter}` }, { label: title }]
     : [{ label: 'Start', href: '#/' }, { label: title }];
@@ -194,13 +194,14 @@ export function practiceView(ch, { title, instruction, entries, again, empty, le
     };
   });
   const [list, score, summary] = exerciseRunner(items, {
+    onItem,
     onFinish: (good, total, missed) => {
       const heading = [h('h2', {}, `Klaar! ${good} van ${total} in één keer goed.`), progressBar(good, total, `${good} van ${total} in één keer goed`), missedList(missed)];
       // left: hoeveel er na deze ronde nog openstaat (fouten, herhaalvragen); 0 = alles klaar.
       const n = left ? left.count() : null;
       if (n === 0) {
         back.className = 'btn primary';
-        return [...heading, h('p', {}, left.done), h('div', { class: 'actions' }, back)];
+        return [...heading, h('p', {}, left.done), after?.() ?? null, h('div', { class: 'actions' }, back)];
       }
       return [
         ...heading,
