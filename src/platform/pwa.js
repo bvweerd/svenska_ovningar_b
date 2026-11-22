@@ -80,6 +80,7 @@ async function registerWorker() {
   } catch {
     return;
   }
+  if (!reg) return;
   const offer = (worker) => onUpdate(worker);
   if (reg.waiting && sw.controller) offer(reg.waiting);
   reg.addEventListener('updatefound', () => {

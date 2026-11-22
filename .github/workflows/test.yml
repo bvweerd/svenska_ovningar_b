@@ -17,6 +17,13 @@ jobs:
       - run: npm ci
       - run: npm test
       - run: npm run build
+      # Rooktest in een browser (elke pagina, telefoonformaat, licht en donker). Playwright staat
+      # niet in package.json; hier wordt het alleen voor deze stap geïnstalleerd.
+      - name: Rooktest
+        run: |
+          npm install --no-save playwright@1.63.0
+          npx playwright install --with-deps chromium
+          npm run smoke
       # Gedeelde code (src/, tests/, scripts/ …) moet gelijk zijn aan die van de zusterrepo:
       # zelfde branch als die bestaat, anders main.
       - name: Gedeelde code gelijk aan zusterrepo

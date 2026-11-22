@@ -347,9 +347,9 @@ table.fill .answer-input { width: 100%; min-width: 90px; }
 .speak-btn.big { padding: 10px 20px; font-size: 1rem; background: var(--accent); color: var(--accent-ink); border-color: transparent; }
 .speak-btn.playing { background: var(--accent-soft); color: var(--accent); border-color: var(--accent); }
 .speak-icon { display: inline-flex; }
-.listen-player { display: flex; flex-wrap: wrap; align-items: center; gap: 10px; margin: 4px 0 12px; }
+.listen-player { display: flex; flex-wrap: wrap; align-items: center; gap: 10px; margin: 4px 0 12px; min-width: 0; max-width: 100%; }
 .listen-player p { flex-basis: 100%; margin: 0; }
-.listen-normal, .listen-novoice { display: flex; flex-wrap: wrap; align-items: center; gap: 10px; flex-basis: 100%; }
+.listen-normal, .listen-novoice { display: flex; flex-wrap: wrap; align-items: center; gap: 10px; flex-basis: 100%; min-width: 0; }
 /* Geen Zweedse stem (speech.js zet no-sv-voice op <html>): extra luisterknoppen weg, bij luistervragen
    een melding met „Toon de tekst” en „Toch voorlezen”. */
 .listen-novoice { display: none; }
@@ -508,7 +508,7 @@ main.wide { max-width: 1240px; }
 
 /* Tabel invullen: op de telefoon één kaartje per rij */
 @media (max-width: 600px) {
-  .table-wrap { overflow: visible; }
+  .table-wrap:has(> table.fill) { overflow: visible; }
   table.fill, table.fill tbody, table.fill tr, table.fill th, table.fill td { display: block; width: 100%; }
   table.fill thead { display: none; }
   table.fill tr { border: 1px solid var(--line); border-radius: 10px; padding: 8px 10px; margin-bottom: 8px; background: var(--surface-2); }
@@ -582,7 +582,7 @@ details.fold.block { margin: 18px 0; }
 
 /* Invullen: het veld en de hint erna („(arbeta)”) blijven samen op één regel. */
 .gap-field { white-space: nowrap; }
-.gap-hint { color: var(--muted); }
+.gap-hint { color: var(--muted); white-space: normal; } /* een lange hint mag afbreken */
 
 /* Doorgestreept in de uitleg: het foute voorbeeld. */
 del { text-decoration-color: var(--bad); text-decoration-thickness: 2px; color: var(--muted); }

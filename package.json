@@ -13,7 +13,8 @@
     "check-sync": "node scripts/check-sync.mjs",
     "vocab-report": "node scripts/vocab-report.mjs",
     "stats": "node scripts/stats-report.mjs",
-    "difficulty-report": "node scripts/difficulty-report.mjs"
+    "difficulty-report": "node scripts/difficulty-report.mjs",
+    "smoke": "node scripts/smoke.mjs"
   },
   "devDependencies": {
     "js-yaml": "4.3.2",
