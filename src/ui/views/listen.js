@@ -342,7 +342,7 @@ export function viewDictation(query) {
   const head = h('header', { class: 'page-head' },
     h('h1', {}, 'Dictee'),
     h('p', { class: 'instruction' }, kind === 'zin'
-      ? 'Luister naar de zin en schrijf op wat je hoort. Hoofdletters en leestekens tellen niet mee.'
+      ? 'Luister naar de zin en maak wat je hoort: typ hem, of zet de woordtegels in de goede volgorde. Hoofdletters en leestekens tellen niet mee.'
       : 'Luister naar het woord en schrijf het op, met en/ett of att als je dat hoort.'),
     h('div', { class: 'actions' },
       h('a', { class: `btn ${kind === 'zin' ? 'primary' : 'ghost'} small`, href: '#/oefenen/luisteren?soort=zin' }, 'Zinnen'),

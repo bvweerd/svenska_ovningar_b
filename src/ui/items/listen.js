@@ -45,7 +45,8 @@ export function listen(item, ctx) {
     return { ...inner, el: h('div', {}, player.el, inner.el) };
   }
   const spec = { ...item, answers: item.answers ?? [item.say] };
-  const f = sentenceField(spec, ctx, { label: 'Wat hoor je?' });
+  // Typen of woordtegels (je kunt wisselen): de opdracht zegt „maak de zin”, het veld zegt hoe.
+  const f = sentenceField(spec, ctx, { label: 'Wat hoor je?', placeholder: 'Tik de woorden aan in de volgorde die je hoort.' });
   // Enter in een leeg typveld: nog een keer afspelen.
   f.field.el.addEventListener('keydown', (e) => {
     if (e.key === 'Enter' && e.target.matches('input') && !e.target.value.trim()) {
@@ -54,7 +55,7 @@ export function listen(item, ctx) {
       player.play();
     }
   });
-  const el = h('div', {}, player.el, prompt(item.prompt ?? (f.field.kind === 'tiles' ? 'Zet de woorden in de volgorde die je hoort.' : 'Schrijf op wat je hoort.')), f.field.el,
+  const el = h('div', {}, player.el, prompt(item.prompt), f.field.el,
     f.field.kind === 'tiles' ? null : h('p', { class: 'hint speech-extra' }, 'Tip: druk op Enter in het lege veld om het nog eens te horen.'));
   return { el, check: f.check, reveal: f.reveal, lock: sentenceLock(f, el) };
 }

@@ -335,7 +335,7 @@ sections:
 
       - id: lyssna-dictee
         title: Dictee
-        instruction: Luister en schrijf de zin op.
+        instruction: Luister en maak de zin die je hoort.
         topic: passiv-bli
         shuffle: true
         items:

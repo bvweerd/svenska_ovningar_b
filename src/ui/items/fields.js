@@ -75,8 +75,8 @@ export function lockInputs(root) {
 }
 
 /** Zinsveld (typen of woordtegels) met nakijken; gedeeld door vertalen, omvormen, luisteren enz. */
-export function sentenceField(spec, ctx, { label, source, prefill, topic } = {}) {
-  const field = sentenceInput(spec, { label, source, prefill, textInput, onComplete: () => ctx.ready?.() });
+export function sentenceField(spec, ctx, { label, source, prefill, topic, placeholder } = {}) {
+  const field = sentenceInput(spec, { label, source, prefill, placeholder, textInput, onComplete: () => ctx.ready?.() });
   return {
     field,
     check() {

@@ -71,9 +71,13 @@ export const isSentence = (answers) => words(displayAnswer(answers)).length >= M
  * Invoerveld voor een zin. spec: { answers, feedback? }.
  * opts: { label, source (bronzin voor afleiders), prefill, onComplete, textInput(spec, opts) }
  */
+// Zinsvelden op de pagina die nog mee kunnen wisselen als je „Liever typen” of „Liever woordtegels” kiest.
+const live = new Set();
+
 export function sentenceInput(spec, opts) {
   const wrap = h('div', { class: 'sentence-input' });
   let impl;
+  let locked = false;
   const build = () => {
     impl = useTiles() && isSentence(spec.answers) ? tileImpl(spec, opts) : typedImpl(spec, opts);
     const switchLink = isSentence(spec.answers)
@@ -84,12 +88,23 @@ export function sentenceInput(spec, opts) {
             setInputMode(impl.kind === 'tiles' ? 'type' : 'tiles');
             build();
             impl.focus();
+            // De keuze geldt ook voor de andere vragen op deze pagina waar je nog niets hebt ingevuld.
+            for (const other of live) other.follow();
           },
         }, impl.kind === 'tiles' ? 'Liever typen' : 'Liever woordtegels')
       : null;
     wrap.replaceChildren(impl.el, switchLink ?? '');
   };
   build();
+  const self = {
+    follow() {
+      if (!wrap.isConnected) return void live.delete(self);
+      if (locked || impl.kind === (useTiles() ? 'tiles' : 'type')) return;
+      if ((impl.value() ?? '').trim() !== (opts.prefill ?? '').trim()) return; // al iets ingevuld: laten staan
+      build();
+    },
+  };
+  if (isSentence(spec.answers)) live.add(self);
   return {
     el: wrap,
     get kind() { return impl.kind; },
@@ -97,6 +112,8 @@ export function sentenceInput(spec, opts) {
     reveal: (text) => impl.reveal(text),
     mark: (ok) => impl.mark(ok),
     lock: () => {
+      locked = true;
+      live.delete(self);
       impl.lock();
       // Onzichtbaar maken in plaats van weghalen, zodat de knoppen eronder niet verspringen.
       const sw = wrap.querySelector('.input-switch');
@@ -329,7 +346,7 @@ export function tileBoard(opts) {
 function tileImpl(spec, opts) {
   const answer = answerTiles(spec.answers);
   const tiles = shuffle([...answer, ...distractorTiles(spec, { source: opts.source })].map((t, i) => ({ t, i })));
-  const board = tileBoard({ tiles, label: opts.label, needed: answer.length, sample: answer, onComplete: opts.onComplete });
+  const board = tileBoard({ tiles, label: opts.label, placeholder: opts.placeholder, needed: answer.length, sample: answer, onComplete: opts.onComplete });
   return {
     kind: 'tiles',
     el: board.el,
