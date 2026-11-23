@@ -165,10 +165,14 @@ function openDialog({ item = null, ref = null, number = null, card = null, gener
     if (keyboardOpen()) {
       dlg.style.margin = `${Math.round(vv.offsetTop + 8)}px auto auto`;
       dlg.style.maxHeight = `${Math.round(vv.height - 16)}px`;
-      if (dlg.contains(document.activeElement)) document.activeElement.scrollIntoView({ block: 'nearest' });
+      dlg.classList.add('kb');
+      // Het veld waarin je typt bovenaan in het venster, zodat de knoppenbalk onderin het niet bedekt.
+      const f = document.activeElement;
+      if (dlg.contains(f) && f.matches('textarea, input')) dlg.scrollTop += f.getBoundingClientRect().top - dlg.getBoundingClientRect().top - 40;
     } else {
       dlg.style.margin = '';
       dlg.style.maxHeight = '';
+      dlg.classList.remove('kb');
     }
   };
   vv?.addEventListener('resize', fit);
