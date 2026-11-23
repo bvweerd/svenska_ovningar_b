@@ -128,8 +128,9 @@ code { background: var(--surface-2); padding: 0.1em 0.35em; border-radius: 4px; 
 .item-head { display: flex; gap: 10px; align-items: baseline; margin-bottom: 4px; }
 .item-no { display: inline-grid; place-items: center; min-width: 26px; height: 26px; border-radius: 50%; background: var(--accent-soft); color: var(--accent); font-weight: 700; font-size: 0.85rem; }
 .item-label { font-size: 0.85rem; color: var(--muted); }
-.prompt { margin: 6px 0 10px; font-size: 1.05rem; }
-.prompt.source { font-weight: 600; }
+/* De vraag zelf (Nederlandse zin, situatie of vraag) valt op; de opdracht erboven (.item-label) is klein en grijs. */
+.prompt { margin: 6px 0 10px; font-size: 1.1rem; font-weight: 600; line-height: 1.4; }
+.prompt strong { color: var(--accent); }
 .hint { color: var(--muted); font-size: 0.9rem; margin: 4px 0 0; }
 .gap-text { font-size: 1.08rem; line-height: 2.3; margin: 6px 0; }
 
