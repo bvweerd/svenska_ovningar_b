@@ -2,7 +2,7 @@ chapter: 13
 # Kan-doen-uitspraken: de app vinkt ze zelf af als de vragen over deze onderwerpen
 # grotendeels in doos 3 of hoger staan (src/progress.js, canDoStatus).
 canDo:
-  - { text: "Ik kan een vacature begrijpen en vertellen wat er op het werk gebeurt (lijdende vorm met -s)", topics: [passiv-s] }
+  - { text: "Ik kan de lijdende vorm met -s herkennen en maken, zoals in vacatures en regels (kaffe serveras, huset byggdes)", topics: [passiv-s] }
   - { text: "Ik kan iemand of iets nader beschrijven met som", topics: [relativ-som] }
   - { text: "Ik ken de vaste zinnen voor een korte, formele mail", topics: [formell-mail] }
 
@@ -90,7 +90,7 @@ sections:
       - id: lasa-annons
         title: "Lezen: een vacature"
         instruction: Lees de vacature en beantwoord de vragen.
-        topic: passiv-s
+        topic: woordenschat
         textTitle: "Lindhem AB söker kundtjänstmedarbetare"
         text: |
           Lindhem AB säljer möbler och inredning på nätet. Företaget grundades 2009 i Örebro och har i dag 120 anställda. Våra möbler tillverkas i Sverige och Polen, och alla varor som beställs på webbplatsen levereras inom fem arbetsdagar. Under det senaste året har antalet kunder ökat kraftigt, och därför behöver vi förstärka vår kundtjänst.
@@ -112,6 +112,7 @@ sections:
           - { id: qrmd, type: mc, prompt: "Wat is een *tillsvidareanställning*?", options: ["een vaste aanstelling", "een tijdelijk contract", "een stage", "een oproepcontract"], answer: 0, tip: "tills vidare = tot nader order, dus zonder einddatum." }
           - id: j2wt
             type: multi
+            topic: passiv-s
             prompt: "Welke werkwoorden in de tekst staan in de lijdende vorm?"
             options: ["grundades", "hålls", "skickas", "besvaras", "söker", "sker"]
             answers: [0, 1, 2, 3]
@@ -271,6 +272,22 @@ sections:
   - id: passiv
     title: "Grammatik: de lijdende vorm"
     exercises:
+      - id: ontdek-passiv-s
+        title: Ontdek de regel – de lijdende vorm met -s
+        instruction: Bekijk de voorbeelden en ontdek zelf de regel. Pas hem daarna toe. De uitleg staat ook op de kaart.
+        topic: passiv-s
+        items:
+          - id: bks7
+            type: steps
+            steps:
+              - { type: mc, prompt: "Kijk: *Man målar huset. → Huset målas.* *Man serverar kaffe klockan tio. → Kaffe serveras klockan tio.* Wat valt op?", options: ["Het lijdend voorwerp wordt het onderwerp, en het werkwoord krijgt -s.", "Het werkwoord krijgt -de, het onderwerp blijft hetzelfde.", "Er komt altijd av + persoon achter."], answer: 0, tip: "*huset* en *kaffe* staan nu vooraan als onderwerp, en *målar* wordt *målas*." }
+              - { type: gap, text: "Man städar kontoret varje dag. → Kontoret ___ varje dag.", gaps: [{ answers: ["städas"], feedback: [{ match: "städar", tip: "Dat is de actieve vorm. Het kantoor doet niets zelf: städar wordt städas." }, { match: "städades", tip: "Dat is de verleden tijd. De zin staat in de presens: städas." }] }] }
+          - id: ycyy
+            type: steps
+            steps:
+              - { type: mc, prompt: "Kijk: *köper → köps*, *bygger → byggs*, maar *läser → läses*. Wanneer wordt het -es?", options: ["Als de stam al op een s eindigt.", "Bij lange werkwoorden.", "In de verleden tijd."], answer: 0, tip: "läs- eindigt al op een s: dan schrijf je -es, läses." }
+              - { type: gap, text: "Man läser alla ansökningar noga. → Alla ansökningar ___ noga.", gaps: [{ answers: ["läses"], feedback: [{ match: "läss", retry: true, tip: "Dat hoor je soms in spreektaal, maar in geschreven Zweeds is het läses: de stam eindigt al op s." }, { match: "läsas", tip: "läsas is de infinitief (na bijvoorbeeld måste). Presens: läses." }] }] }
+
       - id: passiv-of-niet
         title: Lijdend of niet?
         instruction: Is het werkwoord op **-s** een lijdende vorm, of een werkwoord dat altijd op -s eindigt?
@@ -529,6 +546,10 @@ sections:
           - { id: t3gt, type: translate, topic: formell-mail, prompt: "Sluit je mail beleefd af.", answers: ["[Med ]vänliga hälsningar.", "[Med ]vänlig hälsning.", "Hälsningar."] }
           - { id: 6emk, type: translate, topic: relativ-som, prompt: "Vertel dat je een collega hebt die uit Chili komt.", answers: ["Jag har en kollega som {kommer|är} från Chile."], feedback: [{ contains: ["som han kommer", "som hon kommer", "som hen kommer", "som han är", "som hon är", "som hen är"], tip: "Som is zelf het onderwerp: som kommer från Chile." }, { match: "Jag har en kollega från Chile", tip: "Goed Zweeds, maar oefen hier de bijzin: en kollega som kommer från Chile." }] }
           - { id: k27b, type: translate, topic: passiv-s, prompt: "Zeg dat de sollicitaties uiterlijk vrijdag verstuurd moeten worden.", answers: ["Ansökningarna {måste|ska} skickas[ in] senast [på ]fredag.", "Senast [på ]fredag {måste|ska} ansökningarna skickas[ in].", "Ansökningarna måste vara inskickade senast [på ]fredag."], feedback: [{ contains: "måste skickar", tip: "Na måste: de infinitief met -s (skickas)." }] }
+          - { id: 49mf, type: translate, topic: relativ-som, prompt: "Je chef vraagt wie Sara is. Zeg dat zij de collega is die de nieuwe klanten helpt.", answers: ["{Hon|Sara} är {kollegan|den kollega|den kollegan} som {hjälper|tar hand om} de nya kunderna.", "Det är {hon|Sara} som {hjälper|tar hand om} de nya kunderna."], feedback: [{ contains: ["kollegan vem", "kollegan vilken", "kollega vem"], tip: "Na een zelfstandig naamwoord gebruik je som: kollegan som hjälper." }] }
+          - { id: dws6, type: translate, topic: passiv-s, prompt: "Je vertelt een vriend over je werk. Zeg dat de winkel elke dag om negen uur geopend wordt.", answers: ["{Butiken|Affären} öppnas {klockan|kl.} {nio|9} varje dag.", "{Butiken|Affären} öppnas varje dag {klockan|kl.} {nio|9}.", "Varje dag öppnas {butiken|affären} {klockan|kl.} {nio|9}."], feedback: [{ contains: ["blir öppnad", "blir öppnat", "öppnar"], retry: true, tip: "Goed Zweeds, maar oefen hier de lijdende vorm met -s: butiken öppnas." }] }
+          - { id: f2wr, type: translate, topic: formell-mail, prompt: "Je schrijft een sollicitatiemail. Zeg dat je de vacature op Arbetsförmedlingen hebt gezien.", answers: ["Jag {såg|har sett|hittade|har hittat} {annonsen|platsannonsen|er annons|er platsannons|tjänsten|den lediga tjänsten|jobbannonsen} på Arbetsförmedlingen{s webbplats|}."] }
+          - { id: x4dk, type: translate, topic: formell-mail, prompt: "Je sluit een formele mail af. Zeg dat je uitkijkt naar hun antwoord.", answers: ["{Jag|Vi} ser fram emot {ert svar|ditt svar|att höra från er|att höra från dig|att höra av er|att höra av dig|att få ert svar}."], feedback: [{ contains: "ser framåt", tip: "Uitkijken naar = se fram emot." }] }
 
   - id: skriva
     title: Skriva · schrijven

@@ -309,6 +309,22 @@ sections:
   - id: particip
     title: "Grammatik: deelwoorden"
     exercises:
+      - id: ontdek-particip
+        title: Ontdek de regel – deelwoorden
+        instruction: Bekijk de voorbeelden en ontdek zelf de regel. Pas hem daarna toe. De uitleg staat ook op de kaart.
+        topic: particip
+        items:
+          - id: hjvs
+            type: steps
+            steps:
+              - { type: mc, prompt: "Kijk: *en målad vägg – ett målat hus – målade väggar*. Wat valt op?", options: ["Het deelwoord krijgt dezelfde uitgangen als een bijvoeglijk naamwoord: -t bij een ett-woord, een uitgang in het meervoud.", "Het deelwoord verandert nooit.", "Bij een en-woord komt er -t achter."], answer: 0, tip: "målad, målat, målade: net als stor, stort, stora." }
+              - { type: gap, text: "ett ___ fönster (stänga)", gaps: [{ answers: ["stängt"], feedback: [{ match: ["stängd", "stängda"], tip: "fönster is een ett-woord: stängt." }, { match: "stängat", tip: "stänga is een -er-werkwoord: stängd, en bij een ett-woord stängt." }] }] }
+          - id: h4a4
+            type: steps
+            steps:
+              - { type: mc, prompt: "Kijk: *en skriven text – ett skrivet brev – skrivna texter*. Wat valt op bij een sterk werkwoord als *skriva*?", options: ["Het deelwoord eindigt op -en, bij een ett-woord op -et, in het meervoud op -na.", "Het deelwoord eindigt altijd op -ad.", "Het meervoud krijgt -er."], answer: 0, tip: "skriv**en**, skriv**et**, skriv**na**." }
+              - { type: gap, text: "Breven är redan ___. (skriva)", gaps: [{ answers: ["skrivna"], feedback: [{ match: ["skrivet", "skriven"], tip: "breven is meervoud: skrivna." }, { match: "skrivit", tip: "skrivit is het supinum (na har). Na är komt het deelwoord, en breven is meervoud: skrivna." }] }] }
+
       - id: particip-tabel
         title: Drie vormen
         instruction: Vul het voltooid deelwoord in voor een en-woord, een ett-woord en het meervoud.
@@ -479,6 +495,10 @@ sections:
           - { id: xm83, type: translate, topic: particip, prompt: "Zeg dat je opdracht al ingeleverd is.", answers: ["{Uppgiften|Min uppgift} är redan inlämnad.", "Jag har redan lämnat in {uppgiften|min uppgift}."], feedback: [{ contains: "inlämnat", tip: "uppgift is een en-woord: inlämnad." }] }
           - { id: f5zc, type: translate, topic: passiv-bli, prompt: "Zeg dat je tentamen nog niet is nagekeken.", answers: ["{Tentan|Min tenta} har inte {blivit rättad|rättats} {än|ännu}.", "{Tentan|Min tenta} är inte rättad {än|ännu}."] }
           - { id: cr2h, type: translate, topic: passiv-bli, prompt: "Vraag of de colleges worden opgenomen.", answers: ["Spelas föreläsningarna in?", "Blir föreläsningarna inspelade?", "Kommer föreläsningarna att spelas in?", "Spelar ni in föreläsningarna?"] }
+          - { id: rsgu, type: translate, topic: passiv-bli, prompt: "Een medestudent vraagt naar het tentamen van gisteren. Zeg dat het werd uitgesteld.", answers: ["{Tentan|Tentamen|Den} {blev|har blivit} {uppskjuten|flyttad|framflyttad}.", "Det {blev|har blivit} {uppskjutet|flyttat|framflyttat}."], feedback: [{ contains: ["tentan blev uppskjutet", "tentamen blev uppskjutet", "den blev uppskjutet", "tentan blev flyttat", "tentamen blev flyttat", "den blev flyttat"], tip: "tenta(men) is een en-woord: uppskjuten." }, { contains: ["sköts upp", "flyttades"], retry: true, tip: "Goed Zweeds (lijdende vorm met -s), maar oefen hier bli: blev uppskjuten." }] }
+          - { id: mf2n, type: translate, topic: particip, prompt: "Je laat je studentenkamer zien. Zeg dat de deur altijd op slot is.", answers: ["Dörren är {alltid låst|låst hela tiden}."], feedback: [{ contains: ["låsad", "låsat"], tip: "låsa – låste – låst: dörren är låst." }] }
+          - { id: gs6h, type: translate, topic: particip, prompt: "Je docent vraagt naar je verslag. Zeg dat het al geschreven is.", answers: ["{Den|Rapporten|Min rapport} är redan {skriven|färdigskriven}."], feedback: [{ contains: "redan skrivet", tip: "rapport is een en-woord: skriven." }, { contains: "redan skrivit", tip: "Als bijvoeglijk naamwoord: skriven (skrivit is het supinum, na har)." }] }
+          - { id: 7z68, type: translate, topic: passiv-bli, prompt: "Vertel dat je bent uitgenodigd voor een gesprek op de universiteit.", answers: ["Jag {har blivit|blev} {inbjuden|kallad} till {en intervju|intervju|ett samtal|ett möte} {på|vid} universitetet."], feedback: [{ contains: ["är inbjudit", "har inbjudit"], tip: "Lijdende vorm: jag har blivit inbjuden." }, { contains: ["jag är inbjuden", "jag är kallad"], retry: true, tip: "Goed Zweeds, maar oefen hier de lijdende vorm met bli: jag har blivit inbjuden." }] }
 
   - id: skriva
     title: Skriva · schrijven
