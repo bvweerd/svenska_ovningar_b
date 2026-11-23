@@ -1,5 +1,5 @@
 // Synchroniseren tussen apparaten: het blok op de pagina Over en de koppellink.
-import { h } from '../dom.js';
+import { h, fill } from '../dom.js';
 import { syncConfigured, syncNow, getCode, setCode, forgetCode, newCode, normalizeCode, formatCode, linkFor, lastSync } from '../../platform/sync.js';
 import { navigate } from '../nav.js';
 
@@ -67,7 +67,7 @@ export function syncSection() {
         h('div', { class: 'actions' }, input, h('button', { type: 'button', class: 'btn ghost', onclick: join }, 'Koppelen')),
       ];
     }
-    box.replaceChildren(...parts, status);
+    fill(box, ...parts, status);
   };
   draw();
   return [h('h3', {}, 'Synchroniseren tussen apparaten'), box];

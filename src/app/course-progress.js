@@ -1,12 +1,32 @@
 // Wat er in een hoofdstuk af is en waar je verder gaat (hoofdstuk, oefening, start).
 import { course, openChapters } from './content.js';
 import { trackEvent } from '../platform/analytics.js';
-import { newCanDo, openItems, progressStore, weakItems } from './progress.js';
+import { newCanDo, openItems, progressStore, weakItems, getLast, runState } from './progress.js';
 import * as rec from '../core/progress/record.js';
 
 /** Openstaande fouten uit alle open hoofdstukken (zonder vragen bij een leestekst). */
 export const openMistakes = () => openChapters().flatMap((c) =>
   weakItems(c).filter(({ ex }) => !ex.text).map((w) => ({ ...w, chapter: c })));
+
+/**
+ * „Verder waar je gebleven was”: de laatst geopende pagina, maar wijst die naar een oefening die al af is
+ * (en niet halverwege), dan de eerstvolgende die nog niet af is. → { href, title } of null
+ */
+export function continueTarget() {
+  const last = getLast();
+  const m = /^#\/k\/(\d+)\/o\/([^?]+)/.exec(last?.href ?? '');
+  if (!m) return last;
+  const ch = course.find((c) => c.chapter === Number(m[1]) && c.available);
+  const ex = ch?.exercises.find((e) => e.id === m[2]);
+  if (!ex) return last;
+  const run = runState(ch.chapter, ex);
+  const busy = run.started && run.done.size > 0 && run.done.size < run.total;
+  if (busy || !exerciseDone(ch, ex)) return last;
+  const to = onwardFrom(ch, ex);
+  if (to.ex) return { href: `#/k/${ch.chapter}/o/${to.ex.id}`, title: `${ch.title} · ${to.ex.title}` };
+  if (to.chapter) return { href: `#/k/${to.chapter.chapter}`, title: to.chapter.title };
+  return { href: `#/k/${ch.chapter}`, title: ch.title };
+}
 
 /** Is een oefening af? (zie core/progress/record.js) */
 export const exerciseDone = (ch, ex) => rec.exerciseDone(progressStore.get(), ch, ex);

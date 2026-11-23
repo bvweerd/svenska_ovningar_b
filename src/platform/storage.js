@@ -15,15 +15,21 @@ export function read(key) {
 }
 
 /** Schrijft tekst; null of undefined verwijdert de sleutel. true als het gelukt is. */
+let failed = false;
+
 export function write(key, value) {
   try {
     if (value === null || value === undefined) ls().removeItem(key);
     else ls().setItem(key, value);
     return true;
   } catch {
+    failed = true;
     return false;
   }
 }
+
+/** Is opslaan ooit mislukt (opslag vol, privévenster)? Dan blijft voortgang alleen in het geheugen. */
+export const writeFailed = () => failed;
 
 export const remove = (key) => write(key, null);
 

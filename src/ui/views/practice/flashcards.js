@@ -1,5 +1,5 @@
 // Flitskaarten.
-import { h } from '../../dom.js';
+import { h, fill } from '../../dom.js';
 import { crumbs, progressBar } from '../../shared.js';
 import { shuffle } from '../../../core/content/build.js';
 import { getPref, setPref, rateCard, pickCards, cardProgress } from '../../../app/progress.js';
@@ -58,22 +58,22 @@ export function viewFlashcards(ch, { signal } = {}) {
     progress.textContent = `Stapel: nog ${deck.length + (current ? 1 : 0)} van ${stackSize} kaarten · ${p.known} van ${p.total} woorden gekend`;
     if (!current) {
       card.hidden = true;
-      actions.replaceChildren();
+      fill(actions, );
       summary.hidden = false;
-      summary.replaceChildren(...finish().filter(Boolean));
+      fill(summary, finish());
       setTimeout(() => summary.querySelector('.btn.primary')?.focus(), 0);
       return;
     }
     card.hidden = false;
     summary.hidden = true;
     card.classList.toggle('flipped', flipped);
-    face.replaceChildren(
+    fill(face, 
       h('span', { class: 'flash-main', lang: dir === 'sv' && !flipped ? 'sv' : dir === 'nl' && flipped ? 'sv' : 'nl' }, flipped ? back(current.v) : front(current.v)),
       h('span', { class: 'flash-hint' }, flipped ? front(current.v) : 'Tik op de kaart (of druk op spatie) om hem om te draaien'),
     );
     // Vaste knoppen op een vaste plek: „Wist ik” en „Nog niet” kunnen pas na het omdraaien, zodat
     // een dubbele tik op de kaart niet per ongeluk een beoordeling geeft.
-    actions.replaceChildren(
+    fill(actions, 
       h('button', { type: 'button', class: 'btn primary', disabled: !flipped, onclick: () => rate(true) }, 'Wist ik (1)'),
       h('button', { type: 'button', class: 'btn ghost', disabled: !flipped, onclick: () => rate(false) }, 'Nog niet (2)'),
       speechSupported() ? h('button', { type: 'button', class: 'btn ghost speech-extra', onclick: () => speak(current.v.sv) }, 'Luister (L)') : '');

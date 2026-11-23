@@ -2,7 +2,7 @@
 import { h } from '../dom.js';
 import { course } from '../../app/content.js';
 import { SITE_TEXT, SIBLING } from '../../config.js';
-import { reportConfigured } from '../components/report.js';
+import { reportConfigured, feedbackButton } from '../components/report.js';
 import { syncConfigured, getCode, forgetCode } from '../../platform/sync.js';
 import { getInputMode, setInputMode } from '../items/tiles.js';
 import { isStandalone } from '../../platform/pwa.js';
@@ -56,8 +56,10 @@ export function viewAbout() {
       h('li', {}, 'Snelle rondes: zoveel mogelijk goede antwoorden in 60 seconden.'),
     ),
     reportConfigured() ? [
-      h('h2', {}, 'Een fout melden'),
+      h('h2', {}, 'Een fout of probleem melden'),
       h('p', {}, 'Klopt er iets niet in een vraag, of wordt een goed antwoord fout gerekend? Klik bij de vraag op „Fout gezien?” en schrijf kort wat er mis is. De vraag en je antwoord worden automatisch meegestuurd. Je hebt geen account nodig. Je melding wordt een openbaar issue op GitHub, dus zet er geen persoonlijke gegevens in. Tegen spam controleert Cloudflare Turnstile of je een mens bent.'),
+      h('p', {}, 'Gaat er iets anders mis in de app, is iets onduidelijk, of heb je een idee? Gebruik dan deze knop.'),
+      h('div', { class: 'actions' }, feedbackButton()),
     ] : null,
     h('h2', {}, 'Antwoorden invoeren'),
     h('p', {}, 'Bij langere antwoorden kun je typen of woordtegels in de goede volgorde aantikken. Op een telefoon of tablet staan standaard de tegels aan.'),

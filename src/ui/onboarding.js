@@ -1,7 +1,7 @@
 // Eerste gebruik: een korte kaart „Zo werkt het” en, voor wie de site echt gebruikt, advies om
 // hem als app te installeren. Allebei op de startpagina, nooit als venster dat de pagina blokkeert,
 // en allebei weg te klikken.
-import { h, isTouch } from './dom.js';
+import { h, isTouch, fill } from './dom.js';
 import { getPref, setPref, hasProgress } from '../app/progress.js';
 import { isStandalone, isIos, canPromptInstall, promptInstall, watchInstall } from '../platform/pwa.js';
 
@@ -108,7 +108,7 @@ function installCard(used) {
         h('p', {}, 'Tik in je browser op het menu (⋮) en kies „App installeren” of „Toevoegen aan startscherm”.'),
       ],
     }[k];
-    card.replaceChildren(
+    fill(card, 
       closeButton('Advies sluiten', snooze),
       h('h2', { id: 'install-title' }, 'Tip: gebruik de oefeningen als app'),
       ...steps,

@@ -438,3 +438,14 @@ describe('prepareRun (ronde beginnen)', () => {
     expect(R.prepareRun(b.state, 1, erbij, { now: 5 }).state).toBe(b.state);
   });
 });
+
+describe('samenvoegen: verder waar je was', () => {
+  it('een tijdstip ver in de toekomst wint niet', async () => {
+    const { mergeStates } = await import('../src/core/progress/merge.js');
+    const { empty } = await import('../src/core/progress/schema.js');
+    const now = 1_000_000_000_000;
+    const a = { ...empty(), last: { href: '#/k/2/o/x', at: now - 1000 } };
+    const b = { ...empty(), last: { href: '#/k/1/o/eerste', at: now + 10 * 86400000 } };
+    expect(mergeStates(a, b, now).last.href).toBe('#/k/2/o/x');
+  });
+});

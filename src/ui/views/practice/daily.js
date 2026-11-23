@@ -46,6 +46,7 @@ export function viewDaily({ query } = {}) {
               h('a', { class: 'btn ghost', href: '#/oefenen/herhaling?meer' }, `Toch nog meer doen (${plural(due.length, 'vraag', 'vragen')} klaar)`))
           : null),
       boxesBlock(entries) ?? h('a', { class: 'btn primary', href: '#/' }, 'Naar de hoofdstukken'),
+      h('p', { class: 'exercise-foot' }, h('a', { class: 'btn ghost', href: '#/oefenen' }, '← Terug naar Oefenen')),
     );
   }
   const size = extra ? ROUND : Math.min(ROUND, goalLeft);
@@ -58,10 +59,15 @@ export function viewDaily({ query } = {}) {
     again: `#/oefenen/herhaling?${extra ? 'meer&' : ''}${Date.now()}`,
     empty: '',
     review: true,
+    backTo: { href: '#/oefenen', label: 'Terug naar Oefenen' },
     left: {
       count: () => (extra ? dueItems(practiceEntries()).length : reviewLeft(dueItems(practiceEntries()).length)),
-      more: (n) => (extra ? `Er ${n === 1 ? 'staat' : 'staan'} nog ${plural(n, 'vraag', 'vragen')} klaar.` : `Nog ${plural(n, 'vraag', 'vragen')} op je dagdoel.`),
-      done: extra ? 'Alles herhaald wat klaarstond. Knap!' : `Dagdoel gehaald: ${DAILY_GOAL} vragen herhaald. Wat je fout had, komt morgen terug.`,
+      more: (n) => (extra ? `Er ${n === 1 ? 'staat' : 'staan'} vandaag nog ${plural(n, 'vraag', 'vragen')} klaar.` : `Nog ${plural(n, 'vraag', 'vragen')} op je dagdoel van vandaag.`),
+      done: extra
+        ? 'Je hebt alle herhaalvragen van vandaag gehad. Wat je fout had of bekeek, komt morgen terug.'
+        : dueItems(practiceEntries()).length
+          ? `Dagdoel gehaald: ${DAILY_GOAL} vragen herhaald. Er staan nog extra vragen klaar als je wilt; wat je fout had, komt morgen terug.`
+          : 'Je hebt alle herhaalvragen van vandaag gehad. Wat je fout had of bekeek, komt morgen terug.',
     },
     after: () => (!extra && dueItems(practiceEntries()).length
       ? h('p', {}, h('a', { href: '#/oefenen/herhaling?meer' }, 'Zin in meer? Ga door met extra herhaling.'))

@@ -17,6 +17,12 @@ export function h(tag, attrs = {}, ...children) {
 }
 
 let uid = 0;
+/**
+ * Vervangt de inhoud van el. Lege waarden (null, undefined, false) en geneste lijsten mogen: anders zet
+ * replaceChildren een null letterlijk als „null” op het scherm.
+ */
+export const fill = (el, ...kids) => el.replaceChildren(...kids.flat(Infinity).filter((k) => k !== null && k !== undefined && k !== false));
+
 /** Touchscreen (geen muis)? */
 export const isTouch = () => typeof matchMedia === 'function' && matchMedia('(pointer: coarse)').matches;
 

@@ -7,6 +7,8 @@ import {
 import { bindProgress, initSync } from './platform/sync.js';
 import { usePrefs } from './platform/speech.js';
 import { initPwa, isStandalone } from './platform/pwa.js';
+import { writeFailed } from './platform/storage.js';
+import { toast } from './ui/components/toast.js';
 import { initAnalytics, trackPage } from './platform/analytics.js';
 import { knownWords } from './core/content/known-words.js';
 import { setKnownWords } from './ui/items/tiles.js';
@@ -55,4 +57,11 @@ progressStore.subscribe((_state, { reason }) => {
   if (reason === 'sync' || reason === 'import' || reason === 'reset') router.refresh();
 });
 initBadges({ onAward: announceBadges });
+// Lukt opslaan niet, zeg dat één keer: anders lijkt de app voortgang te vergeten.
+let warned = false;
+progressStore.subscribe(() => {
+  if (warned || !writeFailed()) return;
+  warned = true;
+  toast('Je voortgang kan op dit apparaat niet worden opgeslagen (opslag vol, of een privévenster). Exporteer je voortgang op de pagina Over, of zet synchroniseren aan.', { ms: 15000 });
+});
 initSync();

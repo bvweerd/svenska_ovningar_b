@@ -1,5 +1,5 @@
 // Snelle rondes.
-import { h } from '../../dom.js';
+import { h, fill } from '../../dom.js';
 import { verbs } from '../../../app/content.js';
 import { crumbs } from '../../shared.js';
 import { shuffle } from '../../../core/content/build.js';
@@ -93,7 +93,7 @@ export function viewGame(id, { signal } = {}) {
 
   const intro = () => {
     const best = getGame(id)?.best;
-    stage.replaceChildren(
+    fill(stage, 
       h('p', { class: 'lead' }, game.intro),
       h('p', { class: 'muted' }, best ? `Je record: ${best}` : 'Nog geen record.'),
       h('button', { type: 'button', class: 'btn primary big', onclick: start }, 'Start', h('span', { class: 'kbd-only' }, ' (Enter)')),
@@ -107,7 +107,7 @@ export function viewGame(id, { signal } = {}) {
     do q = game.make();
     while (q && recent.includes(q.prompt) && tries++ < 10);
     if (!q) {
-      stage.replaceChildren(h('p', {}, 'Voor dit spel is er nog te weinig oefenstof.'));
+      fill(stage, h('p', {}, 'Voor dit spel is er nog te weinig oefenstof.'));
       clearInterval(timer);
       return;
     }
@@ -115,7 +115,7 @@ export function viewGame(id, { signal } = {}) {
     if (recent.length > 8) recent.shift();
     locked = false;
     const buttons = q.options.map((o, i) => h('button', { type: 'button', class: 'game-option', onclick: () => answer(i) }, h('kbd', {}, String(i + 1)), h('span', { lang: id === 'betekenis' ? 'nl' : 'sv' }, o)));
-    stage.replaceChildren(
+    fill(stage, 
       timebar, status,
       h('div', { class: 'game-prompt', lang: 'sv' }, q.prompt, q.sub ? h('span', { class: 'game-sub', lang: 'nl' }, q.sub) : null),
       h('div', { class: `game-options n${q.options.length}` }, buttons),
@@ -152,7 +152,7 @@ export function viewGame(id, { signal } = {}) {
     q = null;
     const record = saveGame(id, score);
     trackEvent(`spel/${id}/klaar`, `${game.title} · score ${score}`);
-    stage.replaceChildren(
+    fill(stage, 
       h('h2', {}, `Tijd! Je score: ${score}`),
       h('p', {}, record && score > 0 ? 'Nieuw record!' : `Je record: ${getGame(id)?.best ?? score}`),
       mistakes.length ? h('div', {}, h('p', {}, 'Deze had je fout:'), h('ul', { class: 'mistakes', lang: 'sv' }, [...new Set(mistakes)].map((m) => h('li', {}, m)))) : null,

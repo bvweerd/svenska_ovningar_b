@@ -26,7 +26,7 @@ const exTime = (r) => r?.at ?? Math.max(r?.completedAt ?? 0, r?.runStart ?? 0);
  * - Instellingen (stem, invoer, enz.) horen bij het apparaat: die van a blijven staan, b vult alleen aan.
  * - Badges: allebei, met het vroegste tijdstip.
  */
-export function mergeStates(a, b) {
+export function mergeStates(a, b, now = Date.now()) {
   a = { ...empty(), ...a };
   b = { ...empty(), ...b };
   const items = mergeMap(a.items, b.items, (x, y) => newest(x, y, atOf));
@@ -54,7 +54,8 @@ export function mergeStates(a, b) {
     ex: mergeMap(a.ex, b.ex, (x, y) => best(x, y, exTime)),
     tests: mergeMap(a.tests, b.tests, (x, y) => best(x, y, atOf)),
     games: mergeMap(a.games, b.games, (x, y) => best(x, y, atOf)),
-    last: a.last && b.last ? newest(a.last, b.last, atOf) : a.last ?? b.last ?? null,
+    // Een tijdstip ver in de toekomst (klok van een apparaat loopt voor) zou altijd winnen: dan telt dat niet.
+    last: a.last && b.last ? newest(a.last, b.last, (r) => (atOf(r) > now + 3600000 ? 0 : atOf(r))) : a.last ?? b.last ?? null,
     days: [...new Set([...(a.days ?? []), ...(b.days ?? [])])].sort().slice(-400),
     prefs,
     cards: mergeMap(a.cards, b.cards, byStamp('c/')),

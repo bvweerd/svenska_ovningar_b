@@ -1,6 +1,6 @@
 // Luisteren: instellingen, uitleg per browser en een dicteeronde.
 import { forDictation, spokenText } from '../../core/items/index.js';
-import { h } from '../dom.js';
+import { h, fill } from '../dom.js';
 import { course } from '../../app/content.js';
 import { crumbs, exerciseRunner, findTopic } from '../shared.js';
 import { shuffle } from '../../core/content/build.js';
@@ -126,7 +126,7 @@ function statusBox() {
     const st = speechStatus();
     const v = chosenVoice();
     box.className = `speech-status ${st}`;
-    box.replaceChildren(...{
+    fill(box, ...{
       ok: [h('strong', {}, '✓ Voorlezen werkt.'), ` ${swedishVoices().length} Zweedse ${swedishVoices().length === 1 ? 'stem' : 'stemmen'} gevonden. Gekozen: ${v?.name ?? '—'}.`],
       'no-voice': [h('strong', {}, 'Geen Zweedse stem gevonden.'), ' Deze browser kan wel voorlezen, maar dan met een andere stem of de standaardstem. Installeer een Zweedse stem met de uitleg hieronder. Op Android werkt het vaak toch: probeer de testzin.'],
       unsupported: [h('strong', {}, 'Deze browser kan niet voorlezen.'), ' Probeer een recente versie van Chrome, Edge, Safari of Firefox.'],

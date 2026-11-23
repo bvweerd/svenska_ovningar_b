@@ -1,6 +1,6 @@
 // „Meld een fout”: een klein formulier per vraag. De melding gaat naar een Cloudflare Worker,
 // die er een GitHub-issue van maakt (zie worker/). Gebruikers hebben geen account nodig.
-import { h } from '../dom.js';
+import { h, fill } from '../dom.js';
 import { REPORT_URL, TURNSTILE_SITEKEY, REPORT_REPO } from '../../config.js';
 import { trackEvent } from '../../platform/analytics.js';
 
@@ -45,7 +45,7 @@ export function reportPayload({ item, ref, number, message, answer, token, page 
     itemIndex: Number.isInteger(ref?.idx) ? ref.idx : null,
     itemId: item?.id !== undefined && item?.id !== null ? String(item.id) : null,
     itemType: item?.type ?? null,
-    item: JSON.stringify(item, null, 2),
+    item: item ? JSON.stringify(item, null, 2) : null,
     token,
   };
 }
@@ -71,16 +71,19 @@ function loadTurnstile() {
 // ---------- Formulier ----------
 let dialog = null;
 
-function openDialog({ item, ref, number, card }) {
+/** general: algemene melding (pagina Over), niet over één vraag. */
+function openDialog({ item = null, ref = null, number = null, card = null, general = false }) {
   if (dialog?.open) dialog.close(); // ruimt ook de Turnstile-widget op (zie het close-event hieronder)
-  const answer = currentAnswer(card);
+  const answer = card ? currentAnswer(card) : '';
   let token = '';
   let widgetId = null;
   let waiting = false; // op Versturen geklikt voordat Turnstile klaar was: verstuur zodra het token er is
 
   const textarea = h('textarea', {
     class: 'answer-input', rows: 4, maxlength: 2000, required: true,
-    placeholder: 'Bijv.: „Ook vem som is hier goed”, of: „De vertaling klopt niet”.',
+    placeholder: general
+      ? 'Bijv.: „Verder waar je gebleven was wijst steeds naar dezelfde oefening”, of een idee.'
+      : 'Bijv.: „Ook vem som is hier goed”, of: „De vertaling klopt niet”.',
   });
   const status = h('p', { class: 'report-status', 'aria-live': 'polite' });
   const send = h('button', { type: 'submit', class: 'btn primary' }, 'Versturen');
@@ -88,11 +91,11 @@ function openDialog({ item, ref, number, card }) {
   const widget = h('div', { class: 'turnstile' });
 
   const form = h('form', { method: 'dialog', class: 'report-form' },
-    h('h2', {}, 'Meld een fout'),
-    h('p', { class: 'muted small' },
-      ref ? `${ref.ex.title}, vraag ${number}. ` : `Vraag ${number}. `,
-      'De vraag en je antwoord worden automatisch meegestuurd.'),
-    h('label', {}, h('span', {}, 'Wat klopt er niet?'), textarea),
+    h('h2', {}, general ? 'Feedback of een probleem melden' : 'Meld een fout'),
+    h('p', { class: 'muted small' }, general
+      ? 'Wat werkt er niet, wat is onduidelijk, of wat zou je graag zien? Beschrijf wat je deed en wat er gebeurde. Het adres van de pagina en je browser gaan mee.'
+      : [ref ? `${ref.ex.title}, vraag ${number}. ` : `Vraag ${number}. `, 'De vraag en je antwoord worden automatisch meegestuurd.']),
+    h('label', {}, h('span', {}, general ? 'Je melding' : 'Wat klopt er niet?'), textarea),
     answer ? h('p', { class: 'muted small' }, 'Jouw antwoord: ', h('span', { lang: 'sv' }, answer)) : null,
     widget,
     h('p', { class: 'muted small' }, 'Je melding wordt een openbaar issue op GitHub. Zet er geen persoonlijke gegevens in.'),
@@ -125,12 +128,12 @@ function openDialog({ item, ref, number, card }) {
       const res = await fetch(REPORT_URL, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(reportPayload({ item, ref, number, message: textarea.value, answer, token, page: location.href })),
+        body: JSON.stringify(reportPayload({ item, ref, number, message: general ? `${textarea.value}\n\n(${navigator.userAgent})` : textarea.value, answer, token, page: location.href })),
       });
       const data = await res.json().catch(() => ({}));
       if (!res.ok || !data.ok) throw new Error(data.error || res.status);
       trackEvent('melding/verstuurd', 'Foutmelding');
-      form.replaceChildren(
+      fill(form, 
         h('h2', {}, 'Bedankt!'),
         h('p', {}, 'Je melding is ontvangen. Ik kijk ernaar en pas de oefening aan als dat nodig is.'),
         h('div', { class: 'actions' }, h('button', { type: 'button', class: 'btn primary', onclick: () => dlg.close() }, 'Sluiten')),
@@ -181,6 +184,12 @@ function openDialog({ item, ref, number, card }) {
       send.disabled = false;
       setStatus('bad', 'De controle tegen spam kon niet laden. Staat er een blocker aan?');
     });
+}
+
+/** Knop voor een algemene melding (pagina Over); null als meldingen niet zijn ingesteld. */
+export function feedbackButton() {
+  if (!reportConfigured()) return null;
+  return h('button', { type: 'button', class: 'btn primary', onclick: () => openDialog({ general: true }) }, 'Feedback of probleem melden');
 }
 
 /** Knopje voor in de kop van een vraag; null als meldingen niet zijn ingesteld. */

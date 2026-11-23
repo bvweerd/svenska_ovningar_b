@@ -1,10 +1,9 @@
 // Koppelen en dialoog ordenen door te tikken (handig op een telefoon, werkt ook met toetsenbord).
-import { h } from '../dom.js';
+import { h, fill } from '../dom.js';
 import { shuffle } from '../../core/content/build.js';
 import { gradeMatch, gradeDialogue } from '../../core/check/grade.js';
 import { prompt, displayOrder } from './fields.js';
 
-const fill = (el, ...kids) => el.replaceChildren(...kids.flat(Infinity).filter((k) => k !== null && k !== undefined && k !== false));
 
 // ---------- Koppelen: kies een rij, tik daarna de betekenis aan ----------
 export function match(item, ctx) {

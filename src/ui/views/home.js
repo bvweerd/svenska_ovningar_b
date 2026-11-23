@@ -5,13 +5,14 @@ import { SITE_TEXT, SIBLING } from '../../config.js';
 import { homeNotices } from '../onboarding.js';
 import { dueCount, streakText } from './practice/common.js';
 import { progressBar, splitTheme, plural } from '../shared.js';
-import { chapterProgress, getLast, canDoStatus } from '../../app/progress.js';
+import { chapterProgress, canDoStatus } from '../../app/progress.js';
+import { continueTarget } from '../../app/course-progress.js';
 import { chapterHue } from '../components/chapter.js';
 import { badgeSummary } from './badges.js';
 
 export function viewHome() {
   document.title = 'Svenska övningar';
-  const last = getLast();
+  const last = continueTarget();
   const open = course.filter((c) => c.available);
   const first = open[0];
   // Voortgang over alle hoofdstukken, alleen als er al iets gemaakt is.

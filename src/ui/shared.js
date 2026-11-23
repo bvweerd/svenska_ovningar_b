@@ -182,11 +182,15 @@ export function exerciseRunner(items, { onFinish, offset = { done: 0, good: 0, t
  * Oefenronde met losse vragen uit één of meer hoofdstukken (mix, fouten).
  * entries: [{ item, ex, idx, chapter }]
  */
-export function practiceView(ch, { title, instruction, entries, again, empty, left, review = false, after }) {
+/**
+ * @param backTo  { href, label } waar „terug” heen gaat; standaard het hoofdstuk, of de start.
+ */
+export function practiceView(ch, { title, instruction, entries, again, empty, left, review = false, after, backTo }) {
   const trail = ch
     ? [{ label: 'Start', href: '#/' }, { label: ch.title, href: `#/k/${ch.chapter}` }, { label: title }]
     : [{ label: 'Start', href: '#/' }, { label: title }];
-  const back = ch ? h('a', { class: 'btn ghost', href: `#/k/${ch.chapter}` }, 'Terug naar het hoofdstuk') : h('a', { class: 'btn ghost', href: '#/' }, 'Naar de start');
+  const to = backTo ?? (ch ? { href: `#/k/${ch.chapter}`, label: 'Terug naar het hoofdstuk' } : { href: '#/', label: 'Naar de start' });
+  const back = h('a', { class: 'btn ghost', href: to.href }, to.label);
   if (!entries.length) {
     return h('div', {},
       crumbs(...trail),
@@ -222,6 +226,8 @@ export function practiceView(ch, { title, instruction, entries, again, empty, le
     crumbs(...trail),
     h('header', { class: 'page-head' }, h('h1', {}, ch ? `${title}: ${ch.title}` : title), h('p', { class: 'instruction' }, instruction)),
     score, list, summary,
+    // Altijd een weg terug, ook halverwege de ronde.
+    h('p', { class: 'exercise-foot' }, h('a', { class: 'btn ghost', href: to.href }, `← ${to.label}`)),
   );
 }
 
