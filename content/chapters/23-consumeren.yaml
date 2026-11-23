@@ -391,8 +391,8 @@ sections:
         instruction: Zeg het nu zelf in het Zweeds. Er is vaak meer dan één goed antwoord.
         kind: situatie
         items:
-          - { id: wqmz, type: translate, topic: jamforelse, prompt: "Zeg dat deze jas goedkoper is dan die.", answers: ["{Den här jackan|Denna jacka} är billigare än den där[ jackan]."], feedback: [{ contains: "mer billig", tip: "Kort woord: billig – billigare – billigast." }] }
-          - { id: uzks, type: translate, topic: jamforelse, prompt: "Zeg: hoe meer ik oefen, hoe beter ik word.", answers: ["Ju mer jag övar, {desto|ju} bättre blir jag."], feedback: [{ contains: ["desto bättre jag blir", "ju bättre jag blir"], tip: "Na desto … komt eerst het werkwoord: desto bättre blir jag." }] }
+          - { id: wqmz, type: translate, topic: jamforelse, prompt: "Zeg dat deze jas goedkoper is dan die.", answers: ["{Den här jackan|Denna jacka} är billigare än den där[ jackan].", "{Den här rocken|Denna rock} är billigare än den där[ rocken].", "{Den här kappan|Denna kappa} är billigare än den där[ kappan]."], feedback: [{ contains: "mer billig", tip: "Kort woord: billig – billigare – billigast." }, { contains: "billigare som", tip: "Na een vergrotende trap: än." }] }
+          - { id: uzks, type: translate, topic: jamforelse, prompt: "Zeg: hoe meer ik oefen, hoe beter ik word.", answers: ["Ju mer jag {övar|tränar}, {desto|ju} bättre blir jag."], feedback: [{ contains: ["desto bättre jag blir", "ju bättre jag blir"], tip: "Na desto (of ju) … komt eerst het werkwoord: desto bättre blir jag." }, { contains: ["ju mer övar jag", "ju mer tränar jag"], tip: "Het ju-deel is een bijzin: ju mer jag övar." }] }
           - { id: dfw5, type: translate, topic: woordenschat, prompt: "Vraag in de winkel of je dit kunt ruilen.", answers: ["{Kan|Får} jag [få ]byta {den här|det här}?", "Går det att byta {den här|det här}?"] }
           - { id: k3e6, type: translate, topic: jamforelse, prompt: "Zeg dat deze winkel de beste prijzen heeft.", answers: ["Den här {affären|butiken} har de bästa priserna."], feedback: [{ contains: "de bäst priserna", tip: "Bepaald, met de: de bästa priserna." }] }
 
