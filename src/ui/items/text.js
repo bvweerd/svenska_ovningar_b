@@ -47,7 +47,7 @@ export function gap(item, ctx) {
 
 export function translate(item, ctx) {
   const f = sentenceField(item, ctx, { label: 'Jouw vertaling' });
-  const el = h('div', {}, h('p', { class: 'prompt source' }, item.prompt), f.field.el);
+  const el = h('div', {}, h('p', { class: 'prompt source', html: inline(item.prompt) }), f.field.el);
   return { el, check: f.check, reveal: f.reveal, lock: sentenceLock(f, el) };
 }
 

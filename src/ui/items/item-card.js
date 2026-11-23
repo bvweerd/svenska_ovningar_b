@@ -117,7 +117,7 @@ export function itemCard(item, ctx, number, onDone, label) {
 
     // Leeg, of goed Zweeds in een andere volgorde dan de opdracht vraagt: geen fout, nog een keer.
     if (res.empty || res.retry) {
-      show('info', h('p', {}, res.tip));
+      show('info', h('p', { html: inline(res.tip) }));
       return;
     }
     if (res.correct && res.advance) {
@@ -143,7 +143,8 @@ export function itemCard(item, ctx, number, onDone, label) {
       finish(true);
       return;
     }
-    const tip = h('p', {}, res.tip ?? GENERIC_WRONG);
+    // Tips mogen *cursief* en **vet** bevatten (zoals in de taken); inline() escapet eerst.
+    const tip = h('p', { html: inline(res.tip ?? GENERIC_WRONG) });
     // Wat nu? Voor wie net begint is niet vanzelf duidelijk dat je zelf verbetert.
     const next = h('p', { class: 'next-step' }, selfChecking(item) && !card.querySelector('input[type="text"]:not(:disabled)')
       ? 'Kies opnieuw.'
