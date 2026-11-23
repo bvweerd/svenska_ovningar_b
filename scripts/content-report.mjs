@@ -159,7 +159,7 @@ export function analyse(chapters, before = []) {
 
     // Makkelijke teksten: welk deel van de woorden is al bekend (eerdere hoofdstukken + de rest van dit hoofdstuk)?
     const exercises = (ch.sections ?? []).filter((s) => !REVIEW.has(s.id)).flatMap((s) => s.exercises ?? []);
-    const texts = exercises.filter((ex) => ex.text && !ex.listen);
+    const texts = exercises.filter((ex) => ex.text);
     const seenHere = new Set(lower(tokens(chapterCorpus(ch, new Set(texts)))));
     const coverage = texts.map((ex) => {
       const ts = tokens(ex.text);
@@ -172,7 +172,7 @@ export function analyse(chapters, before = []) {
         if (!knownWord(l, [known, seenHere])) unknown.add(l);
       }
       const miss = ts.filter((t) => unknown.has(t.toLowerCase())).length;
-      return { id: ex.id, easy: ex.kind === 'makkelijk', words: total, known: total ? 1 - miss / total : 1, unknown: [...unknown] };
+      return { id: ex.id, easy: ex.kind === 'makkelijk', listen: !!ex.listen, words: total, known: total ? 1 - miss / total : 1, unknown: [...unknown] };
     });
 
     // Grammatica: vragen per kaart in dit hoofdstuk, en of de kaart later nog terugkomt (ook in herhalingen).
@@ -292,7 +292,7 @@ export function report({ site, chapters, before = [], beforeName = null }) {
     'Aandeel van de woorden in een tekst dat al eerder voorkwam (vorige hoofdstukken en de rest van dit hoofdstuk). Doel voor makkelijke teksten: 95–98%. Namen (woorden die nergens met een kleine letter voorkomen) tellen niet mee. Een vervoeging van een bekend woord telt als bekend (benadering: zelfde stam).', '',
     '| H | tekst | soort | woorden | bekend | nieuwe woorden |', '|---:|---|---|---:|---:|---|');
   for (const r of rows) for (const c of r.coverage) {
-    p(`| ${r.chapter} | \`${c.id}\` | ${c.easy ? 'makkelijk' : 'leestekst'} | ${c.words} | ${Math.round(c.known * 100)}% | ${c.unknown.slice(0, 6).join(', ')}${c.unknown.length > 6 ? ` … (+${c.unknown.length - 6})` : ''} |`);
+    p(`| ${r.chapter} | \`${c.id}\` | ${c.easy ? 'makkelijk' : c.listen ? 'luistertekst' : 'leestekst'} | ${c.words} | ${Math.round(c.known * 100)}% | ${c.unknown.slice(0, 6).join(', ')}${c.unknown.length > 6 ? ` … (+${c.unknown.length - 6})` : ''} |`);
   }
   p('');
 
