@@ -50,6 +50,17 @@ describe('diagnose', () => {
 });
 
 describe('gradeText', () => {
+  it('foutregel met retry: geen fout, wel nog een poging', () => {
+    const spec = { answers: ['Det regnar, så vi stannar inne.'], feedback: [{ contains: 'så stannar vi', retry: true, tip: 'Goed Zweeds, maar oefen hier de gewone volgorde.' }] };
+    const r = gradeText('Det regnar, så stannar vi inne.', spec);
+    expect(r.correct).toBe(false);
+    expect(r.retry).toBe(true);
+    expect(gradeText('Det regnar, så vi stannar inne.', spec).correct).toBe(true);
+  });
+  it('een echte foutregel gaat voor een retry-regel', () => {
+    const spec = { answers: ['Jag vet att han aldrig kommer för sent.'], feedback: [{ contains: 'försent', retry: true, tip: 'twee woorden' }, { contains: 'kommer aldrig', tip: 'bijzin' }] };
+    expect(gradeText('Jag vet att han kommer aldrig försent.', spec).tip).toBe('bijzin');
+  });
   it('accepteert varianten', () => {
     expect(gradeText('nej vi pratar inte finska', { answers: ['[Nej, ]vi {talar|pratar} inte finska.'] }).correct).toBe(true);
   });

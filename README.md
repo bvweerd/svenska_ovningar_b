@@ -141,6 +141,10 @@ oefening (of bij één vraag). De andere volgorde telt dan niet als fout, maar d
 de opdracht te volgen: begint het goede antwoord met de tijdsbepaling, dan „begin de zin met de
 tijdsbepaling”; begint het met iets anders, dan „begin de zin zoals gevraagd”.
 
+Een foutregel met `retry: true` werkt net zo: het antwoord is goed Zweeds maar niet wat de oefening vraagt
+(bijv. inversie na *så* zoals in spreektaal, of *försent* in plaats van *för sent*). De leerling krijgt de tip
+en mag het nog eens proberen; het telt niet als fout.
+
 Bewust voorzichtig: de nakijker verplaatst alleen een tijdsbepaling tussen plaats 1 (met inversie) en het
 eind van één enkelvoudige hoofdzin met een herkenbaar onderwerp (*Bram*, *min syster*, *Olles fru*,
 *Fleur och Bram*, *Erik och jag*). Niet bij een vraag, een komma, een

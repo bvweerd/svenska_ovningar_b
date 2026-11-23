@@ -18,10 +18,13 @@ export function gradeText(input, spec, ctx = {}) {
   const expected = variants(spec.answers, opts);
   if (expected.includes(n)) return { correct: true };
 
-  for (const f of spec.feedback ?? []) {
+  // Echte fouten gaan voor: een retry-regel (goed Zweeds, andere vorm) komt pas als geen andere regel past.
+  const rules = [...(spec.feedback ?? [])].sort((x, y) => Number(!!x.retry) - Number(!!y.retry));
+  for (const f of rules) {
     const hitMatch = asList(f.match).some((m) => variants([m], opts).includes(n));
     const hitContains = asList(f.contains).some((c) => ` ${n} `.includes(` ${normalize(c, opts)} `));
-    if (hitMatch || hitContains) return { correct: false, kind: 'feedback', tip: f.tip };
+    // retry: goed Zweeds, maar niet wat de opdracht oefent. Geen fout, wel nog een poging (zoals fixedOrder).
+    if (hitMatch || hitContains) return f.retry ? { correct: false, retry: true, kind: 'feedback', tip: f.tip } : { correct: false, kind: 'feedback', tip: f.tip };
   }
   // Tijdsbepaling vooraan of achteraan: ook goed (vastgelegde fouten hierboven gaan voor).
   // Uit de patronen mét leestekens, zodat een komma (bijzin) een verplaatsing tegenhoudt.
