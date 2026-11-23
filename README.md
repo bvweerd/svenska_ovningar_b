@@ -46,7 +46,7 @@ voortgang per hoofdstuk en de lastigste onderwerpen zien.
 
 **Prestaties** (`#/prestaties`, `src/core/rewards/badges.js`): badges die de app zelf uitreikt op basis van
 wat hij nakijkt: afgeronde oefeningen en hoofdstukken, kan-doen-doelen, vragen in doos 4+, toetsen ≥ 80%,
-oefendagen (in totaal, niet op rij), dictee en snelle rondes. Flitskaarten tellen niet mee (zelfbeoordeling).
+oefendagen (in totaal, niet op rij), dictee en snelle rondes. Flitskaarten (losse woordjes) tellen niet mee.
 Een behaalde badge blijft staan en synchroniseert mee. De badge-id's zijn vast: niet veranderen.
 Elke groep heeft een Zweeds plaatje (`src/ui/components/badge-icon.js`, inline SVG): dalahäst, midsommarstång,
 rood huisje, eland, studentmössa, Tre Kronor, fika, nyckelharpa en Vasaloppet-ski's. De rand toont het niveau

@@ -1,7 +1,7 @@
 // Prestaties (badges): vaste lijst, afgeleid uit de voortgang. Puur.
 //
 // Spelregels: een badge hangt alleen aan wat de app zelf nakijkt (vragen, kan-doen-doelen, afgeronde
-// oefeningen, toetsen, dictee, snelle rondes), nooit aan zelfbeoordeling (flitskaarten). Nadruk op
+// oefeningen, toetsen, dictee, snelle rondes), niet aan de flitskaarten (losse woordjes). Nadruk op
 // beheersing; oefendagen tellen in totaal, niet „op rij”, zodat een gemiste dag niets afpakt.
 // Een behaalde badge blijft staan (state.badges[id] = tijdstip), ook als de inhoud later verandert.
 // De id's staan vast, net als vraag-id's: verander ze niet.

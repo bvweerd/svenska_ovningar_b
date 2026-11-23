@@ -43,6 +43,9 @@ describe('diagnose', () => {
   it('herkent een ontbrekend woord in een zin', () => expect(d('jag talar finska', ['jag talar inte finska']).kind).toBe('missing'));
   it('herkent een spelfout', () => expect(d('tidnig', ['tidning']).kind).toBe('spelling'));
   it('ontbrekende uitgang is geen spelfout', () => expect(d('huse', ['huset']).kind).not.toBe('spelling'));
+  it('herkent är + supinum (ik ben gegaan)', () => expect(d('Vi är åkt till Gotland', ['Vi har åkt till Gotland']).kind).toBe('auxiliary'));
+  it('herkent var + supinum (ik was geweest)', () => expect(d('Hon var varit sjuk', ['Hon hade varit sjuk']).tip).toMatch(/hade/));
+  it('är bij een bijvoeglijk naamwoord is geen hulpwerkwoordfout', () => expect(d('Jag är trött', ['Jag var trött'])?.kind).not.toBe('auxiliary'));
   it('geeft niets bij totaal ander antwoord', () => expect(d('hund', ['katt'])).toBeNull());
 });
 

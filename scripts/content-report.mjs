@@ -180,7 +180,8 @@ export function analyse(chapters, before = []) {
       const here = all.filter((q) => q.topic === g.id).length;
       const after = chapters.slice(i + 1).reduce((n, c) => n + questions(c, { review: true }).filter((q) => q.topic === g.id).length, 0)
         + all.filter((q) => q.review && q.topic === g.id).length;
-      return { id: g.id, title: g.title, here, after };
+      const cando = (ch.canDo ?? []).some((c) => (c.topics ?? []).includes(g.id));
+      return { id: g.id, title: g.title, here, after, cando };
     });
     const forward = all.filter((q) => q.topic && cardChapter.has(q.topic) && cardChapter.get(q.topic) > ch.chapter).length;
 
@@ -209,7 +210,7 @@ export function analyse(chapters, before = []) {
 
 // ---------- Markdown ----------
 
-export const TH = { easyKnown: 0.95, readKnown: 0.9, feedback: 0.5, translateA2: 0.35, recur: 0.4, cardMin: 8 };
+export const TH = { easyKnown: 0.95, readKnown: 0.9, feedback: 0.5, translateA2: 0.35, recur: 0.4, cardMin: 8, cardLater: 3 };
 
 /** Aandachtspunten: waar een hoofdstuk onder de lijn of een richtlijn zit. Tekst in Markdown (met `code`). */
 export function attention(rows) {
@@ -232,6 +233,10 @@ export function attention(rows) {
     if (thin.length) flag(r.chapter, `weinig vragen bij ${thin.map((c) => `\`${c.id}\` (${c.here})`).join(', ')} (richtlijn ≥ ${TH.cardMin}).`);
     const once = r.chapter < rows.at(-1).chapter ? r.cards.filter((c) => c.after === 0) : [];
     if (once.length) flag(r.chapter, `komt in geen latere vraag of herhaling terug: ${once.map((c) => `\`${c.id}\``).join(', ')}.`);
+    // Een kaart waar een kan-doen-uitspraak op rust, hoort later in nieuwe zinnen terug te komen (afwisselen),
+    // niet alleen als dezelfde vraag in de dagelijkse herhaling.
+    const few = r.cards.filter((c) => c.cando && c.after > 0 && c.after < TH.cardLater);
+    if (few.length) flag(r.chapter, `kan-doen-onderwerp komt later weinig terug: ${few.map((c) => `\`${c.id}\` (${c.after})`).join(', ')} (richtlijn ≥ ${TH.cardLater} nieuwe vragen).`);
     if (r.forward) flag(r.chapter, `${r.forward} vragen over grammatica uit een later hoofdstuk.`);
     // Vlak voor het eind van de site komen er vanzelf weinig hoofdstukken na: alleen melden als er nog ≥ 3 volgen.
     if (r.vocab && rows.at(-1).chapter - r.chapter >= 3 && r.recur / r.vocab < TH.recur) flag(r.chapter, `maar ${pct(r.recur, r.vocab)}% van de woorden komt in latere hoofdstukken terug.`);

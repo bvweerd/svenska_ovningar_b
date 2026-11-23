@@ -38,7 +38,7 @@ function pickDue(keys, statusOf, size, bad, rand) {
 
 const cardKey = (ch, dir, sv) => `${ch}/${dir}/${sv}`;
 
-/** Oordeel bij een flitskaart: alleen de eerste beoordeling per stapel telt (zie de flitskaarten). */
+/** Uitslag van een flitskaart (de app kijkt na): alleen de eerste keuze per stapel telt (zie de flitskaarten). */
 export function rateCard(state, ch, dir, sv, known, now = Date.now()) {
   const k = cardKey(ch, dir, sv);
   return {

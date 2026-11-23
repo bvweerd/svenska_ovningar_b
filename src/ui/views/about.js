@@ -45,7 +45,7 @@ export function viewAbout() {
       h('li', {}, 'Werkwoordtrainer: eindeloos werkwoordsvormen oefenen, met de tijden en soorten werkwoorden die jij kiest.'),
       h('li', {}, 'Zoek de fout: klik op het foute woord en verbeter de zin.'),
       h('li', {}, 'Toets: twintig vragen per hoofdstuk zonder tips, met een rapport per onderwerp.'),
-      h('li', {}, 'Flitskaarten: woorden omdraaien en zelf aangeven of je ze wist.'),
+      h('li', {}, 'Flitskaarten: bij elk woord de goede betekenis kiezen; de app kijkt na.'),
       h('li', {}, 'Snelle rondes: zoveel mogelijk goede antwoorden in 60 seconden.'),
     ),
     reportConfigured() ? [
