@@ -20,8 +20,8 @@ import { isProduce, hasAnswerSentence } from '../src/core/items/index.js';
 export const LINE = [
   { level: 'A1', from: 1, to: 6, text: [70, 120], easy: [30, 80], easyCount: 4, answer: [4, 6], questions: 80 },
   { level: 'A2', from: 7, to: 12, text: [120, 200], easy: [40, 120], easyCount: 4, answer: [6, 9], questions: 80 },
-  { level: 'B1', from: 13, to: 24, text: [200, 350], easy: [60, 180], easyCount: 2, answer: [8, 12], questions: 70 },
-  { level: 'B2', from: 25, to: 30, text: [350, 500], easy: [80, 250], easyCount: 2, answer: [10, 15], questions: 70 },
+  { level: 'B1', from: 13, to: 24, text: [200, 350], easy: [60, 180], easyCount: 4, answer: [8, 12], questions: 70 },
+  { level: 'B2', from: 25, to: 30, text: [350, 500], easy: [80, 250], easyCount: 4, answer: [10, 15], questions: 70 },
 ];
 
 export const words = (s) => (String(s).match(/[\p{L}\d'-]+/gu) ?? []).length;

@@ -118,6 +118,32 @@ sections:
           - { id: g3by, type: truefalse, statement: "Avgiften höjs från januari.", answer: true }
           - { id: 9xd3, type: truefalse, statement: "Saskia och hennes man överklagar beslutet.", answer: false }
 
+      - id: makkelijk-3
+        title: "Makkelijk lezen: Vab"
+        instruction: Een korte tekst met woorden die je al kent. Lees hem vlot door en beantwoord de vragen.
+        topic: woordenschat
+        kind: makkelijk
+        textTitle: "Vab"
+        text: |
+          Nina har en dotter som är sjuk. Hon måste stanna hemma från jobbet i tre dagar. Då kan hon få pengar från Försäkringskassan. Det kallas vab. Nina loggar in på webbplatsen med sitt bank-id och fyller i en ansökan. Det känns lite krångligt, men hon lyckas till slut. Efter två veckor kommer beslutet. Pengarna betalas ut i slutet av månaden. Nina hoppas att dottern snart blir frisk.
+        items:
+          - { id: 4jd8, type: truefalse, statement: "Nina måste stanna hemma i en vecka.", answer: false }
+          - { id: 4qr4, type: mc, prompt: "Hur loggar Nina in?", options: ["Med sitt pass.", "Med sitt bank-id.", "Med ett brev från posten."], answer: 1 }
+          - { id: pfdm, type: truefalse, statement: "Pengarna betalas ut i slutet av månaden.", answer: true }
+
+      - id: makkelijk-4
+        title: "Makkelijk lezen: Körkortet"
+        instruction: Een korte tekst met woorden die je al kent. Lees hem vlot door en beantwoord de vragen.
+        topic: woordenschat
+        kind: makkelijk
+        textTitle: "Körkortet"
+        text: |
+          Tom kommer från Nederländerna och har ett holländskt körkort. Han undrade om det gäller i Sverige, så han ringde Transportstyrelsen. Handläggaren svarade att körkort från andra EU-länder gäller i hela Sverige. Tom behöver alltså inte byta det. Men han kan byta om han vill, och det kostar några hundra kronor. Tom bestämde sig för att behålla sitt gamla körkort. Han var glad att slippa fylla i fler blanketter.
+        items:
+          - { id: jwh3, type: truefalse, statement: "Toms körkort gäller i Sverige.", answer: true }
+          - { id: fpjj, type: mc, prompt: "Vart ringde Tom?", options: ["Till Skatteverket.", "Till Transportstyrelsen.", "Till Försäkringskassan."], answer: 1 }
+          - { id: 8cgs, type: truefalse, statement: "Tom bytte sitt körkort.", answer: false }
+
   - id: ord
     title: Ord och fraser · woorden en uitdrukkingen
     exercises:

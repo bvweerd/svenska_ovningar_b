@@ -143,6 +143,32 @@ sections:
           - { id: m78q, type: truefalse, statement: "Daan kan inte börja i juni.", answer: false }
           - { id: hjmr, type: truefalse, statement: "Daan bifogar sitt cv.", answer: true }
 
+      - id: makkelijk-3
+        title: "Makkelijk lezen: Första dagen"
+        instruction: Een korte tekst met woorden die je al kent. Lees hem vlot door en beantwoord de vragen.
+        topic: woordenschat
+        kind: makkelijk
+        textTitle: "Första dagen"
+        text: |
+          Ali började på ett nytt jobb i en butik i måndags. Hans chef, som heter Karin, visade honom runt. Sedan fick han en tröja med företagets namn, som alla i butiken har på sig. Butiken öppnas klockan nio och stängs klockan sju. Personalen äter lunch i ett rum bakom butiken. Ali fick en kollega, Johan, som ska hjälpa honom den första veckan. Efter dagen var Ali trött, men nöjd.
+        items:
+          - { id: brrm, type: truefalse, statement: "Ali började i butiken i måndags.", answer: true }
+          - { id: hukz, type: mc, prompt: "Vem ska hjälpa Ali den första veckan?", options: ["Karin.", "Johan.", "Amir."], answer: 1 }
+          - { id: xyvt, type: truefalse, statement: "Butiken stängs klockan fem.", answer: false }
+
+      - id: makkelijk-4
+        title: "Makkelijk lezen: Schemat"
+        instruction: Een korte tekst met woorden die je al kent. Lees hem vlot door en beantwoord de vragen.
+        topic: woordenschat
+        kind: makkelijk
+        textTitle: "Schemat"
+        text: |
+          På sjukhuset där Sofia jobbar skickas schemat ut fyra veckor innan. Sofia jobbar ofta kväll, men nästa vecka jobbar hon två dagar. Om man vill byta ett pass, måste chefen säga ja. Sofia vill byta sitt pass på lördag, eftersom hennes syster fyller trettio. Hon frågar sin kollega Erik, som gärna vill byta. Chefen säger ja, och schemat ändras samma dag. Nu kan Sofia gå på festen.
+        items:
+          - { id: tw3s, type: truefalse, statement: "Schemat skickas ut en vecka innan.", answer: false }
+          - { id: j2jr, type: mc, prompt: "Varför vill Sofia byta pass?", options: ["Hon är sjuk.", "Hennes syster fyller år.", "Hon ska resa bort."], answer: 1 }
+          - { id: vs6q, type: truefalse, statement: "Erik vill gärna byta pass med Sofia.", answer: true }
+
   - id: ord
     title: Ord och fraser · woorden en uitdrukkingen
     exercises:

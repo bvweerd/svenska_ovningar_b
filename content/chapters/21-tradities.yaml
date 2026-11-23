@@ -116,6 +116,32 @@ sections:
           - { id: 4pjm, type: truefalse, statement: "Joyce har gjort våfflor många gånger.", answer: false }
           - { id: xy94, type: truefalse, statement: "Våffeldagen är i mars.", answer: true }
 
+      - id: makkelijk-3
+        title: "Makkelijk lezen: Kräftskivan"
+        instruction: Een korte tekst met woorden die je al kent. Lees hem vlot door en beantwoord de vragen.
+        topic: woordenschat
+        kind: makkelijk
+        textTitle: "Kräftskivan"
+        text: |
+          Varje år i augusti har Annas familj en kräftskiva i trädgården. I år var det första gången som Annas nya kollega Tim var med. Bordet var dukat med papperslyktor och roliga hattar. Alla sjöng snapsvisor och åt kräftor hela kvällen. Tim tyckte att det var svårt att skala kräftorna, men Anna visade honom hur man gör. Han tyckte att festen var den roligaste han hade varit på.
+        items:
+          - { id: ne9x, type: truefalse, statement: "Kräftskivan var i juni.", answer: false }
+          - { id: 9y4g, type: mc, prompt: "Vem visade Tim hur man skalar kräftor?", options: ["Anna.", "Annas mamma.", "Ingen."], answer: 0 }
+          - { id: hp62, type: truefalse, statement: "Tim hade aldrig varit på familjens kräftskiva förut.", answer: true }
+
+      - id: makkelijk-4
+        title: "Makkelijk lezen: Lucia på kontoret"
+        instruction: Een korte tekst met woorden die je al kent. Lees hem vlot door en beantwoord de vragen.
+        topic: woordenschat
+        kind: makkelijk
+        textTitle: "Lucia på kontoret"
+        text: |
+          Den trettonde december kom ett luciatåg till kontoret där Fredrik jobbar. Det var barn från en skola i närheten. Lucian hade ljus i håret, och tärnorna bar vita linnen. De sjöng några julsånger i fikarummet. Sedan bjöd företaget på lussekatter, pepparkakor och glögg utan alkohol. Fredrik, som kommer från Nederländerna, hade aldrig sett ett luciatåg förut. Han tyckte att det var vackert och filmade allt med mobilen.
+        items:
+          - { id: vhtp, type: mc, prompt: "Var sjöng barnen?", options: ["I fikarummet.", "Utanför kontoret.", "I kyrkan."], answer: 0 }
+          - { id: ewsb, type: truefalse, statement: "Fredrik har sett många luciatåg.", answer: false }
+          - { id: 3cs6, type: truefalse, statement: "Företaget bjöd på lussekatter.", answer: true }
+
   - id: ord
     title: Ord och fraser · woorden en uitdrukkingen
     exercises:

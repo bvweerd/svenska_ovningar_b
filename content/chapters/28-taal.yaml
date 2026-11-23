@@ -115,6 +115,32 @@ sections:
           - { id: k48y, type: truefalse, statement: "Niels skriver likadant till alla.", answer: false }
           - { id: h836, type: truefalse, statement: "Niels skriver formellt till kunderna.", answer: true }
 
+      - id: makkelijk-3
+        title: "Makkelijk lezen: Ett mejl till chefen"
+        instruction: Een korte tekst met woorden die je al kent. Lees hem vlot door en beantwoord de vragen.
+        topic: woordenschat
+        kind: makkelijk
+        textTitle: "Ett mejl till chefen"
+        text: |
+          Daan skulle skriva ett mejl till sin nya chef. Han började: ”Tjena! Kan jag ta ledigt på fredag?” Hans kollega Maria läste mejlet och skrattade. ”Det där är lite för vardagligt”, sa hon. ”Till chefen skriver man hellre: Hej Karin! Skulle det vara möjligt att ta ledigt på fredag?” Maria förklarade att man i Sverige ofta säger du till chefen, men att ett mejl ändå ska vara lite artigare än ett sms. Daan ändrade mejlet och skickade det. Chefen svarade snabbt: ”Absolut, det går bra!” Daan tackade Maria. Nästa gång tänker han fråga henne innan han skickar något.
+        items:
+          - { id: uqzc, type: truefalse, statement: "Daan skrev först ett formellt mejl.", answer: false }
+          - { id: xez4, type: mc, prompt: "Vem läste mejlet först?", options: ["Chefen.", "Maria.", "Karin."], answer: 1 }
+          - { id: dmjk, type: truefalse, statement: "Daan fick ledigt på fredag.", answer: true }
+
+      - id: makkelijk-4
+        title: "Makkelijk lezen: Inte min kopp te"
+        instruction: Een korte tekst met woorden die je al kent. Lees hem vlot door en beantwoord de vragen.
+        topic: woordenschat
+        kind: makkelijk
+        textTitle: "Inte min kopp te"
+        text: |
+          När Ruben började lära sig svenska förstod han inte alla uttryck. En kollega sa en gång att fotboll ”inte var hans kopp te”. Ruben trodde att det handlade om något att dricka. Senare förstod han att det betyder att man inte tycker om något. Ett annat uttryck som förvirrade honom var ”det är ingen ko på isen”. Nu skriver Ruben upp nya uttryck i en anteckningsbok. Han har redan samlat över hundra. Han tycker att idiom gör språket levande, även om de ibland är svåra att förstå.
+        items:
+          - { id: gfpa, type: mc, prompt: "Vad betyder ”inte min kopp te”?", options: ["Att man inte gillar något.", "Att man är törstig.", "Att man är trött."], answer: 0 }
+          - { id: amje, type: truefalse, statement: "Ruben har samlat över hundra uttryck.", answer: true }
+          - { id: 2sds, type: truefalse, statement: "Ruben tycker att idiom är tråkiga.", answer: false }
+
   - id: ord
     title: Ord och fraser · woorden en uitdrukkingen
     exercises:

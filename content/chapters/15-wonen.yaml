@@ -119,6 +119,32 @@ sections:
           - { id: 43f8, type: truefalse, statement: "Den nya familjen har två barn.", answer: true }
           - { id: auqy, type: truefalse, statement: "Man bokar tvättstugan på internet.", answer: false }
 
+      - id: makkelijk-3
+        title: "Makkelijk lezen: Flyttdagen"
+        instruction: Een korte tekst met woorden die je al kent. Lees hem vlot door en beantwoord de vragen.
+        topic: woordenschat
+        kind: makkelijk
+        textTitle: "Flyttdagen"
+        text: |
+          På lördag flyttar Pieter och Lotte in i en ny lägenhet. Pieters bror kommer och hjälper till. De bär upp kartongerna till tredje våningen, där lägenheten ligger. Hissen har gått sönder, så det tar lång tid. På kvällen packar de upp köket och sätter ihop sängen. Lotte ringer till elbolaget och skriver på ett nytt avtal. Sedan beställer de pizza och sätter sig på golvet. De är trötta men glada.
+        items:
+          - { id: 7ya9, type: truefalse, statement: "Lägenheten ligger på första våningen.", answer: false }
+          - { id: wqer, type: mc, prompt: "Vem hjälper till med flytten?", options: ["Lottes syster.", "Pieters bror.", "En granne."], answer: 1 }
+          - { id: jxex, type: truefalse, statement: "Hissen fungerar inte.", answer: true }
+
+      - id: makkelijk-4
+        title: "Makkelijk lezen: Lägenheten vid skogen"
+        instruction: Een korte tekst met woorden die je al kent. Lees hem vlot door en beantwoord de vragen.
+        topic: woordenschat
+        kind: makkelijk
+        textTitle: "Lägenheten vid skogen"
+        text: |
+          Marco och hans sambo vill köpa en lägenhet. I dag tittar de på en lägenhet, vars balkong ligger mot skogen. Den har tre rum och kök. Säljaren visar dem runt och svarar på deras frågor. Lägenheten är ganska dyr, men den ligger nära stationen, dit Marco cyklar varje morgon. Efter besöket ringer de till banken. Nu väntar de på svar. Marco hoppas att de får köpa den.
+        items:
+          - { id: bn24, type: truefalse, statement: "Lägenheten har tre rum och kök.", answer: true }
+          - { id: qpzg, type: mc, prompt: "Vart cyklar Marco varje morgon?", options: ["Till skogen.", "Till stationen.", "Till banken."], answer: 1 }
+          - { id: xejf, type: truefalse, statement: "Lägenheten är billig.", answer: false }
+
   - id: ord
     title: Ord och fraser · woorden en uitdrukkingen
     exercises:

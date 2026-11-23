@@ -119,6 +119,32 @@ sections:
           - { id: zfnf, type: truefalse, statement: "Slottet byggdes på 1500-talet.", answer: true }
           - { id: nvmx, type: truefalse, statement: "Slottet är öppet hela vintern.", answer: false }
 
+      - id: makkelijk-3
+        title: "Makkelijk lezen: Mormors berättelser"
+        instruction: Een korte tekst met woorden die je al kent. Lees hem vlot door en beantwoord de vragen.
+        topic: woordenschat
+        kind: makkelijk
+        textTitle: "Mormors berättelser"
+        text: |
+          Lisas mormor föddes 1940 på en gård i Värmland. Hon berättar ofta att familjen inte hade någon el när hon var liten. På kvällarna läste de vid fotogenlampan. Skolan låg fem kilometer bort, och mormor gick dit varje dag, även på vintern. Hon säger att hon aldrig klagade, eftersom alla barn hade det likadant. När hon var sexton flyttade hon till Stockholm och började arbeta i en affär. Lisa har bestämt sig för att skriva ner mormors berättelser, så att de inte glöms bort. Mormor tycker att det är en bra idé.
+        items:
+          - { id: mz2d, type: truefalse, statement: "Mormor föddes i Stockholm.", answer: false }
+          - { id: ya4e, type: mc, prompt: "Hur långt bort låg skolan?", options: ["En kilometer.", "Fem kilometer.", "Femton kilometer."], answer: 1 }
+          - { id: 3ruc, type: truefalse, statement: "Lisa vill skriva ner berättelserna.", answer: true }
+
+      - id: makkelijk-4
+        title: "Makkelijk lezen: Vasaloppet"
+        instruction: Een korte tekst met woorden die je al kent. Lees hem vlot door en beantwoord de vragen.
+        topic: woordenschat
+        kind: makkelijk
+        textTitle: "Vasaloppet"
+        text: |
+          Varje år i mars åker tusentals människor skidor från Sälen till Mora. Det är nio mil, alltså nittio kilometer, och tävlingen kallas Vasaloppet. Det har fått sitt namn efter Gustav Vasa, som enligt legenden flydde på skidor mot Norge år 1520. Två män från Mora åkte efter honom och bad honom komma tillbaka. Senare blev han kung. Den första tävlingen hölls 1922. I dag åker fler än femtontusen personer varje år. Många tränar hela vintern innan. De flesta har aldrig åkt så långt förut, men nästan alla kommer ändå fram till Mora.
+        items:
+          - { id: 4jvh, type: mc, prompt: "Hur långt är Vasaloppet?", options: ["Fem mil.", "Nio mil.", "Tjugo mil."], answer: 1 }
+          - { id: 7qfe, type: truefalse, statement: "Den första tävlingen hölls 1922.", answer: true }
+          - { id: jnq4, type: truefalse, statement: "Gustav Vasa var redan kung när han flydde.", answer: false }
+
   - id: ord
     title: Ord och fraser · woorden en uitdrukkingen
     exercises:

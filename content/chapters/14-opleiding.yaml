@@ -119,6 +119,32 @@ sections:
           - { id: zs5n, type: truefalse, statement: "Lars klarade inte tentan.", answer: false }
           - { id: bqs4, type: truefalse, statement: "Lars har anmält sig till en ny kurs.", answer: true }
 
+      - id: makkelijk-3
+        title: "Makkelijk lezen: Kvällskursen"
+        instruction: Een korte tekst met woorden die je al kent. Lees hem vlot door en beantwoord de vragen.
+        topic: woordenschat
+        kind: makkelijk
+        textTitle: "Kvällskursen"
+        text: |
+          Ahmed går en kurs i svenska på kvällarna, två gånger i veckan. Kursen är gratis. Varje lektion börjar med en kort genomgång, och sedan arbetar deltagarna i par. Förra veckan blev lektionen inställd, eftersom läraren var sjuk. Den flyttades till lördag i stället. Ahmed tycker att kursen är bra, för han vill söka ett nytt jobb. Efter kursen får alla ett papper som visar att de har gått kursen.
+        items:
+          - { id: 9b97, type: truefalse, statement: "Kursen är på dagen.", answer: false }
+          - { id: ac6f, type: mc, prompt: "Varför blev lektionen inställd?", options: ["Läraren var sjuk.", "Lokalen var stängd.", "Det kom för få deltagare."], answer: 0 }
+          - { id: vf3c, type: truefalse, statement: "Ahmed vill söka ett nytt jobb.", answer: true }
+
+      - id: makkelijk-4
+        title: "Makkelijk lezen: Den nya skolan"
+        instruction: Een korte tekst met woorden die je al kent. Lees hem vlot door en beantwoord de vragen.
+        topic: woordenschat
+        kind: makkelijk
+        textTitle: "Den nya skolan"
+        text: |
+          Emmas son Leo har börjat i en ny skola. Skolan byggdes förra året och är ljus och fin. Klassrummen är stora, och skolgården är stor också. Leo var nervös den första dagen, men hans lärare var snäll mot honom. Nu har han redan fått två nya kompisar. Lunchen lagas i skolans kök, och Leo tycker att maten är god. Emma är glad och lugn. Leo tycker att den nya skolan är bättre än den gamla.
+        items:
+          - { id: rane, type: mc, prompt: "När byggdes skolan?", options: ["Förra året.", "För tio år sedan.", "I år."], answer: 0 }
+          - { id: nstu, type: truefalse, statement: "Leo har inga kompisar än.", answer: false }
+          - { id: s2hk, type: truefalse, statement: "Maten lagas i skolans kök.", answer: true }
+
   - id: ord
     title: Ord och fraser · woorden en uitdrukkingen
     exercises:

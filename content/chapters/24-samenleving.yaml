@@ -108,6 +108,32 @@ sections:
           - { id: qt68, type: truefalse, statement: "Kees får rösta i valet till kommunen.", answer: true }
           - { id: auhw, type: truefalse, statement: "Kees har redan bestämt sig.", answer: false }
 
+      - id: makkelijk-3
+        title: "Makkelijk lezen: Biblioteket"
+        instruction: Een korte tekst met woorden die je al kent. Lees hem vlot door en beantwoord de vragen.
+        topic: woordenschat
+        kind: makkelijk
+        textTitle: "Biblioteket"
+        text: |
+          Kommunen vill stänga biblioteket i Erikas by för att spara pengar. Erika anser att det är fel. Hon menar att biblioteket är viktigt för både barn och äldre, även om det inte har så många besökare. Hennes granne håller inte med. Han tycker att man kan läsa böcker på nätet i stället. På ett möte i kommunen säger Erika vad hon tycker. Efter mötet bestämmer politikerna att biblioteket får vara kvar ett år till.
+        items:
+          - { id: yvts, type: truefalse, statement: "Erika vill att biblioteket stängs.", answer: false }
+          - { id: kb92, type: mc, prompt: "Vad tycker grannen?", options: ["Att man kan läsa på nätet.", "Att biblioteket ska bli större.", "Att han inte vet."], answer: 0 }
+          - { id: egzg, type: truefalse, statement: "Biblioteket får vara kvar ett år till.", answer: true }
+
+      - id: makkelijk-4
+        title: "Makkelijk lezen: I föreningen"
+        instruction: Een korte tekst met woorden die je al kent. Lees hem vlot door en beantwoord de vragen.
+        topic: woordenschat
+        kind: makkelijk
+        textTitle: "I föreningen"
+        text: |
+          Varje lördag hjälper Hugo till i en förening för människor som nyss har kommit till Sverige. Han hjälper barnen med läxorna medan föräldrarna går på en svenskkurs. Han jobbar fyra timmar varje gång, trots att han inte får några pengar. Hugo anser ändå att det är värt det. Han har lärt sig mycket om andra länder, och han har fått nya vänner. Enligt honom borde fler unga hjälpa till.
+        items:
+          - { id: fd7p, type: mc, prompt: "Vad gör Hugo i föreningen?", options: ["Han lagar mat.", "Han hjälper barnen med läxorna.", "Han kör bil."], answer: 1 }
+          - { id: 3ukx, type: truefalse, statement: "Hugo får betalt.", answer: false }
+          - { id: 8w7c, type: truefalse, statement: "Hugo tycker att fler unga borde hjälpa till.", answer: true }
+
   - id: ord
     title: Ord och fraser · woorden en uitdrukkingen
     exercises:

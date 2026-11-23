@@ -119,6 +119,32 @@ sections:
           - { id: h8c2, type: truefalse, statement: "Mira har feber.", answer: true }
           - { id: g46s, type: truefalse, statement: "Mira ska jobba i morgon.", answer: false }
 
+      - id: makkelijk-3
+        title: "Makkelijk lezen: Fem kilometer"
+        instruction: Een korte tekst met woorden die je al kent. Lees hem vlot door en beantwoord de vragen.
+        topic: woordenschat
+        kind: makkelijk
+        textTitle: "Fem kilometer"
+        text: |
+          Jonas har bestämt sig: han ska springa fem kilometer i en tävling i september. Så långt har han aldrig sprungit förut. Nu tränar han tre gånger i veckan. Han börjar långsamt och springer lite längre varje vecka. Hans fru tror att det kommer att gå bra. Jonas längtar efter tävlingen, men han är också lite nervös. Han tänker på den varje kväll innan han lägger sig.
+        items:
+          - { id: pejt, type: truefalse, statement: "Jonas har sprungit fem kilometer många gånger.", answer: false }
+          - { id: y4hg, type: mc, prompt: "Hur ofta tränar Jonas?", options: ["En gång i veckan.", "Tre gånger i veckan.", "Varje dag."], answer: 1 }
+          - { id: cyyq, type: truefalse, statement: "Jonas längtar efter tävlingen.", answer: true }
+
+      - id: makkelijk-4
+        title: "Makkelijk lezen: Ont i ryggen"
+        instruction: Een korte tekst met woorden die je al kent. Lees hem vlot door en beantwoord de vragen.
+        topic: woordenschat
+        kind: makkelijk
+        textTitle: "Ont i ryggen"
+        text: |
+          Elif har haft ont i ryggen länge. Hon ringer vårdcentralen och väntar i telefonkö i tjugo minuter. Till slut får hon prata med en sjuksköterska. Sjuksköterskan frågar om smärtan och säger att Elif ska få träffa en fysioterapeut. Det kommer att ta två veckor. Under tiden ska Elif röra på sig och inte sitta still för länge. Elif tackar och lovar att ta hand om sig.
+        items:
+          - { id: s6dp, type: mc, prompt: "Hur länge väntar Elif i telefonkön?", options: ["Fem minuter.", "Tjugo minuter.", "En timme."], answer: 1 }
+          - { id: 2kd3, type: truefalse, statement: "Elif får träffa en läkare samma dag.", answer: false }
+          - { id: vuhm, type: truefalse, statement: "Elif ska röra på sig.", answer: true }
+
   - id: ord
     title: Ord och fraser · woorden en uitdrukkingen
     exercises:

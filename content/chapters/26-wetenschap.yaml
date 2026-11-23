@@ -108,6 +108,32 @@ sections:
           - { id: knf2, type: truefalse, statement: "Studien pågick i ett halvår.", answer: true }
           - { id: a8hk, type: truefalse, statement: "Gruppen som promenerade klarade testerna sämre.", answer: false }
 
+      - id: makkelijk-3
+        title: "Makkelijk lezen: Mobilen och sömnen"
+        instruction: Een korte tekst met woorden die je al kent. Lees hem vlot door en beantwoord de vragen.
+        topic: woordenschat
+        kind: makkelijk
+        textTitle: "Mobilen och sömnen"
+        text: |
+          Forskare vid ett svenskt universitet har undersökt hur mobilen påverkar barns sömn. I studien deltog tusen barn mellan tio och tolv år. Barnen som använde mobilen sent på kvällen sov i genomsnitt en halvtimme mindre än de andra. De var också tröttare i skolan och fick sämre resultat. Forskarna tycker därför att föräldrar ska ta mobilen från barnen en timme innan de ska sova. Resultaten, som publicerades i en tidning för forskare, har fått mycket plats i medierna. Många föräldrar har redan ändrat reglerna hemma.
+        items:
+          - { id: 257e, type: truefalse, statement: "Hundra barn deltog i studien.", answer: false }
+          - { id: h786, type: mc, prompt: "Hur mycket mindre sov barnen som använde mobilen sent?", options: ["Tio minuter.", "En halvtimme.", "Två timmar."], answer: 1 }
+          - { id: 4esc, type: truefalse, statement: "Forskarna tycker att barnen inte ska ha mobilen den sista timmen innan de sover.", answer: true }
+
+      - id: makkelijk-4
+        title: "Makkelijk lezen: Grönsaker och hälsa"
+        instruction: Een korte tekst met woorden die je al kent. Lees hem vlot door en beantwoord de vragen.
+        topic: woordenschat
+        kind: makkelijk
+        textTitle: "Grönsaker och hälsa"
+        text: |
+          En ny studie från Lund visar att människor som äter mycket grönsaker mår bättre. Forskarna följde tretusen vuxna under tio år. De som åt grönsaker varje dag blev mer sällan sjuka än de andra. De hade också mer energi och sov bättre. Forskarna säger dock att man inte kan vara säker på att det är grönsakerna som gör skillnaden. Människor som äter mycket grönsaker rör ofta också mer på sig. Nästa steg är en ny studie där deltagarna får ändra vad de äter.
+        items:
+          - { id: czfj, type: mc, prompt: "Hur länge följde forskarna deltagarna?", options: ["Ett år.", "Fem år.", "Tio år."], answer: 2 }
+          - { id: 6qay, type: truefalse, statement: "De som åt grönsaker varje dag blev oftare sjuka.", answer: false }
+          - { id: s5ta, type: truefalse, statement: "De som åt grönsaker varje dag sov bättre.", answer: true }
+
   - id: ord
     title: Ord och fraser · woorden en uitdrukkingen
     exercises:

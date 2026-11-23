@@ -231,8 +231,8 @@ daar, maar is niet nodig. Geef een taak geen `text`: dan blijven de stappen in d
 `npm test` controleert de waarde (alleen `taak`), het ontbreken van `text` en de plek.
 
 **Makkelijk lezen (`kind: makkelijk`).** Een korte tekst met bijna alleen bekende woorden, om vlot te lezen
-(input met aandacht voor betekenis), met 2–3 nagekeken vragen (rätt/fel of keuze). Vanaf H1 minstens twee per
-hoofdstuk (op de A-site vier; `easyCount`), direct na de leestekst; lengte per niveau in `LINE` (`scripts/difficulty-report.mjs`). Ze tellen
+(input met aandacht voor betekenis), met 2–3 nagekeken vragen (rätt/fel of keuze). Vanaf H1 minstens vier per
+hoofdstuk (`easyCount`), direct na de leestekst; lengte per niveau in `LINE` (`scripts/difficulty-report.mjs`). Ze tellen
 niet mee voor de leestekstlijn. `npm test` controleert aantal, lengte, `text` zonder `listen` en alleen
 nagekeken vragen.
 

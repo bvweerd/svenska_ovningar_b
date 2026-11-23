@@ -129,6 +129,32 @@ sections:
           - { id: hnfp, type: truefalse, statement: "Andelen som arbetar hemifrån har fördubblats.", answer: true }
           - { id: 5df7, type: truefalse, statement: "Alla vill bara arbeta hemma.", answer: false }
 
+      - id: makkelijk-3
+        title: "Makkelijk lezen: Kaféet på hörnet"
+        instruction: Een korte tekst met woorden die je al kent. Lees hem vlot door en beantwoord de vragen.
+        topic: woordenschat
+        kind: makkelijk
+        textTitle: "Kaféet på hörnet"
+        text: |
+          Sedan Petra öppnade sitt kafé för tre år sedan har antalet kunder ökat varje år. Förra året steg försäljningen med tjugo procent. Men i år har kostnaderna också ökat kraftigt. Priset på kaffe har stigit, och hyran har höjts. Därför har Petra fått höja priserna lite. En kopp kaffe kostar nu trettiofem kronor i stället för trettio. Några kunder har klagat, men de flesta kommer tillbaka ändå. Petra tror att höjningen är nödvändig för att kaféet ska överleva. Hennes plan är att börja sälja lunch i höst, så att intäkterna blir större.
+        items:
+          - { id: ak24, type: truefalse, statement: "Försäljningen ökade med tjugo procent förra året.", answer: true }
+          - { id: pptf, type: mc, prompt: "Vad kostar en kopp kaffe nu?", options: ["Trettio kronor.", "Trettiofem kronor.", "Fyrtio kronor."], answer: 1 }
+          - { id: 22vx, type: truefalse, statement: "Petra tänker sluta sälja lunch.", answer: false }
+
+      - id: makkelijk-4
+        title: "Makkelijk lezen: Unga sparar"
+        instruction: Een korte tekst met woorden die je al kent. Lees hem vlot door en beantwoord de vragen.
+        topic: woordenschat
+        kind: makkelijk
+        textTitle: "Unga sparar"
+        text: |
+          Allt fler unga svenskar sparar pengar varje månad. Enligt en ny undersökning har andelen unga som sparar ökat från fyrtio till sextio procent på fem år. En förklaring är att det har blivit lättare att spara via mobilen. En annan förklaring är att många är oroliga för framtiden. Samtidigt har antalet människor som betalar med kontanter minskat kraftigt. I dag betalar de flesta med kort eller med mobilen. Ekonomen Karin Berg tror att utvecklingen kommer att fortsätta. Hon menar att det är bra att unga tänker på sin ekonomi tidigt.
+        items:
+          - { id: bx7z, type: mc, prompt: "Hur stor andel av de unga sparar nu?", options: ["Fyrtio procent.", "Femtio procent.", "Sextio procent."], answer: 2 }
+          - { id: 9y58, type: truefalse, statement: "Fler betalar med kontanter nu.", answer: false }
+          - { id: h8qm, type: truefalse, statement: "Det har blivit lättare att spara via mobilen.", answer: true }
+
   - id: ord
     title: Ord och fraser · woorden en uitdrukkingen
     exercises:

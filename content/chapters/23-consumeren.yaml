@@ -111,6 +111,32 @@ sections:
           - { id: 8abs, type: truefalse, statement: "Maria tycker att ekologisk mat är billigare.", answer: false }
           - { id: wv77, type: truefalse, statement: "Maria odlar jordgubbar på balkongen.", answer: true }
 
+      - id: makkelijk-3
+        title: "Makkelijk lezen: En ny mobil"
+        instruction: Een korte tekst met woorden die je al kent. Lees hem vlot door en beantwoord de vragen.
+        topic: woordenschat
+        kind: makkelijk
+        textTitle: "En ny mobil"
+        text: |
+          Johans gamla mobil har gått sönder. Han jämför två nya modeller i en butik. Den ena är billigare, men den har en sämre kamera. Den andra är dyrare och har ett större batteri. Säljaren säger att den dyrare håller längre. Johan tänker länge. Till slut köper han den billigare, eftersom han inte tar så många bilder. Han köper också ett skal, så att mobilen inte går sönder lika lätt.
+        items:
+          - { id: rpgb, type: truefalse, statement: "Johan köper den dyrare mobilen.", answer: false }
+          - { id: fvnz, type: mc, prompt: "Vad har den dyrare mobilen?", options: ["En sämre kamera.", "Ett större batteri.", "Ett skal."], answer: 1 }
+          - { id: jvme, type: truefalse, statement: "Johan tar inte så många bilder.", answer: true }
+
+      - id: makkelijk-4
+        title: "Makkelijk lezen: Second hand"
+        instruction: Een korte tekst met woorden die je al kent. Lees hem vlot door en beantwoord de vragen.
+        topic: woordenschat
+        kind: makkelijk
+        textTitle: "Second hand"
+        text: |
+          Maja köper nästan alla sina kläder second hand. Det är billigare än i vanliga butiker, och det är bättre för miljön. I lördags hittade hon en vinterjacka för hundra kronor. Den var nästan lika fin som en ny. Hennes vän Lisa köper hellre nya kläder, men hon tycker att Majas jacka är snyggare än hennes egen. Nästa gång vill Lisa följa med till butiken.
+        items:
+          - { id: wj98, type: mc, prompt: "Hur mycket kostade jackan?", options: ["Hundra kronor.", "Femhundra kronor.", "Tusen kronor."], answer: 0 }
+          - { id: fz8e, type: truefalse, statement: "Lisa köper också alla sina kläder second hand.", answer: false }
+          - { id: 2t9q, type: truefalse, statement: "Lisa vill följa med nästa gång.", answer: true }
+
   - id: ord
     title: Ord och fraser · woorden en uitdrukkingen
     exercises:

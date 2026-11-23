@@ -95,6 +95,32 @@ sections:
           - { id: sdgc, type: truefalse, statement: "Robotarna ersätter all personal.", answer: false }
           - { id: 8mj3, type: truefalse, statement: "Personalen får mer tid att prata med de boende.", answer: true }
 
+      - id: makkelijk-3
+        title: "Makkelijk lezen: Bussen utan förare"
+        instruction: Een korte tekst met woorden die je al kent. Lees hem vlot door en beantwoord de vragen.
+        topic: woordenschat
+        kind: makkelijk
+        textTitle: "Bussen utan förare"
+        text: |
+          I en mindre stad i Sverige testas just nu en buss som kör själv, utan förare. Den kör en kort väg mellan stationen och sjukhuset. Bussen har plats för tolv personer och kör ganska långsamt. Än så länge finns det alltid en person ombord som kan ta över om något händer. Enligt kommunen kommer försöket att pågå i ett år. Om det går bra kan fler sådana bussar börja köra i staden. Många resenärer är positiva, men några tycker att det känns konstigt att ingen sitter och kör.
+        items:
+          - { id: hhw8, type: truefalse, statement: "Bussen har plats för tjugo personer.", answer: false }
+          - { id: qr5m, type: mc, prompt: "Hur länge ska försöket pågå?", options: ["En månad.", "Ett år.", "Fem år."], answer: 1 }
+          - { id: tr7s, type: truefalse, statement: "Det finns alltid en person ombord.", answer: true }
+
+      - id: makkelijk-4
+        title: "Makkelijk lezen: Att bo i framtiden"
+        instruction: Een korte tekst met woorden die je al kent. Lees hem vlot door en beantwoord de vragen.
+        topic: woordenschat
+        kind: makkelijk
+        textTitle: "Att bo i framtiden"
+        text: |
+          Hur kommer vi att bo om trettio år? Enligt en ny rapport kommer fler människor att bo i städerna, och lägenheterna kommer att bli mindre. Däremot väntas de gemensamma utrymmena bli fler, till exempel tvättstugor, kök och arbetsrum som delas av alla grannar. Husen kommer sannolikt att byggas mer i trä, eftersom det är bättre för klimatet. Rapporten tror också att fler äldre kommer att bo tillsammans med andra i så kallade seniorboenden. Vi får se om den har rätt.
+        items:
+          - { id: dbg5, type: mc, prompt: "Vad kommer husen sannolikt att byggas av?", options: ["Betong.", "Trä.", "Glas."], answer: 1 }
+          - { id: 2e4j, type: truefalse, statement: "Lägenheterna kommer att bli större.", answer: false }
+          - { id: kq6p, type: truefalse, statement: "Fler människor väntas bo i städerna.", answer: true }
+
   - id: ord
     title: Ord och fraser · woorden en uitdrukkingen
     exercises:

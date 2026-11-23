@@ -107,6 +107,32 @@ sections:
           - { id: cgt5, type: truefalse, statement: "Man får pengar tillbaka för burkar.", answer: true }
           - { id: sz5r, type: truefalse, statement: "Bas slänger alla sina burkar.", answer: false }
 
+      - id: makkelijk-3
+        title: "Makkelijk lezen: Utan bil"
+        instruction: Een korte tekst met woorden die je al kent. Lees hem vlot door en beantwoord de vragen.
+        topic: woordenschat
+        kind: makkelijk
+        textTitle: "Utan bil"
+        text: |
+          Erik har sålt sin bil. Han bor mitt i stan och behöver ingen bil längre. Nu cyklar han överallt, även på vintern. Det är bra för miljön och för ens hälsa, tycker han. Ibland behöver han hyra en bil, men det händer inte ofta. Hans grannar frågade om han inte saknar bilen. Erik svarade att han inte saknar något. Han sparar mycket pengar, och han behöver aldrig leta efter en parkering.
+        items:
+          - { id: j64v, type: truefalse, statement: "Erik har kvar sin bil.", answer: false }
+          - { id: y3ep, type: mc, prompt: "Varför behöver Erik ingen bil?", options: ["Han bor mitt i stan.", "Han har inget körkort.", "Han jobbar hemma."], answer: 0 }
+          - { id: kyyz, type: truefalse, statement: "Erik cyklar även på vintern.", answer: true }
+
+      - id: makkelijk-4
+        title: "Makkelijk lezen: Mindre matsvinn"
+        instruction: Een korte tekst met woorden die je al kent. Lees hem vlot door en beantwoord de vragen.
+        topic: woordenschat
+        kind: makkelijk
+        textTitle: "Mindre matsvinn"
+        text: |
+          Familjen Nilsson slängde mycket mat förut. Nu har de bestämt sig för att ändra på det. De skriver en lista innan de handlar och köper inga onödiga saker. Rester äter de dagen efter, eller så fryser de in dem. ”Om man planerar, slänger man mindre”, säger mamma Lena. Efter en månad har familjen nästan inte slängt någon mat alls. De har också sparat nästan tusen kronor.
+        items:
+          - { id: phwz, type: mc, prompt: "Vad gör familjen innan de handlar?", options: ["De skriver en lista.", "De läser reklamen.", "De äter."], answer: 0 }
+          - { id: 4gv8, type: truefalse, statement: "Familjen har inte sparat några pengar.", answer: false }
+          - { id: gz26, type: truefalse, statement: "Rester äter de dagen efter.", answer: true }
+
   - id: ord
     title: Ord och fraser · woorden en uitdrukkingen
     exercises:

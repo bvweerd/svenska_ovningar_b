@@ -118,6 +118,32 @@ sections:
           - { id: u6fz, type: truefalse, statement: "Lärarna smakade tolv soppor.", answer: true }
           - { id: jevf, type: truefalse, statement: "Elins soppa var den godaste.", answer: true }
 
+      - id: makkelijk-3
+        title: "Makkelijk lezen: Podden"
+        instruction: Een korte tekst met woorden die je al kent. Lees hem vlot door en beantwoord de vragen.
+        topic: woordenschat
+        kind: makkelijk
+        textTitle: "Podden"
+        text: |
+          Klara lyssnar på en podd om mat varje morgon på väg till jobbet. I dagens program berättade journalisten att svenskarna dricker mer kaffe än nästan alla andra i världen. Klara undrade om det verkligen stämde, så hon sökte på internet på lunchen. Där stod det att bara finländarna dricker mer. Klara berättade det för sina kollegor och frågade hur många koppar de dricker varje dag. De flesta sa att de dricker tre eller fyra.
+        items:
+          - { id: 4mk8, type: truefalse, statement: "Klara lyssnar på podden på kvällen.", answer: false }
+          - { id: 2fjy, type: mc, prompt: "Vilka dricker mer kaffe än svenskarna?", options: ["Finländarna.", "Norrmännen.", "Danskarna."], answer: 0 }
+          - { id: aee7, type: truefalse, statement: "De flesta kollegor dricker tre eller fyra koppar om dagen.", answer: true }
+
+      - id: makkelijk-4
+        title: "Makkelijk lezen: Intervjun"
+        instruction: Een korte tekst met woorden die je al kent. Lees hem vlot door en beantwoord de vragen.
+        topic: woordenschat
+        kind: makkelijk
+        textTitle: "Intervjun"
+        text: |
+          En journalist från tidningen ringde Bengt i går. Hon frågade om han ville bli intervjuad om sin kör. Bengt har sjungit i kören i fyrtio år. Han sa att han gärna ville. Journalisten frågade varför han tycker om att sjunga. Bengt svarade att sången gör honom glad och lugn, och att kören är som en familj för honom. Artikeln kommer i tidningen på lördag.
+        items:
+          - { id: 5fsp, type: mc, prompt: "Hur länge har Bengt sjungit i kören?", options: ["I fyra år.", "I fjorton år.", "I fyrtio år."], answer: 2 }
+          - { id: egnt, type: truefalse, statement: "Bengt ville inte bli intervjuad.", answer: false }
+          - { id: 2p5w, type: truefalse, statement: "Artikeln kommer på lördag.", answer: true }
+
   - id: ord
     title: Ord och fraser · woorden en uitdrukkingen
     exercises:

@@ -110,6 +110,32 @@ sections:
           - { id: cku7, type: truefalse, statement: "De som har butiker är oroliga.", answer: true }
           - { id: ftdd, type: truefalse, statement: "Kommunen håller med dem som har butiker.", answer: false }
 
+      - id: makkelijk-3
+        title: "Makkelijk lezen: Läxor eller inte?"
+        instruction: Een korte tekst met woorden die je al kent. Lees hem vlot door en beantwoord de vragen.
+        topic: woordenschat
+        kind: makkelijk
+        textTitle: "Läxor eller inte?"
+        text: |
+          På Elins skola diskuterar lärarna om eleverna ska få läxor. Å ena sidan menar några lärare att läxor hjälper eleverna att repetera. Å andra sidan har inte alla elever lugn och ro hemma. Det är just de eleverna som får svårast med läxorna. Rektorn föreslår därför läxhjälp i skolan efter lektionerna. Där kan alla elever göra sina läxor med hjälp av en lärare. För det första blir det mer rättvist, och för det andra får eleverna hjälp direkt. Förslaget ska prövas under ett år.
+        items:
+          - { id: m4ty, type: truefalse, statement: "Alla lärare är emot läxor.", answer: false }
+          - { id: p8j8, type: mc, prompt: "Vad föreslår rektorn?", options: ["Inga läxor alls.", "Läxhjälp i skolan.", "Fler läxor."], answer: 1 }
+          - { id: mjt5, type: truefalse, statement: "Förslaget ska prövas under ett år.", answer: true }
+
+      - id: makkelijk-4
+        title: "Makkelijk lezen: Sommartiden"
+        instruction: Een korte tekst met woorden die je al kent. Lees hem vlot door en beantwoord de vragen.
+        topic: woordenschat
+        kind: makkelijk
+        textTitle: "Sommartiden"
+        text: |
+          Varje vår ställs klockan fram en timme, och varje höst ställs den tillbaka. Många vill att det ska upphöra. Det är framför allt sömnen som påverkas, menar de. För det första sover många sämre i några dagar efter bytet. För det andra blir det fler olyckor i trafiken. Andra tycker att det är skönt med ljusa kvällar på sommaren. EU har diskuterat frågan i flera år, men ännu har inget beslut fattats. Det är alltså fortfarande oklart om klockan kommer att ställas om i framtiden.
+        items:
+          - { id: smjt, type: mc, prompt: "Vad menar de som vill sluta ställa om klockan?", options: ["Att sömnen påverkas.", "Att kvällarna blir för ljusa.", "Att det kostar för mycket."], answer: 0 }
+          - { id: ft2y, type: truefalse, statement: "EU har fattat ett beslut.", answer: false }
+          - { id: v4c6, type: truefalse, statement: "Klockan ställs fram på våren.", answer: true }
+
       - id: opbouw-sorteren
         title: De opbouw van het betoog
         instruction: Welk deel van het betoog is deze zin?
