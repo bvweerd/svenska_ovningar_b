@@ -56,6 +56,12 @@ describe('gradeText', () => {
     expect(gradeText('Nu bor Bram och Fleur i Västerås.', spec).correct).toBe(true);
     expect(gradeText('Bram och Fleur i Västerås bor nu.', spec).correct).toBe(false);
   });
+  it('tijdsbepaling vóór een bijwoord als tillsammans mag ook', () => {
+    const spec = { answers: ['På kvällen lagar Fleur och Bram middag tillsammans.'] };
+    expect(gradeText('Fleur och Bram lagar middag på kvällen tillsammans.', spec).correct).toBe(true);
+    expect(gradeText('Fleur och Bram lagar middag tillsammans på kvällen.', spec).correct).toBe(true);
+    expect(gradeText('Fleur och Bram på kvällen lagar middag tillsammans.', spec).correct).toBe(false);
+  });
   it('jag och een naam mag ook andersom', () => {
     const spec = { answers: ['Jag och Bram ska äta ute.'] };
     expect(gradeText('Bram och jag ska äta ute.', spec).correct).toBe(true);

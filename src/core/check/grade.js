@@ -1,5 +1,5 @@
 // Pure nakijkfuncties per vraagtype. Geven altijd { correct, tip?, kind? } terug.
-import { normalize, variants, displayAnswer, expand } from './normalize.js';
+import { normalize, variants, expand } from './normalize.js';
 import { movedAdverbialOrders } from './adverbial.js';
 import { diagnose } from './diagnose.js';
 import { clockAnswers, clockFeedback } from './clock.js';
@@ -47,7 +47,7 @@ export function gradeText(input, spec, ctx = {}) {
   // Tijdsbepaling vooraan of achteraan: ook goed (vastgelegde fouten hierboven gaan voor).
   // Uit de patronen mét leestekens, zodat een komma (bijzin) een verplaatsing tegenhoudt.
   const moved = spec.options ? undefined : texts
-    .flatMap((e) => movedAdverbialOrders(e, opts)).find((m) => m.text === n);
+    .flatMap((e) => movedAdverbialOrders(e, opts).map((m) => ({ ...m, source: e }))).find((m) => m.text === n);
   if (moved) {
     if (spec.fixedOrder || ctx.fixedOrder) {
       // fronted: de leerling zette de tijdsbepaling vooraan, terwijl de opdracht met iets anders begint.
@@ -56,7 +56,7 @@ export function gradeText(input, spec, ctx = {}) {
         : 'Dat is goed Zweeds, maar de opdracht is anders: begin de zin met de tijdsbepaling, net als in het Nederlands. Let dan op de inversie.';
       return { correct: false, retry: true, kind: 'order', tip };
     }
-    return { correct: true, moved: true, note: `Het voorbeeldantwoord zet de tijdsbepaling op een andere plek: „${displayAnswer(spec.answers)}”` };
+    return { correct: true, moved: true, note: `Het voorbeeldantwoord zet de tijdsbepaling op een andere plek: „${moved.source.replace(/\s+/g, ' ').trim()}”` };
   }
   // Bij een keuzelijst is een vaste tip zinvoller dan een spellingsdiagnose.
   if (spec.options && spec.tip) return { correct: false, kind: 'feedback', tip: spec.tip };
