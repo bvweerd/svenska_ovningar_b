@@ -6,6 +6,23 @@ import { clockAnswers, clockFeedback } from './clock.js';
 
 const asList = (x) => (x === undefined ? [] : [].concat(x));
 
+// „Fleur och Bram” = „Bram och Fleur”: twee namen (of een naam en jag/du/…) met och mogen ook andersom.
+const PAIR = /(?<![\p{L}\p{N}])(\p{Lu}[\p{L}-]*) och (\p{Lu}[\p{L}-]*|jag|du|han|hon|vi|ni|de)(?![\p{L}\p{N}])/gu;
+const SUBJ = new Set(['jag', 'du', 'han', 'hon', 'vi', 'ni', 'de']);
+function swapPairs(text) {
+  return text.replace(PAIR, (m, a, b, at) => {
+    // Een voornaamwoord aan het begin van de zin (Jag och Bram) wordt na het omdraaien klein (Bram och jag).
+    const first = at === 0 && SUBJ.has(a.toLowerCase()) ? a.toLowerCase() : a;
+    const second = at === 0 && SUBJ.has(b) ? b.charAt(0).toUpperCase() + b.slice(1) : b;
+    return `${second} och ${first}`;
+  });
+}
+/** Alle uitgeklapte goede antwoorden, plus dezelfde zinnen met de namen bij och omgedraaid. */
+function answerTexts(answers) {
+  const list = asList(answers).flatMap((a) => expand(a));
+  return [...new Set([...list, ...list.map(swapPairs)])];
+}
+
 /**
  * Open tekstantwoord. spec: { answers, feedback?, caseSensitive?, fixedOrder? }
  * ctx.fixedOrder (of spec.fixedOrder): de opdracht schrijft de woordvolgorde voor (bijv. „begin met de
@@ -15,7 +32,8 @@ export function gradeText(input, spec, ctx = {}) {
   const opts = { caseSensitive: !!spec.caseSensitive };
   const n = normalize(input, opts);
   if (!n) return { correct: false, empty: true, tip: 'Je hebt nog niets ingevuld.' };
-  const expected = variants(spec.answers, opts);
+  const texts = answerTexts(spec.answers);
+  const expected = variants(texts, opts);
   if (expected.includes(n)) return { correct: true };
 
   // Echte fouten gaan voor: een retry-regel (goed Zweeds, andere vorm) komt pas als geen andere regel past.
@@ -28,7 +46,7 @@ export function gradeText(input, spec, ctx = {}) {
   }
   // Tijdsbepaling vooraan of achteraan: ook goed (vastgelegde fouten hierboven gaan voor).
   // Uit de patronen mét leestekens, zodat een komma (bijzin) een verplaatsing tegenhoudt.
-  const moved = spec.options ? undefined : asList(spec.answers).flatMap((a) => expand(a))
+  const moved = spec.options ? undefined : texts
     .flatMap((e) => movedAdverbialOrders(e, opts)).find((m) => m.text === n);
   if (moved) {
     if (spec.fixedOrder || ctx.fixedOrder) {

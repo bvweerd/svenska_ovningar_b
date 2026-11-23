@@ -50,6 +50,16 @@ describe('diagnose', () => {
 });
 
 describe('gradeText', () => {
+  it('namen met och mogen in beide volgordes', () => {
+    const spec = { answers: ['Fleur och Bram bor i Västerås nu.'] };
+    expect(gradeText('Bram och Fleur bor i Västerås nu.', spec).correct).toBe(true);
+    expect(gradeText('Nu bor Bram och Fleur i Västerås.', spec).correct).toBe(true);
+    expect(gradeText('Bram och Fleur i Västerås bor nu.', spec).correct).toBe(false);
+  });
+  it('jag och een naam mag ook andersom', () => {
+    const spec = { answers: ['Jag och Bram ska äta ute.'] };
+    expect(gradeText('Bram och jag ska äta ute.', spec).correct).toBe(true);
+  });
   it('foutregel met retry: geen fout, wel nog een poging', () => {
     const spec = { answers: ['Det regnar, så vi stannar inne.'], feedback: [{ contains: 'så stannar vi', retry: true, tip: 'Goed Zweeds, maar oefen hier de gewone volgorde.' }] };
     const r = gradeText('Det regnar, så stannar vi inne.', spec);
