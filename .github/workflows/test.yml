@@ -23,7 +23,8 @@ jobs:
       - run: npm ci
       # Spellingscontrole van het Zweeds (tests/spelling.test.js) gebruikt hunspell met het woordenboek sv_SE.
       - run: sudo apt-get install -y --no-install-recommends hunspell hunspell-sv
-      - run: npm test
+      # Alle tests, met codedekking van src/ (minimum in vite.config.js).
+      - run: npm run coverage
       - run: npm run build
       # Rooktest in een browser (elke pagina, telefoonformaat, licht en donker). Playwright staat
       # niet in package.json; hier wordt het alleen voor deze stap geïnstalleerd.

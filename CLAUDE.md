@@ -83,7 +83,8 @@ automatisch inlezen of minen: de uitgever behoudt tekst- en datamining voor (col
 
 ## Controleren en opleveren
 
-1. In **beide** repo's: `npm test`, `npm run build`, `npm run check-sync`.
+1. In **beide** repo's: `npm test` (of `npm run coverage`), `npm run build`, `npm run check-sync`. `npm test` controleert ook
+   de Zweedse spelling (hunspell; een goed woord dat het woordenboek niet kent → `content/stavning.txt`) en de interface.
 2. Wijzigingen in de interface ook bekijken in een browser op telefoonformaat (Playwright met
    `devices['Pixel 7']` of `devices['iPhone 13']`), licht en donker.
 3. Werk op een eigen branch en commit in beide repo's met hetzelfde bericht. **Controleer vóór elke commit

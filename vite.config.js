@@ -42,5 +42,15 @@ export default defineConfig({
       },
     },
   },
-  test: { include: ['tests/**/*.test.js', 'worker/**/*.test.js'] },
+  test: {
+    include: ['tests/**/*.test.js', 'worker/**/*.test.js'],
+    // npm run coverage (ook in CI): faalt als de dekking van src/ onder deze grens zakt. Verhoog de grens
+    // als de dekking stijgt; verlaag hem niet om een test te laten slagen.
+    coverage: {
+      provider: 'v8',
+      include: ['src/**'],
+      reporter: ['text-summary'],
+      thresholds: { lines: 83, statements: 80, functions: 80, branches: 67 },
+    },
+  },
 });

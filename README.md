@@ -6,6 +6,10 @@ hoofdstuk 13–24 (B1) en 25–30 (B2), elk met een thema, een praktisch doel en
 Alle vragen worden automatisch nagekeken, met gerichte tips bij fouten.
 Zweeds wordt voorgelezen met de spraakfunctie van de browser.
 
+De spellingscontrole heeft hunspell met het Zweedse woordenboek nodig (`apt-get install hunspell hunspell-sv`);
+zonder hunspell slaat die test zich lokaal over, in CI niet. Een nieuw woord dat het woordenboek niet kent (een naam,
+spreektaal, een samenstelling) zet je na controle in `content/stavning.txt` (`npm run spelling -- --write`).
+
 Alle oefenstof is zelf geschreven; de site is niet verbonden aan een uitgever of lesmethode.
 
 ## Lokaal draaien
@@ -13,7 +17,10 @@ Alle oefenstof is zelf geschreven; de site is niet verbonden aan een uitgever of
 ```bash
 npm install
 npm run dev      # ontwikkelserver
-npm test         # nakijklogica + controle van alle oefenstof
+npm test         # nakijklogica, alle oefenstof, spelling en de interface (happy-dom)
+npm run coverage # hetzelfde met codedekking van src/ (CI; minimum in vite.config.js)
+npm run spelling # Zweedse woorden die hunspell (sv_SE) niet kent; goed woord → content/stavning.txt
+npm run smoke    # na build: elke pagina in Chromium, en per vraagvorm een vraag fout en goed beantwoorden
 npm run build    # statische site in dist/
 npm run difficulty-report   # moeilijkheid per hoofdstuk naast de moeilijkheidslijn (PLAN.md in svenska_ovningar)
 npm run content-report      # rapport taalinhoud en didactiek (ook in CI, als samenvatting van de testrun)

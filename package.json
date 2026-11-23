@@ -16,7 +16,8 @@
     "difficulty-report": "node scripts/difficulty-report.mjs",
     "content-report": "node scripts/content-report.mjs",
     "smoke": "node scripts/smoke.mjs",
-    "spelling": "node scripts/spelling.mjs"
+    "spelling": "node scripts/spelling.mjs",
+    "coverage": "vitest run --coverage"
   },
   "devDependencies": {
     "@vitest/coverage-v8": "4.1.12",
