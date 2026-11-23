@@ -229,7 +229,7 @@ niet mee voor de leestekstlijn. `npm test` controleert aantal, lengte, `text` zo
 nagekeken vragen.
 
 **„Wat zeg je?” (`kind: situatie`).** Een situatie in het Nederlands; de leerling zegt het zelf in het Zweeds
-(`translate`, meestal meer goede antwoorden en foutregels). Geen `text`. Vanaf H5 minstens 4 vragen per
+(`translate`, meestal meer goede antwoorden en foutregels). Geen `text`. Vanaf H1 minstens 4 vragen per
 hoofdstuk; op de A-site vóór „Zoek de fout”, op de B-site in `praktiskt`.
 
 **Vlot herhalen en instaptoets.** „Vlot herhalen” (bij de snelle rondes) vraagt alleen wat al in doos 2 of

@@ -188,7 +188,7 @@ describe('opbouw van de hoofdstukken', () => {
       }
     });
 
-    it.runIf(ch.chapter >= 5)(`hoofdstuk ${ch.chapter}: een „Wat zeg je?”-oefening om zelf te maken`, () => {
+    it.runIf(ch.chapter >= 1)(`hoofdstuk ${ch.chapter}: een „Wat zeg je?”-oefening om zelf te maken`, () => {
       const n = ch.exercises.filter((ex) => ex.kind === 'situatie').reduce((a, ex) => a + ex.items.length, 0);
       expect(n).toBeGreaterThanOrEqual(4);
     });

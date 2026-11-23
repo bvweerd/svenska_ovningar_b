@@ -30,5 +30,17 @@ export default defineConfig({
   define: { 'import.meta.env.APP_VERSION': JSON.stringify(appVersion()) },
   base: './',
   plugins: [yamlPlugin, pwaPlugin()],
+  // Elk hoofdstuk een eigen bestand: geen bundel boven de 500 kB, en een nieuwe versie van één hoofdstuk
+  // laat de rest van de cache van de browser en de service worker ongemoeid.
+  build: {
+    rollupOptions: {
+      output: {
+        manualChunks(id) {
+          const m = id.match(/content\/chapters\/(\d+)-[^/]*\.yaml$/);
+          return m ? `hoofdstuk-${m[1]}` : undefined;
+        },
+      },
+    },
+  },
   test: { include: ['tests/**/*.test.js', 'worker/**/*.test.js'] },
 });

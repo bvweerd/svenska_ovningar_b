@@ -31,7 +31,7 @@ Leitner-dozen, feedback in lagen, de app kijkt na, van vorm naar gebruik, kan-do
 wordt, instap op niveau, uitspraak horen (geen spreken), frequente woorden, eigen werk. Toets elk voorstel
 en elke nieuwe oefening daaraan, en noem in de oplevering hoe het past. `npm test` dwingt af: minstens 2
 makkelijke teksten (`kind: makkelijk`) per hoofdstuk vanaf H1, een „Wat zeg je?”-oefening
-(`kind: situatie`) vanaf H5, en de plek in de vaste volgorde. Methoden en hun antwoordmodellen niet
+(`kind: situatie`) vanaf H1, en de plek in de vaste volgorde. Methoden en hun antwoordmodellen niet
 automatisch inlezen of minen: de uitgever behoudt tekst- en datamining voor (colofon). Twijfel → eigenaar.
 
 ## Spelregels (afgesproken met de eigenaar)
