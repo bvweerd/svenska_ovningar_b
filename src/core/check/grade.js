@@ -23,6 +23,22 @@ function answerTexts(answers) {
   return [...new Set([...list, ...list.map(swapPairs)])];
 }
 
+// Per antwoordlijst één keer uitrekenen: een vraag kan honderden varianten hebben, en die worden bij elke
+// poging (en in de tests voor elke variant) opnieuw nagekeken.
+const cache = new WeakMap();
+function prepared(answers, opts) {
+  const key = Array.isArray(answers) ? answers : null;
+  const hit = key && cache.get(key)?.[opts.caseSensitive ? 'cs' : 'ci'];
+  if (hit) return hit;
+  const texts = answerTexts(answers);
+  const out = { texts, expected: variants(texts, opts), expectedSet: null, moved: null };
+  out.expectedSet = new Set(out.expected);
+  if (key) cache.set(key, { ...cache.get(key), [opts.caseSensitive ? 'cs' : 'ci']: out });
+  return out;
+}
+const movedFor = (prep, opts) => (prep.moved ??= prep.texts
+  .flatMap((e) => movedAdverbialOrders(e, opts).map((m) => ({ ...m, source: e }))));
+
 /**
  * Open tekstantwoord. spec: { answers, feedback?, caseSensitive?, fixedOrder? }
  * ctx.fixedOrder (of spec.fixedOrder): de opdracht schrijft de woordvolgorde voor (bijv. „begin met de
@@ -32,9 +48,9 @@ export function gradeText(input, spec, ctx = {}) {
   const opts = { caseSensitive: !!spec.caseSensitive };
   const n = normalize(input, opts);
   if (!n) return { correct: false, empty: true, tip: 'Je hebt nog niets ingevuld.' };
-  const texts = answerTexts(spec.answers);
-  const expected = variants(texts, opts);
-  if (expected.includes(n)) return { correct: true };
+  const prep = prepared(spec.answers, opts);
+  const expected = prep.expected;
+  if (prep.expectedSet.has(n)) return { correct: true };
 
   // Echte fouten gaan voor: een retry-regel (goed Zweeds, andere vorm) komt pas als geen andere regel past.
   const rules = [...(spec.feedback ?? [])].sort((x, y) => Number(!!x.retry) - Number(!!y.retry));
@@ -46,8 +62,7 @@ export function gradeText(input, spec, ctx = {}) {
   }
   // Tijdsbepaling vooraan of achteraan: ook goed (vastgelegde fouten hierboven gaan voor).
   // Uit de patronen mét leestekens, zodat een komma (bijzin) een verplaatsing tegenhoudt.
-  const moved = spec.options ? undefined : texts
-    .flatMap((e) => movedAdverbialOrders(e, opts).map((m) => ({ ...m, source: e }))).find((m) => m.text === n);
+  const moved = spec.options ? undefined : movedFor(prep, opts).find((m) => m.text === n);
   if (moved) {
     if (spec.fixedOrder || ctx.fixedOrder) {
       // fronted: de leerling zette de tijdsbepaling vooraan, terwijl de opdracht met iets anders begint.
