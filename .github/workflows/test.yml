@@ -37,3 +37,13 @@ jobs:
           git clone --depth 1 --branch "$BRANCH" "https://github.com/$SIB.git" "$RUNNER_TEMP/sibling" \
             || git clone --depth 1 "https://github.com/$SIB.git" "$RUNNER_TEMP/sibling"
           SIBLING_DIR="$RUNNER_TEMP/sibling" npm run check-sync
+      # Rapport over taalinhoud en didactiek (scripts/content-report.mjs): verschijnt als samenvatting van
+      # deze run. Alleen ter informatie; laat de run nooit falen. De B-site leest de A-site als bekende stof.
+      - name: Rapport inhoud en didactiek
+        if: always()
+        continue-on-error: true
+        env:
+          SIBLING_DIR: ${{ runner.temp }}/sibling
+        run: |
+          npm run --silent content-report -- --out "$RUNNER_TEMP/inhoud.md"
+          cat "$RUNNER_TEMP/inhoud.md" >> "$GITHUB_STEP_SUMMARY"

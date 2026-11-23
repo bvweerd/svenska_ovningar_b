@@ -14,6 +14,7 @@
     "vocab-report": "node scripts/vocab-report.mjs",
     "stats": "node scripts/stats-report.mjs",
     "difficulty-report": "node scripts/difficulty-report.mjs",
+    "content-report": "node scripts/content-report.mjs",
     "smoke": "node scripts/smoke.mjs"
   },
   "devDependencies": {

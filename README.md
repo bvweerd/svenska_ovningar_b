@@ -16,6 +16,7 @@ npm run dev      # ontwikkelserver
 npm test         # nakijklogica + controle van alle oefenstof
 npm run build    # statische site in dist/
 npm run difficulty-report   # moeilijkheid per hoofdstuk naast de moeilijkheidslijn (PLAN.md in svenska_ovningar)
+npm run content-report      # rapport taalinhoud en didactiek (ook in CI, als samenvatting van de testrun)
 ```
 
 ## Publiceren
