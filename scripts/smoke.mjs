@@ -2,6 +2,8 @@
 // telefoonformaat (Pixel 7), licht en donker, en faalt bij JavaScript-fouten of als een pagina
 // breder is dan het scherm (horizontaal scrollen).
 //
+// Daarna de interactietest (scripts/interact.mjs): per vraagvorm een vraag fout en goed beantwoorden.
+//
 // Gebruik: npm run build && npm run smoke            (alle oefeningen van alle hoofdstukken)
 //          npm run smoke -- --quick                   (alleen het eerste hoofdstuk)
 // Playwright staat niet in package.json; zonder Playwright slaat dit script zich over.
@@ -11,6 +13,7 @@ import path from 'node:path';
 import { preview } from 'vite';
 
 import { root } from './sibling.mjs';
+import { interact } from './interact.mjs';
 
 const require = createRequire(import.meta.url);
 let playwright;
@@ -70,6 +73,10 @@ for (const scheme of ['light', 'dark']) {
     }
   });
 }
+
+await session('light', async (page) => {
+  problems.push(...(await interact(page, base, root)));
+});
 
 await browser.close();
 await new Promise((r) => server.httpServer.close(r));
