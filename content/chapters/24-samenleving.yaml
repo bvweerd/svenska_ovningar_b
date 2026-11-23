@@ -173,6 +173,7 @@ sections:
               - { contains: "å ena sidan det", tip: "Na *å ena sidan* vooraan: inversie, *å ena sidan är det*." }
               - { contains: "å andra sidan många", tip: "Na *å andra sidan* vooraan: inversie, *å andra sidan skulle många*." }
               - { contains: "är det dyr ", tip: "Bij *det är* krijgt het bijvoeglijk naamwoord -t: *dyrt*." }
+          - { id: w548, type: translate, prompt: "Ik vind dat de nationale feestdag in Zweden meer gevierd zou moeten worden.", answers: ["Jag {tycker|anser|menar} att nationaldagen {borde|bör} firas mer i Sverige.", "Jag {tycker|anser|menar} att nationaldagen i Sverige {borde|bör} firas mer.", "Jag {tycker|anser|menar} att {den svenska nationaldagen|Sveriges nationaldag} {borde|bör} firas mer.", "Jag {tycker|anser|menar} att {man|vi} {borde|bör} fira nationaldagen mer i Sverige.", "Jag {tycker|anser|menar} att {man|vi} i Sverige {borde|bör} fira nationaldagen mer."], feedback: [{ contains: ["nationaldagen borde fira", "nationaldagen bör fira", "sverige borde fira mer", "sverige bör fira mer"], tip: "De feestdag viert niet zelf: lijdend, *nationaldagen borde firas*." }, { contains: ["borde att", "bör att"], tip: "Na *borde* en *bör*: de infinitief zonder *att*." }] }
 
   - id: subjunktioner
     title: "Grammatik: trots att, även om, medan"
@@ -278,6 +279,7 @@ sections:
               - "Jag läser tidningen på svenska varje dag[,] sedan jag flyttade till Sverige."
             feedback:
               - { contains: "sverige jag läser", tip: "Na de bijzin vooraan komt eerst het werkwoord: *läser jag*." }
+          - { id: tpnw, type: translate, prompt: "Hoewel steeds minder Zweden religieus zijn, gaan velen met kerst naar de kerk.", answers: ["{Trots att|Fast|Fastän|Även om} {allt färre|färre och färre} svenskar är religiösa[,] går många {i kyrkan|till kyrkan} {på julen|vid jul|på jul}.", "Många går {i kyrkan|till kyrkan} {på julen|vid jul|på jul}[,] {trots att|fast|fastän|även om} {allt färre|färre och färre} svenskar är religiösa."], feedback: [{ contains: "religiösa många", tip: "Na de bijzin vooraan komt eerst het werkwoord: *går många*." }, { contains: ["religiös går", "religiös många"], tip: "*svenskar* is meervoud: *religiösa*." }, { contains: "trots allt färre", tip: "*trots* + bijzin: *trots att*." }] }
 
   - id: zoek-de-fout
     title: Zoek de fout
