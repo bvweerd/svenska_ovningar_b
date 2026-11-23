@@ -55,7 +55,7 @@ async function session(scheme, visit) {
   await ctx.close();
 }
 
-const PAGES = ['/', '/over', '/luisteren', '/grammatica', '/herhalen', '/prestaties', '/statistieken', '/oefenen', '/oefenen/herhaling', '/oefenen/werkwoorden',
+const PAGES = ['/', '/over', '/verantwoording', '/luisteren', '/grammatica', '/herhalen', '/prestaties', '/statistieken', '/oefenen', '/oefenen/herhaling', '/oefenen/werkwoorden',
   '/oefenen/luisteren', '/oefenen/spel', '/koppel/abcd', '/bestaat-niet'];
 
 for (const scheme of ['light', 'dark']) {

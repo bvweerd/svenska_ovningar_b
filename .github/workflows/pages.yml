@@ -28,8 +28,15 @@ jobs:
           cache: npm
       - run: npm ci
       - run: npm test
+      # De pagina Verantwoording van de B-site telt de A-site mee als bekende stof (scripts/verantwoording.mjs).
+      - name: Zusterrepo ophalen (alleen B-site)
+        run: |
+          case "${GITHUB_REPOSITORY}" in
+            *_b) git clone --depth 1 "https://github.com/${GITHUB_REPOSITORY%_b}.git" "$RUNNER_TEMP/sibling" ;;
+          esac
       - run: npm run build
         env:
+          SIBLING_DIR: ${{ runner.temp }}/sibling
           # Foutmeldingen (Worker in de B1–B2-repo, map worker/). Zonder deze variabelen blijft de meldknop verborgen.
           VITE_REPORT_URL: ${{ vars.REPORT_URL }}
           VITE_TURNSTILE_SITEKEY: ${{ vars.TURNSTILE_SITEKEY }}

@@ -3,6 +3,7 @@ import fs from 'node:fs';
 import { defineConfig } from 'vite';
 import yaml from 'js-yaml';
 import { pwaPlugin } from './scripts/pwa.mjs';
+import { verantwoordingPlugin } from './scripts/verantwoording.mjs';
 
 // Laadt .yaml-bestanden als JavaScript-objecten.
 const yamlPlugin = {
@@ -29,7 +30,7 @@ function appVersion() {
 export default defineConfig({
   define: { 'import.meta.env.APP_VERSION': JSON.stringify(appVersion()) },
   base: './',
-  plugins: [yamlPlugin, pwaPlugin()],
+  plugins: [yamlPlugin, pwaPlugin(), verantwoordingPlugin()],
   // Elk hoofdstuk een eigen bestand: geen bundel boven de 500 kB, en een nieuwe versie van één hoofdstuk
   // laat de rest van de cache van de browser en de service worker ongemoeid.
   build: {

@@ -209,12 +209,12 @@ export function analyse(chapters, before = []) {
 
 // ---------- Markdown ----------
 
-const TH = { easyKnown: 0.95, readKnown: 0.9, feedback: 0.5, translateA2: 0.35, recur: 0.4, cardMin: 8 };
+export const TH = { easyKnown: 0.95, readKnown: 0.9, feedback: 0.5, translateA2: 0.35, recur: 0.4, cardMin: 8 };
 
-export function report({ site, chapters, before = [], beforeName = null }) {
-  const { rows, dupes } = analyse(chapters, before);
+/** Aandachtspunten: waar een hoofdstuk onder de lijn of een richtlijn zit. Tekst in Markdown (met `code`). */
+export function attention(rows) {
   const flags = [];
-  const flag = (ch, text) => flags.push(`- **H${ch}**: ${text}`);
+  const flag = (chapter, text) => flags.push({ chapter, text });
   for (const r of rows) {
     const l = r.line;
     if (l) {
@@ -236,6 +236,12 @@ export function report({ site, chapters, before = [], beforeName = null }) {
     // Vlak voor het eind van de site komen er vanzelf weinig hoofdstukken na: alleen melden als er nog ≥ 3 volgen.
     if (r.vocab && rows.at(-1).chapter - r.chapter >= 3 && r.recur / r.vocab < TH.recur) flag(r.chapter, `maar ${pct(r.recur, r.vocab)}% van de woorden komt in latere hoofdstukken terug.`);
   }
+  return flags;
+}
+
+export function report({ site, chapters, before = [], beforeName = null }) {
+  const { rows, dupes } = analyse(chapters, before);
+  const flags = attention(rows).map((f) => `- **H${f.chapter}**: ${f.text}`);
 
   const out = [];
   const p = (...l) => out.push(...l);

@@ -1,6 +1,7 @@
 import { describe, it, expect } from 'vitest';
 import { report, loadChapters, forms, tokens, swedishOf, strand } from '../scripts/content-report.mjs';
 import { root, name } from '../scripts/sibling.mjs';
+import { verantwoording } from '../scripts/verantwoording.mjs';
 
 describe('rapport inhoud en didactiek', () => {
   it('herkent woordvormen uit de woordenlijst', () => {
@@ -28,5 +29,19 @@ describe('rapport inhoud en didactiek', () => {
     for (const h of ['## Aandachtspunten', '## Opbouw per hoofdstuk', '## Woordenschat', '## Teksten: bekende woorden', '## Grammatica', '## Kan-doen-uitspraken']) {
       expect(md).toContain(h);
     }
+  });
+
+  it('maakt de gegevens voor de pagina Verantwoording', () => {
+    const d = verantwoording(loadChapters(root));
+    expect(d.totals.chapters).toBe(d.chapters.length);
+    expect(d.totals.questions).toBe(d.chapters.reduce((n, c) => n + c.qs, 0));
+    const s = d.totals.strands;
+    expect(s.input + s.output + s.vorm).toBe(d.totals.questions);
+    for (const c of d.chapters) {
+      expect(c.used).toBeLessThanOrEqual(c.vocab);
+      expect(c.feedback).toBeLessThanOrEqual(c.produce);
+    }
+    // Geen Markdown in de aandachtspunten: de pagina toont gewone tekst.
+    for (const a of d.attention) expect(a.text).not.toMatch(/`|\*\*/);
   });
 });

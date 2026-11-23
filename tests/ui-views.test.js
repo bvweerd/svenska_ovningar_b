@@ -38,7 +38,7 @@ afterEach(() => {
   expect(errors).toEqual([]);
 });
 
-const STATIC = ['/', '/over', '/voortgang', '/instellingen', '/koppel', '/koppel/abcd', '/luisteren', '/grammatica', '/herhalen',
+const STATIC = ['/', '/over', '/verantwoording', '/voortgang', '/instellingen', '/koppel', '/koppel/abcd', '/luisteren', '/grammatica', '/herhalen',
   '/prestaties', '/statistieken', '/oefenen', '/oefenen/herhaling', '/oefenen/werkwoorden', '/oefenen/luisteren', '/oefenen/spel', '/bestaat-niet'];
 
 describe('elke pagina wordt getekend', () => {
@@ -49,6 +49,14 @@ describe('elke pagina wordt getekend', () => {
       expect(el.textContent.trim().length).toBeGreaterThan(10);
     });
   }
+
+  it('verantwoording laadt de gegevens en toont grafieken en tabellen', async () => {
+    const el = await go('/verantwoording');
+    for (let i = 0; i < 50 && !el.querySelector('.vw-fig'); i++) await new Promise((r) => setTimeout(r, 20));
+    expect(el.querySelectorAll('.vw-fig').length).toBeGreaterThan(3);
+    expect(el.querySelectorAll('.vw-table').length).toBeGreaterThan(3);
+    expect(el.textContent).toContain('Soorten oefenen');
+  });
 
   it('alle spellen', async () => {
     const el = await go('/oefenen/spel');

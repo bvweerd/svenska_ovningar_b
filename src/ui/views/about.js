@@ -54,6 +54,8 @@ export function viewAbout() {
       h('p', {}, 'Gaat er iets anders mis in de app, is iets onduidelijk, of heb je een idee? Gebruik dan deze knop.'),
       h('div', { class: 'actions' }, feedbackButton()),
     ] : null,
+    h('h2', {}, 'Verantwoording'),
+    h('p', {}, 'Hoe is de oefenstof opgebouwd, en waarom zo? ', h('a', { href: '#/verantwoording' }, 'De verantwoording'), ' laat met cijfers en grafieken zien hoe de site oefenen in balans houdt, hoe de moeilijkheid oploopt, en hoe woorden en grammatica terugkomen.'),
     h('h2', {}, 'Instellingen en voortgang'),
     h('p', {}, 'Stem, thema, woordtegels of typen, de knoppen voor å, ä en ö en vanzelf doorgaan stel je in bij ', h('a', { href: '#/instellingen' }, 'Instellingen'), '. Je statistieken, prestaties, synchroniseren tussen apparaten en exporteren vind je bij ', h('a', { href: '#/voortgang' }, 'Voortgang'), '.'),
     h('h2', {}, 'Privacy en statistieken'),

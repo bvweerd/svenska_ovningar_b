@@ -167,13 +167,13 @@ sections:
         topic: woordenschat
         shuffle: true
         items:
-          - { id: np5z, type: gap, text: "Polisen söker ___ till händelsen vid stationen i går kväll.", gaps: [{ answers: ["vittnen"], options: ["vittnen", "tittare", "följare", "källor"] }] }
+          - { id: np5z, type: gap, text: "Polisen söker ___ till händelsen vid stationen i går kväll.", gaps: [{ answers: ["vittnen"], options: ["vittnen", "tittare", "följare", "källor"], feedback: [{ match: "tittare", tip: "Tittare kijken tv. Wie iets gezien heeft, is ett vittne (een getuige)." }] }] }
           - { id: mafa, type: gap, text: "En bra journalist kontrollerar alltid sina ___ innan hon skriver om något.", gaps: [{ answers: ["källor"], options: ["källor", "rubriker", "annonser", "kommentarer"] }] }
           - { id: 6gzp, type: gap, text: "Journalisten ___ tre personer som hade sett branden och citerade dem i artikeln.", gaps: [{ answers: ["intervjuade"], options: ["intervjuade", "förnekade", "uppdaterade", "sände"] }] }
           - { id: smh4, type: gap, text: "Innan en artikel publiceras, ___ redaktionen alla uppgifter.", gaps: [{ answers: ["faktagranskar"], options: ["faktagranskar", "förnekar", "påstår", "sprider"] }] }
           - { id: qc68, type: gap, text: "I dagens ___ skriver tidningen att kommunen måste lägga mer pengar på skolan.", gaps: [{ answers: ["ledare"], options: ["ledare", "insändare", "rubrik", "annons"] }] }
           - { id: 7yx8, type: gap, text: "Tidningen ___ att politikern hade ljugit om pengarna.", gaps: [{ answers: ["avslöjade"], options: ["avslöjade", "uppdaterade", "intervjuade", "citerade"] }] }
-          - { id: m2w4, type: gap, text: "Tidningen påstår att ministern har ljugit, men hon ___ det.", gaps: [{ answers: ["förnekar"], options: ["förnekar", "avslöjar", "citerar", "sprider"] }] }
+          - { id: m2w4, type: gap, text: "Tidningen påstår att ministern har ljugit, men hon ___ det.", gaps: [{ answers: ["förnekar"], options: ["förnekar", "avslöjar", "citerar", "sprider"], feedback: [{ match: "avslöjar", tip: "Avslöjar = onthult. Maar ze is het niet eens met de krant: att förneka = ontkennen." }] }] }
           - { id: 279v, type: gap, text: "En journalist ska vara opartisk och ___ dem som har makt.", gaps: [{ answers: ["granska"], options: ["granska", "sända", "sprida", "uppdatera"] }] }
           - { id: 6f7u, type: gap, text: "Räddningstjänsten ___ till branden mitt i natten, och SVT rapporterade direkt från platsen.", gaps: [{ answers: ["ryckte ut"], options: ["ryckte ut", "lade ut", "spärrade av", "läste upp"] }] }
           - { id: qche, type: gap, text: "Orsaken till branden är fortfarande ___, och det finns ännu ingen officiell förklaring.", gaps: [{ answers: ["okänd"], options: ["okänd", "aktuell", "pålitlig", "opartisk"] }] }
@@ -188,16 +188,16 @@ sections:
         items:
           - { id: 4jf2, type: gap, text: "Vi ___ på en dagstidning, men barnen läser bara nyhetsflödet i mobilen.", gaps: [{ answers: ["prenumererar"], options: ["prenumererar", "rapporterar", "granskar", "intervjuar"] }] }
           - { id: 6jkd, type: gap, text: "Hon sa upp sin ___ när tidningen blev för dyr.", gaps: [{ answers: ["prenumeration"], options: ["prenumeration", "kommentar", "rubrik", "sändning"] }] }
-          - { id: we78, type: gap, text: "Under ___ i går kväll visades ett inslag om skogsbränderna i Norrland.", gaps: [{ answers: ["sändningen"], options: ["sändningen", "kanalen", "rubriken", "källan"] }] }
+          - { id: we78, type: gap, text: "Under ___ i går kväll visades ett inslag om skogsbränderna i Norrland.", gaps: [{ answers: ["sändningen"], options: ["sändningen", "kanalen", "rubriken", "källan"], feedback: [{ match: "kanalen", tip: "Under … i går kväll gaat over een moment: sändningen (de uitzending). Kanalen = de zender." }] }] }
           - { id: dy5j, type: gap, text: "Programmet på den nya ___ hade nästan en miljon tittare.", gaps: [{ answers: ["kanalen"], options: ["kanalen", "podden", "ledaren", "tittaren"] }] }
           - { id: yv5k, type: gap, text: "Jag lyssnar på en ___ om historia när jag cyklar till jobbet.", gaps: [{ answers: ["podd"], options: ["podd", "kanal", "annons", "ledare"] }] }
-          - { id: bt37, type: gap, text: "Hon har över tiotusen ___ på Instagram och lägger ut en ny bild varje dag.", gaps: [{ answers: ["följare"], options: ["följare", "tittare", "vittnen", "källor"] }] }
+          - { id: bt37, type: gap, text: "Hon har över 10 000 ___ på Instagram och lägger ut en ny bild varje dag.", gaps: [{ answers: ["följare"], options: ["följare", "tittare", "vittnen", "källor"], feedback: [{ match: "tittare", tip: "Op Instagram heb je följare (volgers); tittare kijken tv." }] }] }
           - { id: 3se4, type: gap, text: "Det går ett ___ om att skolan ska stänga, men ingen vet om det stämmer.", gaps: [{ answers: ["rykte"], options: ["rykte", "inslag", "reportage", "vittne"] }] }
           - { id: tbgw, type: gap, text: "Det är framför allt ___ som skriver om kändisar, ofta med stora rubriker.", gaps: [{ answers: ["kvällstidningarna"], options: ["kvällstidningarna", "redaktionerna", "prenumerationerna", "kanalerna"] }] }
           - { id: 4y6n, type: gap, text: "Många delar ___ nyheter utan att veta om det. Därför behöver vi pålitliga källor.", gaps: [{ answers: ["falska"], options: ["falska", "aktuella", "objektiva", "officiella"] }] }
-          - { id: tz5n, type: gap, text: "Artikeln om älgen fick över tusen ___ på nätet, så redaktören bestämde att tidningen skulle skriva en ny artikel dagen efter.", gaps: [{ answers: ["kommentarer"], options: ["kommentarer", "annonser", "rubriker", "följare"] }] }
+          - { id: tz5n, type: gap, text: "Artikeln om älgen fick över tusen ___ på nätet, så redaktören bestämde att tidningen skulle skriva en ny artikel dagen efter.", gaps: [{ answers: ["kommentarer"], options: ["kommentarer", "annonser", "rubriker", "följare"], feedback: [{ match: "följare", tip: "Een artikel heeft geen volgers; lezers schrijven kommentarer (reacties)." }] }] }
           - { id: dtz6, type: gap, text: "Tidningen tjänar mest pengar på ___, inte på prenumerationer.", gaps: [{ answers: ["annonser"], options: ["annonser", "kommentarer", "rykten", "inslag"] }] }
-          - { id: r3mj, type: gap, text: "I helgen sände SVT ett ___ om unga som flyttar från små byar till Stockholm.", gaps: [{ answers: ["reportage"], options: ["reportage", "rykte", "vittne", "nyhetsflöde"] }] }
+          - { id: r3mj, type: gap, text: "I helgen sände SVT ett ___ om unga som flyttar från små byar till Stockholm.", gaps: [{ answers: ["reportage"], options: ["reportage", "rykte", "vittne", "nyhetsflöde"], feedback: [{ match: "nyhetsflöde", tip: "SVT zendt een programma uit: ett reportage. Ett nyhetsflöde is je nieuwsfeed." }] }] }
           - { id: 2c7p, type: gap, text: "Nyhetsprogrammet tar upp ___ frågor varje vecka och ska alltid vara objektivt.", gaps: [{ answers: ["aktuella"], options: ["aktuella", "falska", "okända", "pålitliga"] }] }
 
   - id: indirekt-tal

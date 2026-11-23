@@ -6,7 +6,7 @@ import { splitTheme } from './shared.js';
 import { levels } from '../app/content.js';
 
 // Pagina's die onder een ander menu-item vallen.
-const MENU_OF = { herhalen: 'oefenen', statistieken: 'voortgang', prestaties: 'voortgang', koppel: 'voortgang', luisteren: 'instellingen' };
+const MENU_OF = { herhalen: 'oefenen', statistieken: 'voortgang', prestaties: 'voortgang', koppel: 'voortgang', luisteren: 'instellingen', verantwoording: 'over' };
 
 export function createMenu(course) {
   const nav = document.getElementById('menu');

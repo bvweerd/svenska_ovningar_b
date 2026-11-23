@@ -14,6 +14,10 @@
   --bad: #b3261e;
   --bad-soft: #fbe9e7;
   --info-soft: #fff6d6;
+  /* Grafieken (Verantwoording): categorische kleuren, gecontroleerd op kleurenblindheid. */
+  --c1: #2a78d6;
+  --c2: #eb6834;
+  --c3: #1baf7a;
   --radius: 12px;
   --shadow: 0 1px 2px rgb(0 0 0 / 0.05), 0 2px 8px rgb(0 0 0 / 0.04);
   font-family: system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
@@ -36,6 +40,9 @@
     --bad: #f2867c;
     --bad-soft: #3a1c1a;
     --info-soft: #33300f;
+  --c1: #3987e5;
+  --c2: #d95926;
+  --c3: #199e70;
   }
 }
 :root[data-theme='dark'] {
@@ -53,6 +60,9 @@
   --bad: #f2867c;
   --bad-soft: #3a1c1a;
   --info-soft: #33300f;
+  --c1: #3987e5;
+  --c2: #d95926;
+  --c3: #199e70;
 }
 
 * { box-sizing: border-box; }
@@ -751,3 +761,51 @@ del { text-decoration-color: var(--bad); text-decoration-thickness: 2px; color: 
 .chapter-actions .btn.primary { flex-basis: 100%; justify-content: center; }
 @media (min-width: 600px) { .chapter-actions .btn.primary { flex-basis: auto; } }
 @media (pointer: coarse) { .kbd-only { display: none; } }
+
+/* Verantwoording: grafieken in gewone HTML. Elke grafiek heeft ook een tabel („Als tabel”). */
+.vw-status { padding: 12px 16px; border-radius: var(--radius); margin: 8px 0 24px; }
+.vw-status p { margin: 0; }
+.vw-status ul { margin: 8px 0 0; }
+.vw-ok { background: var(--good-soft); }
+.vw-warn { background: var(--info-soft); }
+.verantwoording .lead { margin-bottom: 20px; }
+.verantwoording .note { background: var(--info-soft); padding: 10px 14px; border-radius: 10px; }
+.vw-principles li { margin-bottom: 6px; }
+.vw-legend { display: flex; flex-wrap: wrap; gap: 6px 18px; list-style: none; padding: 0; margin: 12px 0 4px; font-size: 0.92rem; }
+.vw-legend li { display: flex; align-items: center; gap: 6px; }
+.vw-key { width: 14px; height: 14px; border-radius: 4px; flex: none; }
+.vw-fig { margin: 16px 0; padding: 14px 16px; background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius); }
+.vw-fig figcaption { font-weight: 600; margin-bottom: 10px; }
+.vw-fig > .vw-bar { margin-left: 0; }
+.vw-rows { display: flex; flex-direction: column; gap: 6px; }
+.vw-row { display: grid; grid-template-columns: 3em 1fr; align-items: center; gap: 8px; }
+.vw-label { font-size: 0.85rem; color: var(--muted); font-variant-numeric: tabular-nums; }
+.vw-bar { display: flex; height: 22px; gap: 2px; border-radius: 4px; overflow: hidden; min-width: 0; }
+.vw-seg { display: flex; align-items: center; justify-content: center; min-width: 2px; font-size: 0.75rem; font-weight: 600; color: #fff; white-space: nowrap; overflow: hidden; }
+.vw-pair { display: flex; flex-direction: column; gap: 3px; min-width: 0; }
+.vw-pair-row { display: grid; grid-template-columns: 1fr 3.2em; align-items: center; gap: 8px; min-width: 0; }
+.vw-val { font-size: 0.85rem; text-align: right; font-variant-numeric: tabular-nums; color: var(--text); }
+.vw-flag { color: var(--bad); font-weight: 700; }
+.vw-track { position: relative; height: 10px; background: var(--surface-2); border-radius: 4px; min-width: 0; }
+.vw-pair .vw-track { height: 8px; }
+.vw-fill { position: absolute; inset: 0 auto 0 0; border-radius: 4px; }
+.vw-axis { height: 16px; background: transparent; border-bottom: 1px solid var(--line); border-radius: 0; }
+.vw-band { position: absolute; top: 2px; bottom: 2px; background: var(--accent); opacity: 0.22; border-radius: 3px; }
+.vw-dot { position: absolute; top: 50%; width: 10px; height: 10px; margin: -5px 0 0 -5px; border-radius: 50%; background: var(--c1); box-shadow: 0 0 0 2px var(--surface); }
+.vw-dot-off { background: var(--bad); }
+.vw-target { position: absolute; top: -3px; bottom: -3px; width: 2px; margin-left: -1px; background: var(--text); opacity: 0.55; }
+.vw-ticks { display: flex; justify-content: space-between; font-size: 0.75rem; color: var(--muted); }
+.vw-s-input, .vw-c1 { background: var(--c1); }
+.vw-s-output, .vw-c2 { background: var(--c2); }
+.vw-s-vorm, .vw-c3 { background: var(--c3); }
+.vw-low { background: var(--bad); }
+.vw-tablewrap { margin: 4px 0 20px; font-size: 0.92rem; }
+.vw-tablewrap summary { cursor: pointer; color: var(--accent); }
+.vw-scroll { overflow-x: auto; }
+.vw-table { border-collapse: collapse; margin: 8px 0; font-size: 0.9rem; }
+.vw-table th, .vw-table td { padding: 4px 10px 4px 0; text-align: left; border-bottom: 1px solid var(--line); vertical-align: top; }
+.vw-table th { font-weight: 600; color: var(--muted); }
+details.vw-ch { border: 1px solid var(--line); border-radius: 10px; padding: 8px 14px; margin: 8px 0; background: var(--surface); }
+details.vw-ch summary { cursor: pointer; font-weight: 600; }
+.vw-cando { margin: 6px 0 4px; }
+.vw-s-output, .vw-s-vorm { color: #10141a; }

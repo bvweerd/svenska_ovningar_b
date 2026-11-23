@@ -24,6 +24,7 @@ npm run smoke    # na build: elke pagina in Chromium, en per vraagvorm een vraag
 npm run build    # statische site in dist/
 npm run difficulty-report   # moeilijkheid per hoofdstuk naast de moeilijkheidslijn (PLAN.md in svenska_ovningar)
 npm run content-report      # rapport taalinhoud en didactiek (ook in CI, als samenvatting van de testrun)
+                            # dezelfde metingen staan leesbaar op de pagina #/verantwoording (scripts/verantwoording.mjs)
 ```
 
 ## Publiceren
