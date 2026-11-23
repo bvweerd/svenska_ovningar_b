@@ -95,6 +95,30 @@ sections:
             answers: [0, 1, 2, 3, 5]
             tip: "lära sig is een wederkerend werkwoord, geen partikelwerkwoord. dela på (samen delen) telt wel mee."
 
+      - id: makkelijk-1
+        title: "Makkelijk lezen: Elementet"
+        instruction: Een korte tekst met woorden die je al kent. Lees hem vlot door en kies rätt of fel.
+        topic: woordenschat
+        kind: makkelijk
+        textTitle: "Elementet"
+        text: |
+          När Femke kom hem i går var det kallt i lägenheten. Elementet i sovrummet hade gått sönder. Hon ringde hyresvärden och gjorde en felanmälan. Nästa morgon kom en reparatör. Han stängde av vattnet, bytte en del och satte på elementet igen. Efter en timme var det varmt i rummet. Femke tackade och bjöd honom på kaffe. Femke var glad att det gick så snabbt.
+        items:
+          - { id: 6ez6, type: truefalse, statement: "Elementet i köket hade gått sönder.", answer: false }
+          - { id: kvmg, type: truefalse, statement: "En reparatör kom nästa morgon.", answer: true }
+
+      - id: makkelijk-2
+        title: "Makkelijk lezen: Nya grannar"
+        instruction: Een korte tekst met woorden die je al kent. Lees hem vlot door en kies rätt of fel.
+        topic: woordenschat
+        kind: makkelijk
+        textTitle: "Nya grannar"
+        text: |
+          I lägenheten bredvid har en ny familj flyttat in. Föräldrarna, vars barn är fem och sju år, kommer från Syrien. Femke hälsade på dem i trapphuset. De berättade att de hade bott i Göteborg tidigare. Dit ska de åka och hälsa på vänner i sommar. Femke visade dem tvättstugan, där man bokar tid på en tavla i källaren. Familjen bjöd sedan Femke på te.
+        items:
+          - { id: 43f8, type: truefalse, statement: "Den nya familjen har två barn.", answer: true }
+          - { id: auqy, type: truefalse, statement: "Man bokar tvättstugan på internet.", answer: false }
+
   - id: ord
     title: Ord och fraser · woorden en uitdrukkingen
     exercises:
@@ -345,6 +369,16 @@ sections:
           - { id: fe7y, type: mc, prompt: "Je vraagt of de monteur een sleutel heeft.", options: ["Har reparatören en egen nyckel?", "Har du sett min nyckel?", "Kan jag låna din nyckel?", "Var är nyckeln till tvättstugan?"], answer: 0 }
           - { id: ukau, type: mc, prompt: "Je wilt je huur opzeggen.", options: ["Jag vill säga upp mitt hyreskontrakt.", "Jag vill förlänga mitt hyreskontrakt.", "Jag vill flytta in.", "Jag vill betala hyran."], answer: 0 }
 
+      - id: wat-zeg-je-zelf
+        title: Wat zeg je? (zelf)
+        instruction: Zeg het nu zelf in het Zweeds. Er is vaak meer dan één goed antwoord.
+        kind: situatie
+        items:
+          - { id: 77mm, type: translate, topic: partikelverb, prompt: "Vraag je huisgenoot of hij de radio uitzet.", answers: ["Kan du stänga av radion[, tack]?"], feedback: [{ contains: "stänga radion av", tip: "Het partikel komt vóór het lijdend voorwerp: stänga av radion." }] }
+          - { id: bn82, type: translate, topic: partikelverb, prompt: "Zeg dat je volgende maand in je nieuwe appartement trekt.", answers: ["Jag flyttar in i min nya lägenhet nästa månad.", "Nästa månad flyttar jag in i min nya lägenhet."] }
+          - { id: p2yz, type: translate, topic: dar-dit-vars, prompt: "Zeg dat je in Malmö woont en dat je ouders er volgende week naartoe komen.", answers: ["Jag bor i Malmö, och mina föräldrar kommer dit nästa vecka."], feedback: [{ contains: "kommer där", tip: "Ergens naartoe (richting): dit." }] }
+          - { id: s5f8, type: translate, topic: partikelverb, prompt: "Vertel dat de wasmachine kapot is gegaan.", answers: ["Tvättmaskinen har gått sönder.", "Tvättmaskinen gick sönder."] }
+
   - id: skriva
     title: Skriva · schrijven
     intro: "Schrijfdoel: een bericht aan de verhuurder."
@@ -451,3 +485,12 @@ vocab:
   - { sv: "inklusive", nl: "inclusief", ex: "Hyran är 8 000 kronor i månaden **inklusive** värme.", exNl: "De huur is 8000 kronen per maand, inclusief verwarming." }
   - { sv: "på bottenvåningen", nl: "op de begane grond", ex: "Vi bor **på bottenvåningen**, så vi behöver ingen hiss.", exNl: "We wonen op de begane grond, dus we hebben geen lift nodig." }
   - { sv: "trasig", nl: "kapot", ex: "Dörren till tvättstugan är **trasig** igen.", exNl: "De deur van de wasruimte is weer kapot." }
+  - { sv: "en grannsämja", nl: "goede verstandhouding met de buren", def: "grannsämjan", mass: true, ex: "God **grannsämja** är viktig i ett hyreshus.", exNl: "Een goede verstandhouding met de buren is belangrijk in een huurflat." }
+  - { sv: "en ytterdörr", nl: "een voordeur", def: "ytterdörren", pl: "ytterdörrar", plDef: "ytterdörrarna", ex: "Glöm inte att låsa **ytterdörren**.", exNl: "Vergeet niet de voordeur op slot te doen." }
+  - { sv: "en värme", nl: "de verwarming, warmte", def: "värmen", mass: true, ex: "**Värmen** fungerar inte i badrummet.", exNl: "De verwarming werkt niet in de badkamer." }
+  - { sv: "en hyreshöjning", nl: "een huurverhoging", def: "hyreshöjningen", pl: "hyreshöjningar", plDef: "hyreshöjningarna", ex: "Vi fick ett brev om en **hyreshöjning**.", exNl: "We kregen een brief over een huurverhoging." }
+  - { sv: "en uppsägningstid", nl: "een opzegtermijn", def: "uppsägningstiden", pl: "uppsägningstider", plDef: "uppsägningstiderna", ex: "**Uppsägningstiden** är tre månader.", exNl: "De opzegtermijn is drie maanden." }
+  - { sv: "att måla om", nl: "opnieuw schilderen", ex: "Vi ska **måla om** köket i vår.", exNl: "We gaan in het voorjaar de keuken opnieuw schilderen." }
+  - { sv: "att vädra", nl: "luchten", ex: "Glöm inte att **vädra** i sovrummet.", exNl: "Vergeet niet de slaapkamer te luchten." }
+  - { sv: "dragig", nl: "tochtig", ex: "Det är **dragigt** vid fönstret.", exNl: "Het tocht bij het raam." }
+  - { sv: "sliten", nl: "versleten", ex: "Golvet i hallen är ganska **slitet**.", exNl: "De vloer in de hal is nogal versleten." }

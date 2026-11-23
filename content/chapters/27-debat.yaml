@@ -86,6 +86,30 @@ sections:
           - { id: 778r, type: mc, prompt: "Varför skriver Karin att de flesta vuxna inte ens klarar det själva?", options: ["För att visa att det är orimligt att kräva så mycket självdisciplin av fjortonåringar.", "För att hon vill att även vuxna ska lämna in sina mobiler.", "För att hon tycker att föräldrarna är dåliga förebilder.", "För att hon håller med om invändningen."], answer: 0, tip: "Het staat in het bemötande: ze zwakt de invändning af." }
           - { id: rkaj, type: mc, prompt: "Vilken funktion har stycket om testet i åttondeklasserna i Karins text?", options: ["Det ger belägg för hennes tes.", "Det är ett motargument.", "Det är hennes slutsats.", "Det visar att förbudet inte fungerade."], answer: 0, tip: "Ze laat met het resultaat zien dat haar standpunt klopt." }
 
+      - id: makkelijk-1
+        title: "Makkelijk lezen: Skoluniform"
+        instruction: Een korte tekst met woorden die je al kent. Lees hem vlot door en kies rätt of fel.
+        topic: woordenschat
+        kind: makkelijk
+        textTitle: "Skoluniform"
+        text: |
+          Ska elever ha skoluniform? Det är en fråga som ofta diskuteras. De som är för menar att uniformer minskar stressen kring kläder. Kritiker invänder att det är eleverna själva som ska få bestämma. Det är också en fråga om pengar: vem ska betala? Kort sagt finns det argument på båda sidor. I Sverige är skoluniform ovanligt, men i många andra länder är det självklart. Några svenska skolor har ändå provat. Resultaten är blandade: en del elever tycker om det, medan andra känner sig mindre fria.
+        items:
+          - { id: z3gs, type: truefalse, statement: "Kritikerna vill att eleverna själva bestämmer.", answer: true }
+          - { id: daek, type: truefalse, statement: "Alla är överens om skoluniformer.", answer: false }
+
+      - id: makkelijk-2
+        title: "Makkelijk lezen: Bilfritt centrum"
+        instruction: Een korte tekst met woorden die je al kent. Lees hem vlot door en kies rätt of fel.
+        topic: woordenschat
+        kind: makkelijk
+        textTitle: "Bilfritt centrum"
+        text: |
+          I många städer debatteras ett bilfritt centrum. Det är framför allt butiksägarna som är oroliga. De hävdar att färre kunder kommer att komma. Kommunen bemöter kritiken med att fler går och cyklar när bilarna försvinner, och att det gynnar butikerna. Dessutom pekar kommunen på att luften blir renare och att det blir tystare. I andra städer där man har infört bilfritt centrum har antalet besökare faktiskt ökat. Butiksägarna är dock inte övertygade, och debatten fortsätter i lokaltidningen. Frågan ska avgöras i kommunfullmäktige i vår.
+        items:
+          - { id: cku7, type: truefalse, statement: "Butiksägarna är oroliga.", answer: true }
+          - { id: ftdd, type: truefalse, statement: "Kommunen håller med butiksägarna.", answer: false }
+
       - id: opbouw-sorteren
         title: De opbouw van het betoog
         instruction: Welk deel van het betoog is deze zin?
@@ -314,6 +338,16 @@ sections:
           - { id: 49qz, type: mc, prompt: "Je wilt uitpraten.", options: ["Låt mig tala till punkt.", "Låt mig avbryta.", "Låt mig hålla med.", "Låt mig sluta."], answer: 0 }
           - { id: abaf, type: mc, prompt: "Je geeft iets toe, maar houdt je standpunt.", options: ["Det är en bra poäng, men jag tycker ändå att …", "Du har helt rätt, jag ger upp.", "Det där är dumt.", "Jag vet inte."], answer: 0 }
 
+      - id: wat-zeg-je-zelf
+        title: Wat zeg je? (zelf)
+        instruction: Zeg het nu zelf in het Zweeds. Er is vaak meer dan één goed antwoord.
+        kind: situatie
+        items:
+          - { id: tp5s, type: translate, topic: utbrytning, prompt: "Benadruk: het is de prijs die het probleem is.", answers: ["Det är priset som är problemet."] }
+          - { id: mqp8, type: translate, topic: argumentation, prompt: "Reageer: ik begrijp wat je bedoelt, maar ik ben het niet met je eens.", answers: ["Jag förstår vad du menar, men jag håller inte med[ dig]."] }
+          - { id: aan3, type: translate, topic: utbrytning, prompt: "Zeg dat het je broer was die belde (niet jij).", answers: ["Det var min bror som ringde."], feedback: [{ contains: "som han ringde", tip: "Som is het onderwerp: som ringde." }] }
+          - { id: 3x4f, type: translate, topic: argumentation, prompt: "Rond je betoog af: kort gezegd moeten we meer in scholen investeren.", answers: ["Kort sagt måste vi satsa mer på {skolan|skolorna}.", "Kort sagt måste vi investera mer i {skolan|skolorna}."], feedback: [{ contains: "Kort sagt vi måste", tip: "Na kort sagt komt eerst het werkwoord: kort sagt måste vi." }] }
+
   - id: skriva
     title: Skriva · schrijven
     intro: "Schrijfdoel: een betoog."
@@ -455,3 +489,12 @@ vocab:
   - { sv: "befogad", nl: "terecht, gerechtvaardigd", ex: "Kritiken mot förslaget är helt **befogad**.", exNl: "De kritiek op het voorstel is volkomen terecht." }
   - { sv: "ensidig", nl: "eenzijdig", ex: "Artikeln ger en väldigt **ensidig** bild av problemet.", exNl: "Het artikel geeft een erg eenzijdig beeld van het probleem." }
   - { sv: "däremot", nl: "daarentegen", ex: "Eleverna gillar förslaget. Föräldrarna är **däremot** skeptiska.", exNl: "De leerlingen vinden het voorstel goed. De ouders zijn daarentegen sceptisch." }
+  - { sv: "ett exempel", nl: "een voorbeeld", def: "exemplet", pl: "exempel", plDef: "exemplen", ex: "Kan du ge ett **exempel**?", exNl: "Kun je een voorbeeld geven?" }
+  - { sv: "en publik", nl: "een publiek", def: "publiken", pl: "publiker", plDef: "publikerna", ex: "**Publiken** applåderade efter debatten.", exNl: "Het publiek applaudisseerde na het debat." }
+  - { sv: "att hålla med om", nl: "het eens zijn met", ex: "Jag **håller med om** det.", exNl: "Daar ben ik het mee eens." }
+  - { sv: "rimlig", nl: "redelijk", ex: "Förslaget verkar **rimligt**.", exNl: "Het voorstel lijkt redelijk." }
+  - { sv: "ett skäl", nl: "een reden", def: "skälet", pl: "skäl", plDef: "skälen", ex: "Det finns flera **skäl** att säga nej.", exNl: "Er zijn meerdere redenen om nee te zeggen." }
+  - { sv: "att kritisera", nl: "bekritiseren", ex: "Förslaget har **kritiserats** hårt.", exNl: "Het voorstel is hard bekritiseerd." }
+  - { sv: "att försvara", nl: "verdedigen", ex: "Hon **försvarade** sin åsikt.", exNl: "Ze verdedigde haar mening." }
+  - { sv: "att erkänna", nl: "toegeven, erkennen", ex: "Jag måste **erkänna** att du har rätt.", exNl: "Ik moet toegeven dat je gelijk hebt." }
+  - { sv: "kontroversiell", nl: "omstreden", ex: "Frågan är mycket **kontroversiell**.", exNl: "De kwestie is zeer omstreden." }

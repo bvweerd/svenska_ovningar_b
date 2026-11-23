@@ -104,6 +104,31 @@ sections:
             answers: [0, 1, 2, 3]
             tip: "Het ziekteverzuim (sjukfrånvaron) is juist gedaald, en de huurkosten ook."
 
+      - id: makkelijk-1
+        title: "Makkelijk lezen: Bageriet"
+        instruction: Een korte tekst met woorden die je al kent. Lees hem vlot door en kies rätt of fel.
+        topic: woordenschat
+        kind: makkelijk
+        textTitle: "Bageriet"
+        text: |
+          Ett litet bageri i Lund har haft ett bra år. Försäljningen ökade med 20 procent, framför allt tack vare kaffe och smörgåsar till kontoren i närheten. Ägaren Sofia berättar att ökningen kom efter att bageriet började leverera på morgnarna. Kostnaderna har också stigit, eftersom mjöl och el har blivit dyrare. Men vinsten blev ändå större än förra året. Nästa år planerar Sofia att öppna en butik till. Hon vill också anställa två personer till, eftersom personalen redan har mycket att göra. Bageriet har i dag åtta anställda.
+        items:
+          - { id: ndrs, type: truefalse, statement: "Försäljningen ökade med 20 procent.", answer: true }
+          - { id: fww6, type: truefalse, statement: "Vinsten blev mindre än förra året.", answer: false }
+          - { id: 9am6, type: truefalse, statement: "Sofia vill öppna en butik till.", answer: true }
+
+      - id: makkelijk-2
+        title: "Makkelijk lezen: Hemma eller på kontoret?"
+        instruction: Een korte tekst met woorden die je al kent. Lees hem vlot door en kies rätt of fel.
+        topic: woordenschat
+        kind: makkelijk
+        textTitle: "Hemma eller på kontoret?"
+        text: |
+          Allt fler arbetar hemifrån några dagar i veckan. En undersökning visar att andelen har fördubblats på fem år. Många uppger att de blir mer effektiva hemma. Samtidigt saknar en del sina kollegor. Därför har många företag infört regler: två dagar på kontoret, resten hemma. De flesta anställda verkar nöjda med den lösningen. Forskarna bakom undersökningen påpekar dock att det finns stora skillnader mellan olika yrken. En sjuksköterska eller en busschaufför kan inte arbeta hemifrån. För dem har ingenting förändrats. Frågan om hur arbetslivet ska se ut i framtiden kommer därför att diskuteras länge.
+        items:
+          - { id: hnfp, type: truefalse, statement: "Andelen som arbetar hemifrån har fördubblats.", answer: true }
+          - { id: 5df7, type: truefalse, statement: "Alla vill bara arbeta hemma.", answer: false }
+
   - id: ord
     title: Ord och fraser · woorden en uitdrukkingen
     exercises:
@@ -341,6 +366,16 @@ sections:
           - { id: e9gd, type: mc, prompt: "Je vergelijkt met vorig jaar.", options: ["Jämfört med i fjol är det en ökning med fem procent.", "Jämfört av i fjol är det en ökning av fem procent.", "Mot i fjol ökar det fem procent på.", "I fjol jämför vi fem procent."], answer: 0 }
           - { id: e744, type: mc, prompt: "Je sluit af.", options: ["Sammanfattningsvis kan man säga att trenden är positiv.", "Sammanfattningsvis tack.", "Det var allt jag vet.", "Nu är diagrammet slut."], answer: 0 }
 
+      - id: wat-zeg-je-zelf
+        title: Wat zeg je? (zelf)
+        instruction: Zeg het nu zelf in het Zweeds. Er is vaak meer dan één goed antwoord.
+        kind: situatie
+        items:
+          - { id: mpn7, type: translate, topic: trender, prompt: "Zeg dat de verkoop met tien procent gestegen is.", answers: ["Försäljningen har ökat med tio procent.", "Försäljningen ökade med tio procent."], feedback: [{ contains: "ökat på", tip: "Met een percentage: öka med." }] }
+          - { id: kge6, type: translate, topic: trender, prompt: "In een vergadering: zeg dat de kosten sterk gedaald zijn.", answers: ["Kostnaderna har minskat kraftigt.", "Kostnaderna minskade kraftigt."] }
+          - { id: nuau, type: translate, topic: trender, prompt: "Zeg dat de winst kleiner was dan vorig jaar.", answers: ["Vinsten {var|blev} mindre än förra året."] }
+          - { id: qggg, type: translate, topic: nominalisering, prompt: "Schrijf in een verslag: de invoering van het nieuwe systeem duurde lang.", answers: ["Införandet av det nya systemet tog lång tid."] }
+
   - id: skriva
     title: Skriva · schrijven
     intro: "Schrijfdoel: een kort verslag."
@@ -485,3 +520,13 @@ vocab:
   - { sv: "bestående", nl: "blijvend", ex: "Hemarbetet verkar vara en **bestående** förändring.", exNl: "Het thuiswerken lijkt een blijvende verandering te zijn." }
   - { sv: "samtidigt", nl: "tegelijkertijd", ex: "Försäljningen ökade, men **samtidigt** steg kostnaderna.", exNl: "De verkoop steeg, maar tegelijkertijd stegen de kosten." }
   - { sv: "omkring", nl: "ongeveer, rond", alt: ["cirka", "ungefär"], ex: "Andelen ligger i dag på **omkring** femtio procent.", exNl: "Het aandeel ligt vandaag op ongeveer vijftig procent." }
+  - { sv: "en ekonomi", nl: "een economie", def: "ekonomin", pl: "ekonomier", plDef: "ekonomierna", ex: "Sveriges **ekonomi** växer långsamt.", exNl: "De Zweedse economie groeit langzaam." }
+  - { sv: "en budget", nl: "een budget, begroting", def: "budgeten", pl: "budgetar", plDef: "budgetarna", ex: "Vi har en stram **budget** i år.", exNl: "We hebben dit jaar een krappe begroting." }
+  - { sv: "en rapport", nl: "een rapport", def: "rapporten", pl: "rapporter", plDef: "rapporterna", ex: "Enligt **rapporten** minskade vinsten.", exNl: "Volgens het rapport daalde de winst." }
+  - { sv: "att förbättra", nl: "verbeteren", ex: "Vi vill **förbättra** resultatet.", exNl: "We willen het resultaat verbeteren." }
+  - { sv: "ekonomisk", nl: "economisch, financieel", ex: "Familjen har **ekonomiska** problem.", exNl: "Het gezin heeft financiële problemen." }
+  - { sv: "stabil", nl: "stabiel", ex: "Priserna har varit **stabila** i ett år.", exNl: "De prijzen zijn een jaar stabiel geweest." }
+  - { sv: "en kris", nl: "een crisis", def: "krisen", pl: "kriser", plDef: "kriserna", ex: "Många företag gick i konkurs under **krisen**.", exNl: "Veel bedrijven gingen failliet tijdens de crisis." }
+  - { sv: "en export", nl: "een export", def: "exporten", mass: true, ex: "**Exporten** till Tyskland ökade.", exNl: "De export naar Duitsland steeg." }
+  - { sv: "en import", nl: "een import", def: "importen", mass: true, ex: "**Importen** av el har minskat.", exNl: "De import van stroom is gedaald." }
+  - { sv: "att investera", nl: "investeren", ex: "Företaget **investerar** i ny teknik.", exNl: "Het bedrijf investeert in nieuwe technologie." }

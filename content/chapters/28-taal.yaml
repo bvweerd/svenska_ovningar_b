@@ -91,6 +91,30 @@ sections:
           - { id: hgdy, type: mc, prompt: "I vilket register är meningen ”Er ansökan har inkommit och kommer att behandlas inom fyra veckor” skriven?", options: ["formellt", "informellt", "på förortssvenska", "på dialekt"], answer: 0, tip: "inkommit en de lijdende vorm behandlas horen bij formele taal." }
           - { id: adzt, type: mc, prompt: "Vilket råd skulle textens författare troligen ge till någon som ska skriva en jobbansökan?", options: ["Skriv formellt och undvik idiomatiska uttryck.", "Använd så många uttryck som möjligt.", "Skriv som du pratar med dina vänner.", "Skriv på din egen dialekt."], answer: 0, tip: "Lees de laatste zin: waar bewaar je de uitdrukkingen voor?" }
 
+      - id: makkelijk-1
+        title: "Makkelijk lezen: Dialekter"
+        instruction: Een korte tekst met woorden die je al kent. Lees hem vlot door en kies rätt of fel.
+        topic: woordenschat
+        kind: makkelijk
+        textTitle: "Dialekter"
+        text: |
+          Saskia bor i Skåne och har vant sig vid den skånska dialekten. När hon besökte en vän i Umeå förstod hon först inte allt. Vännen pratade snabbt och använde ord som Saskia aldrig hade hört. Efter några dagar gick det bättre. Nu tycker Saskia att det är roligt med olika dialekter. Hon har också märkt att samma ord kan låta helt olika i olika delar av landet. I norr pratar många långsammare än i söder. Hennes vän skrattade vänligt när Saskia försökte härma dialekten.
+        items:
+          - { id: 3cd6, type: truefalse, statement: "Saskia förstod allt direkt i Umeå.", answer: false }
+          - { id: xsbg, type: truefalse, statement: "Saskia bor i Skåne.", answer: true }
+
+      - id: makkelijk-2
+        title: "Makkelijk lezen: Formellt eller vardagligt"
+        instruction: Een korte tekst met woorden die je al kent. Lees hem vlot door en kies rätt of fel.
+        topic: woordenschat
+        kind: makkelijk
+        textTitle: "Formellt eller vardagligt"
+        text: |
+          På jobbet skriver Niels formella mejl till kunderna, till exempel ”Vänligen återkom senast på fredag.” Till kollegorna skriver han i stället ”Hörs på fredag!” Han har lärt sig att välja rätt register beroende på vem han skriver till. I början blandade han ihop dem, men nu går det av sig självt. Hans chef har gett honom ett bra råd: om man är osäker, är det bättre att vara lite för formell än för vardaglig. Med tiden lär man känna kunderna, och då kan tonen bli lite lättare.
+        items:
+          - { id: k48y, type: truefalse, statement: "Niels skriver likadant till alla.", answer: false }
+          - { id: h836, type: truefalse, statement: "Niels skriver formellt till kunderna.", answer: true }
+
   - id: ord
     title: Ord och fraser · woorden en uitdrukkingen
     exercises:
@@ -323,6 +347,16 @@ sections:
           - { id: 55t6, type: mc, prompt: "Je schrijft aan een gemeente.", options: ["Hej! Jag skulle vilja veta när ansökan ska vara inne.", "Yo, när ska grejen vara klar?", "Tja kommunen!", "Kram och hörs!"], answer: 0 }
           - { id: 9qbz, type: mc, prompt: "Je sluit een formele mail af.", options: ["Med vänlig hälsning", "Kram!", "Ses!", "Hörs, mvh typ"], answer: 0 }
 
+      - id: wat-zeg-je-zelf
+        title: Wat zeg je? (zelf)
+        instruction: Zeg het nu zelf in het Zweeds. Er is vaak meer dan één goed antwoord.
+        kind: situatie
+        items:
+          - { id: u4z3, type: translate, topic: register, prompt: "Schrijf formeel: neem contact met ons op als u vragen heeft.", answers: ["{Kontakta oss|Vänligen kontakta oss} om du har [några ]frågor."] }
+          - { id: hwr2, type: translate, topic: idiom, prompt: "Zeg dat het niet uitmaakt.", answers: ["Det spelar ingen roll."] }
+          - { id: yyjw, type: translate, topic: register, prompt: "Neem informeel afscheid van een vriend.", answers: ["{Hej då|Vi hörs|Ha det bra|Ses|Hörs}."] }
+          - { id: sw84, type: translate, topic: idiom, prompt: "Zeg dat je erg uitkijkt naar de vakantie.", answers: ["Jag ser fram emot semestern.", "Jag längtar [jättemycket ]till semestern."] }
+
   - id: skriva
     title: Skriva · schrijven
     intro: "Schrijfdoel: dezelfde boodschap formeel en informeel."
@@ -471,3 +505,13 @@ vocab:
   - { sv: "bokstavligen", nl: "letterlijk", ex: "Uttrycket 'ingen ko på isen' ska man inte ta **bokstavligen**.", exNl: "De uitdrukking 'ingen ko på isen' moet je niet letterlijk nemen." }
   - { sv: "typ", nl: "zo'n beetje, ongeveer (spreektaal)", ex: "Vi ses **typ** vid sju, okej?", exNl: "We zien elkaar zo'n beetje om zeven uur, oké?" }
   - { sv: "hur som helst", nl: "hoe dan ook", ex: "**Hur som helst** måste vi bestämma oss i dag.", exNl: "Hoe dan ook moeten we vandaag een beslissing nemen." }
+  - { sv: "en mening", nl: "een zin; mening", def: "meningen", pl: "meningar", plDef: "meningarna", ex: "Skriv korta **meningar**.", exNl: "Schrijf korte zinnen." }
+  - { sv: "en accent", nl: "een accent", def: "accenten", pl: "accenter", plDef: "accenterna", ex: "Han pratar svenska med lätt **accent**.", exNl: "Hij spreekt Zweeds met een licht accent." }
+  - { sv: "en ton", nl: "een toon", def: "tonen", pl: "toner", plDef: "tonerna", ex: "**Tonen** i mejlet var lite för hård.", exNl: "De toon in de mail was wat te hard." }
+  - { sv: "en kommunikation", nl: "communicatie", def: "kommunikationen", mass: true, ex: "Bra **kommunikation** är viktig på jobbet.", exNl: "Goede communicatie is belangrijk op het werk." }
+  - { sv: "att betyda", nl: "betekenen", ex: "Vad **betyder** det uttrycket?", exNl: "Wat betekent die uitdrukking?" }
+  - { sv: "svårbegriplig", nl: "moeilijk te begrijpen", ex: "Brevet från myndigheten var **svårbegripligt**.", exNl: "De brief van de instantie was moeilijk te begrijpen." }
+  - { sv: "en tolk", nl: "een tolk", def: "tolken", pl: "tolkar", plDef: "tolkarna", ex: "Vid läkarbesöket fick han en **tolk**.", exNl: "Bij het doktersbezoek kreeg hij een tolk." }
+  - { sv: "ett teckenspråk", nl: "een gebarentaal", def: "teckenspråket", pl: "teckenspråk", plDef: "teckenspråken", ex: "Svenskt **teckenspråk** är ett eget språk.", exNl: "Zweedse gebarentaal is een eigen taal." }
+  - { sv: "att kommunicera", nl: "communiceren", ex: "Vi **kommunicerar** mest via mejl.", exNl: "We communiceren vooral via de mail." }
+  - { sv: "flerspråkig", nl: "meertalig", ex: "Barnen växer upp **flerspråkiga**.", exNl: "De kinderen groeien meertalig op." }

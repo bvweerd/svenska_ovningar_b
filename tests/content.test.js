@@ -9,6 +9,7 @@ import { validateChapter, WRITING_STEPS } from '../src/core/content/validate.js'
 import { practiceEntries } from '../src/app/content.js';
 import { gradeText, gradeOrder, clockSpec } from '../src/core/check/grade.js';
 import { expand, normalize } from '../src/core/check/normalize.js';
+import { LINE, words } from '../scripts/difficulty-report.mjs';
 
 const root = path.resolve(import.meta.dirname, '..', 'content');
 const index = yaml.load(fs.readFileSync(path.join(root, 'index.yaml'), 'utf8'));
@@ -161,6 +162,23 @@ describe('opbouw van de hoofdstukken', () => {
         expect(ex.text, ex.id).toBeUndefined();
         expect(practiceEntries([ch]).some((e) => e.ex.id === ex.id), ex.id).toBe(true);
       }
+    });
+
+    // Onderwijskundige lijn (PLAN.md): makkelijke teksten vanaf H1, „Wat zeg je?” vanaf H5.
+    const line = LINE.find((l) => ch.chapter >= l.from && ch.chapter <= l.to);
+    it.runIf(line)(`hoofdstuk ${ch.chapter}: minstens 2 makkelijke teksten van de juiste lengte`, () => {
+      const easy = ch.exercises.filter((ex) => ex.kind === 'makkelijk');
+      expect(easy.length).toBeGreaterThanOrEqual(2);
+      for (const ex of easy) {
+        const n = words(ex.text);
+        expect(n, `${ex.id}: ${n} woorden, ${line.level} vraagt ${line.easy.join('–')}`).toBeGreaterThanOrEqual(line.easy[0]);
+        expect(n, `${ex.id}: ${n} woorden, ${line.level} vraagt ${line.easy.join('–')}`).toBeLessThanOrEqual(line.easy[1]);
+      }
+    });
+
+    it.runIf(ch.chapter >= 5)(`hoofdstuk ${ch.chapter}: een „Wat zeg je?”-oefening om zelf te maken`, () => {
+      const n = ch.exercises.filter((ex) => ex.kind === 'situatie').reduce((a, ex) => a + ex.items.length, 0);
+      expect(n).toBeGreaterThanOrEqual(4);
     });
 
     it.runIf(ch.vocab?.length)(`hoofdstuk ${ch.chapter}: de eerste woordenoefening staat vooraan`, () => {

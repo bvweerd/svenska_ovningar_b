@@ -84,6 +84,30 @@ sections:
           - { id: aynz, type: truefalse, statement: "Enligt experterna gäller resultaten säkert även för barn och äldre.", answer: false, tip: "Lees de alinea over de kritiek nog eens.", correction: { answers: ["{Deltagarna|De} var {enbart|bara} unga studenter.", "{Resultaten|De} gäller inte självklart för barn eller äldre[ personer].", "Det är inte säkert att {resultaten|de} gäller för barn {eller|och} äldre[ personer]."] } }
           - { id: hqer, type: mc, prompt: "Vilket råd skulle forskarna sannolikt ge en student som ska lära sig många nya ord inför ett prov?", options: ["att sova ordentligt efter att ha pluggat på kvällen", "att plugga hela natten före provet", "att lära sig orden på morgonen i stället för på kvällen", "att aldrig ta en tupplur"], answer: 0, tip: "Dit staat niet letterlijk in de tekst: wat volgt uit het resultaat van het experiment?" }
 
+      - id: makkelijk-1
+        title: "Makkelijk lezen: Kaffe och sömn"
+        instruction: Een korte tekst met woorden die je al kent. Lees hem vlot door en kies rätt of fel.
+        topic: woordenschat
+        kind: makkelijk
+        textTitle: "Kaffe och sömn"
+        text: |
+          Forskare har undersökt hur kaffe påverkar sömnen. Deltagarna som drack kaffe sent på eftermiddagen sov i genomsnitt en halvtimme kortare. Resultatet tyder på att man inte bör dricka kaffe efter klockan tre. Studien var dock liten, och fler undersökningar behövs innan man kan dra några säkra slutsatser. Forskarna rekommenderar därför att man tänker på när man dricker kaffe, och inte bara hur mycket. Den som har svårt att sova kan prova att byta till te på eftermiddagen. Te innehåller också koffein, men oftast mindre än kaffe.
+        items:
+          - { id: fpev, type: truefalse, statement: "Deltagarna sov längre efter kaffe.", answer: false }
+          - { id: xvvu, type: truefalse, statement: "Studien var liten.", answer: true }
+
+      - id: makkelijk-2
+        title: "Makkelijk lezen: Promenader och minne"
+        instruction: Een korte tekst met woorden die je al kent. Lees hem vlot door en kies rätt of fel.
+        topic: woordenschat
+        kind: makkelijk
+        textTitle: "Promenader och minne"
+        text: |
+          En ny studie visar att en promenad på trettio minuter om dagen kan förbättra minnet. Forskarna jämförde två grupper under ett halvår. Den grupp som promenerade klarade testerna bättre. Forskarna tror att det beror på att hjärnan får mer syre. De vill nu undersöka om effekten håller i sig. Deltagarna var mellan sextio och åttio år gamla. Alla fick göra samma minnestester före och efter studien. Forskarna påpekar att promenaden inte behöver vara snabb; det viktiga är att man rör på sig varje dag.
+        items:
+          - { id: knf2, type: truefalse, statement: "Studien pågick i ett halvår.", answer: true }
+          - { id: a8hk, type: truefalse, statement: "Gruppen som promenerade klarade testerna sämre.", answer: false }
+
   - id: ord
     title: Ord och fraser · woorden en uitdrukkingen
     exercises:
@@ -315,6 +339,16 @@ sections:
           - { id: ct4d, type: mc, prompt: "Je noemt de conclusie.", options: ["Forskarna kom fram till att …", "Forskarna kom till fram att …", "Forskarna slutade att …", "Forskarna drog att …"], answer: 0 }
           - { id: r4bf, type: mc, prompt: "Je noemt een beperking.", options: ["En begränsning är att studien är liten.", "En gräns är att studien är liten.", "Studien är dåligt liten.", "Studien är begränsad stor."], answer: 0 }
 
+      - id: wat-zeg-je-zelf
+        title: Wat zeg je? (zelf)
+        instruction: Zeg het nu zelf in het Zweeds. Er is vaak meer dan één goed antwoord.
+        kind: situatie
+        items:
+          - { id: xrmb, type: translate, topic: particip-konstruktion, prompt: "Zeg dat het onderzoek in 2024 gepubliceerd is.", answers: ["{Studien|Undersökningen} publicerades [år ]2024."] }
+          - { id: 3kny, type: translate, topic: nominalfras, prompt: "Vraag hoeveel deelnemers er aan het onderzoek meededen.", answers: ["Hur många deltagare var med i studien?", "Hur många deltog i studien?"] }
+          - { id: c6p6, type: translate, topic: nominalfras, prompt: "Zeg dat de resultaten op iets anders wijzen.", answers: ["Resultaten tyder på något annat."] }
+          - { id: ynam, type: translate, topic: particip-konstruktion, prompt: "Zeg dat het onderzoek nog niet af is.", answers: ["{Studien|Undersökningen} är inte {klar|färdig} än."] }
+
   - id: skriva
     title: Skriva · schrijven
     intro: "Schrijfdoel: een samenvatting van een artikel."
@@ -461,3 +495,16 @@ vocab:
   - { sv: "det verkar som att", nl: "het lijkt erop dat", alt: ["det verkar som om"], ex: "**{Det verkar som att|Det verkar som om}** promenader i naturen minskar stress.", exNl: "Het lijkt erop dat wandelingen in de natuur stress verminderen." }
   - { sv: "därmed", nl: "daarmee, daardoor", ex: "Studien var liten och **därmed** inte så tillförlitlig.", exNl: "De studie was klein en daarmee niet zo betrouwbaar." }
   - { sv: "signifikant", nl: "significant", ex: "Skillnaden mellan grupperna var inte **signifikant**.", exNl: "Het verschil tussen de groepen was niet significant." }
+  - { sv: "ett test", nl: "een test", def: "testet", pl: "test", plDef: "testen", ex: "Alla deltagare gjorde samma **test**.", exNl: "Alle deelnemers deden dezelfde test." }
+  - { sv: "en grupp", nl: "een groep", def: "gruppen", pl: "grupper", plDef: "grupperna", ex: "Deltagarna delades in i två **grupper**.", exNl: "De deelnemers werden in twee groepen verdeeld." }
+  - { sv: "ett material", nl: "een materiaal; gegevens", def: "materialet", pl: "material", plDef: "materialen", ex: "Forskarna analyserade **materialet** noggrant.", exNl: "De onderzoekers analyseerden het materiaal zorgvuldig." }
+  - { sv: "en procent", nl: "een procent", def: "procenten", pl: "procent", plDef: "procenten", ex: "Trettio **procent** av deltagarna sov dåligt.", exNl: "Dertig procent van de deelnemers sliep slecht." }
+  - { sv: "att analysera", nl: "analyseren", ex: "Vi ska **analysera** resultaten i höst.", exNl: "We gaan de resultaten in de herfst analyseren." }
+  - { sv: "att förklara", nl: "verklaren, uitleggen", ex: "Hur kan man **förklara** resultatet?", exNl: "Hoe kun je het resultaat verklaren?" }
+  - { sv: "tydlig", nl: "duidelijk", ex: "Det finns ett **tydligt** samband.", exNl: "Er is een duidelijk verband." }
+  - { sv: "en tidskrift", nl: "een tijdschrift", def: "tidskriften", pl: "tidskrifter", plDef: "tidskrifterna", ex: "Studien publicerades i en känd **tidskrift**.", exNl: "Het onderzoek werd in een bekend tijdschrift gepubliceerd." }
+  - { sv: "ett laboratorium", nl: "een laboratorium", def: "laboratoriet", pl: "laboratorier", plDef: "laboratorierna", ex: "Proverna analyseras i ett **laboratorium**.", exNl: "De monsters worden in een laboratorium geanalyseerd." }
+  - { sv: "att testa", nl: "testen", ex: "Forskarna **testade** en ny metod.", exNl: "De onderzoekers testten een nieuwe methode." }
+  - { sv: "att upptäcka", nl: "ontdekken", ex: "De **upptäckte** något oväntat.", exNl: "Ze ontdekten iets onverwachts." }
+  - { sv: "att tolka", nl: "interpreteren", ex: "Hur ska man **tolka** resultaten?", exNl: "Hoe moet je de resultaten interpreteren?" }
+  - { sv: "exakt", nl: "precies, exact", ex: "Vi vet inte **exakt** varför.", exNl: "We weten niet precies waarom." }

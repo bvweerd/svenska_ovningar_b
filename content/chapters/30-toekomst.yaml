@@ -71,6 +71,30 @@ sections:
           - { id: th5b, type: mc, prompt: "Vad antyder orden *åtminstone om allt går enligt planen*?", options: ["Att det inte är säkert att alla nya jobb verkligen skapas.", "Att fabrikerna redan är färdiga.", "Att jobben redan finns i dag.", "Att ingen vill arbeta i norra Sverige."], answer: 0 }
           - { id: teky, type: mc, prompt: "Varför nämner texten flygande bilar och semester på månen?", options: ["För att visa att prognoser kan slå fel.", "För att flygande bilar väntas bli vanliga år 2050.", "För att 1960-talet var en bra tid för framtidsforskning.", "För att kritikerna vill bygga flygande bilar."], answer: 0, tip: "Wat wil de schrijver met dit voorbeeld uit de jaren zestig laten zien?" }
 
+      - id: makkelijk-1
+        title: "Makkelijk lezen: Om tjugo år"
+        instruction: Een korte tekst met woorden die je al kent. Lees hem vlot door en kies rätt of fel.
+        topic: woordenschat
+        kind: makkelijk
+        textTitle: "Om tjugo år"
+        text: |
+          Hur kommer vi att leva om tjugo år? Många tror att vi kommer att jobba mer hemifrån och resa mindre. Elbilar lär bli vanligare, och kanske kör bilarna själva. Förhoppningsvis blir städerna grönare. Men ingen vet säkert, och framtiden är svår att förutse. Forskare påpekar att många förutsägelser från förr har visat sig vara fel. På sjuttiotalet trodde många att vi skulle ha flygande bilar i dag. Därför bör man nog ta alla framtidsscenarier med en nypa salt. Det enda säkra är att mycket kommer att förändras.
+        items:
+          - { id: a2vq, type: truefalse, statement: "Många tror att vi kommer att resa mer.", answer: false }
+          - { id: h8qf, type: truefalse, statement: "Det är svårt att veta hur framtiden blir.", answer: true }
+
+      - id: makkelijk-2
+        title: "Makkelijk lezen: Robotar i vården"
+        instruction: Een korte tekst met woorden die je al kent. Lees hem vlot door en kies rätt of fel.
+        topic: woordenschat
+        kind: makkelijk
+        textTitle: "Robotar i vården"
+        text: |
+          På ett äldreboende i Västerås testas robotar som hjälper personalen. Robotarna delar ut mat och påminner de äldre om att ta sina mediciner. Personalen får då mer tid att prata med de boende. Ärligt talat var många skeptiska i början, men nu är de flesta positiva. Robotarna kan dock inte ersätta människor. De kan inte trösta någon som är ledsen eller förstå vad en äldre person behöver. Det är fortfarande personalen som har ansvaret. Kommunen ska utvärdera försöket efter ett år och bestämma om fler boenden ska få robotar.
+        items:
+          - { id: sdgc, type: truefalse, statement: "Robotarna ersätter all personal.", answer: false }
+          - { id: 8mj3, type: truefalse, statement: "Personalen får mer tid att prata med de boende.", answer: true }
+
   - id: ord
     title: Ord och fraser · woorden en uitdrukkingen
     exercises:
@@ -260,6 +284,16 @@ sections:
           - { id: 25k7, type: mc, prompt: "Je vraagt naar iemands plannen.", options: ["Vad har du för planer inför framtiden?", "Vad lär du i framtiden?", "Vad väntas du?", "Vad beräknas du göra?"], answer: 0 }
           - { id: mask, type: mc, prompt: "Je zegt wat je hoopt.", options: ["Jag hoppas att jag har ett jobb som jag trivs med.", "Jag hoppar att jag har ett jobb.", "Jag hoppas jag trivs jobbet.", "Jag hoppas att jag trivs ett jobb."], answer: 0 }
 
+      - id: wat-zeg-je-zelf
+        title: Wat zeg je? (zelf)
+        instruction: Zeg het nu zelf in het Zweeds. Er is vaak meer dan één goed antwoord.
+        kind: situatie
+        items:
+          - { id: 2x48, type: translate, topic: framtid-b2, prompt: "Zeg dat je denkt dat er meer robots komen.", answers: ["Jag tror att det kommer [att ]bli fler robotar.", "Jag tror att det kommer [att ]finnas fler robotar."] }
+          - { id: 29bj, type: translate, topic: framtid-b2, prompt: "Zeg dat je hopelijk over een jaar Zweeds spreekt.", answers: ["Förhoppningsvis {pratar|talar} jag svenska om ett år.", "Om ett år {pratar|talar} jag förhoppningsvis svenska."] }
+          - { id: pqg8, type: translate, topic: framtid-b2, prompt: "Zeg dat de stad naar verwachting zal groeien.", answers: ["Staden {väntas|förväntas} växa."] }
+          - { id: hpcj, type: translate, topic: framtid-b2, prompt: "Zeg dat je het eerlijk gezegd niet weet.", answers: ["Ärligt talat vet jag inte.", "Jag vet ärligt talat inte."], feedback: [{ contains: "Ärligt talat jag vet", tip: "Na ärligt talat komt eerst het werkwoord: ärligt talat vet jag inte." }] }
+
   - id: skriva
     title: Skriva · schrijven
     intro: "Schrijfdoel: een toekomstvisie."
@@ -437,3 +471,12 @@ vocab:
   - { sv: "hittills", nl: "tot nu toe", ex: "**Hittills** har allt gått enligt planen.", exNl: "Tot nu toe is alles volgens plan verlopen." }
   - { sv: "optimistisk", nl: "optimistisch", ex: "Hon är **optimistisk** inför framtiden trots allt.", exNl: "Ze is ondanks alles optimistisch over de toekomst." }
   - { sv: "pessimistisk", nl: "pessimistisch", ex: "Många unga är **pessimistiska** inför klimatets framtid.", exNl: "Veel jongeren zijn pessimistisch over de toekomst van het klimaat." }
+  - { sv: "en teknik", nl: "een techniek, technologie", def: "tekniken", pl: "tekniker", plDef: "teknikerna", ex: "Ny **teknik** förändrar arbetslivet.", exNl: "Nieuwe technologie verandert het werkende leven." }
+  - { sv: "en risk", nl: "een risico", def: "risken", pl: "risker", plDef: "riskerna", ex: "Det finns också **risker** med AI.", exNl: "Er zijn ook risico's met AI." }
+  - { sv: "en generation", nl: "een generatie", def: "generationen", pl: "generationer", plDef: "generationerna", ex: "Nästa **generation** kommer att leva längre.", exNl: "De volgende generatie zal langer leven." }
+  - { sv: "ett klimatmål", nl: "een klimaatdoel", def: "klimatmålet", pl: "klimatmål", plDef: "klimatmålen", ex: "Sverige vill nå sina **klimatmål** till 2045.", exNl: "Zweden wil zijn klimaatdoelen in 2045 halen." }
+  - { sv: "att utveckla", nl: "ontwikkelen", ex: "Företaget **utvecklar** nya robotar.", exNl: "Het bedrijf ontwikkelt nieuwe robots." }
+  - { sv: "digital", nl: "digitaal", ex: "Allt fler tjänster blir **digitala**.", exNl: "Steeds meer diensten worden digitaal." }
+  - { sv: "en klimatförändring", nl: "een klimaatverandering", def: "klimatförändringen", pl: "klimatförändringar", plDef: "klimatförändringarna", ex: "**Klimatförändringarna** påverkar oss alla.", exNl: "De klimaatveranderingen raken ons allemaal." }
+  - { sv: "att automatisera", nl: "automatiseren", ex: "Många jobb kommer att **automatiseras**.", exNl: "Veel banen zullen worden geautomatiseerd." }
+  - { sv: "smart", nl: "slim", ex: "Vi får allt fler **smarta** prylar hemma.", exNl: "We krijgen steeds meer slimme apparaten in huis." }

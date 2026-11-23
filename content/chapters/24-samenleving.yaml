@@ -84,6 +84,30 @@ sections:
           - { id: akkw, type: truefalse, statement: "Per har svårt att hitta personal till sin butik.", answer: true }
           - { id: 85gq, type: truefalse, statement: "Per jobbar fyra dagar i veckan.", answer: false, correction: { answers: ["{Per|Han} {jobbar|har jobbat} sex dagar i veckan."] } }
 
+      - id: makkelijk-1
+        title: "Makkelijk lezen: Fyra dagar i veckan"
+        instruction: Een korte tekst met woorden die je al kent. Lees hem vlot door en kies rätt of fel.
+        topic: woordenschat
+        kind: makkelijk
+        textTitle: "Fyra dagar i veckan"
+        text: |
+          Företaget där Kees jobbar testar en fyradagarsvecka. Kees tycker att det är en bra idé, eftersom han får mer tid med barnen. Hans kollega Anna håller inte med. Hon anser att det blir för stressigt, även om man har en extra ledig dag. Chefen ska bestämma efter sommaren. Många andra företag följer testet med intresse. Om det fungerar kan fler införa samma system.
+        items:
+          - { id: asea, type: truefalse, statement: "Anna tycker att fyradagarsveckan är en bra idé.", answer: false }
+          - { id: bary, type: truefalse, statement: "Chefen ska bestämma efter sommaren.", answer: true }
+
+      - id: makkelijk-2
+        title: "Makkelijk lezen: Valet"
+        instruction: Een korte tekst met woorden die je al kent. Lees hem vlot door en kies rätt of fel.
+        topic: woordenschat
+        kind: makkelijk
+        textTitle: "Valet"
+        text: |
+          I september är det val i Sverige. Trots att Kees har bott i Sverige i fem år får han inte rösta i riksdagsvalet, eftersom han inte är svensk medborgare. Men han får rösta i valet till kommunen. Medan hans fru redan har bestämt sig, läser Kees fortfarande om partierna. Han tycker att det är viktigt att rösta. Därför vill han söka medborgarskap nästa år.
+        items:
+          - { id: qt68, type: truefalse, statement: "Kees får rösta i valet till kommunen.", answer: true }
+          - { id: auhw, type: truefalse, statement: "Kees har redan bestämt sig.", answer: false }
+
   - id: ord
     title: Ord och fraser · woorden en uitdrukkingen
     exercises:
@@ -333,6 +357,16 @@ sections:
           - { id: erep, type: mc, prompt: "Je vraagt naar de mening van iemand.", options: ["Vad anser du om det?", "Vad håller du med?", "Vad tycker du det?", "Vem tycker du?"], answer: 0 }
           - { id: ms9m, type: mc, prompt: "Je vat je mening samen aan het eind.", options: ["Sammanfattningsvis anser jag att …", "Först och främst anser jag att …", "Å ena sidan anser jag att …", "Dessutom anser jag att …"], answer: 0 }
 
+      - id: wat-zeg-je-zelf
+        title: Wat zeg je? (zelf)
+        instruction: Zeg het nu zelf in het Zweeds. Er is vaak meer dan één goed antwoord.
+        kind: situatie
+        items:
+          - { id: y3n8, type: translate, topic: asikt, prompt: "Zeg dat je het eens bent met je collega.", answers: ["Jag håller med {dig|min kollega}.", "Jag håller med."] }
+          - { id: 936n, type: translate, topic: asikt, prompt: "Zeg dat je vindt dat de werkweek korter zou moeten worden.", answers: ["Jag {tycker|anser} att arbetsveckan {borde|ska} bli kortare."] }
+          - { id: mmme, type: translate, topic: subjunktioner-b1, prompt: "Zeg dat je naar je werk gaat, ook al ben je moe.", answers: ["Jag går till jobbet {trots att|även om} jag är trött."], feedback: [{ contains: "trots att är jag", tip: "In een bijzin: onderwerp, dan werkwoord (trots att jag är)." }] }
+          - { id: d6cg, type: translate, topic: subjunktioner-b1, prompt: "Zeg dat jij kookt terwijl je partner de was doet.", answers: ["Jag lagar mat medan min {partner|sambo} tvättar."] }
+
   - id: skriva
     title: Skriva · schrijven
     intro: "Schrijfdoel: je mening in 120–160 woorden."
@@ -446,3 +480,16 @@ vocab:
   - { sv: "en diskriminering", nl: "de discriminatie", def: "diskrimineringen", mass: true, ex: "Det är förbjudet med **diskriminering** på arbetsplatsen.", exNl: "Discriminatie op de werkplek is verboden." }
   - { sv: "att demonstrera", nl: "demonstreren", ex: "Tusentals människor **demonstrerade** mot den nya lagen.", exNl: "Duizenden mensen demonstreerden tegen de nieuwe wet." }
   - { sv: "jämlik", nl: "gelijk (met gelijke rechten en kansen)", ex: "Sverige anses vara ett ganska **jämlikt** land.", exNl: "Zweden geldt als een vrij gelijk land." }
+  - { sv: "en lösning", nl: "een oplossing", def: "lösningen", pl: "lösningar", plDef: "lösningarna", ex: "Vi måste hitta en **lösning** tillsammans.", exNl: "We moeten samen een oplossing vinden." }
+  - { sv: "en åsiktsfrihet", nl: "vrijheid van mening", def: "åsiktsfriheten", mass: true, ex: "**Åsiktsfrihet** är en grundlag i Sverige.", exNl: "Vrijheid van mening is in Zweden een grondrecht." }
+  - { sv: "en ungdom", nl: "een jongere; de jeugd", def: "ungdomen", pl: "ungdomar", plDef: "ungdomarna", ex: "Många **ungdomar** har svårt att hitta bostad.", exNl: "Veel jongeren hebben moeite een woning te vinden." }
+  - { sv: "att förändra", nl: "veranderen", ex: "Lagen kommer att **förändra** mycket.", exNl: "De wet zal veel veranderen." }
+  - { sv: "orättvis", nl: "oneerlijk", ex: "Många tycker att systemet är **orättvist**.", exNl: "Veel mensen vinden het systeem oneerlijk." }
+  - { sv: "möjlig", nl: "mogelijk", ex: "Är det **möjligt** att jobba fyra dagar?", exNl: "Is het mogelijk om vier dagen te werken?" }
+  - { sv: "en makt", nl: "macht", def: "makten", mass: true, ex: "Vem har egentligen **makten**?", exNl: "Wie heeft eigenlijk de macht?" }
+  - { sv: "en frihet", nl: "een vrijheid", def: "friheten", pl: "friheter", plDef: "friheterna", ex: "**Friheten** att säga vad man tycker är viktig.", exNl: "De vrijheid om te zeggen wat je vindt is belangrijk." }
+  - { sv: "en minoritet", nl: "een minderheid", def: "minoriteten", pl: "minoriteter", plDef: "minoriteterna", ex: "Samerna är en nationell **minoritet**.", exNl: "De Samen zijn een nationale minderheid." }
+  - { sv: "en bostadsbrist", nl: "een woningtekort", def: "bostadsbristen", mass: true, ex: "**Bostadsbristen** är stor i Stockholm.", exNl: "Het woningtekort is groot in Stockholm." }
+  - { sv: "att bestämma", nl: "beslissen", ex: "Vem **bestämmer** över skolan?", exNl: "Wie beslist over de school?" }
+  - { sv: "att protestera", nl: "protesteren", ex: "Tusentals människor **protesterade** mot lagen.", exNl: "Duizenden mensen protesteerden tegen de wet." }
+  - { sv: "politisk", nl: "politiek", ex: "Det är en **politisk** fråga.", exNl: "Het is een politieke kwestie." }

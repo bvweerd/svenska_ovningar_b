@@ -95,6 +95,30 @@ sections:
             tip: "De bemanning was volgens de kapitein niet dronken, en de kanonnen zaten goed vast."
           - { id: my9r, type: mc, prompt: "Varför kan man i dag se ett nästan helt bevarat skepp från 1600-talet?", options: ["Eftersom Vasa sjönk och låg kvar på botten i stället för att skrotas.", "Eftersom Vasa seglade i flera decennier utan problem.", "Eftersom man byggde en ny kopia av skeppet på 1900-talet.", "Eftersom kungen lät bevara skeppet i en hamn."], answer: 0, tip: "Wat zou er volgens de laatste alinea met het schip gebeurd zijn als het niet was gezonken?" }
 
+      - id: makkelijk-1
+        title: "Makkelijk lezen: Det gamla huset"
+        instruction: Een korte tekst met woorden die je al kent. Lees hem vlot door en kies rätt of fel.
+        topic: woordenschat
+        kind: makkelijk
+        textTitle: "Det gamla huset"
+        text: |
+          Huset som Johan bor i byggdes år 1890. Det har varit både skola och affär. När Johan köpte huset hittade han gamla brev på vinden. Breven, som hade skrivits av en lärare, berättade om livet i byn för hundra år sedan. Johan har nu gett breven till hembygdsföreningen. Föreningen ska nu visa breven på en utställning i byns gamla kyrka. Många i byn har redan visat intresse, och några har hittat egna gamla foton som de vill visa. Johan har också fått veta mer om sitt eget hus.
+        items:
+          - { id: j6jj, type: truefalse, statement: "Huset byggdes på 1800-talet.", answer: true }
+          - { id: 2pwx, type: truefalse, statement: "Breven hade skrivits av en präst.", answer: false }
+
+      - id: makkelijk-2
+        title: "Makkelijk lezen: Runstenar"
+        instruction: Een korte tekst met woorden die je al kent. Lees hem vlot door en kies rätt of fel.
+        topic: woordenschat
+        kind: makkelijk
+        textTitle: "Runstenar"
+        text: |
+          I Sverige finns det flera tusen runstenar. De flesta restes under vikingatiden, för ungefär tusen år sedan. Ofta restes stenen till minne av en släkting som hade dött. Många stenar står fortfarande kvar där de en gång restes. Texterna är skrivna med runor, ett gammalt alfabet med sexton tecken. Många stenar har också vackra mönster, ofta i form av en orm. Från början var stenarna målade i starka färger, men färgen har för länge sedan försvunnit. I dag kan man läsa om alla stenar på internet.
+        items:
+          - { id: zfnf, type: truefalse, statement: "De flesta runstenar restes under vikingatiden.", answer: true }
+          - { id: nvmx, type: truefalse, statement: "Alla runstenar har flyttats till museer.", answer: false }
+
   - id: ord
     title: Ord och fraser · woorden en uitdrukkingen
     exercises:
@@ -353,6 +377,16 @@ sections:
           - { id: amxq, type: mc, prompt: "Je vertelt hoe het afliep.", options: ["Till slut …", "Först …", "Det hela började med …", "Plötsligt …"], answer: 0 }
           - { id: 4jft, type: mc, prompt: "Je springt naar veel later.", options: ["Mer än trehundra år senare …", "Trehundra år tidigare senare …", "Efter trehundra år förut …", "Trehundra senare år …"], answer: 0 }
 
+      - id: wat-zeg-je-zelf
+        title: Wat zeg je? (zelf)
+        instruction: Zeg het nu zelf in het Zweeds. Er is vaak meer dan één goed antwoord.
+        kind: situatie
+        items:
+          - { id: zfba, type: translate, topic: bisats-adverb, prompt: "Zeg dat je hoopt dat het niet gaat regenen.", answers: ["Jag hoppas att det inte {regnar|kommer att regna}."], feedback: [{ contains: "att det regnar inte", tip: "In een bijzin staat inte vóór het werkwoord: att det inte regnar." }] }
+          - { id: k83e, type: translate, topic: bisats-adverb, prompt: "Zeg dat je weet dat hij altijd te laat komt.", answers: ["Jag vet att han alltid kommer för sent."], feedback: [{ contains: "han kommer alltid", tip: "In een bijzin staat alltid vóór het werkwoord: att han alltid kommer." }] }
+          - { id: rtmt, type: translate, topic: fundament, prompt: "Begin met het jaartal: zeg dat de Vasa in 1628 zonk.", answers: ["{År 1628|1628} sjönk {Vasa|skeppet Vasa|regalskeppet Vasa}."], feedback: [{ contains: "1628 Vasa sjönk", tip: "Begin je met het jaartal, dan komt het werkwoord op plaats 2: År 1628 sjönk Vasa." }] }
+          - { id: 4hjn, type: translate, topic: fundament, prompt: "Zeg dat het schip na 333 jaar werd geborgen.", answers: ["{Skeppet|Vasa} bärgades efter 333 år.", "Efter 333 år bärgades {skeppet|Vasa}."] }
+
   - id: skriva
     title: Skriva · schrijven
     intro: "Schrijfdoel: een verhalende tekst."
@@ -498,3 +532,13 @@ vocab:
   - { sv: "på sin tid", nl: "destijds, in die tijd", ex: "Vasa var **på sin tid** ett av världens största skepp.", exNl: "De Vasa was destijds een van de grootste schepen ter wereld." }
   - { sv: "före Kristus", nl: "voor Christus", ex: "Rom grundades enligt legenden 753 år **före Kristus**.", exNl: "Rome werd volgens de legende in 753 voor Christus gesticht." }
   - { sv: "nämligen", nl: "namelijk", ex: "Skeppet kantrade. Det var **nämligen** alldeles för tungt upptill.", exNl: "Het schip kapseisde. Het was namelijk veel te zwaar aan de bovenkant." }
+  - { sv: "att bygga", nl: "bouwen", ex: "Slottet **byggdes** på 1500-talet.", exNl: "Het kasteel werd in de zestiende eeuw gebouwd." }
+  - { sv: "att dö", nl: "sterven", ex: "Kungen **dog** år 1632.", exNl: "De koning stierf in 1632." }
+  - { sv: "att förändras", nl: "veranderen (vanzelf)", ex: "Staden har **förändrats** mycket.", exNl: "De stad is erg veranderd." }
+  - { sv: "berömd", nl: "beroemd", ex: "Vasa är ett **berömt** skepp.", exNl: "De Vasa is een beroemd schip." }
+  - { sv: "en kultur", nl: "een cultuur", def: "kulturen", pl: "kulturer", plDef: "kulturerna", ex: "Vikingarnas **kultur** var rik.", exNl: "De cultuur van de Vikingen was rijk." }
+  - { sv: "en revolution", nl: "een revolutie", def: "revolutionen", pl: "revolutioner", plDef: "revolutionerna", ex: "Den industriella **revolutionen** förändrade allt.", exNl: "De industriële revolutie veranderde alles." }
+  - { sv: "en invandring", nl: "een immigratie", def: "invandringen", mass: true, ex: "**Invandringen** till Sverige ökade efter kriget.", exNl: "De immigratie naar Zweden nam na de oorlog toe." }
+  - { sv: "att besegra", nl: "verslaan", ex: "Kungen **besegrade** fienden.", exNl: "De koning versloeg de vijand." }
+  - { sv: "att fly", nl: "vluchten", ex: "Många **flydde** från kriget.", exNl: "Velen vluchtten voor de oorlog." }
+  - { sv: "modern", nl: "modern", ex: "Stockholm blev en **modern** stad.", exNl: "Stockholm werd een moderne stad." }

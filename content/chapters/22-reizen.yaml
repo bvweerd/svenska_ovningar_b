@@ -102,6 +102,30 @@ sections:
           - { id: bzs4, type: truefalse, statement: "På turiststationen fick de ett eget rum.", answer: false, correction: { answers: ["De fick [två ]platser i ett rum med fyra andra[ vandrare]."] } }
           - { id: b3t4, type: mc, prompt: "Vad hade Joyce glömt att ta med sig?", options: ["myggmedel", "sin sovsäck", "sitt pass", "tältet"], answer: 0 }
 
+      - id: makkelijk-1
+        title: "Makkelijk lezen: Bytet i Stockholm"
+        instruction: Een korte tekst met woorden die je al kent. Lees hem vlot door en kies rätt of fel.
+        topic: woordenschat
+        kind: makkelijk
+        textTitle: "Bytet i Stockholm"
+        text: |
+          Daan skulle åka tåg från Göteborg till Kiruna. Han skulle byta tåg i Stockholm, men det första tåget var försenat. Därför hann han inte med det andra tåget. Han gick till informationen och fick en ny biljett. Dessutom fick han en matkupong. Han kom fram fyra timmar senare, men han var ändå nöjd med resan. Nästa gång vill han ändå åka tåg.
+        items:
+          - { id: wn5v, type: truefalse, statement: "Daan hann med bytet i Stockholm.", answer: false }
+          - { id: 58a3, type: truefalse, statement: "Daan fick en ny biljett.", answer: true }
+
+      - id: makkelijk-2
+        title: "Makkelijk lezen: Vilse i fjällen"
+        instruction: Een korte tekst met woorden die je al kent. Lees hem vlot door en kies rätt of fel.
+        topic: woordenschat
+        kind: makkelijk
+        textTitle: "Vilse i fjällen"
+        text: |
+          Joyce och hennes kompis gick vilse på en vandringsled i fjällen. De hade glömt kartan i stugan. Som tur var mötte de en annan vandrare, som visade dem vägen tillbaka. Sedan dess tar Joyce alltid med sig både karta och mobil. Vandraren berättade att många går vilse just där, eftersom leden delar sig. Joyce och kompisen kom tillbaka till stugan innan det blev mörkt. De var trötta men glada.
+        items:
+          - { id: d2yt, type: truefalse, statement: "De hade kartan med sig.", answer: false }
+          - { id: xzvv, type: truefalse, statement: "En annan vandrare hjälpte dem.", answer: true }
+
   - id: ord
     title: Ord och fraser · woorden en uitdrukkingen
     exercises:
@@ -493,6 +517,16 @@ sections:
                   - { contains: "var inställd", tip: "*tåg* is een ett-woord: *mitt tåg var inställt*." }
                   - { contains: "eftersom mitt tåg inställt", tip: "Je mist het werkwoord: *eftersom mitt tåg **var** inställt*." }
 
+      - id: wat-zeg-je-zelf
+        title: Wat zeg je? (zelf)
+        instruction: Zeg het nu zelf in het Zweeds. Er is vaak meer dan één goed antwoord.
+        kind: situatie
+        items:
+          - { id: t3yr, type: translate, topic: partikelverb-2, prompt: "Zeg dat je de trein niet hebt gehaald.", answers: ["Jag {hann inte med|missade} tåget.", "Jag har missat tåget."] }
+          - { id: qrxs, type: translate, topic: partikelverb-2, prompt: "Vraag waar je moet uitstappen.", answers: ["Var ska jag {stiga|kliva} av?"] }
+          - { id: duwx, type: translate, topic: sambandsord, prompt: "Zeg dat de trein vertraging had en dat je daarom te laat bent.", answers: ["Tåget var försenat, {så|och därför} är jag sen.", "Tåget var försenat. Därför är jag sen.", "Tåget var försenat, därför kommer jag för sent."], feedback: [{ contains: "därför jag är", tip: "Na därför komt het werkwoord eerst: därför är jag sen." }] }
+          - { id: ra25, type: translate, topic: sambandsord, prompt: "Zeg dat het regende, maar dat jullie toch gingen wandelen.", answers: ["Det regnade, men vi {gick på promenad|vandrade|promenerade} ändå."] }
+
   - id: skriva
     title: Skriva · schrijven
     intro: "Schrijfdoel: een klachtmail."
@@ -601,3 +635,10 @@ vocab:
   - { sv: "bekväm", nl: "comfortabel, gemakkelijk", ex: "Sängarna i sovvagnen var förvånansvärt **bekväma**.", exNl: "De bedden in het slaaprijtuig waren verrassend comfortabel." }
   - { sv: "utomlands", nl: "in het buitenland, naar het buitenland", ex: "Förra året reste vi inte **utomlands** alls.", exNl: "Vorig jaar zijn we helemaal niet naar het buitenland geweest." }
   - { sv: "i sista minuten", nl: "op het laatste moment", alt: ["i sista stund"], ex: "Vi bokade resan **{i sista minuten|i sista stund}**.", exNl: "We boekten de reis op het laatste moment." }
+  - { sv: "ett flyg", nl: "een vlucht, het vliegtuig", def: "flyget", pl: "flyg", plDef: "flygen", ex: "**Flyget** till Luleå var inställt.", exNl: "De vlucht naar Luleå was geannuleerd." }
+  - { sv: "en utsikt", nl: "een uitzicht", def: "utsikten", pl: "utsikter", plDef: "utsikterna", ex: "Från toppen är **utsikten** fantastisk.", exNl: "Vanaf de top is het uitzicht fantastisch." }
+  - { sv: "en semesterort", nl: "een vakantieplaats", def: "semesterorten", pl: "semesterorter", plDef: "semesterorterna", ex: "Visby är en populär **semesterort**.", exNl: "Visby is een populaire vakantieplaats." }
+  - { sv: "en tull", nl: "de douane; invoerheffing", def: "tullen", pl: "tullar", plDef: "tullarna", ex: "Vi fick vänta i **tullen**.", exNl: "We moesten wachten bij de douane." }
+  - { sv: "en gräns", nl: "een grens", def: "gränsen", pl: "gränser", plDef: "gränserna", ex: "Vi körde över **gränsen** till Norge.", exNl: "We reden de grens over naar Noorwegen." }
+  - { sv: "en returbiljett", nl: "een retourkaartje", def: "returbiljetten", pl: "returbiljetter", plDef: "returbiljetterna", ex: "En **returbiljett** är billigare än två enkla.", exNl: "Een retourkaartje is goedkoper dan twee enkele." }
+  - { sv: "lugn", nl: "rustig, kalm", ex: "Vi bodde på ett **lugnt** hotell vid sjön.", exNl: "We logeerden in een rustig hotel aan het meer." }

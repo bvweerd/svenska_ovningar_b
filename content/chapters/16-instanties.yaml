@@ -94,6 +94,30 @@ sections:
             options: ["kändes", "minns", "trivs", "hoppas", "ansökte", "visade"]
             answers: [0, 1, 2, 3]
 
+      - id: makkelijk-1
+        title: "Makkelijk lezen: Personnumret"
+        instruction: Een korte tekst met woorden die je al kent. Lees hem vlot door en kies rätt of fel.
+        topic: woordenschat
+        kind: makkelijk
+        textTitle: "Personnumret"
+        text: |
+          Joris flyttade till Sverige i maj. Först måste han folkbokföra sig hos Skatteverket. Han fyllde i en blankett och visade sitt pass. Handläggaren sa att beslutet skulle komma med posten inom några veckor. Joris hoppades att det skulle gå snabbt, och han hade tur: efter tre veckor fick han sitt personnummer. Nu kan han öppna ett bankkonto. Han ringde direkt till banken och bokade en tid.
+        items:
+          - { id: 6un7, type: truefalse, statement: "Joris visade sitt pass.", answer: true }
+          - { id: fduf, type: truefalse, statement: "Det tog tre månader innan Joris fick sitt personnummer.", answer: false }
+
+      - id: makkelijk-2
+        title: "Makkelijk lezen: Brevet från kommunen"
+        instruction: Een korte tekst met woorden die je al kent. Lees hem vlot door en kies rätt of fel.
+        topic: woordenschat
+        kind: makkelijk
+        textTitle: "Brevet från kommunen"
+        text: |
+          Ett brev från kommunen har kommit. Där står att avgiften för förskolan höjs från januari. Om man inte håller med om beslutet kan man överklaga det. Det måste göras senast den 15 december. Saskia och hennes man läser brevet tillsammans på kvällen. De bestämmer sig för att inte överklaga. De tycker att det är dyrt, men att förskolan är bra. Barnen trivs där, och personalen är snäll.
+        items:
+          - { id: g3by, type: truefalse, statement: "Avgiften höjs från januari.", answer: true }
+          - { id: 9xd3, type: truefalse, statement: "Saskia och hennes man överklagar beslutet.", answer: false }
+
   - id: ord
     title: Ord och fraser · woorden en uitdrukkingen
     exercises:
@@ -302,6 +326,16 @@ sections:
           - { id: zmcs, type: mc, prompt: "Je begrijpt de brief niet.", options: ["Jag förstår inte riktigt brevet. Kan du förklara?", "Brevet är fel.", "Jag vill överklaga brevet.", "Jag har inte fått något brev."], answer: 0 }
           - { id: jy85, type: mc, prompt: "Je bent het niet eens met het besluit.", options: ["Hur gör jag för att överklaga beslutet?", "Hur gör jag för att bifoga beslutet?", "Var kan jag hämta beslutet?", "När kommer beslutet?"], answer: 0 }
 
+      - id: wat-zeg-je-zelf
+        title: Wat zeg je? (zelf)
+        instruction: Zeg het nu zelf in het Zweeds. Er is vaak meer dan één goed antwoord.
+        kind: situatie
+        items:
+          - { id: k8je, type: translate, topic: deponens, prompt: "Zeg dat je hoopt dat het snel gaat.", answers: ["Jag hoppas att det går snabbt."], feedback: [{ contains: "hoppar", tip: "Hopen is hoppas (eindigt altijd op -s)." }] }
+          - { id: hgdw, type: translate, topic: deponens, prompt: "Zeg tegen je collega dat jullie elkaar morgen zien.", answers: ["Vi {ses|träffas} {imorgon|i morgon}."] }
+          - { id: h32b, type: translate, topic: myndighetssprak, prompt: "Vraag aan het loket hoe lang de behandeltijd is.", answers: ["Hur lång är handläggningstiden?", "Hur lång handläggningstid är det?"] }
+          - { id: jg9u, type: translate, topic: deponens, prompt: "Zeg dat het je gelukt is een bankrekening te openen.", answers: ["Jag har lyckats öppna ett bankkonto.", "Jag lyckades öppna ett bankkonto."] }
+
   - id: skriva
     title: Skriva · schrijven
     intro: "Schrijfdoel: een formele mail met een vraag."
@@ -406,3 +440,13 @@ vocab:
   - { sv: "kostnadsfri", nl: "kosteloos", ex: "Tjänsten är **kostnadsfri** för alla som bor i kommunen.", exNl: "De dienst is kosteloos voor iedereen die in de gemeente woont." }
   - { sv: "digitalt", nl: "digitaal", ex: "Du kan skicka in ansökan **digitalt** med bank-id.", exNl: "Je kunt de aanvraag digitaal indienen met bank-id." }
   - { sv: "respektive", nl: "respectievelijk", ex: "Avgiften är 400 **respektive** 250 kronor för vuxna och barn.", exNl: "Het tarief is 400 respectievelijk 250 kronen voor volwassenen en kinderen." }
+  - { sv: "en regel", nl: "een regel", def: "regeln", pl: "regler", plDef: "reglerna", ex: "**Reglerna** är olika i olika kommuner.", exNl: "De regels verschillen per gemeente." }
+  - { sv: "en webbplats", nl: "een website", def: "webbplatsen", pl: "webbplatser", plDef: "webbplatserna", ex: "Blanketten finns på myndighetens **webbplats**.", exNl: "Het formulier staat op de website van de instantie." }
+  - { sv: "att ändra", nl: "wijzigen", ex: "Du kan **ändra** din ansökan på nätet.", exNl: "Je kunt je aanvraag online wijzigen." }
+  - { sv: "att godkänna", nl: "goedkeuren", ex: "Ansökan har **godkänts**.", exNl: "De aanvraag is goedgekeurd." }
+  - { sv: "nödvändig", nl: "noodzakelijk", ex: "Alla **nödvändiga** papper måste bifogas.", exNl: "Alle noodzakelijke papieren moeten worden bijgevoegd." }
+  - { sv: "ogiltig", nl: "ongeldig", ex: "Mitt pass är **ogiltigt** sedan i maj.", exNl: "Mijn paspoort is sinds mei ongeldig." }
+  - { sv: "en tidsbokning", nl: "een afspraak (gemaakt)", def: "tidsbokningen", pl: "tidsbokningar", plDef: "tidsbokningarna", ex: "**Tidsbokningen** gör du på webbplatsen.", exNl: "Een afspraak maak je via de website." }
+  - { sv: "en e-tjänst", nl: "een online dienst", def: "e-tjänsten", pl: "e-tjänster", plDef: "e-tjänsterna", ex: "Det är enklast att använda **e-tjänsten**.", exNl: "Het is het makkelijkst om de online dienst te gebruiken." }
+  - { sv: "att registrera", nl: "registreren", ex: "Du måste **registrera** din nya adress.", exNl: "Je moet je nieuwe adres registreren." }
+  - { sv: "ofullständig", nl: "onvolledig", ex: "Din ansökan är **ofullständig**.", exNl: "Je aanvraag is onvolledig." }

@@ -202,8 +202,10 @@ vastgelegde fout als fout.
 
 De knop „Begin/Verder” loopt de oefeningen af in de volgorde van het bestand, dus die volgorde ligt vast
 (zie [PLAN.md](https://github.com/bvweerd/svenska_ovningar/blob/main/PLAN.md); `npm test` controleert hem). A-site: woorden → per onderwerp herkennen, vorm, kiezen →
-gemengd (vertalen, zoek de fout) → lezen → dialoog en taak → schrijven → luisteren → herhaling → overige woordenschat.
-B-site: Läsa → Ord → Grammatik → Zoek de fout → Lyssna → Praktiskt → Skriva → Herhaling → overige woordenschat.
+gemengd (vertalen, „Wat zeg je?”, zoek de fout) → lezen (ook makkelijk lezen) → dialoog en taak → schrijven → luisteren →
+herhaling → overige woordenschat.
+B-site: Läsa (ook makkelijk lezen) → Ord → Grammatik → Zoek de fout → Lyssna → Praktiskt (ook „Wat zeg je?”) → Skriva →
+Herhaling → overige woordenschat.
 De eerste woordenoefening („Wat betekent het?”) zet de app zelf vooraan; „Verder” slaat een woordenoefening
 over na één ronde van 10. Gebruik geen grammatica uit een later hoofdstuk: ook dat test `npm test`.
 
@@ -213,6 +215,21 @@ vóór schrijven); zonder `kind` telt een oefening met alleen `steps` als gewone
 „Zoek de fout”. Op de B-site staan taken in het onderdeel `praktiskt`, dat hun plek al bepaalt; `kind` mag
 daar, maar is niet nodig. Geef een taak geen `text`: dan blijven de stappen in de dagelijkse herhaling.
 `npm test` controleert de waarde (alleen `taak`), het ontbreken van `text` en de plek.
+
+**Makkelijk lezen (`kind: makkelijk`).** Een korte tekst met bijna alleen bekende woorden, om vlot te lezen
+(input met aandacht voor betekenis), met 2–3 nagekeken vragen (rätt/fel of keuze). Vanaf H1 minstens twee per
+hoofdstuk, direct na de leestekst; lengte per niveau in `LINE` (`scripts/difficulty-report.mjs`). Ze tellen
+niet mee voor de leestekstlijn. `npm test` controleert aantal, lengte, `text` zonder `listen` en alleen
+nagekeken vragen.
+
+**„Wat zeg je?” (`kind: situatie`).** Een situatie in het Nederlands; de leerling zegt het zelf in het Zweeds
+(`translate`, meestal meer goede antwoorden en foutregels). Geen `text`. Vanaf H5 minstens 4 vragen per
+hoofdstuk; op de A-site vóór „Zoek de fout”, op de B-site in `praktiskt`.
+
+**Vlot herhalen en instaptoets.** „Vlot herhalen” (bij de snelle rondes) vraagt alleen wat al in doos 2 of
+hoger staat, met eenvoudige keuzevragen: tempo zonder nieuwe stof. De instaptoets (`#/k/<hoofdstuk>/instap`,
+15 vragen over het hoofdstuk) zet goed beantwoorde vragen in doos 3 en markeert oefeningen als „✓ instap”
+als alle vragen over hun onderwerp goed waren (`src/core/progress/placement.js`).
 
 ### Kan-doen-uitspraken
 

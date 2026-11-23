@@ -94,6 +94,31 @@ sections:
             answers: [0, 1, 2]
             tip: "engagerade (betrokken) is een deelwoord als bijvoeglijk naamwoord. skriftliga (schriftelijk) is een gewoon bijvoeglijk naamwoord en flyttade is gewoon preteritum."
 
+      - id: makkelijk-1
+        title: "Makkelijk lezen: Kursen på distans"
+        instruction: Een korte tekst met woorden die je al kent. Lees hem vlot door en kies rätt of fel.
+        topic: woordenschat
+        kind: makkelijk
+        textTitle: "Kursen på distans"
+        text: |
+          Anouk läser en kurs i svenska på distans. Varje vecka skickas en ny uppgift ut, och den ska vara inlämnad på söndag. Uppgifterna rättas av läraren, och sedan får Anouk kommentarer. Förra veckan blev hennes text vald som exempel för hela gruppen. Hon blev glad och stolt. Kursen är på halvfart, så Anouk kan jobba samtidigt. Efter kursen vill hon söka till en utbildning på högskolan.
+        items:
+          - { id: q52x, type: truefalse, statement: "Kursen är på distans.", answer: true }
+          - { id: ydnr, type: truefalse, statement: "Uppgifterna rättas av en annan student.", answer: false }
+          - { id: 6dcf, type: truefalse, statement: "Anouk vill studera vidare.", answer: true }
+
+      - id: makkelijk-2
+        title: "Makkelijk lezen: Tentan"
+        instruction: Een korte tekst met woorden die je al kent. Lees hem vlot door en kies rätt of fel.
+        topic: woordenschat
+        kind: makkelijk
+        textTitle: "Tentan"
+        text: |
+          Lars hade en tenta i fredags. Han hade pluggat i två veckor och kände sig väl förberedd. Tentan var lång, men frågorna var tydligt formulerade. Efter tre timmar lämnade han in. I går kom resultatet: han hade klarat tentan med ett bra betyg. Det firades hemma med tårta. Nästa termin börjar en ny kurs, och Lars är redan anmäld. Hans föräldrar ringde och gratulerade.
+        items:
+          - { id: zs5n, type: truefalse, statement: "Lars klarade inte tentan.", answer: false }
+          - { id: bqs4, type: truefalse, statement: "Lars har anmält sig till en ny kurs.", answer: true }
+
   - id: ord
     title: Ord och fraser · woorden en uitdrukkingen
     exercises:
@@ -350,6 +375,16 @@ sections:
           - { id: 45xs, type: mc, prompt: "Je wilt weten of de cursus online kan.", options: ["Går det att läsa kursen på distans?", "Går det att läsa kursen på heltid?", "Går kursen fort?", "Är kursen gratis?"], answer: 0 }
           - { id: nx4g, type: mc, prompt: "Je wilt weten hoeveel uur per week je kwijt bent.", options: ["Hur mycket tid tar kursen i veckan?", "Hur mycket kostar kursen?", "Hur många är vi i gruppen?", "Hur dags är det?"], answer: 0 }
 
+      - id: wat-zeg-je-zelf
+        title: Wat zeg je? (zelf)
+        instruction: Zeg het nu zelf in het Zweeds. Er is vaak meer dan één goed antwoord.
+        kind: situatie
+        items:
+          - { id: pkhz, type: translate, topic: passiv-bli, prompt: "Vertel dat je bent toegelaten tot de opleiding.", answers: ["Jag har blivit antagen till utbildningen.", "Jag blev antagen till utbildningen."] }
+          - { id: xm83, type: translate, topic: particip, prompt: "Zeg dat je opdracht al ingeleverd is.", answers: ["{Uppgiften|Min uppgift} är redan inlämnad."], feedback: [{ contains: "inlämnat", tip: "uppgift is een en-woord: inlämnad." }] }
+          - { id: f5zc, type: translate, topic: passiv-bli, prompt: "Zeg dat je tentamen nog niet is nagekeken.", answers: ["Tentan har inte {blivit rättad|rättats} än.", "Tentan är inte rättad än."] }
+          - { id: cr2h, type: translate, topic: passiv-bli, prompt: "Vraag of de colleges worden opgenomen.", answers: ["Spelas föreläsningarna in?", "Blir föreläsningarna inspelade?"] }
+
   - id: skriva
     title: Skriva · schrijven
     intro: "Schrijfdoel: een aanmelding voor een cursus."
@@ -454,3 +489,18 @@ vocab:
   - { sv: "givande", nl: "leerzaam, de moeite waard", ex: "Kursen var svår men väldigt **givande**.", exNl: "De cursus was moeilijk maar heel leerzaam." }
   - { sv: "på egen hand", nl: "op eigen houtje, zelfstandig", ex: "Hon lärde sig svenska helt **på egen hand**.", exNl: "Ze leerde helemaal op eigen houtje Zweeds." }
   - { sv: "i mån av plats", nl: "zolang er plaats is", ex: "Sena anmälningar tas emot **i mån av plats**.", exNl: "Late aanmeldingen worden aangenomen zolang er plaats is." }
+  - { sv: "ett prov", nl: "een toets", def: "provet", pl: "prov", plDef: "proven", ex: "I morgon har vi ett **prov** i matte.", exNl: "Morgen hebben we een toets wiskunde." }
+  - { sv: "en rektor", nl: "een schoolhoofd, rector", def: "rektorn", pl: "rektorer", plDef: "rektorerna", ex: "**Rektorn** pratade med alla föräldrar.", exNl: "Het schoolhoofd sprak met alle ouders." }
+  - { sv: "en förkunskap", nl: "voorkennis", def: "förkunskapen", pl: "förkunskaper", plDef: "förkunskaperna", ex: "Kursen kräver inga **förkunskaper**.", exNl: "De cursus vereist geen voorkennis." }
+  - { sv: "en ansökningsperiod", nl: "een aanmeldperiode", def: "ansökningsperioden", pl: "ansökningsperioder", plDef: "ansökningsperioderna", ex: "**Ansökningsperioden** slutar den 15 april.", exNl: "De aanmeldperiode eindigt op 15 april." }
+  - { sv: "att förbereda sig", nl: "zich voorbereiden", ex: "Hon **förbereder sig** inför tentan.", exNl: "Ze bereidt zich voor op het tentamen." }
+  - { sv: "att diskutera", nl: "bespreken, discussiëren", ex: "Vi **diskuterade** texten i grupp.", exNl: "We bespraken de tekst in een groep." }
+  - { sv: "svår", nl: "moeilijk", ex: "Uppgiften var **svår** men rolig.", exNl: "De opdracht was moeilijk maar leuk." }
+  - { sv: "frånvarande", nl: "afwezig", ex: "Tre elever var **frånvarande** i dag.", exNl: "Drie leerlingen waren vandaag afwezig." }
+  - { sv: "en antagning", nl: "een toelating", def: "antagningen", pl: "antagningar", plDef: "antagningarna", ex: "Besked om **antagningen** kommer i juli.", exNl: "Bericht over de toelating komt in juli." }
+  - { sv: "en kursplan", nl: "een studieplan, syllabus", def: "kursplanen", pl: "kursplaner", plDef: "kursplanerna", ex: "I **kursplanen** står vad du ska lära dig.", exNl: "In de studieplan staat wat je moet leren." }
+  - { sv: "ett grupparbete", nl: "een groepsopdracht", def: "grupparbetet", pl: "grupparbeten", plDef: "grupparbetena", ex: "Vi har ett **grupparbete** om klimatet.", exNl: "We hebben een groepsopdracht over het klimaat." }
+  - { sv: "att presentera", nl: "presenteren", ex: "I morgon ska vi **presentera** vårt arbete.", exNl: "Morgen presenteren we ons werk." }
+  - { sv: "att sammanfatta", nl: "samenvatten", ex: "Kan du **sammanfatta** texten i tre meningar?", exNl: "Kun je de tekst in drie zinnen samenvatten?" }
+  - { sv: "teoretisk", nl: "theoretisch", ex: "Kursen är mest **teoretisk**.", exNl: "De cursus is vooral theoretisch." }
+  - { sv: "praktisk", nl: "praktisch", ex: "Jag lär mig bäst med **praktiska** uppgifter.", exNl: "Ik leer het best met praktische opdrachten." }

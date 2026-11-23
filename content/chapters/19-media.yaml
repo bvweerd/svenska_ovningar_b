@@ -94,6 +94,30 @@ sections:
           - { id: a4aa, type: truefalse, statement: "Passagerarna på bussen blev rädda.", answer: false, correction: { answers: ["{Passagerarna|De|Alla} började skratta.", "{Passagerarna|De} skrattade."] } }
           - { id: cufb, type: mc, prompt: "Vad bör man göra om man ser en älg i staden, enligt polisen?", options: ["hålla avstånd och ringa polisen på 114 14", "ta bilder på nära håll", "försöka leda den till skogen", "ringa tidningen"], answer: 0 }
 
+      - id: makkelijk-1
+        title: "Makkelijk lezen: Nyheten"
+        instruction: Een korte tekst met woorden die je al kent. Lees hem vlot door en kies rätt of fel.
+        topic: woordenschat
+        kind: makkelijk
+        textTitle: "Nyheten"
+        text: |
+          I morse läste Bas en nyhet i tidningen. Där stod det att en buss hade kört av vägen nära Västerås. Enligt polisen skadades ingen allvarligt. Bussföraren berättade att vägen hade varit hal. Journalisten frågade om bussen hade haft vinterdäck, men det visste ingen. Polisen stängde av vägen i tre timmar. Många bilister fick vänta länge, och några var arga. Nu ska kommunen undersöka om vägen behöver bli bredare.
+        items:
+          - { id: 4wsy, type: truefalse, statement: "Flera personer skadades allvarligt.", answer: false }
+          - { id: 738w, type: truefalse, statement: "Föraren sa att vägen hade varit hal.", answer: true }
+
+      - id: makkelijk-2
+        title: "Makkelijk lezen: Tävlingen"
+        instruction: Een korte tekst met woorden die je al kent. Lees hem vlot door en kies rätt of fel.
+        topic: woordenschat
+        kind: makkelijk
+        textTitle: "Tävlingen"
+        text: |
+          I fredags hade skolan en tävling i matlagning. Alla undrade vem som skulle vinna. Juryn berättade att de hade smakat tolv rätter. Till slut sa de att Elin hade gjort den godaste soppan. Lokaltidningen skrev en kort artikel om tävlingen. Elin berättade att hon hade lagat soppan med sin mormor många gånger. Hon fick en bok om matlagning som pris. Nästa år vill hon tävla igen.
+        items:
+          - { id: u6fz, type: truefalse, statement: "Juryn smakade tolv rätter.", answer: true }
+          - { id: jevf, type: truefalse, statement: "Elin vann med en tårta.", answer: false }
+
   - id: ord
     title: Ord och fraser · woorden en uitdrukkingen
     exercises:
@@ -290,6 +314,16 @@ sections:
           - { id: t3un, type: mc, prompt: "Je noemt je bron.", options: ["Det stod i tidningen att …", "Det sa i tidningen att …", "Det skrev i tidningen att …", "Tidningen stod att …"], answer: 0, tip: "In het Zweeds: det stod i tidningen (het stond in de krant)." }
           - { id: e2ts, type: mc, prompt: "Je twijfelt of het nieuws klopt.", options: ["Är det verkligen sant? Vad är källan?", "Det är sant eftersom jag läste det.", "Alla nyheter är falska.", "Jag vet inte vem som är sant."], answer: 0 }
 
+      - id: wat-zeg-je-zelf
+        title: Wat zeg je? (zelf)
+        instruction: Zeg het nu zelf in het Zweeds. Er is vaak meer dan één goed antwoord.
+        kind: situatie
+        items:
+          - { id: 8f9p, type: translate, topic: indirekt-tal-b1, prompt: "Je collega vraagt wat de chef zei. Zeg dat ze zei dat de vergadering wordt verschoven.", answers: ["Hon {sa|sade} att mötet {flyttas|skjuts upp|ska flyttas}."] }
+          - { id: fe85, type: translate, topic: indirekt-fraga, prompt: "Vraag beleefd of iemand weet waar het station is.", answers: ["Vet du var stationen {ligger|är}?"], feedback: [{ contains: "var ligger stationen", tip: "In een indirecte vraag: onderwerp, dan werkwoord (var stationen ligger)." }] }
+          - { id: y53c, type: translate, topic: indirekt-fraga, prompt: "Zeg dat je niet weet wie er gewonnen heeft.", answers: ["Jag vet inte vem som {vann|har vunnit}."], feedback: [{ contains: "vem vann", tip: "Is vem het onderwerp in een indirecte vraag, dan komt er som bij: vem som vann." }] }
+          - { id: uvtj, type: translate, topic: indirekt-tal-b1, prompt: "Vertel dat in de krant stond dat de weg is afgesloten.", answers: ["Det stod i tidningen att vägen {är|var} avstängd.", "Tidningen skrev att vägen {är|var} avstängd."] }
+
   - id: skriva
     title: Skriva · schrijven
     intro: "Schrijfdoel: een samenvatting."
@@ -396,3 +430,17 @@ vocab:
   - { sv: "tydligen", nl: "blijkbaar", ex: "Det var **tydligen** en ung älg.", exNl: "Het was blijkbaar een jonge eland." }
   - { sv: "i direktsändning", nl: "live (op radio of tv)", alt: ["live"], ex: "Presskonferensen visades **{i direktsändning|live}**.", exNl: "De persconferentie werd live uitgezonden." }
   - { sv: "vilseledande", nl: "misleidend", ex: "Rubriken var **vilseledande**.", exNl: "De kop was misleidend." }
+  - { sv: "en polis", nl: "een politieagent; de politie", def: "polisen", pl: "poliser", plDef: "poliserna", ex: "**Polisen** kom efter tio minuter.", exNl: "De politie kwam na tien minuten." }
+  - { sv: "en bild", nl: "een foto, beeld", def: "bilden", pl: "bilder", plDef: "bilderna", ex: "Artikeln hade en stor **bild**.", exNl: "Het artikel had een grote foto." }
+  - { sv: "en information", nl: "informatie", def: "informationen", mass: true, ex: "Vi har ingen mer **information** just nu.", exNl: "We hebben op dit moment geen verdere informatie." }
+  - { sv: "en kommentar", nl: "een reactie, commentaar", def: "kommentaren", pl: "kommentarer", plDef: "kommentarerna", ex: "Artikeln fick hundra **kommentarer**.", exNl: "Het artikel kreeg honderd reacties." }
+  - { sv: "en radio", nl: "een radio", def: "radion", pl: "radioapparater", plDef: "radioapparaterna", ex: "Jag lyssnar på nyheterna på **radion**.", exNl: "Ik luister naar het nieuws op de radio." }
+  - { sv: "att hända", nl: "gebeuren", ex: "Vad har **hänt**?", exNl: "Wat is er gebeurd?" }
+  - { sv: "att läsa upp", nl: "voorlezen", ex: "Han **läste upp** nyheterna i radio.", exNl: "Hij las het nieuws voor op de radio." }
+  - { sv: "viktig", nl: "belangrijk", ex: "Det här är en **viktig** nyhet.", exNl: "Dit is een belangrijk nieuwsbericht." }
+  - { sv: "okänd", nl: "onbekend", ex: "Orsaken till branden är fortfarande **okänd**.", exNl: "De oorzaak van de brand is nog onbekend." }
+  - { sv: "en kanal", nl: "een kanaal, zender", def: "kanalen", pl: "kanaler", plDef: "kanalerna", ex: "Vilken **kanal** visar nyheterna?", exNl: "Welke zender laat het nieuws zien?" }
+  - { sv: "att citera", nl: "citeren", ex: "Journalisten **citerade** ministern.", exNl: "De journalist citeerde de minister." }
+  - { sv: "att uppdatera", nl: "bijwerken", ex: "Artikeln **uppdateras** hela tiden.", exNl: "Het artikel wordt steeds bijgewerkt." }
+  - { sv: "objektiv", nl: "objectief", ex: "Nyheterna ska vara **objektiva**.", exNl: "Het nieuws moet objectief zijn." }
+  - { sv: "officiell", nl: "officieel", ex: "Det finns ännu ingen **officiell** förklaring.", exNl: "Er is nog geen officiële verklaring." }

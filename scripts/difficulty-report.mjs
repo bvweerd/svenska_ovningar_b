@@ -18,13 +18,13 @@ import { isProduce, hasAnswerSentence } from '../src/core/items/index.js';
 
 /** De moeilijkheidslijn: per niveau leestekst (woorden), antwoordzin (woorden) en minimum aantal vragen. */
 export const LINE = [
-  { level: 'A1', from: 1, to: 6, text: [70, 120], answer: [4, 6], questions: 80 },
-  { level: 'A2', from: 7, to: 12, text: [120, 200], answer: [6, 9], questions: 80 },
-  { level: 'B1', from: 13, to: 24, text: [200, 350], answer: [8, 12], questions: 70 },
-  { level: 'B2', from: 25, to: 30, text: [350, 500], answer: [10, 15], questions: 70 },
+  { level: 'A1', from: 1, to: 6, text: [70, 120], easy: [30, 80], answer: [4, 6], questions: 80 },
+  { level: 'A2', from: 7, to: 12, text: [120, 200], easy: [40, 120], answer: [6, 9], questions: 80 },
+  { level: 'B1', from: 13, to: 24, text: [200, 350], easy: [60, 180], answer: [8, 12], questions: 70 },
+  { level: 'B2', from: 25, to: 30, text: [350, 500], easy: [80, 250], answer: [10, 15], questions: 70 },
 ];
 
-const words = (s) => (String(s).match(/[\p{L}\d'-]+/gu) ?? []).length;
+export const words = (s) => (String(s).match(/[\p{L}\d'-]+/gu) ?? []).length;
 const firstAnswer = (a) => String([].concat(a)[0] ?? '').replace(/\[[^\]]*\]/g, '').replace(/\{([^|}]*)[^}]*\}/g, '$1');
 const mean = (xs) => (xs.length ? xs.reduce((a, b) => a + b, 0) / xs.length : 0);
 

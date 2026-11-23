@@ -83,6 +83,30 @@ sections:
           - { id: 4rag, type: truefalse, statement: "Gunilla gav Bas en broschyr på svenska.", answer: false, correction: { answers: ["{Gunilla|Hon} gav {honom|Bas} en broschyr på engelska.", "{Broschyren|Den} var på engelska."] } }
           - { id: d8p2, type: mc, prompt: "Varför köper Bas begagnat?", options: ["Det är billigare och bättre för miljön.", "Han har inga pengar alls.", "Nya möbler är fula.", "Gunilla sa att han måste."], answer: 0 }
 
+      - id: makkelijk-1
+        title: "Makkelijk lezen: Loppisen"
+        instruction: Een korte tekst met woorden die je al kent. Lees hem vlot door en kies rätt of fel.
+        topic: woordenschat
+        kind: makkelijk
+        textTitle: "Loppisen"
+        text: |
+          På lördag har föreningen en loppis i parken. Man kan köpa begagnade kläder, böcker och leksaker. Ingenting kostar mer än 50 kronor. Förra året sålde man nästan allt. Pengarna går till ett miljöprojekt i kommunen. Om man inte har några kontanter kan man betala med mobilen. Man kan också lämna saker som man inte behöver längre. Det gör man på fredag eftermiddag vid föreningens lokal. Alla är välkomna.
+        items:
+          - { id: 3kc3, type: truefalse, statement: "Ingenting kostar mer än 50 kronor.", answer: true }
+          - { id: tcag, type: truefalse, statement: "Pengarna går till en skola.", answer: false }
+
+      - id: makkelijk-2
+        title: "Makkelijk lezen: Pant"
+        instruction: Een korte tekst met woorden die je al kent. Lees hem vlot door en kies rätt of fel.
+        topic: woordenschat
+        kind: makkelijk
+        textTitle: "Pant"
+        text: |
+          I Sverige pantar man burkar och flaskor. Man lämnar dem i en maskin i affären och får några kronor tillbaka. Ingen vill slänga pengar, så de flesta pantar. Bas visste inte vad pant var innan han flyttade hit. Nu har han en påse i hallen för alla burkar. Varje månad tar han påsen till affären. Förra gången fick han nästan femtio kronor.
+        items:
+          - { id: cgt5, type: truefalse, statement: "Man får pengar tillbaka för burkar.", answer: true }
+          - { id: sz5r, type: truefalse, statement: "Bas slänger alla sina burkar.", answer: false }
+
   - id: ord
     title: Ord och fraser · woorden en uitdrukkingen
     exercises:
@@ -334,6 +358,16 @@ sections:
           - { id: fvj3, type: mc, prompt: "Je legt een regel uit.", options: ["Man får inte grilla på balkongen.", "En får inte grilla på balkongen.", "Ens får inte grilla på balkongen.", "Ingen får inte grilla på balkongen."], answer: 0 }
           - { id: tuvx, type: mc, prompt: "Je zegt dat niemand het je heeft verteld.", options: ["Ingen har berättat det för mig.", "Någon har inte berättat det för mig.", "Inte någon har berättat det för mig inte.", "Ingen har inte berättat det för mig."], answer: 0 }
 
+      - id: wat-zeg-je-zelf
+        title: Wat zeg je? (zelf)
+        instruction: Zeg het nu zelf in het Zweeds. Er is vaak meer dan één goed antwoord.
+        kind: situatie
+        items:
+          - { id: 5gzd, type: translate, topic: nagon-ingen, prompt: "Zeg dat je niemand kent in de nieuwe stad.", answers: ["Jag känner {ingen|inte någon} i den nya staden."] }
+          - { id: bgtn, type: translate, topic: nagon-ingen, prompt: "Vraag of iemand een tasje heeft.", answers: ["Har någon en påse?"] }
+          - { id: pwh3, type: translate, topic: man-en-ens, prompt: "Leg uit dat je in Zweden flessen inlevert in de winkel.", answers: ["I Sverige {pantar man flaskor|lämnar man tillbaka flaskor i affären}.", "Man {pantar flaskor|lämnar tillbaka flaskor i affären} i Sverige."], feedback: [{ contains: "I Sverige man", tip: "Na I Sverige komt eerst het werkwoord: I Sverige pantar man …" }] }
+          - { id: z4ud, type: translate, topic: nagon-ingen, prompt: "Zeg dat je niets hebt gekocht.", answers: ["Jag har inte köpt {något|någonting}.", "Jag köpte {ingenting|inget}.", "Jag köpte inte {något|någonting}."], feedback: [{ contains: "har köpt ingenting", tip: "Met een hulpwerkwoord: har inte köpt något." }] }
+
   - id: skriva
     title: Skriva · schrijven
     intro: "Schrijfdoel: een reactie op een artikel."
@@ -440,3 +474,14 @@ vocab:
   - { sv: "ingenstans", nl: "nergens", ex: "Det fanns **ingenstans** att lämna batterierna.", exNl: "Er was nergens een plek om de batterijen in te leveren." }
   - { sv: "allt mer", nl: "steeds meer", ex: "Svenskar köper **allt mer** begagnat.", exNl: "Zweden kopen steeds meer tweedehands." }
   - { sv: "inte ens", nl: "niet eens", ex: "Han sorterar **inte ens** glaset.", exNl: "Hij scheidt niet eens het glas." }
+  - { sv: "en luft", nl: "de lucht", def: "luften", mass: true, ex: "**Luften** i staden är smutsig.", exNl: "De lucht in de stad is vies." }
+  - { sv: "en el", nl: "de elektriciteit, stroom", def: "elen", mass: true, ex: "**Elen** har blivit mycket dyrare.", exNl: "De stroom is veel duurder geworden." }
+  - { sv: "en energi", nl: "energie", def: "energin", mass: true, ex: "Vi försöker spara **energi** hemma.", exNl: "We proberen thuis energie te besparen." }
+  - { sv: "ett avfall", nl: "afval", def: "avfallet", mass: true, ex: "Farligt **avfall** lämnar man på återvinningscentralen.", exNl: "Gevaarlijk afval breng je naar het recyclingcentrum." }
+  - { sv: "smutsig", nl: "vies", ex: "Stranden var **smutsig** efter festen.", exNl: "Het strand was vies na het feest." }
+  - { sv: "en plast", nl: "plastic", def: "plasten", mass: true, ex: "**Plast** sorterar man för sig.", exNl: "Plastic sorteer je apart." }
+  - { sv: "en kartong", nl: "karton; een doos", def: "kartongen", pl: "kartonger", plDef: "kartongerna", ex: "Platta till **kartongerna** innan du slänger dem.", exNl: "Maak de dozen plat voordat je ze weggooit." }
+  - { sv: "att odla", nl: "kweken, verbouwen", ex: "Vi **odlar** potatis i trädgården.", exNl: "We verbouwen aardappelen in de tuin." }
+  - { sv: "att isolera", nl: "isoleren", ex: "Vi har **isolerat** taket.", exNl: "We hebben het dak geïsoleerd." }
+  - { sv: "lokal", nl: "lokaal, plaatselijk", ex: "Jag köper gärna **lokala** produkter.", exNl: "Ik koop graag lokale producten." }
+  - { sv: "global", nl: "wereldwijd", ex: "Klimatet är en **global** fråga.", exNl: "Het klimaat is een wereldwijde kwestie." }

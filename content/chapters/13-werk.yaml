@@ -117,6 +117,32 @@ sections:
             answers: [0, 1, 2, 3]
             tip: "sker (gebeurt) eindigt op -r: dat is gewoon presens van ske."
 
+      - id: makkelijk-1
+        title: "Makkelijk lezen: Ett nytt jobb"
+        instruction: Een korte tekst met woorden die je al kent. Lees hem vlot door en kies rätt of fel.
+        topic: woordenschat
+        kind: makkelijk
+        textTitle: "Ett nytt jobb"
+        text: |
+          Linda har fått ett nytt jobb på ett kafé i Göteborg. Kaféet öppnas klockan sju varje morgon, och Linda börjar halv sju. Först bakas bullarna, sedan görs smörgåsarna. På förmiddagen kommer många kunder, och då måste alla jobba snabbt. Chefen, som heter Amir, är lugn och snäll. Lönen betalas ut den 25:e varje månad. Linda har en provanställning på sex månader. Om allt går bra får hon sedan en tillsvidareanställning. Hon trivs redan bra.
+        items:
+          - { id: 57z2, type: truefalse, statement: "Kaféet öppnas klockan sju.", answer: true }
+          - { id: 5kqd, type: truefalse, statement: "Linda har en tillsvidareanställning.", answer: false }
+          - { id: 294g, type: truefalse, statement: "Chefen heter Amir.", answer: true }
+
+      - id: makkelijk-2
+        title: "Makkelijk lezen: Ett tack efter intervjun"
+        instruction: Een korte tekst met woorden die je al kent. Lees hem vlot door en kies rätt of fel.
+        topic: woordenschat
+        kind: makkelijk
+        textTitle: "Ett tack efter intervjun"
+        text: |
+          Hej Petra! Tack för intervjun i måndags. Jag tyckte att det var ett bra samtal. Jag fick veta mycket om tjänsten och om företaget, som jag tycker är intressant. Ni frågade om jag kan börja i mars. Det kan jag gärna. Mina papper har redan skickats via er webbplats, men jag bifogar mitt cv en gång till. Jag ser fram emot att höra från er. Med vänliga hälsningar, Daan de Vries
+        items:
+          - { id: 3arx, type: truefalse, statement: "Intervjun var i måndags.", answer: true }
+          - { id: m78q, type: truefalse, statement: "Daan kan inte börja i mars.", answer: false }
+          - { id: hjmr, type: truefalse, statement: "Daan bifogar sitt cv.", answer: true }
+
   - id: ord
     title: Ord och fraser · woorden en uitdrukkingen
     exercises:
@@ -402,6 +428,16 @@ sections:
           - { id: 49qb, type: mc, prompt: "Aan het eind bedank je voor het gesprek.", options: ["Tack för att jag fick komma hit.", "Tack för maten.", "Tack för senast.", "Varsågod."], answer: 0, optionTips: [null, "Dat zeg je na het eten.", "Dat zeg je de volgende keer dat je iemand ziet: bedankt voor de vorige keer.", "Dat zeg je als je iemand iets geeft."] }
           - { id: zfw7, type: mc, prompt: "Ze vragen naar je zwakke punten. Wat is een goed antwoord?", options: ["Ibland är jag för noggrann, men jag har lärt mig att prioritera.", "Jag har inga svaga sidor.", "Jag gillar inte att jobba.", "Det vet jag inte."], answer: 0 }
 
+      - id: wat-zeg-je-zelf
+        title: Wat zeg je? (zelf)
+        instruction: Zeg het nu zelf in het Zweeds. Er is vaak meer dan één goed antwoord.
+        kind: situatie
+        items:
+          - { id: pauj, type: translate, topic: formell-mail, prompt: "Begin een mail waarin je reageert op de vacature voor verkoper.", answers: ["Jag skriver angående tjänsten som säljare.", "Jag vill söka tjänsten som säljare."] }
+          - { id: t3gt, type: translate, topic: formell-mail, prompt: "Sluit je mail beleefd af.", answers: ["{Med vänliga hälsningar|Vänliga hälsningar}."] }
+          - { id: 6emk, type: translate, topic: relativ-som, prompt: "Vertel dat je een collega hebt die uit Chili komt.", answers: ["Jag har en kollega som kommer från Chile."], feedback: [{ contains: "som han kommer", tip: "Som is zelf het onderwerp: som kommer från Chile." }] }
+          - { id: k27b, type: translate, topic: passiv-s, prompt: "Zeg dat de sollicitaties uiterlijk vrijdag verstuurd moeten worden.", answers: ["Ansökningarna måste skickas[ in] senast [på ]fredag.", "Senast [på ]fredag måste ansökningarna skickas[ in]."], feedback: [{ contains: "måste skickar", tip: "Na måste: de infinitief met -s (skickas)." }] }
+
   - id: skriva
     title: Skriva · schrijven
     intro: "Schrijfdoel: een korte sollicitatiemail."
@@ -518,3 +554,17 @@ vocab:
   - { sv: "enligt överenskommelse", nl: "in overleg", ex: "I annonsen står det att lönen är **enligt överenskommelse**.", exNl: "In de advertentie staat dat het salaris in overleg is." }
   - { sv: "löpande", nl: "doorlopend", ex: "Vi går igenom ansökningarna **löpande**, så vänta inte med att söka.", exNl: "We bekijken de sollicitaties doorlopend, dus wacht niet met solliciteren." }
   - { sv: "stressig", nl: "hectisch, stressig", ex: "Det är alltid lite **stressigt** innan semestern.", exNl: "Het is altijd een beetje hectisch vóór de vakantie." }
+  - { sv: "en sökande", nl: "een sollicitant", def: "sökanden", pl: "sökande", plDef: "sökandena", ex: "Det fanns trettio **sökande** till tjänsten.", exNl: "Er waren dertig sollicitanten voor de baan." }
+  - { sv: "en rast", nl: "een pauze", def: "rasten", pl: "raster", plDef: "rasterna", ex: "Vi tar en **rast** klockan tio.", exNl: "We nemen om tien uur pauze." }
+  - { sv: "ett yrkesliv", nl: "een loopbaan, het werkende leven", def: "yrkeslivet", mass: true, ex: "Han har haft ett långt **yrkesliv**.", exNl: "Hij heeft een lange loopbaan gehad." }
+  - { sv: "att ansöka", nl: "solliciteren, aanvragen", ex: "Hon **ansökte** om jobbet i går.", exNl: "Ze solliciteerde gisteren naar de baan." }
+  - { sv: "att tjäna", nl: "verdienen", ex: "Hur mycket **tjänar** man som lärare?", exNl: "Hoeveel verdien je als leraar?" }
+  - { sv: "att avsluta", nl: "afsluiten, beëindigen", ex: "Vi **avslutar** mötet klockan tre.", exNl: "We sluiten de vergadering om drie uur af." }
+  - { sv: "att utföra", nl: "uitvoeren", ex: "Han **utför** sina uppgifter noggrant.", exNl: "Hij voert zijn taken nauwkeurig uit." }
+  - { sv: "kunnig", nl: "deskundig, bekwaam", ex: "Hon är mycket **kunnig** inom ekonomi.", exNl: "Ze is erg deskundig op het gebied van economie." }
+  - { sv: "en bransch", nl: "een branche, sector", def: "branschen", pl: "branscher", plDef: "brancherna", ex: "Hon har jobbat i **branschen** i tio år.", exNl: "Ze werkt al tien jaar in de branche." }
+  - { sv: "en kompetens", nl: "een competentie, bekwaamheid", def: "kompetensen", pl: "kompetenser", plDef: "kompetenserna", ex: "Vilka **kompetenser** behövs för tjänsten?", exNl: "Welke competenties zijn nodig voor de baan?" }
+  - { sv: "ett avtal", nl: "een overeenkomst, contract", def: "avtalet", pl: "avtal", plDef: "avtalen", ex: "Vi skrev under **avtalet** i går.", exNl: "We hebben gisteren de overeenkomst getekend." }
+  - { sv: "en arbetsdag", nl: "een werkdag", def: "arbetsdagen", pl: "arbetsdagar", plDef: "arbetsdagarna", ex: "Min **arbetsdag** börjar klockan åtta.", exNl: "Mijn werkdag begint om acht uur." }
+  - { sv: "att befordra", nl: "promotie geven, bevorderen", ex: "Hon **befordrades** till chef förra året.", exNl: "Ze werd vorig jaar tot leidinggevende bevorderd." }
+  - { sv: "erfaren", nl: "ervaren", ex: "Vi söker en **erfaren** säljare.", exNl: "We zoeken een ervaren verkoper." }

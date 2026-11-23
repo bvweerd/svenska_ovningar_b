@@ -87,6 +87,30 @@ sections:
           - { id: j49w, type: truefalse, statement: "Barnen tyckte minst om kasse A.", answer: false, correction: { answers: ["{Barnen|De} gav kasse A högst betyg.", "{Barnen|De} tyckte bäst om kasse A."] } }
           - { id: ax3x, type: mc, prompt: "Varför slänger man mindre mat med en matkasse?", options: ["för att man bara får det man behöver", "för att maten är godare", "för att barnen äter mer", "för att förpackningarna är mindre"], answer: 0 }
 
+      - id: makkelijk-1
+        title: "Makkelijk lezen: Rean"
+        instruction: Een korte tekst met woorden die je al kent. Lees hem vlot door en kies rätt of fel.
+        topic: woordenschat
+        kind: makkelijk
+        textTitle: "Rean"
+        text: |
+          I januari är det rea i många affärer. Fredrik ville köpa en ny jacka. I den första affären kostade jackan 1 200 kronor, men i den andra var den 30 procent billigare. Han valde den billigare. Hemma märkte han att en knapp saknades. Han gick tillbaka, och säljaren bytte jackan utan problem. Nu har Fredrik både en ny jacka och pengar kvar till en mössa.
+        items:
+          - { id: ahzq, type: truefalse, statement: "Jackan var billigare i den andra affären.", answer: true }
+          - { id: aqrc, type: truefalse, statement: "Säljaren ville inte byta jackan.", answer: false }
+
+      - id: makkelijk-2
+        title: "Makkelijk lezen: Ekologisk mat"
+        instruction: Een korte tekst met woorden die je al kent. Lees hem vlot door en kies rätt of fel.
+        topic: woordenschat
+        kind: makkelijk
+        textTitle: "Ekologisk mat"
+        text: |
+          Maria köper allt oftare ekologisk mat. Den är dyrare, men hon tycker att den är godare och bättre för miljön. Ju mer hon läser om matproduktion, desto mer intresserad blir hon. Nu odlar hon tomater på balkongen. Hennes man tyckte först att det var en dum idé. Men nu hjälper han till att vattna varje kväll. Förra sommaren fick de nästan fem kilo tomater, och de gjorde egen tomatsås.
+        items:
+          - { id: 8abs, type: truefalse, statement: "Maria tycker att ekologisk mat är billigare.", answer: false }
+          - { id: wv77, type: truefalse, statement: "Maria odlar tomater på balkongen.", answer: true }
+
   - id: ord
     title: Ord och fraser · woorden en uitdrukkingen
     exercises:
@@ -360,6 +384,16 @@ sections:
           - { id: nxmx, type: mc, prompt: "Je wilt iets goedkopers.", options: ["Har ni något som är lite billigare?", "Har ni något som är lite billigast?", "Har ni något som är lika billigare?", "Har ni mer billig?"], answer: 0 }
           - { id: 4zwg, type: mc, prompt: "Je wilt je geld terug.", options: ["Kan jag få pengarna tillbaka?", "Kan jag få kvittot tillbaka?", "Kan jag byta pengarna?", "Kan jag reklamera pengarna?"], answer: 0 }
 
+      - id: wat-zeg-je-zelf
+        title: Wat zeg je? (zelf)
+        instruction: Zeg het nu zelf in het Zweeds. Er is vaak meer dan één goed antwoord.
+        kind: situatie
+        items:
+          - { id: wqmz, type: translate, topic: jamforelse, prompt: "Zeg dat deze jas goedkoper is dan die.", answers: ["Den här jackan är billigare än den där."], feedback: [{ contains: "mer billig", tip: "Kort woord: billig – billigare – billigast." }] }
+          - { id: uzks, type: translate, topic: jamforelse, prompt: "Zeg: hoe meer ik oefen, hoe beter ik word.", answers: ["Ju mer jag övar, desto bättre blir jag."], feedback: [{ contains: "desto bättre jag blir", tip: "Na desto … komt eerst het werkwoord: desto bättre blir jag." }] }
+          - { id: dfw5, type: translate, topic: ordbildning, prompt: "Vraag in de winkel of je dit kunt ruilen.", answers: ["Kan jag byta {den här|det här}?", "Går det att byta {den här|det här}?"] }
+          - { id: k3e6, type: translate, topic: jamforelse, prompt: "Zeg dat deze winkel de beste prijzen heeft.", answers: ["Den här affären har de bästa priserna."], feedback: [{ contains: "de bäst priserna", tip: "Bepaald, met de: de bästa priserna." }] }
+
   - id: skriva
     title: Skriva · schrijven
     intro: "Schrijfdoel: een recensie."
@@ -465,3 +499,9 @@ vocab:
   - { sv: "på köpet", nl: "op de koop toe, er gratis bij", ex: "Köper du två tröjor får du en mössa **på köpet**.", exNl: "Als je twee truien koopt, krijg je er een muts gratis bij." }
   - { sv: "till halva priset", nl: "voor de halve prijs", ex: "Gårdagens bröd säljs **till halva priset**.", exNl: "Het brood van gisteren wordt voor de halve prijs verkocht." }
   - { sv: "ohälsosam", nl: "ongezond", ex: "Färdigmat är ofta salt och **ohälsosam**.", exNl: "Kant-en-klaarmaaltijden zijn vaak zout en ongezond." }
+  - { sv: "en kassa", nl: "een kassa", def: "kassan", pl: "kassor", plDef: "kassorna", ex: "Det var lång kö vid **kassan**.", exNl: "Er was een lange rij bij de kassa." }
+  - { sv: "en affär", nl: "een winkel", def: "affären", pl: "affärer", plDef: "affärerna", ex: "**Affären** stänger klockan åtta.", exNl: "De winkel sluit om acht uur." }
+  - { sv: "en prislapp", nl: "een prijskaartje", def: "prislappen", pl: "prislappar", plDef: "prislapparna", ex: "Det fanns ingen **prislapp** på tröjan.", exNl: "Er zat geen prijskaartje aan de trui." }
+  - { sv: "ett kontokort", nl: "een betaalkaart", def: "kontokortet", pl: "kontokort", plDef: "kontokorten", ex: "Jag betalar nästan alltid med **kontokort**.", exNl: "Ik betaal bijna altijd met mijn betaalkaart." }
+  - { sv: "att låna", nl: "lenen", ex: "Kan jag **låna** pengar av dig?", exNl: "Kan ik geld van je lenen?" }
+  - { sv: "kontant", nl: "contant", ex: "Det går inte att betala **kontant** här.", exNl: "Je kunt hier niet contant betalen." }

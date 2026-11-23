@@ -92,6 +92,30 @@ sections:
           - { id: hmqy, type: truefalse, statement: "Frida föreslår att Kluven säger upp sig direkt.", answer: false, correction: { answers: ["{Frida|Hon} föreslår att {Kluven|hon|han} [kanske ]jobbar på distans[ några dagar i veckan].", "{Kluven|Hon|Han} kan kanske jobba på distans[ några dagar i veckan].", "{Kluven|Hon|Han} {behöver|ska} inte säga upp sig direkt."] } }
           - { id: s2kn, type: mc, topic: rad-onskan, prompt: "Wat betekent *Jag önskar att jag kunde vara lika glad som han är*?", options: ["Ik wou dat ik net zo blij kon zijn als hij.", "Ik hoop dat ik net zo blij word als hij.", "Ik ben net zo blij als hij.", "Ik wens hem veel geluk."], answer: 0 }
 
+      - id: makkelijk-1
+        title: "Makkelijk lezen: Om jag vore du"
+        instruction: Een korte tekst met woorden die je al kent. Lees hem vlot door en kies rätt of fel.
+        topic: woordenschat
+        kind: makkelijk
+        textTitle: "Om jag vore du"
+        text: |
+          Lisa skriver till sin vän Tove: ”Min pojkvän vill att vi flyttar ihop, men jag är inte säker. Vad skulle du göra?” Tove svarar: ”Om jag vore du skulle jag prata med honom om det. Ni kunde kanske prova att bo ihop en månad först. Om det inte fungerar kan ni alltid ändra er.” Lisa tycker att det är ett bra råd.
+        items:
+          - { id: 9xf5, type: truefalse, statement: "Lisas pojkvän vill flytta ihop.", answer: true }
+          - { id: rgfg, type: truefalse, statement: "Tove tycker att Lisa ska göra slut.", answer: false }
+
+      - id: makkelijk-2
+        title: "Makkelijk lezen: Bröllopet"
+        instruction: Een korte tekst met woorden die je al kent. Lees hem vlot door en kies rätt of fel.
+        topic: woordenschat
+        kind: makkelijk
+        textTitle: "Bröllopet"
+        text: |
+          Erik och Sanna ska gifta sig i juni. De skulle helst vilja ha ett stort bröllop med hela släkten, men det kostar mycket. Därför har de bestämt sig för en liten fest i trädgården. Eriks mamma ska baka tårtan. Om det regnar flyttar de in i huset. Sanna har redan skrivit inbjudningarna. Hon skulle vilja bjuda alla kollegor också, men det finns inte plats. Det blir ändå en fin dag, tror de.
+        items:
+          - { id: twvm, type: truefalse, statement: "Erik och Sanna har bestämt sig för ett stort bröllop.", answer: false }
+          - { id: zepw, type: truefalse, statement: "Eriks mamma ska baka tårtan.", answer: true }
+
   - id: ord
     title: Ord och fraser · woorden en uitdrukkingen
     exercises:
@@ -279,6 +303,16 @@ sections:
               - "Johan: Om jag var du skulle jag föreslå att ni tar en promenad och pratar i lugn och ro."
               - "Lotte: Du har nog rätt. Tack, det ska jag göra!"
 
+      - id: wat-zeg-je-zelf
+        title: Wat zeg je? (zelf)
+        instruction: Zeg het nu zelf in het Zweeds. Er is vaak meer dan één goed antwoord.
+        kind: situatie
+        items:
+          - { id: cvbd, type: translate, topic: villkor, prompt: "Zeg: als ik meer tijd had, zou ik meer lezen.", answers: ["Om jag hade mer tid{, |}skulle jag läsa mer.", "Hade jag mer tid{, |}skulle jag läsa mer."], feedback: [{ contains: "skulle jag har", tip: "Na skulle: de infinitief." }] }
+          - { id: nad5, type: translate, topic: rad-onskan, prompt: "Geef je vriendin advies: als ik jou was, zou ik met hem praten.", answers: ["Om jag {vore|var} du{, |}skulle jag prata med honom."] }
+          - { id: 2qnc, type: translate, topic: rad-onskan, prompt: "Vraag beleefd of iemand je kan helpen.", answers: ["Skulle du kunna hjälpa mig?", "Kan du hjälpa mig?"] }
+          - { id: 9wjt, type: translate, topic: rad-onskan, prompt: "Zeg dat je graag in Zweden zou willen wonen.", answers: ["Jag skulle {vilja|gärna vilja} bo i Sverige."] }
+
   - id: skriva
     title: Skriva · schrijven
     intro: "Schrijfdoel: een persoonlijke brief met advies."
@@ -385,3 +419,12 @@ vocab:
   - { sv: "Lycka till!", nl: "Succes!", ex: "**Lycka till** med flytten!", exNl: "Succes met de verhuizing!" }
   - { sv: "för alltid", nl: "voor altijd", ex: "Jag trodde att vi skulle vara tillsammans **för alltid**.", exNl: "Ik dacht dat we voor altijd samen zouden blijven." }
   - { sv: "om jag var du", nl: "als ik jou was", alt: ["om jag vore du"], ex: "**{Om jag var du|Om jag vore du}** skulle jag prata med henne.", exNl: "Als ik jou was, zou ik met haar praten." }
+  - { sv: "en känsla", nl: "een gevoel", def: "känslan", pl: "känslor", plDef: "känslorna", ex: "Det är svårt att prata om **känslor**.", exNl: "Het is moeilijk om over gevoelens te praten." }
+  - { sv: "en relation", nl: "een relatie", def: "relationen", pl: "relationer", plDef: "relationerna", ex: "De har en bra **relation** till sina grannar.", exNl: "Ze hebben een goede relatie met hun buren." }
+  - { sv: "lycklig", nl: "gelukkig", ex: "De ser väldigt **lyckliga** ut tillsammans.", exNl: "Ze zien er samen heel gelukkig uit." }
+  - { sv: "en partner", nl: "een partner", def: "partnern", pl: "partner", plDef: "partnerna", ex: "Kommer du med din **partner** till festen?", exNl: "Kom je met je partner naar het feest?" }
+  - { sv: "en släkting", nl: "een familielid", def: "släktingen", pl: "släktingar", plDef: "släktingarna", ex: "Vi har **släktingar** i Norge.", exNl: "We hebben familie in Noorwegen." }
+  - { sv: "en tonåring", nl: "een tiener", def: "tonåringen", pl: "tonåringar", plDef: "tonåringarna", ex: "Det är inte lätt att vara **tonåring**.", exNl: "Het is niet makkelijk om tiener te zijn." }
+  - { sv: "att lova", nl: "beloven", ex: "Jag **lovar** att ringa i morgon.", exNl: "Ik beloof dat ik morgen bel." }
+  - { sv: "att uppfostra", nl: "opvoeden", ex: "De **uppfostrade** sina barn på landet.", exNl: "Ze voedden hun kinderen op het platteland op." }
+  - { sv: "avundsjuk", nl: "jaloers (op iets van een ander)", ex: "Han är **avundsjuk** på sin bror.", exNl: "Hij is jaloers op zijn broer." }
