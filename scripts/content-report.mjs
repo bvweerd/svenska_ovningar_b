@@ -95,7 +95,7 @@ export function knownWord(word, sets) {
 
 /** Woordvormen van een woord uit de woordenlijst, en een stam om vervoegingen te herkennen. */
 export function forms(v) {
-  const strip = (s) => String(s ?? '').replace(/^(en|ett|att)\s+/i, '').replace(/\s*\(.*\)\s*$/, '').trim().toLowerCase();
+  const strip = (s) => String(s ?? '').replace(/^\([^)]*\)\s*/, '').replace(/^(en|ett|att)\s+/i, '').replace(/\s*\(.*\)\s*$/, '').trim().toLowerCase();
   const head = strip(v.sv).split(/\s+/)[0] ?? '';
   const exact = new Set([head, ...[v.def, v.pl, v.plDef].filter(Boolean).map((f) => strip(f).split(/\s+/).at(-1))]);
   // Werkwoorden en bijvoeglijke naamwoorden: simma → simmar, simmade; stor → stora, större (benadering).
