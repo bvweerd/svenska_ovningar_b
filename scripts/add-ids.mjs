@@ -4,16 +4,19 @@
 // De voortgang van gebruikers hangt aan hoofdstuk + oefening + id. Verander een id dus nooit.
 import fs from 'node:fs';
 import path from 'node:path';
-import { randomBytes } from 'node:crypto';
+import { randomInt } from 'node:crypto';
 import yaml from 'js-yaml';
 
 const dir = path.resolve(import.meta.dirname, '..', 'content', 'chapters');
 const ITEMS = /^ {8}items:\s*$/; // de lijst met vragen van een oefening
 const ITEM = /^ {10}- /; // één vraag in die lijst
 
+const ALPHABET = 'abcdefghjkmnpqrstuvwxyz23456789';
+
 function newId(used) {
   for (;;) {
-    const id = [...randomBytes(4)].map((b) => 'abcdefghjkmnpqrstuvwxyz23456789'[b % 31]).join('');
+    // randomInt kiest zonder modulo-bias (code scanning: „biased random numbers”).
+    const id = Array.from({ length: 4 }, () => ALPHABET[randomInt(ALPHABET.length)]).join('');
     if (!used.has(id) && !/^\d+$/.test(id)) {
       used.add(id);
       return id;
