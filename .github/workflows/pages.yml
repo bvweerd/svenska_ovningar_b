@@ -27,6 +27,9 @@ jobs:
           node-version: 22
           cache: npm
       - run: npm ci
+      # Spellingscontrole van het Zweeds (tests/spelling.test.js) gebruikt hunspell met het woordenboek sv_SE;
+      # in CI slaat die test zich niet over, dus hier net als in test.yml installeren.
+      - run: sudo apt-get install -y --no-install-recommends hunspell hunspell-sv
       - run: npm test
       # De pagina Verantwoording van de B-site telt de A-site mee als bekende stof (scripts/verantwoording.mjs).
       - name: Zusterrepo ophalen (alleen B-site)
