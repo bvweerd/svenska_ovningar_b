@@ -3,12 +3,10 @@
 // dan elke knop op de pagina een paar keer aanklikken. Bevestigingsvragen krijgen „nee”, dus er wordt
 // niets gewist. Verder: de Å Ä Ö-balk, de terugknop in de geïnstalleerde app en de installatieknop.
 import { describe, it, expect, beforeAll, afterEach } from 'vitest';
-import fs from 'node:fs';
 import './helpers/external-scripts.js';
-import path from 'node:path';
+import { pageBody } from './helpers/page-body.js';
 
-const html = fs.readFileSync(path.join(process.cwd(), 'index.html'), 'utf8');
-const body = html.slice(html.indexOf('<body>') + 6, html.indexOf('</body>')).replace(/<script[^>]*><\/script>/g, '');
+const body = pageBody();
 
 let course;
 const errors = [];

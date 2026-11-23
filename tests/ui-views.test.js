@@ -4,10 +4,10 @@
 import { describe, it, expect, beforeAll, afterEach, vi } from 'vitest';
 import fs from 'node:fs';
 import './helpers/external-scripts.js';
+import { pageBody } from './helpers/page-body.js';
 import path from 'node:path';
 
-const html = fs.readFileSync(path.join(process.cwd(), 'index.html'), 'utf8');
-const body = html.slice(html.indexOf('<body>') + 6, html.indexOf('</body>')).replace(/<script[^>]*><\/script>/g, '');
+const body = pageBody();
 
 let course;
 const chapterNumbers = () => fs.readdirSync(path.join(process.cwd(), 'content', 'chapters'))
