@@ -1,6 +1,8 @@
 // Klok: hoe laat is het?
 import { h } from '../dom.js';
 import { clockSpec } from '../../core/check/grade.js';
+import { swedishTime } from '../../core/check/clock.js';
+import { normalize } from '../../core/check/normalize.js';
 import { prompt, sentenceField, sentenceLock } from './fields.js';
 
 // ---------- Klok ----------
@@ -37,5 +39,20 @@ export function clock(item, ctx) {
   const spec = clockSpec(item);
   const f = sentenceField(spec, ctx, { label: 'Hoe laat is het?', topic: 'klockan' });
   const el = h('div', { class: 'clock-item' }, clockSvg(item.time), h('div', {}, prompt(item.prompt ?? 'Hoe laat is het?'), f.field.el));
-  return { el, check: f.check, reveal: f.reveal, lock: sentenceLock(f, el) };
+  // Er zijn vaak twee goede vormen (tjugo över tio = tio i halv elva). Met tegels kun je er maar één
+  // leggen; na een goed antwoord laten we de andere zien.
+  const forms = swedishTime(item.time);
+  const also = h('p', { class: 'hint', lang: 'sv', hidden: true });
+  el.append(also);
+  const check = () => {
+    const res = f.check();
+    const given = normalize(f.field.value());
+    const other = forms.filter((t) => !given.endsWith(normalize(t)));
+    if (res.correct && forms.length > 1 && other.length) {
+      also.textContent = `Ook goed: ${other.join(' / ')}`;
+      also.hidden = false;
+    }
+    return res;
+  };
+  return { el, check, reveal: f.reveal, lock: sentenceLock(f, el) };
 }

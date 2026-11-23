@@ -132,6 +132,7 @@ export function clockSpec(item) {
   return {
     answers: clockAnswers(item.time),
     feedback: [...(item.feedback ?? []), ...clockFeedback(item.time)],
+    tileStart: 'Klockan är', // met woordtegels staat dit vast vooraan (ui/items/tiles.js)
   };
 }
 

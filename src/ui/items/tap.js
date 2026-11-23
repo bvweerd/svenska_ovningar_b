@@ -3,6 +3,7 @@ import { h, fill } from '../dom.js';
 import { shuffle } from '../../core/content/build.js';
 import { gradeMatch, gradeDialogue } from '../../core/check/grade.js';
 import { prompt, displayOrder } from './fields.js';
+import { draggable, inside } from './drag.js';
 
 
 // ---------- Koppelen: kies een rij, tik daarna de betekenis aan ----------
@@ -116,19 +117,43 @@ export function dialogue(item) {
     draw();
     list.querySelectorAll('button')[pos]?.focus({ preventScroll: true });
   };
-  const draw = () => fill(list, order.map((lineNo, pos) =>
-    h('li', { class: [marks[pos] === true ? 'ok' : marks[pos] === false ? 'bad' : '', selected === pos ? 'selected' : ''].join(' ').trim() },
-      h('button', {
-        type: 'button',
-        class: 'line-btn',
-        disabled: locked || marks[pos] === true,
-        'aria-pressed': String(selected === pos),
-        onclick: () => tap(pos),
-      }, item.lines[lineNo]))));
+  // Slepen (muis direct, touch na even vasthouden): de regel schuift naar de plek waar je hem loslaat.
+  const free = (pos) => !locked && marks[pos] !== true;
+  const target = (p) => [...list.children].findIndex((li) => inside(li, p, 0));
+  const showDrop = (p) => {
+    const at = target(p);
+    [...list.children].forEach((li, k) => li.classList.toggle('drop', k === at));
+  };
+  const endDrag = () => [...list.children].forEach((li) => li.classList.remove('drop'));
+  const dropAt = (from) => (p) => {
+    const to = target(p);
+    if (to < 0 || to === from || !free(to)) return;
+    if (marks.some((m) => m === true)) {
+      // Na nakijken staan goede regels vast: dan wisselen, zodat die niet meeschuiven.
+      [order[from], order[to]] = [order[to], order[from]];
+    } else {
+      const [line] = order.splice(from, 1);
+      order.splice(to, 0, line);
+    }
+    marks = marks.map((m) => (m === true ? m : null));
+    selected = null;
+    draw();
+  };
+  const draw = () => fill(list, order.map((lineNo, pos) => {
+    const btn = h('button', {
+      type: 'button',
+      class: 'line-btn',
+      disabled: locked || marks[pos] === true,
+      'aria-pressed': String(selected === pos),
+      onclick: () => tap(pos),
+    }, item.lines[lineNo]);
+    draggable(btn, { disabled: () => !free(pos), onMove: showDrop, onDrop: dropAt(pos), onEnd: endDrag });
+    return h('li', { class: [marks[pos] === true ? 'ok' : marks[pos] === false ? 'bad' : '', selected === pos ? 'selected' : ''].join(' ').trim() }, btn);
+  }));
   draw();
   const el = h('div', {},
     prompt(item.prompt ?? 'Zet de dialoog in de goede volgorde.'),
-    h('p', { class: 'hint' }, 'Tik een regel aan en daarna de plek waar hij hoort: de twee wisselen van plaats.'),
+    h('p', { class: 'hint' }, 'Sleep een regel naar de goede plek. Of tik een regel aan en daarna een andere: die twee wisselen van plaats.'),
     list);
   return {
     el,

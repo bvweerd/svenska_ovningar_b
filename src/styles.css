@@ -725,6 +725,9 @@ del { text-decoration-color: var(--bad); text-decoration-thickness: 2px; color: 
 .all-done { margin: 0; font-weight: 600; align-self: center; }
 .dialogue.swap li.selected { border-color: var(--accent); background: var(--accent-soft); box-shadow: 0 0 0 2px var(--accent); }
 .dialogue.swap li.ok .line-btn:disabled { color: var(--text); }
+.dialogue.swap li.drop { border-color: var(--accent); box-shadow: 0 -3px 0 var(--accent); }
+.dialogue.swap .line-btn { cursor: grab; }
+.dialogue.swap .line-btn:disabled { cursor: default; }
 .drag-ghost { position: fixed; z-index: 70; pointer-events: none; margin: 0; box-shadow: 0 6px 18px rgb(0 0 0 / 0.25); opacity: 0.95; }
 .chip.dragging { opacity: 0.35; }
 .chip.held { transform: scale(1.06); }

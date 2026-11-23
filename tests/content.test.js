@@ -10,6 +10,8 @@ import { practiceEntries } from '../src/app/content.js';
 import { gradeText, gradeOrder, clockSpec } from '../src/core/check/grade.js';
 import { expand, normalize } from '../src/core/check/normalize.js';
 import { LINE, words } from '../scripts/difficulty-report.mjs';
+import { answerTiles, isSentence, setKnownWords, tileStart } from '../src/ui/items/tiles.js';
+import { knownWords } from '../src/core/content/known-words.js';
 
 const root = path.resolve(import.meta.dirname, '..', 'content');
 const index = yaml.load(fs.readFileSync(path.join(root, 'index.yaml'), 'utf8'));
@@ -78,6 +80,16 @@ for (const ch of course) {
           expect(gradeText(v, spec).correct, `${ex.id}: "${v}"`).toBe(true);
           expect(v.includes('|') || v.includes('{') || v.includes('['), `${ex.id}: patroon niet goed uitgeklapt: "${v}"`).toBe(false);
         }
+      }
+    });
+
+    it('met woordtegels is het eerste antwoord te leggen en goed', () => {
+      setKnownWords(...knownWords(course));
+      for (const ex of ch.exercises) for (const item of allItems(ex)) for (const spec of textSpecs(item)) {
+        if (!spec.answers || !isSentence(spec.answers)) continue;
+        const { start, body } = tileStart(spec);
+        const line = [start, ...answerTiles(body)].filter(Boolean).join(' ');
+        expect(gradeText(line, spec).correct, `${ex.id} ${item.id ?? ''}: tegels „${line}”`).toBe(true);
       }
     });
 

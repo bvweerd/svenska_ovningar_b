@@ -34,9 +34,21 @@ const lowerFirst = (w) => (names.has(w) ? w : w.toLowerCase());
 const strip = (w) => w.replace(/^[„”"'«(]+|[.,!?;:…”"'»)]+$/g, '');
 const words = (s) => s.split(/\s+/).map(strip).filter(Boolean);
 
-/** De tegels voor een antwoord: de woorden van het eerste antwoord. */
+/**
+ * De tegels voor een antwoord: de woorden van het eerste antwoord, zonder de optionele stukken [..].
+ * Anders kun je een optioneel stuk half leggen („så” zonder „mycket”) en is je zin fout.
+ */
 export function answerTiles(answers) {
-  const ws = words(displayAnswer(answers));
+  const first = String([].concat(answers ?? [])[0] ?? '');
+  let depth = 0;
+  let core = '';
+  for (const c of first) {
+    if (c === '[') depth++;
+    else if (c === ']') depth = Math.max(0, depth - 1);
+    else if (!depth) core += c;
+  }
+  core = core.replace(/\s+([,.!?])/g, '$1').replace(/\s+/g, ' ').trim();
+  const ws = words(displayAnswer(core && words(core).length ? [core] : answers));
   if (ws.length) ws[0] = lowerFirst(ws[0]);
   return ws;
 }
@@ -343,14 +355,25 @@ export function tileBoard(opts) {
   };
 }
 
+/**
+ * Een vaste opening (spec.tileStart, bv. „Klockan är” bij de klok) staat als vaste tegel vooraan als
+ * het eerste antwoord met die opening als optioneel stuk begint. Zo kan de leerling hem niet half leggen.
+ */
+export function tileStart(spec) {
+  const first = String([].concat(spec.answers ?? [])[0] ?? '');
+  const pat = spec.tileStart ? `[${spec.tileStart} ]` : null;
+  return pat && first.startsWith(pat) ? { start: spec.tileStart, body: [first.slice(pat.length)] } : { start: null, body: spec.answers };
+}
+
 function tileImpl(spec, opts) {
-  const answer = answerTiles(spec.answers);
+  const { start, body } = tileStart(spec);
+  const answer = answerTiles(body);
   const tiles = shuffle([...answer, ...distractorTiles(spec, { source: opts.source })].map((t, i) => ({ t, i })));
-  const board = tileBoard({ tiles, label: opts.label, placeholder: opts.placeholder, needed: answer.length, sample: answer, onComplete: opts.onComplete });
+  const board = tileBoard({ tiles, start, label: opts.label, placeholder: opts.placeholder, needed: answer.length, sample: answer, onComplete: opts.onComplete });
   return {
     kind: 'tiles',
     el: board.el,
-    value: () => board.tokens().join(' '),
+    value: () => [start, ...board.tokens()].filter(Boolean).join(' '),
     reveal: board.reveal,
     mark: board.mark,
     lock: board.lock,
