@@ -56,7 +56,8 @@ export function itemCard(item, ctx, number, onDone, label) {
   const card = h('article', { class: `item type-${item.type}` },
     h('div', { class: 'item-head' },
       h('span', { class: 'item-no' }, String(number)),
-      label ? h('span', { class: 'item-label' }, label) : null,
+      // Op een telefoon één regel (met …); tik erop voor de hele opdracht. De vraag zelf zegt meestal genoeg.
+      label ? h('span', { class: 'item-label', title: label, onclick: (e) => e.currentTarget.classList.toggle('open') }, label) : null,
       reportButton(item, ctx.ref, number, () => card)),
     r.el, hintBox, actions, feedback,
   );

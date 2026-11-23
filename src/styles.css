@@ -229,6 +229,10 @@ table.fill .answer-input { width: 100%; min-width: 90px; }
   h1 { font-size: 1.55rem; }
   .hero h1 { font-size: 1.9rem; }
   .item { padding: 14px; }
+  /* Opdracht boven een vraag (gemengde rondes): één regel, tik voor de hele tekst. */
+  .item-head { align-items: center; }
+  .item-label { flex: 1; min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; cursor: pointer; }
+  .item-label.open { white-space: normal; }
   .clock-item { grid-template-columns: 1fr; justify-items: start; }
   .match-row { grid-template-columns: 1fr; gap: 4px; }
   .score { top: 57px; }
@@ -436,7 +440,7 @@ details.howto ol { margin: 8px 0 4px; }
 }
 
 /* Foutmelding */
-.item-head .report-btn { margin-left: auto; color: var(--muted); text-decoration: none; font-size: 0.8rem; }
+.item-head .report-btn { margin-left: auto; color: var(--muted); text-decoration: none; font-size: 0.8rem; white-space: nowrap; }
 .item-head .report-btn:hover, .item-head .report-btn:focus-visible { color: var(--accent); text-decoration: underline; }
 .report-dialog { width: min(520px, calc(100vw - 32px)); max-height: calc(100vh - 32px); padding: 20px; border: 1px solid var(--line); border-radius: var(--radius); background: var(--surface); color: var(--text); box-shadow: 0 10px 40px rgb(0 0 0 / 0.25); }
 .report-dialog::backdrop { background: rgb(0 0 0 / 0.45); }

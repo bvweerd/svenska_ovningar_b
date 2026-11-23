@@ -9,6 +9,7 @@ export const autoNext = () => getPref('autoNext', true) !== false;
 export const setAutoNext = (on) => setPref('autoNext', !!on);
 import { trackEvent, itemSummary, STATUS_LABEL } from '../platform/analytics.js';
 import { spokenText } from '../core/items/index.js';
+import { keyboardOpen, fitField } from './components/keyboard.js';
 
 export const chapterByNo = (n) => course.find((c) => c.chapter === Number(n));
 
@@ -164,7 +165,13 @@ export function exerciseRunner(items, { onFinish, offset = { done: 0, good: 0, t
         // Getypt op een telefoon: de cursor meteen in het volgende tekstveld, nog tijdens de tik of Enter,
         // zodat het toetsenbord open blijft (iOS opent het alleen vanuit een tik). Daarna schuift de pagina mee.
         if (touch && auto && r.typed && !r.revealed && next.takeKeyboard()) {
-          setTimeout(() => next.scrollIntoView({ behavior: 'smooth', block: 'start' }), 700);
+          // Met het toetsenbord open is de vaste balk bovenaan uit beeld: dan niet scrollIntoView (die laat
+          // ruimte voor die balk en zet de kop van de vraag buiten beeld), maar de vraag passend in beeld zetten.
+          setTimeout(() => {
+            const field = document.activeElement;
+            if (keyboardOpen() && next.contains(field)) fitField(field);
+            else next.scrollIntoView({ behavior: 'smooth', block: 'start' });
+          }, 700);
           return;
         }
         advance('Volgende vraag ↓', ({ tapped = false } = {}) => next.focusFirst({ keyboard: tapped }), r.revealed ? 1500 : 600);

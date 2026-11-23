@@ -1,6 +1,7 @@
 // Å Ä Ö-knoppen bij het typen.
 import { h, isTouch } from '../dom.js';
 import { getPref } from '../../app/progress.js';
+import { keyboardOpen, fitField } from './keyboard.js';
 
 // Aan of uit op de pagina Instellingen (per apparaat, standaard aan). Uit: de klasse no-charbar verbergt de balk.
 export const charBarOn = () => getPref('charBar', true) !== false;
@@ -48,12 +49,9 @@ export function charBar() {
   // Touchscreen: alleen een balk terwijl het schermtoetsenbord open is, vast direct erboven, over de
   // hele breedte en met hoofdletters. Zolang het toetsenbord nog omhoog schuift (en de browser zelf naar
   // het veld scrollt) blijft de balk onzichtbaar. Staat alles stil, dan wordt hij in één keer geplaatst,
-  // scrollt de pagina zo nodig één keer zodat het veld boven de balk blijft, en pas dan verschijnt hij.
+  // scrollt de pagina zo nodig één keer zodat de vraag in beeld staat en het veld boven de balk, en pas
+  // dan verschijnt hij.
   const coarse = isTouch;
-  const keyboardOpen = () => {
-    const vv = window.visualViewport;
-    return !!vv && coarse() && window.innerHeight - vv.height > 120;
-  };
   let settleTimer = null;
   const placeAbove = () => {
     const vv = window.visualViewport;
@@ -73,17 +71,9 @@ export function charBar() {
     bar.classList.remove('away');
     bar.classList.add('docked'); // nog onzichtbaar (zonder .show), maar wel meetbaar
     placeAbove();
-    const r = target?.getBoundingClientRect();
-    if (r) {
-      const need = r.bottom - (bar.getBoundingClientRect().top - 8);
-      // Niet zo ver dat het veld zelf onder de vaste balken bovenaan verdwijnt.
-      const room = r.top - window.visualViewport.offsetTop - 112;
-      const by = Math.min(need, room);
-      if (by > 0) {
-        window.scrollBy({ top: by, behavior: 'instant' });
-        placeAbove();
-      }
-    }
+    // De vraag bovenaan in beeld, het veld boven de balk (zie keyboard.js).
+    fitField(target);
+    placeAbove();
     requestAnimationFrame(() => bar.classList.add('show'));
   };
   // Wachten tot het toetsenbord stilstaat (geen nieuwe resize meer): dan pas plaatsen en tonen.
