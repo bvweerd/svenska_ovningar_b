@@ -4,7 +4,7 @@
 // get() leest de opslag elke keer opnieuw (een ander tabblad kan hem veranderd hebben), maar ontleedt
 // de JSON alleen als de tekst anders is dan de vorige keer. Lukt opslaan niet (privévenster, vol),
 // dan blijft de voortgang in het geheugen.
-import { normalize, fromV1 } from '../core/progress/schema.js';
+import { normalize, fromV1, VERSION } from '../core/progress/schema.js';
 
 /**
  * @param storage  { read(key), write(key, value), remove(key) }  (platform/storage.js)
@@ -12,24 +12,17 @@ import { normalize, fromV1 } from '../core/progress/schema.js';
  * @param oldKey   sleutel van versie 1 (wordt één keer omgezet en dan verwijderd)
  */
 export function createStore({ storage, key, oldKey }) {
-  let memory = normalize({});
+  // De laatst bekende toestand, en de tekst in de opslag die daarbij hoort (dan hoeft get() niet opnieuw
+  // te ontleden). Lukt opslaan niet, dan hoort de oude tekst bij de nieuwere toestand in het geheugen;
+  // verandert een ander tabblad de opslag, dan geldt die weer.
+  let state = normalize({});
   let cachedRaw = null;
-  let cachedState = null;
   const listeners = new Set();
 
-  function persist(state) {
-    memory = state;
-    const raw = JSON.stringify(state);
-    if (storage.write(key, raw)) {
-      cachedRaw = raw;
-      cachedState = state;
-    } else {
-      // Opslaan mislukt (bijv. opslag vol) terwijl lezen nog werkt: de oude tekst in de opslag hoort nu
-      // bij de nieuwere toestand in het geheugen, anders geeft get() de oude terug en raakt elk
-      // antwoord kwijt. Verandert een ander tabblad de opslag, dan geldt die weer.
-      cachedRaw = storage.read(key);
-      cachedState = state;
-    }
+  function persist(next) {
+    state = next;
+    const raw = JSON.stringify(next);
+    cachedRaw = storage.write(key, raw) ? raw : storage.read(key);
   }
 
   function migrateV1() {
@@ -46,34 +39,31 @@ export function createStore({ storage, key, oldKey }) {
   function get() {
     try {
       const raw = storage.read(key);
-      if (raw && raw === cachedRaw) return cachedState;
+      if (raw && raw === cachedRaw) return state;
       if (raw) {
         const s = JSON.parse(raw);
-        if (s?.v === 2) {
+        if (s?.v === VERSION) {
           cachedRaw = raw;
-          cachedState = normalize(s);
-          return cachedState;
+          state = normalize(s);
+          return state;
         }
       }
       const migrated = oldKey ? migrateV1() : null;
-      if (migrated) {
-        persist(migrated);
-        return migrated;
-      }
-      return memory;
+      if (migrated) persist(migrated);
+      return state;
     } catch {
-      return memory;
+      return state;
     }
   }
 
   /**
    * Nieuwe toestand opslaan en melden. reason: 'local' (antwoord, instelling), 'sync', 'import' of 'reset'.
    */
-  function set(state, reason = 'local') {
-    const prev = get();
-    persist(state);
-    for (const fn of listeners) fn(state, { reason, prev });
-    return state;
+  function set(next, reason = 'local') {
+    const prev = state;
+    persist(next);
+    for (const fn of listeners) fn(next, { reason, prev });
+    return next;
   }
 
   return {

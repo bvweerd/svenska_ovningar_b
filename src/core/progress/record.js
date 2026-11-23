@@ -1,6 +1,7 @@
 // Een antwoord vastleggen, rondes van een oefening en de voortgang per hoofdstuk. Puur: elke functie
 // die iets verandert, krijgt de toestand en geeft een nieuwe terug.
 import { isGradable } from '../items/index.js';
+import { shuffle } from '../content/build.js';
 import { answerHash, exKey, itemId, itemKey, itemRecord, gradable } from './schema.js';
 import { nextSrs, withDay } from './srs.js';
 
@@ -50,14 +51,6 @@ export function runState(state, ch, ex) {
   return { started: !!start, done, total: indices.length, inRound: (idx) => inRound.has(idx), points: (idx) => (done.has(idx) ? points(itemRecord(state, ch, ex, idx)) : 0) };
 }
 
-const mix = (a, rand) => {
-  for (let i = a.length - 1; i > 0; i--) {
-    const j = Math.floor(rand() * (i + 1));
-    [a[i], a[j]] = [a[j], a[i]];
-  }
-  return a;
-};
-
 /**
  * Kiest de vragen voor een ronde van een lange oefening: eerst vragen die je nog nooit gemaakt
  * hebt, dan vragen die fout gingen of waarvan je het antwoord bekeek, dan de rest.
@@ -72,8 +65,8 @@ export function pickRound(state, ch, ex, size, rand = Math.random) {
   });
   // Alleen wat nieuw is of fout ging, ook als dat minder is dan een hele ronde. Pas als alles goed
   // is, wordt het een herhaalronde met vragen die je al kende.
-  const due = [...mix(groups[0], rand), ...mix(groups[1], rand)];
-  return (due.length ? due : mix(groups[2], rand)).slice(0, size).sort((a, b) => a - b);
+  const due = [...shuffle(groups[0], rand), ...shuffle(groups[1], rand)];
+  return (due.length ? due : shuffle(groups[2], rand)).slice(0, size).sort((a, b) => a - b);
 }
 
 /** Voortgang over een hele lange oefening (alle rondes): gehad, nog nieuw, laatst fout of bekeken. */

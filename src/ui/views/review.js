@@ -1,5 +1,6 @@
 // Herhalen: mix van een hoofdstuk, je fouten per hoofdstuk en uit alle hoofdstukken.
-import { course, practiceEntries, balancedSample } from '../../app/content.js';
+import { openMistakes } from '../../app/course-progress.js';
+import { practiceEntries, balancedSample } from '../../app/content.js';
 import { practiceView, plural } from '../shared.js';
 import { shuffle } from '../../core/content/build.js';
 import { weakItems } from '../../app/progress.js';
@@ -36,15 +37,14 @@ export function viewWeak(ch) {
 
 export function viewWeakAll() {
   document.title = 'Herhalen · Svenska övningar';
-  const entries = course.filter((c) => c.available).flatMap((c) =>
-    weakItems(c).filter(({ ex }) => !ex.text).map((w) => ({ ...w, chapter: c })));
+  const entries = openMistakes();
   return practiceView(null, {
     title: 'Herhalen',
     instruction: 'Je openstaande fouten uit alle hoofdstukken. Heb je een vraag in één keer goed, dan verdwijnt hij uit de lijst.',
     entries: shuffle(entries).slice(0, 15),
     again: `#/herhalen?${Date.now()}`,
     left: {
-      count: () => course.filter((c) => c.available).reduce((n, c) => n + weakItems(c).filter(({ ex }) => !ex.text).length, 0),
+      count: () => openMistakes().length,
       more: (n) => `Er ${n === 1 ? 'staat' : 'staan'} nog ${plural(n, 'fout', 'fouten')} open.`,
       done: 'Alle fouten zijn opgelost. Goed bezig!',
     },

@@ -13,7 +13,14 @@ export const badges = () => badgeOverview(progressStore.get(), course);
  * binnenkomen, worden stil toegevoegd.
  */
 export function initBadges({ onAward = () => {} } = {}) {
+  // Alleen deze delen van de voortgang tellen voor een badge. De pure functies laten ongewijzigde delen
+  // hetzelfde object, dus „niets veranderd” is een vergelijking van verwijzingen (niet bij elke
+  // instelling of „verder waar je was” alle hoofdstukken doorrekenen).
+  const SLICES = ['items', 'srs', 'ex', 'tests', 'games', 'days', 'dictee', 'badges'];
+  let seen = null;
   const award = (state, announce) => {
+    if (seen && SLICES.every((k) => state[k] === seen[k])) return;
+    seen = state;
     const out = awardBadges(state, course);
     if (!out.fresh.length) return;
     progressStore.set(out.state, 'badge');

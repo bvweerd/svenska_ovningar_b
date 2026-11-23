@@ -1,7 +1,7 @@
 // Zinnen invoeren met woordtegels in plaats van typen (handig op een telefoon).
 // Een zinsveld geeft { el, value(), reveal(text), mark(ok), lock(), focus() } terug,
 // zodat de vraagtypen niet hoeven te weten of er getypt of getikt wordt.
-import { h } from '../dom.js';
+import { h, isTouch } from '../dom.js';
 import { displayAnswer, expand } from '../../core/check/normalize.js';
 import { shuffle } from '../../core/content/build.js';
 import { draggable, dropIndex, inside } from './drag.js';
@@ -14,11 +14,11 @@ const MAX_DISTRACTORS = 3;
 export const getInputMode = () => getPref('input', 'auto');
 export const setInputMode = (m) => setPref('input', m);
 
-export function useTiles() {
+function useTiles() {
   const mode = getInputMode();
   if (mode === 'tiles') return true;
   if (mode === 'type') return false;
-  return typeof matchMedia === 'function' && matchMedia('(pointer: coarse)').matches;
+  return isTouch();
 }
 
 // Het eerste woord krijgt een kleine letter, zodat de hoofdletter niet verraadt welk woord
@@ -129,7 +129,6 @@ function typedImpl(spec, opts) {
       input.focus();
       if (opts.prefill) input.setSelectionRange(input.value.length, input.value.length);
     },
-    input,
   };
 }
 
@@ -307,8 +306,6 @@ export function tileBoard(opts) {
 
   return {
     el,
-    line,
-    bank,
     tokens: () => chosen.map((c) => c.t),
     reveal(text) {
       revealedText = text;

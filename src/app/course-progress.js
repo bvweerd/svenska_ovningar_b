@@ -1,8 +1,12 @@
 // Wat er in een hoofdstuk af is en waar je verder gaat (hoofdstuk, oefening, start).
-import { course } from './content.js';
+import { course, openChapters } from './content.js';
 import { trackEvent } from '../platform/analytics.js';
-import { newCanDo, openItems, progressStore } from './progress.js';
+import { newCanDo, openItems, progressStore, weakItems } from './progress.js';
 import * as rec from '../core/progress/record.js';
+
+/** Openstaande fouten uit alle open hoofdstukken (zonder vragen bij een leestekst). */
+export const openMistakes = () => openChapters().flatMap((c) =>
+  weakItems(c).filter(({ ex }) => !ex.text).map((w) => ({ ...w, chapter: c })));
 
 /** Is een oefening af? (zie core/progress/record.js) */
 export const exerciseDone = (ch, ex) => rec.exerciseDone(progressStore.get(), ch, ex);

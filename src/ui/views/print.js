@@ -34,14 +34,21 @@ function sheet(ch, card) {
 export function fitSheet(el) {
   const body = el.querySelector('.sheet-body');
   if (!body) return;
-  let pt = MAX_PT;
-  const overflows = () => body.scrollWidth > body.clientWidth + 1 || body.scrollHeight > body.clientHeight + 1;
-  body.style.fontSize = `${pt}pt`;
-  while (overflows() && pt > MIN_PT) {
-    pt = Math.round((pt - 0.25) * 100) / 100;
+  const fits = (pt) => {
     body.style.fontSize = `${pt}pt`;
+    return body.scrollWidth <= body.clientWidth + 1 && body.scrollHeight <= body.clientHeight + 1;
+  };
+  // Grootste lettergrootte (in stappen van 0,25 pt) die past: binair zoeken, een paar metingen.
+  let lo = 0;
+  let hi = (MAX_PT - MIN_PT) * 4; // aantal stappen omlaag
+  if (!fits(MAX_PT)) {
+    while (lo < hi) {
+      const mid = (lo + hi) >> 1;
+      if (fits(MAX_PT - mid / 4)) hi = mid;
+      else lo = mid + 1;
+    }
   }
-  el.classList.toggle('too-long', overflows());
+  el.classList.toggle('too-long', !fits(MAX_PT - lo / 4));
 }
 
 /** Voorvertoning op het scherm: het vel (210 mm breed) geschaald naar de beschikbare breedte. */

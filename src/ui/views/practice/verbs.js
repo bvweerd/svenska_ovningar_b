@@ -1,5 +1,5 @@
 // Werkwoordtrainer.
-import { h } from '../../dom.js';
+import { h, isTouch } from '../../dom.js';
 import { verbs } from '../../../app/content.js';
 import { crumbs, findTopic } from '../../shared.js';
 import { itemCard } from '../../items/item-card.js';
@@ -80,7 +80,7 @@ export function viewVerbTrainer() {
     h('header', { class: 'page-head' },
       h('h1', {}, 'Werkwoordtrainer'),
       h('p', { class: 'instruction' }, `Typ de gevraagde vorm en druk op Enter. Er zijn ${verbs.length} werkwoorden; de vragen gaan door zolang je wilt.`)),
-    settingsBox = h('details', { class: 'settings', open: !matchMedia('(pointer: coarse)').matches },
+    settingsBox = h('details', { class: 'settings', open: !isTouch() },
       settingsSummary,
       h('fieldset', {}, h('legend', {}, 'Tijden'), h('div', { class: 'options row' }, Object.entries(TENSES).map(([k, t]) => checkbox('tenses', k, t.label)))),
       h('fieldset', {}, h('legend', {}, 'Soorten werkwoorden'), h('div', { class: 'options row' }, kindKeys.map((k) => checkbox('kinds', k, KINDS[k]))))),

@@ -1,5 +1,5 @@
 // Å Ä Ö-knoppen bij het typen.
-import { h } from '../dom.js';
+import { h, isTouch } from '../dom.js';
 import { getPref } from '../../app/progress.js';
 
 // Aan of uit op de pagina Over (per apparaat, standaard aan). Uit: de klasse no-charbar verbergt de balk.
@@ -49,7 +49,7 @@ export function charBar() {
   // hele breedte en met hoofdletters. Zolang het toetsenbord nog omhoog schuift (en de browser zelf naar
   // het veld scrollt) blijft de balk onzichtbaar. Staat alles stil, dan wordt hij in één keer geplaatst,
   // scrollt de pagina zo nodig één keer zodat het veld boven de balk blijft, en pas dan verschijnt hij.
-  const coarse = () => matchMedia('(pointer: coarse)').matches;
+  const coarse = isTouch;
   const keyboardOpen = () => {
     const vv = window.visualViewport;
     return !!vv && coarse() && window.innerHeight - vv.height > 120;

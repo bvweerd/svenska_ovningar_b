@@ -2,10 +2,41 @@
 import { h } from '../dom.js';
 import { inline } from '../md.js';
 import { displayAnswer, expand } from '../../core/check/normalize.js';
-import { gradeText } from '../../core/check/grade.js';
+import { gradeText, gradeFields } from '../../core/check/grade.js';
+import { shuffle } from '../../core/content/build.js';
 import { sentenceInput } from './tiles.js';
 
 export const prompt = (text) => (text ? h('p', { class: 'prompt', html: inline(text) }) : null);
+
+/** Volgorde waarin n keuzes getoond worden: door elkaar, tenzij de vraag shuffle: false heeft. */
+export function displayOrder(item, n) {
+  const idx = Array.from({ length: n }, (_, i) => i);
+  return item.shuffle === false ? idx : shuffle(idx);
+}
+
+/**
+ * Vraag met meer tekstvakjes (gaten, tabel): nakijken per vakje en het goede antwoord invullen.
+ * Geeft { check, reveal, lock } voor een renderer.
+ */
+export function fieldsItem(el, inputs, specs, ctx) {
+  return {
+    check() {
+      const res = gradeFields(inputs.map((f) => f.value), specs, ctx);
+      markFields(inputs, res.fields);
+      return res;
+    },
+    reveal() {
+      inputs.forEach((f, i) => {
+        f.value = displayAnswer(specs[i].answers);
+        f.classList.add('revealed');
+      });
+    },
+    lock: () => lockInputs(el),
+  };
+}
+
+/** Een zinsveld en de rest van de vraag vergrendelen. */
+export const sentenceLock = (f, el) => () => { f.field.lock(); lockInputs(el); };
 
 export function markFields(inputs, fields) {
   inputs.forEach((inp, i) => {
@@ -27,7 +58,6 @@ export function fieldChars(spec) {
 }
 
 export function textInput(spec, { size, label, wide } = {}) {
-  const longest = fieldChars(spec) - 2;
   return h('input', {
     type: 'text',
     class: `answer-input${wide ? ' wide' : ''}`,
@@ -36,7 +66,7 @@ export function textInput(spec, { size, label, wide } = {}) {
     spellcheck: false,
     lang: 'sv',
     'aria-label': label ?? 'Antwoord',
-    size: size ?? Math.min(longest + 2, 40),
+    size: size ?? fieldChars(spec),
   });
 }
 

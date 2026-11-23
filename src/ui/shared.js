@@ -1,5 +1,5 @@
 // Gedeelde onderdelen voor alle pagina's.
-import { h } from './dom.js';
+import { h, isTouch } from './dom.js';
 import { course } from '../app/content.js';
 import { itemCard } from './items/item-card.js';
 import { recordItem, getPref, setPref } from '../app/progress.js';
@@ -42,7 +42,7 @@ export function splitTheme(theme = '') {
   return { name, topics: rest.join(' · ') };
 }
 
-export const plural = (n, one, more) => `${n} ${n === 1 ? one : more}`;
+export { plural } from '../core/text.js';
 
 export function crumbs(...parts) {
   return h('nav', { class: 'crumbs', 'aria-label': 'Kruimelpad' },
@@ -138,7 +138,7 @@ export function exerciseRunner(items, { onFinish, offset = { done: 0, good: 0, t
         // zien), en niet als je intussen
         // tikt of scrolt (dan zou de pagina onder je vinger wegschuiven); de knop blijft als uitweg.
         // Staat „vanzelf verder” uit (pagina Over), dan alleen de knop.
-        const touch = matchMedia('(pointer: coarse)').matches;
+        const touch = isTouch();
         const auto = autoNext();
         const advance = (label, go, ms) => {
           if (!auto) return void card.offerNext(label, () => go({ tapped: true }));

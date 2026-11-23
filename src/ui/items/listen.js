@@ -2,7 +2,7 @@
 import { h } from '../dom.js';
 import { speakButton, speedSelect } from '../components/speak.js';
 import { speak, speechStatus } from '../../platform/speech.js';
-import { prompt, lockInputs, sentenceField } from './fields.js';
+import { prompt, sentenceField, sentenceLock } from './fields.js';
 import { mc } from './choice.js';
 
 // ---------- Luisteren: dictee of „wat hoor je?” ----------
@@ -56,5 +56,5 @@ export function listen(item, ctx) {
   });
   const el = h('div', {}, player.el, prompt(item.prompt ?? (f.field.kind === 'tiles' ? 'Zet de woorden in de volgorde die je hoort.' : 'Schrijf op wat je hoort.')), f.field.el,
     f.field.kind === 'tiles' ? null : h('p', { class: 'hint speech-extra' }, 'Tip: druk op Enter in het lege veld om het nog eens te horen.'));
-  return { el, check: f.check, reveal: f.reveal, lock: () => { f.field.lock(); lockInputs(el); } };
+  return { el, check: f.check, reveal: f.reveal, lock: sentenceLock(f, el) };
 }

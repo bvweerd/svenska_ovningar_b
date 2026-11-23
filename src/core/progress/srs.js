@@ -36,10 +36,12 @@ export function withDay(days, now = Date.now()) {
  */
 export function dueItems(state, entries, date = today()) {
   const srs = state.srs ?? {};
-  return entries
-    .map((e) => ({ ...e, rec: srs[itemKey(e.chapter.chapter, e.ex, e.idx)] }))
-    .filter((e) => e.rec && e.rec.h === answerHash(e.item) && e.rec.due <= date)
-    .sort((a, b) => (a.rec.due < b.rec.due ? -1 : a.rec.due > b.rec.due ? 1 : a.rec.box - b.rec.box));
+  const out = [];
+  for (const e of entries) {
+    const rec = srs[itemKey(e.chapter.chapter, e.ex, e.idx)];
+    if (rec && rec.h === answerHash(e.item) && rec.due <= date) out.push({ ...e, rec });
+  }
+  return out.sort((a, b) => (a.rec.due < b.rec.due ? -1 : a.rec.due > b.rec.due ? 1 : a.rec.box - b.rec.box));
 }
 
 /** Zoveel herhaalvragen per dag is het doel; wie wil, doet er meer. */

@@ -1,9 +1,9 @@
 // Omhulsel rond één vraag: knop "Controleer", feedback en oplopende hulp.
-import { h } from '../dom.js';
+import { h, isTouch } from '../dom.js';
 import { inline } from '../md.js';
 import { RENDERERS } from './index.js';
 import { speakButton } from '../components/speak.js';
-import { spokenText, selfChecking, hintFor } from '../../core/items/index.js';
+import { spokenText, selfChecking, hintFor, isGradable } from '../../core/items/index.js';
 import { reportButton } from '../components/report.js';
 
 const GENERIC_WRONG = 'Nog niet goed.';
@@ -28,8 +28,10 @@ export function itemCard(item, ctx, number, onDone, label) {
   } });
   const feedback = h('div', { class: 'feedback', 'aria-live': 'polite' });
   // Vrij schrijven wordt niet nagekeken („Klaar”) en mag je overslaan („Toon voorbeeld”).
-  const checkBtn = h('button', { type: 'button', class: 'btn primary', hidden: selfChecking(item) }, r.neutral ? 'Klaar' : 'Controleer');
-  const revealBtn = h('button', { type: 'button', class: 'btn ghost small', hidden: !r.neutral }, r.neutral ? 'Toon voorbeeld' : 'Toon antwoord');
+  // Vrij schrijven kijkt de app niet na (register: gradable: false).
+  const neutral = !isGradable(item);
+  const checkBtn = h('button', { type: 'button', class: 'btn primary', hidden: selfChecking(item) }, neutral ? 'Klaar' : 'Controleer');
+  const revealBtn = h('button', { type: 'button', class: 'btn ghost small', hidden: !neutral }, neutral ? 'Toon voorbeeld' : 'Toon antwoord');
   // Vragen met de knop Controleer houden hun knoppenrij altijd even hoog, ook als de knop na
   // afloop verdwijnt: dan verspringt de rest van de pagina niet.
   // Hint: het begin van het antwoord (of een eigen help-tekst). Wie hem gebruikt, heeft de vraag niet
@@ -82,7 +84,7 @@ export function itemCard(item, ctx, number, onDone, label) {
     const say = spokenText(item);
     const btn = say ? speakButton(say, { label: 'Beluister de zin', className: 'after' }) : null;
     if (btn) feedback.append(h('p', { class: 'listen-after speech-extra' }, btn, h('span', { class: 'muted', lang: 'sv' }, say)));
-    onDone({ firstTry: !hadError && !revealed, revealed, neutral: !!r.neutral, typed, share: revealed ? undefined : share });
+    onDone({ firstTry: !hadError && !revealed, revealed, neutral, typed, share: revealed ? undefined : share });
   };
 
   const rule = () => {
@@ -92,6 +94,12 @@ export function itemCard(item, ctx, number, onDone, label) {
       h('strong', {}, 'Regel: '), h('span', { html: inline(found.card.summary) }), ' ',
       h('a', { href: found.href }, 'Lees de uitleg →'),
     );
+  };
+
+  const explain = () => (item.explain ? h('p', { class: 'explain', html: inline(item.explain) }) : null);
+  const finishNeutral = () => {
+    show('info', h('p', {}, 'Vergelijk je tekst met het voorbeeldantwoord.'));
+    finish(false);
   };
 
   const show = (cls, ...content) => {
@@ -104,11 +112,7 @@ export function itemCard(item, ctx, number, onDone, label) {
     const res = r.check();
 
     // Vrij schrijven: geen oordeel, alleen het voorbeeld om mee te vergelijken.
-    if (res.neutral) {
-      show('info', h('p', {}, 'Vergelijk je tekst met het voorbeeldantwoord.'));
-      finish(false);
-      return;
-    }
+    if (res.neutral) return finishNeutral();
 
     // Leeg, of goed Zweeds in een andere volgorde dan de opdracht vraagt: geen fout, nog een keer.
     if (res.empty || res.retry) {
@@ -123,7 +127,7 @@ export function itemCard(item, ctx, number, onDone, label) {
       return;
     }
     if (res.correct) {
-      show('good', h('p', {}, hadError ? 'Goed zo, nu klopt het!' : 'Goed!'), res.note ? h('p', { class: 'muted' }, res.note) : null, item.explain ? h('p', { class: 'explain', html: inline(item.explain) }) : null);
+      show('good', h('p', {}, hadError ? 'Goed zo, nu klopt het!' : 'Goed!'), res.note ? h('p', { class: 'muted' }, res.note) : null, explain());
       finish(false);
       return;
     }
@@ -217,7 +221,7 @@ export function itemCard(item, ctx, number, onDone, label) {
     // Bovenaan het scherm (onder de vaste balken, zie scroll-margin-top), zodat er zoveel mogelijk ruimte onder de vraag is.
     if (scroll) card.scrollIntoView({ behavior: 'smooth', block: 'start' });
     // Op een telefoon anders geen tekstveld focussen: dan springt het toetsenbord open en schuift alles.
-    const touch = typeof matchMedia === 'function' && matchMedia('(pointer: coarse)').matches;
+    const touch = isTouch();
     if (touch && !keyboard && el?.matches('input[type="text"], textarea')) return;
     el?.focus({ preventScroll: true });
   };
@@ -235,14 +239,9 @@ export function itemCard(item, ctx, number, onDone, label) {
     actions.append(btn);
   };
   revealBtn.addEventListener('click', () => {
-    if (r.neutral) {
-      r.reveal();
-      show('info', h('p', {}, 'Vergelijk je tekst met het voorbeeldantwoord.'));
-      finish(false);
-      return;
-    }
     r.reveal();
-    show('info', h('p', {}, 'Dit is het goede antwoord. Doe de oefening later nog eens om het te herhalen.'), rule(), item.explain ? h('p', { class: 'explain', html: inline(item.explain) }) : null);
+    if (neutral) return finishNeutral();
+    show('info', h('p', {}, 'Dit is het goede antwoord. Doe de oefening later nog eens om het te herhalen.'), rule(), explain());
     finish(true);
   });
 

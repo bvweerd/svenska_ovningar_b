@@ -5,7 +5,7 @@
 // Elke site bewaart wel zijn eigen voortgang. Samenvoegen gebeurt hier, met mergeStates (core/progress/merge.js).
 import { SYNC_URL, STORAGE_PREFIX } from '../config.js';
 import { hashItem } from '../core/hash.js';
-import { read, write } from './storage.js';
+import { read, write, readJson, writeJson } from './storage.js';
 
 // De voortgang zelf: main.js geeft mee hoe je hem leest en samenvoegt (bindProgress).
 let progress = { snapshot: () => ({}), merge: () => false };
@@ -47,7 +47,7 @@ export function forgetCode() {
 }
 
 function meta() {
-  try { return JSON.parse(read(META_KEY) ?? 'null') ?? {}; } catch { return {}; }
+  return readJson(META_KEY, {});
 }
 
 export const lastSync = () => meta().at ?? null;
@@ -87,7 +87,7 @@ async function doSync({ onlyIfChanged = false, fetchImpl = globalThis.fetch } = 
     const hash = hashItem(merged);
     const remoteHash = remote.data ? hashItem(remote.data) : remote.rev === m.rev ? m.hash : null;
     if (remote.rev && hash === remoteHash) {
-      write(META_KEY, JSON.stringify({ rev: remote.rev, hash, at: Date.now() }));
+      writeJson(META_KEY, { rev: remote.rev, hash, at: Date.now() });
       return { changed };
     }
     const body = JSON.stringify({ rev: remote.rev, data: merged });
@@ -99,7 +99,7 @@ async function doSync({ onlyIfChanged = false, fetchImpl = globalThis.fetch } = 
     });
     const answer = await res.json();
     if (res.ok) {
-      write(META_KEY, JSON.stringify({ rev: answer.rev, hash, at: Date.now() }));
+      writeJson(META_KEY, { rev: answer.rev, hash, at: Date.now() });
       return { changed };
     }
     if (res.status !== 409) throw new Error(answer?.error ?? `HTTP ${res.status}`);

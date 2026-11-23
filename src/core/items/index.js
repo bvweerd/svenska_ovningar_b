@@ -35,7 +35,6 @@ export const ITEM_TYPES = Object.freeze(Object.fromEntries(
 ));
 
 export const itemType = (type) => ITEM_TYPES[type] ?? null;
-export const isKnownType = (type) => Object.hasOwn(ITEM_TYPES, type);
 
 /** Het deel van een vraag dat bepaalt wat goed is (voor de antwoordhash). */
 export function answerPart(item) {

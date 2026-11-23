@@ -4,7 +4,7 @@ import { crumbs, progressBar } from '../../shared.js';
 import { shuffle } from '../../../core/content/build.js';
 import { getPref, setPref, rateCard, pickCards, cardProgress } from '../../../app/progress.js';
 import { speak, speechSupported } from '../../../platform/speech.js';
-import { plural, onKeys } from './common.js';
+import { plural } from './common.js';
 
 /** Zoveel kaarten per stapel; daarna zie je hoe ver je bent (net als de rondes van een woordenlijst). */
 const CARD_STACK = 15;
@@ -131,7 +131,7 @@ export function viewFlashcards(ch, { signal } = {}) {
       h('div', { class: 'actions' }, dirButtons)),
     progress, card, actions, summary,
   );
-  onKeys(view, (e) => {
+  document.addEventListener('keydown', (e) => {
     if (e.target.matches('input, textarea, select')) return;
     if (e.key === ' ' || (e.key === 'Enter' && e.target === card)) {
       e.preventDefault();
@@ -139,7 +139,7 @@ export function viewFlashcards(ch, { signal } = {}) {
     } else if (e.key === '1' || e.key.toLowerCase() === 'j') rate(true);
     else if (e.key === '2' || e.key.toLowerCase() === 'n') rate(false);
     else if (e.key.toLowerCase() === 'l' && current) speak(current.v.sv);
-  }, signal);
+  }, { signal });
   if (!vocab.length) return h('div', {}, h('p', {}, 'Dit hoofdstuk heeft geen woordenlijst.'));
   start();
   setTimeout(() => card.focus(), 0);

@@ -16,8 +16,10 @@ export function viewHome() {
   const first = open[0];
   // Voortgang over alle hoofdstukken, alleen als er al iets gemaakt is.
   // Als zin, niet als balk: na een paar oefeningen staat een balk over alle stof nog op 0%.
+  // Eén keer per hoofdstuk uitrekenen: voor het totaal en voor de kaart van het hoofdstuk.
+  const progress = new Map(open.map((c) => [c, chapterProgress(c)]));
   const totals = open.reduce((t, c) => {
-    const p = chapterProgress(c);
+    const p = progress.get(c);
     return { done: t.done + p.itemsDone, completed: t.completed + p.completed };
   }, { done: 0, completed: 0 });
   return h('div', { class: 'home' },
@@ -66,7 +68,7 @@ export function viewHome() {
       lv.id ? h('div', { class: 'level-head' }, h('h2', {}, lv.title), lv.intro ? h('p', { class: 'muted' }, lv.intro) : null) : null,
       h('ol', { class: 'chapters', start: course.find((c) => !lv.id || c.level === lv.id)?.chapter },
       course.filter((c) => !lv.id || c.level === lv.id).map((ch) => {
-        const p = ch.available ? chapterProgress(ch) : null;
+        const p = progress.get(ch) ?? null;
         const { name, topics } = splitTheme(ch.theme);
         const inner = [
           h('span', { class: 'ch-num' }, ch.title),

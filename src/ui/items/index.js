@@ -2,7 +2,7 @@
 //   { el, check() → resultaat, reveal(), lock() }
 // Een resultaat met { correct: true, advance: true } betekent: volgende fase van dezelfde vraag.
 // De pure kant van elk type (controle, antwoordhash, nakijkhulp) staat in core/items/.
-import { h } from '../dom.js';
+import { h, isTouch } from '../dom.js';
 import { mc, multi, sort, truefalse } from './choice.js';
 import { gap, translate, transform, table, free, findError } from './text.js';
 import { listen } from './listen.js';
@@ -22,7 +22,7 @@ function steps(item, ctx) {
     box.append(step);
     // Niet scrollen en op een telefoon geen toetsenbord openen; de stap komt rustig in beeld.
     const first = r.el.querySelector('input, select, textarea, button');
-    const touch = typeof matchMedia === 'function' && matchMedia('(pointer: coarse)').matches;
+    const touch = isTouch();
     if (first && !(touch && first.matches('input[type="text"], textarea'))) first.focus({ preventScroll: true });
     if (i > 0) requestAnimationFrame(() => step.scrollIntoView?.({ behavior: 'smooth', block: 'nearest' }));
   };

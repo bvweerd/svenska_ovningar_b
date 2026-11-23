@@ -7,13 +7,17 @@
 // De id's staan vast, net als vraag-id's: verander ze niet.
 import { canDoStatus } from '../progress/cando.js';
 import { chapterDone } from '../progress/record.js';
+import { srsStats } from '../progress/srs.js';
+import { practiceEntries } from '../content/entries.js';
+import { plural } from '../text.js';
 
 const open = (course) => course.filter((c) => c.available);
 const count = {
   exercises: (s) => Object.values(s.ex ?? {}).filter((r) => r.completedAt).length,
   goals: (s, course) => open(course).reduce((n, ch) => n + canDoStatus(s, ch).filter((x) => x.done).length, 0),
   chapters: (s, course) => open(course).filter((ch) => chapterDone(s, ch)).length,
-  mastered: (s) => Object.values(s.srs ?? {}).filter((r) => r.box >= 4).length,
+  // Zelfde telling als de dozen op de pagina Statistieken (alleen actuele vragen).
+  mastered: (s, course) => srsStats(s, practiceEntries(course)).reduce((n, v, box) => n + (box >= 4 ? v : 0), 0),
   tests80: (s) => Object.values(s.tests ?? {}).filter((t) => t.best >= 0.8).length,
   tests100: (s) => Object.values(s.tests ?? {}).filter((t) => t.best >= 1).length,
   days: (s) => (s.days ?? []).length,
@@ -33,8 +37,6 @@ const tiered = (group, icon, measure, levels, describe) => levels.map(([n, title
   goal: n,
 }));
 
-const plural = (n, one, more) => `${n} ${n === 1 ? one : more}`;
-
 export const BADGES = [
   ...tiered('oefening', '🌱', count.exercises, [[1, 'Eerste stap'], [25, 'Op dreef'], [100, 'Doorzetter']],
     (n) => (n === 1 ? 'Rond je eerste oefening af.' : `Rond ${n} oefeningen af.`)),
@@ -53,15 +55,24 @@ export const BADGES = [
   ...tiered('snel', '⚡', count.game, [[15, 'Snelle denker']], (n) => `Haal ${n} goede antwoorden in één snelle ronde.`),
 ];
 
-/** Stand van één badge: { earned, at, done, goal }. */
-export function badgeStatus(state, course, badge) {
-  const at = state.badges?.[badge.id] ?? null;
-  const value = badge.measure(state, course);
-  return { earned: !!at || value >= badge.goal, at, done: Math.min(value, badge.goal), goal: badge.goal };
+/** Waarde van een maat, hooguit één keer uitgerekend (meer badges delen dezelfde maat). */
+function measurer(state, course) {
+  const memo = new Map();
+  return (b) => {
+    if (!memo.has(b.measure)) memo.set(b.measure, b.measure(state, course));
+    return memo.get(b.measure);
+  };
 }
 
-/** Alle badges met hun stand. */
-export const badgeOverview = (state, course) => BADGES.map((b) => ({ ...b, ...badgeStatus(state, course, b) }));
+/** Alle badges met hun stand: { …badge, earned, at, done, goal }. */
+export function badgeOverview(state, course) {
+  const value = measurer(state, course);
+  return BADGES.map((b) => {
+    const at = state.badges?.[b.id] ?? null;
+    const v = value(b);
+    return { ...b, earned: !!at || v >= b.goal, at, done: Math.min(v, b.goal), goal: b.goal };
+  });
+}
 
 /**
  * Badges die nu gehaald zijn maar nog niet in de voortgang staan. Geeft de nieuwe toestand (met de
@@ -69,12 +80,7 @@ export const badgeOverview = (state, course) => BADGES.map((b) => ({ ...b, ...ba
  */
 export function awardBadges(state, course, now = Date.now()) {
   const have = state.badges ?? {};
-  // Elke maat hooguit één keer uitrekenen (meer badges delen dezelfde maat).
-  const memo = new Map();
-  const value = (b) => {
-    if (!memo.has(b.measure)) memo.set(b.measure, b.measure(state, course));
-    return memo.get(b.measure);
-  };
+  const value = measurer(state, course);
   const fresh = BADGES.filter((b) => !have[b.id] && value(b) >= b.goal);
   if (!fresh.length) return { state, fresh };
   const badges = { ...have, ...Object.fromEntries(fresh.map((b) => [b.id, now])) };

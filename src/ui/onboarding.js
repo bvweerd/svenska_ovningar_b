@@ -1,7 +1,7 @@
 // Eerste gebruik: een korte kaart „Zo werkt het” en, voor wie de site echt gebruikt, advies om
 // hem als app te installeren. Allebei op de startpagina, nooit als venster dat de pagina blokkeert,
 // en allebei weg te klikken.
-import { h } from './dom.js';
+import { h, isTouch } from './dom.js';
 import { getPref, setPref, hasProgress } from '../app/progress.js';
 import { isStandalone, isIos, canPromptInstall, promptInstall, watchInstall } from '../platform/pwa.js';
 
@@ -32,7 +32,7 @@ export function installAdvice({ standalone, touch, canPrompt, ios, used, visits,
 /** De kaart „Zo werkt het”: tot je hem wegklikt of je eerste vraag hebt gemaakt. */
 export const showIntro = ({ introDone, used }) => !introDone && !used;
 
-const touchDevice = () => typeof matchMedia === 'function' && matchMedia('(pointer: coarse)').matches;
+const touchDevice = isTouch;
 
 /** Kaarten voor bovenaan de startpagina (kan leeg zijn). */
 export function homeNotices() {

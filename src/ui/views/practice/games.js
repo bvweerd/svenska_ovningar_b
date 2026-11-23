@@ -6,7 +6,7 @@ import { shuffle } from '../../../core/content/build.js';
 import { saveGame, getGame } from '../../../app/progress.js';
 import { pretOptions } from '../../../core/verbs.js';
 import { trackEvent } from '../../../platform/analytics.js';
-import { available, onKeys } from './common.js';
+import { available } from './common.js';
 
 const GAME_SECONDS = 60;
 
@@ -173,7 +173,6 @@ export function viewGame(id, { signal } = {}) {
     endAt = Date.now() + GAME_SECONDS * 1000;
     clearInterval(timer);
     timer = setInterval(() => {
-      if (!document.body.contains(stage)) return clearInterval(timer);
       if (Date.now() >= endAt) finish();
       else updateStatus();
     }, 100);
@@ -187,7 +186,7 @@ export function viewGame(id, { signal } = {}) {
   );
   // Pagina verlaten: klok en ingeplande volgende vraag stoppen (één luisteraar, ook na „Nog een keer”).
   signal?.addEventListener('abort', () => { clearInterval(timer); clearTimeout(pending); }, { once: true });
-  onKeys(view, (e) => {
+  document.addEventListener('keydown', (e) => {
     if (!q && e.key === 'Enter' && Date.now() >= restartAfter && !e.target.matches('a, button, input, textarea, select')) {
       e.preventDefault();
       start();
@@ -200,7 +199,7 @@ export function viewGame(id, { signal } = {}) {
         answer(i);
       }
     }
-  }, signal);
+  }, { signal });
   intro();
   return view;
 }

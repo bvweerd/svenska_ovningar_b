@@ -1,13 +1,15 @@
 import index from '../../content/index.yaml';
 import verbData from '../../content/verbs.yaml';
 import { buildCourse } from '../core/content/build.js';
-import { isGradable } from '../core/items/index.js';
+import { practiceEntries as entries } from '../core/content/entries.js';
 
 const files = import.meta.glob('../../content/chapters/*.yaml', { eager: true, import: 'default' });
 
 export const course = buildCourse(index, Object.values(files));
 export const verbs = verbData.verbs;
 export const levels = index.levels ?? [];
+/** De hoofdstukken die open zijn (niet „binnenkort”). */
+export const openChapters = () => course.filter((c) => c.available);
 
 /**
  * Neemt n willekeurige vragen, waarvan hooguit een derde uit automatisch gemaakte
@@ -22,11 +24,5 @@ export function balancedSample(entries, n, shuffleFn) {
   return shuffleFn([...other.slice(0, n - pickedVocab.length), ...pickedVocab]).slice(0, n);
 }
 
-/** Alle losse vragen die buiten hun oefening te gebruiken zijn (geen leesteksten of schrijfopdrachten). */
-export function practiceEntries(chapters = course) {
-  return chapters
-    .filter((c) => c.available)
-    .flatMap((chapter) => chapter.exercises
-      .filter((ex) => !ex.text)
-      .flatMap((ex) => ex.items.map((item, idx) => ({ chapter, ex, idx, item })).filter(({ item }) => isGradable(item))));
-}
+/** Alle losse vragen die buiten hun oefening te gebruiken zijn (zie core/content/entries.js). */
+export const practiceEntries = (chapters = course) => entries(chapters);

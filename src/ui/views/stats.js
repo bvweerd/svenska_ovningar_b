@@ -74,11 +74,12 @@ export function viewStats() {
             : null,
 
           (() => {
-            const started = open.filter((ch) => chapterProgress(ch).itemsDone);
+            const progress = new Map(open.map((ch) => [ch, chapterProgress(ch)]));
+            const started = open.filter((ch) => progress.get(ch).itemsDone);
             return h('section', { class: 'block' },
               h('h2', {}, 'Per hoofdstuk'),
               h('ul', { class: 'chapter-stats' }, started.map((ch) => {
-                const p = chapterProgress(ch);
+                const p = progress.get(ch);
                 // Beheerst: van de vragen die in de herhaling kunnen komen (zonder vrij schrijven en leesteksten).
                 const pool = practiceEntries([ch]);
                 const known = srsStats(pool).reduce((n, v, box) => n + (box >= CANDO_BOX ? v : 0), 0);

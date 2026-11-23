@@ -1,9 +1,9 @@
 // Menubalk bovenaan: hoofdstukken (uitklapmenu), grammatica, herhalen, over.
 // Op smalle schermen klapt alles in achter één menuknop.
+import { dueCount } from './views/practice/common.js';
 import { h } from './dom.js';
 import { splitTheme } from './shared.js';
-import { dueItems, reviewLeft } from '../app/progress.js';
-import { practiceEntries, levels } from '../app/content.js';
+import { levels } from '../app/content.js';
 
 export function createMenu(course) {
   const nav = document.getElementById('menu');
@@ -87,7 +87,7 @@ export function createMenu(course) {
       if (cur) a.setAttribute('aria-current', 'page');
       else a.removeAttribute('aria-current');
     }
-    const n = reviewLeft(dueItems(practiceEntries(course)).length);
+    const n = dueCount();
     weakCount.hidden = n === 0;
     weakCount.textContent = String(n);
     weakCount.setAttribute('aria-label', `${n} vragen om vandaag te herhalen`);

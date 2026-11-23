@@ -17,6 +17,9 @@ export function h(tag, attrs = {}, ...children) {
 }
 
 let uid = 0;
+/** Touchscreen (geen muis)? */
+export const isTouch = () => typeof matchMedia === 'function' && matchMedia('(pointer: coarse)').matches;
+
 export const nextId = (prefix = 'id') => `${prefix}-${++uid}`;
 
 export function escapeHtml(s) {

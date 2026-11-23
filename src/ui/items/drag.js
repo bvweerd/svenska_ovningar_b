@@ -34,15 +34,20 @@ export function draggable(el, { onMove = () => {}, onDrop, onEnd = () => {}, dis
       document.body.append(ghost);
       el.classList.add('dragging');
     };
+    // De invoegplek meten kost een layout: hooguit één keer per beeld.
+    let frame = 0;
     const position = (e) => {
       if (Math.hypot(e.clientX - start.x, e.clientY - start.y) > MOVE_PX) dragged = true;
       ghost.style.transform = `translate(${e.clientX - start.x}px, ${e.clientY - start.y}px)`;
-      onMove({ x: e.clientX, y: e.clientY });
+      const point = { x: e.clientX, y: e.clientY };
+      cancelAnimationFrame(frame);
+      frame = requestAnimationFrame(() => onMove(point));
     };
     // Tijdens slepen op touch: niet scrollen.
     const noScroll = (e) => { if (ghost) e.preventDefault(); };
     const cleanup = () => {
       clearTimeout(holdTimer);
+      cancelAnimationFrame(frame);
       window.removeEventListener('pointermove', move);
       window.removeEventListener('pointerup', up);
       window.removeEventListener('pointercancel', cancel);

@@ -2,16 +2,17 @@
 import { h } from '../../dom.js';
 import { practiceEntries } from '../../../app/content.js';
 import { crumbs } from '../../shared.js';
-import { dueItems, srsStats, weakItems, getTest, reviewLeft } from '../../../app/progress.js';
-import { available, plural, chapterChips, streakText } from './common.js';
+import { srsStats, getTest } from '../../../app/progress.js';
+import { available, plural, chapterChips, streakText, dueCount } from './common.js';
+import { openMistakes } from '../../../app/course-progress.js';
 import { badgeSummary } from '../badges.js';
 
 export function viewPracticeHub() {
   document.title = 'Oefenen · Svenska övningar';
   const entries = practiceEntries();
-  const due = reviewLeft(dueItems(entries).length);
+  const due = dueCount();
   const known = srsStats(entries).reduce((a, b) => a + b, 0);
-  const weak = available().reduce((n, c) => n + weakItems(c).filter(({ ex }) => !ex.text).length, 0);
+  const weak = openMistakes().length;
   // quiet: er valt nog niets te doen; de kaart blijft een link (met uitleg), maar valt minder op.
   const tool = (href, title, text, badge, quiet = false) =>
     h('a', { class: `tool-card${quiet ? ' quiet' : ''}`, href },

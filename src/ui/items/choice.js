@@ -1,14 +1,13 @@
 // Kiezen: meerkeuze, meer antwoorden, sorteren, rätt/fel (met verbetering).
 import { h, nextId } from '../dom.js';
 import { inline } from '../md.js';
-import { shuffle } from '../../core/content/build.js';
 import { gradeMc, gradeMulti, gradeTrueFalse, gradeSort } from '../../core/check/grade.js';
-import { prompt, lockInputs, sentenceField } from './fields.js';
+import { prompt, lockInputs, sentenceField, displayOrder } from './fields.js';
 
 // ---------- Meerkeuze ----------
 export function mc(item, ctx) {
   const name = nextId('mc');
-  const order = item.shuffle === false ? item.options.map((_, i) => i) : shuffle(item.options.map((_, i) => i));
+  const order = displayOrder(item, item.options.length);
   const radios = [];
   const list = h('div', { class: 'options', role: 'radiogroup' },
     order.map((orig) => {
@@ -39,7 +38,7 @@ export function mc(item, ctx) {
 }
 
 export function multi(item) {
-  const order = item.shuffle === false ? item.options.map((_, i) => i) : shuffle(item.options.map((_, i) => i));
+  const order = displayOrder(item, item.options.length);
   const boxes = [];
   const list = h('div', { class: 'options' },
     order.map((orig) => {
@@ -67,7 +66,7 @@ export function multi(item) {
 
 // ---------- Sorteren: elk woord of elke zin in een categorie ----------
 export function sort(item, ctx) {
-  const order = item.shuffle === false ? item.items.map((_, i) => i) : shuffle(item.items.map((_, i) => i));
+  const order = displayOrder(item, item.items.length);
   const choice = item.items.map(() => null);
   const rows = [];
   const groups = order.map((idx) => {

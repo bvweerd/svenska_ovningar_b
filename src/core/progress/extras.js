@@ -1,5 +1,6 @@
 // Toetsen, snelle rondes, instellingen, „verder waar je was”, flitskaarten en dictee. Puur.
 import { withDay } from './srs.js';
+import { shuffle } from '../content/build.js';
 
 export function saveTest(state, ch, score, total, perTopic, now = Date.now()) {
   const prev = state.tests?.[ch];
@@ -31,20 +32,12 @@ export const setLast = (state, href, title, now = Date.now()) => ({ ...state, la
 /** Tijdstip bij een flitskaart- of dicteesleutel, zodat samenvoegen het nieuwste oordeel kiest. */
 const stamp = (state, key, now) => ({ ...(state.t ?? {}), [key]: now });
 
-const mixed = (a, rand) => {
-  const out = [...a];
-  for (let i = out.length - 1; i > 0; i--) {
-    const j = Math.floor(rand() * (i + 1));
-    [out[i], out[j]] = [out[j], out[i]];
-  }
-  return out;
-};
 /** Eerst wat nieuw is, dan wat fout ging; pas als dat op is een herhaling van wat al goed was. */
 function pickDue(keys, statusOf, size, bad, rand) {
   const fresh = keys.filter((k) => !statusOf(k));
   const wrong = keys.filter((k) => statusOf(k) === bad);
-  const due = [...mixed(fresh, rand), ...mixed(wrong, rand)];
-  return (due.length ? due : mixed(keys, rand)).slice(0, size);
+  const due = [...shuffle(fresh, rand), ...shuffle(wrong, rand)];
+  return (due.length ? due : shuffle(keys, rand)).slice(0, size);
 }
 
 const cardKey = (ch, dir, sv) => `${ch}/${dir}/${sv}`;

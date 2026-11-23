@@ -30,7 +30,7 @@ import { answerPart, isGradable } from '../items/index.js';
 
 export const VERSION = 2;
 
-export const empty = () => ({ v: 2, items: {}, ex: {}, last: null, srs: {}, days: [], tests: {}, games: {}, prefs: {}, cards: {}, dictee: {}, t: {}, badges: {} });
+export const empty = () => ({ v: VERSION, items: {}, ex: {}, last: null, srs: {}, days: [], tests: {}, games: {}, prefs: {}, cards: {}, dictee: {}, t: {}, badges: {} });
 
 /** Vult ontbrekende onderdelen aan (oudere of gedeeltelijke voortgang). */
 export const normalize = (s) => ({ ...empty(), ...s });
@@ -99,7 +99,7 @@ export function parseProgress(input) {
   const data = typeof input === 'string' ? JSON.parse(input) : input;
   const isObj = (x) => x !== null && typeof x === 'object' && !Array.isArray(x);
   const optional = (x) => x === undefined || x === null || isObj(x);
-  if (!isObj(data) || data.v !== 2 || !isObj(data.items) || !isObj(data.ex)
+  if (!isObj(data) || data.v !== VERSION || !isObj(data.items) || !isObj(data.ex)
     || !optional(data.srs) || !optional(data.tests) || !optional(data.games) || !optional(data.prefs)
     || !optional(data.cards) || !optional(data.dictee) || !optional(data.t) || !optional(data.badges)
     || (data.days !== undefined && !Array.isArray(data.days))) {

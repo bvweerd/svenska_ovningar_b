@@ -1,7 +1,7 @@
 // Klok: hoe laat is het?
 import { h } from '../dom.js';
 import { clockSpec } from '../../core/check/grade.js';
-import { prompt, lockInputs, sentenceField } from './fields.js';
+import { prompt, sentenceField, sentenceLock } from './fields.js';
 
 // ---------- Klok ----------
 function clockSvg(time) {
@@ -37,5 +37,5 @@ export function clock(item, ctx) {
   const spec = clockSpec(item);
   const f = sentenceField(spec, ctx, { label: 'Hoe laat is het?', topic: 'klockan' });
   const el = h('div', { class: 'clock-item' }, clockSvg(item.time), h('div', {}, prompt(item.prompt ?? 'Hoe laat is het?'), f.field.el));
-  return { el, check: f.check, reveal: f.reveal, lock: () => { f.field.lock(); lockInputs(el); } };
+  return { el, check: f.check, reveal: f.reveal, lock: sentenceLock(f, el) };
 }

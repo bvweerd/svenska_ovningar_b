@@ -1,26 +1,11 @@
 // Gedeeld door de oefenvormen (herhaling, werkwoorden, flitskaarten, toets, snelle rondes).
 import { h } from '../../dom.js';
-import { course, practiceEntries } from '../../../app/content.js';
+import { practiceEntries } from '../../../app/content.js';
+import { plural } from '../../shared.js';
 import { dueItems, reviewLeft, streak } from '../../../app/progress.js';
 
-export const available = () => course.filter((c) => c.available);
-export const plural = (n, one, more) => `${n} ${n === 1 ? one : more}`;
-
-/**
- * Toetsenbord-luisteraar voor één pagina. Met signal (van de router) verdwijnt hij bij weggaan;
- * zonder signal zodra de pagina niet meer in het document staat.
- */
-export function onKeys(root, handler, signal) {
-  if (signal) return document.addEventListener('keydown', handler, { signal });
-  const listener = (e) => {
-    if (!document.body.contains(root)) {
-      document.removeEventListener('keydown', listener);
-      return;
-    }
-    handler(e);
-  };
-  document.addEventListener('keydown', listener);
-}
+export { openChapters as available } from '../../../app/content.js';
+export { plural };
 
 /** Herhaalvragen voor vandaag: wat klaarstaat, hooguit tot het dagdoel. */
 export function dueCount() {

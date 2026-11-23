@@ -1,5 +1,5 @@
 // Samenvoegen van twee voortgangen (import en synchronisatie). Puur.
-import { empty } from './schema.js';
+import { empty, VERSION } from './schema.js';
 
 /** De nieuwste van twee records; bij gelijke tijd een vaste keuze, zodat beide kanten hetzelfde kiezen. */
 function newest(x, y, time) {
@@ -47,7 +47,7 @@ export function mergeStates(a, b) {
   return {
     ...b,
     ...a,
-    v: 2,
+    v: VERSION,
     ids: !!(a.ids || b.ids) || undefined,
     items,
     srs,

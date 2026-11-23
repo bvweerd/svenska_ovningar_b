@@ -1,14 +1,14 @@
 // Router: een tabel van routes (ui/routes.js) in plaats van een keten van ifs.
 //
 // Een route: { path: '/k/:ch/o/:ex', view, refresh? }
-//   view({ params, query, signal }) → element, { el, title }, of null (= pagina niet gevonden).
+//   view({ params, query, signal }) → element of null (= pagina niet gevonden). De pagina zet zelf document.title.
 //   signal: AbortSignal dat afbreekt zodra je de pagina verlaat. Geef het mee aan
 //           addEventListener(…, { signal }) en ruim timers op met signal.addEventListener('abort', …).
 //   refresh: true → de pagina wordt opnieuw getekend als er voortgang van buiten binnenkomt
 //           (synchronisatie, import). Alleen voor pagina's zonder invoer die je kwijt kunt raken.
 import { h } from './dom.js';
 
-export const notFound = () =>
+const notFound = () =>
   h('div', { class: 'prose' }, h('h1', {}, 'Pagina niet gevonden'), h('p', {}, h('a', { href: '#/' }, 'Terug naar de start')));
 
 /** '/k/:ch' → RegExp met benoemde groepen. */
@@ -48,8 +48,7 @@ export function createRouter({ root, routes, after = () => {} }) {
     controller = new AbortController();
     const found = matchRoute(compiled, path);
     const out = found ? found.route.view({ params: found.params, query, signal: controller.signal }) : null;
-    const el = out?.el ?? out ?? notFound();
-    if (out?.title) document.title = out.title;
+    const el = out ?? notFound();
     current = found?.route ?? null;
     // Leesoefeningen krijgen op brede schermen tekst en vragen naast elkaar.
     root.classList.toggle('wide', !!el.querySelector?.('.reading-layout'));

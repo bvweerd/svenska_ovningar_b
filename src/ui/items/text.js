@@ -1,10 +1,9 @@
 // Zelf schrijven: invullen, vertalen, omvormen, tabel, zoek de fout en vrij schrijven.
 import { h } from '../dom.js';
 import { inline } from '../md.js';
-import { displayAnswer } from '../../core/check/normalize.js';
 import { shuffle } from '../../core/content/build.js';
-import { gradeFields, checkFree, freeHelp } from '../../core/check/grade.js';
-import { prompt, markFields, fieldChars, textInput, lockInputs, sentenceField } from './fields.js';
+import { checkFree, freeHelp } from '../../core/check/grade.js';
+import { prompt, fieldChars, textInput, lockInputs, sentenceField, fieldsItem, sentenceLock } from './fields.js';
 
 // ---------- Invullen ----------
 export function gap(item, ctx) {
@@ -43,27 +42,13 @@ export function gap(item, ctx) {
     }
   });
   const el = h('div', {}, prompt(item.prompt), sentence, item.hint ? h('p', { class: 'hint' }, item.hint) : null);
-  return {
-    el,
-    check() {
-      const res = gradeFields(fields.map((f) => f.value), item.gaps, ctx);
-      markFields(fields, res.fields);
-      return res;
-    },
-    reveal() {
-      fields.forEach((f, i) => {
-        f.value = displayAnswer(item.gaps[i].answers);
-        f.classList.add('revealed');
-      });
-    },
-    lock: () => lockInputs(el),
-  };
+  return { el, ...fieldsItem(el, fields, item.gaps, ctx) };
 }
 
 export function translate(item, ctx) {
   const f = sentenceField(item, ctx, { label: 'Jouw vertaling' });
   const el = h('div', {}, h('p', { class: 'prompt source' }, item.prompt), f.field.el);
-  return { el, check: f.check, reveal: f.reveal, lock: () => { f.field.lock(); lockInputs(el); } };
+  return { el, check: f.check, reveal: f.reveal, lock: sentenceLock(f, el) };
 }
 
 // ---------- Omvormen: een Zweedse zin herschrijven (actief → passief, twee zinnen → één) ----------
@@ -73,7 +58,7 @@ export function transform(item, ctx) {
     item.task ? h('p', { class: 'task', html: inline(item.task) }) : null,
     h('p', { class: 'prompt source', lang: 'sv', html: inline(item.prompt) }),
     f.field.el);
-  return { el, check: f.check, reveal: f.reveal, lock: () => { f.field.lock(); lockInputs(el); } };
+  return { el, check: f.check, reveal: f.reveal, lock: sentenceLock(f, el) };
 }
 
 export function table(item, ctx) {
@@ -93,21 +78,7 @@ export function table(item, ctx) {
   const el = h('div', {}, prompt(item.prompt),
     h('div', { class: 'table-wrap' }, h('table', { class: 'fill' }, h('thead', {}, h('tr', {}, item.columns.map((c) => h('th', {}, c)))), h('tbody', {}, rows))),
   );
-  return {
-    el,
-    check() {
-      const res = gradeFields(inputs.map((i) => i.value), specs, ctx);
-      markFields(inputs, res.fields);
-      return res;
-    },
-    reveal() {
-      inputs.forEach((inp, i) => {
-        inp.value = displayAnswer(specs[i].answers);
-        inp.classList.add('revealed');
-      });
-    },
-    lock: () => lockInputs(el),
-  };
+  return { el, ...fieldsItem(el, inputs, specs, ctx) };
 }
 
 // ---------- Vrij schrijven ----------
@@ -128,7 +99,6 @@ export function free(item) {
     prompt(item.prompt), help, area, model);
   return {
     el,
-    neutral: true,
     check() {
       if (!checkFree(area.value, item).words) return { correct: false, empty: true, tip: 'Schrijf eerst je tekst, of kies „Toon voorbeeld”.' };
       showModel();
