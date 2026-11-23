@@ -288,6 +288,13 @@ sections:
               - { type: mc, prompt: "Ik was ziek in de week dat we naar het nieuwe appartement verhuisden. Welk woord begint de bijzin?", options: ["där (plaats)", "dit (richting)", "vars (bezit)", "när (tijd)"], answer: 3, shuffle: false, tip: "de week is een tijd: när. Dat er een verhuizing in zit, maakt het geen dit: de bijzin hoort bij veckan." }
               - { type: translate, prompt: "Vertaal: Ik was ziek in de week dat we naar het nieuwe appartement verhuisden.", answers: ["Jag var sjuk {den veckan|veckan|under den veckan|under veckan} {när |då |}vi flyttade {till|in i} den nya lägenheten."], feedback: [{ contains: "dit vi flyttade", tip: "De bijzin zegt wannéér: bij veckan hoort när, ook al gaat het om een verhuizing." }, { contains: "där vi flyttade", tip: "Het gaat om een tijd (veckan), niet om een plaats: när." }] }
 
+      - id: langere-zinnen
+        title: "Vertaal: langere zinnen"
+        instruction: Vertaal de hele zin. Let op de woordvolgorde in de bijzin en na een woord vooraan.
+        items:
+          - { id: ce8q, type: translate, topic: partikelverb, prompt: "Toen we in het appartement trokken, was de kraan kapot, dus belden we meteen de verhuurder.", answers: ["När vi flyttade in i lägenheten var kranen trasig, så vi ringde hyresvärden direkt.", "När vi flyttade in[ i lägenheten] var kranen {trasig|sönder}, så vi ringde [till ]hyresvärden {direkt|med en gång|genast}."], feedback: [{ contains: "flyttade i lägenheten", tip: "Erin trekken: flytta in i." }] }
+          - { id: pk6m, type: translate, topic: dar-dit-vars, prompt: "Mijn buurvrouw, wier dochter in dezelfde klas zit als mijn zoon, komt in het weekend altijd bij ons op bezoek.", answers: ["Min granne, vars dotter går i samma klass som min son, hälsar alltid på oss på helgerna.", "Min granne, vars dotter går i samma klass som min son, hälsar alltid på oss {på helgerna|i helgerna|på helgen}."], feedback: [{ contains: "som dotter", tip: "Van wie: vars (vars dotter)." }] }
+
   - id: zoek-de-fout
     title: Zoek de fout
     exercises:

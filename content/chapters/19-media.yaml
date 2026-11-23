@@ -235,6 +235,15 @@ sections:
           - { id: 2w3d, type: order, start: "Passagerarna frågade", tokens: ["vad", "som", "hade", "hänt", "och", "varför", "bussen", "stod", "still"], answers: ["Passagerarna frågade vad som hade hänt och varför bussen stod still.", "Passagerarna frågade varför bussen stod still och vad som hade hänt."] }
           - { id: qf7q, type: order, start: "Polisen ville veta", tokens: ["om", "någon", "hade", "sett", "älgen", "innan", "den", "kom", "till", "stationen"], answers: ["Polisen ville veta om någon hade sett älgen innan den kom till stationen."] }
 
+      - id: langere-zinnen
+        title: "Vertaal: langere zinnen"
+        instruction: Vertaal de hele zin. Let op de woordvolgorde in de bijzin en na een woord vooraan.
+        items:
+          - { id: w2fq, type: translate, topic: indirekt-tal-b1, prompt: "De politie zei dat het ongeluk 's nachts was gebeurd en dat niemand ernstig gewond was geraakt.", answers: ["Polisen sa att olyckan hade hänt på natten och att ingen hade skadats allvarligt.", "Polisen {sa|sade} att olyckan hade {hänt|skett} på natten och att ingen hade {skadats|blivit skadad} allvarligt."], feedback: [{ contains: "att olyckan har hänt", tip: "Na sa schuift de tijd mee: hade hänt." }] }
+          - { id: s9hz, type: translate, topic: indirekt-fraga, prompt: "De journalist vroeg of de bus winterbanden had gehad, maar daar kon geen van de passagiers antwoord op geven.", answers: ["Journalisten frågade om bussen hade haft vinterdäck, men det kunde ingen av passagerarna svara på.", "Journalisten frågade om bussen hade haft vinterdäck, men ingen av passagerarna kunde svara på det."], feedback: [{ contains: "frågade om hade bussen", tip: "In een indirecte vraag: onderwerp, dan werkwoord (om bussen hade)." }] }
+          - { id: kx5g, type: translate, topic: indirekt-fraga, prompt: "Ik weet niet waarom de krant gisteren niets over de brand in het centrum schreef.", answers: ["Jag vet inte varför tidningen inte skrev något om branden i centrum i går.", "Jag vet inte varför tidningen inte skrev {något|någonting} om branden i centrum {i går|igår}.", "Jag vet inte varför tidningen {i går|igår} inte skrev {något|någonting} om branden i centrum."], feedback: [{ contains: "varför skrev tidningen", tip: "Indirecte vraag: onderwerp, dan werkwoord (varför tidningen inte skrev)." }] }
+          - { id: qb82, type: translate, topic: indirekt-fraga, prompt: "Kun je me vertellen waar het ongeluk gebeurde en hoeveel personen er gewond raakten?", answers: ["Kan du berätta för mig var olyckan hände och hur många personer som skadades?", "{Kan|Kunde} du berätta [för mig ]var olyckan {hände|skedde} och hur många [personer ]som skadades?"], feedback: [{ contains: "var hände olyckan", tip: "In een indirecte vraag: onderwerp, dan werkwoord (var olyckan hände)." }] }
+
   - id: zoek-de-fout
     title: Zoek de fout
     exercises:

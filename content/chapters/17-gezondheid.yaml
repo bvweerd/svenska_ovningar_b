@@ -300,6 +300,14 @@ sections:
           - { id: pn4e, type: translate, prompt: "Ik vertrouw op mijn dokter, want ze luistert altijd naar haar patiënten.", answers: ["Jag litar på min {läkare|doktor}[,] {för hon lyssnar alltid|eftersom hon alltid lyssnar} på sina patienter."], feedback: [{ contains: ["litar i", "litar av", "litar till"], tip: "Vertrouwen op = lita på." }, { contains: ["hennes patienter"], tip: "De patiënten horen bij hon, het onderwerp van dezelfde zin: sina patienter." }, { contains: "eftersom hon lyssnar alltid", tip: "In een bijzin (na eftersom) staat alltid vóór het werkwoord: eftersom hon alltid lyssnar." }] }
           - { id: zd49, type: translate, prompt: "Waar wacht je op? De bus naar het ziekenhuis vertrekt over vijf minuten.", answers: ["Vad väntar du på? Bussen till sjukhuset {går|avgår} om fem minuter.", "Vad väntar du på? Om fem minuter {går|avgår} bussen till sjukhuset."], feedback: [{ contains: "på vad väntar", tip: "In een Zweedse vraag blijft het voorzetsel achteraan: Vad väntar du på?" }, { contains: "i fem minuter", tip: "Over vijf minuten (in de toekomst) = om fem minuter." }] }
 
+      - id: langere-zinnen
+        title: "Vertaal: langere zinnen"
+        instruction: Vertaal de hele zin. Let op de woordvolgorde in de bijzin en na een woord vooraan.
+        items:
+          - { id: 343s, type: translate, topic: framtid, prompt: "De dokter denkt dat het minstens twee weken zal duren voordat de knie weer goed wordt.", answers: ["Läkaren tror att det kommer att ta minst två veckor innan knät blir bra igen.", "{Läkaren|Doktorn} tror [att ]det kommer [att ]ta minst två veckor innan {knät|mitt knä} blir bra igen."], feedback: [{ contains: "knäet", tip: "knä: bepaald knät." }] }
+          - { id: aagb, type: translate, topic: framtid, prompt: "Ik ga morgenvroeg de huisartsenpraktijk bellen en een afspraak maken bij een arts.", answers: ["Jag ska ringa vårdcentralen i morgon bitti och boka en tid hos en läkare.", "Jag ska ringa [till ]vårdcentralen {i morgon|imorgon} bitti och boka en tid hos {en läkare|läkaren}."], feedback: [{ contains: "en tid till en läkare", tip: "Bij een arts: hos." }] }
+          - { id: 7b57, type: translate, topic: prep-verb, prompt: "Ze maakt zich zorgen om haar vader, die zich niets aantrekt van wat de dokter zegt.", answers: ["Hon är orolig för sin pappa, som inte bryr sig om vad läkaren säger.", "Hon är orolig för sin {pappa|far}, som inte bryr sig om vad {läkaren|doktorn} säger."], feedback: [{ contains: "orolig om", tip: "Bezorgd om: orolig för." }] }
+
   - id: zoek-de-fout
     title: Zoek de fout
     exercises:

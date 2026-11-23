@@ -218,6 +218,13 @@ sections:
           - { id: f6ng, type: transform, prompt: "Forskarna tror att havsnivån längs den svenska västkusten stiger med flera decimeter före slutet av seklet.", task: "Herschrijf met **väntas**: Havsnivån …", answers: ["Havsnivån längs den svenska västkusten {väntas|förväntas} stiga med flera decimeter före slutet av seklet."], feedback: [{ contains: ["väntas stiger", "väntas att"], tip: "Na väntas volgt de infinitief zonder att: väntas stiga." }] }
           - { id: 4b8m, type: transform, topic: bisats-adverb, prompt: "Företaget kommer inte längre att kunna konkurrera med de stora utländska bolagen.", task: "Ekonomerna varnar för att …", answers: ["Ekonomerna varnar för att företaget inte längre kommer att kunna konkurrera med de stora utländska bolagen."], feedback: [{ contains: "kommer inte", tip: "In de bijzin (na att) staan inte en längre vóór het werkwoord: att företaget inte längre kommer att kunna …" }] }
 
+      - id: langere-zinnen
+        title: "Vertaal: langere zinnen"
+        instruction: Vertaal de hele zin. Let op de woordvolgorde in de bijzin en na een woord vooraan.
+        items:
+          - { id: qhsf, type: translate, topic: framtid-b2, prompt: "Steeds meer onderzoekers denken dat robots binnenkort veel eenvoudige taken in de zorg zullen overnemen.", answers: ["Allt fler forskare tror att robotar inom kort kommer att ta över många enkla arbetsuppgifter i vården.", "Allt fler forskare tror [att ]robotar inom kort kommer [att ]ta över många enkla {arbetsuppgifter|uppgifter} i vården."], feedback: [{ contains: "kommer att tar", tip: "Na kommer att: de infinitief (ta)." }] }
+          - { id: g9s9, type: translate, topic: framtid-b2, prompt: "Vroeg of laat moeten we ons aanpassen aan een warmer klimaat, wat de politici ook besluiten.", answers: ["Förr eller senare måste vi anpassa oss till ett varmare klimat, oavsett vad politikerna bestämmer.", "Förr eller senare måste vi anpassa oss {till|efter} ett varmare klimat, oavsett vad politikerna {bestämmer|beslutar}."], feedback: [{ contains: "Förr eller senare vi måste", tip: "Na förr eller senare vooraan: werkwoord eerst (måste vi)." }] }
+
   - id: zoek-de-fout
     title: Zoek de fout
     exercises:

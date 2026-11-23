@@ -331,6 +331,14 @@ sections:
           - { id: taq3, type: translate, prompt: "Het kantoor waar ik werk ligt maar vijf minuten lopen van het station.", answers: ["Kontoret [som ]jag {jobbar|arbetar} på ligger bara fem minuters {promenad|gång} från {stationen|centralstationen}.", "Kontoret där jag {jobbar|arbetar} ligger bara fem minuters {promenad|gång} från {stationen|centralstationen}.", "Kontoret [som ]jag {jobbar|arbetar} på ligger bara fem minuter {till fots|att gå} från {stationen|centralstationen}.", "Kontoret där jag {jobbar|arbetar} ligger bara fem minuter {till fots|att gå} från {stationen|centralstationen}."], feedback: [{ contains: ["på det ligger", "på kontoret ligger"], tip: "Herhaal kontoret niet: kontoret som jag jobbar på." }] }
           - { id: gjn9, type: translate, prompt: "De klant die gisteren belde, wil zijn geld terug voor de lamp die hij bestelde.", answers: ["Kunden som ringde i går vill ha {tillbaka pengarna|pengarna tillbaka|tillbaka sina pengar|sina pengar tillbaka} för lampan [som ]han {beställde|hade beställt}."], feedback: [{ contains: ["beställde den", "beställt den"], tip: "som vervangt het voorwerp al: laat den weg." }, { contains: "hans pengar", tip: "Het geld hoort bij het onderwerp kunden: sina pengar (of gewoon pengarna)." }] }
 
+      - id: langere-zinnen
+        title: "Vertaal: langere zinnen"
+        instruction: Vertaal de hele zin. Let op de woordvolgorde in de bijzin en na een woord vooraan.
+        items:
+          - { id: g7ch, type: translate, topic: passiv-s, prompt: "Alle sollicitaties die na eind mei binnenkomen, worden door ons helaas niet behandeld.", answers: ["Alla ansökningar som kommer in efter den sista maj behandlas tyvärr inte av oss.", "{Alla|De} ansökningar som kommer in efter [den ]sista maj behandlas tyvärr inte[ av oss]."], feedback: [{ contains: "behandlar", tip: "Ze worden behandeld: passief met -s (behandlas)." }] }
+          - { id: nktq, type: translate, topic: relativ-som, prompt: "We zoeken een nauwkeurige medewerker die zelfstandig kan werken en die ervaring heeft met verkoop.", answers: ["Vi söker en noggrann medarbetare som kan arbeta självständigt och som har erfarenhet av försäljning.", "Vi söker en noggrann medarbetare som kan {arbeta|jobba} självständigt och [som ]har erfarenhet av försäljning."], feedback: [{ contains: "som han kan", tip: "Som is zelf het onderwerp: som kan …" }] }
+          - { id: 2yyv, type: translate, topic: passiv-s, prompt: "Het salaris wordt de vijfentwintigste van elke maand uitbetaald en de vakantie wordt samen met je leidinggevende gepland.", answers: ["Lönen betalas ut den tjugofemte varje månad och semestern planeras tillsammans med din chef.", "Lönen betalas ut den {tjugofemte|25:e} {varje|i varje} månad[,] och semestern planeras tillsammans med din chef."], feedback: [{ contains: "betalar ut", tip: "Wordt uitbetaald: passief met -s (betalas ut)." }] }
+
   - id: zoek-de-fout
     title: Zoek de fout
     exercises:

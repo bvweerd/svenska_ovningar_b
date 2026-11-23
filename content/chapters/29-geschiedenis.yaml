@@ -200,7 +200,7 @@ sections:
         shuffle: true
         items:
           - { id: 6g4h, type: gap, text: "Vasa ___ (segla) bara 1 300 meter när det sjönk.", gaps: [{ answers: ["hade seglat"], feedback: [{ match: "seglade", tip: "Het zeilen was al gebeurd vóór het zinken: hade seglat." }] }] }
-          - { id: hzj9, type: gap, text: "Man ___ (märka) redan före avfärden att skeppet var instabilt.", gaps: [{ answers: ["hade märkt"] }] }
+          - { id: hzj9, type: gap, text: "Man ___ (märka) redan före avfärden att skeppet var instabilt.", gaps: [{"answers": ["hade märkt"], "feedback": [{"match": "har märkt", "tip": "Al vóór iets anders in het verleden: hade märkt."}]}] }
           - { id: zwzg, type: gap, text: "Kungen ___ (beställa) skeppet några år tidigare.", gaps: [{ answers: ["hade beställt"], feedback: [{ match: "hade beställd", tip: "Na hade: het supinum, beställt." }] }] }
           - { id: 8ctz, type: gap, text: "När vraket ___ (hitta), började man planera bärgningen.", hint: "Lijdend: hade + supinum + s.", gaps: [{ answers: ["hade hittats", "hittats"] }] }
           - { id: 2urw, type: gap, text: "Bussen ___ redan ___ (gå) när vi kom fram.", gaps: [{ answers: ["hade"] }, { answers: ["gått"], feedback: [{ match: "gåt", tip: "Supinum van gå: gått." }] }] }
@@ -267,14 +267,14 @@ sections:
         instruction: Herschrijf de zin met **det** vooraan.
         topic: fundament
         items:
-          - { id: 9yt3, type: transform, prompt: "En man står vid dörren.", answers: ["Det står en man vid dörren."] }
+          - { id: 9yt3, type: transform, prompt: "En man står vid dörren.", answers: ["Det står en man vid dörren."], feedback: [{ contains: "Det en man står", tip: "Na det komt eerst het werkwoord: det står en man …" }] }
           - { id: 23te, type: transform, prompt: "Många turister finns på museet.", answers: ["Det finns många turister på museet."], feedback: [{ contains: "det finnas", tip: "Het werkwoord blijft in de presens: det finns." }] }
-          - { id: t72f, type: transform, prompt: "Ett skepp ligger på botten.", answers: ["Det ligger ett skepp på botten."] }
+          - { id: t72f, type: transform, prompt: "Ett skepp ligger på botten.", answers: ["Det ligger ett skepp på botten."], feedback: [{ contains: "Det ett skepp ligger", tip: "Na det komt eerst het werkwoord: det ligger ett skepp …" }] }
           - { id: sy32, type: transform, prompt: "En vindby kom plötsligt.", answers: ["Det kom plötsligt en vindby.", "Det kom en vindby plötsligt."] }
-          - { id: zuvv, type: transform, prompt: "Något konstigt hände i går.", answers: ["Det hände något konstigt {i går|igår}."] }
+          - { id: zuvv, type: transform, prompt: "Något konstigt hände i går.", answers: ["Det hände något konstigt {i går|igår}."], feedback: [{ contains: "Det något konstigt hände", tip: "Na det komt eerst het werkwoord: det hände något konstigt …" }] }
           - { id: 7bh9, type: transform, prompt: "Ett fel finns i texten.", answers: ["Det finns ett fel i texten."] }
-          - { id: k926, type: transform, prompt: "Många människor bor i Stockholm.", answers: ["Det bor många människor i Stockholm."] }
-          - { id: edzt, type: transform, prompt: "Ett tåg går klockan nio.", answers: ["Det går ett tåg klockan nio."] }
+          - { id: k926, type: transform, prompt: "Många människor bor i Stockholm.", answers: ["Det bor många människor i Stockholm."], feedback: [{ contains: "Det många människor bor", tip: "Na det komt eerst het werkwoord: det bor många människor …" }] }
+          - { id: edzt, type: transform, prompt: "Ett tåg går klockan nio.", answers: ["Det går ett tåg klockan nio."], feedback: [{ contains: "Det ett tåg går", tip: "Na det komt eerst het werkwoord: det går ett tåg …" }] }
 
       - id: fundament-zinsbouw
         title: Tijd vooraan
@@ -311,6 +311,18 @@ sections:
           - { id: jrwe, type: transform, prompt: "Skeppet bärgades efter mer än trehundra år på botten av Stockholms hamn år 1961.", task: "Begin met *År 1961*.", answers: ["År 1961 bärgades skeppet efter mer än trehundra år på botten av Stockholms hamn."], feedback: [{ contains: "1961 skeppet", tip: "Na År 1961 vooraan komt het werkwoord op plaats 2: År 1961 bärgades skeppet …" }] }
           - { id: dc4m, type: transform, prompt: "Man har upptäckt många nya detaljer om livet ombord under de senaste åren.", task: "Begin met *Under de senaste åren*.", answers: ["Under de senaste åren har man upptäckt många nya detaljer om livet ombord."], feedback: [{ contains: "åren man", tip: "Na de tijdsbepaling vooraan komt het werkwoord op plaats 2: Under de senaste åren har man …" }] }
           - { id: j62u, type: transform, topic: bisats-adverb, prompt: "Kungen ville inte vänta längre, så ingen på varvet vågade stoppa det farliga projektet.", task: "Begin met *Eftersom*.", answers: ["Eftersom kungen inte {längre ville vänta|ville vänta längre} vågade ingen på varvet stoppa det farliga projektet."], feedback: [{ contains: "ville inte", tip: "In de bijzin (na eftersom) staat inte vóór het werkwoord: eftersom kungen inte längre ville vänta." }, { contains: "ingen på varvet vågade", tip: "De bijzin met eftersom telt als plaats 1: daarna komt meteen het werkwoord (… vågade ingen på varvet …)." }] }
+
+      - id: langere-zinnen
+        title: "Vertaal: langere zinnen"
+        instruction: Vertaal de hele zin. Let op de woordvolgorde in de bijzin en na een woord vooraan.
+        items:
+          - { id: sztt, type: translate, topic: bisats-adverb, prompt: "Niemand weet zeker waarom het schip zo snel zonk, maar velen denken dat het niet stabiel genoeg was.", answers: ["Ingen vet säkert varför skeppet sjönk så snabbt, men många tror att det inte var tillräckligt stabilt.", "Ingen vet säkert varför skeppet sjönk så {snabbt|fort}, men många tror [att ]det inte var {tillräckligt stabilt|stabilt nog}."], feedback: [{ contains: "att det var inte", tip: "In een bijzin staat inte vóór het werkwoord: att det inte var." }] }
+          - { id: ud9j, type: translate, topic: fundament, prompt: "In 1961 werd het schip geborgen, en sindsdien is het bezocht door miljoenen mensen van over de hele wereld.", answers: ["År 1961 bärgades skeppet, och sedan dess har det besökts av miljontals människor från hela världen.", "{År 1961|1961} bärgades {skeppet|Vasa}, och sedan dess har {det|skeppet} besökts av {miljontals|miljoner} människor från hela världen."], feedback: [{ contains: "1961 skeppet bärgades", tip: "Begin je met het jaartal, dan staat het werkwoord op plaats 2: År 1961 bärgades skeppet." }] }
+          - { id: ebe5, type: translate, topic: fundament, prompt: "In de middeleeuwen was Zweden een tamelijk arm land waar verreweg de meeste mensen op het platteland woonden.", answers: ["Under medeltiden var Sverige ett ganska fattigt land där de allra flesta människor bodde på landet.", "Under medeltiden var Sverige ett {ganska|relativt} fattigt land där de allra flesta [människor ]bodde på landet."], feedback: [{ contains: "Under medeltiden Sverige var", tip: "Na een tijdsbepaling vooraan: werkwoord eerst (var Sverige)." }] }
+          - { id: hkqb, type: translate, topic: bisats-adverb, prompt: "De koning, die het schip nooit had zien varen, werd erg boos toen hij hoorde wat er was gebeurd.", answers: ["Kungen, som aldrig hade sett skeppet segla, blev mycket arg när han fick veta vad som hade hänt.", "Kungen, som aldrig hade sett skeppet segla, blev {mycket|väldigt} arg när han fick {veta|höra} vad som hade hänt."], feedback: [{ contains: "som hade aldrig sett", tip: "In een bijzin staat aldrig vóór het werkwoord: som aldrig hade sett." }] }
+          - { id: cnaz, type: translate, topic: bisats-adverb, prompt: "De archeologen zijn blij dat ze nooit zijn opgehouden met zoeken naar het schip in de haven.", answers: ["Arkeologerna är glada att de aldrig slutade leta efter skeppet i hamnen, trots alla svårigheter.", "Arkeologerna är glada [över ]att de aldrig slutade {leta|söka} efter skeppet i hamnen[, trots alla svårigheter]."], feedback: [{ contains: "att de slutade aldrig", tip: "In een bijzin staat aldrig vóór het werkwoord: att de aldrig slutade." }] }
+          - { id: 4m78, type: translate, topic: fundament, prompt: "Plotseling kwam er een harde windstoot, en het schip kapseisde en zonk slechts een paar honderd meter van het land.", answers: ["Plötsligt kom en kraftig vindby, och skeppet kantrade och sjönk bara några hundra meter från land.", "Plötsligt kom en {kraftig|stark} vindby, och skeppet kantrade och sjönk bara några hundra meter från {land|stranden}."], feedback: [{ contains: "Plötsligt en kraftig vindby kom", tip: "Na plötsligt vooraan: werkwoord eerst (kom en vindby)." }] }
+          - { id: krma, type: translate, topic: fundament, prompt: "Daarom weten we vandaag vrij veel over hoe gewone mensen in de zeventiende eeuw leefden en werkten.", answers: ["Därför vet vi i dag ganska mycket om hur vanliga människor levde och arbetade på 1600-talet.", "Därför vet vi {i dag|idag} ganska mycket om hur vanliga människor levde och {arbetade|jobbade} på 1600-talet."], feedback: [{ contains: "Därför vi vet", tip: "Na därför: werkwoord eerst (därför vet vi)." }] }
 
   - id: zoek-de-fout
     title: Zoek de fout

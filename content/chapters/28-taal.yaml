@@ -175,14 +175,14 @@ sections:
         topic: register
         shuffle: true
         items:
-          - { id: n5ed, type: gap, text: "___ kommer i morgon.", gaps: [{ answers: ["De"], options: ["De", "Dem"], shuffle: false }] }
+          - { id: n5ed, type: gap, text: "___ kommer i morgon.", gaps: [{"answers": ["De"], "options": ["De", "Dem"], "shuffle": false, "feedback": [{"match": "Dem", "tip": "Onderwerp: de (in spreektaal klinkt het als dom)."}]}] }
           - { id: f7hn, type: gap, text: "Jag såg ___ på stationen.", gaps: [{ answers: ["dem"], options: ["de", "dem"], shuffle: false, feedback: [{ match: "de", tip: "Jag såg oss → dem." }] }] }
-          - { id: be58, type: gap, text: "Har du pratat med ___?", gaps: [{ answers: ["dem"], options: ["de", "dem"], shuffle: false, tip: "Na een voorzetsel: dem (med oss)." }] }
+          - { id: be58, type: gap, text: "Har du pratat med ___?", gaps: [{"answers": ["dem"], "options": ["de", "dem"], "shuffle": false, "tip": "Na een voorzetsel: dem (med oss).", "feedback": [{"match": "de", "tip": "Na een voorzetsel (lijdend voorwerp): dem."}]}] }
           - { id: 6jwa, type: gap, text: "Jag vet inte vad ___ vill.", gaps: [{ answers: ["de"], options: ["de", "dem"], shuffle: false, feedback: [{ match: "dem", tip: "vad vi vill → de." }] }] }
-          - { id: 7a4c, type: gap, text: "___ här skorna är för små.", gaps: [{ answers: ["De"], options: ["De", "Dem"], shuffle: false, tip: "Aanwijzend vóór een zelfstandig naamwoord: de här." }] }
+          - { id: 7a4c, type: gap, text: "___ här skorna är för små.", gaps: [{"answers": ["De"], "options": ["De", "Dem"], "shuffle": false, "tip": "Aanwijzend vóór een zelfstandig naamwoord: de här.", "feedback": [{"match": "Dem", "tip": "De här skorna: de (aanwijzend, bij een zelfstandig naamwoord)."}]}] }
           - { id: 5jja, type: gap, text: "Jag ringde ___ i går.", gaps: [{ answers: ["dem"], options: ["de", "dem"], shuffle: false, feedback: [{ match: "de", tip: "Jag ringde oss → dem." }] }] }
           - { id: q27n, type: gap, text: "Vet du om ___ har ätit?", gaps: [{ answers: ["de"], options: ["de", "dem"], shuffle: false, feedback: [{ match: "dem", tip: "om vi har ätit → de." }] }] }
-          - { id: gkmk, type: gap, text: "Vi bjöd ___ på middag.", gaps: [{ answers: ["dem"], options: ["de", "dem"], shuffle: false }] }
+          - { id: gkmk, type: gap, text: "Vi bjöd ___ på middag.", gaps: [{"answers": ["dem"], "options": ["de", "dem"], "shuffle": false, "feedback": [{"match": "de", "tip": "Lijdend voorwerp: dem."}]}] }
 
       - id: standaard
         title: Schrijf het netjes
@@ -190,13 +190,13 @@ sections:
         topic: register
         items:
           - { id: d3cw, type: transform, prompt: "Jag vet inte vad dom vill.", answers: ["Jag vet inte vad de vill."], feedback: [{ contains: "vad dem", tip: "vad vi vill → de." }] }
-          - { id: ry7v, type: transform, prompt: "Kan du hjälpa mej med nåt?", answers: ["Kan du hjälpa mig med {något|någonting}?"] }
+          - { id: ry7v, type: transform, prompt: "Kan du hjälpa mej med nåt?", answers: ["Kan du hjälpa mig med {något|någonting}?"], feedback: [{ match: "Kan du hjälpa mej med något?", tip: "In standaardtaal schrijf je mig, niet mej." }, { match: "Kan du hjälpa mig med nåt?", tip: "In standaardtaal: något of någonting." }] }
           - { id: bch5, type: transform, prompt: "Jag såg dom i går.", answers: ["Jag såg dem {i går|igår}."], feedback: [{ contains: "såg de", tip: "Jag såg oss → dem." }] }
           - { id: ubzd, type: transform, prompt: "Va gör du sen?", answers: ["Vad gör du {sedan|senare|sen}?"] }
-          - { id: rcgj, type: transform, prompt: "Har nån sett mina nycklar?", answers: ["Har någon sett mina nycklar?"] }
+          - { id: rcgj, type: transform, prompt: "Har nån sett mina nycklar?", answers: ["Har någon sett mina nycklar?"], feedback: [{ match: "Har nån sett mina nycklar?", tip: "In standaardtaal: någon." }] }
           - { id: zthq, type: transform, prompt: "Dom sa att dom inte hade tid.", answers: ["De sa att de inte hade tid.", "De sade att de inte hade tid."], feedback: [{ contains: "dem", tip: "Onderwerp (vi sa, vi hade): de." }] }
-          - { id: dsmp, type: transform, prompt: "Ja vet inte.", answers: ["Jag vet inte."] }
-          - { id: bxa9, type: transform, prompt: "Säj till om du behöver nåt!", answers: ["Säg till om du behöver {något|någonting}!"] }
+          - { id: dsmp, type: transform, prompt: "Ja vet inte.", answers: ["Jag vet inte."], feedback: [{ match: "Ja vet inte.", tip: "In standaardtaal: jag." }] }
+          - { id: bxa9, type: transform, prompt: "Säj till om du behöver nåt!", answers: ["Säg till om du behöver {något|någonting}!"], feedback: [{ match: "Säj till om du behöver något!", tip: "In standaardtaal: säg." }] }
 
       - id: formeler
         title: Formeler
@@ -204,7 +204,7 @@ sections:
         topic: register
         shuffle: true
         items:
-          - { id: vtfd, type: gap, text: "Vi har ___ din ansökan.", gaps: [{ answers: ["erhållit"], options: ["erhållit", "fått tag på", "kollat"], shuffle: false }] }
+          - { id: vtfd, type: gap, text: "Vi har ___ din ansökan.", gaps: [{"answers": ["erhållit"], "options": ["erhållit", "fått tag på", "kollat"], "shuffle": false, "feedback": [{"match": "kollat", "tip": "Kollat is spreektaal; in een formele brief: erhållit."}]}] }
           - { id: ukfj, type: gap, text: "Vi vill ___ att kontoret är stängt i morgon.", gaps: [{ answers: ["meddela"], options: ["meddela", "snacka om", "säga till dig"], shuffle: false }] }
           - { id: pce2, type: gap, text: "Tack för din ansökan. Vi har ___ redan anställt en person.", gaps: [{ answers: ["dock"], options: ["dock", "typ", "liksom"], shuffle: false }] }
           - { id: yvma, type: gap, text: "Mötet ___ på fredag klockan tio.", gaps: [{ answers: ["äger rum"], options: ["äger rum", "blir av typ", "händer liksom"], shuffle: false }] }
@@ -281,6 +281,17 @@ sections:
           - { id: ntsn, type: order, start: "I stället för att", tokens: ["gå", "som", "katten", "kring", "het", "gröt", "borde", "du", "säga", "vad", "du", "menar"], answers: ["I stället för att gå som katten kring het gröt borde du säga vad du menar."], feedback: [{ contains: "gröt du borde", tip: "Na het zinsdeel vooraan komt eerst het werkwoord: … borde du säga." }] }
           - { id: t2w8, type: gap, prompt: "Maak de uitdrukking af.", text: "Han fick jobbet utan att ens gå på en intervju: han gled in på en ___.", gaps: [{ answers: ["räkmacka"], options: ["räkmacka", "smörgås", "kanelbulle"], shuffle: false }] }
           - { id: dayr, type: gap, prompt: "Maak de uitdrukking af.", text: "Man ska ta det han skriver på sociala medier med en nypa ___, eftersom han ofta överdriver.", gaps: [{ answers: ["salt"], options: ["salt", "socker", "peppar"], shuffle: false }] }
+
+      - id: langere-zinnen
+        title: "Vertaal: langere zinnen"
+        instruction: Vertaal de hele zin. Let op de woordvolgorde in de bijzin en na een woord vooraan.
+        items:
+          - { id: pnjt, type: translate, topic: register, prompt: "Neem uiterlijk vrijdag contact op als u vragen heeft over uw zaak of over de kosten.", answers: ["Vänligen återkom senast på fredag om du har några frågor om ditt ärende eller om avgiften.", "[Vänligen ]återkom senast [på ]fredag om {du|ni} har [några ]frågor om {ditt|ert} ärende eller [om ]avgiften."], feedback: [{ contains: "vänligen återkommer", tip: "Een verzoek: de gebiedende wijs (återkom)." }] }
+          - { id: 4hvj, type: translate, topic: idiom, prompt: "Het maakt niet uit of je dialect spreekt, als je maar duidelijk en niet te snel praat.", answers: ["Det spelar ingen roll om du pratar dialekt, bara du talar tydligt och inte för fort.", "Det spelar ingen roll om du {pratar|talar} dialekt, bara du {pratar|talar} tydligt och inte för {fort|snabbt}."], feedback: [{ contains: "spelar inte roll", tip: "Het maakt niet uit: det spelar ingen roll." }] }
+          - { id: s94f, type: translate, topic: register, prompt: "Ze woont al tien jaar in Zweden en spreekt vloeiend Zweeds, maar met een licht accent.", answers: ["Hon har bott i Sverige i tio år och talar flytande svenska, men med en lätt brytning.", "Hon har bott i Sverige i tio år och {talar|pratar} flytande svenska, men med en lätt {brytning|accent}."], feedback: [{ contains: "bott i Sverige för tio år", tip: "Al tien jaar: i tio år." }] }
+          - { id: 9ru5, type: translate, topic: register, prompt: "Ik kijk er echt naar uit om je te zien, dus laat iets van je horen als je weer in de stad bent.", answers: ["Jag ser verkligen fram emot att träffa dig, så hör av dig när du är tillbaka i stan.", "Jag ser verkligen fram emot att {träffa|se} dig, så hör av dig när du är tillbaka i {stan|staden}."], feedback: [{ contains: "fram emot att träffar", tip: "Na att: de infinitief (träffa)." }] }
+          - { id: e4nd, type: translate, topic: idiom, prompt: "Je moet alles wat in de roddelkranten staat met een korreltje zout nemen, vindt mijn leraar Zweeds.", answers: ["Man ska ta allt som står i kvällstidningarna med en nypa salt, tycker min svenska lärare.", "Man {ska|bör|måste} ta allt som står i kvällstidningarna med en nypa salt, tycker min {svenska lärare|lärare i svenska|svensklärare}."], feedback: [{ contains: "med ett nypa salt", tip: "nypa is een en-woord: en nypa salt." }] }
+          - { id: zvhj, type: translate, topic: register, prompt: "Als je een woord niet begrijpt, kun je het in het woordenboek opzoeken of een collega vragen.", answers: ["Om du inte förstår ett ord kan du slå upp det i ordboken eller fråga en kollega.", "Om du inte förstår ett ord[,] kan du slå upp det i {ordboken|en ordbok} eller fråga en kollega."], feedback: [{ contains: "om du förstår inte", tip: "In een bijzin staat inte vóór het werkwoord: om du inte förstår." }] }
 
   - id: zoek-de-fout
     title: Zoek de fout

@@ -347,6 +347,13 @@ sections:
           - { id: pn8e, type: gap, text: "Elin har sparat alla ___ (födelsedag + kort) som hon har fått sedan hon var liten.", gaps: [{ answers: ["födelsedagskort"], feedback: [{ match: "födelsedagkort", tip: "födelsedag is al een samenstelling: dan komt er vaak een -s-, födelsedagskort." }] }] }
           - { id: 2kan, type: gap, text: "I bilen på väg till midsommarfesten måste alla barn ha ___ (säkerhet + bälte) på sig.", gaps: [{ answers: ["säkerhetsbälte"], feedback: [{ match: "säkerhetbälte", tip: "Na -het komt een -s-: säkerhetsbälte." }] }] }
 
+      - id: langere-zinnen
+        title: "Vertaal: langere zinnen"
+        instruction: Vertaal de hele zin. Let op de woordvolgorde in de bijzin en na een woord vooraan.
+        items:
+          - { id: krkw, type: translate, topic: bestamd-utan-artikel, prompt: "Afgelopen kerst vierde de hele familie samen bij mijn oma in een oud huis op het platteland.", answers: ["Förra julen firade hela släkten tillsammans hos min mormor i ett gammalt hus på landet.", "Förra julen firade hela {släkten|familjen} [tillsammans ]hos min {mormor|farmor} i ett gammalt hus på landet."], feedback: [{ contains: "Den förra julen", tip: "Förra julen: zonder den." }] }
+          - { id: t8hy, type: translate, topic: sammansattning, prompt: "Voor het midzomerfeest bakten we een grote aardbeientaart en dekten we een lange tafel in de tuin.", answers: ["Till midsommarfesten bakade vi en stor jordgubbstårta och dukade ett långt bord i trädgården.", "Till {midsommarfesten|midsommar} bakade vi en stor jordgubbstårta och dukade ett långt bord i trädgården."], feedback: [{ contains: "jordgubb tårta", tip: "Een samenstelling schrijf je aan elkaar: jordgubbstårta." }] }
+
   - id: zoek-de-fout
     title: Zoek de fout
     exercises:

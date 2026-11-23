@@ -247,6 +247,13 @@ sections:
           - { id: yj26, type: translate, prompt: "Mijn collega's en ik gaan ook buiten het werk vaak met elkaar om.", answers: ["{Mina kollegor och jag|Mina kolleger och jag|Jag och mina kollegor|Jag och mina kolleger} umgås [med varandra ]ofta {även|också} {utanför jobbet|utanför arbetet|på fritiden}.", "{Mina kollegor och jag|Mina kolleger och jag|Jag och mina kollegor|Jag och mina kolleger} umgås ofta [med varandra ]{även|också} {utanför jobbet|utanför arbetet|på fritiden}."], feedback: [{ contains: ["umgår", "umgåss"], tip: "umgås heeft in de presens ook umgås." }] }
           - { id: bejh, type: translate, prompt: "Je ziet helemaal niet dat ze pas sinds januari Zweeds leert.", answers: ["Det syns inte alls att hon {bara har läst|bara har lärt sig|bara har studerat|bara har pluggat|har läst|har lärt sig|har studerat|har pluggat} svenska sedan [i ]januari.", "Det märks inte alls att hon {bara har läst|bara har lärt sig|bara har studerat|bara har pluggat|har läst|har lärt sig|har studerat|har pluggat} svenska sedan [i ]januari.", "Man ser inte alls att hon {bara har läst|bara har lärt sig|bara har studerat|bara har pluggat|har läst|har lärt sig|har studerat|har pluggat} svenska sedan [i ]januari."], feedback: [{ contains: ["det ses inte", "det ser inte"], tip: "Te zien zijn = synas: det syns inte alls." }, { contains: ["svenska i januari", "hon i januari"], tip: "Sinds januari = sedan januari." }] }
 
+      - id: langere-zinnen
+        title: "Vertaal: langere zinnen"
+        instruction: Vertaal de hele zin. Let op de woordvolgorde in de bijzin en na een woord vooraan.
+        items:
+          - { id: dx4s, type: translate, topic: deponens, prompt: "Ik hoop dat mijn zaak snel afgehandeld is, want ik heb het besluit nodig voordat ik verhuis.", answers: ["Jag hoppas att mitt ärende blir klart snart, för jag behöver beslutet innan jag flyttar.", "Jag hoppas [att ]mitt ärende blir klart {snart|snabbt}, {för|eftersom} jag behöver beslutet innan jag flyttar."], feedback: [{ contains: "hoppar", tip: "Hopen is hoppas (altijd met -s)." }] }
+          - { id: kuem, type: translate, topic: deponens, prompt: "We zien elkaar meestal één keer per maand om samen te zijn en samen Zweeds te praten.", answers: ["Vi brukar träffas en gång i månaden för att umgås och prata svenska tillsammans.", "Vi brukar {träffas|ses} en gång {i månaden|per månad} för att umgås och {prata|tala} svenska tillsammans."], feedback: [{ contains: "träffar en gång", tip: "Elkaar zien: träffas (met -s)." }] }
+
   - id: zoek-de-fout
     title: Zoek de fout
     exercises:

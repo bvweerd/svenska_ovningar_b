@@ -183,14 +183,14 @@ sections:
         topic: subjunktioner-b1
         shuffle: true
         items:
-          - { id: 7sjd, type: gap, text: "___ det regnade, gick vi ut ändå.", gaps: [{ answers: ["Trots att"], options: ["Trots att", "Eftersom", "Så att"], shuffle: false }] }
-          - { id: e27x, type: gap, text: "Jag tänker gå på festen ___ det blir sent.", gaps: [{ answers: ["även om"], options: ["även om", "medan", "sedan"], shuffle: false, tip: "Zelfs als (het nog moet gebeuren): även om." }] }
-          - { id: j6uc, type: gap, text: "Hon lagade mat ___ han dukade bordet. De gjorde det samtidigt.", gaps: [{ answers: ["medan"], options: ["medan", "så att", "trots att"], shuffle: false }] }
+          - { id: 7sjd, type: gap, text: "___ det regnade, gick vi ut ändå.", gaps: [{"answers": ["Trots att"], "options": ["Trots att", "Eftersom", "Så att"], "shuffle": false, "feedback": [{"match": "Eftersom", "tip": "Eftersom = omdat. Hier is het een tegenstelling (ondanks dat): trots att."}]}] }
+          - { id: e27x, type: gap, text: "Jag tänker gå på festen ___ det blir sent.", gaps: [{"answers": ["även om"], "options": ["även om", "medan", "sedan"], "shuffle": false, "tip": "Zelfs als (het nog moet gebeuren): även om.", "feedback": [{"match": "medan", "tip": "Medan = terwijl. Ook al: även om."}]}] }
+          - { id: j6uc, type: gap, text: "Hon lagade mat ___ han dukade bordet. De gjorde det samtidigt.", gaps: [{"answers": ["medan"], "options": ["medan", "så att", "trots att"], "shuffle": false, "feedback": [{"match": "trots att", "tip": "Ze deden het tegelijk: medan (terwijl)."}]}] }
           - { id: 9vp3, type: gap, text: "Tvätta händerna ___ du äter!", gaps: [{ answers: ["innan"], options: ["innan", "medan", "sedan"], shuffle: false, feedback: [{ match: "sedan", tip: "sedan = sinds of daarna. Voordat = innan." }] }] }
           - { id: rz3e, type: gap, text: "___ jag flyttade hit, har jag lärt mig mycket.", gaps: [{ answers: ["Sedan"], options: ["Sedan", "Innan", "Medan"], shuffle: false }] }
-          - { id: 54qj, type: gap, text: "Hon pratar mycket, ___ han är tyst.", gaps: [{ answers: ["medan"], options: ["medan", "trots att", "innan"], shuffle: false, tip: "Een tegenstelling tussen twee mensen: medan." }] }
-          - { id: 2jja, type: gap, text: "Jag flyttade till Sverige ___ jobba.", gaps: [{ answers: ["för att"], options: ["för att", "utan att", "så att"], shuffle: false }] }
-          - { id: vcak, type: gap, text: "Han gick ___ säga hej då.", gaps: [{ answers: ["utan att"], options: ["för att", "utan att", "så att"], shuffle: false }] }
+          - { id: 54qj, type: gap, text: "Hon pratar mycket, ___ han är tyst.", gaps: [{"answers": ["medan"], "options": ["medan", "trots att", "innan"], "shuffle": false, "tip": "Een tegenstelling tussen twee mensen: medan.", "feedback": [{"match": "trots att", "tip": "Twee mensen tegenover elkaar (zij wel, hij niet): medan."}]}] }
+          - { id: 2jja, type: gap, text: "Jag flyttade till Sverige ___ jobba.", gaps: [{"answers": ["för att"], "options": ["för att", "utan att", "så att"], "shuffle": false, "feedback": [{"match": "så att", "tip": "Om te + werkwoord: för att. Na så att (zodat) volgt een hele zin."}]}] }
+          - { id: vcak, type: gap, text: "Han gick ___ säga hej då.", gaps: [{"answers": ["utan att"], "options": ["för att", "utan att", "så att"], "shuffle": false, "feedback": [{"match": "för att", "tip": "Hij ging weg zonder gedag te zeggen: utan att."}]}] }
 
       - id: subj-combineren
         title: Twee zinnen worden één
