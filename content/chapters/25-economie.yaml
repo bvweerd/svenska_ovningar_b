@@ -371,9 +371,9 @@ sections:
         instruction: Zeg het nu zelf in het Zweeds. Er is vaak meer dan één goed antwoord.
         kind: situatie
         items:
-          - { id: mpn7, type: translate, topic: trender, prompt: "Zeg dat de verkoop met tien procent gestegen is.", answers: ["Försäljningen har ökat med tio procent.", "Försäljningen ökade med tio procent."], feedback: [{ contains: "ökat på", tip: "Met een percentage: öka med." }] }
-          - { id: kge6, type: translate, topic: trender, prompt: "In een vergadering: zeg dat de kosten sterk gedaald zijn.", answers: ["Kostnaderna har minskat kraftigt.", "Kostnaderna minskade kraftigt."] }
-          - { id: nuau, type: translate, topic: trender, prompt: "Zeg dat de winst kleiner was dan vorig jaar.", answers: ["Vinsten {var|blev} mindre än förra året."] }
+          - { id: mpn7, type: translate, topic: trender, prompt: "Zeg dat de verkoop met tien procent gestegen is.", answers: ["Försäljningen har {ökat|stigit|gått upp} med tio procent.", "Försäljningen {ökade|steg|gick upp} med tio procent."], feedback: [{ contains: "ökat på", tip: "Met een percentage: öka med." }] }
+          - { id: kge6, type: translate, topic: trender, prompt: "In een vergadering: zeg dat de kosten sterk gedaald zijn.", answers: ["Kostnaderna har {minskat|sjunkit|gått ner} kraftigt.", "Kostnaderna {minskade|sjönk|gick ner} kraftigt."] }
+          - { id: nuau, type: translate, topic: trender, prompt: "Zeg dat de winst kleiner was dan vorig jaar.", answers: ["Vinsten {var|blev} {mindre|lägre} än {förra året|i fjol}."] }
           - { id: qggg, type: translate, topic: nominalisering, prompt: "Schrijf in een verslag: de invoering van het nieuwe systeem duurde lang.", answers: ["Införandet av det nya systemet tog lång tid."] }
 
   - id: skriva
@@ -527,6 +527,6 @@ vocab:
   - { sv: "ekonomisk", nl: "economisch, financieel", ex: "Familjen har **ekonomiska** problem.", exNl: "Het gezin heeft financiële problemen." }
   - { sv: "stabil", nl: "stabiel", ex: "Priserna har varit **stabila** i ett år.", exNl: "De prijzen zijn een jaar stabiel geweest." }
   - { sv: "en kris", nl: "een crisis", def: "krisen", pl: "kriser", plDef: "kriserna", ex: "Många företag gick i konkurs under **krisen**.", exNl: "Veel bedrijven gingen failliet tijdens de crisis." }
-  - { sv: "en export", nl: "een export", def: "exporten", mass: true, ex: "**Exporten** till Tyskland ökade.", exNl: "De export naar Duitsland steeg." }
-  - { sv: "en import", nl: "een import", def: "importen", mass: true, ex: "**Importen** av el har minskat.", exNl: "De import van stroom is gedaald." }
+  - { sv: "en export", nl: "de export", def: "exporten", mass: true, ex: "**Exporten** till Tyskland ökade.", exNl: "De export naar Duitsland steeg." }
+  - { sv: "en import", nl: "de import", def: "importen", mass: true, ex: "**Importen** av el har minskat.", exNl: "De import van stroom is gedaald." }
   - { sv: "att investera", nl: "investeren", ex: "Företaget **investerar** i ny teknik.", exNl: "Het bedrijf investeert in nieuwe technologie." }

@@ -391,8 +391,8 @@ sections:
         items:
           - { id: wqmz, type: translate, topic: jamforelse, prompt: "Zeg dat deze jas goedkoper is dan die.", answers: ["Den här jackan är billigare än den där."], feedback: [{ contains: "mer billig", tip: "Kort woord: billig – billigare – billigast." }] }
           - { id: uzks, type: translate, topic: jamforelse, prompt: "Zeg: hoe meer ik oefen, hoe beter ik word.", answers: ["Ju mer jag övar, desto bättre blir jag."], feedback: [{ contains: "desto bättre jag blir", tip: "Na desto … komt eerst het werkwoord: desto bättre blir jag." }] }
-          - { id: dfw5, type: translate, topic: ordbildning, prompt: "Vraag in de winkel of je dit kunt ruilen.", answers: ["Kan jag byta {den här|det här}?", "Går det att byta {den här|det här}?"] }
-          - { id: k3e6, type: translate, topic: jamforelse, prompt: "Zeg dat deze winkel de beste prijzen heeft.", answers: ["Den här affären har de bästa priserna."], feedback: [{ contains: "de bäst priserna", tip: "Bepaald, met de: de bästa priserna." }] }
+          - { id: dfw5, type: translate, topic: woordenschat, prompt: "Vraag in de winkel of je dit kunt ruilen.", answers: ["{Kan|Får} jag [få ]byta {den här|det här}?", "Går det att byta {den här|det här}?"] }
+          - { id: k3e6, type: translate, topic: jamforelse, prompt: "Zeg dat deze winkel de beste prijzen heeft.", answers: ["Den här {affären|butiken} har de bästa priserna."], feedback: [{ contains: "de bäst priserna", tip: "Bepaald, met de: de bästa priserna." }] }
 
   - id: skriva
     title: Skriva · schrijven
@@ -499,9 +499,6 @@ vocab:
   - { sv: "på köpet", nl: "op de koop toe, er gratis bij", ex: "Köper du två tröjor får du en mössa **på köpet**.", exNl: "Als je twee truien koopt, krijg je er een muts gratis bij." }
   - { sv: "till halva priset", nl: "voor de halve prijs", ex: "Gårdagens bröd säljs **till halva priset**.", exNl: "Het brood van gisteren wordt voor de halve prijs verkocht." }
   - { sv: "ohälsosam", nl: "ongezond", ex: "Färdigmat är ofta salt och **ohälsosam**.", exNl: "Kant-en-klaarmaaltijden zijn vaak zout en ongezond." }
-  - { sv: "en kassa", nl: "een kassa", def: "kassan", pl: "kassor", plDef: "kassorna", ex: "Det var lång kö vid **kassan**.", exNl: "Er was een lange rij bij de kassa." }
-  - { sv: "en affär", nl: "een winkel", def: "affären", pl: "affärer", plDef: "affärerna", ex: "**Affären** stänger klockan åtta.", exNl: "De winkel sluit om acht uur." }
   - { sv: "en prislapp", nl: "een prijskaartje", def: "prislappen", pl: "prislappar", plDef: "prislapparna", ex: "Det fanns ingen **prislapp** på tröjan.", exNl: "Er zat geen prijskaartje aan de trui." }
-  - { sv: "ett kontokort", nl: "een betaalkaart", def: "kontokortet", pl: "kontokort", plDef: "kontokorten", ex: "Jag betalar nästan alltid med **kontokort**.", exNl: "Ik betaal bijna altijd met mijn betaalkaart." }
-  - { sv: "att låna", nl: "lenen", ex: "Kan jag **låna** pengar av dig?", exNl: "Kan ik geld van je lenen?" }
+  - { sv: "ett kontokort", nl: "een creditcard, betaalkaart", def: "kontokortet", pl: "kontokort", plDef: "kontokorten", ex: "Jag betalar nästan alltid med **kontokort**.", exNl: "Ik betaal bijna altijd met mijn betaalkaart." }
   - { sv: "kontant", nl: "contant", ex: "Det går inte att betala **kontant** här.", exNl: "Je kunt hier niet contant betalen." }

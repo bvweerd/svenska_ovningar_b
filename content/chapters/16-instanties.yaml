@@ -331,9 +331,9 @@ sections:
         instruction: Zeg het nu zelf in het Zweeds. Er is vaak meer dan één goed antwoord.
         kind: situatie
         items:
-          - { id: k8je, type: translate, topic: deponens, prompt: "Zeg dat je hoopt dat het snel gaat.", answers: ["Jag hoppas att det går snabbt."], feedback: [{ contains: "hoppar", tip: "Hopen is hoppas (eindigt altijd op -s)." }] }
-          - { id: hgdw, type: translate, topic: deponens, prompt: "Zeg tegen je collega dat jullie elkaar morgen zien.", answers: ["Vi {ses|träffas} {imorgon|i morgon}."] }
-          - { id: h32b, type: translate, topic: myndighetssprak, prompt: "Vraag aan het loket hoe lang de behandeltijd is.", answers: ["Hur lång är handläggningstiden?", "Hur lång handläggningstid är det?"] }
+          - { id: k8je, type: translate, topic: deponens, prompt: "Zeg dat je hoopt dat het snel gaat.", answers: ["Jag hoppas [att ]det går {snabbt|fort}."], feedback: [{ contains: "hoppar", tip: "Hopen is hoppas (eindigt altijd op -s)." }] }
+          - { id: hgdw, type: translate, topic: deponens, prompt: "Zeg tegen je collega dat jullie elkaar morgen zien.", answers: ["Vi {ses|träffas} {imorgon|i morgon}.", "Vi ska {ses|träffas} {imorgon|i morgon}."] }
+          - { id: h32b, type: translate, topic: myndighetssprak, prompt: "Vraag aan het loket hoe lang de behandeltijd is.", answers: ["Hur lång är handläggningstiden?", "Hur lång handläggningstid är det?", "Hur lång tid tar handläggningen?"] }
           - { id: jg9u, type: translate, topic: deponens, prompt: "Zeg dat het je gelukt is een bankrekening te openen.", answers: ["Jag har lyckats öppna ett bankkonto.", "Jag lyckades öppna ett bankkonto."] }
 
   - id: skriva
@@ -440,12 +440,10 @@ vocab:
   - { sv: "kostnadsfri", nl: "kosteloos", ex: "Tjänsten är **kostnadsfri** för alla som bor i kommunen.", exNl: "De dienst is kosteloos voor iedereen die in de gemeente woont." }
   - { sv: "digitalt", nl: "digitaal", ex: "Du kan skicka in ansökan **digitalt** med bank-id.", exNl: "Je kunt de aanvraag digitaal indienen met bank-id." }
   - { sv: "respektive", nl: "respectievelijk", ex: "Avgiften är 400 **respektive** 250 kronor för vuxna och barn.", exNl: "Het tarief is 400 respectievelijk 250 kronen voor volwassenen en kinderen." }
-  - { sv: "en regel", nl: "een regel", def: "regeln", pl: "regler", plDef: "reglerna", ex: "**Reglerna** är olika i olika kommuner.", exNl: "De regels verschillen per gemeente." }
   - { sv: "en webbplats", nl: "een website", def: "webbplatsen", pl: "webbplatser", plDef: "webbplatserna", ex: "Blanketten finns på myndighetens **webbplats**.", exNl: "Het formulier staat op de website van de instantie." }
-  - { sv: "att ändra", nl: "wijzigen", ex: "Du kan **ändra** din ansökan på nätet.", exNl: "Je kunt je aanvraag online wijzigen." }
   - { sv: "att godkänna", nl: "goedkeuren", ex: "Ansökan har **godkänts**.", exNl: "De aanvraag is goedgekeurd." }
   - { sv: "nödvändig", nl: "noodzakelijk", ex: "Alla **nödvändiga** papper måste bifogas.", exNl: "Alle noodzakelijke papieren moeten worden bijgevoegd." }
-  - { sv: "ogiltig", nl: "ongeldig", ex: "Mitt pass är **ogiltigt** sedan i maj.", exNl: "Mijn paspoort is sinds mei ongeldig." }
+  - { sv: "ogiltig", nl: "ongeldig", ex: "Mitt pass har varit **ogiltigt** sedan i maj.", exNl: "Mijn paspoort is sinds mei ongeldig." }
   - { sv: "en tidsbokning", nl: "een afspraak (gemaakt)", def: "tidsbokningen", pl: "tidsbokningar", plDef: "tidsbokningarna", ex: "**Tidsbokningen** gör du på webbplatsen.", exNl: "Een afspraak maak je via de website." }
   - { sv: "en e-tjänst", nl: "een online dienst", def: "e-tjänsten", pl: "e-tjänster", plDef: "e-tjänsterna", ex: "Det är enklast att använda **e-tjänsten**.", exNl: "Het is het makkelijkst om de online dienst te gebruiken." }
   - { sv: "att registrera", nl: "registreren", ex: "Du måste **registrera** din nya adress.", exNl: "Je moet je nieuwe adres registreren." }

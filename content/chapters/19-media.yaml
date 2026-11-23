@@ -319,10 +319,10 @@ sections:
         instruction: Zeg het nu zelf in het Zweeds. Er is vaak meer dan één goed antwoord.
         kind: situatie
         items:
-          - { id: 8f9p, type: translate, topic: indirekt-tal-b1, prompt: "Je collega vraagt wat de chef zei. Zeg dat ze zei dat de vergadering wordt verschoven.", answers: ["Hon {sa|sade} att mötet {flyttas|skjuts upp|ska flyttas}."] }
-          - { id: fe85, type: translate, topic: indirekt-fraga, prompt: "Vraag beleefd of iemand weet waar het station is.", answers: ["Vet du var stationen {ligger|är}?"], feedback: [{ contains: "var ligger stationen", tip: "In een indirecte vraag: onderwerp, dan werkwoord (var stationen ligger)." }] }
+          - { id: 8f9p, type: translate, topic: indirekt-tal-b1, prompt: "Je collega vraagt wat de chef zei. Zeg dat ze zei dat de vergadering wordt verschoven.", answers: ["{Hon|Chefen} {sa|sade} att mötet {skulle flyttas|skulle skjutas upp|flyttas|skjuts upp|har flyttats}."], feedback: [{ contains: "att mötet ska", tip: "Na sa schuift de tijd mee: ska → skulle." }] }
+          - { id: fe85, type: translate, topic: indirekt-fraga, prompt: "Vraag beleefd of iemand weet waar het station is.", answers: ["[Ursäkta, ]vet {du|ni} var stationen {ligger|är}?"], feedback: [{ contains: "var ligger stationen", tip: "In een indirecte vraag: onderwerp, dan werkwoord (var stationen ligger)." }] }
           - { id: y53c, type: translate, topic: indirekt-fraga, prompt: "Zeg dat je niet weet wie er gewonnen heeft.", answers: ["Jag vet inte vem som {vann|har vunnit}."], feedback: [{ contains: "vem vann", tip: "Is vem het onderwerp in een indirecte vraag, dan komt er som bij: vem som vann." }] }
-          - { id: uvtj, type: translate, topic: indirekt-tal-b1, prompt: "Vertel dat in de krant stond dat de weg is afgesloten.", answers: ["Det stod i tidningen att vägen {är|var} avstängd.", "Tidningen skrev att vägen {är|var} avstängd."] }
+          - { id: uvtj, type: translate, topic: indirekt-tal-b1, prompt: "Vertel dat in de krant stond dat de weg is afgesloten.", answers: ["Det stod i tidningen att vägen {är|var} avstängd.", "Tidningen skrev att vägen {är|var} avstängd.", "I tidningen stod det att vägen {är|var} avstängd."] }
 
   - id: skriva
     title: Skriva · schrijven
@@ -430,14 +430,8 @@ vocab:
   - { sv: "tydligen", nl: "blijkbaar", ex: "Det var **tydligen** en ung älg.", exNl: "Het was blijkbaar een jonge eland." }
   - { sv: "i direktsändning", nl: "live (op radio of tv)", alt: ["live"], ex: "Presskonferensen visades **{i direktsändning|live}**.", exNl: "De persconferentie werd live uitgezonden." }
   - { sv: "vilseledande", nl: "misleidend", ex: "Rubriken var **vilseledande**.", exNl: "De kop was misleidend." }
-  - { sv: "en polis", nl: "een politieagent; de politie", def: "polisen", pl: "poliser", plDef: "poliserna", ex: "**Polisen** kom efter tio minuter.", exNl: "De politie kwam na tien minuten." }
-  - { sv: "en bild", nl: "een foto, beeld", def: "bilden", pl: "bilder", plDef: "bilderna", ex: "Artikeln hade en stor **bild**.", exNl: "Het artikel had een grote foto." }
-  - { sv: "en information", nl: "informatie", def: "informationen", mass: true, ex: "Vi har ingen mer **information** just nu.", exNl: "We hebben op dit moment geen verdere informatie." }
   - { sv: "en kommentar", nl: "een reactie, commentaar", def: "kommentaren", pl: "kommentarer", plDef: "kommentarerna", ex: "Artikeln fick hundra **kommentarer**.", exNl: "Het artikel kreeg honderd reacties." }
-  - { sv: "en radio", nl: "een radio", def: "radion", pl: "radioapparater", plDef: "radioapparaterna", ex: "Jag lyssnar på nyheterna på **radion**.", exNl: "Ik luister naar het nieuws op de radio." }
-  - { sv: "att hända", nl: "gebeuren", ex: "Vad har **hänt**?", exNl: "Wat is er gebeurd?" }
-  - { sv: "att läsa upp", nl: "voorlezen", ex: "Han **läste upp** nyheterna i radio.", exNl: "Hij las het nieuws voor op de radio." }
-  - { sv: "viktig", nl: "belangrijk", ex: "Det här är en **viktig** nyhet.", exNl: "Dit is een belangrijk nieuwsbericht." }
+  - { sv: "att läsa upp", nl: "voorlezen", ex: "Läraren **läste upp** namnen.", exNl: "De leraar las de namen voor." }
   - { sv: "okänd", nl: "onbekend", ex: "Orsaken till branden är fortfarande **okänd**.", exNl: "De oorzaak van de brand is nog onbekend." }
   - { sv: "en kanal", nl: "een kanaal, zender", def: "kanalen", pl: "kanaler", plDef: "kanalerna", ex: "Vilken **kanal** visar nyheterna?", exNl: "Welke zender laat het nieuws zien?" }
   - { sv: "att citera", nl: "citeren", ex: "Journalisten **citerade** ministern.", exNl: "De journalist citeerde de minister." }

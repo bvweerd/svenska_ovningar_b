@@ -109,7 +109,7 @@ sections:
         kind: makkelijk
         textTitle: "Bytet i Stockholm"
         text: |
-          Daan skulle åka tåg från Göteborg till Kiruna. Han skulle byta tåg i Stockholm, men det första tåget var försenat. Därför hann han inte med det andra tåget. Han gick till informationen och fick en ny biljett. Dessutom fick han en matkupong. Han kom fram fyra timmar senare, men han var ändå nöjd med resan. Nästa gång vill han ändå åka tåg.
+          Daan skulle åka tåg från Göteborg till Kiruna. Han skulle byta tåg i Stockholm, men det första tåget var försenat. Därför hann han inte med det andra tåget. Han gick till informationen och fick en ny biljett. Dessutom fick han en matkupong. Han kom fram fyra timmar senare, men han var ändå nöjd med resan. Nästa gång vill han åka tåg igen.
         items:
           - { id: wn5v, type: truefalse, statement: "Daan hann med bytet i Stockholm.", answer: false }
           - { id: 58a3, type: truefalse, statement: "Daan fick en ny biljett.", answer: true }
@@ -522,10 +522,10 @@ sections:
         instruction: Zeg het nu zelf in het Zweeds. Er is vaak meer dan één goed antwoord.
         kind: situatie
         items:
-          - { id: t3yr, type: translate, topic: partikelverb-2, prompt: "Zeg dat je de trein niet hebt gehaald.", answers: ["Jag {hann inte med|missade} tåget.", "Jag har missat tåget."] }
-          - { id: qrxs, type: translate, topic: partikelverb-2, prompt: "Vraag waar je moet uitstappen.", answers: ["Var ska jag {stiga|kliva} av?"] }
-          - { id: duwx, type: translate, topic: sambandsord, prompt: "Zeg dat de trein vertraging had en dat je daarom te laat bent.", answers: ["Tåget var försenat, {så|och därför} är jag sen.", "Tåget var försenat. Därför är jag sen.", "Tåget var försenat, därför kommer jag för sent."], feedback: [{ contains: "därför jag är", tip: "Na därför komt het werkwoord eerst: därför är jag sen." }] }
-          - { id: ra25, type: translate, topic: sambandsord, prompt: "Zeg dat het regende, maar dat jullie toch gingen wandelen.", answers: ["Det regnade, men vi {gick på promenad|vandrade|promenerade} ändå."] }
+          - { id: t3yr, type: translate, topic: partikelverb-2, prompt: "Zeg dat je de trein niet hebt gehaald.", answers: ["Jag {hann inte med|missade} tåget.", "Jag har missat tåget.", "Jag hann inte till tåget."] }
+          - { id: qrxs, type: translate, topic: partikelverb-2, prompt: "Vraag waar je moet uitstappen.", answers: ["Var {ska|måste} jag {stiga|kliva|gå} av?"] }
+          - { id: duwx, type: translate, topic: sambandsord, prompt: "Zeg dat de trein vertraging had en dat je daarom te laat bent.", answers: ["Tåget var försenat, så jag {är sen|kommer för sent}.", "Tåget var försenat, [och ]därför {är jag sen|kommer jag för sent}.", "Tåget var försenat. Därför {är jag sen|kommer jag för sent}.", "Jag {är sen|kommer för sent} eftersom tåget var försenat."], feedback: [{ contains: "därför jag är", tip: "Na därför komt het werkwoord eerst: därför är jag sen." }] }
+          - { id: ra25, type: translate, topic: sambandsord, prompt: "Zeg dat het regende, maar dat jullie toch gingen wandelen.", answers: ["Det regnade, men vi {gick på promenad|gick en promenad|tog en promenad|gick ut och gick|vandrade|promenerade} ändå."] }
 
   - id: skriva
     title: Skriva · schrijven

@@ -111,9 +111,9 @@ sections:
         kind: makkelijk
         textTitle: "Våffeldagen"
         text: |
-          Den 25 mars är det våffeldagen. Då äter många svenskar våfflor med sylt och grädde. Joyce bakade våfflor för första gången i år. Hela familjen åt i köket, och nästa år vill barnen baka själva. Hon hade köpt sylt och grädde i affären dagen innan. De första våfflorna blev inte så fina, men de smakade gott. Barnen åt fyra var. Efteråt hjälpte alla till att städa köket.
+          Den 25 mars är det våffeldagen. Då äter många svenskar våfflor med sylt och grädde. Joyce hade aldrig gjort våfflor förut, men i år provade hon. Hela familjen åt i köket, och nästa år vill barnen göra dem själva. Hon hade köpt sylt och grädde i affären dagen innan. De första våfflorna blev inte så fina, men de smakade gott. Barnen åt fyra var. Efteråt hjälpte alla till att städa köket.
         items:
-          - { id: 4pjm, type: truefalse, statement: "Joyce har bakat våfflor många gånger.", answer: false }
+          - { id: 4pjm, type: truefalse, statement: "Joyce har gjort våfflor många gånger.", answer: false }
           - { id: xy94, type: truefalse, statement: "Våffeldagen är i mars.", answer: true }
 
   - id: ord
@@ -425,9 +425,9 @@ sections:
         kind: situatie
         items:
           - { id: csje, type: translate, topic: bestamd-utan-artikel, prompt: "Vertel dat je vorige week bij je schoonmoeder was.", answers: ["Förra veckan var jag hos min svärmor.", "Jag var hos min svärmor förra veckan."], feedback: [{ contains: "den förra veckan", tip: "Förra veckan: zonder den." }] }
-          - { id: fanc, type: translate, topic: sammansattning, prompt: "Zeg dat je van verjaardagstaart houdt.", answers: ["Jag {tycker om|gillar|älskar} födelsedagstårta."], feedback: [{ contains: "födelsedag tårta", tip: "Een samenstelling schrijf je aan elkaar, hier met -s-: födelsedagstårta." }] }
+          - { id: fanc, type: translate, topic: sammansattning, prompt: "Zeg dat je van verjaardagstaart houdt.", answers: ["Jag {tycker om|gillar|älskar} födelsedagstårta."], feedback: [{ contains: "födelsedag tårta", tip: "Een samenstelling schrijf je aan elkaar, hier met -s-: födelsedagstårta." }, { contains: "födelsedagtårta", tip: "Hier met -s-: födelsedagstårta." }] }
           - { id: mcfa, type: translate, topic: bestamd-utan-artikel, prompt: "Zeg dat je het hele weekend hebt gewerkt.", answers: ["Jag har {jobbat|arbetat} hela helgen.", "Jag {jobbade|arbetade} hela helgen."], feedback: [{ contains: "hela den helgen", tip: "Na hela: de bepaalde vorm zonder den (hela helgen)." }] }
-          - { id: wh4b, type: translate, topic: sammansattning, prompt: "Vertel dat het treinstation dicht bij je huis ligt.", answers: ["{Järnvägsstationen|Tågstationen} ligger nära mitt hus."] }
+          - { id: wh4b, type: translate, topic: sammansattning, prompt: "Vertel dat het treinstation dicht bij je huis ligt.", answers: ["{Järnvägsstationen|Tågstationen|Stationen} ligger nära {mitt hus|mitt hem|där jag bor}."] }
 
   - id: skriva
     title: Skriva · schrijven
@@ -535,9 +535,9 @@ vocab:
   - { sv: "Glad påsk!", nl: "Vrolijk Pasen!", ex: "**Glad påsk**, och tack för ägget!", exNl: "Vrolijk Pasen, en bedankt voor het ei!" }
   - { sv: "Valborg", nl: "Walpurgisnacht (30 april)", alt: ["valborgsmässoafton"], ex: "På **{Valborg|valborgsmässoafton}** tänder man stora brasor i hela landet.", exNl: "Op Walpurgisnacht steekt men in het hele land grote vuren aan." }
   - { sv: "en sång", nl: "een lied", def: "sången", pl: "sånger", plDef: "sångerna", ex: "Alla kan **sångerna** utantill.", exNl: "Iedereen kent de liedjes uit het hoofd." }
-  - { sv: "en ledighet", nl: "vrije tijd, verlof", def: "ledigheten", mass: true, ex: "Under julen har många **ledighet** från jobbet.", exNl: "Met kerst hebben veel mensen vrij van hun werk." }
+  - { sv: "en ledighet", nl: "vrije tijd, verlof", def: "ledigheten", mass: true, ex: "Många tar **ledighet** från jobbet under julen.", exNl: "Met kerst hebben veel mensen vrij van hun werk." }
   - { sv: "typisk", nl: "typisch", ex: "Sill är **typisk** midsommarmat.", exNl: "Haring is typisch midzomereten." }
   - { sv: "festlig", nl: "feestelijk", ex: "Det var en **festlig** kväll.", exNl: "Het was een feestelijke avond." }
   - { sv: "högtidlig", nl: "plechtig", ex: "Det var en **högtidlig** stund i kyrkan.", exNl: "Het was een plechtig moment in de kerk." }
   - { sv: "en ceremoni", nl: "een ceremonie", def: "ceremonin", pl: "ceremonier", plDef: "ceremonierna", ex: "**Ceremonin** började klockan två.", exNl: "De ceremonie begon om twee uur." }
-  - { sv: "en bjudning", nl: "een etentje, feestje (thuis)", def: "bjudningen", pl: "bjudningar", plDef: "bjudningarna", ex: "Vi är på **bjudning** hos grannarna i kväll.", exNl: "We zijn vanavond op een feestje bij de buren." }
+  - { sv: "en bjudning", nl: "een etentje, feestje (thuis)", def: "bjudningen", pl: "bjudningar", plDef: "bjudningarna", ex: "Vi ska på **bjudning** hos grannarna i kväll.", exNl: "We zijn vanavond op een feestje bij de buren." }

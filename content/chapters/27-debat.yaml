@@ -105,7 +105,7 @@ sections:
         kind: makkelijk
         textTitle: "Inga bilar i centrum"
         text: |
-          I många städer debatteras om bilar ska förbjudas i centrum. Det är framför allt de som har butiker där som är oroliga. De hävdar att färre kunder kommer att komma. Kommunen bemöter kritiken med att fler går och cyklar när det inte finns några bilar, och att det gynnar butikerna. Dessutom menar kommunen att luften blir renare och att det blir tystare. I andra städer som har infört ett sådant förbud har antalet besökare faktiskt ökat. De som har butiker är dock inte övertygade, och debatten fortsätter i tidningen. Politikerna ska bestämma i vår.
+          I Lund diskuteras om bilar ska förbjudas i centrum. Det är framför allt de som har butiker där som är oroliga. De hävdar att det kommer färre kunder. Kommunen bemöter kritiken med att fler går och cyklar när det inte finns några bilar, och att det gynnar butikerna. Dessutom menar kommunen att luften blir renare och att det blir tystare. I andra städer som har infört ett sådant förbud har antalet besökare faktiskt ökat. De som har butiker tror ändå inte på det, och debatten fortsätter i tidningen. Politikerna ska bestämma i vår.
         items:
           - { id: cku7, type: truefalse, statement: "De som har butiker är oroliga.", answer: true }
           - { id: ftdd, type: truefalse, statement: "Kommunen håller med dem som har butiker.", answer: false }
@@ -344,8 +344,8 @@ sections:
         kind: situatie
         items:
           - { id: tp5s, type: translate, topic: utbrytning, prompt: "Benadruk: het is de prijs die het probleem is.", answers: ["Det är priset som är problemet."] }
-          - { id: mqp8, type: translate, topic: argumentation, prompt: "Reageer: ik begrijp wat je bedoelt, maar ik ben het niet met je eens.", answers: ["Jag förstår vad du menar, men jag håller inte med[ dig]."] }
-          - { id: aan3, type: translate, topic: utbrytning, prompt: "Zeg dat het je broer was die belde (niet jij).", answers: ["Det var min bror som ringde."], feedback: [{ contains: "som han ringde", tip: "Som is het onderwerp: som ringde." }] }
+          - { id: mqp8, type: translate, topic: argumentation, prompt: "Reageer: ik begrijp wat je bedoelt, maar ik ben het niet met je eens.", answers: ["Jag förstår {vad|hur} du menar, men jag håller inte med[ dig][ om det]."] }
+          - { id: aan3, type: translate, topic: utbrytning, prompt: "Zeg dat het je broer was die belde (niet jij).", answers: ["Det var min bror som ringde[, inte jag]."], feedback: [{ contains: "som han ringde", tip: "Som is het onderwerp: som ringde." }] }
           - { id: 3x4f, type: translate, topic: argumentation, prompt: "Rond je betoog af: kort gezegd moeten we meer in scholen investeren.", answers: ["Kort sagt måste vi satsa mer på {skolan|skolorna}.", "Kort sagt måste vi investera mer i {skolan|skolorna}."], feedback: [{ contains: "Kort sagt vi måste", tip: "Na kort sagt komt eerst het werkwoord: kort sagt måste vi." }] }
 
   - id: skriva
@@ -489,7 +489,6 @@ vocab:
   - { sv: "befogad", nl: "terecht, gerechtvaardigd", ex: "Kritiken mot förslaget är helt **befogad**.", exNl: "De kritiek op het voorstel is volkomen terecht." }
   - { sv: "ensidig", nl: "eenzijdig", ex: "Artikeln ger en väldigt **ensidig** bild av problemet.", exNl: "Het artikel geeft een erg eenzijdig beeld van het probleem." }
   - { sv: "däremot", nl: "daarentegen", ex: "Eleverna gillar förslaget. Föräldrarna är **däremot** skeptiska.", exNl: "De leerlingen vinden het voorstel goed. De ouders zijn daarentegen sceptisch." }
-  - { sv: "ett exempel", nl: "een voorbeeld", def: "exemplet", pl: "exempel", plDef: "exemplen", ex: "Kan du ge ett **exempel**?", exNl: "Kun je een voorbeeld geven?" }
   - { sv: "en publik", nl: "een publiek", def: "publiken", pl: "publiker", plDef: "publikerna", ex: "**Publiken** applåderade efter debatten.", exNl: "Het publiek applaudisseerde na het debat." }
   - { sv: "att hålla med om", nl: "het eens zijn met", ex: "Jag **håller med om** det.", exNl: "Daar ben ik het mee eens." }
   - { sv: "rimlig", nl: "redelijk", ex: "Förslaget verkar **rimligt**.", exNl: "Het voorstel lijkt redelijk." }

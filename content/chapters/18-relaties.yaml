@@ -99,10 +99,10 @@ sections:
         kind: makkelijk
         textTitle: "Om jag vore du"
         text: |
-          Lisa skriver till sin vän Tove: ”Min pojkvän vill att vi flyttar ihop, men jag är inte säker. Vad skulle du göra?” Tove svarar: ”Om jag vore du skulle jag prata med honom om det. Ni kunde kanske prova att bo ihop en månad först. Om det inte fungerar kan ni alltid ändra er.” Lisa tycker att det är ett bra råd.
+          Hanna skriver till sin vän Tove: ”Min pojkvän vill att vi flyttar ihop, men jag är inte säker. Vad skulle du göra?” Tove svarar: ”Om jag vore du skulle jag prata med honom om det. Ni kunde kanske prova att bo ihop en månad först. Om det inte fungerar kan ni alltid ändra er.” Hanna tycker att det är ett bra råd.
         items:
-          - { id: 9xf5, type: truefalse, statement: "Lisas pojkvän vill flytta ihop.", answer: true }
-          - { id: rgfg, type: truefalse, statement: "Tove tycker att Lisa ska göra slut.", answer: false }
+          - { id: 9xf5, type: truefalse, statement: "Hannas pojkvän vill flytta ihop.", answer: true }
+          - { id: rgfg, type: truefalse, statement: "Tove tycker att Hanna ska göra slut.", answer: false }
 
       - id: makkelijk-2
         title: "Makkelijk lezen: Bröllopet"
@@ -111,10 +111,10 @@ sections:
         kind: makkelijk
         textTitle: "Bröllopet"
         text: |
-          Erik och Sanna ska gifta sig i juni. De skulle helst vilja ha ett stort bröllop med hela släkten, men det kostar mycket. Därför har de bestämt sig för en liten fest i trädgården. Eriks mamma ska baka tårtan. Om det regnar flyttar de in i huset. Sanna har redan skrivit inbjudningarna. Hon skulle vilja bjuda alla kollegor också, men det finns inte plats. Det blir ändå en fin dag, tror de.
+          Oskar och Sanna ska gifta sig i juni. De skulle helst vilja ha ett stort bröllop med hela släkten, men det kostar mycket. Därför har de bestämt sig för en liten fest i trädgården. Oskars mamma ska baka tårtan. Om det regnar blir festen inomhus. Sanna har redan skrivit inbjudningarna. Hon skulle vilja bjuda alla kollegor också, men det finns inte plats. Det blir ändå en fin dag, tror de.
         items:
-          - { id: twvm, type: truefalse, statement: "Erik och Sanna har bestämt sig för ett stort bröllop.", answer: false }
-          - { id: zepw, type: truefalse, statement: "Eriks mamma ska baka tårtan.", answer: true }
+          - { id: twvm, type: truefalse, statement: "Oskar och Sanna har bestämt sig för ett stort bröllop.", answer: false }
+          - { id: zepw, type: truefalse, statement: "Oskars mamma ska baka tårtan.", answer: true }
 
   - id: ord
     title: Ord och fraser · woorden en uitdrukkingen
@@ -308,10 +308,10 @@ sections:
         instruction: Zeg het nu zelf in het Zweeds. Er is vaak meer dan één goed antwoord.
         kind: situatie
         items:
-          - { id: cvbd, type: translate, topic: villkor, prompt: "Zeg: als ik meer tijd had, zou ik meer lezen.", answers: ["Om jag hade mer tid{, |}skulle jag läsa mer.", "Hade jag mer tid{, |}skulle jag läsa mer."], feedback: [{ contains: "skulle jag har", tip: "Na skulle: de infinitief." }] }
-          - { id: nad5, type: translate, topic: rad-onskan, prompt: "Geef je vriendin advies: als ik jou was, zou ik met hem praten.", answers: ["Om jag {vore|var} du{, |}skulle jag prata med honom."] }
-          - { id: 2qnc, type: translate, topic: rad-onskan, prompt: "Vraag beleefd of iemand je kan helpen.", answers: ["Skulle du kunna hjälpa mig?", "Kan du hjälpa mig?"] }
-          - { id: 9wjt, type: translate, topic: rad-onskan, prompt: "Zeg dat je graag in Zweden zou willen wonen.", answers: ["Jag skulle {vilja|gärna vilja} bo i Sverige."] }
+          - { id: cvbd, type: translate, topic: villkor, prompt: "Zeg: als ik meer tijd had, zou ik meer lezen.", answers: ["Om jag hade mer tid, [så ]skulle jag läsa mer.", "Hade jag mer tid, skulle jag läsa mer.", "Jag skulle läsa mer om jag hade mer tid."], feedback: [{ contains: "skulle jag har", tip: "Na skulle: de infinitief." }] }
+          - { id: nad5, type: translate, topic: rad-onskan, prompt: "Geef je vriendin advies: als ik jou was, zou ik met hem praten.", answers: ["Om jag {vore|var} du, [så ]skulle jag prata med honom.", "I ditt ställe skulle jag prata med honom.", "Jag skulle prata med honom om jag {vore|var} du."] }
+          - { id: 2qnc, type: translate, topic: rad-onskan, prompt: "Vraag beleefd of iemand je kan helpen.", answers: ["[Ursäkta, ]{skulle du kunna|kunde du|kan du} hjälpa mig?"] }
+          - { id: 9wjt, type: translate, topic: rad-onskan, prompt: "Zeg dat je graag in Zweden zou willen wonen.", answers: ["Jag skulle {vilja|gärna vilja} bo i Sverige.", "Jag skulle gärna bo i Sverige."] }
 
   - id: skriva
     title: Skriva · schrijven

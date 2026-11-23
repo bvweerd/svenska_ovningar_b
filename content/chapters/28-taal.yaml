@@ -352,10 +352,10 @@ sections:
         instruction: Zeg het nu zelf in het Zweeds. Er is vaak meer dan één goed antwoord.
         kind: situatie
         items:
-          - { id: u4z3, type: translate, topic: register, prompt: "Schrijf formeel: neem contact met ons op als u vragen heeft.", answers: ["{Kontakta oss|Vänligen kontakta oss} om du har [några ]frågor."] }
-          - { id: hwr2, type: translate, topic: idiom, prompt: "Zeg dat het niet uitmaakt.", answers: ["Det spelar ingen roll."] }
-          - { id: yyjw, type: translate, topic: register, prompt: "Neem informeel afscheid van een vriend.", answers: ["{Hej då|Vi hörs|Ha det bra|Ses|Hörs}."] }
-          - { id: sw84, type: translate, topic: idiom, prompt: "Zeg dat je erg uitkijkt naar de vakantie.", answers: ["Jag ser fram emot semestern.", "Jag längtar [jättemycket ]till semestern."] }
+          - { id: u4z3, type: translate, topic: register, prompt: "Schrijf formeel: neem contact met ons op als u vragen heeft.", answers: ["[Vänligen ]kontakta oss [gärna ]om {du|ni} har [några ]frågor.", "Tveka inte att kontakta oss om {du|ni} har [några ]frågor."] }
+          - { id: hwr2, type: translate, topic: idiom, prompt: "Zeg dat het niet uitmaakt.", answers: ["Det spelar ingen roll.", "Det kvittar."] }
+          - { id: yyjw, type: translate, topic: register, prompt: "Neem informeel afscheid van een vriend.", answers: ["{Hej då|Hej hej|Vi ses|Vi hörs|Ses|Hörs|Ha det bra|Ha det}."] }
+          - { id: sw84, type: translate, topic: idiom, prompt: "Zeg dat je erg uitkijkt naar de vakantie.", answers: ["Jag ser [verkligen ]fram emot semestern.", "Jag längtar [jättemycket ]till semestern.", "Jag längtar verkligen till semestern."] }
 
   - id: skriva
     title: Skriva · schrijven
@@ -509,7 +509,6 @@ vocab:
   - { sv: "en accent", nl: "een accent", def: "accenten", pl: "accenter", plDef: "accenterna", ex: "Han pratar svenska med lätt **accent**.", exNl: "Hij spreekt Zweeds met een licht accent." }
   - { sv: "en ton", nl: "een toon", def: "tonen", pl: "toner", plDef: "tonerna", ex: "**Tonen** i mejlet var lite för hård.", exNl: "De toon in de mail was wat te hard." }
   - { sv: "en kommunikation", nl: "communicatie", def: "kommunikationen", mass: true, ex: "Bra **kommunikation** är viktig på jobbet.", exNl: "Goede communicatie is belangrijk op het werk." }
-  - { sv: "att betyda", nl: "betekenen", ex: "Vad **betyder** det uttrycket?", exNl: "Wat betekent die uitdrukking?" }
   - { sv: "svårbegriplig", nl: "moeilijk te begrijpen", ex: "Brevet från myndigheten var **svårbegripligt**.", exNl: "De brief van de instantie was moeilijk te begrijpen." }
   - { sv: "en tolk", nl: "een tolk", def: "tolken", pl: "tolkar", plDef: "tolkarna", ex: "Vid läkarbesöket fick han en **tolk**.", exNl: "Bij het doktersbezoek kreeg hij een tolk." }
   - { sv: "ett teckenspråk", nl: "een gebarentaal", def: "teckenspråket", pl: "teckenspråk", plDef: "teckenspråken", ex: "Svenskt **teckenspråk** är ett eget språk.", exNl: "Zweedse gebarentaal is een eigen taal." }

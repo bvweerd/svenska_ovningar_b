@@ -363,9 +363,9 @@ sections:
         instruction: Zeg het nu zelf in het Zweeds. Er is vaak meer dan één goed antwoord.
         kind: situatie
         items:
-          - { id: 5gzd, type: translate, topic: nagon-ingen, prompt: "Zeg dat je niemand kent in de nieuwe stad.", answers: ["Jag känner {ingen|inte någon} i den nya staden."] }
-          - { id: bgtn, type: translate, topic: nagon-ingen, prompt: "Vraag of iemand een tasje heeft.", answers: ["Har någon en påse?"] }
-          - { id: pwh3, type: translate, topic: man-en-ens, prompt: "Leg uit dat je in Zweden flessen inlevert in de winkel.", answers: ["I Sverige {pantar man flaskor|lämnar man tillbaka flaskor i affären}.", "Man {pantar flaskor|lämnar tillbaka flaskor i affären} i Sverige."], feedback: [{ contains: "I Sverige man", tip: "Na I Sverige komt eerst het werkwoord: I Sverige pantar man …" }] }
+          - { id: 5gzd, type: translate, topic: nagon-ingen, prompt: "Zeg dat je niemand kent in de nieuwe stad.", answers: ["Jag känner {ingen|inte någon} i {den nya staden|min nya stad}."] }
+          - { id: bgtn, type: translate, topic: nagon-ingen, prompt: "Vraag of iemand een tasje heeft.", answers: ["Har någon en påse?", "Är det någon som har en påse?"] }
+          - { id: pwh3, type: translate, topic: man-en-ens, prompt: "Leg uit dat je in Zweden flessen inlevert in de winkel.", answers: ["I Sverige {pantar man|lämnar man tillbaka|lämnar man in} {flaskor|flaskorna}[ i affären].", "Man {pantar|lämnar tillbaka|lämnar in} {flaskor|flaskorna}[ i affären] i Sverige."], feedback: [{ contains: "I Sverige man", tip: "Na I Sverige komt eerst het werkwoord: I Sverige pantar man …" }] }
           - { id: z4ud, type: translate, topic: nagon-ingen, prompt: "Zeg dat je niets hebt gekocht.", answers: ["Jag har inte köpt {något|någonting}.", "Jag köpte {ingenting|inget}.", "Jag köpte inte {något|någonting}."], feedback: [{ contains: "har köpt ingenting", tip: "Met een hulpwerkwoord: har inte köpt något." }] }
 
   - id: skriva

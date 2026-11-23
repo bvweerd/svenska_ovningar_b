@@ -78,7 +78,7 @@ sections:
         kind: makkelijk
         textTitle: "Om tjugo år"
         text: |
-          Hur kommer vi att leva om tjugo år? Många tror att vi kommer att jobba mer hemifrån och resa mindre. Elbilar lär bli vanligare, och kanske kör bilarna själva. Förhoppningsvis blir städerna grönare. Men ingen vet säkert, och framtiden är svår att förutse. Forskare påpekar att många förutsägelser från förr har visat sig vara fel. På sjuttiotalet trodde många att vi skulle ha flygande bilar i dag. Därför bör man nog ta alla framtidsscenarier med en nypa salt. Det enda säkra är att mycket kommer att förändras.
+          Hur kommer vi att leva om tjugo år? Många tror att vi kommer att jobba mer hemifrån och resa mindre. Elbilar blir nog vanligare, och kanske kör bilarna själva. Förhoppningsvis blir städerna grönare. Men ingen vet säkert, och framtiden är svår att veta något om. Forskare påpekar att många förutsägelser från förr har visat sig vara fel. På sjuttiotalet trodde många att vi skulle ha flygande bilar i dag. Därför ska man inte tro på allt som sägs om framtiden. Det enda säkra är att mycket kommer att förändras.
         items:
           - { id: a2vq, type: truefalse, statement: "Många tror att vi kommer att resa mer.", answer: false }
           - { id: h8qf, type: truefalse, statement: "Det är svårt att veta hur framtiden blir.", answer: true }
@@ -90,7 +90,7 @@ sections:
         kind: makkelijk
         textTitle: "Robotar i vården"
         text: |
-          På ett äldreboende i Västerås testas robotar som hjälper personalen. Robotarna delar ut mat och påminner de äldre om att ta sina mediciner. Personalen får då mer tid att prata med de boende. Ärligt talat var många skeptiska i början, men nu är de flesta positiva. Robotarna kan dock inte ersätta människor. De kan inte trösta någon som är ledsen eller förstå vad en äldre person behöver. Det är fortfarande personalen som har ansvaret. Kommunen ska utvärdera försöket efter ett år och bestämma om fler boenden ska få robotar.
+          På ett äldreboende i Västerås testas robotar som hjälper personalen. Robotarna delar ut mat och påminner de äldre om att ta sina mediciner. Personalen får då mer tid att prata med de boende. Många var skeptiska i början, men nu är de flesta positiva. Robotarna kan dock inte ersätta människor. De kan inte trösta någon som är ledsen eller förstå vad en äldre person behöver. Det är fortfarande personalen som har ansvaret. Kommunen ska utvärdera försöket efter ett år och bestämma om fler boenden ska få robotar.
         items:
           - { id: sdgc, type: truefalse, statement: "Robotarna ersätter all personal.", answer: false }
           - { id: 8mj3, type: truefalse, statement: "Personalen får mer tid att prata med de boende.", answer: true }
@@ -289,10 +289,10 @@ sections:
         instruction: Zeg het nu zelf in het Zweeds. Er is vaak meer dan één goed antwoord.
         kind: situatie
         items:
-          - { id: 2x48, type: translate, topic: framtid-b2, prompt: "Zeg dat je denkt dat er meer robots komen.", answers: ["Jag tror att det kommer [att ]bli fler robotar.", "Jag tror att det kommer [att ]finnas fler robotar."] }
-          - { id: 29bj, type: translate, topic: framtid-b2, prompt: "Zeg dat je hopelijk over een jaar Zweeds spreekt.", answers: ["Förhoppningsvis {pratar|talar} jag svenska om ett år.", "Om ett år {pratar|talar} jag förhoppningsvis svenska."] }
+          - { id: 2x48, type: translate, topic: framtid-b2, prompt: "Zeg dat je denkt dat er meer robots komen.", answers: ["Jag tror [att ]det kommer [att ]{bli|finnas} fler robotar."] }
+          - { id: 29bj, type: translate, topic: framtid-b2, prompt: "Zeg dat je hopelijk over een jaar Zweeds spreekt.", answers: ["Förhoppningsvis {pratar|talar} jag svenska om ett år.", "Om ett år {pratar|talar} jag förhoppningsvis svenska.", "Förhoppningsvis kan jag [prata ]svenska om ett år."] }
           - { id: pqg8, type: translate, topic: framtid-b2, prompt: "Zeg dat de stad naar verwachting zal groeien.", answers: ["Staden {väntas|förväntas} växa."] }
-          - { id: hpcj, type: translate, topic: framtid-b2, prompt: "Zeg dat je het eerlijk gezegd niet weet.", answers: ["Ärligt talat vet jag inte.", "Jag vet ärligt talat inte."], feedback: [{ contains: "Ärligt talat jag vet", tip: "Na ärligt talat komt eerst het werkwoord: ärligt talat vet jag inte." }] }
+          - { id: hpcj, type: translate, topic: framtid-b2, prompt: "Zeg dat je het eerlijk gezegd niet weet.", answers: ["Ärligt talat vet jag inte.", "Jag vet ärligt talat inte.", "Jag vet inte[ det], ärligt talat."], feedback: [{ contains: "Ärligt talat jag vet", tip: "Na ärligt talat komt eerst het werkwoord: ärligt talat vet jag inte." }] }
 
   - id: skriva
     title: Skriva · schrijven

@@ -114,7 +114,7 @@ sections:
         kind: makkelijk
         textTitle: "Förkyld"
         text: |
-          Mira vaknade med feber i morse. Hon ringde till jobbet och sa att hon var sjuk. Hennes sambo köpte medicin på apoteket och lagade soppa. Mira kommer att stanna hemma resten av veckan. Hon bryr sig inte om att hon missar ett möte, för hon vill bli frisk. Hennes chef svarade snällt och önskade henne god bättring. På kvällen mådde hon lite bättre och kunde läsa en bok i sängen.
+          Mira vaknade med feber i morse. Hon ringde till jobbet och sa att hon var sjuk. Hennes sambo köpte medicin på apoteket och lagade soppa. Mira kommer att stanna hemma resten av veckan. Hon bryr sig inte om att hon missar ett möte, för hon vill bli frisk. Hennes chef var snäll och önskade henne god bättring. På kvällen mådde hon lite bättre och kunde läsa en bok i sängen.
         items:
           - { id: h8c2, type: truefalse, statement: "Mira har feber.", answer: true }
           - { id: g46s, type: truefalse, statement: "Mira ska jobba i morgon.", answer: false }
@@ -477,10 +477,10 @@ sections:
         instruction: Zeg het nu zelf in het Zweeds. Er is vaak meer dan één goed antwoord.
         kind: situatie
         items:
-          - { id: sb32, type: translate, topic: framtid, prompt: "Zeg dat je morgen naar de huisartsenpraktijk gaat (je hebt een afspraak).", answers: ["Jag ska till vårdcentralen {imorgon|i morgon}.", "Jag ska gå till vårdcentralen {imorgon|i morgon}."], feedback: [{ contains: "kommer att gå till vårdcentralen", tip: "Een plan of afspraak: ska." }] }
-          - { id: c7ca, type: translate, topic: framtid, prompt: "Zeg dat het morgen waarschijnlijk gaat regenen.", answers: ["Det kommer {troligen|förmodligen|nog} att regna {imorgon|i morgon}."], feedback: [{ contains: "ska regna", tip: "Een voorspelling waar niemand over beslist: kommer att." }] }
-          - { id: 4uak, type: translate, topic: prep-verb, prompt: "Zeg dat je je zorgen maakt over je knie.", answers: ["Jag är orolig för mitt knä."], feedback: [{ contains: "orolig om", tip: "Bezorgd over: orolig för." }] }
-          - { id: 7zd3, type: translate, topic: prep-verb, prompt: "Zeg dat je de dokter vertrouwt.", answers: ["Jag litar på {läkaren|doktorn}."], feedback: [{ contains: "litar till", tip: "Vertrouwen op: lita på." }] }
+          - { id: sb32, type: translate, topic: framtid, prompt: "Zeg dat je morgen naar de huisartsenpraktijk gaat (je hebt een afspraak).", answers: ["Jag ska [{gå|åka} ]till vårdcentralen {imorgon|i morgon}.", "Jag {går|åker} till vårdcentralen {imorgon|i morgon}.", "Jag kommer att {gå|åka} till vårdcentralen {imorgon|i morgon}."] }
+          - { id: c7ca, type: translate, topic: framtid, prompt: "Zeg dat het morgen waarschijnlijk gaat regenen.", answers: ["Det kommer {troligen|troligtvis|förmodligen|antagligen|nog} att regna {imorgon|i morgon}.", "Det regnar {nog|troligen|förmodligen} {imorgon|i morgon}.", "Det ska {nog |troligen |}regna {imorgon|i morgon}."] }
+          - { id: 4uak, type: translate, topic: prep-verb, prompt: "Zeg dat je je zorgen maakt over je knie.", answers: ["Jag är orolig för mitt knä.", "Jag oroar mig för mitt knä."], feedback: [{ contains: "orolig om", tip: "Bezorgd over: orolig för." }] }
+          - { id: 7zd3, type: translate, topic: prep-verb, prompt: "Zeg dat je de dokter vertrouwt.", answers: ["Jag litar på {läkaren|doktorn|min läkare}."], feedback: [{ contains: "litar läkaren", tip: "Vertrouwen óp: lita på." }, { contains: "litar doktorn", tip: "Vertrouwen óp: lita på." }] }
 
   - id: skriva
     title: Skriva · schrijven
@@ -590,7 +590,7 @@ vocab:
   - { sv: "stel", nl: "stijf", ex: "Jag är alltid **stel** i ryggen på morgonen.", exNl: "Ik ben 's ochtends altijd stijf in mijn rug." }
   - { sv: "öm", nl: "pijnlijk (bij aanraking), gevoelig", ex: "Knät är fortfarande lite **ömt** efter fallet.", exNl: "De knie is na de val nog steeds wat pijnlijk." }
   - { sv: "en hälsa", nl: "de gezondheid", def: "hälsan", mass: true, ex: "Motion är bra för **hälsan**.", exNl: "Beweging is goed voor de gezondheid." }
-  - { sv: "en sömn", nl: "de slaap", def: "sömnen", mass: true, ex: "Bra **sömn** är viktigt när man är sjuk.", exNl: "Goede slaap is belangrijk als je ziek bent." }
+  - { sv: "en sömn", nl: "de slaap", def: "sömnen", mass: true, ex: "Bra **sömn** är viktig när man är sjuk.", exNl: "Goede slaap is belangrijk als je ziek bent." }
   - { sv: "att vila", nl: "rusten", ex: "Läkaren sa att jag skulle **vila**.", exNl: "De dokter zei dat ik moest rusten." }
   - { sv: "en allergi", nl: "een allergie", def: "allergin", pl: "allergier", plDef: "allergierna", ex: "Har du någon **allergi**?", exNl: "Heb je een allergie?" }
   - { sv: "en operation", nl: "een operatie", def: "operationen", pl: "operationer", plDef: "operationerna", ex: "Efter **operationen** fick han vila i en vecka.", exNl: "Na de operatie moest hij een week rusten." }

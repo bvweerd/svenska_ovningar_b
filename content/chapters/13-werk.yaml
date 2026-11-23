@@ -137,10 +137,10 @@ sections:
         kind: makkelijk
         textTitle: "Ett tack efter intervjun"
         text: |
-          Hej Petra! Tack för intervjun i måndags. Jag tyckte att det var ett bra samtal. Jag fick veta mycket om tjänsten och om företaget, som jag tycker är intressant. Ni frågade om jag kan börja i mars. Det kan jag gärna. Mina papper har redan skickats via er webbplats, men jag bifogar mitt cv en gång till. Jag ser fram emot att höra från er. Med vänliga hälsningar, Daan de Vries
+          Hej Petra! Tack för intervjun i måndags. Jag tyckte att det var ett bra samtal. Jag fick veta mycket om tjänsten och om företaget, som jag tycker är intressant. Ni frågade om jag kan börja i juni. Det kan jag gärna. Mina papper har redan skickats via er webbplats, men jag bifogar mitt cv en gång till. Jag ser fram emot att höra från er. Med vänliga hälsningar, Daan Visser
         items:
           - { id: 3arx, type: truefalse, statement: "Intervjun var i måndags.", answer: true }
-          - { id: m78q, type: truefalse, statement: "Daan kan inte börja i mars.", answer: false }
+          - { id: m78q, type: truefalse, statement: "Daan kan inte börja i juni.", answer: false }
           - { id: hjmr, type: truefalse, statement: "Daan bifogar sitt cv.", answer: true }
 
   - id: ord
@@ -433,10 +433,10 @@ sections:
         instruction: Zeg het nu zelf in het Zweeds. Er is vaak meer dan één goed antwoord.
         kind: situatie
         items:
-          - { id: pauj, type: translate, topic: formell-mail, prompt: "Begin een mail waarin je reageert op de vacature voor verkoper.", answers: ["Jag skriver angående tjänsten som säljare.", "Jag vill söka tjänsten som säljare."] }
-          - { id: t3gt, type: translate, topic: formell-mail, prompt: "Sluit je mail beleefd af.", answers: ["{Med vänliga hälsningar|Vänliga hälsningar}."] }
+          - { id: pauj, type: translate, topic: formell-mail, prompt: "Begin een mail waarin je reageert op de vacature voor verkoper.", answers: ["Jag skriver {angående|med anledning av} tjänsten som säljare.", "Jag {söker|ansöker om|vill söka|vill ansöka om} tjänsten som säljare."] }
+          - { id: t3gt, type: translate, topic: formell-mail, prompt: "Sluit je mail beleefd af.", answers: ["[Med ]vänliga hälsningar.", "[Med ]vänlig hälsning.", "Hälsningar."] }
           - { id: 6emk, type: translate, topic: relativ-som, prompt: "Vertel dat je een collega hebt die uit Chili komt.", answers: ["Jag har en kollega som kommer från Chile."], feedback: [{ contains: "som han kommer", tip: "Som is zelf het onderwerp: som kommer från Chile." }] }
-          - { id: k27b, type: translate, topic: passiv-s, prompt: "Zeg dat de sollicitaties uiterlijk vrijdag verstuurd moeten worden.", answers: ["Ansökningarna måste skickas[ in] senast [på ]fredag.", "Senast [på ]fredag måste ansökningarna skickas[ in]."], feedback: [{ contains: "måste skickar", tip: "Na måste: de infinitief met -s (skickas)." }] }
+          - { id: k27b, type: translate, topic: passiv-s, prompt: "Zeg dat de sollicitaties uiterlijk vrijdag verstuurd moeten worden.", answers: ["Ansökningarna {måste|ska} skickas[ in] senast [på ]fredag.", "Senast [på ]fredag {måste|ska} ansökningarna skickas[ in].", "Ansökningarna måste vara inskickade senast [på ]fredag."], feedback: [{ contains: "måste skickar", tip: "Na måste: de infinitief met -s (skickas)." }] }
 
   - id: skriva
     title: Skriva · schrijven
@@ -557,7 +557,7 @@ vocab:
   - { sv: "en sökande", nl: "een sollicitant", def: "sökanden", pl: "sökande", plDef: "sökandena", ex: "Det fanns trettio **sökande** till tjänsten.", exNl: "Er waren dertig sollicitanten voor de baan." }
   - { sv: "en rast", nl: "een pauze", def: "rasten", pl: "raster", plDef: "rasterna", ex: "Vi tar en **rast** klockan tio.", exNl: "We nemen om tien uur pauze." }
   - { sv: "ett yrkesliv", nl: "een loopbaan, het werkende leven", def: "yrkeslivet", mass: true, ex: "Han har haft ett långt **yrkesliv**.", exNl: "Hij heeft een lange loopbaan gehad." }
-  - { sv: "att ansöka", nl: "solliciteren, aanvragen", ex: "Hon **ansökte** om jobbet i går.", exNl: "Ze solliciteerde gisteren naar de baan." }
+  - { sv: "att ansöka", nl: "solliciteren, aanvragen", ex: "Hon **ansökte** om tjänsten i går.", exNl: "Ze solliciteerde gisteren naar de baan." }
   - { sv: "att tjäna", nl: "verdienen", ex: "Hur mycket **tjänar** man som lärare?", exNl: "Hoeveel verdien je als leraar?" }
   - { sv: "att avsluta", nl: "afsluiten, beëindigen", ex: "Vi **avslutar** mötet klockan tre.", exNl: "We sluiten de vergadering om drie uur af." }
   - { sv: "att utföra", nl: "uitvoeren", ex: "Han **utför** sina uppgifter noggrant.", exNl: "Hij voert zijn taken nauwkeurig uit." }

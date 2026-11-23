@@ -380,10 +380,10 @@ sections:
         instruction: Zeg het nu zelf in het Zweeds. Er is vaak meer dan één goed antwoord.
         kind: situatie
         items:
-          - { id: pkhz, type: translate, topic: passiv-bli, prompt: "Vertel dat je bent toegelaten tot de opleiding.", answers: ["Jag har blivit antagen till utbildningen.", "Jag blev antagen till utbildningen."] }
-          - { id: xm83, type: translate, topic: particip, prompt: "Zeg dat je opdracht al ingeleverd is.", answers: ["{Uppgiften|Min uppgift} är redan inlämnad."], feedback: [{ contains: "inlämnat", tip: "uppgift is een en-woord: inlämnad." }] }
-          - { id: f5zc, type: translate, topic: passiv-bli, prompt: "Zeg dat je tentamen nog niet is nagekeken.", answers: ["Tentan har inte {blivit rättad|rättats} än.", "Tentan är inte rättad än."] }
-          - { id: cr2h, type: translate, topic: passiv-bli, prompt: "Vraag of de colleges worden opgenomen.", answers: ["Spelas föreläsningarna in?", "Blir föreläsningarna inspelade?"] }
+          - { id: pkhz, type: translate, topic: passiv-bli, prompt: "Vertel dat je bent toegelaten tot de opleiding.", answers: ["Jag {har blivit|blev|är} antagen till utbildningen.", "Jag har kommit in på utbildningen."] }
+          - { id: xm83, type: translate, topic: particip, prompt: "Zeg dat je opdracht al ingeleverd is.", answers: ["{Uppgiften|Min uppgift} är redan inlämnad.", "Jag har redan lämnat in {uppgiften|min uppgift}."], feedback: [{ contains: "inlämnat", tip: "uppgift is een en-woord: inlämnad." }] }
+          - { id: f5zc, type: translate, topic: passiv-bli, prompt: "Zeg dat je tentamen nog niet is nagekeken.", answers: ["{Tentan|Min tenta} har inte {blivit rättad|rättats} {än|ännu}.", "{Tentan|Min tenta} är inte rättad {än|ännu}."] }
+          - { id: cr2h, type: translate, topic: passiv-bli, prompt: "Vraag of de colleges worden opgenomen.", answers: ["Spelas föreläsningarna in?", "Blir föreläsningarna inspelade?", "Kommer föreläsningarna att spelas in?", "Spelar ni in föreläsningarna?"] }
 
   - id: skriva
     title: Skriva · schrijven
@@ -491,14 +491,13 @@ vocab:
   - { sv: "i mån av plats", nl: "zolang er plaats is", ex: "Sena anmälningar tas emot **i mån av plats**.", exNl: "Late aanmeldingen worden aangenomen zolang er plaats is." }
   - { sv: "ett prov", nl: "een toets", def: "provet", pl: "prov", plDef: "proven", ex: "I morgon har vi ett **prov** i matte.", exNl: "Morgen hebben we een toets wiskunde." }
   - { sv: "en rektor", nl: "een schoolhoofd, rector", def: "rektorn", pl: "rektorer", plDef: "rektorerna", ex: "**Rektorn** pratade med alla föräldrar.", exNl: "Het schoolhoofd sprak met alle ouders." }
-  - { sv: "en förkunskap", nl: "voorkennis", def: "förkunskapen", pl: "förkunskaper", plDef: "förkunskaperna", ex: "Kursen kräver inga **förkunskaper**.", exNl: "De cursus vereist geen voorkennis." }
+  - { sv: "en förkunskap", nl: "voorkennis (meestal meervoud: förkunskaper)", def: "förkunskapen", pl: "förkunskaper", plDef: "förkunskaperna", ex: "Kursen kräver inga **förkunskaper**.", exNl: "De cursus vereist geen voorkennis." }
   - { sv: "en ansökningsperiod", nl: "een aanmeldperiode", def: "ansökningsperioden", pl: "ansökningsperioder", plDef: "ansökningsperioderna", ex: "**Ansökningsperioden** slutar den 15 april.", exNl: "De aanmeldperiode eindigt op 15 april." }
   - { sv: "att förbereda sig", nl: "zich voorbereiden", ex: "Hon **förbereder sig** inför tentan.", exNl: "Ze bereidt zich voor op het tentamen." }
   - { sv: "att diskutera", nl: "bespreken, discussiëren", ex: "Vi **diskuterade** texten i grupp.", exNl: "We bespraken de tekst in een groep." }
-  - { sv: "svår", nl: "moeilijk", ex: "Uppgiften var **svår** men rolig.", exNl: "De opdracht was moeilijk maar leuk." }
   - { sv: "frånvarande", nl: "afwezig", ex: "Tre elever var **frånvarande** i dag.", exNl: "Drie leerlingen waren vandaag afwezig." }
   - { sv: "en antagning", nl: "een toelating", def: "antagningen", pl: "antagningar", plDef: "antagningarna", ex: "Besked om **antagningen** kommer i juli.", exNl: "Bericht over de toelating komt in juli." }
-  - { sv: "en kursplan", nl: "een studieplan, syllabus", def: "kursplanen", pl: "kursplaner", plDef: "kursplanerna", ex: "I **kursplanen** står vad du ska lära dig.", exNl: "In de studieplan staat wat je moet leren." }
+  - { sv: "en kursplan", nl: "een studieplan, syllabus", def: "kursplanen", pl: "kursplaner", plDef: "kursplanerna", ex: "I **kursplanen** står vad du ska lära dig.", exNl: "In het studieplan staat wat je moet leren." }
   - { sv: "ett grupparbete", nl: "een groepsopdracht", def: "grupparbetet", pl: "grupparbeten", plDef: "grupparbetena", ex: "Vi har ett **grupparbete** om klimatet.", exNl: "We hebben een groepsopdracht over het klimaat." }
   - { sv: "att presentera", nl: "presenteren", ex: "I morgon ska vi **presentera** vårt arbete.", exNl: "Morgen presenteren we ons werk." }
   - { sv: "att sammanfatta", nl: "samenvatten", ex: "Kan du **sammanfatta** texten i tre meningar?", exNl: "Kun je de tekst in drie zinnen samenvatten?" }

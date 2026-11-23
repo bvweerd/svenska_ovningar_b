@@ -102,7 +102,7 @@ sections:
         kind: makkelijk
         textTitle: "Elementet"
         text: |
-          När Femke kom hem i går var det kallt i lägenheten. Elementet i sovrummet hade gått sönder. Hon ringde hyresvärden och gjorde en felanmälan. Nästa morgon kom en reparatör. Han stängde av vattnet, bytte en del och satte på elementet igen. Efter en timme var det varmt i rummet. Femke tackade och bjöd honom på kaffe. Femke var glad att det gick så snabbt.
+          När Femke kom hem i går var det kallt i lägenheten. Elementet i sovrummet hade gått sönder. Hon ringde hyresvärden och gjorde en felanmälan. Nästa morgon kom en reparatör. Han stängde av vattnet, bytte en del och satte på värmen igen. Efter en timme var det varmt i rummet. Femke tackade och bjöd honom på kaffe. Femke var glad att det gick så snabbt.
         items:
           - { id: 6ez6, type: truefalse, statement: "Elementet i köket hade gått sönder.", answer: false }
           - { id: kvmg, type: truefalse, statement: "En reparatör kom nästa morgon.", answer: true }
@@ -114,7 +114,7 @@ sections:
         kind: makkelijk
         textTitle: "Nya grannar"
         text: |
-          I lägenheten bredvid har en ny familj flyttat in. Föräldrarna, vars barn är fem och sju år, kommer från Syrien. Femke hälsade på dem i trapphuset. De berättade att de hade bott i Göteborg tidigare. Dit ska de åka och hälsa på vänner i sommar. Femke visade dem tvättstugan, där man bokar tid på en tavla i källaren. Familjen bjöd sedan Femke på te.
+          I lägenheten bredvid har en ny familj flyttat in. Familjen, vars barn är fem och sju år, kommer från Syrien. Femke hälsade på dem i trapphuset. De berättade att de hade bott i Göteborg tidigare. Dit ska de åka och hälsa på vänner i sommar. Femke visade dem tvättstugan, där man bokar tid på en tavla i källaren. Familjen bjöd sedan Femke på te.
         items:
           - { id: 43f8, type: truefalse, statement: "Den nya familjen har två barn.", answer: true }
           - { id: auqy, type: truefalse, statement: "Man bokar tvättstugan på internet.", answer: false }
@@ -374,9 +374,9 @@ sections:
         instruction: Zeg het nu zelf in het Zweeds. Er is vaak meer dan één goed antwoord.
         kind: situatie
         items:
-          - { id: 77mm, type: translate, topic: partikelverb, prompt: "Vraag je huisgenoot of hij de radio uitzet.", answers: ["Kan du stänga av radion[, tack]?"], feedback: [{ contains: "stänga radion av", tip: "Het partikel komt vóór het lijdend voorwerp: stänga av radion." }] }
-          - { id: bn82, type: translate, topic: partikelverb, prompt: "Zeg dat je volgende maand in je nieuwe appartement trekt.", answers: ["Jag flyttar in i min nya lägenhet nästa månad.", "Nästa månad flyttar jag in i min nya lägenhet."] }
-          - { id: p2yz, type: translate, topic: dar-dit-vars, prompt: "Zeg dat je in Malmö woont en dat je ouders er volgende week naartoe komen.", answers: ["Jag bor i Malmö, och mina föräldrar kommer dit nästa vecka."], feedback: [{ contains: "kommer där", tip: "Ergens naartoe (richting): dit." }] }
+          - { id: 77mm, type: translate, topic: partikelverb, prompt: "Vraag je huisgenoot of hij de radio uitzet.", answers: ["{Kan du|Kunde du|Skulle du kunna} {stänga|slå} av radion[, tack]?"], feedback: [{ contains: "stänga radion av", tip: "Het partikel komt vóór het lijdend voorwerp: stänga av radion." }] }
+          - { id: bn82, type: translate, topic: partikelverb, prompt: "Zeg dat je volgende maand in je nieuwe appartement trekt.", answers: ["Jag {flyttar|ska flytta|kommer att flytta} in i min nya lägenhet nästa månad.", "Nästa månad {flyttar jag|ska jag flytta|kommer jag att flytta} in i min nya lägenhet."] }
+          - { id: p2yz, type: translate, topic: dar-dit-vars, prompt: "Zeg dat je zus in Malmö woont en dat je er volgende week naartoe gaat.", answers: ["Min syster bor i Malmö, och jag {åker|ska åka|reser} dit nästa vecka."], feedback: [{ contains: "åker där", tip: "Ergens naartoe (richting): dit." }, { contains: "åka där", tip: "Ergens naartoe (richting): dit." }] }
           - { id: s5f8, type: translate, topic: partikelverb, prompt: "Vertel dat de wasmachine kapot is gegaan.", answers: ["Tvättmaskinen har gått sönder.", "Tvättmaskinen gick sönder."] }
 
   - id: skriva
