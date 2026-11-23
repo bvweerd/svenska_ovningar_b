@@ -150,7 +150,7 @@ sections:
         kind: makkelijk
         textTitle: "Första dagen"
         text: |
-          Ali började på ett nytt jobb i en butik i måndags. Hans chef, som heter Karin, visade honom runt. Sedan fick han en tröja med företagets namn, som alla i butiken har på sig. Butiken öppnas klockan nio och stängs klockan sju. Personalen äter lunch i ett rum bakom butiken. Ali fick en kollega, Johan, som ska hjälpa honom den första veckan. Efter dagen var Ali trött, men nöjd.
+          Ali började på ett nytt jobb i en butik i måndags. Hans chef, som heter Karin, visade honom runt. Sedan fick han en tröja med företagets namn på. Alla i butiken har en sådan. Butiken öppnas klockan nio och stängs klockan sju. Personalen äter lunch i ett rum bakom butiken. Ali fick en kollega, Johan, som ska hjälpa honom den första veckan. På kvällen var Ali trött men nöjd.
         items:
           - { id: brrm, type: truefalse, statement: "Ali började i butiken i måndags.", answer: true }
           - { id: hukz, type: mc, prompt: "Vem ska hjälpa Ali den första veckan?", options: ["Karin.", "Johan.", "Amir."], answer: 1 }
@@ -163,7 +163,7 @@ sections:
         kind: makkelijk
         textTitle: "Schemat"
         text: |
-          På sjukhuset där Sofia jobbar skickas schemat ut fyra veckor innan. Sofia jobbar ofta kväll, men nästa vecka jobbar hon två dagar. Om man vill byta ett pass, måste chefen säga ja. Sofia vill byta sitt pass på lördag, eftersom hennes syster fyller trettio. Hon frågar sin kollega Erik, som gärna vill byta. Chefen säger ja, och schemat ändras samma dag. Nu kan Sofia gå på festen.
+          På sjukhuset där Sofia jobbar skickas schemat ut fyra veckor innan. Sofia jobbar ofta kväll, men nästa vecka har hon två dagpass. Om man vill byta ett pass, måste chefen säga ja. Sofia vill byta sitt pass på lördag, eftersom hennes syster fyller trettio. Hon frågar sin kollega Erik, som gärna vill byta. Chefen säger ja, och schemat ändras samma dag. Nu kan Sofia gå på festen.
         items:
           - { id: tw3s, type: truefalse, statement: "Schemat skickas ut en vecka innan.", answer: false }
           - { id: j2jr, type: mc, prompt: "Varför vill Sofia byta pass?", options: ["Hon är sjuk.", "Hennes syster fyller år.", "Hon ska resa bort."], answer: 1 }

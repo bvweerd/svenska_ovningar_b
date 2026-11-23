@@ -139,7 +139,7 @@ sections:
         kind: makkelijk
         textTitle: "Ont i ryggen"
         text: |
-          Elif har haft ont i ryggen länge. Hon ringer vårdcentralen och väntar i telefonkö i tjugo minuter. Till slut får hon prata med en sjuksköterska. Sjuksköterskan frågar om smärtan och säger att Elif ska få träffa en fysioterapeut. Det kommer att ta två veckor. Under tiden ska Elif röra på sig och inte sitta still för länge. Elif tackar och lovar att ta hand om sig.
+          Elif har haft ont i ryggen länge. Hon ringer vårdcentralen och väntar i telefonkön i tjugo minuter. Till slut får hon prata med en sjuksköterska. Sjuksköterskan frågar om smärtan och säger att Elif ska få träffa en fysioterapeut. Hon får en tid om två veckor. Under tiden ska Elif röra på sig och inte sitta still för länge. Elif tackar och lovar att ta hand om sig.
         items:
           - { id: s6dp, type: mc, prompt: "Hur länge väntar Elif i telefonkön?", options: ["Fem minuter.", "Tjugo minuter.", "En timme."], answer: 1 }
           - { id: 2kd3, type: truefalse, statement: "Elif får träffa en läkare samma dag.", answer: false }

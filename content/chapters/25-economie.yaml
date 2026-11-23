@@ -136,11 +136,11 @@ sections:
         kind: makkelijk
         textTitle: "Kaféet på hörnet"
         text: |
-          Sedan Petra öppnade sitt kafé för tre år sedan har antalet kunder ökat varje år. Förra året steg försäljningen med tjugo procent. Men i år har kostnaderna också ökat kraftigt. Priset på kaffe har stigit, och hyran har höjts. Därför har Petra fått höja priserna lite. En kopp kaffe kostar nu trettiofem kronor i stället för trettio. Några kunder har klagat, men de flesta kommer tillbaka ändå. Petra tror att höjningen är nödvändig för att kaféet ska överleva. Hennes plan är att börja sälja lunch i höst, så att intäkterna blir större.
+          Petra öppnade sitt kafé för tre år sedan. Sedan dess har antalet kunder ökat varje år. Förra året steg försäljningen med femton procent. Men i år har kostnaderna också ökat kraftigt. Priset på kaffe har stigit, och hyran har höjts. Därför har Petra fått höja priserna lite. En kopp kaffe kostar nu trettiofem kronor i stället för trettio. Några kunder har klagat, men de flesta kommer tillbaka ändå. Petra tror att höjningen är nödvändig för att kaféet ska överleva. Hennes plan är att börja sälja lunch i höst, så att intäkterna blir större.
         items:
-          - { id: ak24, type: truefalse, statement: "Försäljningen ökade med tjugo procent förra året.", answer: true }
+          - { id: ak24, type: truefalse, statement: "Försäljningen ökade med femton procent förra året.", answer: true }
           - { id: pptf, type: mc, prompt: "Vad kostar en kopp kaffe nu?", options: ["Trettio kronor.", "Trettiofem kronor.", "Fyrtio kronor."], answer: 1 }
-          - { id: 22vx, type: truefalse, statement: "Petra tänker sluta sälja lunch.", answer: false }
+          - { id: 22vx, type: truefalse, statement: "Petra säljer redan lunch.", answer: false }
 
       - id: makkelijk-4
         title: "Makkelijk lezen: Unga sparar"

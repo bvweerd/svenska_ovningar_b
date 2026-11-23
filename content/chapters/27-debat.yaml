@@ -130,10 +130,10 @@ sections:
         kind: makkelijk
         textTitle: "Sommartiden"
         text: |
-          Varje vår ställs klockan fram en timme, och varje höst ställs den tillbaka. Många vill att det ska upphöra. Det är framför allt sömnen som påverkas, menar de. För det första sover många sämre i några dagar efter bytet. För det andra blir det fler olyckor i trafiken. Andra tycker att det är skönt med ljusa kvällar på sommaren. EU har diskuterat frågan i flera år, men ännu har inget beslut fattats. Det är alltså fortfarande oklart om klockan kommer att ställas om i framtiden.
+          Varje vår ställs klockan fram en timme, och varje höst ställs den tillbaka. Många vill att det ska upphöra. Det är framför allt sömnen som påverkas, menar de. För det första sover många sämre i några dagar efter bytet. För det andra kan det bli fler olyckor i trafiken. Andra tycker att det är skönt med ljusa kvällar på sommaren. EU har diskuterat frågan i flera år, men ännu har inget slutligt beslut fattats. Det är alltså fortfarande oklart om klockan kommer att ställas om i framtiden.
         items:
           - { id: smjt, type: mc, prompt: "Vad menar de som vill sluta ställa om klockan?", options: ["Att sömnen påverkas.", "Att kvällarna blir för ljusa.", "Att det kostar för mycket."], answer: 0 }
-          - { id: ft2y, type: truefalse, statement: "EU har fattat ett beslut.", answer: false }
+          - { id: ft2y, type: truefalse, statement: "EU har bestämt att klockan inte ska ställas om längre.", answer: false }
           - { id: v4c6, type: truefalse, statement: "Klockan ställs fram på våren.", answer: true }
 
       - id: opbouw-sorteren

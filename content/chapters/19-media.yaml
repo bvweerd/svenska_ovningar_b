@@ -125,11 +125,11 @@ sections:
         kind: makkelijk
         textTitle: "Podden"
         text: |
-          Klara lyssnar på en podd om mat varje morgon på väg till jobbet. I dagens program berättade journalisten att svenskarna dricker mer kaffe än nästan alla andra i världen. Klara undrade om det verkligen stämde, så hon sökte på internet på lunchen. Där stod det att bara finländarna dricker mer. Klara berättade det för sina kollegor och frågade hur många koppar de dricker varje dag. De flesta sa att de dricker tre eller fyra.
+          Klara lyssnar på en podd om mat varje morgon på väg till jobbet. I dagens avsnitt berättade journalisten att svenskarna dricker mer kaffe än de flesta andra i världen. Klara undrade om det verkligen stämde, så hon sökte på internet på lunchrasten. Där stod det att finländarna dricker mest. Klara berättade det för sina kollegor och frågade hur många koppar de drack varje dag. De flesta sa att de drack tre eller fyra.
         items:
           - { id: 4mk8, type: truefalse, statement: "Klara lyssnar på podden på kvällen.", answer: false }
-          - { id: 2fjy, type: mc, prompt: "Vilka dricker mer kaffe än svenskarna?", options: ["Finländarna.", "Norrmännen.", "Danskarna."], answer: 0 }
-          - { id: aee7, type: truefalse, statement: "De flesta kollegor dricker tre eller fyra koppar om dagen.", answer: true }
+          - { id: 2fjy, type: mc, prompt: "Vilka dricker mest kaffe i världen enligt texten?", options: ["Finländarna.", "Italienarna.", "Amerikanerna."], answer: 0 }
+          - { id: aee7, type: truefalse, statement: "De flesta kollegorna dricker tre eller fyra koppar om dagen.", answer: true }
 
       - id: makkelijk-4
         title: "Makkelijk lezen: Intervjun"
@@ -138,7 +138,7 @@ sections:
         kind: makkelijk
         textTitle: "Intervjun"
         text: |
-          En journalist från tidningen ringde Bengt i går. Hon frågade om han ville bli intervjuad om sin kör. Bengt har sjungit i kören i fyrtio år. Han sa att han gärna ville. Journalisten frågade varför han tycker om att sjunga. Bengt svarade att sången gör honom glad och lugn, och att kören är som en familj för honom. Artikeln kommer i tidningen på lördag.
+          En journalist från tidningen ringde Bengt i går. Hon frågade om han ville bli intervjuad om sin kör. Bengt har sjungit i kören i fyrtio år. Han sa att han gärna ville. Journalisten frågade varför han tyckte om att sjunga. Bengt svarade att sången gjorde honom glad och lugn, och att kören var som en familj för honom. Artikeln kommer i tidningen på lördag.
         items:
           - { id: 5fsp, type: mc, prompt: "Hur länge har Bengt sjungit i kören?", options: ["I fyra år.", "I fjorton år.", "I fyrtio år."], answer: 2 }
           - { id: egnt, type: truefalse, statement: "Bengt ville inte bli intervjuad.", answer: false }

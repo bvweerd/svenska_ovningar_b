@@ -123,7 +123,7 @@ sections:
         kind: makkelijk
         textTitle: "Grannens hund"
         text: |
-          Lina bor bredvid en man som har en stor hund. Hunden skäller varje gång Lina går förbi, och hon blir rädd. Hennes mamma säger: ”Om jag vore du skulle jag prata med grannen.” Lina tycker att det är svårt, men en dag gör hon det. Grannen blir inte arg. Han säger att hunden är snäll och att den bara vill hälsa. Nu klappar Lina hunden ibland, och den skäller inte längre.
+          Lina bor bredvid en man som har en stor hund. Hunden skäller varje gång Lina går förbi, och hon blir rädd. Hennes mamma säger: ”Du borde prata med grannen.” Lina tycker att det är svårt, men en dag gör hon det. Grannen blir inte arg. Han säger att hunden är snäll och att den bara vill hälsa. Nu klappar Lina hunden ibland, och den skäller inte längre.
         items:
           - { id: euxg, type: truefalse, statement: "Grannen blir arg på Lina.", answer: false }
           - { id: z7hg, type: mc, prompt: "Vad tycker mamman att Lina ska göra?", options: ["Flytta.", "Prata med grannen.", "Ringa polisen."], answer: 1 }
@@ -136,9 +136,9 @@ sections:
         kind: makkelijk
         textTitle: "Jobbet i Umeå"
         text: |
-          Mattias har fått ett jobberbjudande i Umeå. Han skulle gärna vilja ta det, men hans flickvän Sara har ett bra jobb i Malmö. ”Om du flyttar, kommer jag att sakna dig”, säger hon. Mattias frågar sina vänner vad de skulle göra. En vän säger att han borde tacka nej. En annan tycker att de kunde prova att bo på olika ställen i ett år. Mattias har inte bestämt sig än.
+          Mattias har fått ett jobberbjudande i Umeå. Han skulle gärna vilja ta det, men hans flickvän Elsa har ett bra jobb i Malmö. ”Om du flyttar, kommer jag att sakna dig”, säger hon. Mattias frågar sina vänner vad de skulle göra. En vän säger att han borde tacka nej. En annan tycker att de kunde prova att bo på olika ställen i ett år. Mattias har inte bestämt sig än.
         items:
-          - { id: bsaf, type: mc, prompt: "Var jobbar Sara?", options: ["I Umeå.", "I Malmö.", "I Göteborg."], answer: 1 }
+          - { id: bsaf, type: mc, prompt: "Var jobbar Elsa?", options: ["I Umeå.", "I Malmö.", "I Göteborg."], answer: 1 }
           - { id: gnp6, type: truefalse, statement: "Mattias har redan tackat ja.", answer: false }
           - { id: 238t, type: truefalse, statement: "En vän tycker att Mattias borde tacka nej.", answer: true }
 

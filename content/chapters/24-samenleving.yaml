@@ -128,7 +128,7 @@ sections:
         kind: makkelijk
         textTitle: "I föreningen"
         text: |
-          Varje lördag hjälper Hugo till i en förening för människor som nyss har kommit till Sverige. Han hjälper barnen med läxorna medan föräldrarna går på en svenskkurs. Han jobbar fyra timmar varje gång, trots att han inte får några pengar. Hugo anser ändå att det är värt det. Han har lärt sig mycket om andra länder, och han har fått nya vänner. Enligt honom borde fler unga hjälpa till.
+          Varje lördag hjälper Hugo till i en förening för människor som nyss har kommit till Sverige. Han hjälper barnen med läxorna medan föräldrarna går på en svenskkurs. Han jobbar fyra timmar varje gång, trots att han inte får betalt. Hugo anser ändå att det är värt det. Han har lärt sig mycket om andra länder, och han har fått nya vänner. Enligt honom borde fler unga hjälpa till.
         items:
           - { id: fd7p, type: mc, prompt: "Vad gör Hugo i föreningen?", options: ["Han lagar mat.", "Han hjälper barnen med läxorna.", "Han kör bil."], answer: 1 }
           - { id: 3ukx, type: truefalse, statement: "Hugo får betalt.", answer: false }

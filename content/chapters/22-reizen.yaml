@@ -133,7 +133,7 @@ sections:
         kind: makkelijk
         textTitle: "Försenat flyg"
         text: |
-          Sanne och Bas skulle flyga till Kiruna på fredag. Flyget var försenat i tre timmar, eftersom det snöade mycket i norr. De satt på flygplatsen och väntade. Dessutom var kaféet stängt. Trots att de var hungriga och trötta var de på gott humör. När de till slut landade, var det mörkt och tjugo grader kallt. De checkade in på hotellet och somnade direkt.
+          Sanne och Bas skulle flyga till Kiruna i fredags. Flyget var försenat i tre timmar, eftersom det snöade mycket i norr. De satt på flygplatsen och väntade, och kaféet var dessutom stängt. Trots att de var hungriga och trötta var de på gott humör. När de till slut landade, var det mörkt och tjugo grader kallt. De checkade in på hotellet och somnade direkt.
         items:
           - { id: 2bph, type: truefalse, statement: "Flyget var försenat i en timme.", answer: false }
           - { id: xtwk, type: mc, prompt: "Varför var flyget försenat?", options: ["Det snöade mycket.", "Piloten var sjuk.", "Det var strejk."], answer: 0 }
@@ -146,7 +146,7 @@ sections:
         kind: makkelijk
         textTitle: "Tågluffen"
         text: |
-          Efter studenten åker Moa och hennes kompis Ella på tågluff i Europa. De ska vara borta i en månad. De har köpt ett tågkort, och därför kan de åka så mycket de vill. Först åker de ner till Köpenhamn och vidare till Berlin. Där stannar de i fyra dagar. Sedan fortsätter de till Prag och Wien. De bor på billiga vandrarhem. Moa skriver dagbok varje kväll, så att hon kommer ihåg allt.
+          Efter studenten åker Moa och hennes kompis Ella på tågluff i Europa. De ska vara borta i en månad. De har köpt ett Interrailkort, och därför kan de åka så mycket de vill. Först åker de ner till Köpenhamn och vidare till Berlin. Där stannar de i fyra dagar. Sedan fortsätter de till Prag och Wien. De bor på billiga vandrarhem. Moa skriver dagbok varje kväll, så att hon kommer ihåg allt.
         items:
           - { id: t8t7, type: mc, prompt: "Hur länge ska de vara borta?", options: ["En vecka.", "En månad.", "Ett år."], answer: 1 }
           - { id: e2d6, type: truefalse, statement: "De stannar i Berlin i fyra dagar.", answer: true }

@@ -126,7 +126,7 @@ sections:
         kind: makkelijk
         textTitle: "Kvällskursen"
         text: |
-          Ahmed går en kurs i svenska på kvällarna, två gånger i veckan. Kursen är gratis. Varje lektion börjar med en kort genomgång, och sedan arbetar deltagarna i par. Förra veckan blev lektionen inställd, eftersom läraren var sjuk. Den flyttades till lördag i stället. Ahmed tycker att kursen är bra, för han vill söka ett nytt jobb. Efter kursen får alla ett papper som visar att de har gått kursen.
+          Ahmed går en kurs i svenska på kvällarna, två gånger i veckan. Kursen är gratis. Varje lektion börjar med en kort genomgång, och sedan arbetar deltagarna i par. Förra veckan blev lektionen inställd, eftersom läraren var sjuk. Den flyttades till lördag i stället. Ahmed tycker att kursen är viktig, eftersom han vill söka ett nytt jobb. Efter kursen får alla ett papper som visar att de har gått kursen.
         items:
           - { id: 9b97, type: truefalse, statement: "Kursen är på dagen.", answer: false }
           - { id: ac6f, type: mc, prompt: "Varför blev lektionen inställd?", options: ["Läraren var sjuk.", "Lokalen var stängd.", "Det kom för få deltagare."], answer: 0 }
@@ -139,7 +139,7 @@ sections:
         kind: makkelijk
         textTitle: "Den nya skolan"
         text: |
-          Emmas son Leo har börjat i en ny skola. Skolan byggdes förra året och är ljus och fin. Klassrummen är stora, och skolgården är stor också. Leo var nervös den första dagen, men hans lärare var snäll mot honom. Nu har han redan fått två nya kompisar. Lunchen lagas i skolans kök, och Leo tycker att maten är god. Emma är glad och lugn. Leo tycker att den nya skolan är bättre än den gamla.
+          Emmas son Leo har börjat i en ny skola. Skolan byggdes förra året och är ljus och fin. Klassrummen är stora, och skolgården är fin. Leo var nervös den första dagen, men hans lärare var snäll mot honom. Nu har han redan fått två nya kompisar. Lunchen lagas i skolans kök, och Leo tycker att maten är god. Emma är glad och lugn. Leo tycker att den nya skolan är bättre än den gamla.
         items:
           - { id: rane, type: mc, prompt: "När byggdes skolan?", options: ["Förra året.", "För tio år sedan.", "I år."], answer: 0 }
           - { id: nstu, type: truefalse, statement: "Leo har inga kompisar än.", answer: false }

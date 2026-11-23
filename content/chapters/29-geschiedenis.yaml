@@ -139,7 +139,7 @@ sections:
         kind: makkelijk
         textTitle: "Vasaloppet"
         text: |
-          Varje år i mars åker tusentals människor skidor från Sälen till Mora. Det är nio mil, alltså nittio kilometer, och tävlingen kallas Vasaloppet. Det har fått sitt namn efter Gustav Vasa, som enligt legenden flydde på skidor mot Norge år 1520. Två män från Mora åkte efter honom och bad honom komma tillbaka. Senare blev han kung. Den första tävlingen hölls 1922. I dag åker fler än femtontusen personer varje år. Många tränar hela vintern innan. De flesta har aldrig åkt så långt förut, men nästan alla kommer ändå fram till Mora.
+          Varje år i mars åker tusentals människor skidor från Sälen till Mora. Det är nio mil, alltså nittio kilometer, och tävlingen kallas Vasaloppet. Loppet har fått sitt namn efter Gustav Vasa, som enligt legenden flydde på skidor mot Norge omkring år 1520. Två män från Mora åkte efter honom och bad honom komma tillbaka. Senare blev han kung. Den första tävlingen hölls 1922. I dag åker fler än femtontusen personer varje år. Många tränar hela vintern innan. Många har aldrig åkt så långt förut, men nästan alla kommer ändå fram till Mora.
         items:
           - { id: 4jvh, type: mc, prompt: "Hur långt är Vasaloppet?", options: ["Fem mil.", "Nio mil.", "Tjugo mil."], answer: 1 }
           - { id: 7qfe, type: truefalse, statement: "Den första tävlingen hölls 1922.", answer: true }

@@ -141,7 +141,7 @@ sections:
           Tom kommer från Nederländerna och har ett holländskt körkort. Han undrade om det gäller i Sverige, så han ringde Transportstyrelsen. Handläggaren svarade att körkort från andra EU-länder gäller i hela Sverige. Tom behöver alltså inte byta det. Men han kan byta om han vill, och det kostar några hundra kronor. Tom bestämde sig för att behålla sitt gamla körkort. Han var glad att slippa fylla i fler blanketter.
         items:
           - { id: jwh3, type: truefalse, statement: "Toms körkort gäller i Sverige.", answer: true }
-          - { id: fpjj, type: mc, prompt: "Vart ringde Tom?", options: ["Till Skatteverket.", "Till Transportstyrelsen.", "Till Försäkringskassan."], answer: 1 }
+          - { id: fpjj, type: mc, prompt: "Vilken myndighet ringde Tom till?", options: ["Skatteverket.", "Transportstyrelsen.", "Försäkringskassan."], answer: 1 }
           - { id: 8cgs, type: truefalse, statement: "Tom bytte sitt körkort.", answer: false }
 
   - id: ord

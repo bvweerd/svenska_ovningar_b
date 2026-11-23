@@ -114,7 +114,7 @@ sections:
         kind: makkelijk
         textTitle: "Utan bil"
         text: |
-          Erik har sålt sin bil. Han bor mitt i stan och behöver ingen bil längre. Nu cyklar han överallt, även på vintern. Det är bra för miljön och för ens hälsa, tycker han. Ibland behöver han hyra en bil, men det händer inte ofta. Hans grannar frågade om han inte saknar bilen. Erik svarade att han inte saknar något. Han sparar mycket pengar, och han behöver aldrig leta efter en parkering.
+          Erik har sålt sin bil. Han bor mitt i stan och behöver ingen bil längre. Nu cyklar han överallt, även på vintern. Det är bra för miljön och för hälsan, tycker han. Ibland behöver han hyra en bil, men det händer inte ofta. Hans grannar frågade om han inte saknade bilen. Erik svarade att han inte saknade något. Han sparar mycket pengar, och han behöver aldrig leta efter parkering.
         items:
           - { id: j64v, type: truefalse, statement: "Erik har kvar sin bil.", answer: false }
           - { id: y3ep, type: mc, prompt: "Varför behöver Erik ingen bil?", options: ["Han bor mitt i stan.", "Han har inget körkort.", "Han jobbar hemma."], answer: 0 }

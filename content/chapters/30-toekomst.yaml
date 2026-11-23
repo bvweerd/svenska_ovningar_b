@@ -115,7 +115,7 @@ sections:
         kind: makkelijk
         textTitle: "Att bo i framtiden"
         text: |
-          Hur kommer vi att bo om trettio år? Enligt en ny rapport kommer fler människor att bo i städerna, och lägenheterna kommer att bli mindre. Däremot väntas de gemensamma utrymmena bli fler, till exempel tvättstugor, kök och arbetsrum som delas av alla grannar. Husen kommer sannolikt att byggas mer i trä, eftersom det är bättre för klimatet. Rapporten tror också att fler äldre kommer att bo tillsammans med andra i så kallade seniorboenden. Vi får se om den har rätt.
+          Hur ser bostäderna ut om trettio år? Enligt en ny rapport kommer fler människor att bo i städerna, och lägenheterna kommer att bli mindre. Däremot väntas de gemensamma utrymmena bli fler, till exempel tvättstugor, kök och arbetsrum som delas av alla grannar. Husen kommer sannolikt att byggas mer i trä, eftersom det är bättre för klimatet. Enligt rapporten kommer också fler äldre att bo tillsammans med andra i så kallade seniorboenden. Om rapporten har rätt, får vi se om trettio år.
         items:
           - { id: dbg5, type: mc, prompt: "Vad kommer husen sannolikt att byggas av?", options: ["Betong.", "Trä.", "Glas."], answer: 1 }
           - { id: 2e4j, type: truefalse, statement: "Lägenheterna kommer att bli större.", answer: false }
