@@ -108,16 +108,16 @@ sections:
           - { id: 2pwx, type: truefalse, statement: "Breven hade skrivits av en präst.", answer: false }
 
       - id: makkelijk-2
-        title: "Makkelijk lezen: Runstenar"
+        title: "Makkelijk lezen: Slottet"
         instruction: Een korte tekst met woorden die je al kent. Lees hem vlot door en kies rätt of fel.
         topic: woordenschat
         kind: makkelijk
-        textTitle: "Runstenar"
+        textTitle: "Slottet"
         text: |
-          I Sverige finns det flera tusen runstenar. De flesta restes under vikingatiden, för ungefär tusen år sedan. Ofta restes stenen till minne av en släkting som hade dött. Många stenar står fortfarande kvar där de en gång restes. Texterna är skrivna med runor, ett gammalt alfabet med sexton tecken. Många stenar har också vackra mönster, ofta i form av en orm. Från början var stenarna målade i starka färger, men färgen har för länge sedan försvunnit. I dag kan man läsa om alla stenar på internet.
+          Mitt i staden ligger ett gammalt slott. Det byggdes på 1500-talet av en mäktig kung. Under många år bodde kungen och drottningen där med sina barn. Senare blev slottet en skola, och ännu senare ett museum. I dag kan man gå runt i rummen och se hur man levde förr. Det finns gamla möbler, kläder och tavlor. Många besöker slottet varje sommar. På vintern är det stängt, men skolklasser kan boka ett besök. Då berättar en lärare från museet om kungen och om krigen.
         items:
-          - { id: zfnf, type: truefalse, statement: "De flesta runstenar restes under vikingatiden.", answer: true }
-          - { id: nvmx, type: truefalse, statement: "Alla runstenar har flyttats till museer.", answer: false }
+          - { id: zfnf, type: truefalse, statement: "Slottet byggdes på 1500-talet.", answer: true }
+          - { id: nvmx, type: truefalse, statement: "Slottet är öppet hela vintern.", answer: false }
 
   - id: ord
     title: Ord och fraser · woorden en uitdrukkingen

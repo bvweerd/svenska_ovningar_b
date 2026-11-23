@@ -101,22 +101,22 @@ sections:
         kind: makkelijk
         textTitle: "Nyheten"
         text: |
-          I morse läste Bas en nyhet i tidningen. Där stod det att en buss hade kört av vägen nära Västerås. Enligt polisen skadades ingen allvarligt. Bussföraren berättade att vägen hade varit hal. Journalisten frågade om bussen hade haft vinterdäck, men det visste ingen. Polisen stängde av vägen i tre timmar. Många bilister fick vänta länge, och några var arga. Nu ska kommunen undersöka om vägen behöver bli bredare.
+          I morse läste Bas en nyhet i tidningen. Där stod det att en buss hade kört av vägen nära Västerås. Enligt polisen skadades ingen allvarligt. Bussföraren berättade att det hade snöat mycket. Journalisten frågade om bussen hade haft vinterdäck, men det visste ingen. Polisen stängde av vägen i tre timmar. Många fick vänta länge i bilen. Nu ska kommunen undersöka om något måste göras med vägen.
         items:
           - { id: 4wsy, type: truefalse, statement: "Flera personer skadades allvarligt.", answer: false }
-          - { id: 738w, type: truefalse, statement: "Föraren sa att vägen hade varit hal.", answer: true }
+          - { id: 738w, type: truefalse, statement: "Föraren sa att det hade snöat mycket.", answer: true }
 
       - id: makkelijk-2
-        title: "Makkelijk lezen: Tävlingen"
+        title: "Makkelijk lezen: Den godaste soppan"
         instruction: Een korte tekst met woorden die je al kent. Lees hem vlot door en kies rätt of fel.
         topic: woordenschat
         kind: makkelijk
-        textTitle: "Tävlingen"
+        textTitle: "Den godaste soppan"
         text: |
-          I fredags hade skolan en tävling i matlagning. Alla undrade vem som skulle vinna. Juryn berättade att de hade smakat tolv rätter. Till slut sa de att Elin hade gjort den godaste soppan. Lokaltidningen skrev en kort artikel om tävlingen. Elin berättade att hon hade lagat soppan med sin mormor många gånger. Hon fick en bok om matlagning som pris. Nästa år vill hon tävla igen.
+          I fredags lagade eleverna i skolan soppa. Alla undrade vems soppa som var godast. Tre lärare smakade tolv olika soppor. Till slut sa de att Elin hade gjort den godaste soppan. Tidningen skrev en kort artikel om dagen. Elin berättade att hon hade lagat soppan med sin mormor många gånger. Hon fick en bok om mat som pris. Nästa år vill hon vara med igen.
         items:
-          - { id: u6fz, type: truefalse, statement: "Juryn smakade tolv rätter.", answer: true }
-          - { id: jevf, type: truefalse, statement: "Elin vann med en tårta.", answer: false }
+          - { id: u6fz, type: truefalse, statement: "Lärarna smakade tolv soppor.", answer: true }
+          - { id: jevf, type: truefalse, statement: "Elins soppa var den godaste.", answer: true }
 
   - id: ord
     title: Ord och fraser · woorden en uitdrukkingen

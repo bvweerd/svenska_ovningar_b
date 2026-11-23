@@ -111,7 +111,7 @@ sections:
         kind: makkelijk
         textTitle: "Våffeldagen"
         text: |
-          Den 25 mars är det våffeldagen. Då äter många svenskar våfflor med sylt och grädde. Joyce bakade våfflor för första gången i år. Hela familjen åt i köket, och nästa år vill barnen göra smeten själva. Hon hade köpt sylt, grädde och mjöl i affären dagen innan. De första våfflorna blev inte så snygga, men de smakade gott. Barnen åt fyra var. Efteråt var köket fullt av mjöl.
+          Den 25 mars är det våffeldagen. Då äter många svenskar våfflor med sylt och grädde. Joyce bakade våfflor för första gången i år. Hela familjen åt i köket, och nästa år vill barnen baka själva. Hon hade köpt sylt och grädde i affären dagen innan. De första våfflorna blev inte så fina, men de smakade gott. Barnen åt fyra var. Efteråt hjälpte alla till att städa köket.
         items:
           - { id: 4pjm, type: truefalse, statement: "Joyce har bakat våfflor många gånger.", answer: false }
           - { id: xy94, type: truefalse, statement: "Våffeldagen är i mars.", answer: true }

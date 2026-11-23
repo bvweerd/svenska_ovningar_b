@@ -106,10 +106,10 @@ sections:
         kind: makkelijk
         textTitle: "Ekologisk mat"
         text: |
-          Maria köper allt oftare ekologisk mat. Den är dyrare, men hon tycker att den är godare och bättre för miljön. Ju mer hon läser om matproduktion, desto mer intresserad blir hon. Nu odlar hon tomater på balkongen. Hennes man tyckte först att det var en dum idé. Men nu hjälper han till att vattna varje kväll. Förra sommaren fick de nästan fem kilo tomater, och de gjorde egen tomatsås.
+          Maria köper allt oftare ekologisk mat. Den är dyrare, men hon tycker att den är godare och bättre för miljön. Ju mer hon läser om mat och miljö, desto mer intresserad blir hon. Nu odlar hon jordgubbar på balkongen. Hennes man trodde först inte på idén. Men nu hjälper han till varje kväll. Förra sommaren fick de nästan fem kilo jordgubbar, och de gjorde egen sylt.
         items:
           - { id: 8abs, type: truefalse, statement: "Maria tycker att ekologisk mat är billigare.", answer: false }
-          - { id: wv77, type: truefalse, statement: "Maria odlar tomater på balkongen.", answer: true }
+          - { id: wv77, type: truefalse, statement: "Maria odlar jordgubbar på balkongen.", answer: true }
 
   - id: ord
     title: Ord och fraser · woorden en uitdrukkingen

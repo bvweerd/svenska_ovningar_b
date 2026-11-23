@@ -101,7 +101,7 @@ sections:
         kind: makkelijk
         textTitle: "Kursen på distans"
         text: |
-          Anouk läser en kurs i svenska på distans. Varje vecka skickas en ny uppgift ut, och den ska vara inlämnad på söndag. Uppgifterna rättas av läraren, och sedan får Anouk kommentarer. Förra veckan blev hennes text vald som exempel för hela gruppen. Hon blev glad och stolt. Kursen är på halvfart, så Anouk kan jobba samtidigt. Efter kursen vill hon söka till en utbildning på högskolan.
+          Anouk läser en kurs i svenska på distans. Varje vecka skickas en ny uppgift ut, och den ska vara inlämnad på söndag. Uppgifterna rättas av läraren, och sedan får Anouk svar. Förra veckan visade läraren Anouks uppgift för hela gruppen. Hon blev glad och stolt. Kursen är på halvfart, så Anouk kan jobba också. Efter kursen vill hon söka till en utbildning på högskolan.
         items:
           - { id: q52x, type: truefalse, statement: "Kursen är på distans.", answer: true }
           - { id: ydnr, type: truefalse, statement: "Uppgifterna rättas av en annan student.", answer: false }

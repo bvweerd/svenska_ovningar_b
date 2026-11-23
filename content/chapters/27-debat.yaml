@@ -93,22 +93,22 @@ sections:
         kind: makkelijk
         textTitle: "Skoluniform"
         text: |
-          Ska elever ha skoluniform? Det är en fråga som ofta diskuteras. De som är för menar att uniformer minskar stressen kring kläder. Kritiker invänder att det är eleverna själva som ska få bestämma. Det är också en fråga om pengar: vem ska betala? Kort sagt finns det argument på båda sidor. I Sverige är skoluniform ovanligt, men i många andra länder är det självklart. Några svenska skolor har ändå provat. Resultaten är blandade: en del elever tycker om det, medan andra känner sig mindre fria.
+          Ska elever ha skoluniform? Det är en fråga som ofta diskuteras. De som är för menar att det minskar stressen kring kläder. Kritiker invänder att det är eleverna själva som ska få bestämma. Det är också en fråga om pengar: vem ska betala? Kort sagt finns det argument för och emot. I Sverige är det ovanligt, men i många andra länder är det självklart. Några svenska skolor har ändå provat. Resultaten är blandade: en del elever tycker om det, medan andra vill bestämma själva.
         items:
           - { id: z3gs, type: truefalse, statement: "Kritikerna vill att eleverna själva bestämmer.", answer: true }
           - { id: daek, type: truefalse, statement: "Alla är överens om skoluniformer.", answer: false }
 
       - id: makkelijk-2
-        title: "Makkelijk lezen: Bilfritt centrum"
+        title: "Makkelijk lezen: Inga bilar i centrum"
         instruction: Een korte tekst met woorden die je al kent. Lees hem vlot door en kies rätt of fel.
         topic: woordenschat
         kind: makkelijk
-        textTitle: "Bilfritt centrum"
+        textTitle: "Inga bilar i centrum"
         text: |
-          I många städer debatteras ett bilfritt centrum. Det är framför allt butiksägarna som är oroliga. De hävdar att färre kunder kommer att komma. Kommunen bemöter kritiken med att fler går och cyklar när bilarna försvinner, och att det gynnar butikerna. Dessutom pekar kommunen på att luften blir renare och att det blir tystare. I andra städer där man har infört bilfritt centrum har antalet besökare faktiskt ökat. Butiksägarna är dock inte övertygade, och debatten fortsätter i lokaltidningen. Frågan ska avgöras i kommunfullmäktige i vår.
+          I många städer debatteras om bilar ska förbjudas i centrum. Det är framför allt de som har butiker där som är oroliga. De hävdar att färre kunder kommer att komma. Kommunen bemöter kritiken med att fler går och cyklar när det inte finns några bilar, och att det gynnar butikerna. Dessutom menar kommunen att luften blir renare och att det blir tystare. I andra städer som har infört ett sådant förbud har antalet besökare faktiskt ökat. De som har butiker är dock inte övertygade, och debatten fortsätter i tidningen. Politikerna ska bestämma i vår.
         items:
-          - { id: cku7, type: truefalse, statement: "Butiksägarna är oroliga.", answer: true }
-          - { id: ftdd, type: truefalse, statement: "Kommunen håller med butiksägarna.", answer: false }
+          - { id: cku7, type: truefalse, statement: "De som har butiker är oroliga.", answer: true }
+          - { id: ftdd, type: truefalse, statement: "Kommunen håller med dem som har butiker.", answer: false }
 
       - id: opbouw-sorteren
         title: De opbouw van het betoog
