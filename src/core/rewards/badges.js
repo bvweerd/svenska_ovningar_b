@@ -26,11 +26,10 @@ const count = {
 };
 
 /** Een reeks badges voor hetzelfde getal: brons, zilver, goud. */
-const tiered = (group, icon, measure, levels, describe) => levels.map(([n, title], i) => ({
+const tiered = (group, measure, levels, describe) => levels.map(([n, title], i) => ({
   id: `${group}-${n}`,
   group,
   tier: levels.length > 1 ? i + 1 : 0,
-  icon,
   title,
   text: describe(n),
   measure,
@@ -38,21 +37,21 @@ const tiered = (group, icon, measure, levels, describe) => levels.map(([n, title
 }));
 
 export const BADGES = [
-  ...tiered('oefening', '🌱', count.exercises, [[1, 'Eerste stap'], [25, 'Op dreef'], [100, 'Doorzetter']],
+  ...tiered('oefening', count.exercises, [[1, 'Eerste stap'], [25, 'Op dreef'], [100, 'Doorzetter']],
     (n) => (n === 1 ? 'Rond je eerste oefening af.' : `Rond ${n} oefeningen af.`)),
-  ...tiered('doelen', '🎯', count.goals, [[1, 'Doel bereikt'], [10, 'Doelgericht'], [25, 'Kan het allemaal']],
+  ...tiered('doelen', count.goals, [[1, 'Doel bereikt'], [10, 'Doelgericht'], [25, 'Kan het allemaal']],
     (n) => `Behaal ${plural(n, 'kan-doen-doel', 'kan-doen-doelen')} (de app vinkt ze af als je de vragen beheerst).`),
-  ...tiered('hoofdstuk', '📗', count.chapters, [[1, 'Hoofdstuk af'], [3, 'Drie op rij'], [6, 'Halverwege de berg'], [12, 'Bijna alles']],
+  ...tiered('hoofdstuk', count.chapters, [[1, 'Hoofdstuk af'], [3, 'Drie op rij'], [6, 'Halverwege de berg'], [12, 'Bijna alles']],
     (n) => `Maak ${plural(n, 'hoofdstuk', 'hoofdstukken')} helemaal af.`),
-  ...tiered('beheerst', '🧠', count.mastered, [[50, 'Het blijft hangen'], [250, 'Stevig geheugen'], [1000, 'Olifantengeheugen']],
+  ...tiered('beheerst', count.mastered, [[50, 'Het blijft hangen'], [250, 'Stevig geheugen'], [1000, 'Olifantengeheugen']],
     (n) => `Krijg ${n} vragen in doos 4 of hoger: de eerste keer en daarna nog twee keer in de herhaling in één keer goed.`),
-  ...tiered('toets', '📝', count.tests80, [[1, 'Geslaagd'], [5, 'Toetsbestendig']],
+  ...tiered('toets', count.tests80, [[1, 'Geslaagd'], [5, 'Toetsbestendig']],
     (n) => (n === 1 ? 'Haal 80% of meer in een hoofdstuktoets.' : `Haal 80% of meer in ${n} hoofdstuktoetsen.`)),
-  ...tiered('foutloos', '🏆', count.tests100, [[1, 'Foutloos']], () => 'Maak een hoofdstuktoets helemaal foutloos.'),
-  ...tiered('dagen', '📅', count.days, [[5, 'Vaste gewoonte'], [20, 'Trouwe oefenaar'], [50, 'Volhouder']],
+  ...tiered('foutloos', count.tests100, [[1, 'Foutloos']], () => 'Maak een hoofdstuktoets helemaal foutloos.'),
+  ...tiered('dagen', count.days, [[5, 'Vaste gewoonte'], [20, 'Trouwe oefenaar'], [50, 'Volhouder']],
     (n) => `Oefen op ${n} verschillende dagen (hoeven niet achter elkaar).`),
-  ...tiered('dictee', '🎧', count.dictation, [[25, 'Goed geluisterd']], (n) => `Schrijf ${n} zinnen of woorden goed op bij het dictee.`),
-  ...tiered('snel', '⚡', count.game, [[15, 'Snelle denker']], (n) => `Haal ${n} goede antwoorden in één snelle ronde.`),
+  ...tiered('dictee', count.dictation, [[25, 'Goed geluisterd']], (n) => `Schrijf ${n} zinnen of woorden goed op bij het dictee.`),
+  ...tiered('snel', count.game, [[15, 'Snelle denker']], (n) => `Haal ${n} goede antwoorden in één snelle ronde.`),
 ];
 
 /** Waarde van een maat, hooguit één keer uitgerekend (meer badges delen dezelfde maat). */

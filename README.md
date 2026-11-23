@@ -39,6 +39,9 @@ voortgang per hoofdstuk en de lastigste onderwerpen zien.
 wat hij nakijkt: afgeronde oefeningen en hoofdstukken, kan-doen-doelen, vragen in doos 4+, toetsen ≥ 80%,
 oefendagen (in totaal, niet op rij), dictee en snelle rondes. Flitskaarten tellen niet mee (zelfbeoordeling).
 Een behaalde badge blijft staan en synchroniseert mee. De badge-id's zijn vast: niet veranderen.
+Elke groep heeft een Zweeds plaatje (`src/ui/components/badge-icon.js`, inline SVG): dalahäst, midsommarstång,
+rood huisje, eland, studentmössa, Tre Kronor, fika, nyckelharpa en Vasaloppet-ski's. De rand toont het niveau
+(brons, zilver, goud; blauw-geel bij een losse badge en een vlagrand bij het vierde niveau).
 
 **Hint**: bij vragen waar je iets typt geeft de knop Hint het begin van het antwoord (of een eigen `help`
 in de vraag). Met hint telt een vraag als goed na hulp, niet als in één keer goed.

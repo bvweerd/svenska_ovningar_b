@@ -3,12 +3,13 @@ import { h } from '../dom.js';
 import { toast } from '../components/toast.js';
 import { crumbs, progressBar } from '../shared.js';
 import { badges } from '../../app/rewards.js';
+import { badgeIconSvg } from '../components/badge-icon.js';
 
 const date = (t) => new Date(t).toLocaleDateString('nl-NL', { day: 'numeric', month: 'long', year: 'numeric' });
 
 function badgeCard(b) {
   return h('li', { class: `badge-card${b.earned ? ' earned' : ''}` },
-    h('span', { class: 'badge-icon', 'aria-hidden': 'true' }, b.icon),
+    h('span', { class: 'badge-icon', 'aria-hidden': 'true', html: badgeIconSvg(b) }),
     h('span', { class: 'badge-body' },
       h('strong', {}, b.title, b.earned ? h('span', { class: 'sr-only' }, ' (behaald)') : null),
       h('span', { class: 'badge-text' }, b.text),
@@ -55,7 +56,7 @@ export function viewBadges() {
 /** Melding bij nieuwe badges. */
 export function announceBadges(fresh) {
   for (const b of fresh) {
-    toast([h('span', { class: 'toast-icon', 'aria-hidden': 'true' }, b.icon),
+    toast([h('span', { class: 'toast-icon', 'aria-hidden': 'true', html: badgeIconSvg(b) }),
       h('span', {}, h('strong', {}, `Nieuwe prestatie: ${b.title}`), h('br'), h('a', { href: '#/prestaties' }, 'Bekijk je prestaties'))]);
   }
 }

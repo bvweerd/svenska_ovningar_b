@@ -2,6 +2,7 @@ import { describe, it, expect } from 'vitest';
 import { BADGES, awardBadges, badgeOverview } from '../src/core/rewards/badges.js';
 import { empty } from '../src/core/progress/schema.js';
 import { mergeStates } from '../src/core/progress/merge.js';
+import { badgeIconSvg, BADGE_ICON_GROUPS } from '../src/ui/components/badge-icon.js';
 
 const course = [];
 
@@ -10,6 +11,13 @@ describe('prestaties', () => {
     const ids = BADGES.map((b) => b.id);
     expect(new Set(ids).size).toBe(ids.length);
     expect(ids).toContain('oefening-1');
+  });
+
+  it('elke badge heeft een plaatje', () => {
+    for (const b of BADGES) {
+      expect(BADGE_ICON_GROUPS).toContain(b.group);
+      expect(badgeIconSvg(b)).toMatch(/^<svg [^>]*viewBox="0 0 64 64".*<\/svg>$/s);
+    }
   });
 
   it('een afgeronde oefening geeft de eerste badge, één keer', () => {
