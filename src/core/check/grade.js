@@ -100,9 +100,13 @@ export function gradeMatch(answer, item) {
     correct: false,
     kind: 'match',
     fields: answer.map((v, i) => v === i),
+    share: shareOf(answer.map((v, i) => v === i)),
     tip: `${wrong.length} ${wrong.length === 1 ? 'koppeling klopt' : 'koppelingen kloppen'} nog niet (rood gemarkeerd).`,
   };
 }
+
+/** Deel van de vakjes dat goed is (bij meer dan één vakje), voor deelpunten in de score. */
+const shareOf = (fields) => (fields.length > 1 ? fields.filter(Boolean).length / fields.length : undefined);
 
 /** Meerdere tekstvelden (invullen met meerdere gaten, tabellen). */
 export function gradeFields(inputs, specs, ctx) {
@@ -119,6 +123,7 @@ export function gradeFields(inputs, specs, ctx) {
     correct: false,
     kind: firstWrong.kind,
     fields: results.map((r) => r.correct),
+    share: shareOf(results.map((r) => r.correct)),
     tip: (prefix + (firstWrong.tip ?? '')).trim() || undefined,
   };
 }
@@ -166,6 +171,7 @@ export function gradeSort(choice, item) {
     correct: false,
     kind: 'sort',
     fields,
+    share: shareOf(fields),
     tip: `${wrong.length === 1 ? 'Eén regel staat' : `${wrong.length} regels staan`} nog in de verkeerde categorie.${tip ? ` ${tip}` : ''}`,
   };
 }

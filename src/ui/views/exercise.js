@@ -6,7 +6,7 @@ import { speechSupported } from '../../platform/speech.js';
 import { trackEvent, scoreBucket } from '../../platform/analytics.js';
 import { findTopic, crumbs, progressBar, exerciseRunner, scoreMessage, missedList } from '../shared.js';
 import { shuffle } from '../../core/content/build.js';
-import { getResult, runState, startRun, completeRun, pickRound, setLast, roundProgress, openItems } from '../../app/progress.js';
+import { completeRun, setLast, roundProgress, prepareRun } from '../../app/progress.js';
 import { claimCanDo, onwardFrom } from '../../app/course-progress.js';
 import { supportAsk } from '../components/support.js';
 
@@ -21,17 +21,10 @@ export function viewExercise(ch, ex, query) {
   const href = `#/k/${ch.chapter}/o/${ex.id}`;
   setLast(href, `${ch.title} · ${ex.title}`);
 
-  let run = runState(ch.chapter, ex);
   const restart = query.has('opnieuw');
   if (restart) history.replaceState(null, '', href);
-  // Lange oefening (roundSize, bijv. een woordenlijst): een ronde met een deel van de vragen.
-  const partial = ex.roundSize && ex.items.length > ex.roundSize;
-  // Al afgerond, maar met nieuwe of gewijzigde vragen: alleen die, niet de hele oefening opnieuw.
-  const openOnly = !partial && !restart && getResult(ch.chapter, ex.id)?.completedAt ? openItems(ch.chapter, ex) : [];
-  if (restart || !run.started || run.done.size >= run.total) {
-    startRun(ch.chapter, ex, partial ? pickRound(ch.chapter, ex, ex.roundSize) : openOnly.length ? openOnly : null);
-    run = runState(ch.chapter, ex);
-  }
+  // Lopende ronde (of een nieuwe): een deel van een lange woordenlijst, alleen nieuwe vragen, of alles.
+  const { run, partial } = prepareRun(ch.chapter, ex, { restart });
   const resumed = run.done.size > 0;
   const goodBefore = [...run.done.values()].filter((s) => s === 'good').length;
 

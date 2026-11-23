@@ -3,7 +3,7 @@ import { h } from '../dom.js';
 import { inline } from '../md.js';
 import { typeName } from '../../core/items/index.js';
 import { crumbs, progressBar, splitTheme, plural } from '../shared.js';
-import { getResult, chapterProgress, runState, weakItems, openItems } from '../../app/progress.js';
+import { getResult, chapterProgress, runState, weakItems, openItems, isRoundBased } from '../../app/progress.js';
 import { exerciseDone } from '../../app/course-progress.js';
 import { chapterHue, canDoList, foldSection, exerciseBadge } from '../components/chapter.js';
 
@@ -65,7 +65,7 @@ export function viewChapter(ch) {
           return h('li', {},
             h('a', { href: `#/k/${ch.chapter}/o/${ex.id}` },
               h('span', { class: 'ex-title' }, ex.title),
-              h('span', { class: 'ex-meta' }, `${plural(ex.items.length, 'vraag', 'vragen')}${ex.roundSize && ex.items.length > ex.roundSize ? `, ${ex.roundSize} per ronde` : ''} · ${types.map(typeName).join(', ')}`),
+              h('span', { class: 'ex-meta' }, `${plural(ex.items.length, 'vraag', 'vragen')}${isRoundBased(ex) ? `, ${ex.roundSize} per ronde` : ''} · ${types.map(typeName).join(', ')}`),
               exerciseBadge(ch, ex),
             ));
         })));

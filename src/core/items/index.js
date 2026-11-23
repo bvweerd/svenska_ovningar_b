@@ -11,6 +11,7 @@
 //   produce                        telt als „zelf maken” (moeilijkheidsrapport)
 //   answerSentence                 lengte van het eerste goede antwoord telt als antwoordzin
 //   gradable                       false: de app kijkt het niet na (vrij schrijven)
+//   dictation                      de goede zin (spokenText) is geschikt voor het dictee
 //   hint(item)                     tekst achter de knop Hint (een eigen `help` in de vraag gaat voor)
 // }
 // Nakijken zelf staat in core/check/grade.js; de renderers roepen dat aan.
@@ -67,6 +68,9 @@ export function hintFor(item) {
 
 /** Kijkt de app deze vraag na? (Niet bij vrij schrijven.) */
 export const isGradable = (item) => itemType(item?.type)?.gradable !== false;
+
+/** Geschikt voor het dictee: de goede zin van dit type kun je opschrijven wat je hoort. */
+export const forDictation = (item) => !!itemType(item?.type)?.dictation;
 
 /** Telt als „zelf maken” in het moeilijkheidsrapport. */
 export const isProduce = (item) => !!itemType(item?.type)?.produce;

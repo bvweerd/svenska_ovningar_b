@@ -1,9 +1,9 @@
 // Luisteren: instellingen, uitleg per browser en een dicteeronde.
+import { forDictation, spokenText } from '../../core/items/index.js';
 import { h } from '../dom.js';
 import { course } from '../../app/content.js';
 import { crumbs, exerciseRunner, findTopic } from '../shared.js';
 import { shuffle } from '../../core/content/build.js';
-import { displayAnswer } from '../../core/check/normalize.js';
 import {
   speechSupported, speechStatus, swedishVoices, chosenVoice, setVoice, getRate, setRate, speak, stop, onVoicesChanged,
   voiceGender, chooseGender, getPitch, setPitch,
@@ -318,9 +318,9 @@ export function dictationPool(chapters = course.filter((c) => c.available), { le
     for (const v of ch.vocab ?? []) pool.push({ say: v.sv, kind: 'woord', ch });
     for (const ex of ch.exercises) {
       for (const item of ex.items) {
-        const list = item.type === 'translate' || item.type === 'transform' ? item.answers : item.type === 'listen' ? [item.say] : null;
-        if (!list?.length) continue;
-        const s = displayAnswer(list);
+        if (!forDictation(item)) continue;
+        const s = spokenText(item);
+        if (!s) continue;
         const n = wordCount(s);
         if (n >= 3 && n <= 14) pool.push({ say: s, kind: 'zin', ch, topic: item.topic ?? ex.topic });
       }

@@ -108,9 +108,13 @@ async function doSync({ onlyIfChanged = false, fetchImpl = globalThis.fetch } = 
   throw new Error('steeds een conflict');
 }
 
+/** Bij terugkomen in de app hooguit zo vaak ophalen (10 minuten). */
+const RESYNC_MS = 10 * 60 * 1000;
+
 /**
- * Synchroniseert vanzelf: bij het openen, bij weggaan (tabblad of app op de achtergrond),
- * bij weer online komen en hooguit eens per twee minuten bij het wisselen van pagina.
+ * Synchroniseert vanzelf, zuinig met verkeer naar de database: bij het openen, bij weggaan (tabblad of
+ * app op de achtergrond; alleen als er hier iets veranderd is), bij weer online komen, en bij terugkomen
+ * hooguit eens per RESYNC_MS. Niet bij elke paginawissel: wat je oefent, gaat mee bij weggaan.
  * @param onChange  wordt aangeroepen als er voortgang van een ander apparaat is bijgekomen (optioneel;
  *                  de app luistert zelf naar de voortgang, zie main.js)
  */
@@ -120,10 +124,7 @@ export function initSync(onChange = () => {}) {
   run();
   document.addEventListener('visibilitychange', () => {
     if (document.visibilityState === 'hidden') run({ onlyIfChanged: true });
-    else if (Date.now() - (lastSync() ?? 0) > 120000) run();
+    else if (Date.now() - (lastSync() ?? 0) > RESYNC_MS) run();
   });
   window.addEventListener('online', () => run());
-  window.addEventListener('hashchange', () => {
-    if (Date.now() - (lastSync() ?? 0) > 120000) run({ onlyIfChanged: true });
-  });
 }

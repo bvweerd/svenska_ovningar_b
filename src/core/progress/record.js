@@ -7,10 +7,11 @@ import { nextSrs, withDay } from './srs.js';
 
 /**
  * @param opts.outside  true als de vraag buiten de oefening zelf gemaakt is (toets, mix, herhaling)
+ * @param opts.review   true als de vraag in de dagelijkse herhaling gemaakt is (r: 1, telt voor het dagdoel)
  * @param opts.share    bij een vraag met meer vakjes die niet in één keer goed was: het deel dat bij de
  *                      eerste poging goed was (0–1). Telt naar rato mee in de score (p).
  */
-export function recordItem(state, ch, ex, idx, status, { outside = false, share, now = Date.now() } = {}) {
+export function recordItem(state, ch, ex, idx, status, { outside = false, review = false, share, now = Date.now() } = {}) {
   const key = itemKey(ch, ex, idx);
   const h = answerHash(ex.items[idx]);
   const srs = state.srs ?? {};
@@ -18,7 +19,7 @@ export function recordItem(state, ch, ex, idx, status, { outside = false, share,
   const next = nextSrs(prev, status, now);
   return {
     ...state,
-    items: { ...state.items, [key]: { s: status, at: now, h, ...(outside ? { x: 1 } : {}), ...(status === 'wrong' && share > 0 ? { p: Math.round(share * 100) / 100 } : {}) } },
+    items: { ...state.items, [key]: { s: status, at: now, h, ...(outside ? { x: 1 } : {}), ...(review ? { r: 1 } : {}), ...(status === 'wrong' && share > 0 ? { p: Math.round(share * 100) / 100 } : {}) } },
     srs: next ? { ...srs, [key]: { ...next, h } } : srs,
     days: withDay(state.days, now),
   };
@@ -100,6 +101,26 @@ export function startRun(state, ch, ex, pick = null, now = Date.now()) {
   return { ...state, ex: { ...state.ex, [k]: rec } };
 }
 
+/** Een lange oefening die in rondes gaat (woordenlijst met roundSize). */
+export const isRoundBased = (ex) => !!ex.roundSize && ex.items.length > ex.roundSize;
+
+/**
+ * Zorgt dat er een lopende ronde is en geeft die terug. Een nieuwe ronde begint als er nog geen is, als
+ * de vorige af is, of bij restart. Welke vragen: bij een lange oefening een ronde (pickRound); bij een
+ * al afgeronde oefening met nieuwe of gewijzigde vragen alleen die; anders alles.
+ * → { state, run, partial }
+ */
+export function prepareRun(state, ch, ex, { restart = false, rand = Math.random, now = Date.now() } = {}) {
+  let run = runState(state, ch, ex);
+  const partial = isRoundBased(ex);
+  if (restart || !run.started || run.done.size >= run.total) {
+    const openOnly = !partial && !restart && getResult(state, ch, ex.id)?.completedAt ? openItems(state, ch, ex) : [];
+    state = startRun(state, ch, ex, partial ? pickRound(state, ch, ex, ex.roundSize, rand) : openOnly.length ? openOnly : null, now);
+    run = runState(state, ch, ex);
+  }
+  return { state, run, partial };
+}
+
 /** Sluit een ronde af. → { state, score, total, firstTry } (score van deze ronde, met deelpunten; firstTry: vragen in één keer goed) */
 export function completeRun(state, ch, ex, now = Date.now()) {
   const run = runState(state, ch, ex);
@@ -170,7 +191,7 @@ export function weakItems(state, chapter) {
  */
 export function exerciseDone(state, ch, ex) {
   if (getResult(state, ch.chapter, ex.id)?.completedAt) return true;
-  return !!(ex.roundSize && ex.items.length > ex.roundSize && roundProgress(state, ch.chapter, ex).seen >= ex.roundSize);
+  return isRoundBased(ex) && roundProgress(state, ch.chapter, ex).seen >= ex.roundSize;
 }
 
 /** Alle oefeningen van een (open) hoofdstuk af? */

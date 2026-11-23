@@ -38,21 +38,11 @@ function imports(f) {
     .filter((p) => p.endsWith('.js') && !p.startsWith('..'));
 }
 
-// Bekende uitzonderingen tijdens de overgang. Deze lijsten mogen alleen korter worden: de tests
-// vergelijken exact, dus een opgeloste uitzondering moet hier ook weg.
-const KNOWN = {
-  unplaced: [],
-  layers: [],
-  browserInCore: [],
-  storage: [],
-  big: [],
-};
-
 const graph = Object.fromEntries(all.map((f) => [f, imports(f)]));
 
 describe('architectuur', () => {
   it('elk bestand in src/ hoort bij een laag', () => {
-    expect(all.filter((f) => !layer(f))).toEqual(KNOWN.unplaced);
+    expect(all.filter((f) => !layer(f))).toEqual([]);
   });
 
   it('imports gaan alleen naar dezelfde of een lagere laag', () => {
@@ -65,7 +55,7 @@ describe('architectuur', () => {
         if (a === 'config' || RANK[b] > RANK[a]) bad.push(`${f} -> ${d}`);
       }
     }
-    expect(bad.sort()).toEqual(KNOWN.layers);
+    expect(bad.sort()).toEqual([]);
   });
 
   it('geen importcycli', () => {
@@ -90,18 +80,18 @@ describe('architectuur', () => {
       const src = fs.readFileSync(path.join(SRC, f), 'utf8').replace(/\/\/.*$/gm, '').replace(/\/\*[\s\S]*?\*\//g, '');
       return /\b(window|document|localStorage|sessionStorage|navigator|fetch|location)\b\s*[.(]/.test(src);
     });
-    expect(bad).toEqual(KNOWN.browserInCore);
+    expect(bad).toEqual([]);
   });
 
   it('localStorage alleen in platform/storage.js', () => {
     const bad = all.filter((f) => f !== 'platform/storage.js')
       .filter((f) => /\blocalStorage\b/.test(fs.readFileSync(path.join(SRC, f), 'utf8').replace(/\/\/.*$/gm, '')));
-    expect(bad).toEqual(KNOWN.storage);
+    expect(bad).toEqual([]);
   });
 
   it('geen bestand boven 400 regels', () => {
     const big = all.map((f) => [f, fs.readFileSync(path.join(SRC, f), 'utf8').split('\n').length])
       .filter(([, n]) => n > 400).map(([f]) => f);
-    expect(big).toEqual(KNOWN.big);
+    expect(big).toEqual([]);
   });
 });

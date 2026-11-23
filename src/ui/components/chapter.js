@@ -1,6 +1,6 @@
 // Onderdelen van een hoofdstukpagina die ook elders gebruikt worden.
 import { h } from '../dom.js';
-import { getResult, runState, canDoStatus, openItems, roundProgress } from '../../app/progress.js';
+import { getResult, runState, canDoStatus, openItems, roundProgress, isRoundBased } from '../../app/progress.js';
 import { claimCanDo, exerciseDone } from '../../app/course-progress.js';
 
 /** Eigen kleur per hoofdstuk (een tint op de kleurencirkel), voor een streep op kaart en kop. */
@@ -42,7 +42,7 @@ export function exerciseBadge(ch, ex) {
   if (inProgress) return h('span', { class: 'badge mid', title: 'Bezig' }, `${run.done.size}/${run.total}`);
   // Lange woordenlijst in rondes: net als bij andere oefeningen een percentage, hier van de woorden
   // die je (de laatste keer) goed had.
-  if (ex.roundSize && ex.items.length > ex.roundSize) {
+  if (isRoundBased(ex)) {
     const p = roundProgress(ch.chapter, ex);
     if (!p.seen) return null;
     const good = p.seen - p.wrong;

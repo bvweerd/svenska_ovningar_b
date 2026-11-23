@@ -3,7 +3,7 @@
 import { h } from '../../dom.js';
 import { practiceEntries } from '../../../app/content.js';
 import { crumbs, practiceView } from '../../shared.js';
-import { dueItems, srsStats, INTERVALS, DAILY_GOAL, pickReview, countReviewed, reviewLeft } from '../../../app/progress.js';
+import { dueItems, srsStats, INTERVALS, DAILY_GOAL, pickReview, reviewLeft } from '../../../app/progress.js';
 import { plural } from './common.js';
 
 const topicOf = (e) => e.item.topic ?? e.ex.topic ?? e.ex.id;
@@ -57,7 +57,7 @@ export function viewDaily({ query } = {}) {
     entries: pickReview(due, size, topicOf),
     again: `#/oefenen/herhaling?${extra ? 'meer&' : ''}${Date.now()}`,
     empty: '',
-    onItem: () => countReviewed(),
+    review: true,
     left: {
       count: () => (extra ? dueItems(practiceEntries()).length : reviewLeft(dueItems(practiceEntries()).length)),
       more: (n) => (extra ? `Er ${n === 1 ? 'staat' : 'staan'} nog ${plural(n, 'vraag', 'vragen')} klaar.` : `Nog ${plural(n, 'vraag', 'vragen')} op je dagdoel.`),

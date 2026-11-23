@@ -132,7 +132,7 @@ export function itemCard(item, ctx, number, onDone, label) {
       return;
     }
 
-    if (attempts === 0 && !hadError && res.fields?.length > 1) share = res.fields.filter(Boolean).length / res.fields.length;
+    if (attempts === 0 && !hadError) share = res.share;
     attempts++;
     hadError = true;
     if (ctx.testMode) {

@@ -67,8 +67,9 @@ het nieuwste oordeel (tijdstippen in `t`), oefendagen van allebei; instellingen 
 **Synchroniseren** (`src/platform/sync.js`, opt-in) gebruikt dezelfde samenvoeging. Een synccode van 16 tekens
 (geen account) koppelt apparaten, ook via een koppellink `#/koppel/<code>`. De code staat onder een
 sleutel die beide sites delen, dus één keer koppelen geldt voor A1–A2 en B1–B2; de voortgang blijft per site
-apart. De site synchroniseert bij openen, bij weggaan, bij weer online komen en hooguit eens per twee
-minuten bij het wisselen van pagina. De opslag is de Worker met een D1-database; zie `worker/README.md`,
+apart. De site synchroniseert zuinig: bij openen, bij weggaan (alleen als er iets veranderd is), bij weer online
+komen en bij terugkomen hooguit eens per 10 minuten; niet bij elke paginawissel. Het dagdoel van de herhaling
+wordt afgeleid uit de antwoorden (geen aparte teller). De opslag is de Worker met een D1-database; zie `worker/README.md`,
 „Synchronisatie”. Zonder `SYNC_URL` (repository-variabele) is synchroniseren verborgen.
 
 ## Statistieken (GoatCounter)

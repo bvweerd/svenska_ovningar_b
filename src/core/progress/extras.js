@@ -23,10 +23,6 @@ export const getGame = (state, id) => state.games?.[id] ?? null;
 export const getPref = (state, key, fallback) => state.prefs?.[key] ?? fallback;
 export const setPref = (state, key, value) => ({ ...state, prefs: { ...(state.prefs ?? {}), [key]: value } });
 
-/** Herhaalvragen vandaag gedaan (voor het dagdoel). */
-export const reviewedToday = (state, day) => (state.prefs?.review?.day === day ? state.prefs.review.n : 0);
-export const addReviewed = (state, day) => setPref(state, 'review', { day, n: reviewedToday(state, day) + 1 });
-
 export const setLast = (state, href, title, now = Date.now()) => ({ ...state, last: { href, title, at: now } });
 
 /** Tijdstip bij een flitskaart- of dicteesleutel, zodat samenvoegen het nieuwste oordeel kiest. */

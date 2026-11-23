@@ -27,6 +27,18 @@ export function write(key, value) {
 
 export const remove = (key) => write(key, null);
 
+/**
+ * fn() als een ander tabblad deze sleutel verandert (het storage-event van de browser).
+ * Geeft false als dat niet kan (geen browser, bijvoorbeeld in tests): lees dan elke keer opnieuw.
+ */
+export function watch(key, fn) {
+  if (typeof window === 'undefined' || typeof window.addEventListener !== 'function') return false;
+  window.addEventListener('storage', (e) => {
+    if (e.key === key || e.key === null) fn();
+  });
+  return true;
+}
+
 /** JSON-waarde, of fallback als er niets (geldigs) staat. */
 export function readJson(key, fallback = null) {
   const raw = read(key);

@@ -50,6 +50,7 @@ export const translate = {
   type: 'translate',
   name: 'vertalen',
   produce: true,
+  dictation: true,
   answerSentence: true,
   validate(item, err) {
     if (!item.prompt || !item.answers?.length) err('translate heeft prompt en antwoorden nodig');
@@ -62,6 +63,7 @@ export const transform = {
   type: 'transform',
   name: 'omvormen',
   produce: true,
+  dictation: true,
   answerSentence: true,
   validate(item, err) {
     if (!item.prompt || !item.answers?.length) err('transform heeft prompt en antwoorden nodig');

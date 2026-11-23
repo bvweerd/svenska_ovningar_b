@@ -5,6 +5,7 @@ import { firstWords } from './text.js';
 export const listen = {
   type: 'listen',
   name: 'luisteren',
+  dictation: true,
   selfChecking: (item) => !!item.options,
   validate(item, err) {
     if (!item.say) err('listen heeft een tekst (say) nodig');

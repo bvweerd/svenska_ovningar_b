@@ -30,6 +30,14 @@ export const pickRound = (ch, ex, size, rand) => rec.pickRound(load(), ch, ex, s
 export const roundProgress = (ch, ex) => rec.roundProgress(load(), ch, ex);
 export const openItems = (ch, ex) => rec.openItems(load(), ch, ex);
 export const startRun = (ch, ex, pick = null) => void update((s) => rec.startRun(s, ch, ex, pick));
+/** Lopende ronde van een oefening (begint zo nodig een nieuwe). → { run, partial } */
+export function prepareRun(ch, ex, opts) {
+  const before = load();
+  const out = rec.prepareRun(before, ch, ex, opts);
+  if (out.state !== before) progressStore.set(out.state);
+  return { run: out.run, partial: out.partial };
+}
+export const { isRoundBased } = rec;
 export function completeRun(ch, ex) {
   const out = rec.completeRun(load(), ch, ex);
   progressStore.set(out.state);
@@ -45,10 +53,9 @@ export const dueItems = (entries, date) => srs.dueItems(load(), entries, date);
 export const srsStats = (entries) => srs.srsStats(load(), entries);
 export const streak = () => srs.streak(load());
 /** Herhaalvragen die vandaag al gedaan zijn, en er één bij tellen. */
-export const reviewedToday = () => extras.reviewedToday(load(), srs.today());
-export const countReviewed = () => void update((s) => extras.addReviewed(s, srs.today()));
+export const reviewedToday = () => srs.reviewedToday(load());
 /** Hoeveel herhaalvragen er vandaag nog op het dagdoel staan (hooguit DAILY_GOAL). */
-export const reviewLeft = (dueCount) => Math.max(0, Math.min(dueCount, srs.DAILY_GOAL - reviewedToday()));
+export const reviewLeft = (dueCount) => srs.reviewLeft(load(), dueCount);
 
 // ---------- Kan-doen ----------
 export const canDoStatus = (ch) => cando.canDoStatus(load(), ch);

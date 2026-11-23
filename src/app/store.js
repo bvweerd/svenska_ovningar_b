@@ -1,13 +1,14 @@
 // De voortgang van de draaiende app: lezen, veranderen met een pure functie, en melden wie wil weten
 // dat er iets veranderd is (subscribe). Opslag gaat via platform/storage.js.
 //
-// get() leest de opslag elke keer opnieuw (een ander tabblad kan hem veranderd hebben), maar ontleedt
-// de JSON alleen als de tekst anders is dan de vorige keer. Lukt opslaan niet (privévenster, vol),
-// dan blijft de voortgang in het geheugen.
+// get() geeft de toestand in het geheugen. De opslag wordt alleen opnieuw gelezen als een ander tabblad
+// hem veranderde (storage-event, zie storage.watch); kan de opslag dat niet melden (tests), dan wordt
+// elke keer gelezen, maar de JSON alleen ontleed als de tekst anders is. Lukt opslaan niet (privévenster,
+// vol), dan blijft de voortgang in het geheugen.
 import { normalize, fromV1, VERSION } from '../core/progress/schema.js';
 
 /**
- * @param storage  { read(key), write(key, value), remove(key) }  (platform/storage.js)
+ * @param storage  { read(key), write(key, value), remove(key), watch?(key, fn) }  (platform/storage.js)
  * @param key      opslagsleutel van de huidige versie
  * @param oldKey   sleutel van versie 1 (wordt één keer omgezet en dan verwijderd)
  */
@@ -18,9 +19,13 @@ export function createStore({ storage, key, oldKey }) {
   let state = normalize({});
   let cachedRaw = null;
   const listeners = new Set();
+  // fresh: de toestand in het geheugen is bijgewerkt en niemand anders heeft geschreven.
+  let fresh = false;
+  const watching = storage.watch?.(key, () => { fresh = false; }) === true;
 
   function persist(next) {
     state = next;
+    fresh = watching;
     const raw = JSON.stringify(next);
     cachedRaw = storage.write(key, raw) ? raw : storage.read(key);
   }
@@ -37,19 +42,25 @@ export function createStore({ storage, key, oldKey }) {
   }
 
   function get() {
+    if (fresh) return state;
     try {
       const raw = storage.read(key);
-      if (raw && raw === cachedRaw) return state;
+      if (raw && raw === cachedRaw) {
+        fresh = watching;
+        return state;
+      }
       if (raw) {
         const s = JSON.parse(raw);
         if (s?.v === VERSION) {
           cachedRaw = raw;
           state = normalize(s);
+          fresh = watching;
           return state;
         }
       }
       const migrated = oldKey ? migrateV1() : null;
       if (migrated) persist(migrated);
+      fresh = watching;
       return state;
     } catch {
       return state;

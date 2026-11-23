@@ -399,3 +399,42 @@ describe('deelpunten bij vragen met meer vakjes (issue #6)', () => {
     expect(out.state.ex['2/t'].best).toBe(0.7);
   });
 });
+
+describe('dagdoel herhaling (afgeleid uit de antwoorden)', () => {
+  it('telt alleen herhaalantwoorden van vandaag', async () => {
+    const R = await import('../src/core/progress/record.js');
+    const S = await import('../src/core/progress/srs.js');
+    const { empty } = await import('../src/core/progress/schema.js');
+    const exr = { id: 'h', items: [{ id: 'a', type: 'translate', prompt: 'x', answers: ['y'] }, { id: 'b', type: 'translate', prompt: 'x', answers: ['z'] }] };
+    const now = Date.now();
+    let s = R.recordItem(empty(), 1, exr, 0, 'good', { outside: true, review: true, now });
+    s = R.recordItem(s, 1, exr, 1, 'good', { outside: true, now }); // mix, geen herhaling
+    expect(S.reviewedToday(s, now)).toBe(1);
+    expect(S.reviewedToday(s, now + 2 * 86400000)).toBe(0);
+    expect(S.reviewLeft(s, 50, now)).toBe(S.DAILY_GOAL - 1);
+    expect(S.reviewLeft(s, 3, now)).toBe(3);
+  });
+});
+
+describe('prepareRun (ronde beginnen)', () => {
+  it('lange oefening: een ronde; afgerond met een nieuwe vraag: alleen die', async () => {
+    const R = await import('../src/core/progress/record.js');
+    const { empty } = await import('../src/core/progress/schema.js');
+    const mk = (n) => Array.from({ length: n }, (_, i) => ({ id: `q${i}`, type: 'translate', prompt: 'x', answers: [`a${i}`] }));
+    const lang = { id: 'l', roundSize: 3, items: mk(7) };
+    const a = R.prepareRun(empty(), 1, lang, { now: 1 });
+    expect(a.partial).toBe(true);
+    expect(a.run.total).toBe(3);
+    const kort = { id: 'k', items: mk(2) };
+    let s = R.prepareRun(empty(), 1, kort, { now: 1 }).state;
+    s = R.recordItem(s, 1, kort, 0, 'good', { now: 2 });
+    s = R.recordItem(s, 1, kort, 1, 'good', { now: 2 });
+    s = R.completeRun(s, 1, kort, 3).state;
+    const erbij = { id: 'k', items: [...kort.items, { id: 'nieuw', type: 'translate', prompt: 'x', answers: ['n'] }] };
+    const b = R.prepareRun(s, 1, erbij, { now: 4 });
+    expect(b.run.total).toBe(1);
+    expect(b.run.inRound(2)).toBe(true);
+    // Lopende ronde: niets nieuws beginnen.
+    expect(R.prepareRun(b.state, 1, erbij, { now: 5 }).state).toBe(b.state);
+  });
+});

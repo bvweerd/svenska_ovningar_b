@@ -48,6 +48,21 @@ export function dueItems(state, entries, date = today()) {
 export const DAILY_GOAL = 20;
 
 /**
+ * Herhaalvragen die vandaag gemaakt zijn: afgeleid uit de antwoorden zelf (r: 1, zie recordItem). Zo is
+ * er geen aparte teller die bij synchroniseren extra data kost, en tellen twee apparaten vanzelf samen.
+ */
+export function reviewedToday(state, now = Date.now()) {
+  const d = new Date(now);
+  const start = new Date(d.getFullYear(), d.getMonth(), d.getDate()).getTime();
+  let n = 0;
+  for (const r of Object.values(state.items ?? {})) if (r.r && r.at >= start) n++;
+  return n;
+}
+
+/** Hoeveel herhaalvragen er vandaag nog op het dagdoel staan (hooguit wat er klaarstaat). */
+export const reviewLeft = (state, dueCount, now = Date.now()) => Math.max(0, Math.min(dueCount, DAILY_GOAL - reviewedToday(state, now)));
+
+/**
  * Kiest n vragen uit de herhaalvragen (al op volgorde: oudste eerst) met afwisseling: om en om uit
  * verschillende onderwerpen, zodat er niet tien vragen over hetzelfde achter elkaar komen.
  * topicOf(entry) → onderwerp.

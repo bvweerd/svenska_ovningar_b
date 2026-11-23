@@ -41,7 +41,9 @@ async function session(scheme, visit) {
   });
   const go = async (hash) => {
     await page.goto(`${base}#${hash}`, { timeout: 10000 });
-    await page.waitForTimeout(120);
+    // De router tekent synchroon bij hashchange: wachten tot #app gevuld is en één beeld verder.
+    await page.waitForFunction(() => document.getElementById('app')?.childElementCount > 0, null, { timeout: 5000 });
+    await page.evaluate(() => new Promise((r) => requestAnimationFrame(() => requestAnimationFrame(r))));
     visited++;
     const wide = await page.evaluate(() => document.documentElement.scrollWidth - document.documentElement.clientWidth);
     if (wide > 1) problems.push(`[${scheme}] #${hash}: ${wide}px breder dan het scherm`);

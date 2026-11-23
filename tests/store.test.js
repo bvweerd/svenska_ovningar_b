@@ -54,4 +54,23 @@ describe('store', () => {
     expect(store.get().ex['13/o']).toEqual({ best: 0.5, score: 1, total: 2, completedAt: 5 });
     expect(storage.read('old')).toBe(null);
   });
+
+  it('leest de opslag pas opnieuw als een ander tabblad schreef', () => {
+    const storage = memoryStorage();
+    let reads = 0;
+    let changed = null;
+    const read = storage.read;
+    storage.read = (k) => { reads++; return read(k); };
+    storage.watch = (_k, fn) => { changed = fn; return true; };
+    const store = createStore({ storage, key: 'k' });
+    store.set(empty());
+    reads = 0;
+    store.get();
+    store.get();
+    expect(reads).toBe(0);
+    storage.write('k', JSON.stringify({ ...empty(), last: { href: '#/y' } }));
+    expect(store.get().last).toBe(null); // nog niet gemeld
+    changed();
+    expect(store.get().last.href).toBe('#/y');
+  });
 });
