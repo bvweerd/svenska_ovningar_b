@@ -24,6 +24,16 @@ planbestand en de bron van waarheid, ook voor werk aan de B-site. De B-repo heef
   hoofdstuk”); `npm test` faalt anders.
 - Houd `PLAN.md` kort: een afgerond stuk werk wordt één regel onder „Gedaan”; details horen in README of code.
 
+## Onderwijskundige lijn (altijd volgen)
+
+De lijn staat in `../svenska_ovningar/PLAN.md` („Onderwijskundige lijn”): vier strands in balans, ophalen en spreiden via de
+Leitner-dozen, feedback in lagen, de app kijkt na, van vorm naar gebruik, kan-doen beloven wat gemeten
+wordt, instap op niveau, uitspraak horen (geen spreken), frequente woorden, eigen werk. Toets elk voorstel
+en elke nieuwe oefening daaraan, en noem in de oplevering hoe het past. `npm test` dwingt af: minstens 2
+makkelijke teksten (`kind: makkelijk`) per hoofdstuk vanaf H1, een „Wat zeg je?”-oefening
+(`kind: situatie`) vanaf H5, en de plek in de vaste volgorde. Methoden en hun antwoordmodellen niet
+automatisch inlezen of minen: de uitgever behoudt tekst- en datamining voor (colofon). Twijfel → eigenaar.
+
 ## Spelregels (afgesproken met de eigenaar)
 
 - **Geen AI en geen externe diensten.** Alles werkt offline in de browser. Uitzonderingen: de anonieme

@@ -3,7 +3,8 @@ import { h, fill } from '../../dom.js';
 import { verbs } from '../../../app/content.js';
 import { crumbs } from '../../shared.js';
 import { shuffle } from '../../../core/content/build.js';
-import { saveGame, getGame } from '../../../app/progress.js';
+import { saveGame, getGame, knownEntries } from '../../../app/progress.js';
+import { practiceEntries } from '../../../app/content.js';
 import { pretOptions } from '../../../core/verbs.js';
 import { trackEvent } from '../../../platform/analytics.js';
 import { available } from './common.js';
@@ -15,7 +16,40 @@ function vocabPool() {
   return available().flatMap((c) => c.vocab ?? []).filter((v) => !seen.has(v.sv) && seen.add(v.sv));
 }
 
+const plain = (s) => String(s ?? '').replace(/\*\*|\*/g, '');
+
+/**
+ * Vloeiendheid (Nation): stof die je al kent, zo snel mogelijk begrijpen. Alleen keuzevragen die al in
+ * doos 2 of hoger staan; niets nieuws, en de ronde telt niet mee voor de dozen.
+ */
+function knownChoices() {
+  return knownEntries(practiceEntries(), 2).map(({ item }) => {
+    if (item.type === 'mc' && item.prompt && item.options.length <= 4) {
+      return { prompt: plain(item.prompt), options: item.options.map(plain), answer: item.answer, solution: `${plain(item.prompt)} → ${plain(item.options[item.answer])}` };
+    }
+    if (item.type === 'truefalse' && item.statement && !item.correction) {
+      return { prompt: item.statement, options: ['Rätt', 'Fel'], answer: item.answer ? 0 : 1, solution: `${item.statement} → ${item.answer ? 'rätt' : 'fel'}` };
+    }
+    return null;
+  }).filter(Boolean);
+}
+
 export const GAMES = {
+  vlot: {
+    title: 'Vlot herhalen',
+    intro: 'Vragen die je al goed had, zo snel mogelijk. Zo wordt wat je kent vlot en automatisch.',
+    prepare() {
+      this.pool = knownChoices();
+    },
+    make() {
+      if (!this.pool?.length) return null;
+      const q = this.pool[Math.floor(Math.random() * this.pool.length)];
+      // Keuzes elke keer in een andere volgorde: je leest de vraag, niet de plek van het antwoord.
+      const order = shuffle(q.options.map((_, i) => i));
+      return { ...q, options: order.map((i) => q.options[i]), answer: order.indexOf(q.answer) };
+    },
+    empty: 'Nog te weinig vragen die je al kent. Maak eerst een paar oefeningen: wat je goed hebt, komt hier vlot terug.',
+  },
   'en-ett': {
     title: 'En of ett?',
     intro: 'Kies het lidwoord bij het zelfstandig naamwoord.',
@@ -107,7 +141,7 @@ export function viewGame(id, { signal } = {}) {
     do q = game.make();
     while (q && recent.includes(q.prompt) && tries++ < 10);
     if (!q) {
-      fill(stage, h('p', {}, 'Voor dit spel is er nog te weinig oefenstof.'));
+      fill(stage, h('p', {}, game.empty ?? 'Voor dit spel is er nog te weinig oefenstof.'));
       clearInterval(timer);
       return;
     }
@@ -168,6 +202,7 @@ export function viewGame(id, { signal } = {}) {
   };
 
   function start() {
+    game.prepare?.();
     score = 0;
     mistakes = [];
     endAt = Date.now() + GAME_SECONDS * 1000;

@@ -16,6 +16,7 @@ import { viewDaily } from './views/practice/daily.js';
 import { viewVerbTrainer } from './views/practice/verbs.js';
 import { viewFlashcards } from './views/practice/flashcards.js';
 import { viewTest } from './views/practice/test.js';
+import { viewPlacement } from './views/practice/placement.js';
 import { viewGames, viewGame, GAMES } from './views/practice/games.js';
 
 /** Route binnen een hoofdstuk: alleen als het hoofdstuk bestaat en open is. */
@@ -57,5 +58,6 @@ export const routes = [
   { path: '/k/:ch/mix', view: inChapter((ch) => viewMix(ch)) },
   { path: '/k/:ch/fouten', view: inChapter((ch) => viewWeak(ch)) },
   { path: '/k/:ch/toets', view: inChapter((ch) => viewTest(ch)) },
+  { path: '/k/:ch/instap', view: inChapter((ch) => viewPlacement(ch)) },
   { path: '/k/:ch/kaarten', view: inChapter((ch, { signal }) => viewFlashcards(ch, { signal })) },
 ];

@@ -44,6 +44,15 @@ export function dueItems(state, entries, date = today()) {
   return out.sort((a, b) => (a.rec.due < b.rec.due ? -1 : a.rec.due > b.rec.due ? 1 : a.rec.box - b.rec.box));
 }
 
+/** Vragen die je al kent: in doos minBox of hoger (actueel antwoord). */
+export function knownEntries(state, entries, minBox = 2) {
+  const srs = state.srs ?? {};
+  return entries.filter((e) => {
+    const r = srs[itemKey(e.chapter.chapter, e.ex, e.idx)];
+    return r && r.h === answerHash(e.item) && r.box >= minBox;
+  });
+}
+
 /** Zoveel herhaalvragen per dag is het doel; wie wil, doet er meer. */
 export const DAILY_GOAL = 20;
 

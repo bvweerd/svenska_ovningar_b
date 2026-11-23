@@ -64,7 +64,7 @@ for (const scheme of ['light', 'dark']) {
     for (const ch of quick ? chapters.slice(0, 1) : chapters) {
       await go(ch);
       const links = await page.$$eval('a[href*="/o/"], a[href*="/g/"]', (as) => [...new Set(as.map((a) => a.getAttribute('href').slice(1)))]);
-      for (const sub of ['/mix', '/fouten', '/toets', '/kaarten', '/print']) await go(ch + sub);
+      for (const sub of ['/mix', '/fouten', '/toets', '/instap', '/kaarten', '/print']) await go(ch + sub);
       // Alle oefeningen en uitleg in licht; in donker alleen het eerste hoofdstuk.
       if (scheme === 'light' || ch === chapters[0]) for (const l of links) await go(l);
     }

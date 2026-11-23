@@ -39,6 +39,8 @@ export function viewChapter(ch) {
         weak.length ? h('a', { class: 'btn ghost small', href: `#/k/${ch.chapter}/fouten` }, `Oefen je fouten (${weak.length})`) : null,
         h('a', { class: 'btn ghost small', href: `#/k/${ch.chapter}/mix` }, 'Mix'),
         h('a', { class: 'btn ghost small', href: `#/k/${ch.chapter}/toets` }, 'Toets'),
+        // Nog (bijna) niets gedaan: wie de stof al kent, slaat met de instaptoets over wat hij kan.
+        p.itemsDone < p.itemsTotal / 4 ? h('a', { class: 'btn ghost small', href: `#/k/${ch.chapter}/instap` }, 'Instaptoets') : null,
         ch.vocab?.length ? h('a', { class: 'btn ghost small', href: `#/k/${ch.chapter}/kaarten` }, 'Flitskaarten') : null),
     ),
     canDoList(ch),

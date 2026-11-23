@@ -11,6 +11,7 @@ import * as rec from '../core/progress/record.js';
 import * as cando from '../core/progress/cando.js';
 import * as extras from '../core/progress/extras.js';
 import { mergeStates } from '../core/progress/merge.js';
+import * as placement from '../core/progress/placement.js';
 
 export const KEY = `${STORAGE_PREFIX}:progress:v2`;
 export const progressStore = createStore({ storage, key: KEY, oldKey: `${STORAGE_PREFIX}:progress:v1` });
@@ -52,6 +53,8 @@ export const hasProgress = () => rec.hasProgress(load());
 export const dueItems = (entries, date) => srs.dueItems(load(), entries, date);
 export const srsStats = (entries) => srs.srsStats(load(), entries);
 export const streak = () => srs.streak(load());
+/** Vragen die je al kent (doos minBox of hoger). */
+export const knownEntries = (entries, minBox) => srs.knownEntries(load(), entries, minBox);
 /** Herhaalvragen die vandaag al gedaan zijn, en er één bij tellen. */
 export const reviewedToday = () => srs.reviewedToday(load());
 /** Hoeveel herhaalvragen er vandaag nog op het dagdoel staan (hooguit DAILY_GOAL). */
@@ -88,6 +91,15 @@ export const cardProgress = (ch, dir, words) => extras.cardProgress(load(), ch, 
 export const recordDictation = (say, good) => void update((s) => extras.recordDictation(s, say, good));
 export const pickDictation = (says, size, rand) => extras.pickDictation(load(), says, size, rand);
 export const dictationProgress = (says) => extras.dictationProgress(load(), says);
+
+// ---------- Instaptoets ----------
+export const { PLACEMENT_SIZE } = placement;
+/** Uitslag van de instaptoets verwerken. → { passed: [topic], skipped: [ex] } */
+export function applyPlacement(ch, results) {
+  const out = placement.applyPlacement(load(), ch, results);
+  progressStore.set(out.state);
+  return { passed: out.passed, skipped: out.skipped };
+}
 
 // ---------- Wissen, omzetten, exporteren, samenvoegen ----------
 export const resetProgress = () => void progressStore.set({ ...schema.empty(), ids: true }, 'reset');

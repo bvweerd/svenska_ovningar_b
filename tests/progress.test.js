@@ -449,3 +449,24 @@ describe('samenvoegen: verder waar je was', () => {
     expect(mergeStates(a, b, now).last.href).toBe('#/k/2/o/x');
   });
 });
+
+describe('instaptoets', () => {
+  it('goed → doos 3; onderwerp helemaal goed → oefeningen afgerond', async () => {
+    const { applyPlacement, PLACED_BOX } = await import('../src/core/progress/placement.js');
+    const { empty } = await import('../src/core/progress/schema.js');
+    const mk = (p, n) => Array.from({ length: n }, (_, i) => ({ id: `${p}${i}`, type: 'translate', prompt: 'x', answers: [`${p}${i}`] }));
+    const a = { id: 'a', topic: 'tA', items: mk('a', 3) };
+    const b = { id: 'b', topic: 'tB', items: mk('b', 3) };
+    const ch = { chapter: 4, exercises: [a, b] };
+    const out = applyPlacement(empty(), ch, [
+      { ex: a, idx: 0, ok: true }, { ex: a, idx: 1, ok: true },
+      { ex: b, idx: 0, ok: true }, { ex: b, idx: 1, ok: false },
+    ], 1000);
+    expect(out.passed).toEqual(['tA']);
+    expect(out.skipped.map((e) => e.id)).toEqual(['a']);
+    expect(out.state.ex['4/a']).toMatchObject({ completedAt: 1000, placed: 1 });
+    expect(out.state.ex['4/b']).toBeUndefined();
+    expect(out.state.srs['4/b/b0'].box).toBe(PLACED_BOX);
+    expect(out.state.srs['4/b/b1']).toBeUndefined();
+  });
+});

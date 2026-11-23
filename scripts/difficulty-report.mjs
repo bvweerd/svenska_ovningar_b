@@ -43,13 +43,17 @@ export function measure(ch) {
       }
     }
   }
-  const texts = (ch.sections ?? []).flatMap((s) => s.exercises).filter((ex) => ex.text && !ex.listen).map((ex) => ex.text);
+  const all = (ch.sections ?? []).flatMap((s) => s.exercises);
+  // Makkelijke teksten (kind: makkelijk) zijn bewust korter: niet meetellen voor de leestekst.
+  const texts = all.filter((ex) => ex.text && !ex.listen && ex.kind !== 'makkelijk').map((ex) => ex.text);
   return {
     chapter: ch.chapter,
     questions: total,
     answer: mean(lens),
     produce: total ? produce / total : 0,
     text: texts.reduce((n, t) => n + words(t), 0),
+    easy: all.filter((ex) => ex.kind === 'makkelijk').length,
+    situation: all.filter((ex) => ex.kind === 'situatie').reduce((n, ex) => n + ex.items.length, 0),
   };
 }
 
@@ -59,7 +63,7 @@ if (import.meta.url === pathToFileURL(process.argv[1]).href) {
   const dir = path.join(root, 'content', 'chapters');
   const chapters = fs.readdirSync(dir).filter((f) => f.endsWith('.yaml')).sort()
     .map((f) => yaml.load(fs.readFileSync(path.join(dir, f), 'utf8')));
-  console.log('hfst  niveau  vragen  antwoordzin  zelf maken  leestekst   (! = onder de lijn)');
+  console.log('hfst  niveau  vragen  antwoordzin  zelf maken  leestekst  makkelijk  situatie   (! = onder de lijn)');
   let below = 0;
   for (const ch of chapters) {
     const m = measure(ch);
@@ -68,7 +72,7 @@ if (import.meta.url === pathToFileURL(process.argv[1]).href) {
     const q = l && m.questions < l.questions;
     const a = l && m.answer < l.answer[0];
     const t = l && m.text < l.text[0];
-    if (q || a || t) below++;
+    if (q || a || t || (ch.chapter >= 1 && m.easy < 2) || (ch.chapter >= 5 && m.situation < 4)) below++;
     console.log(
       String(ch.chapter).padStart(4),
       (l?.level ?? '-').padStart(7),
@@ -76,6 +80,8 @@ if (import.meta.url === pathToFileURL(process.argv[1]).href) {
       `${m.answer.toFixed(1).padStart(10)}${flag(a)}`,
       `${Math.round(m.produce * 100)}%`.padStart(11),
       `${String(m.text).padStart(9)}${flag(t)}`,
+      `${String(m.easy).padStart(9)}${flag(ch.chapter >= 1 && m.easy < 2)}`,
+      `${String(m.situation).padStart(8)}${flag(ch.chapter >= 5 && m.situation < 4)}`,
     );
   }
   console.log(`\nDoellijn: ${LINE.map((l) => `${l.level} (H${l.from}–${l.to}) tekst ${l.text.join('–')}, antwoordzin ${l.answer.join('–')}, ≥ ${l.questions} vragen`).join('; ')}.`);

@@ -49,6 +49,7 @@ export function exerciseBadge(ch, ex) {
     const pct = Math.round((good / p.total) * 100);
     return h('span', { class: `badge ${pct >= 80 ? 'good' : 'mid'}`, title: `${good} van ${p.total} woorden goed${p.fresh ? `, ${p.fresh} nog niet gehad` : ''}` }, `${pct}%`);
   }
+  if (res?.placed) return h('span', { class: 'badge good', title: 'Overgeslagen na de instaptoets' }, '✓ instap');
   // Afgerond, maar met vragen die nog niet meetellen (later toegevoegd of gewijzigd).
   const open = res?.completedAt || exerciseDone(ch, ex) ? openItems(ch.chapter, ex).length : 0;
   if (open) return h('span', { class: 'badge mid', title: `${open} ${open === 1 ? 'vraag' : 'vragen'} nieuw of nog niet gemaakt` }, `${open} nieuw`);

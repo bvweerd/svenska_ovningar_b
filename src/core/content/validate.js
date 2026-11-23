@@ -75,7 +75,9 @@ function checkWriting(ex, where, errors) {
   if (steps < WRITING_STEPS[0] || steps > WRITING_STEPS[1]) err(`${steps} voorbereidende stappen vóór de schrijfopdracht, verwacht ${WRITING_STEPS[0]} tot ${WRITING_STEPS[1]}`);
 }
 
-export const EXERCISE_KINDS = new Set(['taak']);
+// taak = doeltaak; makkelijk = makkelijke tekst (input met aandacht voor betekenis, telt niet mee voor de
+// leestekst-lijn); situatie = „Wat zeg je?” (een situatie in het Nederlands, de leerling zegt het in het Zweeds).
+export const EXERCISE_KINDS = new Set(['taak', 'makkelijk', 'situatie']);
 
 /** @param extraTopics  grammatica-onderwerpen uit andere hoofdstukken (voor herhaling) */
 export function validateChapter(ch, extraTopics = []) {
@@ -98,6 +100,9 @@ export function validateChapter(ch, extraTopics = []) {
     // kind: taak = doeltaak; staat in de volgorde bij de dialoog (tests/content.test.js, exercisePhase).
     if (ex.kind !== undefined && !EXERCISE_KINDS.has(ex.kind)) errors.push(`${where}: onbekende kind "${ex.kind}" (bekend: ${[...EXERCISE_KINDS].join(', ')})`);
     if (ex.kind === 'taak' && ex.text) errors.push(`${where}: een taak heeft geen text (anders valt hij uit de dagelijkse herhaling)`);
+    if (ex.kind === 'makkelijk' && (!ex.text || ex.listen)) errors.push(`${where}: een makkelijke tekst heeft text en geen listen`);
+    if (ex.kind === 'makkelijk' && ex.items?.some((it) => !isGradable(it))) errors.push(`${where}: bij een makkelijke tekst alleen nagekeken vragen`);
+    if (ex.kind === 'situatie' && (ex.text || ex.items?.some((it) => it.type !== 'translate'))) errors.push(`${where}: „Wat zeg je?” heeft geen text en alleen translate-vragen (een situatie als prompt)`);
     // Elke vraag heeft een vaste id (npm run ids); daar hangt de voortgang van gebruikers aan.
     const itemIds = new Set();
     ex.items?.forEach((it, i) => {
