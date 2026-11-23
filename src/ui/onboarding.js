@@ -101,7 +101,7 @@ function installCard(used) {
           h('li', {}, 'Kies „Zet op beginscherm” (scroll zo nodig naar beneden).'),
           h('li', {}, 'Tik op „Voeg toe”.'),
         ),
-        h('p', { class: 'muted' }, 'Al geoefend in Safari? Exporteer je voortgang eerst op de pagina Over en importeer hem in de app.'),
+        h('p', { class: 'muted' }, 'Al geoefend in Safari? Exporteer je voortgang eerst op de pagina Voortgang en importeer hem in de app.'),
       ],
       android: [
         h('p', {}, 'Zet de oefeningen als app op je beginscherm: ze openen dan met één tik en werken ook zonder internet.'),

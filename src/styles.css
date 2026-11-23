@@ -216,6 +216,9 @@ table.fill .answer-input { width: 100%; min-width: 90px; }
 .prose h3 { margin-top: 1.4em; }
 .prose ul { padding-left: 1.3em; }
 .about { max-width: 680px; }
+.settings { max-width: 680px; }
+.settings h2 { margin-top: 1.6em; }
+.settings select { max-width: 100%; }
 
 .charbar { position: fixed; bottom: 12px; left: 50%; transform: translateX(-50%); display: flex; gap: 6px; padding: 6px; background: var(--surface); border: 1px solid var(--line); border-radius: 12px; box-shadow: 0 4px 20px rgb(0 0 0 / 0.15); z-index: 10; }
 .charbar button { font: inherit; font-size: 1.1rem; width: 40px; height: 40px; border-radius: 8px; border: 1px solid var(--line); background: var(--surface-2); color: var(--text); cursor: pointer; }
@@ -261,7 +264,7 @@ table.fill .answer-input { width: 100%; min-width: 90px; }
 .plain:hover { text-decoration: underline; }
 .h2-sub { display: block; font-size: 0.9rem; font-weight: 400; color: var(--muted); margin-top: 2px; }
 
-@media (max-width: 720px) {
+@media (max-width: 880px) {
   .menu-toggle { display: inline-block; }
   .menu-panel { display: none; position: absolute; top: calc(100% + 13px); right: -16px; width: min(360px, 100vw); flex-direction: column; align-items: stretch; gap: 2px; padding: 8px; background: var(--surface); border: 1px solid var(--line); border-radius: 0 0 var(--radius) var(--radius); box-shadow: 0 10px 28px rgb(0 0 0 / 0.16); max-height: calc(100vh - 70px); overflow-y: auto; }
   .topnav.open .menu-panel { display: flex; }
@@ -636,7 +639,7 @@ del { text-decoration-color: var(--bad); text-decoration-thickness: 2px; color: 
 .cando-bar .known, .cando-key.known { background: var(--good); }
 .cando-key { display: inline-block; width: 12px; height: 6px; border-radius: 3px; vertical-align: middle; }
 
-/* Synchroniseren (pagina Over) */
+/* Synchroniseren (pagina Voortgang) */
 .sync-code { font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; letter-spacing: 0.02em; white-space: nowrap; }
 .sync .actions input.answer-input { flex: 1 1 12rem; min-width: 0; max-width: 16rem; font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; }
 .no-charbar .charbar { display: none !important; }

@@ -39,7 +39,7 @@ export function viewBadges() {
     next.push(b);
   }
   return h('div', {},
-    crumbs({ label: 'Start', href: '#/' }, { label: 'Prestaties' }),
+    crumbs({ label: 'Start', href: '#/' }, { label: 'Voortgang', href: '#/voortgang' }, { label: 'Prestaties' }),
     h('header', { class: 'page-head' },
       h('h1', {}, 'Prestaties'),
       h('p', { class: 'lead' }, `Je hebt ${earned.length} van de ${list.length} prestaties behaald.`),

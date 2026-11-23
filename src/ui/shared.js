@@ -4,7 +4,7 @@ import { course } from '../app/content.js';
 import { itemCard } from './items/item-card.js';
 import { recordItem, getPref, setPref } from '../app/progress.js';
 
-/** Na een goed antwoord vanzelf naar de volgende vraag (instelling op de pagina Over, per apparaat). */
+/** Na een goed antwoord vanzelf naar de volgende vraag (instelling op de pagina Instellingen, per apparaat). */
 export const autoNext = () => getPref('autoNext', true) !== false;
 export const setAutoNext = (on) => setPref('autoNext', !!on);
 import { trackEvent, itemSummary, STATUS_LABEL } from '../platform/analytics.js';
@@ -137,7 +137,7 @@ export function exerciseRunner(items, { onFinish, offset = { done: 0, good: 0, t
         // Vanzelf door naar de volgende vraag. Op een telefoon iets later (net genoeg om „Goed!” te
         // zien), en niet als je intussen
         // tikt of scrolt (dan zou de pagina onder je vinger wegschuiven); de knop blijft als uitweg.
-        // Staat „vanzelf verder” uit (pagina Over), dan alleen de knop.
+        // Staat „vanzelf verder” uit (pagina Instellingen), dan alleen de knop.
         const touch = isTouch();
         const auto = autoNext();
         const advance = (label, go, ms) => {

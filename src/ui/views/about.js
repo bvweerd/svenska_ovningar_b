@@ -1,17 +1,10 @@
-// Over deze site: handleiding, instellingen, privacy, app en voortgang.
+// Over deze site: handleiding, uitleg, privacy, app en steun. Instellingen en voortgang hebben een eigen pagina.
 import { h } from '../dom.js';
-import { course } from '../../app/content.js';
 import { SITE_TEXT, SIBLING } from '../../config.js';
 import { reportConfigured, feedbackButton } from '../components/report.js';
-import { syncConfigured, getCode, forgetCode } from '../../platform/sync.js';
-import { getInputMode, setInputMode } from '../items/tiles.js';
-import { isStandalone } from '../../platform/pwa.js';
 import { installSection } from '../components/pwa.js';
-import { analyticsConfigured, optedOut, setOptOut } from '../../platform/analytics.js';
-import { autoNext, setAutoNext, crumbs } from '../shared.js';
-import { resetProgress, exportProgress, importProgress, migrateToIds, setPref } from '../../app/progress.js';
-import { charBarOn, applyCharBar } from '../components/charbar.js';
-import { syncSection } from './sync.js';
+import { analyticsConfigured } from '../../platform/analytics.js';
+import { crumbs } from '../shared.js';
 import { KOFI_URL } from '../components/support.js';
 
 export function viewAbout() {
@@ -44,7 +37,7 @@ export function viewAbout() {
       h('li', {}, 'Meerkeuze, keuzelijsten en koppelen worden meteen nagekeken zodra je antwoord compleet is.'),
       h('li', {}, 'Bij woordtegels druk je zelf op Controleer, zodat je eerst nog kunt schuiven. Tik tussen twee woorden in je zin om daar een woord in te voegen; tik op een woord in je zin om het weg te halen.'),
       h('li', {}, 'Typ je antwoord en druk op Enter. Bij meerkeuze kun je de cijfertoetsen 1–9 gebruiken.'),
-      h('li', {}, 'Na een goed antwoord ga je vanzelf door naar de volgende vraag. Op een telefoon wacht de site even; tik of scrol je intussen, dan blijf je staan en tik je zelf op „Volgende vraag”. Dit kun je hieronder uitzetten. Aan het eind brengt Enter je naar de volgende oefening.'),
+      h('li', {}, 'Na een goed antwoord ga je vanzelf door naar de volgende vraag. Op een telefoon wacht de site even; tik of scrol je intussen, dan blijf je staan en tik je zelf op „Volgende vraag”. Dit kun je uitzetten bij Instellingen. Aan het eind brengt Enter je naar de volgende oefening.'),
     ),
     h('h2', {}, 'Oefenvormen'),
     h('ul', {},
@@ -61,41 +54,13 @@ export function viewAbout() {
       h('p', {}, 'Gaat er iets anders mis in de app, is iets onduidelijk, of heb je een idee? Gebruik dan deze knop.'),
       h('div', { class: 'actions' }, feedbackButton()),
     ] : null,
-    h('h2', {}, 'Antwoorden invoeren'),
-    h('p', {}, 'Bij langere antwoorden kun je typen of woordtegels in de goede volgorde aantikken. Op een telefoon of tablet staan standaard de tegels aan.'),
-    (() => {
-      const sel = h('select', { class: 'answer-input', 'aria-label': 'Invoer bij zinnen', onchange: () => setInputMode(sel.value) },
-        [['auto', 'Automatisch (tegels op een touchscreen)'], ['tiles', 'Altijd woordtegels'], ['type', 'Altijd typen']]
-          .map(([v, l]) => h('option', { value: v, selected: getInputMode() === v }, l)));
-      return sel;
-    })(),
-    h('p', {}, 'Bij het typen staan er knoppen voor å, ä en ö: op een computer naast „Controleer”, op een telefoon boven het toetsenbord. Heeft je toetsenbord die letters zelf al, dan kun je de knoppen uitzetten.'),
-    (() => {
-      const box = h('input', { type: 'checkbox', checked: charBarOn(), onchange: () => { setPref('charBar', box.checked); applyCharBar(); } });
-      return h('label', { class: 'option inline' }, box, h('span', {}, 'Knoppen voor å, ä en ö'));
-    })(),
-    h('h2', {}, 'Naar de volgende vraag'),
-    h('p', {}, 'Na een goed antwoord gaat de site vanzelf naar de volgende vraag. Typte je je antwoord op een telefoon, dan staat de cursor meteen in het volgende invulvak en blijft het toetsenbord open. Wil je eerst rustig de uitleg lezen, zet dit dan uit: je tikt dan zelf op „Volgende vraag”.'),
-    (() => {
-      const box = h('input', { type: 'checkbox', checked: autoNext(), onchange: () => setAutoNext(box.checked) });
-      return h('label', { class: 'option inline' }, box, h('span', {}, 'Vanzelf naar de volgende vraag'));
-    })(),
+    h('h2', {}, 'Instellingen en voortgang'),
+    h('p', {}, 'Stem, thema, woordtegels of typen, de knoppen voor å, ä en ö en vanzelf doorgaan stel je in bij ', h('a', { href: '#/instellingen' }, 'Instellingen'), '. Je statistieken, prestaties, synchroniseren tussen apparaten en exporteren vind je bij ', h('a', { href: '#/voortgang' }, 'Voortgang'), '.'),
     h('h2', {}, 'Privacy en statistieken'),
     analyticsConfigured()
-      ? h('div', {},
-          h('p', {}, 'Om de site te verbeteren tellen we anoniem mee welke pagina\'s bezocht worden en welke vragen vaak goed of fout gaan. Daarvoor gebruiken we GoatCounter: zonder cookies, zonder persoonsgegevens en zonder je antwoorden zelf.'),
-          (() => {
-            const box = h('input', { type: 'checkbox', checked: !optedOut(), onchange: () => setOptOut(!box.checked) });
-            return h('label', { class: 'option inline' }, box, h('span', {}, 'Anoniem meetellen'));
-          })())
+      ? h('p', {}, 'Om de site te verbeteren tellen we anoniem mee welke pagina\'s bezocht worden en welke vragen vaak goed of fout gaan. Daarvoor gebruiken we GoatCounter: zonder cookies, zonder persoonsgegevens en zonder je antwoorden zelf. Meetellen zet je uit bij ', h('a', { href: '#/instellingen' }, 'Instellingen'), '.')
       : h('p', {}, 'Deze site verzamelt geen statistieken.'),
     installSection(),
-    h('h2', {}, 'Voortgang'),
-    h('p', {}, `Je voortgang wordt per vraag opgeslagen ${isStandalone() ? 'in deze app' : 'in deze browser'}. Ga je halverwege een oefening weg, dan ga je later verder waar je gebleven was.`),
-    syncConfigured() ? syncSection() : null,
-    h('h3', {}, 'Exporteren en importeren'),
-    h('p', {}, 'Je kunt je voortgang ook als bestand bewaren en op een ander apparaat importeren. Importeren voegt samen: wat je op dit apparaat al gedaan hebt, blijft staan, en per vraag telt je laatste poging.'),
-    progressTools(),
     h('h2', {}, 'Steun deze site'),
     h('p', {}, 'Deze site is gratis en zonder reclame, en dat blijft zo. Heb je er iets aan en wil je iets terugdoen? Een kleine bijdrage via Ko-fi helpt om de site te onderhouden en uit te breiden.'),
     h('div', { class: 'actions' },
@@ -104,41 +69,3 @@ export function viewAbout() {
   );
 }
 
-function progressTools() {
-  const status = h('p', { class: 'muted', 'aria-live': 'polite' });
-  const file = h('input', { type: 'file', accept: 'application/json,.json', hidden: true });
-  file.addEventListener('change', async () => {
-    const f = file.files?.[0];
-    if (!f) return;
-    try {
-      const changed = importProgress(await f.text());
-      migrateToIds(course);
-      status.textContent = changed ? 'Voortgang geïmporteerd en samengevoegd.' : 'Niets nieuws in dit bestand: alles stond er al.';
-    } catch (e) {
-      status.textContent = `Importeren mislukt: ${e.message}`;
-    }
-    file.value = '';
-  });
-  const download = () => {
-    const blob = new Blob([exportProgress()], { type: 'application/json' });
-    const a = h('a', { href: URL.createObjectURL(blob), download: `svenska-ovningar-voortgang-${new Date().toISOString().slice(0, 10)}.json` });
-    document.body.append(a);
-    a.click();
-    a.remove();
-    setTimeout(() => URL.revokeObjectURL(a.href), 1000);
-    status.textContent = 'Bestand gedownload.';
-  };
-  return h('div', {},
-    h('div', { class: 'actions' },
-      h('button', { type: 'button', class: 'btn primary', onclick: download }, 'Exporteren'),
-      h('button', { type: 'button', class: 'btn ghost', onclick: () => file.click() }, 'Importeren'),
-      h('button', { type: 'button', class: 'btn ghost', onclick: () => {
-        const linked = getCode();
-        if (!confirm(linked ? 'Alle voortgang op dit apparaat wissen? Dit apparaat wordt dan ook ontkoppeld; op je andere apparaten blijft de voortgang staan.' : 'Alle voortgang wissen?')) return;
-        if (linked) forgetCode();
-        resetProgress();
-        status.textContent = 'Voortgang gewist.';
-      } }, 'Voortgang wissen'),
-    ),
-    file, status);
-}

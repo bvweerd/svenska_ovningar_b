@@ -62,7 +62,9 @@ Op iPhone/iPad heeft de app een eigen opslag, los van Safari: overzetten gaat vi
 
 ## Voortgang op meer apparaten
 
-Op de pagina Over kan de gebruiker de voortgang exporteren en importeren. **Importeren voegt samen**
+Op de pagina Voortgang (`#/voortgang`) kan de gebruiker de voortgang exporteren, importeren en synchroniseren;
+de statistieken en prestaties staan daar ook. Instellingen (stem, thema, invoer, å/ä/ö, vanzelf doorgaan,
+anoniem meetellen) staan op `#/instellingen`. **Importeren voegt samen**
 (`mergeStates` in `src/core/progress/merge.js`): per vraag telt de laatste poging (met de Leitner-doos die daarbij
 hoort), per oefening, toets en spel de nieuwste ronde met de hoogste beste score, bij flitskaarten en dictee
 het nieuwste oordeel (tijdstippen in `t`), oefendagen van allebei; instellingen van het apparaat blijven staan.
@@ -79,7 +81,7 @@ wordt afgeleid uit de antwoorden (geen aparte teller). De opslag is de Worker me
 
 De site kan anoniem meten via [GoatCounter](https://www.goatcounter.com): zonder cookies en
 zonder persoonsgegevens. Zet de code in `src/config.js` (`GOATCOUNTER_CODE`); leeg = niets meten.
-Bezoekers kunnen het uitzetten op de pagina "Over".
+Bezoekers kunnen het uitzetten op de pagina "Instellingen".
 
 Wat er geteld wordt:
 

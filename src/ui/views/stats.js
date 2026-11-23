@@ -47,7 +47,7 @@ export function viewStats() {
   const tile = (value, label) => h('div', { class: 'stat-tile' }, h('strong', {}, value), h('span', {}, label));
 
   return h('div', { class: 'stats' },
-    crumbs({ label: 'Start', href: '#/' }, { label: 'Oefenen', href: '#/oefenen' }, { label: 'Statistieken' }),
+    crumbs({ label: 'Start', href: '#/' }, { label: 'Voortgang', href: '#/voortgang' }, { label: 'Statistieken' }),
     h('header', { class: 'page-head' },
       h('h1', {}, 'Jouw statistieken'),
       h('p', { class: 'lead' }, 'Hoe het gaat, op basis van wat de app nakijkt. Alles staat alleen op dit apparaat (en op je andere apparaten als je synchroniseert).')),

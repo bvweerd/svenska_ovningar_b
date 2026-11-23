@@ -1,9 +1,12 @@
-// Menubalk bovenaan: hoofdstukken (uitklapmenu), grammatica, herhalen, over.
+// Menubalk bovenaan: hoofdstukken (uitklapmenu), oefenen, grammatica, voortgang, instellingen, over.
 // Op smalle schermen klapt alles in achter één menuknop.
 import { dueCount } from './views/practice/common.js';
 import { h } from './dom.js';
 import { splitTheme } from './shared.js';
 import { levels } from '../app/content.js';
+
+// Pagina's die onder een ander menu-item vallen.
+const MENU_OF = { herhalen: 'oefenen', statistieken: 'voortgang', prestaties: 'voortgang', koppel: 'voortgang', luisteren: 'instellingen' };
 
 export function createMenu(course) {
   const nav = document.getElementById('menu');
@@ -26,12 +29,13 @@ export function createMenu(course) {
   const links = {
     grammatica: h('a', { class: 'menu-link', href: '#/grammatica' }, 'Grammatica'),
     oefenen: h('a', { class: 'menu-link', href: '#/oefenen' }, 'Oefenen', weakCount),
-    luisteren: h('a', { class: 'menu-link', href: '#/luisteren' }, 'Luisteren'),
+    voortgang: h('a', { class: 'menu-link', href: '#/voortgang' }, 'Voortgang'),
+    instellingen: h('a', { class: 'menu-link', href: '#/instellingen' }, 'Instellingen'),
     over: h('a', { class: 'menu-link', href: '#/over' }, 'Over'),
   };
   const panel = h('div', { class: 'menu-panel', id: 'menu-panel' },
     h('div', { class: 'menu-item' }, chaptersBtn, sub),
-    links.oefenen, links.grammatica, links.luisteren, links.over,
+    links.oefenen, links.grammatica, links.voortgang, links.instellingen, links.over,
   );
   const theme = document.getElementById('theme');
   nav.replaceChildren(panel, theme, toggle);
@@ -82,7 +86,7 @@ export function createMenu(course) {
       else a.removeAttribute('aria-current');
     });
     for (const [key, a] of Object.entries(links)) {
-      const cur = parts[0] === key || (key === 'oefenen' && parts[0] === 'herhalen');
+      const cur = parts[0] === key || MENU_OF[parts[0]] === key;
       a.classList.toggle('active', cur);
       if (cur) a.setAttribute('aria-current', 'page');
       else a.removeAttribute('aria-current');

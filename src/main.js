@@ -62,6 +62,6 @@ let warned = false;
 progressStore.subscribe(() => {
   if (warned || !writeFailed()) return;
   warned = true;
-  toast('Je voortgang kan op dit apparaat niet worden opgeslagen (opslag vol, of een privévenster). Exporteer je voortgang op de pagina Over, of zet synchroniseren aan.', { ms: 15000 });
+  toast('Je voortgang kan op dit apparaat niet worden opgeslagen (opslag vol, of een privévenster). Exporteer je voortgang op de pagina Voortgang, of zet synchroniseren aan.', { ms: 15000 });
 });
 initSync();

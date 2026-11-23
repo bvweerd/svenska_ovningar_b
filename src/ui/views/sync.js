@@ -1,4 +1,4 @@
-// Synchroniseren tussen apparaten: het blok op de pagina Over en de koppellink.
+// Synchroniseren tussen apparaten: het blok op de pagina Voortgang en de koppellink.
 import { h, fill } from '../dom.js';
 import { syncConfigured, syncNow, getCode, setCode, forgetCode, newCode, normalizeCode, formatCode, linkFor, lastSync } from '../../platform/sync.js';
 import { navigate } from '../nav.js';
@@ -78,7 +78,7 @@ export function viewLink(raw) {
   const code = normalizeCode(decodeURIComponent(raw ?? ''));
   const status = h('p', { class: 'muted', 'aria-live': 'polite' });
   if (!syncConfigured() || !code) {
-    return h('div', { class: 'prose' }, h('h1', {}, 'Koppellink'), h('p', {}, 'Deze link werkt niet (meer). Kijk op de pagina ', h('a', { href: '#/over' }, 'Over'), '.'));
+    return h('div', { class: 'prose' }, h('h1', {}, 'Koppellink'), h('p', {}, 'Deze link werkt niet (meer). Kijk op de pagina ', h('a', { href: '#/voortgang' }, 'Voortgang'), '.'));
   }
   const current = getCode();
   const go = async () => {

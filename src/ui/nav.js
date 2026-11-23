@@ -12,6 +12,9 @@
 
 const pathOf = (href) => String(href ?? '').replace(/^#/, '').split('?')[0].replace(/\/+$/, '') || '/';
 
+// Losse pagina's die bij een overzichtspagina horen.
+const PARENT = { statistieken: '/voortgang', prestaties: '/voortgang', luisteren: '/instellingen' };
+
 /** Bovenliggende pagina van een pad, of null voor de start. */
 export function parentOf(href) {
   const p = pathOf(href).split('/').filter(Boolean);
@@ -19,6 +22,7 @@ export function parentOf(href) {
   if (p[0] === 'k' && p.length > 2) return `/k/${p[1]}`;
   if (p[0] === 'oefenen' && p[1] === 'spel' && p[2]) return '/oefenen/spel';
   if (p[0] === 'oefenen' && p[1]) return '/oefenen';
+  if (PARENT[p[0]]) return PARENT[p[0]];
   return '/';
 }
 

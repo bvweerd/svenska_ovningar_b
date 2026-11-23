@@ -6,6 +6,8 @@ import { viewExercise } from './views/exercise.js';
 import { viewMix, viewWeak, viewWeakAll } from './views/review.js';
 import { viewGrammarIndex, viewGrammar } from './views/grammar.js';
 import { viewAbout } from './views/about.js';
+import { viewProgress } from './views/progress.js';
+import { viewSettings } from './views/settings.js';
 import { viewLink } from './views/sync.js';
 import { viewBadges } from './views/badges.js';
 import { viewStats } from './views/stats.js';
@@ -28,6 +30,8 @@ const inChapter = (view) => ({ params, ...rest }) => {
 export const routes = [
   { path: '/', view: () => viewHome(), refresh: true },
   { path: '/over', view: () => viewAbout() },
+  { path: '/voortgang', view: () => viewProgress(), refresh: true },
+  { path: '/instellingen', view: () => viewSettings() },
   { path: '/koppel', view: () => viewLink() },
   { path: '/koppel/:code', view: ({ params }) => viewLink(params.code) },
   { path: '/luisteren', view: () => viewListenSettings() },

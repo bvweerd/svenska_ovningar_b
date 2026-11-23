@@ -1,5 +1,5 @@
 // Anonieme statistieken via GoatCounter: paginabezoeken en events (zoals goed/fout per vraag).
-// Geen cookies en geen persoonsgegevens. Bezoekers kunnen het uitzetten op de pagina "Over".
+// Geen cookies en geen persoonsgegevens. Bezoekers kunnen het uitzetten op de pagina "Instellingen".
 import { GOATCOUNTER_CODE, PATH_PREFIX } from '../config.js';
 import { read, write } from './storage.js';
 

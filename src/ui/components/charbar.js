@@ -2,7 +2,7 @@
 import { h, isTouch } from '../dom.js';
 import { getPref } from '../../app/progress.js';
 
-// Aan of uit op de pagina Over (per apparaat, standaard aan). Uit: de klasse no-charbar verbergt de balk.
+// Aan of uit op de pagina Instellingen (per apparaat, standaard aan). Uit: de klasse no-charbar verbergt de balk.
 export const charBarOn = () => getPref('charBar', true) !== false;
 export const applyCharBar = () => document.documentElement.classList.toggle('no-charbar', !charBarOn());
 

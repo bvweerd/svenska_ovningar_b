@@ -5,7 +5,6 @@ import { crumbs } from '../../shared.js';
 import { srsStats, getTest } from '../../../app/progress.js';
 import { available, plural, chapterChips, streakText, dueCount } from './common.js';
 import { openMistakes } from '../../../app/course-progress.js';
-import { badgeSummary } from '../badges.js';
 
 export function viewPracticeHub() {
   document.title = 'Oefenen · Svenska övningar';
@@ -31,12 +30,6 @@ export function viewPracticeHub() {
       tool('#/oefenen/werkwoorden', 'Werkwoordtrainer', 'Oefen werkwoordsvormen zo lang je wilt, met de tijden die jij kiest.'),
       tool('#/oefenen/spel', 'Snelle rondes', '60 seconden: en of ett, betekenis of verleden tijd. Haal je record?'),
       tool('#/oefenen/luisteren', 'Dictee', 'Luister naar een zin of woord en schrijf op wat je hoort.'),
-      tool('#/statistieken', 'Jouw statistieken', 'Hoeveel vragen in welke doos zitten, per hoofdstuk wat je beheerst, en wat nog lastig is.'),
-      (() => {
-        const b = badgeSummary();
-        return tool('#/prestaties', 'Prestaties', `${b.earned} van ${b.total} behaald. Wat je beheerst, doelen, toetsen en oefendagen.`);
-      })(),
-      tool('#/luisteren', 'Luisteren instellen', 'Kies een Zweedse stem en lees hoe je voorlezen aanzet in jouw browser.'),
     ),
     h('section', { class: 'block' },
       h('h2', {}, 'Flitskaarten'),

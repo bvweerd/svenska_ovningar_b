@@ -270,7 +270,7 @@ export function viewListenSettings() {
   const mine = BROWSERS.find((b) => b.id === browser);
   const others = BROWSERS.filter((b) => b !== mine);
   return h('div', { class: 'listen-settings' },
-    crumbs({ label: 'Start', href: '#/' }, { label: 'Oefenen', href: '#/oefenen' }, { label: 'Luisteren instellen' }),
+    crumbs({ label: 'Start', href: '#/' }, { label: 'Instellingen', href: '#/instellingen' }, { label: 'Luisteren instellen' }),
     h('header', { class: 'page-head' },
       h('h1', {}, 'Luisteren instellen'),
       h('p', { class: 'lead' }, 'De site leest Zweeds voor met de spraakfunctie van je eigen browser. Hoe goed dat klinkt, hangt af van de Zweedse stemmen op je apparaat.')),

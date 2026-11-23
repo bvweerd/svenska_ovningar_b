@@ -13,6 +13,10 @@ describe('terugknop in de app: bovenliggende pagina', () => {
     expect(parentOf('#/oefenen/herhaling')).toBe('/oefenen');
     expect(parentOf('#/oefenen/spel/snel')).toBe('/oefenen/spel');
     expect(parentOf('#/over')).toBe('/');
+    expect(parentOf('#/prestaties')).toBe('/voortgang');
+    expect(parentOf('#/statistieken')).toBe('/voortgang');
+    expect(parentOf('#/luisteren')).toBe('/instellingen');
+    expect(parentOf('#/instellingen')).toBe('/');
     expect(ancestors('#/oefenen/spel/snel')).toEqual(['/', '/oefenen', '/oefenen/spel']);
   });
 
