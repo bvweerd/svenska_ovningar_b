@@ -85,6 +85,28 @@ function wordDiagnosis(got, want) {
   return null;
 }
 
+const HA = { är: 'har', var: 'hade' };
+
+/**
+ * „är/var + voltooid deelwoord” waar het goede antwoord „har/hade” + datzelfde woord heeft: een typische
+ * fout van Nederlandstaligen (ik ben gegaan, ik was geweest).
+ */
+function auxiliaryDiagnosis(ti, te) {
+  for (let k = 0; k < ti.length - 1; k++) {
+    const want = HA[ti[k]];
+    if (!want) continue;
+    const next = ti[k + 1];
+    const pairs = te.slice(0, -1).map((w, j) => `${w} ${te[j + 1]}`);
+    if (pairs.includes(`${want} ${next}`) && !pairs.includes(`${ti[k]} ${next}`)) {
+      return {
+        kind: 'auxiliary',
+        tip: `Let op „${ti[k]} ${next}”: in het Zweeds gebruik je bij de voltooide tijd altijd „ha” (${want}), ook waar het Nederlands „zijn” gebruikt (ik ben gegaan → jag har gått).`,
+      };
+    }
+  }
+  return null;
+}
+
 /**
  * @param {string} input     genormaliseerde invoer
  * @param {string[]} expected genormaliseerde goede varianten
@@ -110,6 +132,10 @@ export function diagnose(input, expected, { topic } = {}) {
     }
     return { kind: 'order', tip: ORDER_TIPS[topic] ?? ORDER_TIPS.default };
   }
+
+  // „Jag är gått” (naar „ik ben gegaan”): in het Zweeds altijd ha bij de voltooide tijd.
+  const aux = auxiliaryDiagnosis(ti, te);
+  if (aux) return aux;
 
   // Eén woord anders
   if (ti.length === te.length) {

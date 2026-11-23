@@ -188,6 +188,10 @@ const hasClauseBreak = (text) => /[,;:]/.test(text.replace(/[\s.!?;:,]+$/u, ''))
  *   achteraan → vooraan:  S V R A  →  A V S R   (fronted: true)
  * Het antwoord mag leestekens bevatten (een komma binnen de zin = geen verplaatsing). opts: zie normalize.
  */
+// Bijwoorden die achteraan blijven staan; een tijdsbepaling mag er ook vóór („lagar middag på kvällen tillsammans”).
+const FINAL = new Set(['tillsammans', 'hemma', 'ute', 'inne', 'själv', 'själva', 'ensam', 'igen', 'också']);
+const beforeFinal = (R, A) => (R.length >= 2 && FINAL.has(R.at(-1)) ? [...R.slice(0, -1), ...A, R.at(-1)] : null);
+
 export function movedAdverbialOrders(answer, opts) {
   if (hasClauseBreak(String(answer ?? ''))) return [];
   const n = normalize(answer, opts);
@@ -210,7 +214,11 @@ export function movedAdverbialOrders(answer, opts) {
         const R = w.slice(a + 1 + s);
         // „Idag kommer Olles fru”: het onderwerp is niet alleen „Olles”.
         const cutGenitive = genitive(S.at(-1)) && GENITIVE_HEADS.has(R[0]);
-        if (isTimeAdverbial(A) && plainVerb(V) && plainSubject(S, names) && !cutGenitive && simpleRest(R, V, A)) add([...S, V, ...R, ...A], false);
+        if (isTimeAdverbial(A) && plainVerb(V) && plainSubject(S, names) && !cutGenitive && simpleRest(R, V, A)) {
+          add([...S, V, ...R, ...A], false);
+          const mid = beforeFinal(R, A);
+          if (mid) add([...S, V, ...mid], false);
+        }
       }
       // Achteraan → vooraan
       if (s + 1 + a <= w.length) {
@@ -218,7 +226,11 @@ export function movedAdverbialOrders(answer, opts) {
         const V = w[s];
         const R = w.slice(s + 1, w.length - a);
         const A = w.slice(w.length - a);
-        if (isTimeAdverbial(A) && plainVerb(V) && plainSubject(S, names) && simpleRest(R, V, A)) add([...A, V, ...S, ...R], true);
+        if (isTimeAdverbial(A) && plainVerb(V) && plainSubject(S, names) && simpleRest(R, V, A)) {
+          add([...A, V, ...S, ...R], true);
+          const mid = beforeFinal(R, A);
+          if (mid) add([...S, V, ...mid], false);
+        }
       }
     }
   }

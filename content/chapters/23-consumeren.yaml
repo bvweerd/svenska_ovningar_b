@@ -164,9 +164,61 @@ sections:
               - ["gå på rea", "in de uitverkoop zijn"]
               - ["jämföra", "vergelijken"]
 
+      - id: ord-alle-woorden
+        title: "Woorden in een zin: de rest van de lijst"
+        instruction: Kies het woord dat past. Zo zie je ook de woorden uit de lijst die nog nergens in een zin stonden.
+        topic: woordenschat
+        shuffle: true
+        items:
+          - { id: at8d, type: gap, text: "Den här mobilen har två års ___, så du kan reklamera den om den går sönder.", gaps: [{ answers: ["garanti"], options: ["garanti", "rabatt", "recension", "leverans"], feedback: [{ match: "rabatt", tip: "*rabatt* betekent „een korting”. Lees de zin nog eens: wat past hier?" }] }] }
+          - { id: f7tv, type: gap, text: "Det var stor ___ i pris mellan skorna, så när jag bytte betalade jag mellanskillnaden.", gaps: [{ answers: ["skillnad"], options: ["skillnad", "garanti", "storlek", "reklam"], feedback: [{ match: "storlek", tip: "*storlek* betekent „een maat (van kleding of schoenen), een grootte”. Lees de zin nog eens: wat past hier?" }] }] }
+          - { id: ayet, type: gap, text: "Innan jag köper något läser jag alltid ___ på nätet.", gaps: [{ answers: ["recensioner"], options: ["recensioner", "rabatter", "leveranser", "garantier"], feedback: [{ match: "rabatter", tip: "*rabatter* betekent „een korting”. Lees de zin nog eens: wat past hier?" }] }] }
+          - { id: vdhb, type: gap, text: "Med kortet får du 20 procents ___ på alla skor.", gaps: [{ answers: ["rabatt"], options: ["rabatt", "reklam", "garanti", "ångerrätt"], feedback: [{ match: "reklam", tip: "*reklam* betekent „reclame”. Lees de zin nog eens: wat past hier?" }] }] }
+          - { id: wa9k, type: gap, text: "Som ___ har du ångerrätt i 14 dagar när du handlar i en nätbutik.", gaps: [{ answers: ["konsument"], options: ["konsument", "leverans", "recension", "provhytt"], feedback: [{ match: "leverans", tip: "*leverans* betekent „een levering”. Lees de zin nog eens: wat past hier?" }] }] }
+          - { id: wq9s, type: gap, text: "Det finns för mycket ___ på tv, och den får oss att ___ mer än vi behöver.", gaps: [{ answers: ["reklam"], options: ["reklam", "rabatt", "garanti", "leverans"], feedback: [{ match: "rabatt", tip: "*rabatt* betekent „een korting”. Lees de zin nog eens: wat past hier?" }] }, { answers: ["konsumera"], options: ["konsumera", "pruta", "returnera", "reklamera"] }] }
+          - { id: cnu8, type: gap, text: "___ tog en vecka, men allt i paketet var rätt.", gaps: [{ answers: ["Leveransen"], options: ["Leveransen", "Recensionen", "Rabatten", "Reklamen"], feedback: [{ match: "Rabatten", tip: "*Rabatten* betekent „een korting”. Lees de zin nog eens: wat past hier?" }] }] }
+          - { id: t6dq, type: gap, text: "Läs ___ på förpackningen om du är allergisk mot nötter.", gaps: [{ answers: ["innehållsförteckningen"], options: ["innehållsförteckningen", "prislappen", "recensionen", "garantin"], feedback: [{ match: "prislappen", tip: "*prislappen* betekent „een prijskaartje”. Lees de zin nog eens: wat past hier?" }] }] }
+          - { id: 87xt, type: gap, text: "Byxorna var för små, så jag gick tillbaka till ___ med en större ___.", gaps: [{ answers: ["provhytten"], options: ["provhytten", "nätbutiken", "leveransen", "rabatten"], feedback: [{ match: "nätbutiken", tip: "*nätbutiken* betekent „een webwinkel”. Lees de zin nog eens: wat past hier?" }] }, { answers: ["storlek"], options: ["storlek", "skillnad", "garanti", "rabatt"] }] }
+          - { id: kr5j, type: gap, text: "Jag fick ett ___ på 500 kronor i födelsedagspresent.", gaps: [{ answers: ["presentkort"], options: ["presentkort", "kontokort", "impulsköp", "kvitto"], feedback: [{ match: "kontokort", tip: "*kontokort* betekent „een creditcard, betaalkaart”. Lees de zin nog eens: wat past hier?" }] }] }
+          - { id: nuky, type: gap, text: "Godiset vid kassan är ett typiskt ___.", gaps: [{ answers: ["impulsköp"], options: ["impulsköp", "presentkort", "kontokort", "kvitto"], feedback: [{ match: "presentkort", tip: "*presentkort* betekent „een cadeaubon”. Lees de zin nog eens: wat past hier?" }] }] }
+          - { id: fpmx, type: gap, text: "Jag köpte en jacka, men sedan ___ och lämnade tillbaka den.", gaps: [{ answers: ["ångrade jag mig"], options: ["ångrade jag mig", "unnade jag mig", "slog jag till", "prutade jag"], feedback: [{ match: "unnade jag mig", tip: "*unnade jag mig* betekent „zich gunnen, zich trakteren op”. Lees de zin nog eens: wat past hier?" }] }] }
+          - { id: qftf, type: gap, text: "Det var 50 procent på allt, så jag ___ och köpte två par skor.", gaps: [{ answers: ["slog till"], options: ["slog till", "prutade", "returnerade", "lurade"], feedback: [{ match: "prutade", tip: "*prutade* betekent „afdingen”. Lees de zin nog eens: wat past hier?" }] }] }
+          - { id: drfj, type: gap, text: "Efter en lång vecka ___ jag mig en god middag på restaurang.", gaps: [{ answers: ["unnade"], options: ["unnade", "ångrade", "returnerade", "lurade"], feedback: [{ match: "ångrade", tip: "*ångrade* betekent „spijt krijgen, van gedachten veranderen”. Lees de zin nog eens: wat past hier?" }] }] }
+          - { id: 9bz2, type: gap, text: "Om varan är trasig kan du ___ den inom 30 dagar.", gaps: [{ answers: ["returnera"], options: ["returnera", "pruta", "lura", "konsumera"], feedback: [{ match: "pruta", tip: "*pruta* betekent „afdingen”. Lees de zin nog eens: wat past hier?" }] }] }
+          - { id: ft4d, type: gap, text: "På marknaden i Turkiet kan man ofta ___ på priset.", gaps: [{ answers: ["pruta"], options: ["pruta", "returnera", "reklamera", "unna"], feedback: [{ match: "reklamera", tip: "*reklamera* betekent „een klacht indienen over een product”. Lees de zin nog eens: wat past hier?" }] }] }
+          - { id: sp3g, type: gap, text: "Det ___ sig att jämföra priser innan man köper en ny tv.", gaps: [{ answers: ["lönar"], options: ["lönar", "unnar", "ångrar", "tar"], feedback: [{ match: "ångrar", tip: "*ångrar* betekent „spijt krijgen, van gedachten veranderen”. Lees de zin nog eens: wat past hier?" }] }] }
+          - { id: wczh, type: gap, text: "Mjölken har ___, kan du köpa mer?", gaps: [{ answers: ["tagit slut"], options: ["tagit slut", "slagit till", "lönat sig", "lurat"], feedback: [{ match: "slagit till", tip: "*slagit till* betekent „toeslaan (bij een koopje)”. Lees de zin nog eens: wat past hier?" }] }] }
+          - { id: 4mha, type: gap, text: "Var försiktig – det finns många som försöker ___ folk på nätet.", gaps: [{ answers: ["lura"], options: ["lura", "pruta", "returnera", "unna"], feedback: [{ match: "pruta", tip: "*pruta* betekent „afdingen”. Lees de zin nog eens: wat past hier?" }] }] }
+          - { id: 22yz, type: gap, text: "Är väskan i ___ läder? – Ja, men tyvärr är den redan ___.", gaps: [{ answers: ["äkta"], options: ["äkta", "onödig", "nöjd", "kontant"], feedback: [{ match: "onödig", tip: "*onödig* betekent „onnodig”. Lees de zin nog eens: wat past hier?" }] }, { answers: ["slutsåld"], options: ["slutsåld", "äkta", "nöjd", "onödig"] }] }
+          - { id: kd4w, type: gap, text: "Det var ett ___ köp – jag behövde inte en tredje jacka.", gaps: [{ answers: ["onödigt"], options: ["onödigt", "nöjt", "äkta", "kontant"], feedback: [{ match: "äkta", tip: "*äkta* betekent „echt, authentiek”. Lees de zin nog eens: wat past hier?" }] }] }
+          - { id: m3bd, type: gap, text: "Jag är mycket ___ med mina nya skor.", gaps: [{ answers: ["nöjd"], options: ["nöjd", "slutsåld", "onödig", "äkta"], feedback: [{ match: "slutsåld", tip: "*slutsåld* betekent „uitverkocht”. Lees de zin nog eens: wat past hier?" }] }] }
+          - { id: mrx9, type: gap, text: "Titta på ___ – tröjan kostar 299 kronor.", gaps: [{ answers: ["prislappen"], options: ["prislappen", "innehållsförteckningen", "recensionen", "garantin"], feedback: [{ match: "recensionen", tip: "*recensionen* betekent „een recensie”. Lees de zin nog eens: wat past hier?" }] }] }
+          - { id: b5wr, type: gap, text: "Vill du betala med ___ eller kontant?", gaps: [{ answers: ["kontokort"], options: ["kontokort", "presentkort", "impulsköp", "kvitto"], feedback: [{ match: "presentkort", tip: "*presentkort* betekent „een cadeaubon”. Lees de zin nog eens: wat past hier?" }] }] }
+
   - id: ordbildning
     title: "Grammatik: woordvorming"
     exercises:
+      - id: ontdek-ordbildning
+        title: Ontdek de regel – woordvorming
+        instruction: Bekijk de voorbeelden en ontdek zelf de regel. Pas hem daarna toe. De uitleg staat ook op de kaart.
+        topic: ordbildning
+        items:
+          - id: cdtj
+            type: steps
+            steps:
+              - { type: mc, prompt: "Kijk: *sälja → en säljare*, *läsa → en läsare*, *arbeta → en arbetare*. Wat maakt -are?", options: ["Iemand die het doet: een persoon.", "Een handeling.", "Het tegendeel."], answer: 0, tip: "Een säljare verkoopt, een läsare leest: -are maakt een persoon." }
+              - { type: gap, text: "spela → en ___", gaps: [{ answers: ["spelare"], feedback: [{ match: ["spelning", "spelaren"], tip: "Gevraagd is een persoon die speelt, onbepaald: en spelare." }] }] }
+          - id: 2bbp
+            type: steps
+            steps:
+              - { type: mc, prompt: "Kijk: *beställa → en beställning*, *betala → en betalning*, *förklara → en förklaring*. Wat maakt -ning of -ing?", options: ["Een handeling (een en-woord).", "Een persoon.", "Een eigenschap."], answer: 0, tip: "Een betalning is het betalen zelf: -ning maakt een handeling." }
+              - { type: gap, text: "boka → en ___", gaps: [{ answers: ["bokning"], feedback: [{ match: "bokare", tip: "Gevraagd is de handeling, niet de persoon: en bokning." }, { match: "boking", tip: "Meestal is het stam + -ning: beställ-ning, betal-ning, dus bok-ning." }] }] }
+          - id: a27j
+            type: steps
+            steps:
+              - { type: mc, prompt: "Kijk: *säker → en säkerhet*, *möjlig → en möjlighet*, *fri → en frihet*. Wat maakt -het?", options: ["Een zelfstandig naamwoord voor een eigenschap.", "Een persoon.", "Een werkwoord."], answer: 0, tip: "säker (veilig) → säkerhet (veiligheid): -het maakt van een bijvoeglijk naamwoord een zelfstandig naamwoord." }
+              - { type: gap, text: "svag → en ___", gaps: [{ answers: ["svaghet"], feedback: [{ match: ["svagning", "svagare"], tip: "Van een bijvoeglijk naamwoord maak je een eigenschap met -het: svaghet." }] }] }
+
       - id: ordbildning-maken
         title: Maak het woord
         instruction: Maak het gevraagde woord.
@@ -421,6 +473,10 @@ sections:
           - { id: uzks, type: translate, topic: jamforelse, prompt: "Zeg: hoe meer ik oefen, hoe beter ik word.", answers: ["Ju mer jag {övar|tränar}, {desto|ju} bättre blir jag."], feedback: [{ contains: ["desto bättre jag blir", "ju bättre jag blir"], tip: "Na desto (of ju) … komt eerst het werkwoord: desto bättre blir jag." }, { contains: ["ju mer övar jag", "ju mer tränar jag"], tip: "Het ju-deel is een bijzin: ju mer jag övar." }] }
           - { id: dfw5, type: translate, topic: woordenschat, prompt: "Vraag in de winkel of je dit kunt ruilen.", answers: ["{Kan|Får} jag [få ]byta {den här|det här}?", "Går det att byta {den här|det här}?"] }
           - { id: k3e6, type: translate, topic: jamforelse, prompt: "Zeg dat deze winkel de beste prijzen heeft.", answers: ["Den här {affären|butiken} har de bästa priserna."], feedback: [{ contains: "de bäst priserna", tip: "Bepaald, met de: de bästa priserna." }] }
+          - { id: shus, type: translate, topic: jamforelse, prompt: "Je vergelijkt twee telefoons. Zeg dat deze net zo duur is als die.", answers: ["Den här{ telefonen| mobilen| mobiltelefonen|} {är lika dyr|kostar lika mycket} som den där{ telefonen| mobilen| mobiltelefonen|}."], feedback: [{ contains: ["lika dyr än", "lika dyr så"], tip: "Net zo … als = lika … som." }] }
+          - { id: kvh8, type: translate, topic: ordbildning, prompt: "Vraag in de winkel of deze frisdrank suikervrij is.", answers: ["Är {den här läsken|den här drycken|den här drickan|läsken|drycken|den} sockerfri?", "Är det här{ en|} sockerfri läsk?"], feedback: [{ contains: "socker fri", tip: "Met het achtervoegsel -fri wordt het één woord: sockerfri." }] }
+          - { id: v8pe, type: translate, topic: jamforelse, prompt: "Zeg dat deze trui veel minder kost dan die op internet.", answers: ["Den här tröjan {kostar {mycket|betydligt} mindre|är {mycket|betydligt} billigare} än {den|tröjan} på {nätet|internet}."], feedback: [{ contains: ["mindre som", "billigare som"], tip: "Na een vergelijkende vorm: än." }] }
+          - { id: zgfm, type: translate, topic: ordbildning, prompt: "Je hebt een kapotte waterkoker gekocht. Zeg dat hij onbruikbaar is.", answers: ["{Den|Vattenkokaren} är oanvändbar."], feedback: [{ contains: ["inte användbar", "går inte att använda"], retry: true, tip: "Goed Zweeds, maar oefen hier het voorvoegsel o-: oanvändbar." }, { contains: "oanvändbart", tip: "vattenkokare is een en-woord: oanvändbar." }] }
 
   - id: skriva
     title: Skriva · schrijven
@@ -465,6 +521,8 @@ sections:
           - { id: 7zpf, type: gap, topic: ordbildning, text: "betala → en ___", gaps: [{ answers: ["betalning"] }] }
           - { id: ae9t, type: gap, topic: jamforelse, text: "Ekologiska ägg är inte lika billiga ___ vanliga ägg.", gaps: [{ answers: ["som"] }] }
           - { id: hbje, type: transform, topic: nagon-ingen, task: "Maak de zin ontkennend.", prompt: "Jag har köpt några nya kläder den här månaden.", answers: ["Jag har inte köpt några nya kläder den här månaden."] }
+          - { id: gugd, type: gap, topic: sammansattning, text: "ett arbete + en dag = en ___", gaps: [{ answers: ["arbetsdag"], feedback: [{ match: ["arbetedag", "arbetdag"], tip: "Na arbete komt een -s- ertussen en valt de -e weg: arbetsdag." }, { match: "arbetsdagen", tip: "Gevraagd is de onbepaalde vorm: en arbetsdag." }] }] }
+          - { id: v4vw, type: translate, topic: partikelverb-2, prompt: "Onze vlucht is geannuleerd.", answers: ["{Vårt flyg|Vår flygning} har ställts in.", "Vårt flyg {är|har blivit} inställt.", "Vår flygning {är|har blivit} inställd.", "Vårt flyg har inställts.", "Vår flygning har inställts."], feedback: [{ contains: "flyg är inställd", tip: "flyg is een ett-woord: inställt." }, { contains: "ställt in", tip: "Als deelwoord komt het partikel vooraan: inställt." }] }
 
 vocab:
   - { sv: "en matkasse", nl: "een maaltijdbox", def: "matkassen", pl: "matkassar", plDef: "matkassarna", ex: "Vi har beställt en **matkasse** med vegetariska recept.", exNl: "We hebben een maaltijdbox met vegetarische recepten besteld." }

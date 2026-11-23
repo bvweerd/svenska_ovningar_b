@@ -91,6 +91,13 @@ export function charBar() {
   });
   document.addEventListener('focusin', (e) => {
     if (!e.target.matches('input[type="text"], textarea')) return;
+    // In een venster (zoals „Fout gezien?”) typ je Nederlands: geen letterbalk, en een open balk gaat weg.
+    if (e.target.closest('dialog')) {
+      clearTimeout(settleTimer);
+      undock();
+      bar.hidden = true;
+      return;
+    }
     target = e.target;
     const actions = target.closest('.item')?.querySelector(':scope > .actions');
     if (actions) {

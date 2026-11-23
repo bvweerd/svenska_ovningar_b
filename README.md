@@ -37,7 +37,7 @@ Elke push naar `main` wordt via GitHub Actions getest, gebouwd en op GitHub Page
 
 Naast de oefeningen per hoofdstuk zijn er onder **Oefenen**: dagelijkse herhaling met
 intervallen (Leitner-dozen), een werkwoordtrainer (`content/verbs.yaml`), toetsen per
-hoofdstuk, flitskaarten en snelle rondes van 60 seconden. Alle voortgang staat in de browser.
+hoofdstuk, flitskaarten (kies de goede betekenis; de app kijkt na) en snelle rondes van 60 seconden. Alle voortgang staat in de browser.
 
 **Dagelijkse herhaling**: een dagdoel van 20 vragen (`DAILY_GOAL`), om en om uit verschillende onderwerpen
 (`pickReview`); wie meer wil, gaat door met „extra herhaling”. Een vraag die de eerste keer in één keer goed
@@ -46,7 +46,7 @@ voortgang per hoofdstuk en de lastigste onderwerpen zien.
 
 **Prestaties** (`#/prestaties`, `src/core/rewards/badges.js`): badges die de app zelf uitreikt op basis van
 wat hij nakijkt: afgeronde oefeningen en hoofdstukken, kan-doen-doelen, vragen in doos 4+, toetsen ≥ 80%,
-oefendagen (in totaal, niet op rij), dictee en snelle rondes. Flitskaarten tellen niet mee (zelfbeoordeling).
+oefendagen (in totaal, niet op rij), dictee en snelle rondes. Flitskaarten (losse woordjes) tellen niet mee.
 Een behaalde badge blijft staan en synchroniseert mee. De badge-id's zijn vast: niet veranderen.
 Elke groep heeft een Zweeds plaatje (`src/ui/components/badge-icon.js`, inline SVG): dalahäst, midsommarstång,
 rood huisje, eland, studentmössa, Tre Kronor, fika, nyckelharpa en Vasaloppet-ski's. De rand toont het niveau
@@ -140,6 +140,10 @@ på kvällen*. Een vastgelegde fout in `feedback` gaat voor. Vraagt de opdracht 
 oefening (of bij één vraag). De andere volgorde telt dan niet als fout, maar de leerling krijgt een tip om
 de opdracht te volgen: begint het goede antwoord met de tijdsbepaling, dan „begin de zin met de
 tijdsbepaling”; begint het met iets anders, dan „begin de zin zoals gevraagd”.
+
+Een foutregel met `retry: true` werkt net zo: het antwoord is goed Zweeds maar niet wat de oefening vraagt
+(bijv. inversie na *så* zoals in spreektaal, of *försent* in plaats van *för sent*). De leerling krijgt de tip
+en mag het nog eens proberen; het telt niet als fout.
 
 Bewust voorzichtig: de nakijker verplaatst alleen een tijdsbepaling tussen plaats 1 (met inversie) en het
 eind van één enkelvoudige hoofdzin met een herkenbaar onderwerp (*Bram*, *min syster*, *Olles fru*,

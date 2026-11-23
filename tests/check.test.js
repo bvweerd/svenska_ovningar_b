@@ -43,10 +43,40 @@ describe('diagnose', () => {
   it('herkent een ontbrekend woord in een zin', () => expect(d('jag talar finska', ['jag talar inte finska']).kind).toBe('missing'));
   it('herkent een spelfout', () => expect(d('tidnig', ['tidning']).kind).toBe('spelling'));
   it('ontbrekende uitgang is geen spelfout', () => expect(d('huse', ['huset']).kind).not.toBe('spelling'));
+  it('herkent är + supinum (ik ben gegaan)', () => expect(d('Vi är åkt till Gotland', ['Vi har åkt till Gotland']).kind).toBe('auxiliary'));
+  it('herkent var + supinum (ik was geweest)', () => expect(d('Hon var varit sjuk', ['Hon hade varit sjuk']).tip).toMatch(/hade/));
+  it('är bij een bijvoeglijk naamwoord is geen hulpwerkwoordfout', () => expect(d('Jag är trött', ['Jag var trött'])?.kind).not.toBe('auxiliary'));
   it('geeft niets bij totaal ander antwoord', () => expect(d('hund', ['katt'])).toBeNull());
 });
 
 describe('gradeText', () => {
+  it('namen met och mogen in beide volgordes', () => {
+    const spec = { answers: ['Fleur och Bram bor i Västerås nu.'] };
+    expect(gradeText('Bram och Fleur bor i Västerås nu.', spec).correct).toBe(true);
+    expect(gradeText('Nu bor Bram och Fleur i Västerås.', spec).correct).toBe(true);
+    expect(gradeText('Bram och Fleur i Västerås bor nu.', spec).correct).toBe(false);
+  });
+  it('tijdsbepaling vóór een bijwoord als tillsammans mag ook', () => {
+    const spec = { answers: ['På kvällen lagar Fleur och Bram middag tillsammans.'] };
+    expect(gradeText('Fleur och Bram lagar middag på kvällen tillsammans.', spec).correct).toBe(true);
+    expect(gradeText('Fleur och Bram lagar middag tillsammans på kvällen.', spec).correct).toBe(true);
+    expect(gradeText('Fleur och Bram på kvällen lagar middag tillsammans.', spec).correct).toBe(false);
+  });
+  it('jag och een naam mag ook andersom', () => {
+    const spec = { answers: ['Jag och Bram ska äta ute.'] };
+    expect(gradeText('Bram och jag ska äta ute.', spec).correct).toBe(true);
+  });
+  it('foutregel met retry: geen fout, wel nog een poging', () => {
+    const spec = { answers: ['Det regnar, så vi stannar inne.'], feedback: [{ contains: 'så stannar vi', retry: true, tip: 'Goed Zweeds, maar oefen hier de gewone volgorde.' }] };
+    const r = gradeText('Det regnar, så stannar vi inne.', spec);
+    expect(r.correct).toBe(false);
+    expect(r.retry).toBe(true);
+    expect(gradeText('Det regnar, så vi stannar inne.', spec).correct).toBe(true);
+  });
+  it('een echte foutregel gaat voor een retry-regel', () => {
+    const spec = { answers: ['Jag vet att han aldrig kommer för sent.'], feedback: [{ contains: 'försent', retry: true, tip: 'twee woorden' }, { contains: 'kommer aldrig', tip: 'bijzin' }] };
+    expect(gradeText('Jag vet att han kommer aldrig försent.', spec).tip).toBe('bijzin');
+  });
   it('accepteert varianten', () => {
     expect(gradeText('nej vi pratar inte finska', { answers: ['[Nej, ]vi {talar|pratar} inte finska.'] }).correct).toBe(true);
   });

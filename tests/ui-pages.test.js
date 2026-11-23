@@ -48,10 +48,21 @@ afterEach(() => expect(errors).toEqual([]));
 const first = () => course.find((c) => c.available && c.chapter >= 1);
 
 describe('pagina’s met knoppen', () => {
-  it('kaartjes: omdraaien, gekend, nog niet, volgende', async () => {
+  it('kaartjes: kiezen, nakijken, volgende', async () => {
     const el = await go(`/k/${first().chapter}/kaarten`);
     await clickAll(el, 6);
     expect(el.childElementCount).toBeGreaterThan(0);
+  });
+
+  it('kaartjes: de app kijkt de keuze na', async () => {
+    const el = await go(`/k/${first().chapter}/kaarten`);
+    const opts = el.querySelectorAll('.flash-opt');
+    expect(opts.length).toBe(4);
+    opts[0].click();
+    expect(el.querySelectorAll('.flash-opt.good').length).toBe(1);
+    expect(el.querySelector('.flash-next')).not.toBeNull();
+    el.querySelector('.flash-next').click();
+    expect(el.querySelectorAll('.flash-opt.good').length).toBe(0);
   });
 
   it('toets en instap: alles beantwoorden tot de uitslag', async () => {

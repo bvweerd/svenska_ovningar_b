@@ -1,6 +1,7 @@
 // „Meld een fout”: een klein formulier per vraag. De melding gaat naar een Cloudflare Worker,
 // die er een GitHub-issue van maakt (zie worker/). Gebruikers hebben geen account nodig.
 import { h, fill } from '../dom.js';
+import { keyboardOpen } from './keyboard.js';
 import { REPORT_URL, TURNSTILE_SITEKEY, REPORT_REPO } from '../../config.js';
 import { trackEvent } from '../../platform/analytics.js';
 
@@ -157,6 +158,29 @@ function openDialog({ item = null, ref = null, number = null, card = null, gener
   });
   document.body.append(dlg);
   dlg.showModal();
+  // Met het schermtoetsenbord open past het venster in het zichtbare deel, met de knoppen erin.
+  const vv = window.visualViewport;
+  const fit = () => {
+    if (!dlg.isConnected) return;
+    if (keyboardOpen()) {
+      dlg.style.margin = `${Math.round(vv.offsetTop + 8)}px auto auto`;
+      dlg.style.maxHeight = `${Math.round(vv.height - 16)}px`;
+      dlg.classList.add('kb');
+      // Het veld waarin je typt bovenaan in het venster, zodat de knoppenbalk onderin het niet bedekt.
+      const f = document.activeElement;
+      if (dlg.contains(f) && f.matches('textarea, input')) dlg.scrollTop += f.getBoundingClientRect().top - dlg.getBoundingClientRect().top - 40;
+    } else {
+      dlg.style.margin = '';
+      dlg.style.maxHeight = '';
+      dlg.classList.remove('kb');
+    }
+  };
+  vv?.addEventListener('resize', fit);
+  vv?.addEventListener('scroll', fit);
+  dlg.addEventListener('close', () => {
+    vv?.removeEventListener('resize', fit);
+    vv?.removeEventListener('scroll', fit);
+  });
   textarea.focus();
 
   loadTurnstile()

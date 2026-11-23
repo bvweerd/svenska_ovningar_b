@@ -36,11 +36,11 @@ export function viewSettings() {
     h('p', {}, 'Bij langere antwoorden kun je typen of woordtegels in de goede volgorde aantikken. Op een telefoon of tablet staan standaard de tegels aan.'),
     select('Invoer bij zinnen', getInputMode(),
       [['auto', 'Automatisch (tegels op een touchscreen)'], ['tiles', 'Altijd woordtegels'], ['type', 'Altijd typen']], setInputMode),
-    h('p', {}, 'Bij het typen staan er knoppen voor å, ä en ö: op een computer naast „Controleer”, op een telefoon boven het toetsenbord. Heeft je toetsenbord die letters zelf al, dan kun je de knoppen uitzetten.'),
+    h('p', {}, 'Bij het typen staan er knoppen voor å, ä en ö: op een computer naast „Controleer”, op een telefoon of tablet boven het toetsenbord. Heeft je toetsenbord die letters zelf al, dan kun je de knoppen uitzetten.'),
     checkbox('Knoppen voor å, ä en ö', charBarOn(), (on) => { setPref('charBar', on); applyCharBar(); }),
 
     h('h2', {}, 'Naar de volgende vraag'),
-    h('p', {}, 'Na een goed antwoord gaat de site vanzelf naar de volgende vraag. Typte je je antwoord op een telefoon, dan staat de cursor meteen in het volgende invulvak en blijft het toetsenbord open. Wil je eerst rustig de uitleg lezen, zet dit dan uit: je tikt dan zelf op „Volgende vraag”.'),
+    h('p', {}, 'Na een goed antwoord gaat de site vanzelf naar de volgende vraag. Typte je je antwoord op een telefoon of tablet, dan staat de cursor meteen in het volgende invulvak en blijft het toetsenbord open. Wil je eerst rustig de uitleg lezen, zet dit dan uit: je tikt dan zelf op „Volgende vraag”.'),
     checkbox('Vanzelf naar de volgende vraag', autoNext(), setAutoNext),
 
     analyticsConfigured() ? [

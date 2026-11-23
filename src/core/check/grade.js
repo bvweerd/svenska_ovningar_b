@@ -1,10 +1,43 @@
 // Pure nakijkfuncties per vraagtype. Geven altijd { correct, tip?, kind? } terug.
-import { normalize, variants, displayAnswer, expand } from './normalize.js';
+import { normalize, variants, expand } from './normalize.js';
 import { movedAdverbialOrders } from './adverbial.js';
 import { diagnose } from './diagnose.js';
 import { clockAnswers, clockFeedback } from './clock.js';
 
 const asList = (x) => (x === undefined ? [] : [].concat(x));
+
+// „Fleur och Bram” = „Bram och Fleur”: twee namen (of een naam en jag/du/…) met och mogen ook andersom.
+const PAIR = /(?<![\p{L}\p{N}])(\p{Lu}[\p{L}-]*) och (\p{Lu}[\p{L}-]*|jag|du|han|hon|vi|ni|de)(?![\p{L}\p{N}])/gu;
+const SUBJ = new Set(['jag', 'du', 'han', 'hon', 'vi', 'ni', 'de']);
+function swapPairs(text) {
+  return text.replace(PAIR, (m, a, b, at) => {
+    // Een voornaamwoord aan het begin van de zin (Jag och Bram) wordt na het omdraaien klein (Bram och jag).
+    const first = at === 0 && SUBJ.has(a.toLowerCase()) ? a.toLowerCase() : a;
+    const second = at === 0 && SUBJ.has(b) ? b.charAt(0).toUpperCase() + b.slice(1) : b;
+    return `${second} och ${first}`;
+  });
+}
+/** Alle uitgeklapte goede antwoorden, plus dezelfde zinnen met de namen bij och omgedraaid. */
+function answerTexts(answers) {
+  const list = asList(answers).flatMap((a) => expand(a));
+  return [...new Set([...list, ...list.map(swapPairs)])];
+}
+
+// Per antwoordlijst één keer uitrekenen: een vraag kan honderden varianten hebben, en die worden bij elke
+// poging (en in de tests voor elke variant) opnieuw nagekeken.
+const cache = new WeakMap();
+function prepared(answers, opts) {
+  const key = Array.isArray(answers) ? answers : null;
+  const hit = key && cache.get(key)?.[opts.caseSensitive ? 'cs' : 'ci'];
+  if (hit) return hit;
+  const texts = answerTexts(answers);
+  const out = { texts, expected: variants(texts, opts), expectedSet: null, moved: null };
+  out.expectedSet = new Set(out.expected);
+  if (key) cache.set(key, { ...cache.get(key), [opts.caseSensitive ? 'cs' : 'ci']: out });
+  return out;
+}
+const movedFor = (prep, opts) => (prep.moved ??= prep.texts
+  .flatMap((e) => movedAdverbialOrders(e, opts).map((m) => ({ ...m, source: e }))));
 
 /**
  * Open tekstantwoord. spec: { answers, feedback?, caseSensitive?, fixedOrder? }
@@ -15,18 +48,21 @@ export function gradeText(input, spec, ctx = {}) {
   const opts = { caseSensitive: !!spec.caseSensitive };
   const n = normalize(input, opts);
   if (!n) return { correct: false, empty: true, tip: 'Je hebt nog niets ingevuld.' };
-  const expected = variants(spec.answers, opts);
-  if (expected.includes(n)) return { correct: true };
+  const prep = prepared(spec.answers, opts);
+  const expected = prep.expected;
+  if (prep.expectedSet.has(n)) return { correct: true };
 
-  for (const f of spec.feedback ?? []) {
+  // Echte fouten gaan voor: een retry-regel (goed Zweeds, andere vorm) komt pas als geen andere regel past.
+  const rules = [...(spec.feedback ?? [])].sort((x, y) => Number(!!x.retry) - Number(!!y.retry));
+  for (const f of rules) {
     const hitMatch = asList(f.match).some((m) => variants([m], opts).includes(n));
     const hitContains = asList(f.contains).some((c) => ` ${n} `.includes(` ${normalize(c, opts)} `));
-    if (hitMatch || hitContains) return { correct: false, kind: 'feedback', tip: f.tip };
+    // retry: goed Zweeds, maar niet wat de opdracht oefent. Geen fout, wel nog een poging (zoals fixedOrder).
+    if (hitMatch || hitContains) return f.retry ? { correct: false, retry: true, kind: 'feedback', tip: f.tip } : { correct: false, kind: 'feedback', tip: f.tip };
   }
   // Tijdsbepaling vooraan of achteraan: ook goed (vastgelegde fouten hierboven gaan voor).
   // Uit de patronen mét leestekens, zodat een komma (bijzin) een verplaatsing tegenhoudt.
-  const moved = spec.options ? undefined : asList(spec.answers).flatMap((a) => expand(a))
-    .flatMap((e) => movedAdverbialOrders(e, opts)).find((m) => m.text === n);
+  const moved = spec.options ? undefined : movedFor(prep, opts).find((m) => m.text === n);
   if (moved) {
     if (spec.fixedOrder || ctx.fixedOrder) {
       // fronted: de leerling zette de tijdsbepaling vooraan, terwijl de opdracht met iets anders begint.
@@ -35,7 +71,7 @@ export function gradeText(input, spec, ctx = {}) {
         : 'Dat is goed Zweeds, maar de opdracht is anders: begin de zin met de tijdsbepaling, net als in het Nederlands. Let dan op de inversie.';
       return { correct: false, retry: true, kind: 'order', tip };
     }
-    return { correct: true, moved: true, note: `Het voorbeeldantwoord zet de tijdsbepaling op een andere plek: „${displayAnswer(spec.answers)}”` };
+    return { correct: true, moved: true, note: `Het voorbeeldantwoord zet de tijdsbepaling op een andere plek: „${moved.source.replace(/\s+/g, ' ').trim()}”` };
   }
   // Bij een keuzelijst is een vaste tip zinvoller dan een spellingsdiagnose.
   if (spec.options && spec.tip) return { correct: false, kind: 'feedback', tip: spec.tip };

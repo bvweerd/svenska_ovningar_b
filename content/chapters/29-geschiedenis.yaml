@@ -513,6 +513,7 @@ sections:
           - { id: 9gqc, type: transform, topic: fundament, task: "Begin de zin met de tijd.", prompt: "Vasa bärgades år 1961.", answers: ["[År ]1961 bärgades Vasa."] }
           - { id: ya7c, type: gap, topic: passiv-s, text: "Skeppet ___ (bygga) på order av kungen.", gaps: [{ answers: ["byggdes"] }] }
           - { id: hkc4, type: gap, topic: indirekt-fraga, text: "Historikerna undrar fortfarande ___ skeppet sjönk så snabbt.", gaps: [{ answers: ["varför"], options: ["varför", "som", "att"], shuffle: false }] }
+          - { id: qxnh, type: mc, topic: idiom, prompt: "Je collega zegt: *Det är ingen ko på isen, vi har tid på oss till fredag.* Wat bedoelt ze?", options: ["Er is geen haast.", "Er is een groot probleem.", "Het is glad buiten."], answer: 0, tip: "Det är ingen ko på isen = er is geen haast, het komt wel goed." }
 
 vocab:
   - { sv: "ett skepp", nl: "een schip", def: "skeppet", pl: "skepp", plDef: "skeppen", ex: "Tusentals människor kom för att se det nya **skeppet** segla.", exNl: "Duizenden mensen kwamen kijken hoe het nieuwe schip uitvoer." }

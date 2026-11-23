@@ -444,6 +444,7 @@ sections:
           - { id: c36d, type: gap, topic: indirekt-fraga, text: "Journalisten frågade ___ ministern tänkte avgå.", gaps: [{ answers: ["om"], options: ["om", "att", "som"], shuffle: false }] }
           - { id: 2hvs, type: gap, topic: villkor, text: "Om tidningen ___ (vara) gratis, skulle fler människor läsa den.", gaps: [{ answers: ["var"] }] }
           - { id: qakw, type: gap, topic: passiv-s, text: "Nyheten ___ (sända) på alla kanaler i går kväll.", gaps: [{ answers: ["sändes"] }] }
+          - { id: ytjm, type: gap, topic: myndighetssprak, text: "Ansökan ska ha kommit in ___ den 31 mars. (uiterlijk)", gaps: [{ answers: ["senast"], feedback: [{ match: ["sist", "senaste"], tip: "Uiterlijk (een deadline) is in de taal van instanties: senast." }] }] }
 
 vocab:
   - { sv: "en nyhet", nl: "een nieuwsbericht, een nieuwtje", def: "nyheten", pl: "nyheter", plDef: "nyheterna", ex: "Har du hört **nyheten**? Simon och Ella har förlovat sig.", exNl: "Heb je het nieuwtje gehoord? Simon en Ella hebben zich verloofd." }

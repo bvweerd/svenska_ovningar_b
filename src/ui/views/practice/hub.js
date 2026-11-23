@@ -33,7 +33,7 @@ export function viewPracticeHub() {
     ),
     h('section', { class: 'block' },
       h('h2', {}, 'Flitskaarten'),
-      h('p', { class: 'muted' }, 'De woordenlijst van een hoofdstuk: omdraaien en zelf aangeven of je het wist.'),
+      h('p', { class: 'muted' }, 'De woordenlijst van een hoofdstuk: kies de goede betekenis, de app kijkt na.'),
       chapterChips(available().filter((c) => c.vocab?.length), (c) => `#/k/${c.chapter}/kaarten`)),
     h('section', { class: 'block' },
       h('h2', {}, 'Toetsen'),

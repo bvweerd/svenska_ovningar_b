@@ -419,6 +419,7 @@ sections:
           - { id: bx8u, type: gap, topic: jamforelse, text: "Ju äldre man blir, ___ klokare blir man.", gaps: [{ answers: ["desto", "ju"] }] }
           - { id: 5z5k, type: gap, topic: nominalisering, text: "utveckla → ___", gaps: [{ answers: ["en utveckling"] }] }
           - { id: n2e8, type: transform, topic: utbrytning, prompt: "**Klimatet** är den största frågan.", answers: ["Det är klimatet som är den största frågan."] }
+          - { id: 2hp8, type: mc, topic: framtid-b2, prompt: "Wat betekent *Priserna väntas stiga nästa år*?", options: ["Men verwacht dat de prijzen volgend jaar stijgen.", "De prijzen wachten tot volgend jaar.", "De prijzen zijn vorig jaar gestegen."], answer: 0, tip: "väntas = wordt verwacht (lijdende vorm, vgl. man väntar sig att …): men verwacht dat de prijzen stijgen." }
 
   - id: eindtoets
     title: Herhaling B2-grammatica

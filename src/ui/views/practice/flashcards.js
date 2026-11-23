@@ -17,12 +17,12 @@ export function viewFlashcards(ch, { signal } = {}) {
   let dir = getPref('cardsDir', 'sv');
   let deck;
   let current;
-  let flipped;
   let stackSize;
   let wrongOnce;
 
   const face = h('div', { class: 'flash-face' });
-  const card = h('button', { type: 'button', class: 'flashcard', 'aria-live': 'polite', onclick: () => flip() }, face);
+  const card = h('div', { class: 'flashcard', 'aria-live': 'polite' }, face);
+  const options = h('div', { class: 'flash-options' });
   const actions = h('div', { class: 'actions flash-actions' });
   const progress = h('div', { class: 'score' });
   const summary = h('div', { class: 'summary', hidden: true });
@@ -66,49 +66,58 @@ export function viewFlashcards(ch, { signal } = {}) {
     }
     card.hidden = false;
     summary.hidden = true;
-    card.classList.toggle('flipped', flipped);
-    fill(face, 
-      h('span', { class: 'flash-main', lang: dir === 'sv' && !flipped ? 'sv' : dir === 'nl' && flipped ? 'sv' : 'nl' }, flipped ? back(current.v) : front(current.v)),
-      h('span', { class: 'flash-hint' }, flipped ? front(current.v) : 'Tik op de kaart (of druk op spatie) om hem om te draaien'),
+    card.classList.toggle('flipped', current.answered);
+    fill(face,
+      h('span', { class: 'flash-main', lang: dir === 'sv' ? 'sv' : 'nl' }, front(current.v)),
+      h('span', { class: 'flash-hint' }, current.answered ? (current.ok ? 'Goed!' : `Het is: ${back(current.v)}`) : 'Kies de goede betekenis (of druk op 1–4)'),
     );
-    // Vaste knoppen op een vaste plek: „Wist ik” en „Nog niet” kunnen pas na het omdraaien, zodat
-    // een dubbele tik op de kaart niet per ongeluk een beoordeling geeft.
-    fill(actions, 
-      h('button', { type: 'button', class: 'btn primary', disabled: !flipped, onclick: () => rate(true) }, 'Wist ik (1)'),
-      h('button', { type: 'button', class: 'btn ghost', disabled: !flipped, onclick: () => rate(false) }, 'Nog niet (2)'),
+    const buttons = current.options.map((v, i) => {
+      const cls = !current.answered ? 'btn ghost flash-opt'
+        : v === current.v ? 'btn ghost flash-opt good'
+          : v === current.chosen ? 'btn ghost flash-opt bad' : 'btn ghost flash-opt';
+      return h('button', { type: 'button', class: cls, lang: dir === 'sv' ? 'nl' : 'sv', disabled: current.answered, onclick: () => answer(v) }, `${i + 1}. ${back(v)}`);
+    });
+    fill(options, buttons);
+    fill(actions,
+      current.answered ? h('button', { type: 'button', class: 'btn primary flash-next', onclick: next }, 'Volgende (Enter)') : '',
       speechSupported() ? h('button', { type: 'button', class: 'btn ghost speech-extra', onclick: () => speak(current.v.sv) }, 'Luister (L)') : '');
   };
-  let flippedAt = 0;
-  const settling = () => Date.now() - flippedAt < 350;
-  const flip = () => {
-    if (!current || settling()) return;
-    flipped = !flipped;
-    flippedAt = Date.now();
-    show();
-  };
-  const rate = (ok) => {
-    if (!current || !flipped || settling()) return;
-    // Alleen de eerste beoordeling telt: wat je pas na herhalen wist, komt in een volgende stapel terug.
-    if (!current.rated) rateCard(ch.chapter, dir, current.v.sv, ok);
-    current.rated = true;
-    if (!ok) {
-      wrongOnce.add(current.v.sv);
-      deck.splice(Math.min(3, deck.length), 0, current);
+  /** Drie andere woorden uit het hoofdstuk als foute keuzes, met een andere vertaling dan het goede antwoord. */
+  const optionsFor = (v) => {
+    const others = shuffle(vocab.filter((o) => o !== v && back(o) !== back(v)));
+    const seen = new Set([back(v)]);
+    const wrong = [];
+    for (const o of others) {
+      if (wrong.length === 3) break;
+      if (!seen.has(back(o))) { seen.add(back(o)); wrong.push(o); }
     }
-    current = deck.shift() ?? null;
-    flipped = false;
+    return shuffle([v, ...wrong]);
+  };
+  // De app kijkt na: alleen de eerste keuze per kaart telt; wat fout ging, komt een paar kaarten later terug.
+  const answer = (v) => {
+    if (!current || current.answered) return;
+    current.answered = true;
+    current.chosen = v;
+    current.ok = v === current.v;
+    if (!current.rated) rateCard(ch.chapter, dir, current.v.sv, current.ok);
+    current.rated = true;
+    if (!current.ok) wrongOnce.add(current.v.sv);
     show();
-    card.focus();
+    actions.querySelector('.flash-next')?.focus();
+  };
+  const next = () => {
+    if (!current || !current.answered) return;
+    if (!current.ok) deck.splice(Math.min(3, deck.length), 0, { ...current, answered: false, chosen: null, options: optionsFor(current.v) });
+    current = deck.shift() ?? null;
+    show();
   };
   function start() {
     const pick = new Set(pickCards(ch.chapter, dir, words, CARD_STACK));
-    deck = shuffle(vocab.filter((v) => pick.has(v.sv)).map((v) => ({ v, rated: false })));
+    deck = shuffle(vocab.filter((v) => pick.has(v.sv)).map((v) => ({ v, rated: false, answered: false, options: optionsFor(v) })));
     stackSize = deck.length;
     current = deck.shift() ?? null;
-    flipped = false;
     wrongOnce = new Set();
     show();
-    card.focus();
   }
   const dirBtn = (value, label) => h('button', {
     type: 'button',
@@ -127,21 +136,20 @@ export function viewFlashcards(ch, { signal } = {}) {
     crumbs({ label: 'Start', href: '#/' }, { label: ch.title, href: `#/k/${ch.chapter}` }, { label: 'Flitskaarten' }),
     h('header', { class: 'page-head' },
       h('h1', {}, `Flitskaarten: ${ch.title}`),
-      h('p', { class: 'instruction' }, `Draai de kaart om en geef eerlijk aan of je het wist. Je oefent in stapels van ${CARD_STACK}: eerst wat nieuw is of wat je nog niet wist. Wat je in de stapel niet wist, komt een paar kaarten later terug.`),
+      h('p', { class: 'instruction' }, `Kies bij elk woord de goede betekenis; de app kijkt na. Je oefent in stapels van ${CARD_STACK}: eerst wat nieuw is of wat je nog niet wist. Wat je fout had, komt een paar kaarten later terug.`),
       h('div', { class: 'actions' }, dirButtons)),
-    progress, card, actions, summary,
+    progress, card, options, actions, summary,
   );
   document.addEventListener('keydown', (e) => {
     if (e.target.matches('input, textarea, select')) return;
-    if (e.key === ' ' || (e.key === 'Enter' && e.target === card)) {
+    if (!current) return;
+    if (e.key === 'Enter' && current.answered && !e.target.matches('button')) {
       e.preventDefault();
-      flip();
-    } else if (e.key === '1' || e.key.toLowerCase() === 'j') rate(true);
-    else if (e.key === '2' || e.key.toLowerCase() === 'n') rate(false);
+      next();
+    } else if (/^[1-4]$/.test(e.key) && !current.answered) answer(current.options[Number(e.key) - 1]);
     else if (e.key.toLowerCase() === 'l' && current) speak(current.v.sv);
   }, { signal });
   if (!vocab.length) return h('div', {}, h('p', {}, 'Dit hoofdstuk heeft geen woordenlijst.'));
   start();
-  setTimeout(() => card.focus(), 0);
   return view;
 }

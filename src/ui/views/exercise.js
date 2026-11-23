@@ -160,7 +160,9 @@ function textButton(ex) {
       h('button', { type: 'button', class: 'btn ghost small', onclick: () => sheet.close() }, 'Sluiten')),
     h('div', { class: 'passage-body', lang: 'sv', html: markdown(ex.text) }));
   sheet.addEventListener('click', (e) => { if (e.target === sheet) sheet.close(); });
-  const btn = h('button', { type: 'button', class: 'text-fab', hidden: true, onclick: () => sheet.showModal() }, '📄 Tekst');
+  // Zolang het tekstvenster open is, is de knop overbodig (hij zou eronder uitsteken).
+  sheet.addEventListener('close', () => { btn.style.visibility = ''; });
+  const btn = h('button', { type: 'button', class: 'text-fab', hidden: true, onclick: () => { sheet.showModal(); btn.style.visibility = 'hidden'; } }, '📄 Tekst');
   // Pas tonen als de tekst zelf uit beeld is.
   setTimeout(() => {
     const target = btn.parentElement?.querySelector('.passage');
