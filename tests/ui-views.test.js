@@ -3,6 +3,7 @@
 // de rooktest in de browser doet: geen fout, een gevulde pagina, en een paar interacties per pagina.
 import { describe, it, expect, beforeAll, afterEach, vi } from 'vitest';
 import fs from 'node:fs';
+import './helpers/external-scripts.js';
 import path from 'node:path';
 
 const html = fs.readFileSync(path.join(process.cwd(), 'index.html'), 'utf8');

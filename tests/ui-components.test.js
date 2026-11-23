@@ -2,6 +2,7 @@
 // Componenten die alleen werken met een Worker (meldingen, synchroniseren): met een nep-Worker (fetch) en
 // een nep-Turnstile. De echte Worker heeft zijn eigen tests (worker/ in de B-repo).
 import { describe, it, expect, beforeEach, vi } from 'vitest';
+import { externalScripts } from './helpers/external-scripts.js';
 
 vi.mock('../src/config.js', async (orig) => ({
   ...(await orig()), SYNC_URL: 'https://worker.example/', REPORT_URL: 'https://worker.example/report', TURNSTILE_SITEKEY: 'sitekey',
@@ -104,7 +105,7 @@ describe('Fout gezien?', () => {
     const btn = feedbackButton();
     document.body.append(btn);
     btn.click();
-    const s = document.head.querySelector('script[src*="turnstile"]');
+    const s = externalScripts.find((x) => x.src.includes('turnstile'));
     s.onerror();
     await tick();
     expect(document.querySelector('.report-status').textContent).toContain('kon niet laden');

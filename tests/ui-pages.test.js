@@ -4,6 +4,7 @@
 // niets gewist. Verder: de Å Ä Ö-balk, de terugknop in de geïnstalleerde app en de installatieknop.
 import { describe, it, expect, beforeAll, afterEach } from 'vitest';
 import fs from 'node:fs';
+import './helpers/external-scripts.js';
 import path from 'node:path';
 
 const html = fs.readFileSync(path.join(process.cwd(), 'index.html'), 'utf8');
