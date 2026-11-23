@@ -21,6 +21,8 @@ jobs:
           node-version: 22
           cache: npm
       - run: npm ci
+      # Spellingscontrole van het Zweeds (tests/spelling.test.js) gebruikt hunspell met het woordenboek sv_SE.
+      - run: sudo apt-get install -y --no-install-recommends hunspell hunspell-sv
       - run: npm test
       - run: npm run build
       # Rooktest in een browser (elke pagina, telefoonformaat, licht en donker). Playwright staat

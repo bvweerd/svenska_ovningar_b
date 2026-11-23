@@ -570,7 +570,7 @@ vocab:
   - { sv: "att avsluta", nl: "afsluiten, beëindigen", ex: "Vi **avslutar** mötet klockan tre.", exNl: "We sluiten de vergadering om drie uur af." }
   - { sv: "att utföra", nl: "uitvoeren", ex: "Han **utför** sina uppgifter noggrant.", exNl: "Hij voert zijn taken nauwkeurig uit." }
   - { sv: "kunnig", nl: "deskundig, bekwaam", ex: "Hon är mycket **kunnig** inom ekonomi.", exNl: "Ze is erg deskundig op het gebied van economie." }
-  - { sv: "en bransch", nl: "een branche, sector", def: "branschen", pl: "branscher", plDef: "brancherna", ex: "Hon har jobbat i **branschen** i tio år.", exNl: "Ze werkt al tien jaar in de branche." }
+  - { sv: "en bransch", nl: "een branche, sector", def: "branschen", pl: "branscher", plDef: "branscherna", ex: "Hon har jobbat i **branschen** i tio år.", exNl: "Ze werkt al tien jaar in de branche." }
   - { sv: "en kompetens", nl: "een competentie, bekwaamheid", def: "kompetensen", pl: "kompetenser", plDef: "kompetenserna", ex: "Vilka **kompetenser** behövs för tjänsten?", exNl: "Welke competenties zijn nodig voor de baan?" }
   - { sv: "ett avtal", nl: "een overeenkomst, contract", def: "avtalet", pl: "avtal", plDef: "avtalen", ex: "Vi skrev under **avtalet** i går.", exNl: "We hebben gisteren de overeenkomst getekend." }
   - { sv: "en arbetsdag", nl: "een werkdag", def: "arbetsdagen", pl: "arbetsdagar", plDef: "arbetsdagarna", ex: "Min **arbetsdag** börjar klockan åtta.", exNl: "Mijn werkdag begint om acht uur." }

@@ -15,9 +15,12 @@
     "stats": "node scripts/stats-report.mjs",
     "difficulty-report": "node scripts/difficulty-report.mjs",
     "content-report": "node scripts/content-report.mjs",
-    "smoke": "node scripts/smoke.mjs"
+    "smoke": "node scripts/smoke.mjs",
+    "spelling": "node scripts/spelling.mjs"
   },
   "devDependencies": {
+    "@vitest/coverage-v8": "4.1.12",
+    "happy-dom": "21.0.4",
     "js-yaml": "4.3.2",
     "vite": "6.4.6",
     "vitest": "4.1.12"

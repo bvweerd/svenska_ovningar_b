@@ -1,0 +1,35 @@
+# Zweedse woorden die het woordenboek (hunspell sv_SE) niet kent, maar die gecontroleerd en goed zijn.
+# Eén per regel, kleine letters. Zie scripts/spelling.mjs; npm test faalt bij een onbekend woord dat hier niet staat.
+anouk
+anouks
+bakker
+bekanten
+bram
+daan
+deltaverken
+femke
+fleur
+groot
+hälso
+jansen
+joost
+joris
+kees
+kyrkgården
+lindhem
+lindhems
+mail
+mailet
+marloes
+nijmegen
+sannes
+saskia
+slöserier
+sorry
+svärfarn
+svärmorn
+säj
+torkor
+visser
+vries
+yalla
