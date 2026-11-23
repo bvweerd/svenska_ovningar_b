@@ -473,6 +473,7 @@ sections:
           - { id: gfre, type: gap, topic: nominalfras, text: "Resultaten ___ tyda på att motion förbättrar sömnen.", gaps: [{ answers: ["kan"], options: ["kan", "tänker", "vill"], shuffle: false }] }
           - { id: y2te, type: gap, topic: trender, text: "Antalet deltagare ___ (fördubblas) mellan 2010 och 2020.", gaps: [{ answers: ["fördubblades"] }] }
           - { id: xpd8, type: gap, topic: indirekt-fraga, text: "Forskarna undersökte ___ sömnen påverkar minnet hos äldre.", gaps: [{ answers: ["hur"], options: ["hur", "vad", "som"], shuffle: false }] }
+          - { id: nahq, type: gap, topic: ordbildning, text: "Det är inte möjligt. Det är ___.", gaps: [{ answers: ["omöjligt"], feedback: [{ match: ["omöjlig", "inte möjligt"], tip: "Maak het tegenovergestelde met o-, en na det är: -t (omöjligt)." }] }] }
 
 vocab:
   - { sv: "en studie", nl: "een studie, een onderzoek", def: "studien", pl: "studier", plDef: "studierna", ex: "En ny **studie** visar att motion förbättrar minnet.", exNl: "Een nieuwe studie laat zien dat beweging het geheugen verbetert." }

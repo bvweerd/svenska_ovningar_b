@@ -465,6 +465,8 @@ sections:
           - { id: 7zpf, type: gap, topic: ordbildning, text: "betala → en ___", gaps: [{ answers: ["betalning"] }] }
           - { id: ae9t, type: gap, topic: jamforelse, text: "Ekologiska ägg är inte lika billiga ___ vanliga ägg.", gaps: [{ answers: ["som"] }] }
           - { id: hbje, type: transform, topic: nagon-ingen, task: "Maak de zin ontkennend.", prompt: "Jag har köpt några nya kläder den här månaden.", answers: ["Jag har inte köpt några nya kläder den här månaden."] }
+          - { id: gugd, type: gap, topic: sammansattning, text: "ett arbete + en dag = en ___", gaps: [{ answers: ["arbetsdag"], feedback: [{ match: ["arbetedag", "arbetdag"], tip: "Na arbete komt een -s- ertussen en valt de -e weg: arbetsdag." }, { match: "arbetsdagen", tip: "Gevraagd is de onbepaalde vorm: en arbetsdag." }] }] }
+          - { id: v4vw, type: translate, topic: partikelverb-2, prompt: "Onze vlucht is geannuleerd.", answers: ["{Vårt flyg|Vår flygning} har ställts in.", "Vårt flyg {är|har blivit} inställt.", "Vår flygning {är|har blivit} inställd.", "Vårt flyg har inställts.", "Vår flygning har inställts."], feedback: [{ contains: "flyg är inställd", tip: "flyg is een ett-woord: inställt." }, { contains: "ställt in", tip: "Als deelwoord komt het partikel vooraan: inställt." }] }
 
 vocab:
   - { sv: "en matkasse", nl: "een maaltijdbox", def: "matkassen", pl: "matkassar", plDef: "matkassarna", ex: "Vi har beställt en **matkasse** med vegetariska recept.", exNl: "We hebben een maaltijdbox met vegetarische recepten besteld." }

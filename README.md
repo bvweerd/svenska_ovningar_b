@@ -37,7 +37,7 @@ Elke push naar `main` wordt via GitHub Actions getest, gebouwd en op GitHub Page
 
 Naast de oefeningen per hoofdstuk zijn er onder **Oefenen**: dagelijkse herhaling met
 intervallen (Leitner-dozen), een werkwoordtrainer (`content/verbs.yaml`), toetsen per
-hoofdstuk, flitskaarten en snelle rondes van 60 seconden. Alle voortgang staat in de browser.
+hoofdstuk, flitskaarten (kies de goede betekenis; de app kijkt na) en snelle rondes van 60 seconden. Alle voortgang staat in de browser.
 
 **Dagelijkse herhaling**: een dagdoel van 20 vragen (`DAILY_GOAL`), om en om uit verschillende onderwerpen
 (`pickReview`); wie meer wil, gaat door met „extra herhaling”. Een vraag die de eerste keer in één keer goed

@@ -610,6 +610,7 @@ sections:
           - { id: djva, type: gap, topic: sambandsord, text: "Tåget var försenat, ___ missade vi vårt flyg till Luleå.", gaps: [{ answers: ["därför"], options: ["därför", "för", "men"], shuffle: false }] }
           - { id: quzd, type: gap, topic: bestamd-utan-artikel, text: "Vi var ute och reste hela ___ (vecka).", gaps: [{ answers: ["veckan"] }] }
           - { id: 4c6b, type: transform, topic: passiv-s, task: "Maak er een lijdende zin van met -s.", prompt: "Man ställde in flyget på grund av stormen.", answers: ["Flyget {ställdes in|inställdes} på grund av stormen."] }
+          - { id: vfap, type: gap, topic: rad-onskan, text: "Jag önskar att jag ___ mer tid för mina vänner. (ha – ik wou dat ik meer tijd had)", gaps: [{ answers: ["hade"], feedback: [{ match: ["har", "ha"], tip: "Een wens die niet uitkomt: önskar att + verleden tijd, hade." }] }] }
 
 vocab:
   - { sv: "ett nattåg", nl: "een nachttrein", def: "nattåget", pl: "nattåg", plDef: "nattågen", ex: "Vi tog **nattåget** från Stockholm till Abisko.", exNl: "We namen de nachttrein van Stockholm naar Abisko." }
