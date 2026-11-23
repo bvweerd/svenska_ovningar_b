@@ -18,10 +18,10 @@ import { isProduce, hasAnswerSentence } from '../src/core/items/index.js';
 
 /** De moeilijkheidslijn: per niveau leestekst (woorden), antwoordzin (woorden) en minimum aantal vragen. */
 export const LINE = [
-  { level: 'A1', from: 1, to: 6, text: [70, 120], easy: [30, 80], answer: [4, 6], questions: 80 },
-  { level: 'A2', from: 7, to: 12, text: [120, 200], easy: [40, 120], answer: [6, 9], questions: 80 },
-  { level: 'B1', from: 13, to: 24, text: [200, 350], easy: [60, 180], answer: [8, 12], questions: 70 },
-  { level: 'B2', from: 25, to: 30, text: [350, 500], easy: [80, 250], answer: [10, 15], questions: 70 },
+  { level: 'A1', from: 1, to: 6, text: [70, 120], easy: [30, 80], easyCount: 4, answer: [4, 6], questions: 80 },
+  { level: 'A2', from: 7, to: 12, text: [120, 200], easy: [40, 120], easyCount: 4, answer: [6, 9], questions: 80 },
+  { level: 'B1', from: 13, to: 24, text: [200, 350], easy: [60, 180], easyCount: 2, answer: [8, 12], questions: 70 },
+  { level: 'B2', from: 25, to: 30, text: [350, 500], easy: [80, 250], easyCount: 2, answer: [10, 15], questions: 70 },
 ];
 
 export const words = (s) => (String(s).match(/[\p{L}\d'-]+/gu) ?? []).length;
@@ -72,7 +72,7 @@ if (import.meta.url === pathToFileURL(process.argv[1]).href) {
     const q = l && m.questions < l.questions;
     const a = l && m.answer < l.answer[0];
     const t = l && m.text < l.text[0];
-    if (q || a || t || (ch.chapter >= 1 && m.easy < 2) || (ch.chapter >= 5 && m.situation < 4)) below++;
+    if (q || a || t || (ch.chapter >= 1 && m.easy < (l?.easyCount ?? 2)) || (ch.chapter >= 5 && m.situation < 4)) below++;
     console.log(
       String(ch.chapter).padStart(4),
       (l?.level ?? '-').padStart(7),
@@ -80,7 +80,7 @@ if (import.meta.url === pathToFileURL(process.argv[1]).href) {
       `${m.answer.toFixed(1).padStart(10)}${flag(a)}`,
       `${Math.round(m.produce * 100)}%`.padStart(11),
       `${String(m.text).padStart(9)}${flag(t)}`,
-      `${String(m.easy).padStart(9)}${flag(ch.chapter >= 1 && m.easy < 2)}`,
+      `${String(m.easy).padStart(9)}${flag(ch.chapter >= 1 && m.easy < (l?.easyCount ?? 2))}`,
       `${String(m.situation).padStart(8)}${flag(ch.chapter >= 5 && m.situation < 4)}`,
     );
   }

@@ -178,9 +178,9 @@ describe('opbouw van de hoofdstukken', () => {
 
     // Onderwijskundige lijn (PLAN.md): makkelijke teksten vanaf H1, „Wat zeg je?” vanaf H5.
     const line = LINE.find((l) => ch.chapter >= l.from && ch.chapter <= l.to);
-    it.runIf(line)(`hoofdstuk ${ch.chapter}: minstens 2 makkelijke teksten van de juiste lengte`, () => {
+    it.runIf(line)(`hoofdstuk ${ch.chapter}: genoeg makkelijke teksten van de juiste lengte`, () => {
       const easy = ch.exercises.filter((ex) => ex.kind === 'makkelijk');
-      expect(easy.length).toBeGreaterThanOrEqual(2);
+      expect(easy.length, `${line.level} vraagt minstens ${line.easyCount} makkelijke teksten`).toBeGreaterThanOrEqual(line.easyCount);
       for (const ex of easy) {
         const n = words(ex.text);
         expect(n, `${ex.id}: ${n} woorden, ${line.level} vraagt ${line.easy.join('–')}`).toBeGreaterThanOrEqual(line.easy[0]);

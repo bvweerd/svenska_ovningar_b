@@ -90,7 +90,7 @@ function content(d) {
     table(['H', 'woorden', 'in een zin of tekst', 'later terug'], chs.filter((c) => c.vocab).map((c) => [c.ch, c.vocab, `${pct(c.used, c.vocab)}%`, `${pct(c.recur, c.vocab)}%`])),
 
     h('h2', { id: 'teksten' }, 'Makkelijk lezen'),
-    h('p', {}, `Naast de leestekst heeft elk hoofdstuk minstens twee makkelijke teksten. Daarin ken je bijna alle woorden al, zodat je vlot kunt lezen en op de inhoud kunt letten. Het doel is minstens ${Math.round(d.th.easyKnown * 100)}% bekende woorden. Elke stip is een tekst.`),
+    h('p', {}, `Naast de leestekst heeft elk hoofdstuk makkelijke teksten: minstens vier op A1–A2 en twee op B1–B2. Daarin ken je bijna alle woorden al, zodat je vlot kunt lezen en op de inhoud kunt letten. Het doel is minstens ${Math.round(d.th.easyKnown * 100)}% bekende woorden. Elke stip is een tekst.`),
     figure('Bekende woorden per makkelijke tekst', easyRows(chs, d.th.easyKnown)),
     table(['H', 'teksten', 'bekende woorden'], chs.filter((c) => c.texts.some((x) => x.easy)).map((c) => [c.ch, c.texts.filter((x) => x.easy).length, c.texts.filter((x) => x.easy).map((x) => `${Math.round(x.known * 100)}%`).join(' · ')])),
 
