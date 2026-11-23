@@ -190,7 +190,7 @@ sections:
           - { id: rz3e, type: gap, text: "___ jag flyttade hit, har jag lärt mig mycket.", gaps: [{ answers: ["Sedan"], options: ["Sedan", "Innan", "Medan"], shuffle: false }] }
           - { id: 54qj, type: gap, text: "Hon pratar mycket, ___ han är tyst.", gaps: [{"answers": ["medan"], "options": ["medan", "trots att", "innan"], "shuffle": false, "tip": "Een tegenstelling tussen twee mensen: medan.", "feedback": [{"match": "trots att", "tip": "Twee mensen tegenover elkaar (zij wel, hij niet): medan."}]}] }
           - { id: 2jja, type: gap, text: "Jag flyttade till Sverige ___ jobba.", gaps: [{"answers": ["för att"], "options": ["för att", "utan att", "så att"], "shuffle": false, "feedback": [{"match": "så att", "tip": "Om te + werkwoord: för att. Na så att (zodat) volgt een hele zin."}]}] }
-          - { id: vcak, type: gap, text: "Han gick ___ säga hej då.", gaps: [{"answers": ["utan att"], "options": ["för att", "utan att", "så att"], "shuffle": false, "feedback": [{"match": "för att", "tip": "Hij ging weg zonder gedag te zeggen: utan att."}]}] }
+          - { id: vcak, type: gap, text: "Han lämnade festen ___ säga hej då till någon.", gaps: [{"answers": ["utan att"], "options": ["för att", "utan att", "så att"], "shuffle": false, "feedback": [{"match": "för att", "tip": "Hij ging weg zonder gedag te zeggen: utan att."}]}] }
 
       - id: subj-combineren
         title: Twee zinnen worden één

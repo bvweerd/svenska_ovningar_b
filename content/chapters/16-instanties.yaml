@@ -252,7 +252,7 @@ sections:
         instruction: Vertaal de hele zin. Let op de woordvolgorde in de bijzin en na een woord vooraan.
         items:
           - { id: dx4s, type: translate, topic: deponens, prompt: "Ik hoop dat mijn zaak snel afgehandeld is, want ik heb het besluit nodig voordat ik verhuis.", answers: ["Jag hoppas att mitt ärende blir klart snart, för jag behöver beslutet innan jag flyttar.", "Jag hoppas [att ]mitt ärende blir klart {snart|snabbt}, {för|eftersom} jag behöver beslutet innan jag flyttar."], feedback: [{ contains: "hoppar", tip: "Hopen is hoppas (altijd met -s)." }] }
-          - { id: kuem, type: translate, topic: deponens, prompt: "We zien elkaar meestal één keer per maand om samen te zijn en samen Zweeds te praten.", answers: ["Vi brukar träffas en gång i månaden för att umgås och prata svenska tillsammans.", "Vi brukar {träffas|ses} en gång {i månaden|per månad} för att umgås och {prata|tala} svenska tillsammans."], feedback: [{ contains: "träffar en gång", tip: "Elkaar zien: träffas (met -s)." }] }
+          - { id: kuem, type: translate, topic: deponens, prompt: "We zien elkaar meestal één keer per maand om samen tijd door te brengen en Zweeds te praten.", answers: ["Vi brukar träffas en gång i månaden för att umgås och prata svenska tillsammans.", "Vi {brukar träffas|brukar ses|träffas oftast|ses oftast} en gång {i månaden|per månad} för att umgås och {prata|tala} svenska[ tillsammans]."], feedback: [{ contains: "träffar en gång", tip: "Elkaar zien: träffas (met -s)." }] }
 
   - id: zoek-de-fout
     title: Zoek de fout
