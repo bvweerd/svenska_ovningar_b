@@ -1,0 +1,587 @@
+chapter: 25
+# Kan-doen-uitspraken: de app vinkt ze zelf af als de vragen over deze onderwerpen
+# grotendeels in doos 3 of hoger staan (src/progress.js, canDoStatus).
+canDo:
+  - { text: "Ik kan zakelijk formuleren met zelfstandige naamwoorden in plaats van werkwoorden", topics: [nominalisering] }
+  - { text: "Ik kan cijfers en ontwikkelingen beschrijven (stijgen, dalen, een piek bereiken)", topics: [trender] }
+
+grammar:
+  - id: nominalisering
+    title: Nominalisatie
+    summary: "In zakelijke teksten wordt een werkwoord vaak een zelfstandig naamwoord: *Priserna ökade kraftigt* → *en kraftig **ökning** av priserna*. Met **-ning/-ing** (en-woord) of zonder uitgang (vaak ett-woord): *besluta → ett **beslut***."
+    body: |
+      Op B2-niveau lees en schrijf je veel **nominale stijl**: wat in een gewone zin een werkwoord is, wordt een zelfstandig naamwoord. Dat maakt een tekst korter en formeler.
+
+      | gewone zin | nominaal |
+      |---|---|
+      | *Priserna **ökade** kraftigt.* | *en kraftig **ökning** av priserna* |
+      | *Arbetslösheten **minskade**.* | ***minskningen** av arbetslösheten* |
+      | *Företaget **beslutade** att stänga.* | *företagets **beslut** att stänga* |
+      | *Man **förbättrade** arbetsmiljön.* | ***förbättringen** av arbetsmiljön* |
+
+      ### Vormen
+      | uitgang | voorbeelden |
+      |---|---|
+      | **-ning / -ing** (en) | *öka → ökning, minska → minskning, utveckla → utveckling, förändra → förändring, sälja → försäljning* |
+      | geen uitgang (meestal ett) | *besluta → ett beslut, köpa → ett köp, falla → ett fall* |
+      | **-else** (en/ett) | *betyda → en betydelse, uppleva → en upplevelse, fängsla → ett fängelse* |
+      | eigen woord | *stiga → en uppgång, sjunka → en nedgång* |
+
+      ### Bijvoeglijk naamwoord in plaats van bijwoord
+      Het bijwoord bij het werkwoord wordt een bijvoeglijk naamwoord bij het zelfstandig naamwoord: *öka **kraftigt** → en **kraftig** ökning*, *öka **svagt** → en **svag** ökning*.
+
+      ### Welk voorzetsel?
+      - **av**: wát verandert: *en ökning **av** försäljningen*
+      - **med**: hoeveel: *en ökning **med** tio procent*
+      - **från … till**: *en minskning **från** tolv **till** åtta procent*
+
+  - id: trender
+    title: Ontwikkelingen beschrijven
+    summary: "*öka/stiga, minska/sjunka, ligga still, nå en topp*, met *kraftigt, svagt, gradvis, stadigt*. Let op: van 5 naar 7 procent is een stijging met **två procentenheter**, niet *två procent*."
+    body: |
+      | richting | werkwoord | zelfstandig naamwoord |
+      |---|---|---|
+      | omhoog | *öka, stiga, gå upp* | *en ökning, en uppgång* |
+      | omlaag | *minska, sjunka, falla, gå ner* | *en minskning, en nedgång, ett ras (sterk)* |
+      | gelijk | *ligga still, vara oförändrad* | |
+      | hoogste punt | *nå en topp* | *en topp* |
+      | laagste punt | *nå botten, nå sin lägsta nivå* | *en bottennivå* |
+
+      **Hoe snel?** *kraftigt* (sterk), *svagt* (licht), *gradvis* (geleidelijk), *stadigt* (gestaag), *plötsligt* (plotseling), *marginellt* (marginaal, minimaal).
+
+      **Ongeveer:** *drygt* (iets meer dan), *knappt* (iets minder dan), *omkring / cirka* (ongeveer). *drygt hälften* = iets meer dan de helft.
+
+      **Procent of procentpunt?** Stijgt de werkloosheid van 5 naar 7 procent, dan is dat een stijging met *två **procentenheter*** (en met 40 *procent*).
+
+      **Vergelijken:** *jämfört med i fjol*, *under samma period*, *under perioden 2019–2024*.
+
+sections:
+  - id: lasa
+    title: Läsa · lezen
+    exercises:
+      - id: lasa-hemarbete
+        title: "Lezen: thuiswerken"
+        instruction: Lees het verslag en beantwoord de vragen.
+        topic: trender
+        textTitle: Hemarbete – en bestående förändring?
+        text: |
+          På försäkringsbolaget Norrsken arbetade knappt tio procent av de anställda hemifrån minst en dag i veckan år 2019. Under pandemin skedde en kraftig ökning, och år 2021 nådde andelen en topp på drygt åttio procent. Därefter följde en gradvis minskning, men andelen har aldrig återgått till den tidigare nivån. I dag ligger den stadigt på omkring femtio procent.
+
+          Utvecklingen skiljer sig dock kraftigt mellan företagets avdelningar. Inom it-avdelningen arbetar drygt sjuttio procent av personalen hemifrån varje vecka, medan andelen inom kundtjänsten bara ligger på omkring tjugo procent. Enligt ledningen beror skillnaden på att kundtjänstens arbete kräver ett nära samarbete och en snabb hantering av kundernas ärenden.
+
+          Ledningen ser både för- och nackdelar med utvecklingen. Sjukfrånvaron har minskat med två procentenheter, och företaget har kunnat spara pengar genom en minskning av kontorsytan. Samtidigt uppger många chefer att samarbetet och introduktionen av nyanställda har försvårats.
+
+          Besparingen är betydande. Efter flytten till mindre lokaler år 2022 sjönk hyreskostnaderna med knappt en tredjedel, från 24 till 17 miljoner kronor per år. Kostnaderna för it-utrustning och digitala mötesverktyg har visserligen ökat, men enligt ekonomichefen Maria Holm är ökningen marginell jämfört med besparingen.
+
+          En enkät bland de anställda från i våras visar också en tydlig förändring av attityderna. Andelen som är nöjda med sin arbetssituation har ökat från 62 till 74 procent sedan 2019. Samtidigt uppger var fjärde medarbetare att gränsen mellan arbete och fritid har blivit otydligare, och många nämner en ökning av antalet mejl på kvällarna.
+
+          Hur hemarbetet påverkar produktiviteten är svårare att mäta. Antalet hanterade försäkringsärenden per medarbetare har visserligen ökat svagt sedan 2019, men enligt ledningen kan ökningen lika gärna bero på införandet av nya digitala system. Det går alltså inte att säga med säkerhet vilken roll hemarbetet har spelat.
+
+          Företagets beslut att erbjuda flexibla arbetsplatser har kombinerats med ett krav: alla medarbetare ska vara på kontoret minst två dagar i veckan.
+
+          Kravet har mötts av blandade reaktioner. Facket välkomnar en tydlig regel men kritiserar bristen på dialog inför beslutet. Ledningen räknar ändå med att andelen hemarbete kommer att ligga kvar på ungefär dagens nivå under de närmaste åren. För att kunna följa utvecklingen ska en ny enkät genomföras varje höst.
+
+          – Hemarbetet är ingen tillfällig trend utan en bestående förändring, säger personalchefen Johan Ek. Vår uppgift är att se till att förändringen gynnar både medarbetarna och företaget.
+        items:
+          - { id: 8rsj, type: mc, prompt: "Hur stor andel arbetade hemifrån år 2019?", options: ["knappt tio procent", "drygt tio procent", "omkring femtio procent", "drygt åttio procent"], answer: 0 }
+          - { id: hxqy, type: mc, prompt: "När nådde andelen en topp?", options: ["2021", "2019", "2020", "i dag"], answer: 0 }
+          - { id: ssgb, type: truefalse, statement: "Andelen har återgått till samma nivå som före pandemin.", answer: false, correction: { answers: ["{Andelen|Den} har aldrig återgått till den tidigare nivån.", "{Andelen|Den} ligger [i dag ]på omkring femtio procent."] } }
+          - { id: bjnx, type: mc, prompt: "Vad har hänt med sjukfrånvaron?", options: ["Den har minskat med två procentenheter.", "Den har ökat med två procent.", "Den är oförändrad.", "Den har minskat med två procent."], answer: 0 }
+          - { id: skyn, type: mc, prompt: "Vilken nackdel nämner cheferna?", options: ["Samarbetet och introduktionen av nyanställda har försvårats.", "Lönerna har ökat.", "Kontoren är för små.", "Ingen vill jobba hemma."], answer: 0 }
+          - { id: 7ra9, type: mc, prompt: "Wat betekent *drygt åttio procent*?", options: ["iets meer dan tachtig procent", "iets minder dan tachtig procent", "precies tachtig procent", "ongeveer acht procent"], answer: 0 }
+          - id: u52d
+            type: multi
+            prompt: "Welke woorden in de tekst zijn nominalisaties (een werkwoord dat een zelfstandig naamwoord is geworden)?"
+            options: ["ökning", "minskning", "utvecklingen", "beslut", "introduktionen", "andelen"]
+            answers: [0, 1, 2, 3, 4]
+            tip: "andel (aandeel) komt niet van een werkwoord."
+          - { id: 2t2g, type: mc, prompt: "Hur stor andel av personalen inom kundtjänsten arbetar hemifrån?", options: ["omkring tjugo procent", "drygt sjuttio procent", "omkring femtio procent", "knappt tio procent"], answer: 0 }
+          - { id: wbq9, type: mc, prompt: "Ungefär hur mycket sparar Norrsken i dag på hyran varje år, jämfört med före flytten?", options: ["omkring sju miljoner kronor", "omkring 17 miljoner kronor", "omkring 24 miljoner kronor", "ingenting, eftersom it-kostnaderna har ökat lika mycket"], answer: 0, tip: "Reken zelf: van 24 naar 17 miljoen kronor per jaar." }
+          - id: bpkr
+            type: multi
+            prompt: "Welke nadelen van thuiswerken worden in de tekst genoemd? Let op: ze staan in verschillende alinea's."
+            options: ["Samarbetet har försvårats.", "Introduktionen av nyanställda har blivit svårare.", "Gränsen mellan arbete och fritid har blivit otydligare.", "Många får fler mejl på kvällarna.", "Sjukfrånvaron har ökat.", "Hyreskostnaderna har stigit."]
+            answers: [0, 1, 2, 3]
+            tip: "Het ziekteverzuim (sjukfrånvaron) is juist gedaald, en de huurkosten ook."
+
+      - id: makkelijk-1
+        title: "Makkelijk lezen: Bageriet"
+        instruction: Een korte tekst met woorden die je al kent. Lees hem vlot door en kies rätt of fel.
+        topic: woordenschat
+        kind: makkelijk
+        textTitle: "Bageriet"
+        text: |
+          Ett litet bageri i Lund har haft ett bra år. Försäljningen ökade med 20 procent, framför allt tack vare kaffe och smörgåsar till kontoren i närheten. Ägaren Sofia berättar att ökningen kom efter att bageriet började leverera på morgnarna. Kostnaderna har också stigit, eftersom mjöl och el har blivit dyrare. Men vinsten blev ändå större än förra året. Nästa år planerar Sofia att öppna en butik till. Hon vill också anställa två personer till, eftersom personalen redan har mycket att göra. Bageriet har i dag åtta anställda.
+        items:
+          - { id: ndrs, type: truefalse, statement: "Försäljningen ökade med 20 procent.", answer: true }
+          - { id: fww6, type: truefalse, statement: "Vinsten blev mindre än förra året.", answer: false }
+          - { id: 9am6, type: truefalse, statement: "Sofia vill öppna en butik till.", answer: true }
+
+      - id: makkelijk-2
+        title: "Makkelijk lezen: Hemma eller på kontoret?"
+        instruction: Een korte tekst met woorden die je al kent. Lees hem vlot door en kies rätt of fel.
+        topic: woordenschat
+        kind: makkelijk
+        textTitle: "Hemma eller på kontoret?"
+        text: |
+          Allt fler arbetar hemifrån några dagar i veckan. En undersökning visar att andelen har fördubblats på fem år. Många uppger att de blir mer effektiva hemma. Samtidigt saknar en del sina kollegor. Därför har många företag infört regler: två dagar på kontoret, resten hemma. De flesta anställda verkar nöjda med den lösningen. Forskarna bakom undersökningen påpekar dock att det finns stora skillnader mellan olika yrken. En sjuksköterska eller en busschaufför kan inte arbeta hemifrån. För dem har ingenting förändrats. Frågan om hur arbetslivet ska se ut i framtiden kommer därför att diskuteras länge.
+        items:
+          - { id: hnfp, type: truefalse, statement: "Andelen som arbetar hemifrån har fördubblats.", answer: true }
+          - { id: 5df7, type: truefalse, statement: "Alla vill bara arbeta hemma.", answer: false }
+
+      - id: makkelijk-3
+        title: "Makkelijk lezen: Kaféet på hörnet"
+        instruction: Een korte tekst met woorden die je al kent. Lees hem vlot door en beantwoord de vragen.
+        topic: woordenschat
+        kind: makkelijk
+        textTitle: "Kaféet på hörnet"
+        text: |
+          Petra öppnade sitt kafé för tre år sedan. Sedan dess har antalet kunder ökat varje år. Förra året steg försäljningen med femton procent. Men i år har kostnaderna också ökat kraftigt. Priset på kaffe har stigit, och hyran har höjts. Därför har Petra fått höja priserna lite. En kopp kaffe kostar nu trettiofem kronor i stället för trettio. Några kunder har klagat, men de flesta kommer tillbaka ändå. Petra tror att höjningen är nödvändig för att kaféet ska överleva. Hennes plan är att börja sälja lunch i höst, så att intäkterna blir större.
+        items:
+          - { id: ak24, type: truefalse, statement: "Försäljningen ökade med femton procent förra året.", answer: true }
+          - { id: pptf, type: mc, prompt: "Vad kostar en kopp kaffe nu?", options: ["Trettio kronor.", "Trettiofem kronor.", "Fyrtio kronor."], answer: 1 }
+          - { id: 22vx, type: truefalse, statement: "Petra säljer redan lunch.", answer: false }
+
+      - id: makkelijk-4
+        title: "Makkelijk lezen: Unga sparar"
+        instruction: Een korte tekst met woorden die je al kent. Lees hem vlot door en beantwoord de vragen.
+        topic: woordenschat
+        kind: makkelijk
+        textTitle: "Unga sparar"
+        text: |
+          Allt fler unga svenskar sparar pengar varje månad. Enligt en ny undersökning har andelen unga som sparar ökat från fyrtio till sextio procent på fem år. En förklaring är att det har blivit lättare att spara via mobilen. En annan förklaring är att många är oroliga för framtiden. Samtidigt har antalet människor som betalar med kontanter minskat kraftigt. I dag betalar de flesta med kort eller med mobilen. Ekonomen Karin Berg tror att utvecklingen kommer att fortsätta. Hon menar att det är bra att unga tänker på sin ekonomi tidigt.
+        items:
+          - { id: bx7z, type: mc, prompt: "Hur stor andel av de unga sparar nu?", options: ["Fyrtio procent.", "Femtio procent.", "Sextio procent."], answer: 2 }
+          - { id: 9y58, type: truefalse, statement: "Fler betalar med kontanter nu.", answer: false }
+          - { id: h8qm, type: truefalse, statement: "Det har blivit lättare att spara via mobilen.", answer: true }
+
+  - id: ord
+    title: Ord och fraser · woorden en uitdrukkingen
+    exercises:
+      - id: ord-trender
+        title: Ontwikkelingen
+        instruction: Koppel het woord aan de betekenis.
+        topic: trender
+        items:
+          - id: e8ez
+            type: match
+            pairs:
+              - ["kraftigt", "sterk"]
+              - ["svagt", "licht, zwak"]
+              - ["gradvis", "geleidelijk"]
+              - ["stadigt", "gestaag"]
+              - ["drygt", "iets meer dan"]
+              - ["knappt", "iets minder dan"]
+          - id: 5hj4
+            type: match
+            pairs:
+              - ["en andel", "een aandeel"]
+              - ["en ledning", "een directie"]
+              - ["sjukfrånvaro", "ziekteverzuim"]
+              - ["uppge", "verklaren, opgeven"]
+              - ["försvåra", "bemoeilijken"]
+              - ["en procentenhet", "een procentpunt"]
+
+  - id: nominal
+    title: "Grammatik: nominalisatie"
+    exercises:
+      - id: nominal-vormen
+        title: Van werkwoord naar zelfstandig naamwoord
+        instruction: Schrijf het zelfstandig naamwoord met **en** of **ett**.
+        topic: nominalisering
+        shuffle: true
+        items:
+          - { id: 53qz, type: gap, text: "öka → ___", gaps: [{ answers: ["en ökning"], feedback: [{ match: "ökning", tip: "Schrijf het lidwoord erbij: en ökning." }] }] }
+          - { id: 4a3c, type: gap, text: "minska → ___", gaps: [{ answers: ["en minskning"], feedback: [{ match: "minskning", tip: "Schrijf het lidwoord erbij: en minskning." }] }] }
+          - { id: sn2y, type: gap, text: "förbättra → ___", gaps: [{ answers: ["en förbättring"], feedback: [{ match: "förbättring", tip: "Schrijf het lidwoord erbij." }] }] }
+          - { id: jnqc, type: gap, text: "utveckla → ___", gaps: [{ answers: ["en utveckling"], feedback: [{ match: "utveckling", tip: "Schrijf het lidwoord erbij." }] }] }
+          - { id: sh6w, type: gap, text: "besluta → ___", gaps: [{ answers: ["ett beslut"], feedback: [{ match: "en beslut", tip: "beslut is een ett-woord." }, { match: "en beslutning", tip: "Zonder uitgang: ett beslut." }] }] }
+          - { id: s8uf, type: gap, text: "sälja → ___", gaps: [{ answers: ["en försäljning"], feedback: [{ match: ["en säljning", "säljning"], tip: "Het zelfstandig naamwoord is försäljning." }] }] }
+          - { id: 3d7h, type: gap, text: "förändra → ___", gaps: [{ answers: ["en förändring"], feedback: [{ match: "förändring", tip: "Schrijf het lidwoord erbij." }] }] }
+          - { id: u7r3, type: gap, text: "köpa → ___", gaps: [{ answers: ["ett köp"], feedback: [{ match: "en köp", tip: "köp is een ett-woord." }, { match: ["en köpning", "köpning"], tip: "Zonder uitgang: ett köp." }] }] }
+
+      - id: nominal-omvormen
+        title: Maak het nominaal
+        instruction: Herschrijf de zin als woordgroep met een zelfstandig naamwoord.
+        topic: nominalisering
+        items:
+          - { id: havn, type: transform, prompt: "Priserna ökade kraftigt.", task: "Begin met: en kraftig …", answers: ["en kraftig ökning av priserna", "en kraftig prisökning"], feedback: [{ contains: "ökning med priserna", tip: "Wát stijgt: av. en kraftig ökning av priserna." }, { contains: "kraftigt ökning", tip: "Bij een zelfstandig naamwoord: bijvoeglijk naamwoord zonder -t, en kraftig ökning." }] }
+          - { id: 38x5, type: transform, prompt: "Arbetslösheten minskade.", task: "Begin met: minskningen …", answers: ["minskningen av arbetslösheten"] }
+          - { id: h5qe, type: transform, prompt: "Företaget beslutade att stänga kontoret.", task: "Begin met: företagets …", answers: ["företagets beslut [om ]att stänga kontoret"] }
+          - { id: awfr, type: transform, prompt: "Man förbättrade arbetsmiljön.", task: "Begin met: förbättringen …", answers: ["förbättringen av arbetsmiljön"] }
+          - { id: ysme, type: transform, prompt: "Försäljningen ökade med tio procent.", task: "Begin met: en ökning …", answers: ["en ökning av försäljningen med tio procent", "en ökning med tio procent av försäljningen"], feedback: [{ contains: "ökning med försäljningen", tip: "Wát stijgt: av försäljningen. Hoeveel: med tio procent." }] }
+          - { id: wv7e, type: transform, prompt: "Regeringen höjde skatten.", task: "Begin met: regeringens …", answers: ["regeringens höjning av skatten", "regeringens skattehöjning"], feedback: [{ contains: "höjning med skatten", tip: "Wát wordt verhoogd: av. regeringens höjning av skatten." }] }
+          - { id: 244q, type: transform, prompt: "Kostnaderna minskade snabbt.", task: "Begin met: den snabba …", answers: ["den snabba minskningen av kostnaderna", "den snabba kostnadsminskningen"], feedback: [{ contains: "snabb minskningen", tip: "Na den: snabba." }] }
+          - { id: 66y2, type: transform, prompt: "Man utvecklade en ny app.", task: "Begin met: utvecklingen …", answers: ["utvecklingen av en ny app"] }
+
+      - id: nominal-voorzetsel
+        title: av, med, från of till?
+        instruction: Kies het voorzetsel.
+        topic: nominalisering
+        shuffle: true
+        items:
+          - { id: ay78, type: gap, text: "en ökning ___ försäljningen", gaps: [{ answers: ["av"], options: ["av", "med", "till"], shuffle: false, tip: "Wát stijgt: av." }] }
+          - { id: nrhh, type: gap, text: "en ökning ___ tio procent", gaps: [{ answers: ["med"], options: ["av", "med", "till"], shuffle: false, tip: "Hoeveel: med." }] }
+          - { id: 4qqw, type: gap, text: "en minskning från tolv ___ åtta procent", gaps: [{ answers: ["till"], options: ["av", "med", "till"], shuffle: false }] }
+          - { id: ycp9, type: gap, text: "en förbättring ___ arbetsmiljön", gaps: [{ answers: ["av"], options: ["av", "med", "från"], shuffle: false }] }
+          - { id: 2qec, type: gap, text: "en höjning ___ skatten", gaps: [{ answers: ["av"], options: ["av", "med", "till"], shuffle: false, tip: "Wát wordt verhoogd: av." }] }
+          - { id: mvm9, type: gap, text: "en minskning ___ fem procent", gaps: [{ answers: ["med"], options: ["av", "med", "till"], shuffle: false, tip: "Hoeveel: med." }] }
+          - { id: grsg, type: gap, text: "en ökning från 20 ___ 25 procent", gaps: [{ answers: ["till"], options: ["av", "med", "till"], shuffle: false }] }
+          - { id: pbva, type: gap, text: "ett beslut ___ att stänga fabriken", gaps: [{ answers: ["om"], options: ["om", "av", "för"], shuffle: false, tip: "Een besluit over iets: beslut om." }] }
+
+      - id: nominal-vertalen
+        title: Zakelijk vertalen
+        instruction: Vertaal in zakelijke stijl. Gebruik een zelfstandig naamwoord (*ökning, minskning, beslut* …) waar het Nederlands er een heeft.
+        topic: nominalisering
+        items:
+          - { id: 4tjn, type: translate, prompt: "De sterke stijging van de energieprijzen heeft geleid tot een daling van de verkoop in de winkels.", answers: ["Den {kraftiga|starka} {ökningen|höjningen} av energipriserna {har lett|ledde} till {en minskning av försäljningen|minskad försäljning|en nedgång i försäljningen} i butikerna."], feedback: [{ contains: ["kraftig ökningen", "stark ökningen", "kraftig höjningen", "stark höjningen"], tip: "Na den: de bepaalde vorm van het bijvoeglijk naamwoord, den kraftiga ökningen." }, { contains: ["ökningen med energipriserna", "höjningen med energipriserna"], tip: "Wát stijgt: av. ökningen av energipriserna." }] }
+          - { id: njpx, type: translate, prompt: "Het besluit van de directie om twee winkels in het centrum te sluiten, leidde tot harde kritiek van het personeel.", answers: ["{Ledningens|Företagsledningens} beslut {att|om att} stänga två butiker i centrum {ledde|har lett} till {hård|kraftig|stark|skarp} kritik från personalen."], feedback: [{ contains: ["ledningens beslutet", "företagsledningens beslutet"], tip: "Na een genitief (ledningens) volgt de onbepaalde vorm: ledningens beslut." }] }
+          - { id: ba2t, type: translate, prompt: "Een verbetering van de werkomgeving kan op lange termijn tot een daling van het ziekteverzuim leiden.", answers: ["En förbättring av arbetsmiljön kan på lång sikt leda till {en minskning av sjukfrånvaron|minskad sjukfrånvaro|lägre sjukfrånvaro}.", "En förbättring av arbetsmiljön kan leda till {en minskning av sjukfrånvaron|minskad sjukfrånvaro|lägre sjukfrånvaro} på lång sikt.", "På lång sikt kan en förbättring av arbetsmiljön leda till {en minskning av sjukfrånvaron|minskad sjukfrånvaro|lägre sjukfrånvaro}."], feedback: [{ contains: "förbättring med arbetsmiljön", tip: "Wát verbetert: av. en förbättring av arbetsmiljön." }, { contains: "på lång sikt en förbättring", tip: "Begin je met på lång sikt, dan komt meteen het werkwoord: På lång sikt kan en förbättring …" }] }
+          - { id: ekfu, type: translate, prompt: "Volgens de directie is de stijging van de omzet in het derde kwartaal vooral te danken aan de online handel.", answers: ["Enligt ledningen beror ökningen av {omsättningen|försäljningen} {under|i} {det tredje kvartalet|tredje kvartalet} {främst|framför allt|huvudsakligen} på {e-handeln|näthandeln|försäljningen på nätet}.", "Ökningen av {omsättningen|försäljningen} {under|i} {det tredje kvartalet|tredje kvartalet} beror enligt ledningen {främst|framför allt|huvudsakligen} på {e-handeln|näthandeln|försäljningen på nätet}.", "Ökningen av {omsättningen|försäljningen} {under|i} {det tredje kvartalet|tredje kvartalet} beror {främst|framför allt|huvudsakligen} på {e-handeln|näthandeln|försäljningen på nätet} enligt ledningen."], feedback: [{ contains: "enligt ledningen ökningen", tip: "Na Enligt ledningen vooraan komt eerst het werkwoord: Enligt ledningen beror ökningen …" }, { contains: ["ökningen med omsättningen", "ökningen med försäljningen"], tip: "Wát stijgt: av. ökningen av omsättningen." }] }
+          - { id: 749r, type: translate, prompt: "Door de verhoging van de rente hebben veel huishoudens moeten bezuinigen op restaurantbezoeken.", answers: ["På grund av {höjningen av räntan|räntehöjningen|den höjda räntan} har många hushåll {tvingats|behövt|varit tvungna att|fått} {skära ner|dra ner} på restaurangbesök.", "Många hushåll har {tvingats|behövt|varit tvungna att|fått} {skära ner|dra ner} på restaurangbesök på grund av {höjningen av räntan|räntehöjningen|den höjda räntan}."], feedback: [{ contains: ["på grund av höjningen av räntan många", "på grund av räntehöjningen många", "på grund av den höjda räntan många"], tip: "Staat på grund av … vooraan, dan komt meteen het werkwoord: … har många hushåll." }, { contains: "höjningen med räntan", tip: "Wát wordt verhoogd: av. höjningen av räntan." }] }
+          - { id: akfh, type: translate, prompt: "Een daling van de werkloosheid met twee procentpunten zou een grote verandering voor de regio betekenen.", answers: ["En minskning av arbetslösheten med två procentenheter skulle {innebära|betyda} en stor förändring för regionen.", "En minskning med två procentenheter av arbetslösheten skulle {innebära|betyda} en stor förändring för regionen."], feedback: [{ contains: "med två procent", tip: "Het verschil tussen twee percentages is een procentpunt: procentenheter." }, { contains: "minskning med arbetslösheten", tip: "Wát daalt: av arbetslösheten. Hoeveel: med två procentenheter." }] }
+
+          - { id: hmhk, type: translate, prompt: "De directie rekent volgend jaar op een geleidelijke daling van de kosten voor elektriciteit en verwarming.", answers: ["Ledningen {räknar med|förväntar sig} en gradvis minskning av kostnaderna för {el|elektricitet} och uppvärmning {nästa år|under nästa år}.", "{Nästa år|Under nästa år} {räknar ledningen med|förväntar sig ledningen} en gradvis minskning av kostnaderna för {el|elektricitet} och uppvärmning."], feedback: [{ contains: "nästa år ledningen", tip: "Na Nästa år vooraan komt eerst het werkwoord: Nästa år räknar ledningen med …" }, { contains: "gradvisa minskning", tip: "gradvis verandert niet: en gradvis minskning." }, { contains: "minskning med kostnaderna", tip: "Wát daalt: av kostnaderna." }] }
+
+      - id: nominal-zinsbouw
+        title: Zinsbouw in nominale stijl
+        instruction: Zet de woorden in de goede volgorde.
+        topic: nominalisering
+        items:
+          - { id: ppkw, type: order, start: "Under pandemin", tokens: ["skedde", "en", "kraftig", "ökning", "av", "andelen", "anställda", "som", "arbetade", "hemifrån", "varje", "dag"], answers: ["Under pandemin skedde en kraftig ökning av andelen anställda som arbetade hemifrån varje dag.", "Under pandemin skedde en kraftig ökning av andelen anställda som varje dag arbetade hemifrån."], feedback: [{ contains: "under pandemin en kraftig", tip: "Na Under pandemin vooraan komt meteen het werkwoord: Under pandemin skedde …" }] }
+          - { id: 8f7v, type: order, start: "Den snabba minskningen", tokens: ["av", "kostnaderna", "har", "gjort", "det", "möjligt", "för", "företaget", "att", "anställa", "fler", "medarbetare"], answers: ["Den snabba minskningen av kostnaderna har gjort det möjligt för företaget att anställa fler medarbetare."] }
+          - { id: de3d, type: order, start: "Efter en lång diskussion", tokens: ["fattade", "styrelsen", "ett", "beslut", "om", "en", "kraftig", "höjning", "av", "lönerna"], answers: ["Efter en lång diskussion fattade styrelsen ett beslut om en kraftig höjning av lönerna."], feedback: [{ contains: "diskussion styrelsen fattade", tip: "Na een zinsdeel vooraan komt eerst het werkwoord: Efter en lång diskussion fattade styrelsen …" }] }
+          - { id: 2pa9, type: order, start: "Förbättringen av arbetsmiljön", tokens: ["har", "lett", "till", "en", "tydlig", "minskning", "av", "sjukfrånvaron", "bland", "de", "anställda"], answers: ["Förbättringen av arbetsmiljön har lett till en tydlig minskning av sjukfrånvaron bland de anställda."] }
+          - { id: 7hwx, type: order, start: "Jämfört med samma period i fjol", tokens: ["ökade", "intäkterna", "från", "e-handeln", "med", "drygt", "tolv", "procent"], answers: ["Jämfört med samma period i fjol ökade intäkterna från e-handeln med drygt tolv procent.", "Jämfört med samma period i fjol ökade intäkterna med drygt tolv procent från e-handeln."], feedback: [{ contains: "i fjol intäkterna", tip: "Na een zinsdeel vooraan komt meteen het werkwoord: … i fjol ökade intäkterna." }] }
+          - { id: qqb2, type: order, start: "Trots en svag ökning av försäljningen", tokens: ["gick", "företaget", "med", "förlust", "under", "årets", "första", "kvartal"], answers: ["Trots en svag ökning av försäljningen gick företaget med förlust under årets första kvartal.", "Trots en svag ökning av försäljningen gick företaget under årets första kvartal med förlust."], feedback: [{ contains: "försäljningen företaget gick", tip: "Trots en svag ökning … is één zinsdeel vooraan: daarna komt meteen het werkwoord (gick företaget)." }] }
+
+      - id: nominal-herschrijven
+        title: Herschrijf zakelijk
+        instruction: Herschrijf de zin in nominale stijl. Begin zoals aangegeven.
+        topic: nominalisering
+        items:
+          - { id: 4d5c, type: transform, prompt: "Elpriserna steg kraftigt under vintern, och därför minskade hushållens konsumtion.", task: "Begin met: Den kraftiga ökningen av elpriserna under vintern ledde till …", answers: ["Den kraftiga ökningen av elpriserna under vintern ledde till en minskning av hushållens konsumtion.", "Den kraftiga ökningen av elpriserna under vintern ledde till en minskning av konsumtionen hos hushållen.", "Den kraftiga ökningen av elpriserna under vintern ledde till minskad konsumtion hos hushållen."], feedback: [{ contains: ["minskning med hushållens", "minskning med konsumtionen"], tip: "Wát daalt: av. en minskning av hushållens konsumtion." }, { contains: "minskningen av", tip: "Na leder/ledde till en … komt de onbepaalde vorm: en minskning." }] }
+          - { id: dra7, type: transform, prompt: "Företaget beslutade att flytta huvudkontoret till Malmö, och personalen och facket kritiserade det hårt.", task: "Begin met: Företagets beslut … (gebruik de passieve vorm)", answers: ["Företagets beslut {att|om att} flytta huvudkontoret till Malmö kritiserades {hårt|skarpt|kraftigt} av {personalen och facket|facket och personalen|både personalen och facket}.", "Företagets beslut {att|om att} flytta huvudkontoret till Malmö fick {hård|skarp|kraftig} kritik {av|från} {personalen och facket|facket och personalen|både personalen och facket}."], feedback: [{ contains: "företagets beslutet", tip: "Na een genitief volgt de onbepaalde vorm: företagets beslut." }] }
+          - { id: 4mb9, type: transform, prompt: "Arbetslösheten i regionen minskade med två procentenheter under förra året, vilket förvånade många ekonomer.", task: "Begin met: Minskningen …", answers: ["Minskningen av arbetslösheten i regionen med två procentenheter {under förra året|förra året|i fjol} förvånade många ekonomer.", "Minskningen av arbetslösheten i regionen {under förra året|förra året|i fjol} med två procentenheter förvånade många ekonomer.", "Minskningen med två procentenheter av arbetslösheten i regionen {under förra året|förra året|i fjol} förvånade många ekonomer."], feedback: [{ contains: "minskningen med arbetslösheten", tip: "Wát daalt: av arbetslösheten. Hoeveel: med två procentenheter." }] }
+          - { id: zapf, type: transform, prompt: "Kostnaderna för it-utrustning ökade svagt, men hyrorna sjönk kraftigt.", task: "Maak er één woordgroep van. Begin met: en svag ökning av … och en kraftig …", answers: ["en svag ökning av kostnaderna för it-utrustning och en kraftig {minskning av|nedgång i} hyrorna"], feedback: [{ contains: ["svagt ökning", "kraftigt minskning"], tip: "Bij een zelfstandig naamwoord hoort een bijvoeglijk naamwoord zonder -t: en svag ökning, en kraftig minskning." }, { contains: ["ökning med kostnaderna", "minskning med hyrorna"], tip: "Wát verandert: av." }] }
+          - { id: kr99, type: transform, prompt: "Ledningen förändrade arbetstiderna, och det ledde till att sjukfrånvaron bland de anställda minskade kraftigt.", task: "Begin met: Ledningens förändring …", answers: ["Ledningens förändring av arbetstiderna ledde till en kraftig minskning av {sjukfrånvaron bland de anställda|de anställdas sjukfrånvaro}.", "Ledningens förändring av arbetstiderna ledde till en kraftigt minskad sjukfrånvaro bland de anställda."], feedback: [{ contains: "kraftigt minskning", tip: "Bij een zelfstandig naamwoord: en kraftig minskning (zonder -t)." }, { contains: "förändring med arbetstiderna", tip: "Wát verandert: av. förändring av arbetstiderna." }] }
+          - { id: nbn5, type: transform, prompt: "Bolaget investerade mycket i ny teknik, och därför ökade produktionen med en tredjedel.", task: "Begin met: Bolagets stora investeringar i ny teknik ledde till …", answers: ["Bolagets stora investeringar i ny teknik ledde till en ökning av produktionen med en tredjedel.", "Bolagets stora investeringar i ny teknik ledde till en ökning med en tredjedel av produktionen."], feedback: [{ contains: "ökningen av", tip: "Na ledde till en … komt de onbepaalde vorm: en ökning." }, { contains: "ökning med produktionen", tip: "Wát stijgt: av produktionen. Hoeveel: med en tredjedel." }] }
+          - { id: mte5, type: transform, prompt: "Försäljningen ökade med åtta procent jämfört med samma period i fjol.", task: "Begin met: Jämfört med samma period i fjol skedde en …", answers: ["Jämfört med samma period i fjol skedde en ökning av försäljningen med åtta procent.", "Jämfört med samma period i fjol skedde en ökning med åtta procent av försäljningen."], feedback: [{ contains: "ökning med försäljningen", tip: "Wát stijgt: av försäljningen. Hoeveel: med åtta procent." }] }
+
+  - id: trender
+    title: "Grammatik: ontwikkelingen beschrijven"
+    exercises:
+      - id: trend-kiezen
+        title: Beschrijf de ontwikkeling
+        instruction: Kies wat past.
+        topic: trender
+        shuffle: true
+        items:
+          - { id: 6qdp, type: gap, text: "Andelen ___ från tio till åttio procent.", gaps: [{ answers: ["ökade"], options: ["ökade", "minskade", "låg still"], shuffle: false }] }
+          - { id: kd7u, type: gap, text: "Under 2022 och 2023 ___ priserna på samma nivå.", gaps: [{ answers: ["låg"], options: ["låg", "steg", "föll"], shuffle: false, tip: "Op hetzelfde niveau blijven: ligga still / ligga på samma nivå." }] }
+          - { id: ghsk, type: gap, text: "Arbetslösheten steg från fem till sju procent, alltså med två ___.", gaps: [{ answers: ["procentenheter"], options: ["procent", "procentenheter"], shuffle: false, feedback: [{ match: "procent", tip: "Het verschil tussen twee percentages: procentenheter." }] }] }
+          - { id: 28z2, type: gap, text: "År 2021 nådde andelen en ___ på 82 procent.", gaps: [{ answers: ["topp"], options: ["topp", "nedgång", "minskning"], shuffle: false }] }
+          - { id: pgdu, type: gap, text: "Försäljningen ökade ___, från 100 till 103 miljoner.", gaps: [{ answers: ["svagt"], options: ["svagt", "kraftigt", "plötsligt"], shuffle: false, tip: "Drie procent is een kleine stijging: svagt (of marginellt)." }] }
+          - { id: g3sb, type: gap, text: "51 procent är ___ hälften.", gaps: [{ answers: ["drygt"], options: ["drygt", "knappt", "exakt"], shuffle: false }] }
+          - { id: uhhh, type: gap, text: "Efter flera år av ökning vände trenden: priserna ___ kraftigt 2023.", gaps: [{ answers: ["föll"], options: ["föll", "steg", "låg"], shuffle: false }] }
+          - { id: 8nkt, type: gap, text: "49 procent är ___ hälften.", gaps: [{ answers: ["knappt"], options: ["drygt", "knappt", "exakt"], shuffle: false, tip: "Iets minder dan: knappt." }] }
+
+      - id: trend-sorteren
+        title: Omhoog, omlaag of gelijk?
+        instruction: Deel de woorden in.
+        topic: trender
+        items:
+          - id: hjtu
+            type: sort
+            categories: ["omhoog", "omlaag", "gelijk"]
+            items:
+              - { text: "en uppgång", cat: 0 }
+              - { text: "ett ras", cat: 1 }
+              - { text: "oförändrad", cat: 2 }
+              - { text: "stiga", cat: 0 }
+              - { text: "en nedgång", cat: 1 }
+              - { text: "ligga still", cat: 2 }
+
+      - id: trend-vertalen
+        title: Cijfers in zinnen
+        instruction: Vertaal de zin over de ontwikkeling.
+        topic: trender
+        items:
+          - { id: db9u, type: translate, prompt: "Tussen 2019 en 2024 steeg het aantal klanten gestaag, van 2 000 tot iets meer dan 3 000.", answers: ["Mellan 2019 och 2024 {ökade|steg} antalet kunder stadigt, från {2 000|2000} till {drygt|strax över|lite mer än} {3 000|3000}.", "Mellan 2019 och 2024 har antalet kunder {ökat|stigit} stadigt, från {2 000|2000} till {drygt|strax över|lite mer än} {3 000|3000}.", "Antalet kunder {ökade|steg} stadigt mellan 2019 och 2024, från {2 000|2000} till {drygt|strax över|lite mer än} {3 000|3000}.", "Antalet kunder har {ökat|stigit} stadigt mellan 2019 och 2024, från {2 000|2000} till {drygt|strax över|lite mer än} {3 000|3000}."], feedback: [{ contains: ["mellan 2019 och 2024 antalet", "2024 antalet kunder ökade", "2024 antalet kunder steg"], tip: "Begint de zin met Mellan 2019 och 2024, dan komt meteen het werkwoord: … ökade antalet kunder." }, { contains: "stadig från", tip: "Bij een werkwoord hoort een bijwoord: ökade stadigt." }] }
+          - { id: eq5q, type: translate, prompt: "De werkloosheid onder jongeren daalde vorig jaar van twaalf naar tien procent, dus met twee procentpunten.", answers: ["{Arbetslösheten bland unga|Arbetslösheten bland ungdomar|Ungdomsarbetslösheten} {sjönk|minskade|gick ner} {i fjol|förra året} från {tolv|12} till {tio|10} procent, {alltså|det vill säga} med två procentenheter.", "{I fjol|Förra året} {sjönk|minskade|gick ner} {arbetslösheten bland unga|arbetslösheten bland ungdomar|ungdomsarbetslösheten} från {tolv|12} till {tio|10} procent, {alltså|det vill säga} med två procentenheter."], feedback: [{ contains: "med två procent", tip: "Het verschil tussen twee percentages: procentenheter (procentpunten)." }, { contains: ["i fjol arbetslösheten", "förra året arbetslösheten", "i fjol ungdomsarbetslösheten", "förra året ungdomsarbetslösheten"], tip: "Begint de zin met de tijdsbepaling, dan komt meteen het werkwoord: I fjol sjönk arbetslösheten …" }] }
+          - { id: 4pue, type: translate, prompt: "Na een piek in 2021 is het aandeel thuiswerkers geleidelijk gedaald tot ongeveer de helft.", answers: ["Efter {en topp|toppen} {år 2021|2021} har andelen {hemarbetare|som arbetar hemifrån} gradvis {minskat|sjunkit} till {ungefär|omkring|cirka} hälften.", "Efter {en topp|toppen} {år 2021|2021} har andelen {hemarbetare|som arbetar hemifrån} {minskat|sjunkit} gradvis till {ungefär|omkring|cirka} hälften.", "Efter {en topp|toppen} {år 2021|2021} {minskade|sjönk} andelen {hemarbetare|som arbetar hemifrån} gradvis till {ungefär|omkring|cirka} hälften.", "Andelen {hemarbetare|som arbetar hemifrån} har gradvis {minskat|sjunkit} till {ungefär|omkring|cirka} hälften efter {en topp|toppen} {år 2021|2021}."], feedback: [{ contains: ["2021 andelen hemarbetare har", "2021 andelen hemarbetare minskade", "2021 andelen hemarbetare sjönk"], tip: "Na Efter en topp år 2021 vooraan komt meteen het werkwoord: … har andelen hemarbetare …" }, { contains: "gradvist", tip: "gradvis krijgt geen -t." }] }
+          - { id: 8nst, type: translate, prompt: "Vergeleken met vorig jaar is de winst van het bedrijf bijna gehalveerd, terwijl de kosten sterk zijn gestegen.", answers: ["Jämfört med {i fjol|förra året|föregående år} har {företagets|bolagets} vinst nästan halverats, medan kostnaderna {har ökat|har stigit|ökade|steg} {kraftigt|starkt}.", "{Företagets|Bolagets} vinst har nästan halverats jämfört med {i fjol|förra året|föregående år}, medan kostnaderna {har ökat|har stigit|ökade|steg} {kraftigt|starkt}."], feedback: [{ contains: ["i fjol företagets", "förra året företagets", "föregående år företagets", "i fjol bolagets", "förra året bolagets", "föregående år bolagets"], tip: "Begint de zin met Jämfört med i fjol, dan komt meteen het werkwoord: … har företagets vinst …" }, { contains: ["företagets vinsten", "bolagets vinsten"], tip: "Na een genitief volgt de onbepaalde vorm: företagets vinst." }] }
+          - { id: r5wx, type: translate, prompt: "De verkoop in de fysieke winkels is het hele jaar stabiel gebleven, maar de online verkoop is verdubbeld.", answers: ["Försäljningen i de fysiska butikerna har {legat still|varit oförändrad|legat på samma nivå|varit stabil|legat stabilt} {under hela året|hela året}, men {e-handeln|försäljningen på nätet|nätförsäljningen} har fördubblats."], feedback: [{ contains: ["har legat stilla", "har ligget"], tip: "ligga still, voltooid deelwoord: har legat still." }] }
+          - { id: 93ha, type: translate, prompt: "Vóór de grote feestdagen stijgt de verkoop van gebak sterk, vaak met meer dan 30 procent.", answers: ["{Inför|Före} de stora högtiderna {ökar|stiger} försäljningen av {bakverk|bakelser} {kraftigt|starkt}, ofta med {över|mer än} 30 procent.", "Försäljningen av {bakverk|bakelser} {ökar|stiger} {kraftigt|starkt} {inför|före} de stora högtiderna, ofta med {över|mer än} 30 procent."], feedback: [{ contains: "högtiderna försäljningen", tip: "Begint de zin met Inför de stora högtiderna, dan komt meteen het werkwoord: … ökar försäljningen." }, { contains: ["av bakverken", "av bakelserna"], tip: "In het algemeen, zonder lidwoord: försäljningen av bakverk." }] }
+          - { id: gpud, type: translate, prompt: "Op een brugdag daalt het aantal werknemers op kantoor vaak met de helft.", answers: ["På {en klämdag|klämdagar} {minskar|sjunker} antalet {anställda|medarbetare} på kontoret ofta med hälften.", "Antalet {anställda|medarbetare} på kontoret {minskar|sjunker} ofta med hälften på {en klämdag|klämdagar}."], feedback: [{ contains: ["klämdag antalet", "klämdagar antalet"], tip: "Begint de zin met På en klämdag, dan komt meteen het werkwoord: … minskar antalet." }, { contains: "med halva", tip: "Met de helft: med hälften." }] }
+
+      - id: trend-invullen
+        title: Lange zinnen over cijfers
+        instruction: Kies het woord dat past.
+        topic: trender
+        shuffle: true
+        items:
+          - { id: kkbd, type: gap, text: "Räntan höjdes i år från två till två och en halv procent, alltså med en halv ___.", gaps: [{ answers: ["procentenhet"], options: ["procent", "procentenhet"], shuffle: false, tip: "Het verschil tussen twee percentages: procentenhet (procentpunt)." }] }
+          - { id: ehmh, type: gap, text: "Antalet besökare ___ med nästan hälften under pandemin men har sedan dess ökat stadigt varje år.", gaps: [{ answers: ["minskade"], options: ["minskade", "ökade", "låg still"], shuffle: false, tip: "men … ökat: eerst ging het aantal dus omlaag." }] }
+          - { id: ak9w, type: gap, text: "Andelen kunder som handlar på nätet har ökat till 52 procent och är nu ___ hälften.", gaps: [{ answers: ["drygt"], options: ["drygt", "knappt", "exakt"], shuffle: false, tip: "52 procent is iets meer dan de helft: drygt." }] }
+          - { id: hmtd, type: gap, text: "Bolagets vinst ökade bara ___ under året, från 10,0 till 10,2 miljoner kronor, trots stora investeringar.", gaps: [{ answers: ["marginellt"], options: ["marginellt", "kraftigt", "plötsligt"], shuffle: false, tip: "Een stijging van 2 procent is heel klein: marginellt." }] }
+          - { id: bgpt, type: gap, topic: nominalisering, text: "Efter tre år med en stadig ___ nådde försäljningen sin högsta nivå under årets tredje kvartal.", gaps: [{ answers: ["ökning"], options: ["ökning", "minskning", "nedgång"], shuffle: false, tip: "De verkoop bereikte haar hoogste niveau: daarvoor steeg ze dus." }] }
+
+      - id: langere-zinnen
+        title: "Vertaal: langere zinnen"
+        instruction: Vertaal de hele zin. Let op de woordvolgorde in de bijzin en na een woord vooraan.
+        items:
+          - { id: zq4w, type: translate, topic: trender, prompt: "De verkoop steeg sterk in het eerste kwartaal, maar daarna daalde hij geleidelijk gedurende de rest van het jaar.", answers: ["Försäljningen ökade kraftigt under det första kvartalet, men därefter minskade den gradvis under resten av året.", "Försäljningen {ökade|steg} kraftigt under {det första|första} kvartalet, men {därefter|sedan} {minskade|sjönk} den gradvis under resten av året."], feedback: [{ contains: "ökade sig", tip: "öka is niet wederkerend: försäljningen ökade." }] }
+          - { id: 8x8h, type: translate, topic: trender, prompt: "Het aandeel werknemers dat thuiswerkt, is volgens een nieuw onderzoek van de gemeente in vijf jaar verdubbeld.", answers: ["Andelen anställda som arbetar hemifrån har fördubblats på fem år, enligt en ny undersökning från kommunen.", "Andelen anställda som {arbetar|jobbar} hemifrån har fördubblats på fem år, enligt en ny undersökning från kommunen.", "Enligt en ny undersökning från kommunen har andelen anställda som {arbetar|jobbar} hemifrån fördubblats på fem år.", "Andelen anställda som {arbetar|jobbar} hemifrån har enligt en ny undersökning från kommunen fördubblats på fem år."], feedback: [{ contains: "har fördubblat på", tip: "Verdubbelen (vanzelf): fördubblas, met -s." }] }
+          - { id: q56p, type: translate, topic: nominalisering, prompt: "De invoering van het nieuwe systeem duurde langer dan verwacht en leidde tot hogere kosten voor het bedrijf.", answers: ["Införandet av det nya systemet tog längre tid än väntat och ledde till högre kostnader för företaget.", "Införandet av det nya systemet tog längre tid än {väntat|beräknat|förväntat} och ledde till högre kostnader för företaget."], feedback: [{ contains: "Införandet på", tip: "De invoering ván: införandet av." }] }
+          - { id: 84c9, type: translate, topic: trender, prompt: "De werkloosheid is dit jaar vrijwel gelijk gebleven, terwijl de inflatie is gedaald tot onder de twee procent.", answers: ["Arbetslösheten har i stort sett legat still i år, medan inflationen har sjunkit till under två procent.", "Arbetslösheten har i stort sett {legat still|legat stilla|varit oförändrad} i år, medan inflationen har {sjunkit|minskat|gått ner} till under två procent."], feedback: [{ contains: "har sjunkat", tip: "sjunka is sterk: har sjunkit." }] }
+          - { id: jfuy, type: translate, topic: nominalisering, prompt: "De daling van het aantal klanten komt vooral door de toegenomen concurrentie van webwinkels in het hele land.", answers: ["Minskningen av antalet kunder beror främst på den ökade konkurrensen från nätbutiker i hela landet.", "Minskningen av antalet kunder beror {främst|framför allt} på den ökade konkurrensen från nätbutiker i hela landet."], feedback: [{ contains: "beror främst av", tip: "Komen door: bero på." }] }
+          - { id: jd9f, type: translate, topic: trender, prompt: "Het bedrijf rekent erop dat de omzet het komende jaar met ruim tien procent zal stijgen.", answers: ["Företaget räknar med att omsättningen kommer att öka med drygt tio procent under det kommande året.", "Företaget räknar med att omsättningen kommer [att ]{öka|stiga} med drygt tio procent {under det kommande året|nästa år|under nästa år}."], feedback: [{ contains: "öka på drygt", tip: "Met een percentage: öka med." }] }
+          - { id: gzk7, type: translate, topic: trender, prompt: "Na een aantal jaren met grote verliezen besloot de leiding twee van de vijf winkels van het bedrijf te sluiten.", answers: ["Efter flera år med stora förluster beslutade ledningen att lägga ner två av företagets fem butiker.", "Efter {flera|några|ett antal} år med stora förluster {beslutade|bestämde} ledningen att {lägga ner|stänga} två av företagets fem butiker."], feedback: [{ contains: "förluster ledningen beslutade", tip: "Na een tijdsbepaling vooraan: werkwoord eerst (beslutade ledningen)." }] }
+
+  - id: zoek-de-fout
+    title: Zoek de fout
+    exercises:
+      - id: zoek-de-fout
+        title: Zoek de fout
+        instruction: Klik op het woord dat niet klopt en verbeter de zin.
+        topic: nominalisering
+        shuffle: true
+        items:
+          - { id: 7xbu, type: findError, sentence: "Det skedde en kraftigt ökning av priserna.", wrong: [3], answers: ["Det skedde en kraftig ökning av priserna."], tip: "Voor een zelfstandig naamwoord: bijvoeglijk naamwoord." }
+          - { id: a7uf, type: findError, sentence: "Vi såg en ökning med försäljningen.", wrong: [4], answers: ["Vi såg en ökning av försäljningen."], tip: "Wát stijgt?" }
+          - { id: uute, type: findError, sentence: "Ledningen fattade en beslut i maj.", wrong: [2], answers: ["Ledningen fattade ett beslut i maj."], tip: "beslut is een ett-woord." }
+          - { id: fbcy, type: findError, topic: trender, sentence: "Räntan steg från två till tre procent, alltså med en procent.", wrong: [10], answers: ["Räntan steg från två till tre procent, alltså med en procentenhet."], tip: "Het verschil tussen twee percentages." }
+          - { id: thad, type: findError, topic: trender, sentence: "Andelen nådde botten på 82 procent.", wrong: [2], answers: ["Andelen nådde {toppen|en topp|sin högsta nivå} på 82 procent."], tip: "82 procent was het hoogste punt." }
+          - { id: ms9g, type: findError, sentence: "Under det tredje kvartalet skedde en kraftigt minskning av försäljningen i de fysiska butikerna.", wrong: [6], answers: ["Under det tredje kvartalet skedde en kraftig minskning av försäljningen i de fysiska butikerna."], tip: "minskning is een zelfstandig naamwoord (en-woord): het bijvoeglijk naamwoord krijgt geen -t." }
+          - { id: zaqq, type: findError, sentence: "Ledningens beslutet att stänga två butiker i centrum har kritiserats hårt av personalen.", wrong: [1], answers: ["Ledningens beslut att stänga två butiker i centrum har kritiserats hårt av personalen."], tip: "Na een genitief (ledningens) staat het zelfstandig naamwoord in de onbepaalde vorm." }
+          - { id: ru3u, type: findError, topic: trender, sentence: "Andelen hemarbetare steg från tjugo till trettio procent, alltså med tio procent på två år.", wrong: [11], answers: ["Andelen hemarbetare steg från tjugo till trettio procent, alltså med tio procentenheter på två år."], tip: "Het verschil tussen twee percentages: procentenheter." }
+          - { id: rx92, type: findError, sentence: "Rapporten visar en tydlig ökning med försäljningen jämfört med samma period i fjol.", wrong: [5], answers: ["Rapporten visar en tydlig ökning av försäljningen jämfört med samma period i fjol."], tip: "Wát stijgt: av. Met med geef je aan hoeveel." }
+          - { id: zjh6, type: findError, topic: trender, sentence: "Efter en kraftigt ökning under våren har försäljningen legat still under resten av året enligt rapporten.", wrong: [2], answers: ["Efter en kraftig ökning under våren har försäljningen {legat still|legat stilla} under resten av året enligt rapporten."], tip: "ökning is een zelfstandig naamwoord: en kraftig ökning, zonder -t." }
+          - { id: dbr4, type: findError, topic: trender, sentence: "Enligt de senaste siffrorna har antalet anställda i företaget minskat med knappt tio procentenheter sedan förra året.", wrong: [13], answers: ["Enligt de senaste siffrorna har antalet anställda i företaget minskat med knappt tio procent sedan förra året."], tip: "Een aantal (antalet anställda) is geen percentage: dan gebruik je procent, niet procentenheter." }
+
+  - id: lyssna
+    title: Lyssna · luisteren
+    exercises:
+      - id: lyssna-kvartal
+        title: "Luisteren: een kwartaalrapport"
+        instruction: Luister naar de samenvatting van het kwartaalrapport. Is de bewering **rätt** of **fel**?
+        topic: trender
+        listen: true
+        textTitle: Kvartalsrapport
+        text: |
+          Under årets tredje kvartal ökade Lindhems försäljning med åtta procent jämfört med samma period i fjol. Ökningen beror främst på en kraftig tillväxt inom e-handeln.
+
+          Däremot minskade försäljningen i de fysiska butikerna med tre procent. Antalet anställda var i stort sett oförändrat.
+
+          Inför fjärde kvartalet räknar ledningen med en fortsatt, men svagare, ökning. Ett beslut om att stänga två butiker väntas under våren.
+        items:
+          - { id: e2sy, type: truefalse, statement: "Försäljningen ökade med åtta procent.", answer: true }
+          - { id: 7hpe, type: truefalse, statement: "Ökningen beror främst på butikerna.", answer: false, correction: { answers: ["{Ökningen|Den} beror främst på e-handeln.", "{Ökningen|Den} beror [främst ]på en kraftig tillväxt inom e-handeln."] } }
+          - { id: 785z, type: truefalse, statement: "Antalet anställda ökade kraftigt.", answer: false, correction: { answers: ["Antalet anställda var [i stort sett ]oförändrat."] } }
+          - { id: by4x, type: truefalse, statement: "Ledningen räknar med en starkare ökning nästa kvartal.", answer: false, correction: { answers: ["{Ledningen|Den} räknar med en [fortsatt, men ]svagare ökning."] } }
+
+      - id: lyssna-dictee
+        title: Dictee
+        instruction: Luister en maak de zin die je hoort.
+        topic: nominalisering
+        shuffle: true
+        items:
+          - { id: ch2t, type: listen, say: "Under pandemin skedde en kraftig ökning." }
+          - { id: hhwy, type: listen, say: "Sjukfrånvaron har minskat med två procentenheter." }
+          - { id: r4ee, type: listen, say: "Antalet anställda var oförändrat." }
+          - { id: 5rhc, type: listen, say: "Företagets beslut kom i maj." }
+
+  - id: praktiskt
+    title: Praktiskt · een grafiek presenteren
+    exercises:
+      - id: presentatie
+        title: Wat zeg je?
+        instruction: Je presenteert een grafiek op een vergadering. Kies wat je zegt.
+        topic: trender
+        shuffle: true
+        items:
+          - { id: dmty, type: mc, prompt: "Je begint je uitleg.", options: ["Som ni ser i diagrammet …", "Som ni hör i diagrammet …", "Diagrammet säger mig …", "Titta på mig …"], answer: 0 }
+          - { id: 4sxd, type: mc, prompt: "Je noemt het hoogste punt.", options: ["År 2021 nådde siffran sin högsta nivå.", "År 2021 var siffran mest hög.", "År 2021 toppade siffran ner.", "År 2021 var siffran på botten."], answer: 0 }
+          - { id: e9gd, type: mc, prompt: "Je vergelijkt met vorig jaar.", options: ["Jämfört med i fjol är det en ökning med fem procent.", "Jämfört av i fjol är det en ökning av fem procent.", "Mot i fjol ökar det fem procent på.", "I fjol jämför vi fem procent."], answer: 0 }
+          - { id: e744, type: mc, prompt: "Je sluit af.", options: ["Sammanfattningsvis kan man säga att trenden är positiv.", "Sammanfattningsvis tack.", "Det var allt jag vet.", "Nu är diagrammet slut."], answer: 0 }
+
+      - id: wat-zeg-je-zelf
+        title: Wat zeg je? (zelf)
+        instruction: Zeg het nu zelf in het Zweeds. Er is vaak meer dan één goed antwoord.
+        kind: situatie
+        items:
+          - { id: mpn7, type: translate, topic: trender, prompt: "Zeg dat de verkoop met tien procent gestegen is.", answers: ["Försäljningen har {ökat|stigit|gått upp} med tio procent.", "Försäljningen {ökade|steg|gick upp} med tio procent."], feedback: [{ contains: "ökat på", tip: "Met een percentage: öka med." }] }
+          - { id: kge6, type: translate, topic: trender, prompt: "In een vergadering: zeg dat de kosten sterk gedaald zijn.", answers: ["Kostnaderna har {minskat|sjunkit|gått ner} kraftigt.", "Kostnaderna {minskade|sjönk|gick ner} kraftigt."] }
+          - { id: nuau, type: translate, topic: trender, prompt: "Zeg dat de winst kleiner was dan vorig jaar.", answers: ["Vinsten {var|blev} {mindre|lägre} än {förra året|i fjol}."] }
+          - { id: qggg, type: translate, topic: nominalisering, prompt: "Schrijf in een verslag: de invoering van het nieuwe systeem duurde lang.", answers: ["Införandet av det nya systemet {tog lång tid|tog länge|drog ut på tiden}."], feedback: [{ contains: "att införa", retry: true, tip: "Goed Zweeds, maar oefen hier de nominalisering: maak van *införa* een zelfstandig naamwoord (införandet av …)." }, { contains: ["införandet med", "införandet för"], tip: "Wát wordt ingevoerd: av. Införandet av det nya systemet." }, { contains: "systemet varade", tip: "Voor hoe lang iets duurt: tog lång tid." }] }
+
+  - id: skriva
+    title: Skriva · schrijven
+    intro: "Schrijfdoel: een kort verslag."
+    exercises:
+      - id: skriva-betoog
+        title: Betoog in stappen
+        instruction: "Bouw een betoog op in vier delen: standpunt, argumenten, tegenargument met weerlegging en conclusie. De app kijkt elke stap na. Daarna schrijf je het hele betoog, als je wilt."
+        topic: asikt
+        items:
+          - id: py4z
+            type: steps
+            topic: asikt
+            steps:
+              - { type: mc, prompt: "**Standpunt.** Welke zin is een goede tes (een standpunt)?", options: ["Fler företag borde låta de anställda arbeta hemifrån två dagar i veckan.", "Många anställda arbetar i dag hemifrån en eller två dagar i veckan.", "Jag arbetade hemifrån i går, och det gick ganska bra."], answer: 0, tip: "Een tes is een standpunt waarover je van mening kunt verschillen, geen feit en geen eigen ervaring." }
+              - { type: order, prompt: "**Standpunt.** Ik vind dat werkgevers niet moeten eisen dat het personeel elke dag op kantoor zit. Let op de plaats van *inte* in de bijzin.", start: "Jag anser att", tokens: ["arbetsgivare", "inte", "borde", "kräva", "att", "personalen", "sitter", "på", "kontoret", "varje", "dag"], answers: ["Jag anser att arbetsgivare inte borde kräva att personalen sitter på kontoret varje dag.", "Jag anser att arbetsgivare inte borde kräva att personalen varje dag sitter på kontoret."], feedback: [{ contains: "arbetsgivare borde inte", tip: "Na anser att volgt een bijzin: inte staat vóór het werkwoord (arbetsgivare inte borde)." }, { contains: "personalen inte sitter", tip: "Let op de betekenis: werkgevers moeten iets níet eisen. inte hoort bij borde kräva: arbetsgivare inte borde kräva." }] }
+          - id: fsyc
+            type: steps
+            topic: sambandsord
+            steps:
+              - { type: gap, prompt: "**Argument 1.** Kies het signaalwoord.", text: "___ sparar de anställda tid och pengar när de slipper resa till jobbet.", gaps: [{ answers: ["För det första"], options: ["För det första", "Visserligen", "Sammanfattningsvis"], tip: "Je eerste argument kondig je aan met för det första. Visserligen hoort bij een tegenargument, sammanfattningsvis bij de conclusie." }] }
+              - { type: order, prompt: "**Argument 2.** Begin met *Dessutom*. Let op de woordvolgorde.", start: "Dessutom", tokens: ["visar", "flera", "undersökningar", "att", "många", "arbetar", "mer", "effektivt", "hemma"], answers: ["Dessutom visar flera undersökningar att många arbetar mer effektivt hemma.", "Dessutom visar flera undersökningar att många arbetar hemma mer effektivt."], feedback: [{ contains: "dessutom flera undersökningar visar", tip: "dessutom vooraan is een zinsdeel: daarna komt meteen het werkwoord (Dessutom visar …)." }] }
+              - { type: gap, topic: subjunktioner-b1, prompt: "**Argument 3.** Kies de goede volgorde in de bijzin.", text: "Företagen kan också spara pengar, eftersom de ___ lika stora kontor längre.", gaps: [{ answers: ["inte behöver"], options: ["inte behöver", "behöver inte"], shuffle: false, tip: "Na eftersom volgt een bijzin: inte staat vóór het werkwoord." }] }
+          - id: vryn
+            type: steps
+            topic: asikt
+            steps:
+              - { type: mc, prompt: "**Tegenargument.** Welke zin geeft weer wat de andere kant vindt?", options: ["Många chefer menar att samarbetet blir sämre när kollegorna sällan träffas.", "För det första sparar de anställda tid och pengar.", "Därför anser jag att fler borde få arbeta hemifrån."], answer: 0, tip: "Een tegenargument is wat anderen vinden: Många chefer menar att … of Vissa hävdar att …" }
+              - { type: order, prompt: "**Weerlegging.** Geef eerst toe, zet er dan iets tegenover.", start: "Visserligen är det viktigt att träffas,", tokens: ["men", "det", "räcker", "med", "ett", "par", "dagar", "i", "veckan"], answers: ["Visserligen är det viktigt att träffas, men det räcker med ett par dagar i veckan."] }
+              - { type: order, topic: subjunktioner-b1, prompt: "**Weerlegging.** Maak de zin af. De bijzin met *trots att* staat vooraan.", start: "Trots att många chefer är skeptiska,", tokens: ["har", "hemarbetet", "fungerat", "bra", "på", "de", "flesta", "arbetsplatser"], answers: ["Trots att många chefer är skeptiska, har hemarbetet fungerat bra på de flesta arbetsplatser."], feedback: [{ contains: "skeptiska hemarbetet har", tip: "Staat de bijzin vooraan, dan begint de hoofdzin met het werkwoord: …, har hemarbetet fungerat …" }] }
+          - id: ukax
+            type: steps
+            topic: asikt
+            steps:
+              - { type: transform, topic: nominalisering, task: "**Conclusie.** Vat je sterkste argument zakelijk samen: gebruik *leder till en minskning av*.", prompt: "Hemarbete gör att utsläppen från trafiken minskar.", answers: ["{Hemarbete|Hemarbetet} leder till en minskning av {utsläppen från trafiken|trafikens utsläpp|trafikutsläppen}."], feedback: [{ contains: "minskningen av", tip: "Na leder till en … komt de onbepaalde vorm: en minskning." }] }
+              - { type: gap, prompt: "**Conclusie.** Je sluit af. Kies het signaalwoord.", text: "___ anser jag att hemarbete är bra för både anställda och arbetsgivare.", gaps: [{ answers: ["Sammanfattningsvis"], options: ["Sammanfattningsvis", "Visserligen", "För det första"], tip: "Een conclusie begin je met sammanfattningsvis of därför." }] }
+          - id: bvat
+            type: free
+            prompt: "Schrijf nu het hele betoog (100–150 woorden) over de stelling *Fler företag borde låta de anställda arbeta hemifrån två dagar i veckan*, of kies zelf een stelling over werk en geld. Gebruik de vier delen: standpunt, twee of drie argumenten, een tegenargument met weerlegging en een conclusie."
+            minWords: 90
+            require:
+              - { any: ["anser", "tycker", "enligt min mening"], label: "Je geeft je standpunt" }
+              - { any: ["för det första", "dessutom", "eftersom"], label: "Je ordent je argumenten (för det första, dessutom, eftersom)" }
+              - { any: ["visserligen", "trots att", "å andra sidan", "det stämmer att"], label: "Je weerlegt een tegenargument (visserligen … men, trots att)" }
+              - { any: ["sammanfattningsvis", "därför"], label: "Je sluit af met een conclusie" }
+            model: "Jag anser att arbetsgivare inte borde kräva att personalen sitter på kontoret varje dag. Fler företag borde låta de anställda arbeta hemifrån två dagar i veckan. För det första sparar de anställda tid och pengar när de slipper resa till jobbet. Dessutom visar flera undersökningar att många arbetar mer effektivt hemma. Företagen kan också spara pengar, eftersom de inte behöver lika stora kontor längre. Hemarbete leder dessutom till en minskning av utsläppen från trafiken. Många chefer menar att samarbetet blir sämre när kollegorna sällan träffas. Visserligen är det viktigt att träffas, men det räcker med ett par dagar i veckan. Trots att många chefer är skeptiska, har hemarbetet fungerat bra på de flesta arbetsplatser. Sammanfattningsvis anser jag att hemarbete är bra för både anställda och arbetsgivare."
+
+      - id: skriva-rapport
+        title: Beschrijf de cijfers
+        instruction: "Bouw eerst je verslag op in vier stappen die de app nakijkt. Daarna schrijf je het hele verslag, als je wilt."
+        topic: trender
+        items:
+          - { id: wz2b, type: mc, prompt: "Kies de beste openingszin voor een zakelijk verslag.", options: ["Under perioden 2020–2024 förändrades antalet besökare kraftigt.", "Under perioden 2020–2024 förändrade antalet besökare kraftigt.", "Jag tycker att biblioteket är jättebra!"], answer: 0, tip: "Het aantal veranderde zelf: förändras (förändrades). Een verslag is zakelijk, zonder je eigen mening." }
+          - { id: qapq, type: gap, topic: nominalisering, prompt: "Vul het zelfstandig naamwoord in.", text: "År 2021 skedde en ___ (minska) till 9 000 besökare.", gaps: [{ answers: ["minskning"], feedback: [{ match: ["minskande", "minskelse", "minsk"], tip: "minska wordt minskning (zoals öka → ökning)." }] }] }
+          - { id: dgcr, type: gap, prompt: "Kies de goede vorm. (Van 9 000 naar 15 000 bezoekers.)", text: "Därefter följde en ___ ökning.", gaps: [{ answers: ["kraftig"], options: ["kraftig", "kraftigt", "svag"], tip: "ökning is een en-woord: kraftig zonder -t. En 9 000 → 15 000 is een sterke stijging." }] }
+          - { id: rfc3, type: gap, prompt: "Kies het woord dat past. (Van 18 000 naar 18 300.)", text: "Jämfört med 2023 ökade antalet bara ___ under 2024.", gaps: [{ answers: ["marginellt"], options: ["marginellt", "kraftigt", "dramatiskt"], tip: "300 bezoekers meer is heel weinig: marginellt." }] }
+          - id: g4t2
+            type: free
+            prompt: "Bezoekers van de stadsbibliotheek per jaar: 2020: 12 000 · 2021: 9 000 · 2022: 15 000 · 2023: 18 000 · 2024: 18 300. Beschrijf de ontwikkeling in 80–120 woorden, in zakelijke stijl. Noem het laagste en het hoogste punt, gebruik minstens twee nominalisaties (*ökning, minskning* …) en woorden als *kraftigt, svagt, drygt, jämfört med*. Geef een mogelijke verklaring."
+            minWords: 75
+            require:
+              - { any: ["ökning", "minskning", "uppgång", "nedgång", "förändring"], label: "Je gebruikt een nominalisatie" }
+              - { any: ["kraftig", "kraftigt", "svag", "svagt", "gradvis", "stadigt", "marginell", "marginellt"], label: "Je zegt hoe snel het ging (kraftigt, svagt …)" }
+              - { any: ["jämfört med", "jämfört"], label: "Je vergelijkt (jämfört med)" }
+              - { any: ["beror", "förklaring", "eftersom", "på grund av"], label: "Je geeft een verklaring" }
+            model: "Under perioden 2020–2024 förändrades antalet besökare på stadsbiblioteket kraftigt. År 2020 hade biblioteket 12 000 besökare. Året därpå skedde en minskning till 9 000, vilket troligen berodde på pandemin och begränsade öppettider. Därefter följde en kraftig ökning: 2022 kom 15 000 besökare och 2023 hela 18 000. Jämfört med 2023 ökade antalet bara marginellt under 2024, till 18 300, vilket är den högsta nivån under perioden. En möjlig förklaring till uppgången är bibliotekets nya kafé och de populära språkcaféerna."
+
+  - id: herhaling
+    title: Herhaling
+    exercises:
+      - id: herhaling-b1-25
+        title: B1 en hoofdstuk 25 door elkaar
+        instruction: Gemengde vragen.
+        shuffle: true
+        items:
+          - { id: pezp, type: gap, topic: passiv-s, text: "Ett beslut ___ (fatta) i maj.", gaps: [{ answers: ["fattades"] }] }
+          - { id: z2qp, type: gap, topic: framtid, text: "Ledningen tror att försäljningen ___ att öka.", gaps: [{ answers: ["kommer"], options: ["kommer", "ska", "tänker"], shuffle: false }] }
+          - { id: fgtd, type: transform, topic: indirekt-tal-b1, prompt: "Chefen: ”Vi har ökat försäljningen.”", task: "Chefen sa att …", answers: ["Chefen {sa|sade} att de {hade|har} ökat försäljningen."] }
+          - { id: gh9b, type: gap, topic: jamforelse, text: "Försäljningen var ___ hög som i fjol.", gaps: [{ answers: ["lika"], options: ["lika", "mer", "än"], shuffle: false }] }
+          - { id: hzr3, type: gap, topic: sambandsord, text: "E-handeln växte. ___ minskade butiksförsäljningen.", gaps: [{ answers: ["Däremot"], options: ["Däremot", "Dessutom", "Därför"], shuffle: false }] }
+          - { id: bybc, type: gap, topic: nominalisering, text: "minska → ___", gaps: [{ answers: ["en minskning"] }] }
+          - { id: aqtc, type: gap, topic: trender, text: "Arbetslösheten ___ (sjunka) med två procentenheter förra året.", gaps: [{ answers: ["sjönk"] }] }
+          - { id: cmc2, type: gap, topic: nominalisering, text: "minska → en ___", gaps: [{ answers: ["minskning"] }] }
+          - { id: f9n7, type: gap, topic: subjunktioner-b1, text: "___ priserna steg, köpte folk lika mycket som förut.", gaps: [{ answers: ["Trots att"], options: ["Trots att", "Eftersom", "Så att"], shuffle: false }] }
+          - { id: ny5w, type: gap, topic: asikt, text: "Jag ___ att distansarbete passar de flesta som arbetar på kontor.", gaps: [{ answers: ["anser"], options: ["anser", "undrar", "frågar"], shuffle: false }] }
+          - { id: zmzq, type: gap, topic: partikelverb-2, text: "Vi hann inte ___ tåget, så vi fick vänta en timme på nästa.", gaps: [{ answers: ["med"], options: ["med", "av", "fram"], shuffle: false, feedback: [{ match: ["av", "fram"], tip: "Iets halen (op tijd zijn voor) = hinna med." }] }] }
+
+      - id: herhaling-woorden
+        title: Woorden van eerder
+        instruction: Kies het woord dat past. Deze woorden komen uit eerdere hoofdstukken.
+        topic: woordenschat
+        shuffle: true
+        items:
+          - { id: m9cu, type: gap, text: "Alla medborgare över 18 år får ___ i valet.", gaps: [{ answers: ["rösta"], options: ["rösta", "stödja", "demonstrera", "bidra"], feedback: [{ match: "demonstrera", tip: "*demonstrera* betekent „demonstreren”. Lees de zin nog eens: wat past hier?" }] }] }
+          - { id: pnad, type: gap, text: "Hon är ___ och driver ett eget litet kafé.", gaps: [{ answers: ["företagare"], options: ["företagare", "statsminister", "minoritet", "välfärd"], feedback: [{ match: "statsminister", tip: "*statsminister* betekent „een minister-president, een premier”. Lees de zin nog eens: wat past hier?" }] }] }
+          - { id: 8stv, type: gap, text: "___ i riksdagen röstade för en ny lag om yttrandefrihet.", gaps: [{ answers: ["Majoriteten"], options: ["Majoriteten", "Välfärden", "Integrationen", "Diskrimineringen"], feedback: [{ match: "Välfärden", tip: "*välfärd* betekent „de sociale voorzieningen, de verzorgingsstaat”. Lees de zin nog eens: wat past hier?" }] }] }
+          - { id: 3a4e, type: gap, text: "Arbetet i föreningen är ___: ingen får betalt.", gaps: [{ answers: ["frivilligt"], options: ["frivilligt", "jämlikt", "orättvist", "rättvist"], feedback: [{ match: "jämlikt", tip: "*jämlik* betekent „gelijk (met gelijke rechten en kansen)”. Lees de zin nog eens: wat past hier?" }] }] }
+          - { id: cnzk, type: gap, text: "Det är ___ att vissa grupper har svårare att få jobb. Det är diskriminering.", gaps: [{ answers: ["orättvist"], options: ["orättvist", "frivilligt", "jämlikt", "rättvist"], feedback: [{ match: "frivilligt", tip: "*frivillig* betekent „vrijwillig”. Lees de zin nog eens: wat past hier?" }] }] }
+          - { id: kmug, type: gap, text: "Det råder stor ___ i Stockholm, så många bor i andra hand.", gaps: [{ answers: ["bostadsbrist"], options: ["bostadsbrist", "välfärd", "jämställdhet", "majoritet"], feedback: [{ match: "välfärd", tip: "*välfärd* betekent „de sociale voorzieningen, de verzorgingsstaat”. Lees de zin nog eens: wat past hier?" }] }] }
+          - { id: z85x, type: gap, text: "Varje medborgare har både rättigheter och ___.", gaps: [{ answers: ["skyldigheter"], options: ["skyldigheter", "majoriteter", "folkomröstningar", "minoriteter"], feedback: [{ match: "minoriteter", tip: "*minoritet* betekent „een minderheid”. Lees de zin nog eens: wat past hier?" }] }] }
+
+vocab:
+  - { sv: "en ökning", nl: "een stijging, een toename", def: "ökningen", pl: "ökningar", plDef: "ökningarna", ex: "Under pandemin skedde en kraftig **ökning** av e-handeln.", exNl: "Tijdens de pandemie was er een sterke toename van de online handel." }
+  - { sv: "en minskning", nl: "een daling, een afname", def: "minskningen", pl: "minskningar", plDef: "minskningarna", ex: "Företaget rapporterar en tydlig **minskning** av sjukfrånvaron.", exNl: "Het bedrijf meldt een duidelijke daling van het ziekteverzuim." }
+  - { sv: "en utveckling", nl: "een ontwikkeling", def: "utvecklingen", ex: "Ledningen följer **utvecklingen** på marknaden noga.", exNl: "De directie volgt de ontwikkeling op de markt nauwlettend." }
+  - { sv: "en förändring", nl: "een verandering", def: "förändringen", pl: "förändringar", plDef: "förändringarna", ex: "Hemarbetet har lett till stora **förändringar** på arbetsplatsen.", exNl: "Het thuiswerken heeft tot grote veranderingen op de werkplek geleid." }
+  - { sv: "en försäljning", nl: "de verkoop, de omzet", def: "försäljningen", ex: "**Försäljningen** i de fysiska butikerna minskade med tre procent.", exNl: "De verkoop in de fysieke winkels daalde met drie procent." }
+  - { sv: "en andel", nl: "een aandeel", def: "andelen", pl: "andelar", plDef: "andelarna", ex: "**Andelen** kvinnor i styrelsen har ökat de senaste åren.", exNl: "Het aandeel vrouwen in het bestuur is de afgelopen jaren gestegen." }
+  - { sv: "en nivå", nl: "een niveau", def: "nivån", pl: "nivåer", plDef: "nivåerna", ex: "Andelen har aldrig återgått till den tidigare **nivån**.", exNl: "Het aandeel is nooit naar het vroegere niveau teruggekeerd." }
+  - { sv: "en ledning", nl: "de directie, de leiding", def: "ledningen", ex: "**Ledningen** har beslutat att stänga två butiker.", exNl: "De directie heeft besloten twee winkels te sluiten." }
+  - { sv: "ett kvartal", nl: "een kwartaal", def: "kvartalet", pl: "kvartal", plDef: "kvartalen", ex: "Vinsten ökade under årets tredje **kvartal**.", exNl: "De winst steeg in het derde kwartaal van het jaar." }
+  - { sv: "en tillväxt", nl: "de groei", def: "tillväxten", mass: true, ex: "Regeringen räknar med en svag **tillväxt** nästa år.", exNl: "De regering rekent volgend jaar op een zwakke groei." }
+  - { sv: "en procentenhet", nl: "een procentpunt", def: "procentenheten", pl: "procentenheter", plDef: "procentenheterna", ex: "Räntan höjdes med en halv **procentenhet**.", exNl: "De rente werd met een half procentpunt verhoogd." }
+  - { sv: "ett diagram", nl: "een grafiek", def: "diagrammet", pl: "diagram", plDef: "diagrammen", ex: "**Diagrammet** visar hur försäljningen har utvecklats sedan 2019.", exNl: "De grafiek laat zien hoe de verkoop zich sinds 2019 heeft ontwikkeld." }
+  - { sv: "att öka", nl: "toenemen, stijgen", ex: "Antalet anställda har **ökat** med tjugo procent.", exNl: "Het aantal werknemers is met twintig procent toegenomen." }
+  - { sv: "att minska", nl: "afnemen, dalen", ex: "Sjukfrånvaron **minskade** kraftigt efter förändringen.", exNl: "Het ziekteverzuim nam na de verandering sterk af." }
+  - { sv: "att uppge", nl: "verklaren, opgeven", ex: "Många chefer **uppger** att samarbetet har blivit sämre.", exNl: "Veel leidinggevenden verklaren dat de samenwerking slechter is geworden." }
+  - { sv: "att försvåra", nl: "bemoeilijken", ex: "Hemarbetet har **försvårat** introduktionen av nyanställda.", exNl: "Het thuiswerken heeft het inwerken van nieuwe medewerkers bemoeilijkt." }
+  - { sv: "kraftigt", nl: "sterk", ex: "Elpriserna steg **kraftigt** under vintern.", exNl: "De elektriciteitsprijzen stegen in de winter sterk." }
+  - { sv: "gradvis", nl: "geleidelijk", ex: "Andelen hemarbetare minskade **gradvis** efter pandemin.", exNl: "Het aandeel thuiswerkers nam na de pandemie geleidelijk af." }
+  - { sv: "drygt", nl: "iets meer dan", ex: "Företaget har **drygt** tvåhundra anställda.", exNl: "Het bedrijf heeft iets meer dan tweehonderd werknemers." }
+  - { sv: "knappt", nl: "iets minder dan", ex: "**Knappt** hälften av de tillfrågade var nöjda.", exNl: "Iets minder dan de helft van de ondervraagden was tevreden." }
+  - { sv: "en kostnad", nl: "een kostenpost, de kosten", def: "kostnaden", pl: "kostnader", ex: "De höga **kostnaderna** för el drabbar många företag.", exNl: "De hoge kosten voor elektriciteit treffen veel bedrijven." }
+  - { sv: "en intäkt", nl: "een opbrengst, een inkomst", def: "intäkten", pl: "intäkter", ex: "**Intäkterna** från e-handeln ökade med åtta procent.", exNl: "De opbrengsten uit de online handel stegen met acht procent." }
+  - { sv: "en vinst", nl: "een winst", def: "vinsten", pl: "vinster", ex: "Bolaget redovisade en **vinst** på tio miljoner kronor.", exNl: "Het bedrijf boekte een winst van tien miljoen kronen." }
+  - { sv: "en förlust", nl: "een verlies", def: "förlusten", pl: "förluster", ex: "Butikerna i centrum går med **förlust**.", exNl: "De winkels in het centrum draaien verlies." }
+  - { sv: "en omsättning", nl: "de omzet", def: "omsättningen", pl: "omsättningar", ex: "Företaget har en årlig **omsättning** på två miljarder kronor.", exNl: "Het bedrijf heeft een jaarlijkse omzet van twee miljard kronen." }
+  - { sv: "en investering", nl: "een investering", def: "investeringen", pl: "investeringar", ex: "Den nya fabriken är en stor **investering** för kommunen.", exNl: "De nieuwe fabriek is een grote investering voor de gemeente." }
+  - { sv: "en inflation", nl: "de inflatie", def: "inflationen", mass: true, ex: "Hög **inflation** gör att pengarna blir mindre värda.", exNl: "Door hoge inflatie wordt geld minder waard." }
+  - { sv: "en ränta", nl: "een rente", def: "räntan", pl: "räntor", ex: "Riksbanken har höjt **räntan** tre gånger i år.", exNl: "De Riksbank heeft de rente dit jaar drie keer verhoogd." }
+  - { sv: "ett lån", nl: "een lening", def: "lånet", pl: "lån", ex: "Många hushåll har stora **lån** på sina bostäder.", exNl: "Veel huishoudens hebben grote leningen op hun woning." }
+  - { sv: "en lågkonjunktur", nl: "een recessie, een laagconjunctuur", def: "lågkonjunkturen", pl: "lågkonjunkturer", ex: "Under en **lågkonjunktur** brukar arbetslösheten öka.", exNl: "Tijdens een recessie neemt de werkloosheid meestal toe." }
+  - { sv: "en arbetslöshet", nl: "de werkloosheid", def: "arbetslösheten", mass: true, ex: "**Arbetslösheten** bland unga ligger på drygt tjugo procent.", exNl: "De werkloosheid onder jongeren ligt op iets meer dan twintig procent." }
+  - { sv: "en marknad", nl: "een markt", def: "marknaden", pl: "marknader", ex: "Företaget vill växa på den europeiska **marknaden**.", exNl: "Het bedrijf wil groeien op de Europese markt." }
+  - { sv: "en konkurrens", nl: "de concurrentie", def: "konkurrensen", mass: true, ex: "**Konkurrensen** från utländska nätbutiker är hård.", exNl: "De concurrentie van buitenlandse webwinkels is hard." }
+  - { sv: "en aktie", nl: "een beursaandeel", def: "aktien", pl: "aktier", ex: "Efter rapporten föll **aktien** med tio procent.", exNl: "Na het rapport daalde het aandeel met tien procent." }
+  - { sv: "ett underskott", nl: "een tekort (in de begroting)", def: "underskottet", pl: "underskott", ex: "Kommunen har ett **underskott** på femtio miljoner kronor.", exNl: "De gemeente heeft een tekort van vijftig miljoen kronen." }
+  - { sv: "ett antal", nl: "een aantal", def: "antalet", pl: "antal", ex: "**Antalet** kunder ökade med tio procent i fjol.", exNl: "Het aantal klanten steeg vorig jaar met tien procent." }
+  - { sv: "en siffra", nl: "een cijfer (getal)", def: "siffran", pl: "siffror", ex: "De senaste **siffrorna** visar att tillväxten har avtagit.", exNl: "De laatste cijfers laten zien dat de groei is afgenomen." }
+  - { sv: "att stiga", nl: "stijgen, omhooggaan", ex: "Bostadspriserna **steg** med fem procent förra året.", exNl: "De huizenprijzen stegen vorig jaar met vijf procent." }
+  - { sv: "att rasa", nl: "kelderen, instorten", ex: "Under krisen **rasade** aktiekurserna.", exNl: "Tijdens de crisis kelderden de aandelenkoersen." }
+  - { sv: "att ligga still", nl: "stabiel blijven, stilstaan", ex: "Försäljningen har **legat still** under hela året.", exNl: "De verkoop is het hele jaar stabiel gebleven." }
+  - { sv: "att nå en topp", nl: "een piek bereiken", ex: "Hemarbetet **nådde en topp** år 2021.", exNl: "Het thuiswerken bereikte in 2021 een piek." }
+  - { sv: "att fördubblas", nl: "verdubbelen", ex: "Priset på kaffe har **fördubblats** på två år.", exNl: "De prijs van koffie is in twee jaar verdubbeld." }
+  - { sv: "att halveras", nl: "halveren (de helft worden)", ex: "Bolagets vinst **halverades** under krisåret.", exNl: "De winst van het bedrijf halveerde in het crisisjaar." }
+  - { sv: "att uppgå till", nl: "bedragen", ex: "Kostnaderna **uppgick till** fem miljoner kronor.", exNl: "De kosten bedroegen vijf miljoen kronen." }
+  - { sv: "att räkna med", nl: "rekenen op, verwachten", ex: "Ledningen **räknar med** en fortsatt ökning.", exNl: "De directie rekent op een aanhoudende stijging." }
+  - { sv: "att skära ner på", nl: "bezuinigen op", ex: "Många familjer **skär ner på** restaurangbesök.", exNl: "Veel gezinnen bezuinigen op restaurantbezoeken." }
+  - { sv: "att leda till", nl: "leiden tot", ex: "Höjda räntor kan **leda till** lägre bostadspriser.", exNl: "Hogere rentes kunnen tot lagere huizenprijzen leiden." }
+  - { sv: "att gå i konkurs", nl: "failliet gaan", ex: "Restaurangen **gick i konkurs** efter bara ett år.", exNl: "Het restaurant ging na slechts een jaar failliet." }
+  - { sv: "att lägga ner", nl: "opheffen, sluiten (een bedrijf of afdeling)", ex: "Företaget **lägger ner** två butiker i vår.", exNl: "Het bedrijf heft dit voorjaar twee winkels op." }
+  - { sv: "stadigt", nl: "gestaag", ex: "Försäljningen har ökat **stadigt** de senaste åren.", exNl: "De verkoop is de afgelopen jaren gestaag gestegen." }
+  - { sv: "främst", nl: "voornamelijk, vooral", ex: "Ökningen beror **främst** på e-handeln.", exNl: "De stijging komt voornamelijk door de online handel." }
+  - { sv: "i stort sett", nl: "grotendeels, in grote lijnen", ex: "Prognosen för förra året stämde **i stort sett**.", exNl: "De prognose voor vorig jaar klopte grotendeels." }
+  - { sv: "oförändrad", nl: "onveranderd", ex: "Räntan lämnas **oförändrad** på två procent.", exNl: "De rente blijft onveranderd op twee procent." }
+  - { sv: "jämfört med", nl: "vergeleken met", ex: "Försäljningen ökade med åtta procent **jämfört med** i fjol.", exNl: "De verkoop steeg met acht procent vergeleken met vorig jaar." }
+  - { sv: "lönsam", nl: "winstgevend, rendabel", ex: "Den nya tjänsten har ännu inte blivit **lönsam**.", exNl: "De nieuwe dienst is nog niet winstgevend geworden." }
+  - { sv: "bestående", nl: "blijvend", ex: "Hemarbetet verkar vara en **bestående** förändring.", exNl: "Het thuiswerken lijkt een blijvende verandering te zijn." }
+  - { sv: "samtidigt", nl: "tegelijkertijd", ex: "Försäljningen ökade, men **samtidigt** steg kostnaderna.", exNl: "De verkoop steeg, maar tegelijkertijd stegen de kosten." }
+  - { sv: "omkring", nl: "ongeveer, rond", alt: ["cirka", "ungefär"], ex: "Andelen ligger i dag på **omkring** femtio procent.", exNl: "Het aandeel ligt vandaag op ongeveer vijftig procent." }
+  - { sv: "en ekonomi", nl: "een economie", def: "ekonomin", pl: "ekonomier", plDef: "ekonomierna", ex: "Sveriges **ekonomi** växer långsamt.", exNl: "De Zweedse economie groeit langzaam." }
+  - { sv: "en budget", nl: "een budget, begroting", def: "budgeten", pl: "budgetar", plDef: "budgetarna", ex: "Vi har en stram **budget** i år.", exNl: "We hebben dit jaar een krappe begroting." }
+  - { sv: "en rapport", nl: "een rapport", def: "rapporten", pl: "rapporter", plDef: "rapporterna", ex: "Enligt **rapporten** minskade vinsten.", exNl: "Volgens het rapport daalde de winst." }
+  - { sv: "att förbättra", nl: "verbeteren", ex: "Vi vill **förbättra** resultatet.", exNl: "We willen het resultaat verbeteren." }
+  - { sv: "ekonomisk", nl: "economisch, financieel", ex: "Familjen har **ekonomiska** problem.", exNl: "Het gezin heeft financiële problemen." }
+  - { sv: "stabil", nl: "stabiel", ex: "Priserna har varit **stabila** i ett år.", exNl: "De prijzen zijn een jaar stabiel geweest." }
+  - { sv: "en kris", nl: "een crisis", def: "krisen", pl: "kriser", plDef: "kriserna", ex: "Många företag gick i konkurs under **krisen**.", exNl: "Veel bedrijven gingen failliet tijdens de crisis." }
+  - { sv: "en export", nl: "de export", def: "exporten", mass: true, ex: "**Exporten** till Tyskland ökade.", exNl: "De export naar Duitsland steeg." }
+  - { sv: "en import", nl: "de import", def: "importen", mass: true, ex: "**Importen** av el har minskat.", exNl: "De import van stroom is gedaald." }
+  - { sv: "att investera", nl: "investeren", ex: "Företaget **investerar** i ny teknik.", exNl: "Het bedrijf investeert in nieuwe technologie." }

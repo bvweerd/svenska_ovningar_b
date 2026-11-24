@@ -1,0 +1,572 @@
+chapter: 28
+# Kan-doen-uitspraken: de app vinkt ze zelf af als de vragen over deze onderwerpen
+# grotendeels in doos 3 of hoger staan (src/progress.js, canDoStatus).
+canDo:
+  - { text: "Ik kies tussen formeel, neutraal en informeel taalgebruik", topics: [register] }
+  - { text: "Ik begrijp veelgebruikte Zweedse uitdrukkingen", topics: [idiom] }
+
+grammar:
+  - id: register
+    title: Formeel, neutraal en informeel
+    summary: "Formeel: *erhålla, meddela, dock, vänligen*, lijdende vormen. Informeel: *tja, typ, sjukt kul, ses!* en spreektaalspelling (*dom, mej, nåt*). Schrijf **de** (onderwerp, = vi) en **dem** (voorwerp, = oss), ook al zeg je *dom*. Vóór een zelfstandig naamwoord altijd **de**: *de här skorna*."
+    body: |
+      | | formeel | neutraal | informeel |
+      |---|---|---|---|
+      | groet | *Bästa kund,* | *Hej!* | *Tja! Hallå!* |
+      | krijgen | *erhålla* | *få* | *få* |
+      | zeggen | *meddela* | *säga, berätta* | *säga* |
+      | maar | *dock* | *men* | *men* |
+      | dus | *således* | *alltså, så* | *så* |
+      | heel | *mycket* | *väldigt* | *jätte-, sjukt, fett* |
+      | afsluiting | *Med vänlig hälsning* | *Vänliga hälsningar* | *Hörs! Kram! Ses!* |
+
+      Formele teksten gebruiken ook vaker **lijdende vormen** (*Ansökan ska skickas …*) en **nominalisaties** (hoofdstuk 25).
+
+      ### Spreektaal op papier
+      In sms'jes en chats schrijven Zweden vaak zoals ze praten. In een nette tekst gebruik je de standaardvorm:
+
+      | spreektaal | standaard |
+      |---|---|
+      | dom | **de** (onderwerp) / **dem** (voorwerp) |
+      | mej, dej, sej | mig, dig, sig |
+      | nån, nåt, nåra | någon, något, några |
+      | sen | sedan / senare |
+      | va | vad / var |
+
+      *Sen* is ook in gewone geschreven tekst heel gangbaar (*Vad gör du sen?*). Alleen in een echt formele tekst kies je *sedan* of *senare*.
+
+      **de of dem?** Kun je het vervangen door *vi*, dan **de**. Door *oss*, dan **dem**. *De (vi) kommer i morgon. Jag såg dem (oss) i går.*
+
+      Die test werkt alleen als *de/dem* los staat. Vóór een zelfstandig naamwoord is *de* een lidwoord of aanwijzend woord en schrijf je altijd **de**, ook als voorwerp: *Jag köpte **de** här skorna. Jag träffade **de** nya grannarna.*
+
+  - id: idiom
+    title: Zweedse uitdrukkingen
+    summary: "*Det är ingen ko på isen* (geen haast), *glida in på en räkmacka* (zonder moeite succes hebben), *inte för allt smör i Småland* (voor geen goud), *ha is i magen* (kalm blijven), *kasta yxan i sjön* (de handdoek in de ring gooien)."
+    body: |
+      | Zweeds | letterlijk | betekenis |
+      |---|---|---|
+      | *Det är ingen ko på isen.* | er staat geen koe op het ijs | geen probleem, geen haast |
+      | *glida in på en räkmacka* | binnenglijden op een garnalenbroodje | zonder moeite succes hebben |
+      | *inte för allt smör i Småland* | niet voor alle boter in Småland | voor geen goud |
+      | *ha is i magen* | ijs in de buik hebben | kalm blijven |
+      | *kasta yxan i sjön* | de bijl in het meer gooien | de handdoek in de ring gooien |
+      | *ana ugglor i mossen* | uilen in het moeras vermoeden | onraad ruiken |
+      | *gå som katten kring het gröt* | als de kat om de hete pap lopen | om de hete brij heen draaien |
+      | *ta det med en nypa salt* | met een snufje zout nemen | met een korreltje zout nemen |
+      | *gå över ån efter vatten* | over de rivier gaan om water te halen | het jezelf onnodig moeilijk maken |
+      | *få skägg i brevlådan* | een baard in de brievenbus krijgen | betrapt worden, in verlegenheid raken |
+
+      Uitdrukkingen maken je Zweeds levendig, maar gebruik ze in een formele tekst spaarzaam.
+
+sections:
+  - id: lasa
+    title: Läsa · lezen
+    exercises:
+      - id: lasa-svenska
+        title: "Lezen: welk Zweeds spreek jij?"
+        instruction: Lees de tekst en beantwoord de vragen.
+        topic: woordenschat
+        textTitle: Vilken svenska talar du?
+        text: |
+          Svenska låter inte likadant överallt. En person från Malmö och en person från Luleå kan ha svårt att förstå varandras dialekter, och i Finland har omkring fem procent av befolkningen svenska som modersmål. I Skåne uttalar många r-ljudet långt bak i munnen, ungefär som på danska, och i norra Sverige har språket en helt annan melodi. Finlandssvenskan har några egna ord, men de flesta svenskar förstår den utan problem.
+
+          I storstädernas förorter har det dessutom vuxit fram ett eget sätt att prata, ibland kallat förortssvenska, med ord från bland annat arabiska och turkiska. Ord som *yalla* (skynda dig) och *len* (kompis) används i dag av många unga, oavsett var deras föräldrar kommer ifrån. Vissa vuxna ser förortssvenskan som dålig svenska, men språkforskare håller inte med. De menar att det är ett register som ungdomarna använder med sina vänner, och att samma ungdomar ofta byter till standardsvenska i skolan eller på en arbetsintervju.
+
+          Sverige har också fem nationella minoritetsspråk: samiska, finska, meänkieli, romani chib och jiddisch. Meänkieli talas framför allt i Tornedalen i norra Sverige. Alla fem har en särskild ställning i lagen. I vissa kommuner har man dessutom rätt att använda samiska, finska eller meänkieli i kontakt med myndigheterna.
+
+          Men alla svenskar byter också språk efter situationen. Samma person som skriver ”tja, ses sen?” till en kompis skriver ”Hej! Jag återkommer så snart som möjligt” till en kund. Att kunna växla mellan olika register är en viktig del av att behärska ett språk – kanske den svåraste.
+
+          Ett brev från en myndighet ser helt annorlunda ut än ett sms. I brevet står det kanske ”Er ansökan har inkommit och kommer att behandlas inom fyra veckor”, medan en kompis bara skriver ”fick ditt mejl, kollar sen”. Båda meddelandena säger ungefär samma sak, men de hör hemma i olika situationer. Den som skriver som i ett sms till en myndighet riskerar att inte bli tagen på allvar.
+
+          För den som lär sig svenska som vuxen är de idiomatiska uttrycken ofta en extra utmaning. Vad menar kollegan när hon säger ”det är ingen ko på isen”? Och varför ska man inte kasta yxan i sjön? Sådana uttryck ska man sällan ta bokstavligen, men de gör språket levande. Många av dem finns dessutom bara i svenskan och går inte att översätta ord för ord. Ett gott råd är att först lyssna på hur andra använder dem i vardagen innan man testar dem själv – och att spara dem till fikarasten snarare än till jobbansökan.
+        items:
+          - { id: fab2, type: truefalse, statement: "Svenska låter likadant i hela Sverige.", answer: false, correction: { answers: ["Svenska låter inte likadant överallt."] } }
+          - { id: tab9, type: mc, prompt: "Hur många procent av befolkningen i Finland har svenska som modersmål?", options: ["omkring fem procent", "omkring femtio procent", "ingen", "alla"], answer: 0 }
+          - { id: zvdy, type: mc, prompt: "Vad betyder *len* på förortssvenska?", options: ["kompis", "skynda dig", "hej", "pengar"], answer: 0 }
+          - { id: rrkk, type: truefalse, statement: "Bara unga med föräldrar från andra länder använder förortssvenska ord.", answer: false, correction: { answers: ["Många unga använder dem[,] oavsett var deras föräldrar kommer ifrån."] } }
+          - { id: uaye, type: mc, prompt: "Hur många nationella minoritetsspråk har Sverige?", options: ["fem", "tre", "två", "tio"], answer: 0 }
+          - { id: wjx7, type: mc, prompt: "Vad är enligt texten kanske det svåraste med att behärska ett språk?", options: ["att växla mellan olika register", "att förstå dialekter", "att lära sig slang", "att stava rätt"], answer: 0 }
+          - { id: y7pw, type: mc, prompt: "Hur ser språkforskarna på förortssvenskan enligt texten?", options: ["som ett register som ungdomarna använder med sina vänner", "som dålig svenska", "som ett nytt minoritetsspråk", "som en dialekt från Skåne"], answer: 0 }
+          - { id: egjp, type: truefalse, statement: "Ungdomar som pratar förortssvenska kan bara prata på det sättet.", answer: false, correction: { answers: ["{De|Många|Samma ungdomar} byter ofta till standardsvenska[ i skolan eller på en arbetsintervju].", "{De|Många|Samma ungdomar} kan [också ]byta till standardsvenska[ i skolan eller på en arbetsintervju]."] } }
+          - { id: hgdy, type: mc, prompt: "I vilket register är meningen ”Er ansökan har inkommit och kommer att behandlas inom fyra veckor” skriven?", options: ["formellt", "informellt", "på förortssvenska", "på dialekt"], answer: 0, tip: "inkommit en de lijdende vorm behandlas horen bij formele taal." }
+          - { id: adzt, type: mc, prompt: "Vilket råd skulle textens författare troligen ge till någon som ska skriva en jobbansökan?", options: ["Skriv formellt och undvik idiomatiska uttryck.", "Använd så många uttryck som möjligt.", "Skriv som du pratar med dina vänner.", "Skriv på din egen dialekt."], answer: 0, tip: "Lees de laatste zin: waar bewaar je de uitdrukkingen voor?" }
+
+      - id: makkelijk-1
+        title: "Makkelijk lezen: Dialekter"
+        instruction: Een korte tekst met woorden die je al kent. Lees hem vlot door en kies rätt of fel.
+        topic: woordenschat
+        kind: makkelijk
+        textTitle: "Dialekter"
+        text: |
+          Saskia bor i Skåne och har vant sig vid den skånska dialekten. När hon besökte en vän i Umeå förstod hon först inte allt. Vännen pratade snabbt och använde ord som Saskia aldrig hade hört. Efter några dagar gick det bättre. Nu tycker Saskia att det är roligt med olika dialekter. Hon har också märkt att samma ord kan låta helt olika i olika delar av landet. I norr pratar många långsammare än i söder. Hennes vän skrattade vänligt när Saskia försökte härma dialekten.
+        items:
+          - { id: 3cd6, type: truefalse, statement: "Saskia förstod allt direkt i Umeå.", answer: false }
+          - { id: xsbg, type: truefalse, statement: "Saskia bor i Skåne.", answer: true }
+
+      - id: makkelijk-2
+        title: "Makkelijk lezen: Formellt eller vardagligt"
+        instruction: Een korte tekst met woorden die je al kent. Lees hem vlot door en kies rätt of fel.
+        topic: woordenschat
+        kind: makkelijk
+        textTitle: "Formellt eller vardagligt"
+        text: |
+          På jobbet skriver Niels formella mejl till kunderna, till exempel ”Vänligen återkom senast på fredag.” Till kollegorna skriver han i stället ”Hörs på fredag!” Han har lärt sig att välja rätt register beroende på vem han skriver till. I början blandade han ihop dem, men nu går det av sig självt. Hans chef har gett honom ett bra råd: om man är osäker, är det bättre att vara lite för formell än för vardaglig. Med tiden lär man känna kunderna, och då kan tonen bli lite lättare.
+        items:
+          - { id: k48y, type: truefalse, statement: "Niels skriver likadant till alla.", answer: false }
+          - { id: h836, type: truefalse, statement: "Niels skriver formellt till kunderna.", answer: true }
+
+      - id: makkelijk-3
+        title: "Makkelijk lezen: Ett mejl till chefen"
+        instruction: Een korte tekst met woorden die je al kent. Lees hem vlot door en beantwoord de vragen.
+        topic: woordenschat
+        kind: makkelijk
+        textTitle: "Ett mejl till chefen"
+        text: |
+          Daan skulle skriva ett mejl till sin nya chef. Han började: ”Tjena! Kan jag ta ledigt på fredag?” Hans kollega Maria läste mejlet och skrattade. ”Det där är lite för vardagligt”, sa hon. ”Till chefen skriver man hellre: Hej Karin! Skulle det vara möjligt att ta ledigt på fredag?” Maria förklarade att man i Sverige ofta säger du till chefen, men att ett mejl ändå ska vara lite artigare än ett sms. Daan ändrade mejlet och skickade det. Chefen svarade snabbt: ”Absolut, det går bra!” Daan tackade Maria. Nästa gång tänker han fråga henne innan han skickar något.
+        items:
+          - { id: uqzc, type: truefalse, statement: "Daan skrev först ett formellt mejl.", answer: false }
+          - { id: xez4, type: mc, prompt: "Vem läste mejlet först?", options: ["Chefen.", "Maria.", "Daans sambo."], answer: 1 }
+          - { id: dmjk, type: truefalse, statement: "Daan fick ledigt på fredag.", answer: true }
+
+      - id: makkelijk-4
+        title: "Makkelijk lezen: Glida in på en räkmacka"
+        instruction: Een korte tekst met woorden die je al kent. Lees hem vlot door en beantwoord de vragen.
+        topic: woordenschat
+        kind: makkelijk
+        textTitle: "Glida in på en räkmacka"
+        text: |
+          När Ruben började lära sig svenska förstod han inte alla uttryck. En kollega sa en gång att hon hade glidit in på en räkmacka. Ruben trodde att det handlade om mat. Senare förstod han att det betyder att man lyckas utan problem. Ett annat uttryck som han inte förstod var ”det är ingen ko på isen”. Nu skriver Ruben upp nya uttryck i en bok. Han har redan samlat över hundra. Han tycker att idiom gör språket levande, även om de ibland är svåra att förstå.
+        items:
+          - { id: gfpa, type: mc, prompt: "Vad betyder ”glida in på en räkmacka”?", options: ["Att man lyckas utan problem.", "Att man är hungrig.", "Att man har ramlat."], answer: 0 }
+          - { id: amje, type: truefalse, statement: "Ruben har samlat över hundra uttryck.", answer: true }
+          - { id: 2sds, type: truefalse, statement: "Ruben tycker att idiom är tråkiga.", answer: false }
+
+  - id: ord
+    title: Ord och fraser · woorden en uitdrukkingen
+    exercises:
+      - id: formeel-gewoon
+        title: Formeel en gewoon
+        instruction: Koppel het formele woord aan het gewone woord.
+        topic: register
+        items:
+          - id: q6zb
+            type: match
+            pairs:
+              - ["erhålla", "få"]
+              - ["meddela", "säga, berätta"]
+              - ["påbörja", "börja"]
+              - ["bistå", "hjälpa"]
+              - ["dock", "men"]
+              - ["således", "alltså"]
+
+      - id: idiomen-koppelen
+        title: Uitdrukkingen
+        instruction: Koppel de uitdrukking aan de betekenis.
+        topic: idiom
+        items:
+          - id: s4rq
+            type: match
+            pairs:
+              - ["Det är ingen ko på isen.", "Er is geen haast."]
+              - ["glida in på en räkmacka", "zonder moeite succes hebben"]
+              - ["inte för allt smör i Småland", "voor geen goud"]
+              - ["ha is i magen", "kalm blijven"]
+              - ["kasta yxan i sjön", "de handdoek in de ring gooien"]
+              - ["ana ugglor i mossen", "onraad ruiken"]
+
+  - id: register
+    title: "Grammatik: register"
+    exercises:
+      - id: register-sorteren
+        title: Formeel, neutraal of informeel?
+        instruction: In welk register staat de zin?
+        topic: register
+        items:
+          - id: dh3v
+            type: sort
+            categories: ["formeel", "neutraal", "informeel"]
+            items:
+              - { text: "Tja, läget?", cat: 2 }
+              - { text: "Hej, hur mår du?", cat: 1 }
+              - { text: "Vi ber er vänligen att kontakta kundtjänst.", cat: 0 }
+              - { text: "Det var sjukt kul!", cat: 2 }
+              - { text: "Ansökan ska ha inkommit senast den 1 maj.", cat: 0 }
+              - { text: "Kan du ringa mig i morgon?", cat: 1 }
+              - { text: "Härmed bekräftar vi er bokning.", cat: 0 }
+              - { text: "Ses sen!", cat: 2 }
+
+      - id: de-dem
+        title: De of dem?
+        instruction: "Kies **de** of **dem**. Tip: *vi* → de, *oss* → dem."
+        topic: register
+        shuffle: true
+        items:
+          - { id: n5ed, type: gap, text: "___ kommer i morgon.", gaps: [{"answers": ["De"], "options": ["De", "Dem"], "shuffle": false, "feedback": [{"match": "Dem", "tip": "Onderwerp: de (in spreektaal klinkt het als dom)."}]}] }
+          - { id: f7hn, type: gap, text: "Jag såg ___ på stationen.", gaps: [{ answers: ["dem"], options: ["de", "dem"], shuffle: false, feedback: [{ match: "de", tip: "Jag såg oss → dem." }] }] }
+          - { id: be58, type: gap, text: "Har du pratat med ___?", gaps: [{"answers": ["dem"], "options": ["de", "dem"], "shuffle": false, "tip": "Na een voorzetsel: dem (med oss).", "feedback": [{"match": "de", "tip": "Na een voorzetsel (lijdend voorwerp): dem."}]}] }
+          - { id: 6jwa, type: gap, text: "Jag vet inte vad ___ vill.", gaps: [{ answers: ["de"], options: ["de", "dem"], shuffle: false, feedback: [{ match: "dem", tip: "vad vi vill → de." }] }] }
+          - { id: 7a4c, type: gap, text: "___ här skorna är för små.", gaps: [{"answers": ["De"], "options": ["De", "Dem"], "shuffle": false, "tip": "Aanwijzend vóór een zelfstandig naamwoord: de här.", "feedback": [{"match": "Dem", "tip": "De här skorna: de (aanwijzend, bij een zelfstandig naamwoord)."}]}] }
+          - { id: 5jja, type: gap, text: "Jag ringde ___ i går.", gaps: [{ answers: ["dem"], options: ["de", "dem"], shuffle: false, feedback: [{ match: "de", tip: "Jag ringde oss → dem." }] }] }
+          - { id: q27n, type: gap, text: "Vet du om ___ har ätit?", gaps: [{ answers: ["de"], options: ["de", "dem"], shuffle: false, feedback: [{ match: "dem", tip: "om vi har ätit → de." }] }] }
+          - { id: gkmk, type: gap, text: "Vi bjöd ___ på middag.", gaps: [{"answers": ["dem"], "options": ["de", "dem"], "shuffle": false, "feedback": [{"match": "de", "tip": "Lijdend voorwerp: dem."}]}] }
+
+      - id: standaard
+        title: Schrijf het netjes
+        instruction: Schrijf het sms'je in standaard Zweeds.
+        topic: register
+        items:
+          - { id: d3cw, type: transform, prompt: "Jag vet inte vad dom vill.", answers: ["Jag vet inte vad de vill."], feedback: [{ contains: "vad dem", tip: "vad vi vill → de." }] }
+          - { id: ry7v, type: transform, prompt: "Kan du hjälpa mej med nåt?", answers: ["Kan du hjälpa mig med {något|någonting}?"], feedback: [{ match: "Kan du hjälpa mej med något?", tip: "In standaardtaal schrijf je mig, niet mej." }, { match: "Kan du hjälpa mig med nåt?", tip: "In standaardtaal: något of någonting." }] }
+          - { id: bch5, type: transform, prompt: "Jag såg dom i går.", answers: ["Jag såg dem {i går|igår}."], feedback: [{ contains: "såg de", tip: "Jag såg oss → dem." }] }
+          - { id: ubzd, type: transform, prompt: "Va gör du sen?", answers: ["Vad gör du {sedan|senare|sen}?"] }
+          - { id: rcgj, type: transform, prompt: "Har nån sett mina nycklar?", answers: ["Har någon sett mina nycklar?"], feedback: [{ match: "Har nån sett mina nycklar?", tip: "In standaardtaal: någon." }] }
+          - { id: zthq, type: transform, prompt: "Dom sa att dom inte hade tid.", answers: ["De sa att de inte hade tid.", "De sade att de inte hade tid."], feedback: [{ contains: "dem", tip: "Onderwerp (vi sa, vi hade): de." }] }
+          - { id: dsmp, type: transform, prompt: "Ja vet inte.", answers: ["Jag vet inte."], feedback: [{ match: "Ja vet inte.", tip: "In standaardtaal: jag." }] }
+          - { id: bxa9, type: transform, prompt: "Säj till om du behöver nåt!", answers: ["Säg till om du behöver {något|någonting}!"], feedback: [{ match: "Säj till om du behöver något!", tip: "In standaardtaal: säg." }] }
+
+      - id: formeler
+        title: Formeler
+        instruction: Kies het formele woord.
+        topic: register
+        shuffle: true
+        items:
+          - { id: vtfd, type: gap, text: "Vi har ___ din ansökan.", gaps: [{"answers": ["erhållit"], "options": ["erhållit", "fått tag på", "kollat"], "shuffle": false, "feedback": [{"match": "kollat", "tip": "Kollat is spreektaal; in een formele brief: erhållit."}]}] }
+          - { id: ukfj, type: gap, text: "Vi vill ___ att kontoret är stängt i morgon.", gaps: [{ answers: ["meddela"], options: ["meddela", "snacka om", "säga till dig"], shuffle: false }] }
+          - { id: pce2, type: gap, text: "Tack för din ansökan. Vi har ___ redan anställt en person.", gaps: [{ answers: ["dock"], options: ["dock", "typ", "liksom"], shuffle: false }] }
+          - { id: yvma, type: gap, text: "Mötet ___ på fredag klockan tio.", gaps: [{ answers: ["äger rum"], options: ["äger rum", "blir av typ", "händer liksom"], shuffle: false }] }
+          - { id: b74h, type: gap, text: "Vi ___ dig att svara senast den 1 maj.", gaps: [{ answers: ["ber"], options: ["ber", "vill typ att", "säger åt"], shuffle: false }] }
+          - { id: kquh, type: gap, text: "Har du ___ frågor är du välkommen att kontakta oss.", gaps: [{ answers: ["ytterligare"], options: ["ytterligare", "fler såna", "lite mer typ"], shuffle: false }] }
+          - { id: ry78, type: gap, text: "Vi ___ för besväret.", gaps: [{ answers: ["ber om ursäkt"], options: ["ber om ursäkt", "är sorry", "säger förlåt typ"], shuffle: false }] }
+          - { id: acwz, type: gap, text: "Ansökan ska skickas ___ den 15 maj.", gaps: [{ answers: ["senast"], options: ["senast", "typ innan", "sådär runt"], shuffle: false }] }
+          - { id: djtd, type: gap, text: "Ansökan kom in efter sista dagen och kan ___ inte behandlas i år.", gaps: [{ answers: ["således"], options: ["således", "typ", "asså"], shuffle: false, tip: "Formeel 'dus': således. Typ en asså zijn spreektaal." }] }
+
+      - id: standaard-lang
+        title: Langere berichten netjes schrijven
+        instruction: Schrijf het bericht in standaard schrijftaal (neutraal register), zonder spreektaalspelling.
+        topic: register
+        items:
+          - { id: t3yu, type: transform, prompt: "Dom sa att dom skulle ringa mej sen, men jag har inte hört nåt än.", answers: ["De {sa|sade} att de skulle ringa mig {senare|sedan|sen}, men jag har inte hört {något|någonting} {än|ännu}."], feedback: [{ contains: "dem sa", tip: "Onderwerp (vi sa): de." }, { contains: "att dem", tip: "att vi skulle ringa → de." }] }
+          - { id: w45s, type: transform, prompt: "Jag träffade dom på stationen och frågade om dom ville följa med oss hem.", answers: ["Jag träffade dem på stationen och frågade om de ville följa med oss hem."], feedback: [{ contains: "träffade de", tip: "Jag träffade oss → dem." }, { contains: "om dem ville", tip: "om vi ville → de." }] }
+          - { id: 23n2, type: transform, prompt: "Va tycker dom om det nya förslaget? Jag har inte hunnit fråga dom än.", answers: ["Vad tycker de om det nya förslaget? Jag har inte hunnit fråga dem {än|ännu}."], feedback: [{ contains: "tycker dem", tip: "Vad tycker vi → de." }, { contains: "fråga de", tip: "fråga oss → dem." }] }
+          - { id: 7grd, type: gap, text: "Föräldrarna sa att ___ inte hade fått något meddelande från skolan om den nya regeln.", gaps: [{ answers: ["de"], options: ["de", "dem"], shuffle: false, feedback: [{ match: "dem", tip: "att vi inte hade fått → de." }] }] }
+          - { id: 9d7k, type: gap, text: "Jag har försökt ringa ___ flera gånger, men ingen svarar i telefonen på kontoret.", gaps: [{ answers: ["dem"], options: ["de", "dem"], shuffle: false, feedback: [{ match: "de", tip: "ringa oss → dem." }] }] }
+
+      - id: register-vertalen
+        title: Formeel of informeel schrijven
+        instruction: Schrijf of vertaal de zin in het register dat de opdracht noemt.
+        topic: register
+        items:
+          - { id: 7fv7, type: transform, task: "Maak de zin **formeel**: vervang *fått* door een vorm van *erhålla*, en maak er twee zinnen van met *dock* in plaats van *men*.", prompt: "Vi har fått er ansökan, men vi kan inte behandla den förrän i maj.", answers: ["Vi har erhållit er ansökan. Vi kan dock inte behandla den förrän i maj.", "Vi har erhållit er ansökan. Dock kan vi inte behandla den förrän i maj."], feedback: [{ contains: "kan inte dock", tip: "dock staat vóór inte: Vi kan dock inte …" }, { contains: "har fått", tip: "Formeel: erhålla (har erhållit)." }] }
+          - { id: zvtp, type: translate, prompt: "Vertaal **formeel** (brief van de gemeente): Uw aanvraag moet uiterlijk 15 mei bij ons binnen zijn, anders kunnen wij die helaas niet behandelen.", answers: ["{Er|Din} ansökan {ska|måste} ha {inkommit|kommit in}[ till oss] senast [den ]15 maj, annars kan vi tyvärr inte behandla den.", "{Er|Din} ansökan {ska|måste} ha {inkommit|kommit in}[ till oss] senast [den ]15 maj, annars kan den tyvärr inte behandlas."], feedback: [{ contains: "vara inne", tip: "Goed Zweeds, maar neutraal of spreektaal. Formeel: ska ha inkommit." }, { contains: "kan vi inte tyvärr", tip: "tyvärr staat vóór inte: kan vi tyvärr inte." }] }
+          - { id: snd3, type: translate, prompt: "Vertaal **formeel** (mail aan een klant): Wij bieden onze excuses aan voor de vertraging en komen zo snel mogelijk bij u terug.", answers: ["Vi ber [{er|dig} ]om ursäkt för {förseningen|dröjsmålet} och återkommer [till {dig|er} ]{så snart som möjligt|så snart vi kan|snarast|snarast möjligt}."], feedback: [{ contains: "säger förlåt", tip: "Te informeel. Formeel: Vi ber om ursäkt." }, { contains: "sorry", tip: "Te informeel. Formeel: Vi ber om ursäkt." }] }
+          - { id: 5r43, type: translate, prompt: "Vertaal **formeel** (bericht van de school): Wij delen u mee dat de school morgen gesloten is vanwege de storm.", answers: ["Vi {vill meddela|meddelar} [{er|dig} ]att skolan {är stängd|kommer att vara stängd|håller stängt} {i morgon|imorgon} {på grund av|med anledning av} stormen.", "Härmed meddelar vi [{er|dig} ]att skolan {är stängd|kommer att vara stängd|håller stängt} {i morgon|imorgon} {på grund av|med anledning av} stormen.", "Vi vill informera [{er|dig} ]om att skolan {är stängd|kommer att vara stängd|håller stängt} {i morgon|imorgon} {på grund av|med anledning av} stormen."], feedback: [{ contains: "vi säger", tip: "Formeel: meddela in plaats van säga." }] }
+          - { id: xvh3, type: translate, prompt: "Vertaal **informeel** (sms aan een vriendin), met *sjukt* en *typ*: Het feest gisteren was echt hartstikke leuk, we hebben zo'n beetje tot drie uur 's nachts gedanst.", answers: ["Festen {i går|igår} var sjukt {kul|rolig}, vi {dansade|har dansat} {typ till tre|till typ tre}[ på natten]."], feedback: [{ contains: "festet", tip: "fest is een en-woord: festen." }] }
+          - { id: bf8f, type: translate, prompt: "Vertaal **formeel** (verslag): Het doel van dit onderzoek is na te gaan hoe jongeren tegenwoordig schrijven.", answers: ["Syftet med denna {studie|undersökning} är att {undersöka|ta reda på|kartlägga} hur {unga|ungdomar|unga människor} {nuförtiden|numera|i dag} skriver.", "Syftet med denna {studie|undersökning} är att {undersöka|ta reda på|kartlägga} hur {unga|ungdomar|unga människor} skriver {nuförtiden|numera|i dag}."], feedback: [{ contains: ["denna studien", "denna undersökningen"], tip: "Na denna: de onbepaalde vorm, denna studie." }, { contains: ["den här studien", "den här undersökningen"], tip: "Goed Zweeds, maar neutraal. Formeel: denna studie." }, { contains: ["med studien", "med undersökningen"], tip: "Goed Zweeds, maar er staat *dit* onderzoek: formeel *syftet med denna studie*." }, { contains: ["syftet av", "syftet för"], tip: "Het doel van: syftet med." }, { contains: "hur skriver", tip: "Een indirecte vraag: onderwerp, dan werkwoord (hur unga skriver)." }] }
+          - { id: evff, type: translate, prompt: "Vertaal **formeel** (reactie op kritiek): Wij erkennen dat de kritiek op ons voorstel gedeeltelijk terecht is.", answers: ["Vi {erkänner|medger} att kritiken {mot|av|på} vårt förslag {delvis är|är delvis} {befogad|berättigad}."], feedback: [{ contains: ["befogat", "berättigat"], tip: "kritik is een en-woord: befogad." }] }
+
+      - id: register-ordenen
+        title: Formele zinnen bouwen
+        instruction: Zet de woorden in de goede volgorde. Het resultaat is een **formele** zin.
+        topic: register
+        items:
+          - { id: xhub, type: order, start: "Vi ber er vänligen", tokens: ["att", "kontakta", "kundtjänst", "om", "ni", "har", "ytterligare", "frågor", "om", "er", "bokning"], answers: ["Vi ber er vänligen att kontakta kundtjänst om ni har ytterligare frågor om er bokning.", "Vi ber er vänligen att kontakta kundtjänst om er bokning om ni har ytterligare frågor."] }
+          - { id: adbe, type: order, start: "Ansökan", tokens: ["ska", "ha", "inkommit", "till", "kommunen", "senast", "den", "30", "april", "för", "att", "kunna", "behandlas"], answers: ["Ansökan ska ha inkommit till kommunen senast den 30 april för att kunna behandlas.", "Ansökan ska ha inkommit senast den 30 april till kommunen för att kunna behandlas."] }
+
+  - id: idiom
+    title: "Grammatik: uitdrukkingen"
+    exercises:
+      - id: idiom-kiezen
+        title: Welke uitdrukking past?
+        instruction: Kies de uitdrukking die past.
+        topic: idiom
+        shuffle: true
+        items:
+          - { id: 3p7z, type: mc, prompt: "*Förlåt, jag blir tio minuter sen!* – *___ Vi väntar.*", options: ["Det är ingen ko på isen.", "Kasta yxan i sjön!", "Inte för allt smör i Småland!", "Jag anar ugglor i mossen."], answer: 0 }
+          - { id: 6ycw, type: mc, prompt: "*Han fick jobbet tack vare sin pappa. Han ___.*", options: ["gled in på en räkmacka", "kastade yxan i sjön", "hade is i magen", "gick som katten kring het gröt"], answer: 0 }
+          - { id: fdmj, type: mc, prompt: "*Skulle du hoppa fallskärm? – ___!*", options: ["Aldrig, inte för allt smör i Småland", "Ja, det är ingen ko på isen", "Jag har is i magen", "Jag tar det med en nypa salt"], answer: 0 }
+          - { id: fcp5, type: mc, prompt: "*Hon var lugn under hela intervjun. Hon ___.*", options: ["hade is i magen", "fick skägg i brevlådan", "gled in på en räkmacka", "anade ugglor i mossen"], answer: 0 }
+          - { id: naeq, type: mc, prompt: "*Säg vad du menar, i stället för att ___!*", options: ["gå som katten kring het gröt", "ha is i magen", "kasta yxan i sjön", "glida in på en räkmacka"], answer: 0 }
+          - { id: bhv6, type: mc, prompt: "*Det var svårt, men vi ___. Vi fortsatte.*", options: ["kastade inte yxan i sjön", "hade inte is i magen", "anade inte ugglor i mossen", "tog det inte med en nypa salt"], answer: 0, tip: "Ze gaven niet op: de bijl niet in het meer gooien." }
+          - { id: 5k2j, type: mc, prompt: "*Jag tror inte på allt han säger. Jag ___.*", options: ["tar det med en nypa salt", "har is i magen", "går som katten kring het gröt", "kastar yxan i sjön"], answer: 0 }
+          - { id: 3gfw, type: mc, prompt: "*Något är konstigt här. Jag ___.*", options: ["anar ugglor i mossen", "glider in på en räkmacka", "har is i magen", "kastar yxan i sjön"], answer: 0 }
+
+      - id: idiom-vertalen
+        title: Uitdrukkingen vertalen
+        instruction: Vertaal naar het Zweeds (neutraal register). Gebruik de Zweedse uitdrukking, niet een letterlijke vertaling.
+        topic: idiom
+        items:
+          - { id: jqgh, type: translate, prompt: "Doe rustig aan, er is geen haast: de vergadering begint pas om drie uur. (uitdrukking met *ko*)", answers: ["Ta det lugnt, det är ingen ko på isen, mötet börjar {inte förrän|först} {klockan tre|klockan 15|kl. 15|tre}."], feedback: [{ contains: "ingen koe", tip: "ko = koe, zonder e." }] }
+          - { id: 9e7y, type: translate, prompt: "We mogen de handdoek niet in de ring gooien, ook al zijn de eerste resultaten slecht.", answers: ["Vi får inte kasta yxan i sjön, {även om|fast|fastän|trots att} de första resultaten är dåliga.", "{Även om|Fast|Fastän|Trots att} de första resultaten är dåliga[,] får vi inte kasta yxan i sjön."], feedback: [{ contains: "handduken", tip: "In deze oefening: de Zweedse uitdrukking kasta yxan i sjön (de bijl in het meer)." }, { contains: "dåliga vi får", tip: "Na een bijzin vooraan komt eerst het werkwoord: …, får vi inte …" }] }
+          - { id: 2sc7, type: translate, prompt: "Voor geen goud zou ik spreektaal gebruiken in een formele sollicitatie (jobbansökan).", answers: ["Inte för allt smör i Småland skulle jag använda {talspråk|vardagsspråk|slang} i en formell jobbansökan.", "Jag skulle inte använda {talspråk|vardagsspråk|slang} i en formell jobbansökan för allt smör i Småland."], feedback: [{ contains: "småland jag skulle", tip: "Na het zinsdeel vooraan komt eerst het werkwoord: … skulle jag använda." }, { contains: "ett formell", tip: "jobbansökan is een en-woord: en formell jobbansökan." }] }
+          - { id: jbjb, type: translate, prompt: "Hoewel de vragen moeilijk waren, bleef hij kalm tijdens het hele sollicitatiegesprek. (uitdrukking met *is*)", answers: ["{Trots att|Fast|Fastän|Även om} frågorna var svåra[,] hade han is i magen [under ]hela {anställningsintervjun|intervjun|arbetsintervjun|jobbintervjun}.", "Han hade is i magen [under ]hela {anställningsintervjun|intervjun|arbetsintervjun|jobbintervjun}[,] {trots att|fast|fastän|även om} frågorna var svåra."], feedback: [{ contains: "svåra han hade", tip: "Na een bijzin vooraan komt eerst het werkwoord: …, hade han is i magen." }] }
+
+      - id: idiom-ordenen
+        title: Uitdrukkingen in een zin
+        instruction: Zet de woorden in de goede volgorde.
+        topic: idiom
+        items:
+          - { id: tauq, type: order, start: "När chefen plötsligt slutade svara på mejlen", tokens: ["började", "hon", "ana", "ugglor", "i", "mossen"], answers: ["När chefen plötsligt slutade svara på mejlen började hon ana ugglor i mossen."], feedback: [{ contains: "mejlen hon började", tip: "Na een bijzin vooraan komt eerst het werkwoord: … började hon." }] }
+          - { id: ntsn, type: order, start: "I stället för att", tokens: ["gå", "som", "katten", "kring", "het", "gröt", "borde", "du", "säga", "vad", "du", "menar"], answers: ["I stället för att gå som katten kring het gröt borde du säga vad du menar."], feedback: [{ contains: "gröt du borde", tip: "Na het zinsdeel vooraan komt eerst het werkwoord: … borde du säga." }] }
+          - { id: t2w8, type: gap, prompt: "Maak de uitdrukking af.", text: "Han fick jobbet utan att ens gå på en intervju: han gled in på en ___.", gaps: [{ answers: ["räkmacka"], options: ["räkmacka", "smörgås", "kanelbulle"], shuffle: false }] }
+          - { id: dayr, type: gap, prompt: "Maak de uitdrukking af.", text: "Man ska ta det han skriver på sociala medier med en nypa ___, eftersom han ofta överdriver.", gaps: [{ answers: ["salt"], options: ["salt", "socker", "peppar"], shuffle: false }] }
+
+      - id: langere-zinnen
+        title: "Vertaal: langere zinnen"
+        instruction: Vertaal de hele zin. Let op de woordvolgorde in de bijzin en na een woord vooraan.
+        items:
+          - { id: pnjt, type: translate, topic: register, prompt: "Neem uiterlijk vrijdag contact op als u vragen heeft over uw zaak of over de kosten.", answers: ["Vänligen kontakta oss senast på fredag om du har några frågor om ditt ärende eller om kostnaderna.", "[Vänligen ]{kontakta oss|hör av dig|hör av er|återkom} senast [på ]fredag om {du|ni} har [några ]frågor om {ditt|ert} ärende eller [om ]{kostnaderna|avgiften}."], feedback: [{ contains: "vänligen kontaktar", tip: "Een verzoek: de gebiedende wijs (kontakta)." }] }
+          - { id: 4hvj, type: translate, topic: idiom, prompt: "Het maakt niet uit of je dialect spreekt, als je maar duidelijk en niet te snel praat.", answers: ["Det spelar ingen roll om du pratar dialekt, bara du talar tydligt och inte för fort.", "Det spelar {ingen|inte någon} roll om du {pratar|talar} dialekt, {bara|så länge} du {pratar|talar} tydligt och inte för {fort|snabbt}."], feedback: [{ contains: "spelar inte roll", tip: "Het maakt niet uit: det spelar ingen roll." }] }
+          - { id: s94f, type: translate, topic: register, prompt: "Ze woont al tien jaar in Zweden en spreekt vloeiend Zweeds, maar met een licht accent.", answers: ["Hon har bott i Sverige i tio år och talar flytande svenska, men med en lätt brytning.", "Hon har bott i Sverige i tio år och {talar|pratar} flytande svenska, men med [en ]{lätt|svag} {brytning|accent}."], feedback: [{ contains: "bott i Sverige för tio år", tip: "Al tien jaar: i tio år." }] }
+          - { id: 9ru5, type: translate, topic: register, prompt: "Ik kijk er echt naar uit om je te zien, dus laat iets van je horen als je weer in de stad bent.", answers: ["Jag ser verkligen fram emot att träffa dig, så hör av dig när du är tillbaka i stan.", "Jag ser verkligen fram emot att {träffa|se} dig, så hör av dig när du är tillbaka i {stan|staden}."], feedback: [{ contains: "fram emot att träffar", tip: "Na att: de infinitief (träffa)." }] }
+          - { id: e4nd, type: translate, topic: idiom, prompt: "Je moet alles wat in de roddelkranten staat met een korreltje zout nemen, vindt mijn leraar Zweeds.", answers: ["Man ska ta allt som står i kvällstidningarna med en nypa salt, tycker min svensklärare.", "Man {ska|bör|måste} ta allt som står i kvällstidningarna med en nypa salt, {tycker|menar|anser} min {svensklärare|lärare i svenska|svenska lärare}."], feedback: [{ contains: "med ett nypa salt", tip: "nypa is een en-woord: en nypa salt." }] }
+          - { id: zvhj, type: translate, topic: register, prompt: "Als je een woord niet begrijpt, kun je het in het woordenboek opzoeken of een collega vragen.", answers: ["Om du inte förstår ett ord kan du slå upp det i ordboken eller fråga en kollega.", "Om du inte förstår ett ord[,] kan du slå upp det i {ordboken|en ordbok} eller fråga en kollega."], feedback: [{ contains: "om du förstår inte", tip: "In een bijzin staat inte vóór het werkwoord: om du inte förstår." }] }
+          - { id: nrwz, type: translate, topic: register, prompt: "Volgens een onderzoek dat onlangs werd gepubliceerd, gebruiken Zweedse jongeren steeds meer Engelse woorden.", answers: ["Enligt en {studie|undersökning} som {nyligen publicerades|publicerades nyligen} använder svenska {ungdomar|unga} {allt fler|fler och fler} engelska ord.", "Enligt en nyligen publicerad {studie|undersökning} använder svenska {ungdomar|unga} {allt fler|fler och fler} engelska ord.", "Enligt en {studie|undersökning} som {nyligen har publicerats|har publicerats nyligen} använder svenska {ungdomar|unga} {allt fler|fler och fler} engelska ord."], feedback: [{ contains: ["publicerades svenska", "publicerats svenska", "studie svenska", "undersökning svenska"], tip: "Het hele zinsdeel met enligt staat vooraan: daarna meteen het werkwoord (använder svenska ungdomar)." }, { contains: "som nyligen publicerade", tip: "Werd gepubliceerd: lijdend, som publicerades." }] }
+          - { id: rwr6, type: translate, topic: sambandsord, prompt: "Dialecten verdwijnen niet; integendeel, steeds meer jongeren zijn trots op hun dialect.", answers: ["{Dialekterna|Dialekter} försvinner inte[,] tvärtom är {allt fler|fler och fler} {unga|ungdomar} stolta över {sin dialekt|sina dialekter}."], feedback: [{ contains: ["tvärtom allt", "tvärtom fler"], tip: "Na tvärtom vooraan: werkwoord eerst (tvärtom är allt fler unga …)." }, { contains: "sitt dialekt", tip: "dialekt is een en-woord: sin dialekt." }, { contains: "deras dialekt", tip: "Hun eigen dialect (van het onderwerp): sin dialekt." }] }
+          - { id: 7yvr, type: translate, topic: argumentation, prompt: "Ze wilde geen bakzeil halen, hoewel ze wist dat haar argument niet klopte.", answers: ["Hon ville inte {ge med sig|ge sig}, {fast|fastän|trots att|även om} hon visste att hennes argument inte {höll|stämde}."], feedback: [{ contains: "sitt argument", tip: "hennes argument is het onderwerp van de bijzin: daar gebruik je geen sitt." }, { contains: ["argument höll inte", "argument stämde inte"], tip: "In een bijzin staat inte vóór het werkwoord: att hennes argument inte höll." }] }
+          - { id: rxb9, type: translate, topic: register, prompt: "In het debat over taal wordt vaak beweerd dat jongeren slechter schrijven dan vroeger.", answers: ["I {debatten om språket|debatten om språk|språkdebatten} {hävdas|påstås|sägs} [det ]ofta att {unga|ungdomar} skriver sämre än {förr|tidigare|förr i tiden}.", "I {debatten om språket|debatten om språk|språkdebatten} {hävdar|påstår|säger} {man|många} ofta att {unga|ungdomar} skriver sämre än {förr|tidigare|förr i tiden}."], feedback: [{ contains: ["språket det", "språk det", "språket man", "språk man", "språket många", "språk många"], tip: "Begint de zin met I debatten om språket, dan komt meteen het werkwoord: … hävdas det ofta." }, { contains: "sämre som", tip: "Na een vergrotende trap: än." }] }
+
+  - id: zoek-de-fout
+    title: Zoek de fout
+    exercises:
+      - id: zoek-de-fout
+        title: Zoek de fout
+        instruction: Klik op het woord dat niet klopt en verbeter de zin.
+        topic: register
+        shuffle: true
+        items:
+          - { id: 8uhd, type: findError, sentence: "Jag träffade de i går.", wrong: [2], answers: ["Jag träffade dem {i går|igår}."], tip: "Jag träffade oss → ?" }
+          - { id: yak9, type: findError, sentence: "Dem kommer i morgon.", wrong: [0], answers: ["De kommer {i morgon|imorgon}."], tip: "Vi kommer → ?" }
+          - { id: qrjc, type: findError, sentence: "Vi har erhållit din ansökan och den är fett bra.", wrong: [8], answers: ["Vi har erhållit din ansökan och den är mycket bra."], tip: "Past dit woord in een formele brief?" }
+          - { id: s862, type: findError, topic: idiom, sentence: "Det är ingen häst på isen.", wrong: [3], answers: ["Det är ingen ko på isen."], tip: "Welk dier staat er op het ijs?" }
+          - { id: 9hwv, type: findError, topic: idiom, sentence: "Hon hade eld i magen under intervjun.", wrong: [2], answers: ["Hon hade is i magen under intervjun."], tip: "Kalm blijven: … i magen." }
+          - { id: y55t, type: findError, sentence: "Härmed bekräftar vi er bokning och ser fett mycket fram emot ert besök i juni.", wrong: [7], answers: ["Härmed bekräftar vi er bokning och ser mycket fram emot ert besök i juni.", "Härmed bekräftar vi er bokning och ser fram emot ert besök i juni.", "Härmed bekräftar vi er bokning och ser verkligen fram emot ert besök i juni."], tip: "Dit is een formele bevestiging. Welk woord is spreektaal?" }
+          - { id: etaf, type: findError, sentence: "Jag frågade de om de ville följa med på konserten i Göteborg på lördag.", wrong: [2], answers: ["Jag frågade dem om de ville följa med på konserten i Göteborg på lördag."], tip: "Jag frågade oss → ?" }
+          - { id: d2hf, type: findError, sentence: "Dem som vill delta i kursen ska anmäla sig senast på fredag.", wrong: [0], answers: ["De som vill delta i kursen ska anmäla sig senast på fredag."], tip: "Onderwerp: kun je hier vi zeggen (vi som vill delta)?" }
+          - { id: 8uvb, type: findError, topic: idiom, sentence: "Det är för tidigt att kasta handduken i sjön, vi har fortfarande två matcher kvar.", wrong: [6], answers: ["Det är för tidigt att kasta yxan i sjön, vi har fortfarande två matcher kvar."], tip: "Wat gooi je in het Zweeds in het meer?" }
+          - { id: pa3s, type: findError, topic: idiom, sentence: "Han gick som hunden kring het gröt i stället för att svara på frågan.", wrong: [3], answers: ["Han gick som katten kring het gröt {i stället|istället} för att svara på frågan."], tip: "Welk dier loopt om de hete pap?" }
+
+  - id: lyssna
+    title: Lyssna · luisteren
+    exercises:
+      - id: lyssna-de-dem
+        title: "Luisteren: de, dem of dom?"
+        instruction: Luister naar de taaltip. Is de bewering **rätt** of **fel**?
+        topic: register
+        listen: true
+        textTitle: Språktipset
+        text: |
+          Veckans språktips handlar om de och dem. Många svenskar uttalar båda orden som ”dom”, och därför är det svårt att veta vilken form man ska skriva.
+
+          Ett enkelt knep: byt ut ordet mot vi eller oss. Om du kan säga vi, ska du skriva de. Om du kan säga oss, ska du skriva dem. Alltså: de kommer i morgon, men jag träffade dem i går.
+
+          Vissa har föreslagit att man ska skriva dom i alla lägen, men än så länge är det inte standard i formell text.
+        items:
+          - { id: 7y7p, type: truefalse, statement: "Många svenskar uttalar både de och dem som dom.", answer: true }
+          - { id: 69zt, type: truefalse, statement: "Om man kan säga oss, ska man skriva de.", answer: false, correction: { answers: ["Om man kan säga oss[,] ska man skriva dem."] } }
+          - { id: yv8g, type: truefalse, statement: "Dom är standard i formell text.", answer: false, correction: { answers: ["Dom är inte standard i formell text[ än så länge].", "Det är inte standard[ i formell text]."] } }
+
+      - id: lyssna-dictee
+        title: Dictee
+        instruction: Luister en maak de zin die je hoort.
+        topic: idiom
+        shuffle: true
+        items:
+          - { id: gwy5, type: listen, say: "Det är ingen ko på isen." }
+          - { id: d7mf, type: listen, say: "Jag träffade dem i går.", answers: ["Jag träffade dem {i går|igår}."] }
+          - { id: 2n34, type: listen, say: "Hon hade is i magen under hela intervjun." }
+          - { id: xb5t, type: listen, say: "Vi har erhållit din ansökan." }
+
+  - id: praktiskt
+    title: Praktiskt · het juiste register kiezen
+    exercises:
+      - id: register-situaties
+        title: Wat schrijf je?
+        instruction: Kies wat past in de situatie.
+        topic: register
+        shuffle: true
+        items:
+          - { id: xcct, type: mc, prompt: "Je beantwoordt de mail van een klant.", options: ["Hej! Tack för ditt mejl. Jag återkommer så snart som möjligt.", "Tja! Fett kul att du hörde av dig!", "Ses sen, len!", "Ok."], answer: 0 }
+          - { id: fjfv, type: mc, prompt: "Je stuurt een berichtje aan een goede vriend.", options: ["Tja! Ska vi ses i helgen?", "Bästa vän, härmed föreslår jag ett möte.", "Vi ber dig vänligen att återkomma.", "Med vänlig hälsning, din vän"], answer: 0 }
+          - { id: 55t6, type: mc, prompt: "Je schrijft aan een gemeente.", options: ["Hej! Jag skulle vilja veta när ansökan ska vara inne.", "Yo, när ska grejen vara klar?", "Tja kommunen!", "Kram och hörs!"], answer: 0 }
+          - { id: 9qbz, type: mc, prompt: "Je sluit een formele mail af.", options: ["Med vänlig hälsning", "Kram!", "Ses!", "Hörs, mvh typ"], answer: 0 }
+
+      - id: wat-zeg-je-zelf
+        title: Wat zeg je? (zelf)
+        instruction: Zeg het nu zelf in het Zweeds. Er is vaak meer dan één goed antwoord.
+        kind: situatie
+        items:
+          - { id: u4z3, type: translate, topic: register, prompt: "Schrijf formeel: neem contact met ons op als u vragen heeft.", answers: ["[Vänligen ]kontakta oss [gärna ]om {du|ni} har [några ]frågor.", "Tveka inte att kontakta oss om {du|ni} har [några ]frågor."] }
+          - { id: hwr2, type: translate, topic: idiom, prompt: "Zeg dat het niet uitmaakt.", answers: ["Det spelar ingen roll.", "Det kvittar."] }
+          - { id: yyjw, type: translate, topic: register, prompt: "Neem informeel afscheid van een vriend.", answers: ["{Hej då|Hej hej|Vi ses|Vi hörs|Ses|Hörs|Ha det bra|Ha det}."] }
+          - { id: sw84, type: translate, topic: idiom, prompt: "Zeg dat je erg uitkijkt naar de vakantie.", answers: ["Jag ser [verkligen ]fram emot semestern.", "Jag längtar [jättemycket ]till semestern.", "Jag längtar verkligen till semestern."] }
+
+  - id: skriva
+    title: Skriva · schrijven
+    intro: "Schrijfdoel: dezelfde boodschap formeel en informeel."
+    exercises:
+      - id: skriva-betoog
+        title: Betoog in stappen
+        instruction: "Bouw een betoog voor een debattartikel op in vier delen: tes, argumenten, motargument met bemötande en slutsats. De app kijkt elke stap na. Daarna schrijf je het hele betoog, als je wilt."
+        topic: argumentation
+        items:
+          - id: ggwb
+            type: steps
+            topic: register
+            steps:
+              - { type: mc, prompt: "**Tes.** Welke zin is een goede tes voor een debattartikel?", options: ["Jag anser att vi inte behöver vara rädda för engelska lånord i svenskan.", "Asså, engelska ord är typ helt okej, liksom.", "Svenskan har lånat ord från tyska, franska och engelska."], answer: 0, tip: "Een tes is een standpunt, en in een debattartikel schrijf je formeel. Asså, typ en liksom zijn spreektaal; de derde zin is een feit." }
+              - { type: order, topic: asikt, prompt: "**Tes.** Begin met *Enligt min mening*. Let op de woordvolgorde.", start: "Enligt min mening", tokens: ["är", "engelska", "lånord", "inget", "hot", "mot", "det", "svenska", "språket"], answers: ["Enligt min mening är engelska lånord inget hot mot det svenska språket."], feedback: [{ contains: "enligt min mening engelska lånord är", tip: "Enligt min mening is een zinsdeel: daarna komt meteen het werkwoord (Enligt min mening är …)." }] }
+          - id: u3ed
+            type: steps
+            topic: argumentation
+            steps:
+              - { type: gap, prompt: "**Argument 1.** Kies het signaalwoord.", text: "___ har svenskan alltid lånat ord från andra språk, till exempel från tyska och franska.", gaps: [{ answers: ["För det första"], options: ["För det första", "Å andra sidan", "Kort sagt"], tip: "Je eerste argument kondig je aan met för det första. Kort sagt hoort bij de slutsats." }] }
+              - { type: order, prompt: "**Argument 2.** Begin met *Dessutom*. Let op de woordvolgorde.", start: "Dessutom", tokens: ["blir", "många", "lånord", "med", "tiden", "en", "naturlig", "del", "av", "svenskan"], answers: ["Dessutom blir många lånord med tiden en naturlig del av svenskan.", "Dessutom blir många lånord en naturlig del av svenskan med tiden."], feedback: [{ contains: "dessutom många lånord blir", tip: "dessutom vooraan is een zinsdeel: daarna komt meteen het werkwoord (Dessutom blir …)." }] }
+              - { type: gap, topic: sambandsord, prompt: "**Argument 3.** Kies het woord dat past.", text: "Många engelska ord får svensk stavning och böjning, ___ de ofta används i vardagen.", gaps: [{ answers: ["eftersom"], options: ["eftersom", "därför", "trots att"], tip: "Je geeft de reden: eftersom. Na därför zou het werkwoord direct volgen, en trots att (hoewel) past niet bij de betekenis." }] }
+          - id: 8dd6
+            type: steps
+            topic: argumentation
+            steps:
+              - { type: mc, prompt: "**Motargument.** Welke zin geeft weer wat de andere kant vindt?", options: ["Kritiker menar att svenskan håller på att tappa mark mot engelskan.", "Enligt min mening är lånord inget hot mot svenskan.", "Kort sagt är svenskan ett levande språk."], answer: 0, tip: "Een motargument is wat anderen vinden: Kritiker menar att … of Vissa hävdar att …" }
+              - { type: order, prompt: "**Bemötande.** Geef eerst toe, zet er dan iets tegenover.", start: "Det stämmer att engelskan dominerar inom forskningen,", tokens: ["men", "i", "vardagen", "talar", "de", "flesta", "fortfarande", "svenska"], answers: ["Det stämmer att engelskan dominerar inom forskningen, men i vardagen talar de flesta fortfarande svenska.", "Det stämmer att engelskan dominerar inom forskningen, men de flesta talar fortfarande svenska i vardagen."], feedback: [{ contains: "men i vardagen de flesta talar", tip: "i vardagen vooraan in de hoofdzin na men: daarna komt meteen het werkwoord (i vardagen talar de flesta …)." }] }
+              - { type: gap, topic: idiom, prompt: "**Bemötande.** Maak de uitdrukking af.", text: "Varningarna för att svenskan ska dö ut bör man ta med en nypa ___.", gaps: [{ answers: ["salt"], options: ["salt", "socker", "peppar"], tip: "ta något med en nypa salt = iets met een korreltje zout nemen." }] }
+          - id: fcfv
+            type: steps
+            topic: argumentation
+            steps:
+              - { type: gap, prompt: "**Slutsats.** Je sluit af. Kies het signaalwoord.", text: "___ är svenskan ett levande språk som utan problem kan ta upp nya ord.", gaps: [{ answers: ["Sammanfattningsvis"], options: ["Sammanfattningsvis", "Visserligen", "För det första"], tip: "Een slutsats begin je met sammanfattningsvis of därför." }] }
+              - { type: order, topic: register, prompt: "**Slutsats.** Maak de formele slotzin. Begin met *Därför*.", start: "Därför", tokens: ["finns", "det", "ingen", "anledning", "att", "oroa", "sig", "för", "engelska", "lånord"], answers: ["Därför finns det ingen anledning att oroa sig för engelska lånord."], feedback: [{ contains: "därför det finns", tip: "därför vooraan is een zinsdeel: daarna komt meteen het werkwoord (Därför finns det …)." }] }
+          - id: 6vak
+            type: free
+            prompt: "Schrijf nu het hele betoog (100–150 woorden) als formele debattartikel over de stelling *Vi behöver inte vara rädda för engelska lånord*, of kies zelf een stelling over taal. Gebruik de vier delen: tes, twee of drie argumenten, een motargument met bemötande en een slutsats. Schrijf formeel, zonder spreektaal."
+            minWords: 90
+            require:
+              - { any: ["anser", "enligt min mening", "menar"], label: "Je geeft je tes" }
+              - { any: ["för det första", "dessutom", "eftersom"], label: "Je ordent je argumenten (för det första, dessutom, eftersom)" }
+              - { any: ["visserligen", "det stämmer att", "trots att", "å andra sidan"], label: "Je bemöter een motargument (det stämmer att … men, visserligen)" }
+              - { any: ["sammanfattningsvis", "därför", "kort sagt"], label: "Je sluit af met een slutsats" }
+            model: "Jag anser att vi inte behöver vara rädda för engelska lånord i svenskan. För det första har svenskan alltid lånat ord från andra språk, till exempel från tyska och franska. Dessutom blir många lånord med tiden en naturlig del av svenskan. Många engelska ord får svensk stavning och böjning, eftersom de ofta används i vardagen. Kritiker menar att svenskan håller på att tappa mark mot engelskan. Det stämmer att engelskan dominerar inom forskningen, men i vardagen talar de flesta fortfarande svenska. Varningarna för att svenskan ska dö ut bör man därför ta med en nypa salt. Sammanfattningsvis är svenskan ett levande språk som utan problem kan ta upp nya ord. Därför finns det ingen anledning att oroa sig för engelska lånord."
+
+      - id: skriva-tva-register
+        title: Twee keer hetzelfde
+        instruction: "Bouw eerst je twee berichten op in vier stappen die de app nakijkt. Daarna schrijf je ze allebei, als je wilt."
+        topic: register
+        items:
+          - { id: tauw, type: mc, prompt: "Welke zin past in de formele mail aan een klant?", options: ["Tyvärr måste jag ställa in vårt möte i morgon.", "Sorry, kan inte komma i morgon!", "Tja, mötet blir inte av."], answer: 0, tip: "Formeel: volledige zinnen en tyvärr. Sorry en tja zijn informeel." }
+          - { id: j4ef, type: mc, prompt: "Welke zin past in het sms'je aan je vriend Erik?", options: ["Sorry, är sjuk, så det blir ingen fika i morgon.", "Jag ber om ursäkt för det korta varslet.", "Tyvärr måste jag meddela att jag är förhindrad."], answer: 0, tip: "Een sms'je aan een vriend is kort en informeel, en mag zonder onderwerp beginnen (är sjuk)." }
+          - { id: wtf5, type: gap, prompt: "Kies het woord dat past in de formele mail.", text: "Jag ber om ___ för det korta varslet.", gaps: [{ answers: ["ursäkt"], options: ["ursäkt", "förlåt", "sorry"], tip: "excuses aanbieden = be om ursäkt." }] }
+          - { id: 2cae, type: translate, prompt: "Zou het passen om in plaats daarvan dinsdag af te spreken?", answers: ["Skulle det passa att {i stället|istället} {ses|träffas} på tisdag?", "Skulle det passa att {ses|träffas} på tisdag {i stället|istället}?", "Skulle det passa om vi {i stället|istället} {ses|träffas} på tisdag?", "Skulle det passa om vi {ses|träffas} på tisdag {i stället|istället}?"] }
+          - id: 76wd
+            type: free
+            prompt: "Je moet een afspraak voor morgen afzeggen omdat je ziek bent. Schrijf (1) een korte, formele mail aan een klant (40–60 woorden) en (2) een sms'je aan een vriend (15–30 woorden). Gebruik in de mail *tyvärr* en een nieuwe datum, in het sms'je informele woorden."
+            minWords: 60
+            require:
+              - { any: ["tyvärr"], label: "Je gebruikt tyvärr (in de mail)" }
+              - { any: ["hälsning", "hälsningar"], label: "De mail sluit formeel af" }
+              - { any: ["tja", "hej hej", "kram", "hörs", "ses"], label: "Het sms'je is informeel (tja, kram, hörs …)" }
+              - { any: ["ny tid", "boka om", "i stället", "nästa vecka"], label: "Je stelt een nieuwe afspraak voor" }
+            model: "1) Hej Anna! Tyvärr måste jag ställa in vårt möte i morgon, eftersom jag har blivit sjuk. Jag ber om ursäkt för det korta varslet. Skulle det passa att i stället ses på tisdag nästa vecka klockan tio? Med vänlig hälsning, Lars Jansen. 2) Tja Erik! Sorry, är sjuk, så det blir ingen fika i morgon. Ses nästa vecka i stället? Kram!"
+
+  - id: herhaling
+    title: Herhaling
+    exercises:
+      - id: herhaling-b2-28
+        title: Door elkaar
+        instruction: Gemengde vragen.
+        shuffle: true
+        items:
+          - { id: y243, type: gap, topic: nagon-ingen, text: "Jag har inte sett ___ (nån) här.", gaps: [{ answers: ["någon"] }] }
+          - { id: dhnd, type: gap, topic: man-en-ens, text: "Det är skönt när ___ vänner förstår en.", gaps: [{ answers: ["ens"], options: ["man", "en", "ens"], shuffle: false }] }
+          - { id: vn5h, type: gap, topic: nominalisering, text: "meddela → ___", gaps: [{ answers: ["ett meddelande"] }] }
+          - { id: 6bty, type: transform, topic: utbrytning, prompt: "**Dialekterna** gör svenskan rik.", answers: ["Det är dialekterna som gör svenskan rik."] }
+          - { id: n8ey, type: gap, topic: argumentation, text: "___ låter förortssvenska annorlunda, ___ grammatiken är densamma.", gaps: [{ answers: ["Visserligen"], options: ["Visserligen", "Därför"], shuffle: false }, { answers: ["men"], options: ["men", "utan"], shuffle: false }] }
+          - { id: d7vp, type: gap, topic: register, text: "Har du pratat med ___?", gaps: [{ answers: ["dem"], options: ["de", "dem"], shuffle: false }] }
+          - { id: 6mam, type: gap, topic: register, text: "___ meddela oss om du inte kan komma på intervjun.", gaps: [{ answers: ["Vänligen"], options: ["Vänligen", "Tja", "Asså"], shuffle: false }] }
+          - { id: g5fg, type: gap, topic: idiom, text: "Det är ingen ___ på isen, vi har gott om tid.", gaps: [{ answers: ["ko"] }] }
+          - { id: apk2, type: transform, topic: utbrytning, task: "Leg de nadruk op het vetgedrukte deel, met det är … som.", prompt: "**Ungdomarna** förändrar språket snabbast.", answers: ["Det är ungdomarna som förändrar språket snabbast."] }
+          - { id: 4xaz, type: gap, topic: nominalisering, text: "förändra → en ___", gaps: [{ answers: ["förändring"] }] }
+
+      - id: herhaling-woorden
+        title: Woorden van eerder
+        instruction: Kies het woord dat past. Deze woorden komen uit eerdere hoofdstukken.
+        topic: woordenschat
+        shuffle: true
+        items:
+          - { id: 7s23, type: gap, text: "I sin debattartikel driver hon ___ att skoldagen ska bli kortare.", gaps: [{ answers: ["tesen"], options: ["tesen", "repliken", "publiken", "motparten"], feedback: [{ match: "repliken", tip: "*replik* betekent „een repliek, een weerwoord”. Lees de zin nog eens: wat past hier?" }] }] }
+          - { id: vs7r, type: gap, text: "Debattledaren bad honom att inte ___ sin motpart.", gaps: [{ answers: ["avbryta"], options: ["avbryta", "motivera", "försvara", "invända"], feedback: [{ match: "motivera", tip: "*motivera* betekent „onderbouwen, motiveren”. Lees de zin nog eens: wat past hier?" }] }] }
+          - { id: pw7v, type: gap, text: "Hans påstående saknar ___, så det är svårt att ta det på allvar.", gaps: [{ answers: ["belägg"], options: ["belägg", "inlägg", "publik", "ståndpunkt"], feedback: [{ match: "inlägg", tip: "*inlägg* betekent „een bijdrage (in een debat), een post”. Lees de zin nog eens: wat past hier?" }] }] }
+          - { id: gsyp, type: gap, text: "Å ena sidan är förslaget dyrt, å ___ sidan kan det spara pengar på sikt.", gaps: [{ answers: ["andra"], options: ["andra", "ena", "samma", "hela"] }] }
+          - { id: fbtb, type: gap, text: "Argumenten måste vara ___, inte ensidiga eller orimliga.", gaps: [{ answers: ["sakliga"], options: ["sakliga", "kontroversiella", "närvarande", "ensidiga"], feedback: [{ match: "kontroversiella", tip: "*kontroversiell* betekent „omstreden”. Lees de zin nog eens: wat past hier?" }] }] }
+          - { id: 52d3, type: gap, text: "Elevrådet ___ beslutet om mobilförbud och krävde en omröstning.", gaps: [{ answers: ["ifrågasatte"], options: ["ifrågasatte", "motiverade", "avbröt", "invände"], feedback: [{ match: "motiverade", tip: "*motivera* betekent „onderbouwen, motiveren”. Lees de zin nog eens: wat past hier?" }] }] }
+
+vocab:
+  - { sv: "en dialekt", nl: "een dialect", def: "dialekten", pl: "dialekter", plDef: "dialekterna", ex: "Min mormor talar en bred skånsk **dialekt**.", exNl: "Mijn oma spreekt een breed dialect uit Skåne." }
+  - { sv: "ett modersmål", nl: "een moedertaal", def: "modersmålet", pl: "modersmål", plDef: "modersmålen", ex: "Mitt **modersmål** är nederländska, men jag drömmer på svenska.", exNl: "Mijn moedertaal is Nederlands, maar ik droom in het Zweeds." }
+  - { sv: "ett register", nl: "een register (taalgebruik)", def: "registret", pl: "register", plDef: "registren", ex: "I ett jobbmejl använder man ett mer formellt **register**.", exNl: "In een werkmail gebruik je een formeler register." }
+  - { sv: "en förort", nl: "een buitenwijk", def: "förorten", pl: "förorter", plDef: "förorterna", ex: "Han växte upp i en **förort** till Stockholm.", exNl: "Hij groeide op in een buitenwijk van Stockholm." }
+  - { sv: "ett minoritetsspråk", nl: "een minderheidstaal", def: "minoritetsspråket", pl: "minoritetsspråk", plDef: "minoritetsspråken", ex: "Samiska är ett av Sveriges fem nationella **minoritetsspråk**.", exNl: "Samisch is een van de vijf nationale minderheidstalen van Zweden." }
+  - { sv: "ett uttryck", nl: "een uitdrukking", def: "uttrycket", pl: "uttryck", plDef: "uttrycken", ex: "Vad betyder **uttrycket** 'ingen ko på isen'?", exNl: "Wat betekent de uitdrukking 'ingen ko på isen'?" }
+  - { sv: "ett uttal", nl: "een uitspraak", def: "uttalet", pl: "uttal", plDef: "uttalen", ex: "Hennes **uttal** är nästan perfekt efter bara ett år i Sverige.", exNl: "Haar uitspraak is na slechts een jaar in Zweden bijna perfect." }
+  - { sv: "en identitet", nl: "een identiteit", def: "identiteten", pl: "identiteter", plDef: "identiteterna", ex: "Språket är en viktig del av vår **identitet**.", exNl: "Taal is een belangrijk deel van onze identiteit." }
+  - { sv: "ett meddelande", nl: "een bericht", def: "meddelandet", pl: "meddelanden", plDef: "meddelandena", ex: "Jag fick ett **meddelande** från banken i morse.", exNl: "Ik kreeg vanochtend een bericht van de bank." }
+  - { sv: "att växla", nl: "wisselen", ex: "Många ungdomar **växlar** mellan svenska och engelska.", exNl: "Veel jongeren wisselen tussen Zweeds en Engels." }
+  - { sv: "att behärska", nl: "beheersen", ex: "Hon **behärskar** fyra språk, bland annat finska och arabiska.", exNl: "Ze beheerst vier talen, waaronder Fins en Arabisch." }
+  - { sv: "att uttala", nl: "uitspreken", ex: "Hur **uttalar** man det här ordet?", exNl: "Hoe spreek je dit woord uit?" }
+  - { sv: "att meddela", nl: "mededelen", ex: "Vi **meddelar** dig så snart beslutet är fattat.", exNl: "We delen het je mee zodra het besluit genomen is." }
+  - { sv: "att erhålla", nl: "ontvangen (formeel)", ex: "Du **erhåller** svar inom fem arbetsdagar.", exNl: "U ontvangt binnen vijf werkdagen antwoord." }
+  - { sv: "att återkomma", nl: "erop terugkomen", ex: "Vi **återkommer** med mer information senare.", exNl: "We komen later terug met meer informatie." }
+  - { sv: "oavsett", nl: "ongeacht", ex: "**Oavsett** var man kommer ifrån är svenska ett gemensamt språk.", exNl: "Ongeacht waar je vandaan komt, is Zweeds een gemeenschappelijke taal." }
+  - { sv: "likadant", nl: "hetzelfde, op dezelfde manier", ex: "Det ordet uttalas nästan **likadant** på norska.", exNl: "Dat woord wordt in het Noors bijna hetzelfde uitgesproken." }
+  - { sv: "dock", nl: "echter", ex: "Ansökan kom in i tid. Den var **dock** inte komplett.", exNl: "De aanvraag kwam op tijd binnen. Hij was echter niet volledig." }
+  - { sv: "således", nl: "dus (formeel)", ex: "Beslutet gäller **således** från och med i dag.", exNl: "Het besluit geldt dus vanaf vandaag." }
+  - { sv: "vänligen", nl: "gelieve (formeel verzoek)", ex: "**Vänligen** svara på detta mejl senast på fredag.", exNl: "Gelieve uiterlijk vrijdag op deze mail te antwoorden." }
+  - { sv: "en brytning", nl: "een accent (buitenlands)", def: "brytningen", pl: "brytningar", plDef: "brytningarna", ex: "Hon talar svenska med lätt holländsk **brytning**.", exNl: "Ze spreekt Zweeds met een licht Nederlands accent." }
+  - { sv: "en slang", nl: "slang (straattaal)", def: "slangen", mass: true, ex: "Tonåringar använder mycket **slang** när de chattar.", exNl: "Tieners gebruiken veel slang als ze chatten." }
+  - { sv: "ett lånord", nl: "een leenwoord", def: "lånordet", pl: "lånord", plDef: "lånorden", ex: "Svenskan har många **lånord** från engelskan.", exNl: "Het Zweeds heeft veel leenwoorden uit het Engels." }
+  - { sv: "ett talesätt", nl: "een gezegde", def: "talesättet", pl: "talesätt", plDef: "talesätten", ex: "Det finns ett gammalt **talesätt**: borta bra men hemma bäst.", exNl: "Er is een oud gezegde: oost west, thuis best." }
+  - { sv: "ett ordspråk", nl: "een spreekwoord", def: "ordspråket", pl: "ordspråk", plDef: "ordspråken", ex: "Kan du något bra svenskt **ordspråk** om väder?", exNl: "Ken jij een goed Zweeds spreekwoord over het weer?" }
+  - { sv: "ett ordförråd", nl: "een woordenschat", def: "ordförrådet", pl: "ordförråd", plDef: "ordförråden", ex: "Genom att läsa mycket får du ett större **ordförråd**.", exNl: "Door veel te lezen krijg je een grotere woordenschat." }
+  - { sv: "en grammatik", nl: "een grammatica", def: "grammatiken", pl: "grammatiker", plDef: "grammatikerna", ex: "Svensk **grammatik** är inte så svår som många tror.", exNl: "Zweedse grammatica is niet zo moeilijk als velen denken." }
+  - { sv: "en betydelse", nl: "een betekenis", def: "betydelsen", pl: "betydelser", plDef: "betydelserna", ex: "Ordet 'rolig' har olika **betydelser** i svenska och norska.", exNl: "Het woord 'rolig' heeft verschillende betekenissen in het Zweeds en het Noors." }
+  - { sv: "ett missförstånd", nl: "een misverstand", def: "missförståndet", pl: "missförstånd", plDef: "missförstånden", ex: "Det var bara ett **missförstånd**, inget att bråka om.", exNl: "Het was maar een misverstand, niets om ruzie over te maken." }
+  - { sv: "en översättning", nl: "een vertaling", def: "översättningen", pl: "översättningar", plDef: "översättningarna", ex: "**Översättningen** av boken är tyvärr ganska dålig.", exNl: "De vertaling van het boek is helaas vrij slecht." }
+  - { sv: "ett skriftspråk", nl: "een schrijftaal", def: "skriftspråket", pl: "skriftspråk", plDef: "skriftspråken", ex: "I **skriftspråket** skriver man 'de' och 'dem', inte 'dom'.", exNl: "In de schrijftaal schrijf je 'de' en 'dem', niet 'dom'." }
+  - { sv: "ett talspråk", nl: "een spreektaal", def: "talspråket", pl: "talspråk", plDef: "talspråken", ex: "Ord som 'nåt' och 'mej' hör till **talspråket**.", exNl: "Woorden als 'nåt' en 'mej' horen bij de spreektaal." }
+  - { sv: "en hälsning", nl: "een groet", def: "hälsningen", pl: "hälsningar", plDef: "hälsningarna", ex: "Hon avslutade mejlet med en vänlig **hälsning**.", exNl: "Ze sloot de mail af met een vriendelijke groet." }
+  - { sv: "en ordbok", nl: "een woordenboek", def: "ordboken", pl: "ordböcker", plDef: "ordböckerna", ex: "Slå upp ordet i en **ordbok** om du är osäker.", exNl: "Zoek het woord op in een woordenboek als je het niet zeker weet." }
+  - { sv: "en stavning", nl: "een spelling", def: "stavningen", pl: "stavningar", plDef: "stavningarna", ex: "Kontrollera **stavningen** innan du skickar mejlet.", exNl: "Controleer de spelling voordat je de mail verstuurt." }
+  - { sv: "att översätta", nl: "vertalen", ex: "Kan du **översätta** brevet till engelska?", exNl: "Kun je de brief naar het Engels vertalen?" }
+  - { sv: "att slå upp", nl: "opzoeken (in een woordenboek)", ex: "Jag **slog upp** ordet i ordboken.", exNl: "Ik zocht het woord op in het woordenboek." }
+  - { sv: "att uttrycka sig", nl: "zich uitdrukken", ex: "Hon **uttrycker sig** väldigt elegant, både i tal och skrift.", exNl: "Ze drukt zich erg elegant uit, zowel mondeling als schriftelijk." }
+  - { sv: "att missförstå", nl: "verkeerd begrijpen", ex: "Förlåt, jag **missförstod** vad du menade i mejlet.", exNl: "Sorry, ik begreep verkeerd wat je in de mail bedoelde." }
+  - { sv: "att låta", nl: "klinken", ex: "Du **låter** som en riktig stockholmare!", exNl: "Je klinkt als een echte Stockholmer!" }
+  - { sv: "att härma", nl: "nadoen, imiteren", ex: "Barnen **härmar** hur deras föräldrar pratar.", exNl: "De kinderen doen na hoe hun ouders praten." }
+  - { sv: "att göra sig förstådd", nl: "zich verstaanbaar maken", ex: "Det är skönt att kunna **göra sig förstådd** på svenska.", exNl: "Het is fijn om je verstaanbaar te kunnen maken in het Zweeds." }
+  - { sv: "att ta efter", nl: "overnemen (van iemand), nadoen", ex: "Ungdomar **tar efter** uttryck från sociala medier.", exNl: "Jongeren nemen uitdrukkingen over van sociale media." }
+  - { sv: "att tilltala", nl: "aanspreken", ex: "I Sverige **tilltalar** man nästan alla med 'du'.", exNl: "In Zweden spreek je bijna iedereen aan met 'du'." }
+  - { sv: "att lägga märke till", nl: "opmerken", ex: "Jag **{lade|la} märke till** att hon pratade med brytning.", exNl: "Ik merkte op dat ze met een accent sprak." }
+  - { sv: "att fräscha upp", nl: "opfrissen", ex: "Jag måste **fräscha upp** min franska innan resan.", exNl: "Ik moet mijn Frans opfrissen voor de reis." }
+  - { sv: "att rätta", nl: "corrigeren, verbeteren", ex: "Kan du **rätta** mig när jag säger fel?", exNl: "Kun je me verbeteren als ik iets verkeerd zeg?" }
+  - { sv: "att påbörja", nl: "beginnen (formeel)", ex: "Vi **påbörjar** renoveringen av huset nästa vecka.", exNl: "We beginnen volgende week met de renovatie van het huis." }
+  - { sv: "att bistå", nl: "bijstaan, helpen (formeel)", ex: "Vår personal **bistår** er gärna under besöket.", exNl: "Ons personeel staat u graag bij tijdens uw bezoek." }
+  - { sv: "att ha is i magen", nl: "kalm blijven", ex: "Nu gäller det att **ha is i magen** och inte stressa.", exNl: "Nu komt het erop aan kalm te blijven en niet te stressen." }
+  - { sv: "att kasta yxan i sjön", nl: "de handdoek in de ring gooien", ex: "Det är för tidigt att **kasta yxan i sjön**.", exNl: "Het is te vroeg om de handdoek in de ring te gooien." }
+  - { sv: "att ana ugglor i mossen", nl: "onraad ruiken", ex: "Hon började **ana ugglor i mossen** när han slutade svara.", exNl: "Ze begon onraad te ruiken toen hij niet meer antwoordde." }
+  - { sv: "att ta med en nypa salt", nl: "met een korreltje zout nemen", ex: "Sådana nyheter ska man **ta med en nypa salt**.", exNl: "Zulk nieuws moet je met een korreltje zout nemen." }
+  - { sv: "det är ingen ko på isen", nl: "er is geen haast, geen probleem", ex: "**Det är ingen ko på isen**, vi har gott om tid.", exNl: "Er is geen haast, we hebben ruim de tijd." }
+  - { sv: "flytande", nl: "vloeiend", ex: "Efter tre år talade hon **flytande** svenska.", exNl: "Na drie jaar sprak ze vloeiend Zweeds." }
+  - { sv: "formell", nl: "formeel", ex: "Ett mejl till en myndighet ska vara ganska **formellt**.", exNl: "Een mail aan een instantie moet vrij formeel zijn." }
+  - { sv: "informell", nl: "informeel", ex: "Med vänner skriver vi på ett mer **informellt** sätt.", exNl: "Met vrienden schrijven we op een informelere manier." }
+  - { sv: "artig", nl: "beleefd", ex: "Svenskar är **artiga** men ganska direkta.", exNl: "Zweden zijn beleefd maar vrij direct." }
+  - { sv: "otydlig", nl: "onduidelijk", ex: "Instruktionerna var **otydliga**, så jag ringde och frågade.", exNl: "De instructies waren onduidelijk, dus ik belde om het te vragen." }
+  - { sv: "bokstavligen", nl: "letterlijk", ex: "Uttrycket 'ingen ko på isen' ska man inte ta **bokstavligen**.", exNl: "De uitdrukking 'ingen ko på isen' moet je niet letterlijk nemen." }
+  - { sv: "typ", nl: "zo'n beetje, ongeveer (spreektaal)", ex: "Vi ses **typ** vid sju, okej?", exNl: "We zien elkaar zo'n beetje om zeven uur, oké?" }
+  - { sv: "hur som helst", nl: "hoe dan ook", ex: "**Hur som helst** måste vi bestämma oss i dag.", exNl: "Hoe dan ook moeten we vandaag een beslissing nemen." }
+  - { sv: "en mening", nl: "een zin; mening", def: "meningen", pl: "meningar", plDef: "meningarna", ex: "Skriv korta **meningar**.", exNl: "Schrijf korte zinnen." }
+  - { sv: "en accent", nl: "een accent", def: "accenten", pl: "accenter", plDef: "accenterna", ex: "Han pratar svenska med lätt **accent**.", exNl: "Hij spreekt Zweeds met een licht accent." }
+  - { sv: "en ton", nl: "een toon", def: "tonen", pl: "toner", plDef: "tonerna", ex: "**Tonen** i mejlet var lite för hård.", exNl: "De toon in de mail was wat te hard." }
+  - { sv: "en kommunikation", nl: "communicatie", def: "kommunikationen", mass: true, ex: "Bra **kommunikation** är viktig på jobbet.", exNl: "Goede communicatie is belangrijk op het werk." }
+  - { sv: "svårbegriplig", nl: "moeilijk te begrijpen", ex: "Brevet från myndigheten var **svårbegripligt**.", exNl: "De brief van de instantie was moeilijk te begrijpen." }
+  - { sv: "en tolk", nl: "een tolk", def: "tolken", pl: "tolkar", plDef: "tolkarna", ex: "Vid läkarbesöket fick han en **tolk**.", exNl: "Bij het doktersbezoek kreeg hij een tolk." }
+  - { sv: "ett teckenspråk", nl: "een gebarentaal", def: "teckenspråket", pl: "teckenspråk", plDef: "teckenspråken", ex: "Svenskt **teckenspråk** är ett eget språk.", exNl: "Zweedse gebarentaal is een eigen taal." }
+  - { sv: "att kommunicera", nl: "communiceren", ex: "Vi **kommunicerar** mest via mejl.", exNl: "We communiceren vooral via de mail." }
+  - { sv: "flerspråkig", nl: "meertalig", ex: "Barnen växer upp **flerspråkiga**.", exNl: "De kinderen groeien meertalig op." }

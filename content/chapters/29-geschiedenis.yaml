@@ -1,0 +1,584 @@
+chapter: 29
+# Kan-doen-uitspraken: de app vinkt ze zelf af als de vragen over deze onderwerpen
+# grotendeels in doos 3 of hoger staan (src/progress.js, canDoStatus).
+canDo:
+  - { text: "Ik zet zinsbijwoorden in lange bijzinnen op de goede plek", topics: [bisats-adverb] }
+  - { text: "Ik kies bewust wat ik vooraan in de zin zet", topics: [fundament] }
+
+grammar:
+  - id: bisats-adverb
+    title: Lange bijzinnen
+    summary: "In een bijzin staan **alle** zinsbijwoorden vóór het werkwoord: *att han **kanske inte längre** ville segla*. In een hoofdzin staan ze ná het werkwoord: *Han ville **kanske inte längre** segla.* In geschreven Zweeds mag **hade** (en ook **har**) in een bijzin wegvallen: *när skeppet (hade) sjunkit*."
+    body: |
+      ### Meerdere bijwoorden
+      Zinsbijwoorden zoals *inte, aldrig, kanske, nog, ju, redan, längre, heller, alltid* staan:
+
+      - in de **hoofdzin** na het vervoegde werkwoord: *Han **ville** kanske inte längre segla.*
+      - in de **bijzin** vóór het vervoegde werkwoord: *… att han kanske inte längre **ville** segla.*
+
+      Staan er meerdere, dan meestal in deze volgorde: **ju / nog / kanske** → **inte / aldrig** → **längre / heller / alltid**:
+
+      - *eftersom de **nog inte** hade märkt något*
+      - *att hon **inte heller** kom*
+      - *om man **kanske aldrig** får veta sanningen*
+
+      ### Hade (en har) mag wegvallen
+      In een **bijzin** in de voltooid verleden tijd laten Zweden in geschreven taal vaak *hade* weg:
+
+      - *När skeppet **(hade) sjunkit**, samlades folk vid stranden.*
+      - *Han berättade att han **(hade) hittat** vraket.*
+
+      Dat geldt ook voor **har** in de voltooid tegenwoordige tijd: *Jag är glad att du **(har) kommit**.*
+
+      In de **hoofdzin** mag dat niet: *Skeppet **hade** sjunkit.*
+
+  - id: fundament
+    title: Wat zet je vooraan?
+    summary: "Vooraan staat wat al **bekend** is of de **tijd/plaats**; nieuwe informatie komt achteraan: *År 1961 bärgades skeppet.* Een nieuw, onbepaald onderwerp introduceer je met **det**: *Det står en man vid dörren. Det kom plötsligt en vindby.*"
+    body: |
+      Het eerste zinsdeel (*fundamentet*) mag bijna alles zijn, zolang het werkwoord op plaats 2 staat (V2). Welke keuze klinkt goed?
+
+      - **Tijd of plaats** vooraan is heel gewoon in verhalen: ***År 1628** sjönk Vasa. **I dag** kan man se skeppet på museet.*
+      - Begin met wat **al bekend** is uit de vorige zin, en eindig met het **nieuwe**: *Vasa beställdes av kungen. **Skeppet** skulle bli världens mäktigaste.*
+      - Een **lang onderwerp** zet je liever niet vooraan.
+
+      ### Det + werkwoord + nieuw onderwerp
+      Is het onderwerp **nieuw en onbepaald** (*en man, många turister*), dan begin je vaak met **det** (presentatieconstructie). Typische werkwoorden: *finnas, stå, sitta, ligga, komma, hända*.
+
+      | minder natuurlijk | natuurlijk |
+      |---|---|
+      | *En man står vid dörren.* | ***Det står** en man vid dörren.* |
+      | *Många turister finns på museet.* | ***Det finns** många turister på museet.* |
+      | *En vindby kom plötsligt.* | ***Det kom** plötsligt en vindby.* |
+
+      Zweedse werkwoorden hebben geen meervoudsvorm, dus *det finns* blijft gewoon *det finns*. Let op het verschil met het Nederlands, waar *er is* bij meervoud *er zijn* wordt: *Det **finns** många turister.* = Er **zijn** veel toeristen.
+
+sections:
+  - id: lasa
+    title: Läsa · lezen
+    exercises:
+      - id: lasa-vasa
+        title: "Lezen: de Vasa"
+        instruction: Lees de tekst en beantwoord de vragen.
+        topic: woordenschat
+        textTitle: Vasa – skeppet som sjönk på jungfruresan
+        text: |
+          Den 10 augusti 1628 samlades tusentals stockholmare vid stranden. Det nya krigsskeppet Vasa, som kung Gustav II Adolf hade beställt några år tidigare, skulle för första gången segla ut. Kungen var själv inte på plats, eftersom han befann sig i krig i Polen.
+
+          Vasa hade byggts på varvet i Stockholm under ledning av en holländsk skeppsbyggare. Skeppet var nästan 70 meter långt, hade 64 kanoner ombord och var dekorerat med hundratals målade träskulpturer. Det skulle visa hela Europa att Sverige nu var en stormakt som ingen längre kunde ignorera.
+
+          Vasa hade bara seglat omkring 1 300 meter när det plötsligt kom en vindby. Skeppet lutade, vatten forsade in genom de öppna kanonportarna, och inom några minuter hade det stolta skeppet sjunkit. Omkring trettio människor omkom.
+
+          Varför sjönk Vasa? Redan före avfärden hade man märkt att skeppet var instabilt, men ingen vågade stoppa projektet, eftersom kungen ville att skeppet skulle bli klart så snabbt som möjligt.
+
+          Någon tid före avfärden hade man nämligen gjort ett enkelt test. Trettio sjömän fick springa fram och tillbaka över däcket, medan amiralen såg på. Redan efter tre vändor lutade skeppet så kraftigt att man avbröt testet. Amiralen var orolig, men han ville inte försena projektet. Skeppsbyggaren, som hade lett arbetet från början, hade dessutom dött året innan. Det fanns alltså ingen som riktigt visste hur problemet skulle lösas.
+
+          Efter olyckan greps kaptenen, som hade överlevt, och förhördes. Han försäkrade att besättningen inte hade varit berusad och att kanonerna hade suttit ordentligt fast. Till slut dömdes ingen, kanske eftersom det i praktiken var kungen själv som hade godkänt skeppets mått.
+
+          Under mer än trehundra år låg Vasa kvar på botten. Först 1956 hittades vraket, och 1961 bärgades det. I dag kan man se skeppet på Vasamuseet i Stockholm, som har blivit ett av Sveriges mest besökta museer.
+
+          I dag vet forskarna ganska säkert varför skeppet inte klarade vindbyn: det var för smalt och för högt, och det hade för lite tyngd längst ner. Paradoxalt nog är det olyckan som har gjort Vasa unikt. Om skeppet inte hade sjunkit, hade det troligen seglat i några decennier och sedan skrotats, precis som de flesta andra skepp från den tiden. Nu finns det i stället ett nästan helt bevarat krigsskepp från 1600-talet, och varje år kommer över en miljon besökare för att se det.
+        items:
+          - { id: baxz, type: mc, prompt: "När sjönk Vasa?", options: ["den 10 augusti 1628", "år 1956", "år 1961", "den 10 augusti 1728"], answer: 0 }
+          - { id: fj3p, type: truefalse, statement: "Kungen såg när skeppet sjönk.", answer: false, correction: { answers: ["Kungen var inte på plats[ eftersom han var i krig i Polen].", "{Kungen|Han} var i Polen."] } }
+          - { id: fbq6, type: mc, prompt: "Hur långt hade Vasa seglat?", options: ["omkring 1 300 meter", "omkring 13 kilometer", "till Polen", "några hundra meter ut på havet"], answer: 0 }
+          - { id: sj3k, type: mc, prompt: "Hur kom vattnet in?", options: ["genom de öppna kanonportarna", "genom ett hål i botten", "över däcket", "genom fönstren"], answer: 0 }
+          - { id: 5bnu, type: truefalse, statement: "Man visste inte före avfärden att skeppet var instabilt.", answer: false, correction: { answers: ["Man hade [redan ]märkt att skeppet var instabilt[ före avfärden]."] } }
+          - { id: 7rvp, type: mc, prompt: "När bärgades Vasa?", options: ["1961", "1956", "1628", "1990"], answer: 0 }
+          - { id: c55s, type: mc, prompt: "Vad hände när sjömännen sprang fram och tillbaka över däcket?", options: ["Skeppet lutade så kraftigt att man avbröt testet.", "Skeppet sjönk efter tre minuter.", "Kungen stoppade testet från Polen.", "Ingenting hände, och skeppet verkade stabilt."], answer: 0 }
+          - { id: 3c2k, type: truefalse, statement: "Kaptenen dömdes för olyckan.", answer: false, tip: "Lees de alinea over het verhoor nog eens.", correction: { answers: ["Ingen dömdes[ för olyckan][ till slut].", "Till slut dömdes ingen[ för olyckan].", "{Kaptenen|Han} dömdes inte[ för olyckan]."] } }
+          - id: 5duj
+            type: multi
+            prompt: "Welke oorzaken droegen volgens de tekst bij aan het zinken van de Vasa?"
+            options: ["Skeppet var för smalt och för högt.", "Det hade för lite tyngd längst ner.", "Kanonportarna var öppna.", "Ingen vågade stoppa projektet.", "Besättningen var berusad.", "Kanonerna hade inte suttit fast."]
+            answers: [0, 1, 2, 3]
+            tip: "De bemanning was volgens de kapitein niet dronken, en de kanonnen zaten goed vast."
+          - { id: my9r, type: mc, prompt: "Varför kan man i dag se ett nästan helt bevarat skepp från 1600-talet?", options: ["Eftersom Vasa sjönk och låg kvar på botten i stället för att skrotas.", "Eftersom Vasa seglade i flera decennier utan problem.", "Eftersom man byggde en ny kopia av skeppet på 1900-talet.", "Eftersom kungen lät bevara skeppet i en hamn."], answer: 0, tip: "Wat zou er volgens de laatste alinea met het schip gebeurd zijn als het niet was gezonken?" }
+
+      - id: makkelijk-1
+        title: "Makkelijk lezen: Det gamla huset"
+        instruction: Een korte tekst met woorden die je al kent. Lees hem vlot door en kies rätt of fel.
+        topic: woordenschat
+        kind: makkelijk
+        textTitle: "Det gamla huset"
+        text: |
+          Huset som Johan bor i byggdes år 1890. Det har varit både skola och affär. När Johan köpte huset hittade han gamla brev på vinden. Breven, som hade skrivits av en lärare, berättade om livet i byn för hundra år sedan. Johan har gett breven till hembygdsföreningen. Föreningen ska nu visa breven på en utställning i byns gamla kyrka. Många i byn har redan visat intresse, och några har hittat egna gamla foton som de vill visa. Johan har också fått veta mer om sitt eget hus.
+        items:
+          - { id: j6jj, type: truefalse, statement: "Huset byggdes på 1800-talet.", answer: true }
+          - { id: 2pwx, type: truefalse, statement: "Breven hade skrivits av en präst.", answer: false }
+
+      - id: makkelijk-2
+        title: "Makkelijk lezen: Slottet"
+        instruction: Een korte tekst met woorden die je al kent. Lees hem vlot door en kies rätt of fel.
+        topic: woordenschat
+        kind: makkelijk
+        textTitle: "Slottet"
+        text: |
+          Mitt i staden ligger ett gammalt slott. Det byggdes på 1500-talet av en mäktig kung. Under många år bodde kungen och drottningen där med sina barn. Senare blev slottet en skola, och ännu senare ett museum. I dag kan man gå runt i rummen och se hur man levde förr. Det finns gamla möbler, kläder och tavlor. Många besöker slottet varje sommar. På vintern är det stängt, men skolklasser kan boka ett besök. Då berättar en lärare från museet om kungen och om krigen.
+        items:
+          - { id: zfnf, type: truefalse, statement: "Slottet byggdes på 1500-talet.", answer: true }
+          - { id: nvmx, type: truefalse, statement: "Slottet är öppet hela vintern.", answer: false }
+
+      - id: makkelijk-3
+        title: "Makkelijk lezen: Mormors berättelser"
+        instruction: Een korte tekst met woorden die je al kent. Lees hem vlot door en beantwoord de vragen.
+        topic: woordenschat
+        kind: makkelijk
+        textTitle: "Mormors berättelser"
+        text: |
+          Lisas mormor föddes 1940 på en gård i Värmland. Hon berättar ofta att familjen inte hade någon el när hon var liten. På kvällarna läste de vid fotogenlampan. Skolan låg fem kilometer bort, och mormor gick dit varje dag, även på vintern. Hon säger att hon aldrig klagade, eftersom alla barn hade det likadant. När hon var sexton flyttade hon till Stockholm och började arbeta i en affär. Lisa har bestämt sig för att skriva ner mormors berättelser, så att de inte glöms bort. Mormor tycker att det är en bra idé.
+        items:
+          - { id: mz2d, type: truefalse, statement: "Mormor föddes i Stockholm.", answer: false }
+          - { id: ya4e, type: mc, prompt: "Hur långt bort låg skolan?", options: ["En kilometer.", "Fem kilometer.", "Femton kilometer."], answer: 1 }
+          - { id: 3ruc, type: truefalse, statement: "Lisa vill skriva ner berättelserna.", answer: true }
+
+      - id: makkelijk-4
+        title: "Makkelijk lezen: Vasaloppet"
+        instruction: Een korte tekst met woorden die je al kent. Lees hem vlot door en beantwoord de vragen.
+        topic: woordenschat
+        kind: makkelijk
+        textTitle: "Vasaloppet"
+        text: |
+          Varje år i mars åker tusentals människor skidor från Sälen till Mora. Det är nio mil, alltså nittio kilometer, och tävlingen kallas Vasaloppet. Loppet har fått sitt namn efter Gustav Vasa, som enligt legenden flydde på skidor mot Norge omkring år 1520. Två män från Mora åkte efter honom och bad honom komma tillbaka. Senare blev han kung. Den första tävlingen hölls 1922. I dag åker fler än femtontusen personer varje år. Många tränar hela vintern innan. Många har aldrig åkt så långt förut, men nästan alla kommer ändå fram till Mora.
+        items:
+          - { id: 4jvh, type: mc, prompt: "Hur långt är Vasaloppet?", options: ["Fem mil.", "Nio mil.", "Tjugo mil."], answer: 1 }
+          - { id: 7qfe, type: truefalse, statement: "Den första tävlingen hölls 1922.", answer: true }
+          - { id: jnq4, type: truefalse, statement: "Gustav Vasa var redan kung när han flydde.", answer: false }
+
+  - id: ord
+    title: Ord och fraser · woorden en uitdrukkingen
+    exercises:
+      - id: ord-geschiedenis
+        title: Geschiedenis
+        instruction: Koppel het woord aan de betekenis.
+        topic: woordenschat
+        items:
+          - id: sc9w
+            type: match
+            pairs:
+              - ["ett krig", "een oorlog"]
+              - ["ett vrak", "een wrak"]
+              - ["bärga", "bergen (een schip)"]
+              - ["omkomma", "omkomen"]
+              - ["en jungfruresa", "een eerste reis (van een schip)"]
+              - ["en avfärd", "een vertrek"]
+          - id: pzz5
+            type: match
+            pairs:
+              - ["ett århundrade", "een eeuw"]
+              - ["medeltiden", "de middeleeuwen"]
+              - ["en kung", "een koning"]
+              - ["en drottning", "een koningin"]
+              - ["befinna sig", "zich bevinden"]
+              - ["våga", "durven"]
+
+  - id: bisats
+    title: "Grammatik: lange bijzinnen"
+    exercises:
+      - id: bisats-zinsbouw
+        title: Bijwoorden in de bijzin
+        instruction: Zet de woorden in de goede volgorde.
+        topic: bisats-adverb
+        shuffle: true
+        items:
+          - { id: f7er, type: order, start: "Han sa att", tokens: ["han", "kanske", "inte", "längre", "ville", "segla"], answers: ["Han sa att han kanske inte längre ville segla."] }
+          - { id: ur6r, type: order, start: "Det är synd att", tokens: ["vi", "aldrig", "har", "varit", "på Vasamuseet"], answers: ["Det är synd att vi aldrig har varit på Vasamuseet."] }
+          - { id: wnxk, type: order, start: "Eftersom", tokens: ["skeppet", "redan", "var", "instabilt,", "sjönk", "det", "snabbt"], answers: ["Eftersom skeppet redan var instabilt, sjönk det snabbt."] }
+          - { id: msvx, type: order, start: "Jag tror att", tokens: ["de", "nog", "inte", "hade", "märkt", "något"], answers: ["Jag tror att de nog inte hade märkt något."] }
+          - { id: 8vh8, type: order, start: "Hon sa att", tokens: ["hon", "tyvärr", "inte", "kunde", "komma"], answers: ["Hon sa att hon tyvärr inte kunde komma."] }
+          - { id: mabx, type: order, start: "Vi vet att", tokens: ["kungen", "aldrig", "såg", "skeppet", "segla"], answers: ["Vi vet att kungen aldrig såg skeppet segla."] }
+          - { id: a2tm, type: order, start: "Det är märkligt att", tokens: ["ingen", "hade", "varnat", "kungen"], answers: ["Det är märkligt att ingen hade varnat kungen."] }
+          - { id: k6xj, type: order, start: "Jag undrar om", tokens: ["de", "verkligen", "förstod", "riskerna"], answers: ["Jag undrar om de verkligen förstod riskerna."] }
+
+      - id: bisats-omvormen
+        title: Hoofdzin wordt bijzin
+        instruction: Maak van de hoofdzin een bijzin na het gegeven begin.
+        topic: bisats-adverb
+        items:
+          - { id: trmp, type: transform, prompt: "Kungen var inte i Stockholm.", task: "Vi vet att …", answers: ["Vi vet att kungen inte var i Stockholm."], feedback: [{ contains: "var inte", tip: "In de bijzin: inte vóór het werkwoord." }] }
+          - { id: xvad, type: transform, prompt: "Han kom inte heller.", task: "Hon sa att …", answers: ["Hon sa att han inte heller kom."], feedback: [{ contains: "kom inte", tip: "In de bijzin: inte heller vóór het werkwoord." }] }
+          - { id: z8a2, type: transform, prompt: "Skeppet var kanske för smalt.", task: "Forskarna tror att …", answers: ["Forskarna tror att skeppet kanske var för smalt."], feedback: [{ contains: "var kanske", tip: "In de bijzin: kanske vóór het werkwoord." }] }
+          - { id: rjbc, type: transform, prompt: "Man hade redan märkt problemet.", task: "Det är känt att …", answers: ["Det är känt att man redan [hade ]märkt problemet."], feedback: [{ contains: "hade redan", tip: "In de bijzin: redan vóór het werkwoord." }] }
+          - { id: vmwp, type: transform, prompt: "Skeppet sjönk inte på grund av stormen.", task: "Man vet att …", answers: ["Man vet att skeppet inte sjönk på grund av stormen."], feedback: [{ contains: "sjönk inte", tip: "In de bijzin: inte vóór het werkwoord." }] }
+          - { id: aqym, type: transform, prompt: "Kungen ville alltid ha det största skeppet.", task: "Det sägs att …", answers: ["Det sägs att kungen alltid ville ha det största skeppet."], feedback: [{ contains: "ville alltid", tip: "In de bijzin: alltid vóór het werkwoord." }] }
+          - { id: 25df, type: transform, prompt: "Hon har aldrig besökt museet.", task: "Hon berättade att …", answers: ["Hon berättade att hon aldrig [{hade|har} ]besökt museet."], feedback: [{ contains: ["hade aldrig", "har aldrig"], tip: "In de bijzin: aldrig vóór het werkwoord." }] }
+          - { id: h67m, type: transform, prompt: "Vi kan tyvärr inte komma.", task: "Vi skrev att …", answers: ["Vi skrev att vi tyvärr inte {kunde|kan} komma."], feedback: [{ contains: ["kunde tyvärr", "kan tyvärr"], tip: "In de bijzin: tyvärr inte vóór het werkwoord." }] }
+
+      - id: hade-weg
+        title: Mag hade weg?
+        instruction: In welke zin mag **hade** wegvallen?
+        topic: bisats-adverb
+        shuffle: true
+        items:
+          - { id: 4f77, type: mc, prompt: "Kies de zin waarin *hade* mag wegvallen.", options: ["När skeppet hade sjunkit, samlades folk vid stranden.", "Skeppet hade sjunkit på några minuter.", "Folk hade samlats vid stranden.", "Kungen hade beställt skeppet."], answer: 0, tip: "Alleen in een bijzin (hier na när)." }
+          - { id: jwtr, type: mc, prompt: "Kies de zin waarin *hade* mag wegvallen.", options: ["Han berättade att han hade hittat vraket.", "Han hade hittat vraket.", "Då hade han hittat vraket.", "Hade han hittat vraket?"], answer: 0, tip: "Alleen in een bijzin (hier na att)." }
+          - { id: eegs, type: mc, prompt: "Kies de zin waarin *hade* mag wegvallen.", options: ["Eftersom de hade glömt nyckeln, kom de inte in.", "De hade glömt nyckeln.", "Hade de glömt nyckeln?", "Då hade de glömt nyckeln."], answer: 0, tip: "Alleen in een bijzin (hier na eftersom)." }
+          - { id: hdub, type: mc, prompt: "Kies de zin waarin *hade* mag wegvallen.", options: ["Jag vet att hon hade läst boken.", "Hon hade läst boken.", "Boken hade hon läst.", "Hade hon läst boken?"], answer: 0, tip: "Alleen in een bijzin (hier na att)." }
+          - { id: ckw6, type: mc, prompt: "Kies de zin waarin *hade* mag wegvallen.", options: ["Om jag hade vetat det, skulle jag ha kommit.", "Jag hade vetat det.", "Det hade jag vetat.", "Hade jag vetat det?"], answer: 0, tip: "Alleen in een bijzin (hier na om)." }
+          - { id: n8pu, type: mc, prompt: "Kies de zin waarin *hade* mag wegvallen.", options: ["Skeppet som hade byggts i Stockholm sjönk.", "Skeppet hade byggts i Stockholm.", "I Stockholm hade skeppet byggts.", "Hade skeppet byggts i Stockholm?"], answer: 0, tip: "Alleen in een bijzin (hier een som-zin)." }
+          - { id: wy3k, type: mc, prompt: "Kies de zin waarin *hade* **niet** mag wegvallen.", options: ["Han hade redan ätit.", "När han hade ätit, gick han.", "Hon sa att han hade ätit.", "Eftersom han hade ätit, var han mätt."], answer: 0, tip: "In een hoofdzin moet hade blijven staan." }
+          - { id: kv6w, type: mc, prompt: "Kies de zin waarin *hade* **niet** mag wegvallen.", options: ["Vi hade aldrig sett något liknande.", "Vi sa att vi aldrig hade sett något liknande.", "Fast vi hade sett det förut, blev vi förvånade.", "Det var något som vi aldrig hade sett."], answer: 0, tip: "In een hoofdzin moet hade blijven staan." }
+
+      - id: pluskvamperfekt
+        title: Voltooid verleden tijd
+        instruction: Vul de vorm met **hade** in.
+        topic: bisats-adverb
+        shuffle: true
+        items:
+          - { id: 6g4h, type: gap, text: "Vasa ___ (segla) bara 1 300 meter när det sjönk.", gaps: [{ answers: ["hade seglat"], feedback: [{ match: "seglade", tip: "Het zeilen was al gebeurd vóór het zinken: hade seglat." }] }] }
+          - { id: hzj9, type: gap, text: "Man ___ (märka) redan före avfärden att skeppet var instabilt.", gaps: [{"answers": ["hade märkt"], "feedback": [{"match": "har märkt", "tip": "Al vóór iets anders in het verleden: hade märkt."}]}] }
+          - { id: zwzg, type: gap, text: "Kungen ___ (beställa) skeppet några år tidigare.", gaps: [{ answers: ["hade beställt"], feedback: [{ match: "hade beställd", tip: "Na hade: het supinum, beställt." }] }] }
+          - { id: 8ctz, type: gap, text: "När vraket ___ (hitta), började man planera bärgningen.", hint: "Lijdend: hade + supinum + s.", gaps: [{ answers: ["hade hittats", "hittats"] }] }
+          - { id: 2urw, type: gap, text: "Bussen ___ redan ___ (gå) när vi kom fram.", gaps: [{ answers: ["hade"] }, { answers: ["gått"], feedback: [{ match: "gåt", tip: "Supinum van gå: gått." }] }] }
+          - { id: pk2k, type: gap, text: "Hon ___ (bo) i Göteborg i tio år innan hon flyttade.", gaps: [{ answers: ["hade bott"], feedback: [{ match: "bodde", tip: "Het wonen ging vooraf aan het verhuizen: hade bott." }] }] }
+          - { id: wmrr, type: gap, text: "Vi ___ aldrig ___ (se) något liknande.", gaps: [{ answers: ["hade"] }, { answers: ["sett"] }] }
+          - { id: dmq5, type: gap, text: "Skeppet ___ (bygga) i Stockholm innan det sjösattes.", hint: "Lijdend: hade + supinum + s.", gaps: [{ answers: ["hade byggts"], feedback: [{ match: "byggdes", tip: "Het bouwen ging vooraf aan de tewaterlating: hade byggts." }] }] }
+
+      - id: bisats-vertalen
+        title: Lange bijzinnen vertalen
+        instruction: Vertaal de zin. Let op de plaats van de bijwoorden in de bijzin.
+        topic: bisats-adverb
+        shuffle: true
+        items:
+          - { id: 2qdx, type: translate, prompt: "De historicus schreef dat de koning waarschijnlijk nooit had begrepen hoe instabiel het schip eigenlijk was.", answers: ["Historikern skrev att kungen {troligen|förmodligen|antagligen|sannolikt} aldrig [hade ]{förstått|insett|begripit} hur instabilt skeppet {egentligen|faktiskt} var."], feedback: [{ contains: "kungen hade", tip: "In de bijzin (na att) staan troligen en aldrig vóór het werkwoord: att kungen troligen aldrig hade förstått." }, { contains: "aldrig troligen", tip: "Bij meerdere bijwoorden: eerst troligen, dan aldrig." }, { contains: "instabilt var skeppet", tip: "Een indirecte vraag (na hur) heeft de volgorde van een bijzin: hur instabilt skeppet egentligen var." }] }
+          - { id: 6c2j, type: translate, prompt: "Veel bezoekers zijn verbaasd als ze horen dat het schip eigenlijk niet in een storm is gezonken.", answers: ["Många besökare {blir|är} {förvånade|överraskade} {när|då} de hör att skeppet [{faktiskt|egentligen} ]inte sjönk {i|under} en storm.", "Många besökare {blir|är} {förvånade|överraskade} {när|då} de hör att skeppet [{faktiskt|egentligen} ]inte [har ]sjunkit {i|under} en storm."], feedback: [{ contains: ["sjönk inte", "har inte sjunkit", "sjönk faktiskt", "sjönk egentligen", "har faktiskt", "har egentligen"], tip: "In de bijzin (na att) staan faktiskt en inte vóór het werkwoord: att skeppet faktiskt inte sjönk." }] }
+          - { id: qxet, type: translate, prompt: "De archeologen vertelden dat ze nog nooit zoveel vondsten op één plek hadden gedaan.", answers: ["Arkeologerna {berättade|sa|sade} att de aldrig {tidigare|förut} hade {hittat|gjort} så många fynd på {ett och samma ställe|ett enda ställe|en och samma plats|en enda plats|ett ställe|en plats}.", "Arkeologerna {berättade|sa|sade} att de aldrig {tidigare|förut} {hittat|gjort} så många fynd på {ett och samma ställe|ett enda ställe|en och samma plats|en enda plats|ett ställe|en plats}.", "Arkeologerna {berättade|sa|sade} att de aldrig [hade ]{hittat|gjort} så många fynd på {ett och samma ställe|ett enda ställe|en och samma plats|en enda plats|ett ställe|en plats} {tidigare|förut}."], feedback: [{ contains: ["de hade aldrig", "de har aldrig"], tip: "In de bijzin (na att) staat aldrig vóór het werkwoord: att de aldrig tidigare hade hittat …" }] }
+          - { id: 4y4v, type: translate, prompt: "Het is jammer dat bezoekers niet meer aan boord mogen, maar het hout is veel te kwetsbaar.", answers: ["Det är synd att {besökarna|besökare} inte längre får {gå|komma|kliva} ombord men träet är {alldeles för|alltför} {känsligt|ömtåligt|skört}.", "Det är synd att {besökarna|besökare} inte får {gå|komma|kliva} ombord längre men träet är {alldeles för|alltför} {känsligt|ömtåligt|skört}."], feedback: [{ contains: ["får inte", "får längre"], tip: "In de bijzin (na att) staan inte en längre vóór het werkwoord: att besökarna inte längre får gå ombord." }] }
+          - { id: 9eje, type: translate, prompt: "Pas toen het wrak eindelijk geborgen was, konden de onderzoekers nagaan waarom het schip eigenlijk was gezonken.", answers: ["Först när vraket äntligen hade bärgats kunde forskarna {undersöka|ta reda på|utreda} varför skeppet egentligen {sjönk|hade sjunkit}.", "Först när vraket äntligen {bärgats|var bärgat} kunde forskarna {undersöka|ta reda på|utreda} varför skeppet egentligen {sjönk|hade sjunkit}."], feedback: [{ contains: "forskarna kunde", tip: "De bijzin vooraan telt als plaats 1: daarna komt meteen het werkwoord (…, kunde forskarna …)." }, { contains: ["varför sjönk", "varför hade"], tip: "Een indirecte vraag (na varför) heeft de volgorde van een bijzin: varför skeppet egentligen sjönk." }] }
+          - { id: ahq7, type: translate, prompt: "De gids vertelde dat het feest oorspronkelijk niet kerkelijk maar heidens was.", answers: ["Guiden {berättade|sa} att {festen|högtiden} {ursprungligen|från början} inte var kyrklig utan hednisk."], feedback: [{ contains: ["festen var", "högtiden var"], tip: "In de bijzin (na att) staan ursprungligen en inte vóór het werkwoord: att festen ursprungligen inte var …" }, { contains: "men hednisk", tip: "Na een ontkenning (niet X, maar Y): utan." }] }
+          - { id: t7vv, type: translate, prompt: "Het is een veelvoorkomend vooroordeel dat mensen in de middeleeuwen zich nooit wasten.", answers: ["Det är en {vanlig|utbredd|spridd} fördom att {människor|folk} {på|under} medeltiden aldrig tvättade sig.", "Det är en {vanlig|utbredd|spridd} fördom att {människor|folk} aldrig tvättade sig {på|under} medeltiden.", "Det är en {vanlig|utbredd|spridd} fördom att man {på|under} medeltiden aldrig tvättade sig.", "Det är en {vanlig|utbredd|spridd} fördom att man aldrig tvättade sig {på|under} medeltiden."], feedback: [{ contains: "tvättade aldrig", tip: "In de bijzin (na att) staat aldrig vóór het werkwoord: att människor aldrig tvättade sig." }, { contains: ["ett vanligt fördom", "ett vanlig fördom"], tip: "fördom is een en-woord: en vanlig fördom." }] }
+
+      - id: bisats-lange-zinnen
+        title: Lange zinnen bouwen
+        instruction: Zet de woorden in de goede volgorde. Let op de bijwoorden in de bijzin.
+        topic: bisats-adverb
+        shuffle: true
+        items:
+          - { id: 8fb4, type: order, start: "Forskarna tror att", tokens: ["skeppet", "kanske", "aldrig", "hade", "sjunkit", "om", "kanonportarna", "inte", "hade", "varit", "öppna"], answers: ["Forskarna tror att skeppet kanske aldrig hade sjunkit om kanonportarna inte hade varit öppna.", "Forskarna tror att skeppet kanske inte hade sjunkit om kanonportarna aldrig hade varit öppna.", "Forskarna tror att om kanonportarna inte hade varit öppna hade skeppet kanske aldrig sjunkit.", "Forskarna tror att skeppet kanske aldrig hade sjunkit om inte kanonportarna hade varit öppna.", "Forskarna tror att om inte kanonportarna hade varit öppna hade skeppet kanske aldrig sjunkit.", "Forskarna tror att om kanonportarna aldrig hade varit öppna hade skeppet kanske inte sjunkit."], feedback: [{ contains: "skeppet hade", tip: "In de bijzin (na att) staan kanske en aldrig vóór het werkwoord: att skeppet kanske aldrig hade sjunkit." }] }
+          - { id: he2v, type: order, start: "Det är förvånande att", tokens: ["kungen", "inte", "ens", "hade", "frågat", "om", "skeppet", "verkligen", "var", "stabilt"], answers: ["Det är förvånande att kungen inte ens hade frågat om skeppet verkligen var stabilt.", "Det är förvånande att inte ens kungen hade frågat om skeppet verkligen var stabilt."], feedback: [{ contains: "kungen hade inte", tip: "In de bijzin (na att) staat inte ens vóór het werkwoord: att kungen inte ens hade frågat." }, { contains: "var verkligen", tip: "Ook na om (of) volgt een bijzin: om skeppet verkligen var stabilt." }] }
+          - { id: jtb6, type: order, start: "Eftersom", tokens: ["man", "inte", "längre", "kunde", "se", "var", "vraket", "låg", "glömde", "folk", "bort", "platsen"], answers: ["Eftersom man inte längre kunde se var vraket låg glömde folk bort platsen.", "Eftersom folk inte längre kunde se var vraket låg glömde man bort platsen."], feedback: [{ contains: ["folk glömde", "man glömde"], tip: "De bijzin met eftersom telt als plaats 1: daarna komt meteen het werkwoord (… glömde folk bort platsen)." }, { contains: "kunde inte", tip: "In de bijzin staan inte en längre vóór het werkwoord: eftersom man inte längre kunde se …" }] }
+          - { id: 7gej, type: order, topic: fundament, start: "När skeppet väl hade sjunkit", tokens: ["ville", "ingen", "ta", "på", "sig", "ansvaret", "för", "olyckan"], answers: ["När skeppet väl hade sjunkit ville ingen ta på sig ansvaret för olyckan.", "När skeppet väl hade sjunkit ville ingen ta ansvaret för olyckan på sig.", "När skeppet väl hade sjunkit ville ingen ta ansvaret på sig för olyckan."], feedback: [{ contains: "sjunkit ingen", tip: "De bijzin met när telt als plaats 1: daarna komt meteen het werkwoord (… ville ingen …)." }] }
+          - { id: z8se, type: order, start: "Kaptenen försäkrade att", tokens: ["besättningen", "inte", "hade", "druckit", "alkohol", "och", "att", "ingen", "egentligen", "hade", "gjort", "något", "fel"], answers: ["Kaptenen försäkrade att besättningen inte hade druckit alkohol och att ingen egentligen hade gjort något fel.", "Kaptenen försäkrade att besättningen inte hade druckit alkohol och att egentligen ingen hade gjort något fel.", "Kaptenen försäkrade att {ingen egentligen|egentligen ingen} hade gjort något fel och att besättningen inte hade druckit alkohol."], feedback: [{ contains: ["besättningen hade", "ingen hade egentligen"], tip: "In beide bijzinnen (na att) staan inte en egentligen vóór het werkwoord." }] }
+          - { id: 2skb, type: order, start: "Hon frågade guiden om", tokens: ["man", "verkligen", "aldrig", "hade", "försökt", "segla", "med", "en", "kopia", "av", "Vasa"], answers: ["Hon frågade guiden om man verkligen aldrig hade försökt segla med en kopia av Vasa.", "Hon frågade guiden om man aldrig verkligen hade försökt segla med en kopia av Vasa."], feedback: [{ contains: "man hade", tip: "Na om (of) volgt een bijzin: verkligen en aldrig staan vóór het werkwoord." }] }
+
+      - id: bisats-kiezen
+        title: Kies de goede volgorde
+        instruction: Kies wat past.
+        topic: bisats-adverb
+        shuffle: true
+        items:
+          - { id: 5bpf, type: gap, text: "Museet stänger tidigt i dag, eftersom personalen ___ hunnit laga ventilationen i den stora hallen.", gaps: [{ answers: ["tyvärr inte har"], options: ["tyvärr inte har", "har tyvärr inte", "tyvärr har inte"], shuffle: false, tip: "In de bijzin (na eftersom) staan tyvärr en inte vóór het werkwoord." }] }
+          - { id: qr3v, type: gap, text: "Guiden förklarade att besökarna ___ röra skeppet, eftersom det gamla träet är mycket känsligt.", gaps: [{ answers: ["aldrig får"], options: ["aldrig får", "får aldrig", "aldrig fått"], shuffle: false, tip: "In de bijzin (na att) staat aldrig vóór het vervoegde werkwoord: att besökarna aldrig får röra skeppet." }] }
+          - { id: qp2x, type: gap, text: "Vattnet ___ redan börjat forsa in genom kanonportarna när besättningen förstod vad som hände.", gaps: [{ answers: ["hade"], options: ["hade", "har", "var"], shuffle: false, tip: "Dit is een hoofdzin, dus hade mag niet wegvallen. Het gebeurde vóór een ander moment in het verleden: hade + supinum." }] }
+          - { id: rhat, type: gap, text: "Forskarna misstänker att de ___ har hittat alla föremål som finns kvar på botten.", gaps: [{ answers: ["nog inte"], options: ["nog inte", "inte nog"], shuffle: false, tip: "Volgorde in de bijzin: eerst nog (waarschijnlijk), dan inte: att de nog inte har hittat …" }] }
+
+  - id: fundament
+    title: "Grammatik: wat zet je vooraan?"
+    exercises:
+      - id: bekend-nieuw
+        title: Bekend vooraan
+        instruction: Welke zin sluit het best aan op de vorige zin?
+        topic: fundament
+        shuffle: true
+        items:
+          - { id: numc, type: mc, prompt: "*Kungen beställde ett nytt krigsskepp.* …", options: ["Skeppet skulle bli världens mäktigaste.", "Världens mäktigaste skulle skeppet bli.", "Bli världens mäktigaste skulle skeppet.", "Mäktigaste i världen blev skeppet skulle."], answer: 0, tip: "Begin met wat al bekend is (skeppet)." }
+          - { id: 6mnj, type: mc, prompt: "*1956 hittade en amatörforskare vraket.* …", options: ["Fem år senare bärgades det.", "Det bärgades, fem år senare, som skett.", "Bärgades fem år senare det.", "Senare fem år bärgades det."], answer: 0 }
+          - { id: hcpb, type: mc, prompt: "*På museet finns en modell av skeppet.* …", options: ["Modellen är byggd i skala 1:10.", "I skala 1:10 är byggd modellen.", "Byggd i skala 1:10 är modellen den.", "Är modellen byggd i skala 1:10."], answer: 0 }
+          - { id: 6qzv, type: mc, prompt: "*Vasa sjönk i augusti 1628.* …", options: ["I olyckan dog ett trettiotal människor.", "Ett trettiotal människor i olyckan dog.", "I olyckan ett trettiotal människor dog.", "Dog i olyckan ett trettiotal människor."], answer: 0, tip: "Begin met wat al bekend is (de ramp) en zet het nieuwe achteraan." }
+          - { id: 2qjn, type: mc, prompt: "*Skeppet bärgades 1961.* …", options: ["Sedan dess har det restaurerats.", "Restaurerats har det sedan dess.", "Sedan dess det har restaurerats.", "Det sedan dess har restaurerats."], answer: 0 }
+          - { id: s77q, type: mc, prompt: "*Kungen hette Gustav II Adolf.* …", options: ["Han var i Polen när skeppet sjönk.", "I Polen han var när skeppet sjönk.", "När skeppet sjönk han var i Polen.", "Var han i Polen när skeppet sjönk."], answer: 0 }
+          - { id: 6qt4, type: mc, prompt: "*Många turister besöker Vasamuseet.* …", options: ["Museet är ett av Stockholms populäraste.", "Ett av Stockholms populäraste museet är.", "Populäraste av Stockholms är museet ett.", "Är museet ett av Stockholms populäraste."], answer: 0 }
+          - { id: zg76, type: mc, prompt: "*Forskarna har undersökt vraket noga.* …", options: ["Deras slutsats är att skeppet var för smalt.", "Att skeppet var för smalt deras slutsats är.", "Slutsatsen deras är att skeppet var för smalt.", "Är deras slutsats att skeppet var för smalt."], answer: 0 }
+
+      - id: det-finns
+        title: Begin met det
+        instruction: Herschrijf de zin met **det** vooraan.
+        topic: fundament
+        items:
+          - { id: 9yt3, type: transform, prompt: "En man står vid dörren.", answers: ["Det står en man vid dörren."], feedback: [{ contains: "Det en man står", tip: "Na det komt eerst het werkwoord: det står en man …" }] }
+          - { id: 23te, type: transform, prompt: "Många turister finns på museet.", answers: ["Det finns många turister på museet."], feedback: [{ contains: "det finnas", tip: "Het werkwoord blijft in de presens: det finns." }] }
+          - { id: t72f, type: transform, prompt: "Ett skepp ligger på botten.", answers: ["Det ligger ett skepp på botten."], feedback: [{ contains: "Det ett skepp ligger", tip: "Na det komt eerst het werkwoord: det ligger ett skepp …" }] }
+          - { id: sy32, type: transform, prompt: "En vindby kom plötsligt.", answers: ["Det kom plötsligt en vindby.", "Det kom en vindby plötsligt."] }
+          - { id: zuvv, type: transform, prompt: "Något konstigt hände i går.", answers: ["Det hände något konstigt {i går|igår}."], feedback: [{ contains: "Det något konstigt hände", tip: "Na det komt eerst het werkwoord: det hände något konstigt …" }] }
+          - { id: 7bh9, type: transform, prompt: "Ett fel finns i texten.", answers: ["Det finns ett fel i texten."] }
+          - { id: k926, type: transform, prompt: "Många människor bor i Stockholm.", answers: ["Det bor många människor i Stockholm."], feedback: [{ contains: "Det många människor bor", tip: "Na det komt eerst het werkwoord: det bor många människor …" }] }
+          - { id: edzt, type: transform, prompt: "Ett tåg går klockan nio.", answers: ["Det går ett tåg {klockan|kl.} {nio|9}."], feedback: [{ contains: "Det ett tåg går", tip: "Na det komt eerst het werkwoord: det går ett tåg …" }] }
+
+      - id: fundament-zinsbouw
+        title: Tijd vooraan
+        instruction: Zet de woorden in de goede volgorde. Let op V2.
+        topic: fundament
+        shuffle: true
+        items:
+          - { id: aafd, type: order, start: "År 1961", tokens: ["bärgades", "skeppet"], answers: ["År 1961 bärgades skeppet."] }
+          - { id: 6ju4, type: order, start: "Under mer än trehundra år", tokens: ["låg", "Vasa", "kvar", "på botten"], answers: ["Under mer än trehundra år låg Vasa kvar på botten."] }
+          - { id: t3hj, type: order, start: "I dag", tokens: ["kan", "man", "se", "skeppet", "på museet"], answers: ["I dag kan man se skeppet på museet."] }
+          - { id: e3sm, type: order, start: "På 1600-talet", tokens: ["var", "Sverige", "en stormakt"], answers: ["På 1600-talet var Sverige en stormakt."] }
+          - { id: j75g, type: order, start: "Efter olyckan", tokens: ["började", "man", "undersöka", "skeppet"], answers: ["Efter olyckan började man undersöka skeppet."] }
+          - { id: 5u69, type: order, start: "Varför", tokens: ["sjönk", "skeppet"], answers: ["Varför sjönk skeppet?"] }
+          - { id: 63dy, type: order, start: "Det här", tokens: ["visste", "ingen", "då"], answers: ["Det här visste ingen då."] }
+          - { id: ezfu, type: order, start: "Tyvärr", tokens: ["hade", "ingen", "räknat", "med vinden"], answers: ["Tyvärr hade ingen räknat med vinden."] }
+
+      - id: fundament-vertalen
+        title: Wat zet je vooraan? Vertalen
+        instruction: Vertaal de zin. Let op V2 en op det + werkwoord.
+        topic: fundament
+        shuffle: true
+        items:
+          - { id: tced, type: translate, prompt: "Omdat niemand de koning durfde tegen te spreken, ging het werk door, hoewel iedereen wist dat het schip instabiel was.", answers: ["{Eftersom|Då} ingen vågade {säga emot kungen|säga kungen emot|motsäga kungen} {fortsatte arbetet|gick arbetet vidare} {trots att|fast|fastän} alla visste att skeppet var instabilt.", "Arbetet {fortsatte|gick vidare} {eftersom|då} ingen vågade {säga emot kungen|säga kungen emot|motsäga kungen} {trots att|fast|fastän} alla visste att skeppet var instabilt."], feedback: [{ contains: ["kungen arbetet fortsatte", "emot arbetet fortsatte", "kungen arbetet gick", "emot arbetet gick"], tip: "De bijzin vooraan telt als plaats 1: daarna komt meteen het werkwoord (…, fortsatte arbetet)." }] }
+          - { id: 4r4n, type: translate, prompt: "In 1628 was Zweden een grootmacht die bijna voortdurend oorlog voerde tegen zijn buurlanden.", answers: ["År 1628 var Sverige en stormakt som nästan {hela tiden|ständigt|jämt|alltid} {förde krig mot|låg i krig med} sina {grannländer|grannar}.", "1628 var Sverige en stormakt som nästan {hela tiden|ständigt|jämt|alltid} {förde krig mot|låg i krig med} sina {grannländer|grannar}.", "Sverige var [år ]1628 en stormakt som nästan {hela tiden|ständigt|jämt|alltid} {förde krig mot|låg i krig med} sina {grannländer|grannar}."], feedback: [{ contains: "1628 sverige var", tip: "Na een tijdsbepaling vooraan komt het werkwoord op plaats 2: År 1628 var Sverige …" }, { contains: "sina grannländerna", tip: "Na sina geen lidwoord achter het woord: sina grannländer." }] }
+          - { id: rv28, type: translate, prompt: "Er is nog steeds geen museum ter wereld dat een beter bewaard schip uit de zeventiende eeuw heeft.", answers: ["Det finns {fortfarande|ännu} {inget|inte något|inte ett enda} museum {i världen|i hela världen} som har ett bättre bevarat skepp från {1600-talet|sextonhundratalet|det sjuttonde århundradet}."], feedback: [{ contains: ["inget museum finns", "något museum finns"], tip: "Nieuw, onbepaald onderwerp: begin met det (Det finns … inget museum …)." }, { contains: "bättre bevarad skepp", tip: "Skepp is een ett-woord: ett bättre bevarat skepp." }] }
+          - { id: pqqm, type: translate, prompt: "Pas in de twintigste eeuw begon men te begrijpen hoe waardevol het wrak in de haven van Stockholm eigenlijk was.", answers: ["Först {på|under} {1900-talet|nittonhundratalet} började man [att ]{förstå|inse} hur värdefullt vraket i Stockholms hamn {egentligen|faktiskt} var."], feedback: [{ contains: ["1900-talet man", "nittonhundratalet man"], tip: "Na een tijdsbepaling vooraan komt het werkwoord op plaats 2: Först på 1900-talet började man …" }, { contains: "värdefullt var vraket", tip: "Een indirecte vraag (na hur) heeft de volgorde van een bijzin: hur värdefullt vraket … var." }] }
+          - { id: xb86, type: translate, prompt: "In de zeventiende eeuw was het verboden om de koning en de kerk openlijk te bekritiseren.", answers: ["{På|Under} {1600-talet|sextonhundratalet} var det förbjudet att {öppet kritisera kungen och kyrkan|offentligt kritisera kungen och kyrkan|kritisera kungen och kyrkan öppet|kritisera kungen och kyrkan offentligt}.", "Det var förbjudet att {öppet kritisera kungen och kyrkan|offentligt kritisera kungen och kyrkan|kritisera kungen och kyrkan öppet|kritisera kungen och kyrkan offentligt} {på|under} {1600-talet|sextonhundratalet}."], feedback: [{ contains: ["1600-talet det var", "sextonhundratalet det var"], tip: "Na een tijdsbepaling vooraan komt het werkwoord op plaats 2: På 1600-talet var det förbjudet …" }, { contains: "förbjuden att", tip: "Na det var: de t-vorm, förbjudet." }] }
+
+      - id: fundament-herschrijven
+        title: Lange zinnen herschrijven
+        instruction: Herschrijf de zin zoals gevraagd.
+        topic: fundament
+        items:
+          - { id: jthn, type: transform, prompt: "Några okända föremål från skeppet ligger kanske fortfarande kvar i leran på botten.", task: "Begin met **det**.", answers: ["Det {ligger kanske fortfarande|kanske ligger fortfarande|kanske fortfarande ligger} några okända föremål från skeppet kvar i leran på botten.", "Det {ligger kanske fortfarande|kanske ligger fortfarande|kanske fortfarande ligger} kvar några okända föremål från skeppet i leran på botten."] }
+          - { id: jrwe, type: transform, prompt: "Skeppet bärgades efter mer än trehundra år på botten av Stockholms hamn år 1961.", task: "Begin met *År 1961*.", answers: ["År 1961 bärgades skeppet efter {mer än|över} {trehundra|300} år på botten av Stockholms hamn."], feedback: [{ contains: "1961 skeppet", tip: "Na År 1961 vooraan komt het werkwoord op plaats 2: År 1961 bärgades skeppet …" }] }
+          - { id: dc4m, type: transform, prompt: "Man har upptäckt många nya detaljer om livet ombord under de senaste åren.", task: "Begin met *Under de senaste åren*.", answers: ["Under de senaste åren har man upptäckt många nya detaljer om livet ombord."], feedback: [{ contains: "åren man", tip: "Na de tijdsbepaling vooraan komt het werkwoord op plaats 2: Under de senaste åren har man …" }] }
+          - { id: j62u, type: transform, topic: bisats-adverb, prompt: "Kungen ville inte vänta längre, så ingen på varvet vågade stoppa det farliga projektet.", task: "Begin met *Eftersom*.", answers: ["Eftersom kungen inte {längre ville vänta|ville vänta längre} vågade ingen på varvet stoppa det farliga projektet."], feedback: [{ contains: "ville inte", tip: "In de bijzin (na eftersom) staat inte vóór het werkwoord: eftersom kungen inte längre ville vänta." }, { contains: "ingen på varvet vågade", tip: "De bijzin met eftersom telt als plaats 1: daarna komt meteen het werkwoord (… vågade ingen på varvet …)." }] }
+
+      - id: langere-zinnen
+        title: "Vertaal: langere zinnen"
+        instruction: Vertaal de hele zin. Let op de woordvolgorde in de bijzin en na een woord vooraan.
+        items:
+          - { id: sztt, type: translate, topic: bisats-adverb, prompt: "Niemand weet zeker waarom het schip zo snel zonk, maar velen denken dat het niet stabiel genoeg was.", answers: ["Ingen vet säkert varför skeppet sjönk så snabbt, men många tror att det inte var tillräckligt stabilt.", "Ingen vet säkert varför skeppet sjönk så {snabbt|fort}, men många tror [att ]det inte var {tillräckligt stabilt|stabilt nog}."], feedback: [{ contains: "att det var inte", tip: "In een bijzin staat inte vóór het werkwoord: att det inte var." }] }
+          - { id: ud9j, type: translate, topic: fundament, prompt: "In 1961 werd het schip geborgen, en sindsdien is het bezocht door miljoenen mensen van over de hele wereld.", answers: ["År 1961 bärgades skeppet, och sedan dess har det besökts av miljontals människor från hela världen.", "{År 1961|1961} bärgades {skeppet|Vasa}, och sedan dess har {det|skeppet} besökts av {miljontals|miljoner} människor från hela världen.", "{Skeppet|Vasa} bärgades [år ]1961, och sedan dess har {det|skeppet} besökts av {miljontals|miljoner} människor från hela världen."], feedback: [{ contains: "1961 skeppet bärgades", tip: "Begin je met het jaartal, dan staat het werkwoord op plaats 2: År 1961 bärgades skeppet." }] }
+          - { id: ebe5, type: translate, topic: fundament, prompt: "In de middeleeuwen was Zweden een tamelijk arm land waar verreweg de meeste mensen op het platteland woonden.", answers: ["Under medeltiden var Sverige ett ganska fattigt land där de allra flesta människor bodde på landet.", "Under medeltiden var Sverige ett {ganska|relativt} fattigt land där de allra flesta [människor ]bodde på {landet|landsbygden}."], feedback: [{ contains: "Under medeltiden Sverige var", tip: "Na een tijdsbepaling vooraan: werkwoord eerst (var Sverige)." }] }
+          - { id: hkqb, type: translate, topic: bisats-adverb, prompt: "De koning, die het schip nooit had zien varen, werd erg boos toen hij hoorde wat er was gebeurd.", answers: ["Kungen, som aldrig hade sett skeppet segla, blev mycket arg när han fick veta vad som hade hänt.", "Kungen, som aldrig [hade ]sett skeppet segla, blev {mycket|väldigt} arg när han fick {veta|höra} vad som [hade ]hänt."], feedback: [{ contains: "som hade aldrig sett", tip: "In een bijzin staat aldrig vóór het werkwoord: som aldrig hade sett." }] }
+          - { id: cnaz, type: translate, topic: bisats-adverb, prompt: "De archeologen zijn blij dat ze nooit zijn opgehouden met zoeken naar het schip in de haven.", answers: ["Arkeologerna är glada över att de aldrig slutade leta efter skeppet i hamnen.", "Arkeologerna är glada [över ]att de aldrig {slutade|har slutat} {leta|söka} efter skeppet i hamnen."], feedback: [{ contains: "att de slutade aldrig", tip: "In een bijzin staat aldrig vóór het werkwoord: att de aldrig slutade." }] }
+          - { id: 4m78, type: translate, topic: fundament, prompt: "Plotseling kwam er een harde windstoot, en het schip kapseisde en zonk slechts een paar honderd meter van het land.", answers: ["Plötsligt kom det en kraftig vindby, och skeppet kantrade och sjönk bara några hundra meter från land.", "Plötsligt kom [det ]en {kraftig|stark|hård} vindby, och skeppet kantrade och sjönk bara några hundra meter från {land|stranden}."], feedback: [{ contains: "Plötsligt en kraftig vindby kom", tip: "Na plötsligt vooraan: werkwoord eerst (kom en vindby)." }] }
+          - { id: krma, type: translate, topic: fundament, prompt: "Daarom weten we vandaag vrij veel over hoe gewone mensen in de zeventiende eeuw leefden en werkten.", answers: ["Därför vet vi i dag ganska mycket om hur vanliga människor levde och arbetade på 1600-talet.", "Därför vet vi {i dag|idag} ganska mycket om hur vanliga människor levde och {arbetade|jobbade} {på|under} 1600-talet."], feedback: [{ contains: "Därför vi vet", tip: "Na därför: werkwoord eerst (därför vet vi)." }] }
+          - { id: 9b7x, type: translate, topic: fundament, prompt: "Er bestaan verschillende theorieën over wie verantwoordelijk was voor het ongeluk, maar geen ervan is ooit bewezen.", answers: ["Det finns {flera|olika} teorier om vem som {bar ansvaret för|var ansvarig för|hade ansvaret för} olyckan, men ingen av dem har {någonsin bevisats|någonsin kunnat bevisas|någonsin blivit bevisad}."], feedback: [{ contains: ["flera teorier finns", "olika teorier finns"], tip: "Nieuw, onbepaald onderwerp: begin met det (Det finns flera teorier …)." }, { contains: ["om vem bar", "om vem var", "om vem hade"], tip: "vem is hier het onderwerp van de bijzin: dan heb je som nodig (vem som bar ansvaret)." }] }
+          - { id: qgmj, type: translate, topic: bisats-adverb, prompt: "De historici zijn het er nog steeds niet over eens hoeveel soldaten er eigenlijk in de slag omkwamen.", answers: ["Historikerna är {fortfarande inte|ännu inte|inte ännu} överens om hur många soldater som {egentligen|faktiskt} {dog|omkom|stupade} i slaget."], feedback: [{ contains: ["som dog egentligen", "som omkom egentligen", "som stupade egentligen"], tip: "In de bijzin staat egentligen vóór het werkwoord: som egentligen dog." }, { contains: ["soldater dog", "soldater omkom", "soldater stupade", "soldater egentligen"], tip: "hur många soldater is het onderwerp van de bijzin: dan heb je som nodig (hur många soldater som …)." }] }
+
+  - id: zoek-de-fout
+    title: Zoek de fout
+    exercises:
+      - id: zoek-de-fout
+        title: Zoek de fout
+        instruction: Klik op het woord dat niet klopt en verbeter de zin.
+        topic: bisats-adverb
+        shuffle: true
+        items:
+          - { id: h4fe, type: findError, sentence: "Vi vet att kungen var inte i Stockholm.", wrong: [4, 5], answers: ["Vi vet att kungen inte var i Stockholm."], tip: "Bijzinvolgorde." }
+          - { id: gpst, type: findError, sentence: "Hon sa att han kom inte heller.", wrong: [4, 5, 6], answers: ["Hon sa att han inte heller kom."], tip: "Bijzinvolgorde, met twee bijwoorden." }
+          - { id: vq9r, type: findError, topic: fundament, sentence: "År 1961 skeppet bärgades.", wrong: [2, 3], answers: ["År 1961 bärgades skeppet."], tip: "V2." }
+          - { id: crkt, type: findError, topic: fundament, sentence: "Det finnas många turister här.", wrong: [1], answers: ["Det finns många turister här."], tip: "Welke vorm van finnas?" }
+          - { id: kbh3, type: findError, sentence: "Guiden berättade att skeppet hade aldrig hunnit segla särskilt långt innan det sjönk.", wrong: [4, 5], answers: ["Guiden berättade att skeppet aldrig hade hunnit segla särskilt långt innan det sjönk.", "Guiden berättade att skeppet aldrig hunnit segla särskilt långt innan det sjönk."], tip: "Bijzinvolgorde: aldrig vóór het werkwoord." }
+          - { id: h3rg, type: findError, sentence: "Det är tydligt att kungen ville inte vänta, trots att skeppsbyggarna var oroliga.", wrong: [5, 6], answers: ["Det är tydligt att kungen inte ville vänta, trots att skeppsbyggarna var oroliga."], tip: "Bijzinvolgorde: inte vóór het werkwoord." }
+          - { id: kwzu, type: findError, topic: fundament, sentence: "Under hela sommaren besökare kommer från hela världen för att se det gamla skeppet.", wrong: [3, 4], answers: ["Under hela sommaren kommer det besökare från hela världen för att se det gamla skeppet.", "Under hela sommaren kommer besökare från hela världen för att se det gamla skeppet."], tip: "V2: na de tijdsbepaling vooraan komt eerst het werkwoord." }
+          - { id: 8spe, type: findError, sentence: "Skeppet sjunkit redan när kungen i Polen fick det första brevet om olyckan.", wrong: [1], answers: ["Skeppet hade redan sjunkit när kungen i Polen fick det första brevet om olyckan.", "Skeppet hade sjunkit redan när kungen i Polen fick det första brevet om olyckan."], tip: "In een hoofdzin mag hade niet wegvallen." }
+          - { id: z6z2, type: findError, sentence: "Skeppet sjunkit inom några minuter.", wrong: [1], answers: ["Skeppet {hade sjunkit|sjönk} inom några minuter."], tip: "In een hoofdzin mag hade niet wegvallen." }
+
+  - id: lyssna
+    title: Lyssna · luisteren
+    exercises:
+      - id: lyssna-guide
+        title: "Luisteren: de gids in het museum"
+        instruction: Luister naar de gids. Is de bewering **rätt** of **fel**?
+        topic: fundament
+        listen: true
+        textTitle: Välkomna till museet
+        text: |
+          Välkomna! Skeppet som ni ser framför er är till största delen original. Det har alltså legat på havets botten i över trehundra år.
+
+          När vraket hade bärgats, började ett långt arbete med att bevara det. I sjutton år besprutades träet med ett speciellt konserveringsmedel, så att det inte skulle torka och spricka.
+
+          Det finns fortfarande problem. Träet bryts långsamt ner, och därför är det alltid ganska mörkt och svalt här inne. Det är också därför som man inte får röra skeppet.
+        items:
+          - { id: ges2, type: truefalse, statement: "Skeppet är till största delen original.", answer: true }
+          - { id: 9fwb, type: truefalse, statement: "Träet besprutades i sju år.", answer: false, correction: { answers: ["{Träet|Det} besprutades i sjutton år."] } }
+          - { id: y4z7, type: truefalse, statement: "Det är varmt och ljust i museet.", answer: false, correction: { answers: ["Det är [alltid ]ganska mörkt och svalt.", "Det är [alltid ]ganska mörkt och svalt {i museet|här inne}."] } }
+          - { id: skws, type: truefalse, statement: "Man får inte röra skeppet.", answer: true }
+
+      - id: lyssna-dictee
+        title: Dictee
+        instruction: Luister en maak de zin die je hoort.
+        topic: bisats-adverb
+        shuffle: true
+        items:
+          - { id: 4zxx, type: listen, say: "År sextonhundratjugoåtta sjönk Vasa.", answers: ["År {1628|sextonhundratjugoåtta} sjönk Vasa."] }
+          - { id: ryke, type: listen, say: "Det kom plötsligt en vindby." }
+          - { id: s7w5, type: listen, say: "Han sa att han kanske inte längre ville segla." }
+          - { id: 3dsy, type: listen, say: "När vraket hade bärgats började arbetet." }
+
+  - id: praktiskt
+    title: Praktiskt · een verhaal vertellen
+    exercises:
+      - id: berattarfraser
+        title: Een verhaal opbouwen
+        instruction: Kies wat past.
+        topic: fundament
+        shuffle: true
+        items:
+          - { id: 3wr8, type: mc, prompt: "Je begint een verhaal.", options: ["Det hela började med att …", "Det hela slutade med att …", "Till slut började det …", "Efteråt började det …"], answer: 0 }
+          - { id: wr5b, type: mc, prompt: "Er gebeurt iets onverwachts.", options: ["Plötsligt hände något oväntat.", "Långsamt hände något oväntat.", "Som vanligt hände något oväntat.", "Oväntat hände plötsligt vanligt."], answer: 0 }
+          - { id: amxq, type: mc, prompt: "Je vertelt hoe het afliep.", options: ["Till slut …", "Först …", "Det hela började med …", "Plötsligt …"], answer: 0 }
+          - { id: 4jft, type: mc, prompt: "Je springt naar veel later.", options: ["Mer än trehundra år senare …", "Trehundra år tidigare senare …", "Efter trehundra år förut …", "Trehundra senare år …"], answer: 0 }
+
+      - id: wat-zeg-je-zelf
+        title: Wat zeg je? (zelf)
+        instruction: Zeg het nu zelf in het Zweeds. Er is vaak meer dan één goed antwoord.
+        kind: situatie
+        items:
+          - { id: zfba, type: translate, topic: bisats-adverb, prompt: "Zeg dat je hoopt dat het niet gaat regenen.", answers: ["Jag hoppas [att ]det inte {regnar|kommer [att ]regna}."], feedback: [{ contains: "att det regnar inte", tip: "In een bijzin staat inte vóór het werkwoord: att det inte regnar." }] }
+          - { id: k83e, type: translate, topic: bisats-adverb, prompt: "Zeg dat je weet dat hij altijd te laat komt.", answers: ["Jag vet att han alltid {kommer för sent|är sen}."], feedback: [{ contains: "han kommer alltid", tip: "In een bijzin staat alltid vóór het werkwoord: att han alltid kommer." }] }
+          - { id: rtmt, type: translate, topic: fundament, prompt: "Begin met het jaartal: zeg dat de Vasa in 1628 zonk.", answers: ["{År 1628|1628} sjönk {Vasa|Vasaskeppet|skeppet Vasa|regalskeppet Vasa}."], feedback: [{ contains: "1628 Vasa sjönk", tip: "Begin je met het jaartal, dan komt het werkwoord op plaats 2: År 1628 sjönk Vasa." }] }
+          - { id: 4hjn, type: translate, topic: fundament, prompt: "Zeg dat het schip na 333 jaar werd geborgen.", answers: ["{Skeppet|Vasa|Vasaskeppet} {bärgades|togs upp} efter 333 år.", "Efter 333 år {bärgades|togs} {skeppet|Vasa|Vasaskeppet}[ upp]."] }
+
+  - id: skriva
+    title: Skriva · schrijven
+    intro: "Schrijfdoel: een verhalende tekst."
+    exercises:
+      - id: skriva-betoog
+        title: Betoog in stappen
+        instruction: "Bouw een betoog op in vier delen: tes, argumenten, motargument met bemötande en slutsats. De app kijkt elke stap na. Daarna schrijf je het hele betoog, als je wilt."
+        topic: argumentation
+        items:
+          - id: wy97
+            type: steps
+            topic: argumentation
+            steps:
+              - { type: mc, prompt: "**Tes.** Welke zin is een goede tes (een standpunt)?", options: ["Historia borde vara ett obligatoriskt ämne under hela gymnasiet.", "Historia är ett av de äldsta ämnena i den svenska skolan.", "Vasaskeppet sjönk i Stockholm år 1628."], answer: 0, tip: "Een tes is een standpunt waarover je van mening kunt verschillen. De andere zinnen zijn feiten." }
+              - { type: order, topic: fundament, prompt: "**Tes.** Begin met de voorwaarde *Utan kunskaper om historien*. Let op de woordvolgorde.", start: "Utan kunskaper om historien", tokens: ["kan", "vi", "inte", "förstå", "dagens", "samhälle"], answers: ["Utan kunskaper om historien kan vi inte förstå dagens samhälle."], feedback: [{ contains: "historien vi kan", tip: "Het zinsdeel vooraan telt als plaats 1: daarna komt meteen het werkwoord (… kan vi inte förstå)." }] }
+          - id: 4sdj
+            type: steps
+            topic: argumentation
+            steps:
+              - { type: gap, prompt: "**Argument 1.** Kies het signaalwoord.", text: "___ hjälper historia oss att förstå varför världen ser ut som den gör i dag.", gaps: [{ answers: ["För det första"], options: ["För det första", "Å andra sidan", "Sammanfattningsvis"], tip: "Je eerste argument kondig je aan met för det första. Sammanfattningsvis hoort bij de slutsats." }] }
+              - { type: gap, topic: bisats-adverb, prompt: "**Argument 2.** Kies de goede volgorde in de att-zin.", text: "Dessutom visar undersökningar att många unga ___ hur demokratin växte fram i Sverige.", gaps: [{ answers: ["aldrig har lärt sig"], options: ["aldrig har lärt sig", "har aldrig lärt sig", "har lärt sig aldrig"], shuffle: false, tip: "In de bijzin (na att) staat aldrig vóór het werkwoord: att många unga aldrig har lärt sig …" }] }
+              - { type: order, topic: bisats-adverb, prompt: "**Argument 3.** Maak de bijzin met *eftersom* af. Let op *då* en *inte*.", start: "Kunskaper om historien skyddar demokratin,", tokens: ["eftersom", "människor", "då", "inte", "lika", "lätt", "luras", "av", "propaganda"], answers: ["Kunskaper om historien skyddar demokratin, eftersom människor då inte luras lika lätt av propaganda.", "Kunskaper om historien skyddar demokratin, eftersom människor då inte lika lätt luras av propaganda.", "Kunskaper om historien skyddar demokratin, eftersom människor då inte luras av propaganda lika lätt."], feedback: [{ contains: "luras inte", tip: "In de bijzin (na eftersom) staat inte vóór het werkwoord: människor då inte lika lätt luras." }] }
+          - id: xnpa
+            type: steps
+            topic: argumentation
+            steps:
+              - { type: mc, prompt: "**Motargument.** Welke zin geeft weer wat de andere kant vindt?", options: ["Vissa hävdar att eleverna hellre borde lägga tiden på matematik och programmering.", "För det första hjälper historia oss att förstå världen.", "Därför anser jag att historia borde vara ett obligatoriskt ämne."], answer: 0, tip: "Een motargument is wat anderen vinden: Vissa hävdar att … of Kritiker menar att …" }
+              - { type: order, topic: fundament, prompt: "**Bemötande.** Maak de zin af. De bijzin met *trots att* staat vooraan.", start: "Trots att matematik och programmering är viktiga,", tokens: ["behöver", "eleverna", "också", "förstå", "sin", "egen", "historia"], answers: ["Trots att matematik och programmering är viktiga, behöver eleverna också förstå sin egen historia."], feedback: [{ contains: "viktiga eleverna", tip: "De bijzin vooraan telt als plaats 1: daarna komt meteen het werkwoord (…, behöver eleverna …)." }] }
+          - id: b8ef
+            type: steps
+            topic: argumentation
+            steps:
+              - { type: transform, topic: fundament, task: "**Slutsats.** Begin de zin met *Av det förflutna*.", prompt: "Vi kan lära oss mycket om framtiden av det förflutna.", answers: ["Av det förflutna kan vi lära oss mycket om framtiden."], feedback: [{ contains: "av det förflutna vi", tip: "Het zinsdeel vooraan telt als plaats 1: daarna komt meteen het werkwoord (Av det förflutna kan vi …)." }] }
+              - { type: gap, prompt: "**Slutsats.** Je sluit af. Kies het signaalwoord.", text: "___ anser jag att historia borde vara ett obligatoriskt ämne under alla tre åren.", gaps: [{ answers: ["Därför"], options: ["Därför", "Visserligen", "För det första"], tip: "Een slutsats trek je met därför (daarom) of sammanfattningsvis." }] }
+          - id: 7ep8
+            type: free
+            prompt: "Schrijf nu het hele betoog (100–150 woorden) over de stelling *Historia borde vara ett obligatoriskt ämne under hela gymnasiet*, of kies zelf een stelling over geschiedenis (bijvoorbeeld: *Alla elever borde besöka ett historiskt museum varje år*). Gebruik de vier delen: tes, twee of drie argumenten, een motargument met bemötande en een slutsats."
+            minWords: 90
+            require:
+              - { any: ["anser", "tycker", "enligt min mening", "borde"], label: "Je geeft je tes" }
+              - { any: ["för det första", "dessutom", "eftersom"], label: "Je ordent je argumenten (för det första, dessutom, eftersom)" }
+              - { any: ["visserligen", "trots att", "å andra sidan", "det stämmer att"], label: "Je bemöter een motargument (trots att, visserligen … men)" }
+              - { any: ["därför", "sammanfattningsvis", "kort sagt"], label: "Je sluit af met een slutsats" }
+            model: "Historia borde vara ett obligatoriskt ämne under hela gymnasiet. Utan kunskaper om historien kan vi inte förstå dagens samhälle. För det första hjälper historia oss att förstå varför världen ser ut som den gör i dag. Dessutom visar undersökningar att många unga aldrig har lärt sig hur demokratin växte fram i Sverige. Kunskaper om historien skyddar demokratin, eftersom människor då inte luras lika lätt av propaganda. Vissa hävdar att eleverna hellre borde lägga tiden på matematik och programmering. Trots att matematik och programmering är viktiga, behöver eleverna också förstå sin egen historia. Av det förflutna kan vi lära oss mycket om framtiden. Därför anser jag att historia borde vara ett obligatoriskt ämne under alla tre åren."
+
+      - id: skriva-historia
+        title: Vertel een gebeurtenis
+        instruction: "Bouw eerst je verhaal op in vier stappen die de app nakijkt. Daarna schrijf je het hele verhaal, als je wilt."
+        topic: fundament
+        items:
+          - { id: dqnx, type: mc, topic: fundament, prompt: "Kies de beste eerste zin.", options: ["Natten till den 1 februari 1953 drabbades Nederländerna av en katastrof.", "Natten till den 1 februari 1953 Nederländerna drabbades av en katastrof.", "Natten till den 1 februari 1953 drabbade Nederländerna av en katastrof."], answer: 0, tip: "Na de tijdsbepaling vooraan komt het werkwoord op plaats 2. Getroffen worden: drabbas (drabbades)." }
+          - { id: rxmr, type: gap, prompt: "Kies de goede vorm. (Het stormde al vóór de nacht.)", text: "Det ___ stormat hela dagen, och på natten steg vattnet.", gaps: [{ answers: ["hade"], options: ["hade", "har", "var"], shuffle: false, tip: "Iets wat vóór een ander moment in het verleden gebeurde: hade + supinum." }] }
+          - { id: ghck, type: order, topic: fundament, prompt: "Begin met plötsligt.", start: "Plötsligt", tokens: ["brast", "vallarna", "på", "flera", "ställen"], answers: ["Plötsligt brast vallarna på flera ställen."] }
+          - { id: xubf, type: gap, topic: bisats-adverb, prompt: "Kies de goede volgorde.", text: "Det fanns ingen tid att varna alla, eftersom många byar ___ telefon.", gaps: [{ answers: ["inte hade"], options: ["inte hade", "hade inte"], shuffle: false, tip: "In de bijzin (na eftersom) staat inte vóór het werkwoord." }] }
+          - id: ksav
+            type: free
+            prompt: "Vertel over een historische gebeurtenis uit Nederland of België (bijvoorbeeld de watersnood van 1953 of de bouw van de Afsluitdijk), of over een gebeurtenis uit je familie. Schrijf 120–160 woorden. Gebruik de verleden tijd, minstens één keer **hade** + supinum, tijdsbepalingen vooraan en een zin met **det** + werkwoord (*det kom, det fanns …*)."
+            minWords: 110
+            require:
+              - { any: ["hade"], label: "Je gebruikt hade + supinum" }
+              - { any: ["år", "den", "på"], label: "Je noemt een tijd" }
+              - { any: ["det kom", "det fanns", "det var", "det hände", "det stod", "det låg"], label: "Je gebruikt det + werkwoord" }
+              - { any: ["plötsligt", "till slut", "först", "sedan", "senare"], label: "Je gebruikt verteltijdwoorden" }
+            model: "Natten mellan den 31 januari och den 1 februari 1953 drabbades sydvästra Nederländerna av en katastrof. Det hade stormat hela dagen, och på natten steg vattnet snabbare än någon hade räknat med. Plötsligt brast vallarna på flera ställen. Det fanns ingen tid att varna alla, eftersom många byar inte hade telefon. Mer än 1 800 människor omkom, och tusentals djur drunknade. Många familjer förlorade allt de ägde. Efter katastrofen bestämde regeringen att något måste göras. Under de följande decennierna byggdes Deltaverken, ett av världens största system av dammar och slussar. I dag kan man besöka ett museum i Zeeland, där man berättar om natten då havet kom."
+
+  - id: herhaling
+    title: Herhaling
+    exercises:
+      - id: herhaling-b2-29
+        title: Door elkaar
+        instruction: Gemengde vragen.
+        shuffle: true
+        items:
+          - { id: a82j, type: gap, topic: passiv-s, text: "Vraket ___ (hitta) år 1956.", gaps: [{ answers: ["hittades"] }] }
+          - { id: wu3s, type: gap, topic: bestamd-utan-artikel, text: "Det var första ___ skeppet seglade.", gaps: [{ answers: ["gången"], options: ["gång", "gången"], shuffle: false }] }
+          - { id: k5pr, type: gap, topic: particip-konstruktion, text: "det år 1961 ___ (bärga) skeppet", gaps: [{ answers: ["bärgade"] }] }
+          - { id: ys8v, type: transform, topic: utbrytning, prompt: "**Kungen** ville ha skeppet klart snabbt.", answers: ["Det var kungen som ville ha skeppet klart snabbt."] }
+          - { id: qd95, type: gap, topic: sambandsord, text: "Skeppet var instabilt. ___ sjönk det.", gaps: [{ answers: ["Därför"], options: ["Därför", "Dessutom", "Däremot"], shuffle: false }] }
+          - { id: dc83, type: transform, topic: fundament, prompt: "En kanon ligger fortfarande på botten.", answers: ["Det ligger fortfarande en kanon på botten.", "Det ligger en kanon på botten fortfarande."] }
+          - { id: 8axe, type: transform, topic: bisats-adverb, prompt: "Han vill inte längre bo i Stockholm.", task: "Han sa att …", answers: ["Han sa att han inte {längre ville bo i Stockholm|ville bo i Stockholm längre}."], feedback: [{ match: "Han sa att han ville inte längre bo i Stockholm.", tip: "In de bijzin staan inte en längre vóór het werkwoord." }] }
+          - { id: 9gqc, type: transform, topic: fundament, task: "Begin de zin met de tijd.", prompt: "Vasa bärgades år 1961.", answers: ["[År ]1961 bärgades Vasa."] }
+          - { id: ya7c, type: gap, topic: passiv-s, text: "Skeppet ___ (bygga) på order av kungen.", gaps: [{ answers: ["byggdes"] }] }
+          - { id: hkc4, type: gap, topic: indirekt-fraga, text: "Historikerna undrar fortfarande ___ skeppet sjönk så snabbt.", gaps: [{ answers: ["varför"], options: ["varför", "som", "att"], shuffle: false }] }
+          - { id: qxnh, type: mc, topic: idiom, prompt: "Je collega zegt: *Det är ingen ko på isen, vi har tid på oss till fredag.* Wat bedoelt ze?", options: ["Er is geen haast.", "Er is een groot probleem.", "Het is glad buiten."], answer: 0, tip: "Det är ingen ko på isen = er is geen haast, het komt wel goed." }
+
+vocab:
+  - { sv: "ett skepp", nl: "een schip", def: "skeppet", pl: "skepp", plDef: "skeppen", ex: "Tusentals människor kom för att se det nya **skeppet** segla.", exNl: "Duizenden mensen kwamen kijken hoe het nieuwe schip uitvoer." }
+  - { sv: "ett krigsskepp", nl: "een oorlogsschip", def: "krigsskeppet", pl: "krigsskepp", plDef: "krigsskeppen", ex: "Kungen beställde ett nytt **krigsskepp** till flottan.", exNl: "De koning bestelde een nieuw oorlogsschip voor de vloot." }
+  - { sv: "ett vrak", nl: "een wrak", def: "vraket", pl: "vrak", plDef: "vraken", ex: "Dykarna hittade **vraket** på trettio meters djup.", exNl: "De duikers vonden het wrak op dertig meter diepte." }
+  - { sv: "ett krig", nl: "een oorlog", def: "kriget", pl: "krig", plDef: "krigen", ex: "Sverige har inte varit i **krig** sedan 1814.", exNl: "Zweden is sinds 1814 niet in oorlog geweest." }
+  - { sv: "en kung", nl: "een koning", def: "kungen", pl: "kungar", plDef: "kungarna", ex: "**Kungen** ville visa hela Europa hur mäktig han var.", exNl: "De koning wilde heel Europa laten zien hoe machtig hij was." }
+  - { sv: "en drottning", nl: "een koningin", def: "drottningen", pl: "drottningar", plDef: "drottningarna", ex: "Kristina var bara fem år när hon blev **drottning**.", exNl: "Kristina was pas vijf jaar toen ze koningin werd." }
+  - { sv: "en botten", nl: "een bodem", def: "botten", pl: "bottnar", plDef: "bottnarna", ex: "Skeppet låg på **botten** i över 300 år.", exNl: "Het schip lag meer dan 300 jaar op de bodem." }
+  - { sv: "en strand", nl: "een strand, een oever", def: "stranden", pl: "stränder", plDef: "stränderna", ex: "Folk stod på **stranden** och såg skeppet sjunka.", exNl: "Mensen stonden op de oever en zagen het schip zinken." }
+  - { sv: "en kanon", nl: "een kanon", def: "kanonen", pl: "kanoner", plDef: "kanonerna", ex: "Skeppet hade 64 **kanoner** ombord.", exNl: "Het schip had 64 kanonnen aan boord." }
+  - { sv: "ett århundrade", nl: "een eeuw", def: "århundradet", pl: "århundraden", plDef: "århundradena", ex: "Vasa byggdes för omkring fyra **århundraden** sedan.", exNl: "De Vasa werd ongeveer vier eeuwen geleden gebouwd." }
+  - { sv: "en avfärd", nl: "een vertrek", def: "avfärden", ex: "Bara några minuter efter **avfärden** började skeppet luta.", exNl: "Slechts een paar minuten na het vertrek begon het schip over te hellen." }
+  - { sv: "en vindby", nl: "een windvlaag", def: "vindbyn", pl: "vindbyar", plDef: "vindbyarna", ex: "En kraftig **vindby** fick skeppet att kränga.", exNl: "Een krachtige windvlaag deed het schip slagzij maken." }
+  - { sv: "att sjunka", nl: "zinken", ex: "Skeppet **sjönk** på sin första resa år 1628.", exNl: "Het schip zonk tijdens zijn eerste reis in 1628." }
+  - { sv: "att bärga", nl: "bergen", ex: "Vasa **bärgades** först år 1961, efter 333 år under vatten.", exNl: "De Vasa werd pas in 1961 geborgen, na 333 jaar onder water." }
+  - { sv: "att omkomma", nl: "omkomen", ex: "Omkring trettio personer **omkom** i olyckan.", exNl: "Ongeveer dertig mensen kwamen om bij het ongeluk." }
+  - { sv: "att våga", nl: "durven", ex: "Ingen **vågade** säga till kungen att skeppet var instabilt.", exNl: "Niemand durfde de koning te zeggen dat het schip instabiel was." }
+  - { sv: "att bevara", nl: "bewaren, conserveren", ex: "Tack vare det kalla vattnet är skeppet väl **bevarat**.", exNl: "Dankzij het koude water is het schip goed bewaard gebleven." }
+  - { sv: "att befinna sig", nl: "zich bevinden", ex: "Vraket **befann sig** mitt i Stockholms hamn.", exNl: "Het wrak bevond zich midden in de haven van Stockholm." }
+  - { sv: "plötsligt", nl: "plotseling", ex: "**Plötsligt** lutade skeppet kraftigt åt sidan.", exNl: "Plotseling helde het schip sterk over naar opzij." }
+  - { sv: "fortfarande", nl: "nog steeds", ex: "Vasamuseet är **fortfarande** ett av Stockholms populäraste museer.", exNl: "Het Vasamuseum is nog steeds een van de populairste musea van Stockholm." }
+  - { sv: "en historia", nl: "de geschiedenis", def: "historien", mass: true, ex: "Jag har alltid varit intresserad av **historia**.", exNl: "Ik ben altijd geïnteresseerd geweest in geschiedenis." }
+  - { sv: "en epok", nl: "een tijdperk", def: "epoken", pl: "epoker", plDef: "epokerna", ex: "Stormaktstiden var en viktig **epok** i Sveriges historia.", exNl: "De Grootmachttijd was een belangrijk tijdperk in de geschiedenis van Zweden." }
+  - { sv: "medeltiden", nl: "de middeleeuwen", ex: "Under **medeltiden** var Stockholm en ganska liten stad.", exNl: "In de middeleeuwen was Stockholm een vrij kleine stad." }
+  - { sv: "en stormakt", nl: "een grootmacht", def: "stormakten", pl: "stormakter", plDef: "stormakterna", ex: "På 1600-talet var Sverige en europeisk **stormakt**.", exNl: "In de 17e eeuw was Zweden een Europese grootmacht." }
+  - { sv: "ett rike", nl: "een rijk (koninkrijk)", def: "riket", pl: "riken", plDef: "rikena", ex: "Kungen ville göra sitt **rike** större och starkare.", exNl: "De koning wilde zijn rijk groter en sterker maken." }
+  - { sv: "en flotta", nl: "een vloot", def: "flottan", pl: "flottor", plDef: "flottorna", ex: "Vasa skulle bli stoltheten i den svenska **flottan**.", exNl: "De Vasa moest de trots van de Zweedse vloot worden." }
+  - { sv: "en sjöman", nl: "een zeeman", def: "sjömannen", pl: "sjömän", plDef: "sjömännen", ex: "Flera **sjömän** hade sina familjer med sig ombord.", exNl: "Verschillende zeelieden hadden hun familie bij zich aan boord." }
+  - { sv: "en besättning", nl: "een bemanning", def: "besättningen", pl: "besättningar", plDef: "besättningarna", ex: "**Besättningen** bestod av omkring 150 personer.", exNl: "De bemanning bestond uit ongeveer 150 personen." }
+  - { sv: "ett slag", nl: "een veldslag, een slag", def: "slaget", pl: "slag", plDef: "slagen", ex: "Sverige förlorade **slaget** vid Poltava år 1709.", exNl: "Zweden verloor de slag bij Poltava in 1709." }
+  - { sv: "en seger", nl: "een overwinning", def: "segern", pl: "segrar", plDef: "segrarna", ex: "Slaget slutade med en stor svensk **seger**.", exNl: "De slag eindigde met een grote Zweedse overwinning." }
+  - { sv: "ett nederlag", nl: "een nederlaag", def: "nederlaget", pl: "nederlag", plDef: "nederlagen", ex: "**Nederlaget** vid Poltava blev början på slutet för stormaktstiden.", exNl: "De nederlaag bij Poltava was het begin van het einde van de Grootmachttijd." }
+  - { sv: "en fred", nl: "de vrede", def: "freden", mass: true, ex: "**Freden** i Roskilde 1658 gav Skåne till Sverige.", exNl: "De vrede van Roskilde in 1658 gaf Skåne aan Zweden." }
+  - { sv: "en utgrävning", nl: "een opgraving", def: "utgrävningen", pl: "utgrävningar", plDef: "utgrävningarna", ex: "Under **utgrävningen** hittade man många gamla mynt.", exNl: "Tijdens de opgraving vond men veel oude munten." }
+  - { sv: "ett fynd", nl: "een vondst", def: "fyndet", pl: "fynd", plDef: "fynden", ex: "**Fynden** från vraket visas i dag på museet.", exNl: "De vondsten uit het wrak worden nu in het museum getoond." }
+  - { sv: "en arkeolog", nl: "een archeoloog", def: "arkeologen", pl: "arkeologer", plDef: "arkeologerna", ex: "**Arkeologerna** har undersökt varje del av skeppet.", exNl: "De archeologen hebben elk deel van het schip onderzocht." }
+  - { sv: "att erövra", nl: "veroveren", ex: "Gustav II Adolf **erövrade** stora områden i Tyskland.", exNl: "Gustaaf II Adolf veroverde grote gebieden in Duitsland." }
+  - { sv: "att härska", nl: "heersen", ex: "Kungen **härskade** över ett stort rike runt Östersjön.", exNl: "De koning heerste over een groot rijk rond de Oostzee." }
+  - { sv: "att kröna", nl: "kronen", ex: "Gustav Vasa **kröntes** till kung år 1528.", exNl: "Gustav Vasa werd in 1528 tot koning gekroond." }
+  - { sv: "att grunda", nl: "stichten, oprichten", ex: "Enligt traditionen **grundades** Stockholm i mitten av 1200-talet.", exNl: "Volgens de overlevering werd Stockholm halverwege de 13e eeuw gesticht." }
+  - { sv: "att utvandra", nl: "emigreren", ex: "Över en miljon svenskar **utvandrade** till Amerika.", exNl: "Meer dan een miljoen Zweden emigreerden naar Amerika." }
+  - { sv: "att gräva fram", nl: "opgraven", ex: "Arkeologerna **grävde fram** en gammal vikingagrav.", exNl: "De archeologen groeven een oud vikinggraf op." }
+  - { sv: "att få reda på", nl: "te weten komen", ex: "Det dröjde länge innan man **fick reda på** sanningen.", exNl: "Het duurde lang voordat men de waarheid te weten kwam." }
+  - { sv: "att kantra", nl: "kapseizen, omslaan", ex: "Skeppet **kantrade** och sjönk på bara några minuter.", exNl: "Het schip kapseisde en zonk in slechts een paar minuten." }
+  - { sv: "att pågå", nl: "duren, aan de gang zijn", ex: "Trettioåriga kriget **pågick** mellan 1618 och 1648.", exNl: "De Dertigjarige Oorlog duurde van 1618 tot 1648." }
+  - { sv: "att avskaffa", nl: "afschaffen", ex: "Dödsstraffet **avskaffades** i fredstid i Sverige år 1921.", exNl: "De doodstraf werd in Zweden in 1921 in vredestijd afgeschaft." }
+  - { sv: "att ta över", nl: "overnemen", ex: "Hans dotter **tog över** makten efter hans död.", exNl: "Zijn dochter nam na zijn dood de macht over." }
+  - { sv: "att föra krig", nl: "oorlog voeren", ex: "Sverige **förde krig** mot Danmark många gånger.", exNl: "Zweden voerde vaak oorlog tegen Denemarken." }
+  - { sv: "att lägga grunden till", nl: "de basis leggen voor", ex: "Reformen **{lade|la} grunden till** dagens svenska skola.", exNl: "De hervorming legde de basis voor de huidige Zweedse school." }
+  - { sv: "historisk", nl: "historisch", ex: "Det var en **historisk** dag för hela landet.", exNl: "Het was een historische dag voor het hele land." }
+  - { sv: "medeltida", nl: "middeleeuws", ex: "Visby har en välbevarad **medeltida** stadsmur.", exNl: "Visby heeft een goed bewaarde middeleeuwse stadsmuur." }
+  - { sv: "mäktig", nl: "machtig", ex: "Gustav II Adolf var en av Europas **mäktigaste** kungar.", exNl: "Gustaaf II Adolf was een van de machtigste koningen van Europa." }
+  - { sv: "ödesdiger", nl: "noodlottig", ex: "Kungens beslut visade sig vara **ödesdigert**.", exNl: "Het besluit van de koning bleek noodlottig te zijn." }
+  - { sv: "instabil", nl: "instabiel", ex: "Skeppet var för smalt och därför **instabilt**.", exNl: "Het schip was te smal en daardoor instabiel." }
+  - { sv: "tidigare", nl: "vroeger, eerder", ex: "**Tidigare** bodde de flesta svenskar på landet.", exNl: "Vroeger woonden de meeste Zweden op het platteland." }
+  - { sv: "så småningom", nl: "langzamerhand, uiteindelijk", ex: "**Så småningom** glömde man bort var vraket låg.", exNl: "Langzamerhand vergat men waar het wrak lag." }
+  - { sv: "under tiden", nl: "intussen", ex: "**Under tiden** fortsatte kriget nere i Tyskland.", exNl: "Intussen ging de oorlog in Duitsland verder." }
+  - { sv: "därefter", nl: "daarna", ex: "**Därefter** låg skeppet på botten i 333 år.", exNl: "Daarna lag het schip 333 jaar op de bodem." }
+  - { sv: "på sin tid", nl: "destijds, in die tijd", ex: "Vasa var **på sin tid** ett av världens största skepp.", exNl: "De Vasa was destijds een van de grootste schepen ter wereld." }
+  - { sv: "före Kristus", nl: "voor Christus", ex: "Rom grundades enligt legenden 753 år **före Kristus**.", exNl: "Rome werd volgens de legende in 753 voor Christus gesticht." }
+  - { sv: "nämligen", nl: "namelijk", ex: "Skeppet kantrade. Det var **nämligen** alldeles för tungt upptill.", exNl: "Het schip kapseisde. Het was namelijk veel te zwaar aan de bovenkant." }
+  - { sv: "att förändras", nl: "veranderen (vanzelf)", ex: "Staden har **förändrats** mycket.", exNl: "De stad is erg veranderd." }
+  - { sv: "berömd", nl: "beroemd", ex: "Vasa är ett **berömt** skepp.", exNl: "De Vasa is een beroemd schip." }
+  - { sv: "en revolution", nl: "een revolutie", def: "revolutionen", pl: "revolutioner", plDef: "revolutionerna", ex: "Den industriella **revolutionen** förändrade allt.", exNl: "De industriële revolutie veranderde alles." }
+  - { sv: "en invandring", nl: "de immigratie", def: "invandringen", mass: true, ex: "**Invandringen** till Sverige ökade efter kriget.", exNl: "De immigratie naar Zweden nam na de oorlog toe." }
+  - { sv: "att besegra", nl: "verslaan", ex: "Kungen **besegrade** fienden.", exNl: "De koning versloeg de vijand." }
+  - { sv: "att fly", nl: "vluchten", ex: "Många **flydde** från kriget.", exNl: "Velen vluchtten voor de oorlog." }

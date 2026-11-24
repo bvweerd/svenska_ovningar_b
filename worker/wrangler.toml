@@ -1,0 +1,27 @@
+# Cloudflare Worker voor foutmeldingen en synchronisatie van voortgang. Zie worker/README.md.
+name = "svensk-ovningar-b"
+main = "src/index.js"
+compatibility_date = "2025-06-01"
+
+[vars]
+# Eerste = standaard. De A1–A2-site stuurt repo: bvweerd/svenska_ovningar mee.
+GITHUB_REPO = "bvweerd/svenska_ovningar_b,bvweerd/svenska_ovningar"
+ALLOWED_ORIGINS = "https://bvweerd.github.io,http://localhost:5173"
+ISSUE_LABELS = "melding"
+# Synchronisatie: opslagvoorvoegsels (STORAGE_PREFIX in src/config.js) van de sites die mogen synchroniseren.
+SYNC_SITES = "svensk-ovningar,svensk-ovningar-b"
+# Optioneel: alleen Turnstile-tokens van deze hostnamen (zie README).
+# TURNSTILE_HOSTNAMES = "bvweerd.github.io"
+
+# Secrets (niet hier invullen, maar met wrangler):
+#   npx wrangler secret put GITHUB_TOKEN
+#   npx wrangler secret put TURNSTILE_SECRET
+
+# Synchronisatie van voortgang (zie README, „Synchronisatie”). Maak de database met
+#   npx wrangler d1 create svensk-ovningar-sync
+# en zet het database_id hieronder. Zonder deze database geeft /sync/ een 503; meldingen werken dan gewoon.
+[[d1_databases]]
+binding = "DB"
+database_name = "svensk-ovningar-sync"
+database_id = "02b0eb11-2b2c-416a-b96d-1b7637bb08bd"
+migrations_dir = "migrations"

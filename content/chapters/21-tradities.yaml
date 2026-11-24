@@ -1,0 +1,620 @@
+chapter: 21
+# Kan-doen-uitspraken: de app vinkt ze zelf af als de vragen over deze onderwerpen
+# grotendeels in doos 3 of hoger staan (src/progress.js, canDoStatus).
+canDo:
+  - { text: "Ik kan de bepaalde vorm zonder lidwoord gebruiken (förra veckan, hela dagen)", topics: [bestamd-utan-artikel] }
+  - { text: "Ik begrijp samenstellingen en weet of ze en of ett zijn", topics: [sammansattning] }
+
+grammar:
+  - id: bestamd-utan-artikel
+    title: Bepaalde vorm zonder lidwoord
+    summary: "Na **förra, hela, halva, båda, själva** komt de **bepaalde** vorm zonder *den/det*: *förra veckan, hela dagen*. Na **första** mag *den*, maar het hoeft niet: *(den) första gången*. Maar na **nästa, samma, följande** de **onbepaalde**: *nästa vecka, samma dag*."
+    body: |
+      In hoofdstuk 12 leerde je *den nya bilen*: lidwoord + bijvoeglijk naamwoord + bepaalde vorm. Na een paar woorden valt *den/det/de* weg, maar het zelfstandig naamwoord blijft **bepaald**:
+
+      | woord | voorbeeld | betekenis |
+      |---|---|---|
+      | **förra** | *förra **veckan**, förra **året*** | vorige week, vorig jaar |
+      | **hela** | *hela **dagen**, hela **sommaren*** | de hele dag |
+      | **halva** | *halva **tiden*** | de helft van de tijd |
+      | **båda** | *båda **barnen*** | beide kinderen |
+      | **själva** | *själva **festen*** | het feest zelf |
+      | **första, andra …** | *(den) första **gången**, andra **året*** | de eerste keer |
+
+      Bij **första, andra …** mag *den* er ook staan (*den första gången*), maar het hoeft niet.
+
+      Pas op: deze woorden krijgen juist de **onbepaalde** vorm:
+
+      | woord | voorbeeld |
+      |---|---|
+      | **nästa** | *nästa **vecka**, nästa **år**, nästa **gång*** |
+      | **samma** | *samma **dag**, samma **sak*** |
+      | **följande** | *följande **dag*** |
+      | **vilken, varje** | *vilken **dag**?, varje **år*** |
+
+      Dus: *förra **veckan*** maar *nästa **vecka***. Dat verschil moet je gewoon onthouden.
+
+  - id: sammansattning
+    title: Samenstellingen
+    summary: "Het **laatste deel** bepaalt betekenis en en/ett: *en kanel + en bulle = en kanelbulle*, *en sol + ett sken = ett solsken*. Soms komt er een **-s-** tussen (*arbetsplats, tidningsartikel*) of valt een **-a** weg (*skolväska*)."
+    body: |
+      Zweeds plakt woorden aan elkaar, net als het Nederlands. Het **laatste deel** bepaalt de betekenis én het geslacht:
+
+      - *en jul + en gran* → **en** julgran
+      - *ett hus + en vagn* → **en** husvagn (caravan)
+      - *en sol + ett sken* → **ett** solsken (zonneschijn)
+
+      ### Wat gebeurt er op de naad?
+      | regel | voorbeelden |
+      |---|---|
+      | gewoon aan elkaar | *jul + gran → julgran*, *mat + affär → mataffär* |
+      | **-s-** na *-ing, -het, -tion, -dom* | *tidning**s**artikel, säkerhet**s**bälte, station**s**hus, barndom**s**vän* |
+      | vaak **-s-** na een woord dat al samengesteld is | *fotboll**s**match* |
+      | **-a valt weg** | *skol(a) + väska → skolväska*, *flick(a) + vän → flickvän* |
+      | **-a wordt -o- of -u-** | *kyrk**o**gård*, *gat**u**kök* |
+      | **-e valt weg + s** | *arbet(e) + plats → arbet**s**plats* |
+
+      Niet altijd voorspelbaar: *födelsedag* (zonder s). Bij twijfel: opzoeken.
+
+sections:
+  - id: lasa
+    title: Läsa · lezen
+    exercises:
+      - id: lasa-bakverk
+        title: "Lezen: een jaar vol gebak"
+        instruction: Lees de tekst en beantwoord de vragen.
+        topic: woordenschat
+        textTitle: Ett år med svenska bakverk
+        text: |
+          I Sverige har nästan varje årstid sitt eget bakverk. Redan i januari dyker semlorna upp i bageriernas fönster. Egentligen ska man äta semla på fettisdagen, dagen före askonsdagen i februari eller mars, men i dag säljs de ofta hela vintern.
+
+          Den 25 mars är det våffeldagen. Namnet kommer från *Vårfrudagen*, en gammal kyrklig helgdag, men eftersom det låter som *våffeldagen* började man äta våfflor den dagen. Kanelbullen har också en egen dag, men den är mycket nyare: kanelbullens dag hittades på 1999 för att göra reklam för bullen. Den firas den fjärde oktober, och då säljs flera miljoner bullar på en enda dag.
+
+          – Första gången jag hörde talas om kanelbullens dag trodde jag att det var ett skämt, säger Sanne från Utrecht, som har bott i Örebro i två år. Men förra året bakade jag själv, och båda mina grannar kom på fika. Nästa år ska jag prova att baka lussekatter till Lucia.
+
+          Sannes kollega Elin håller fast vid gamla traditioner. Hon bakar semlor själv varje år och tycker att de som säljs redan i januari inte är riktiga semlor. – Själva poängen med en semla är att man äter den på fettisdagen, säger hon. Annars blir den bara en vanlig bulle med grädde.
+
+          Förra sommaren bjöd Elin in Sanne till midsommar hos sina föräldrar i Dalarna. Hela släkten samlades, och båda Elins systrar var också med. På förmiddagen klädde barnen midsommarstången med blommor, och på eftermiddagen dansade alla runt den. Till lunch åt de sill och nypotatis, och de vuxna sjöng snapsvisor innan de skålade. – Det var första gången jag firade midsommar på riktigt, säger Sanne. Hela dagen kändes som en film. Nästa midsommar vill jag fira på samma sätt.
+        items:
+          - { id: 333u, type: mc, prompt: "När ska man egentligen äta semla?", options: ["på fettisdagen", "på julafton", "den 25 mars", "den fjärde oktober"], answer: 0 }
+          - { id: f9t2, type: truefalse, statement: "I dag säljs semlor bara på fettisdagen.", answer: false, correction: { answers: ["{Semlor|De} säljs [ofta ]hela vintern[ i dag]."] } }
+          - { id: mtsz, type: mc, prompt: "Varifrån kommer namnet våffeldagen?", options: ["från Vårfrudagen, en gammal kyrklig helgdag", "från en bagare som hette Våffel", "från ett nederländskt ord", "från en reklamkampanj"], answer: 0 }
+          - { id: ewbv, type: truefalse, statement: "Kanelbullens dag firas den fjärde oktober.", answer: true }
+          - { id: y86f, type: truefalse, statement: "Sanne trodde först att kanelbullens dag var ett skämt.", answer: true }
+          - { id: dram, type: mc, prompt: "Vad ska Sanne göra nästa år?", options: ["baka lussekatter till Lucia", "baka semlor", "flytta till Utrecht", "öppna ett bageri"], answer: 0 }
+          - id: 5ene
+            type: multi
+            prompt: "Welke woordgroepen hebben de bepaalde vorm zonder den/det?"
+            options: ["hela vintern", "första gången", "förra året", "båda mina grannar", "nästa år", "samma sak"]
+            answers: [0, 1, 2]
+            tip: "Na nästa en samma: onbepaald. Na mina (bezittelijk): onbepaald grannar."
+          - { id: mmpz, type: mc, prompt: "Vad tycker Elin om semlor som säljs redan i januari?", options: ["Att de inte är riktiga semlor.", "Att de är godare än andra semlor.", "Att de är för dyra.", "Att man borde äta dem varje dag."], answer: 0 }
+          - { id: b54y, type: truefalse, statement: "Sanne firade midsommar hos Elins föräldrar i Dalarna.", answer: true }
+          - { id: 89x3, type: truefalse, statement: "Barnen klädde midsommarstången på kvällen.", answer: false, correction: { answers: ["{Barnen|De} klädde {midsommarstången|den}[ med blommor] på förmiddagen."] } }
+
+      - id: makkelijk-1
+        title: "Makkelijk lezen: Midsommar"
+        instruction: Een korte tekst met woorden die je al kent. Lees hem vlot door en kies rätt of fel.
+        topic: woordenschat
+        kind: makkelijk
+        textTitle: "Midsommar"
+        text: |
+          Midsommarafton firas alltid på en fredag i juni. Man äter sill och nypotatis, och efter maten reser man midsommarstången och dansar runt den. Många har blomkransar i håret. Förra midsommaren var Saskia med för första gången. Hon tyckte att sångerna var svåra men roliga. På kvällen åt de jordgubbar med grädde. Saskia vill gärna fira midsommar igen nästa år, och då vill hon kunna sångerna.
+        items:
+          - { id: kr8b, type: truefalse, statement: "Midsommarafton är alltid en fredag.", answer: true }
+          - { id: 9pcf, type: truefalse, statement: "Saskia har firat midsommar många gånger.", answer: false }
+
+      - id: makkelijk-2
+        title: "Makkelijk lezen: Våffeldagen"
+        instruction: Een korte tekst met woorden die je al kent. Lees hem vlot door en kies rätt of fel.
+        topic: woordenschat
+        kind: makkelijk
+        textTitle: "Våffeldagen"
+        text: |
+          Den 25 mars är det våffeldagen. Då äter många svenskar våfflor med sylt och grädde. Joyce hade aldrig gjort våfflor förut, men i år provade hon. Hela familjen åt i köket, och nästa år vill barnen göra dem själva. Hon hade köpt sylt och grädde i affären dagen innan. De första våfflorna blev inte så fina, men de smakade gott. Barnen åt fyra var. Efteråt hjälpte alla till att städa köket.
+        items:
+          - { id: 4pjm, type: truefalse, statement: "Joyce har gjort våfflor många gånger.", answer: false }
+          - { id: xy94, type: truefalse, statement: "Våffeldagen är i mars.", answer: true }
+
+      - id: makkelijk-3
+        title: "Makkelijk lezen: Kräftskivan"
+        instruction: Een korte tekst met woorden die je al kent. Lees hem vlot door en beantwoord de vragen.
+        topic: woordenschat
+        kind: makkelijk
+        textTitle: "Kräftskivan"
+        text: |
+          Varje år i augusti har Annas familj en kräftskiva i trädgården. I år var det första gången som Annas nya kollega Tim var med. Det hängde papperslyktor i träden, och alla hade roliga hattar. Alla sjöng snapsvisor och åt kräftor hela kvällen. Tim tyckte att det var svårt att skala kräftorna, men Anna visade honom hur man gör. Han tyckte att det var den roligaste fest han hade varit på.
+        items:
+          - { id: ne9x, type: truefalse, statement: "Kräftskivan var i juni.", answer: false }
+          - { id: 9y4g, type: mc, prompt: "Vem visade Tim hur man skalar kräftor?", options: ["Anna.", "Annas mamma.", "Ingen."], answer: 0 }
+          - { id: hp62, type: truefalse, statement: "Tim hade aldrig varit på familjens kräftskiva förut.", answer: true }
+
+      - id: makkelijk-4
+        title: "Makkelijk lezen: Lucia på kontoret"
+        instruction: Een korte tekst met woorden die je al kent. Lees hem vlot door en beantwoord de vragen.
+        topic: woordenschat
+        kind: makkelijk
+        textTitle: "Lucia på kontoret"
+        text: |
+          Den trettonde december kom ett luciatåg till kontoret där Fredrik jobbar. Det var barn från en skola i närheten. Lucian hade ljus i håret, och tärnorna bar vita linnen. De sjöng några julsånger i fikarummet. Sedan bjöd företaget på lussekatter, pepparkakor och alkoholfri glögg. Fredrik, som kommer från Nederländerna, hade aldrig sett ett luciatåg förut. Han tyckte att det var vackert och filmade allt med mobilen.
+        items:
+          - { id: vhtp, type: mc, prompt: "Var sjöng barnen?", options: ["I fikarummet.", "Utanför kontoret.", "I kyrkan."], answer: 0 }
+          - { id: ewsb, type: truefalse, statement: "Fredrik har sett många luciatåg.", answer: false }
+          - { id: 3cs6, type: truefalse, statement: "Företaget bjöd på lussekatter.", answer: true }
+
+  - id: ord
+    title: Ord och fraser · woorden en uitdrukkingen
+    exercises:
+      - id: ord-tradities
+        title: Feestdagen en tradities
+        instruction: Koppel het woord aan de betekenis.
+        topic: woordenschat
+        items:
+          - id: utnv
+            type: match
+            pairs:
+              - ["en högtid", "een feestdag (religieus of traditioneel)"]
+              - ["en helgdag", "een vrije feestdag"]
+              - ["fira", "vieren"]
+              - ["ett bakverk", "een gebakje"]
+              - ["en brasa", "een vreugdevuur"]
+              - ["en sed", "een gewoonte, gebruik"]
+          - id: ja57
+            type: match
+            pairs:
+              - ["en semla", "een kardemombroodje met amandelspijs en slagroom"]
+              - ["en lussekatt", "een saffraanbroodje"]
+              - ["Valborg", "de avond van 30 april"]
+              - ["nationaldagen", "6 juni"]
+              - ["höra talas om", "horen over"]
+              - ["dyka upp", "opduiken, verschijnen"]
+
+      - id: ord-alle-woorden
+        title: "Woorden in een zin: de rest van de lijst"
+        instruction: Kies het woord dat past. Zo zie je ook de woorden uit de lijst die nog nergens in een zin stonden.
+        topic: woordenschat
+        shuffle: true
+        items:
+          - { id: k3qn, type: gap, text: "Midsommar är en av årets viktigaste ___ i Sverige.", gaps: [{ answers: ["högtider"], options: ["högtider", "seder", "begravningar", "bjudningar"], feedback: [{ match: "seder", tip: "*sed* betekent „een gewoonte, een gebruik”. Lees de zin nog eens: wat past hier?" }] }] }
+          - { id: ycbc, type: gap, text: "Vi köpte semlor på ___ på hörnet.", gaps: [{ answers: ["bageriet"], options: ["bageriet", "dopet", "firandet", "ursprunget"], feedback: [{ match: "firandet", tip: "*firande* betekent „een viering”. Lees de zin nog eens: wat past hier?" }] }] }
+          - { id: u5cn, type: gap, text: "Det är en gammal ___ att äta sill och dricka en snaps på midsommar.", gaps: [{ answers: ["sed"], options: ["sed", "högtid", "namnsdag", "klämdag"], feedback: [{ match: "namnsdag", tip: "*namnsdag* betekent „een naamdag”. Lees de zin nog eens: wat past hier?" }] }] }
+          - { id: krgm, type: gap, text: "Sveriges ___ firas den 6 juni, och firandet är ganska lugnt.", gaps: [{ answers: ["nationaldag"], options: ["nationaldag", "namnsdag", "klämdag", "bjudning"], feedback: [{ match: "namnsdag", tip: "*namnsdag* betekent „een naamdag”. Lees de zin nog eens: wat past hier?" }] }] }
+          - { id: 6fyj, type: gap, text: "Idag har alla som heter Anna ___, så jag ska bjuda in Anna på tårta.", gaps: [{ answers: ["namnsdag"], options: ["namnsdag", "nationaldag", "studentmössa", "bjudning"], feedback: [{ match: "nationaldag", tip: "*nationaldag* betekent „een nationale feestdag”. Lees de zin nog eens: wat past hier?" }] }] }
+          - { id: yeut, type: gap, text: "När man tar studenten har man en vit ___ på huvudet.", gaps: [{ answers: ["studentmössa"], options: ["studentmössa", "påskkärring", "snaps", "sed"], feedback: [{ match: "påskkärring", tip: "*påskkärring* betekent „een paasheksje”. Lees de zin nog eens: wat past hier?" }] }] }
+          - { id: dvz2, type: gap, text: "Förra året var vi på ett ___ och på en ___ i samma kyrka.", gaps: [{ answers: ["dop"], options: ["dop", "bageri", "bakverk", "ursprung"], feedback: [{ match: "bageri", tip: "*bageri* betekent „een bakkerij”. Lees de zin nog eens: wat past hier?" }] }, { answers: ["begravning"], options: ["begravning", "klämdag", "namnsdag", "högtid"] }] }
+          - { id: wckg, type: gap, text: "Fredagen efter Kristi himmelsfärd är en ___, så många tar ledigt.", gaps: [{ answers: ["klämdag"], options: ["klämdag", "namnsdag", "nationaldag", "högtid"], feedback: [{ match: "nationaldag", tip: "*nationaldag* betekent „een nationale feestdag”. Lees de zin nog eens: wat past hier?" }] }] }
+          - { id: mb83, type: gap, text: "Under ___ över jul hinner vi träffa hela familjen.", gaps: [{ answers: ["ledigheten"], options: ["ledigheten", "begravningen", "bjudningen", "seden"], feedback: [{ match: "seden", tip: "*sed* betekent „een gewoonte, een gebruik”. Lees de zin nog eens: wat past hier?" }] }] }
+          - { id: q2gh, type: gap, text: "På påsk klär barnen ut sig till ___ och säger ”Glad påsk!”", gaps: [{ answers: ["påskkärringar"], options: ["påskkärringar", "studentmössor", "snapsar", "seder"], feedback: [{ match: "studentmössor", tip: "*studentmössa* betekent „een studentenpet (bij het eindexamen)”. Lees de zin nog eens: wat past hier?" }] }] }
+          - { id: v839, type: gap, text: "Lucia har sitt ___ i en religiös tradition, men vissa seder är ursprungligen hedniska.", gaps: [{ answers: ["ursprung"], options: ["ursprung", "firande", "dop", "bageri"], feedback: [{ match: "firande", tip: "*firande* betekent „een viering”. Lees de zin nog eens: wat past hier?" }] }] }
+          - { id: hmke, type: gap, text: "Den årliga festen ___ i parken i augusti.", gaps: [{ answers: ["äger rum"], options: ["äger rum", "kallas", "hyllar", "härstammar"], feedback: [{ match: "kallas", tip: "*kallas* betekent „genoemd worden, heten”. Lees de zin nog eens: wat past hier?" }] }] }
+          - { id: k82v, type: gap, text: "Många svenska efternamn ___ från namn på gamla gårdar.", gaps: [{ answers: ["härstammar"], options: ["härstammar", "äger rum", "kallas", "hyllar"], feedback: [{ match: "äger rum", tip: "*äga rum* betekent „plaatsvinden”. Lees de zin nog eens: wat past hier?" }] }] }
+          - { id: zzsd, type: gap, text: "Kvällen före midsommardagen ___ midsommarafton.", gaps: [{ answers: ["kallas"], options: ["kallas", "hyllas", "äger rum", "härstammar"], feedback: [{ match: "hyllas", tip: "*hylla* betekent „eren, hulde brengen”. Lees de zin nog eens: wat past hier?" }] }] }
+          - { id: wnfm, type: gap, text: "Vi sjöng för att ___ mormor på hennes nittioårsdag.", gaps: [{ answers: ["hylla"], options: ["hylla", "härstamma", "äga rum", "kallas"], feedback: [{ match: "kallas", tip: "*kallas* betekent „genoemd worden, heten”. Lees de zin nog eens: wat past hier?" }] }] }
+          - { id: xd82, type: gap, text: "Skolan vill ___ FN-dagen med en utställning.", gaps: [{ answers: ["uppmärksamma"], options: ["uppmärksamma", "härstamma", "kallas", "äga rum"], feedback: [{ match: "härstamma", tip: "*härstamma från* betekent „stammen uit, afstammen van”. Lees de zin nog eens: wat past hier?" }] }] }
+          - { id: wkzj, type: gap, text: "___ firar många jul utan att vara religiösa.", gaps: [{ answers: ["Nuförtiden"], options: ["Nuförtiden", "Ursprungligen", "I fjol", "Festligt"], feedback: [{ match: "Ursprungligen", tip: "*Ursprungligen* betekent „oorspronkelijk”. Lees de zin nog eens: wat past hier?" }] }] }
+          - { id: phtz, type: gap, text: "Vi åt ___ svenska rätter på kräftskivan, och stämningen var mycket festlig.", gaps: [{ answers: ["typiska"], options: ["typiska", "hedniska", "religiösa", "årliga"], feedback: [{ match: "årliga", tip: "*årlig* betekent „jaarlijks”. Lees de zin nog eens: wat past hier?" }] }] }
+          - { id: f5a5, type: gap, text: "Stämningen i kyrkan var ___, och alla var tysta.", gaps: [{ answers: ["högtidlig"], options: ["högtidlig", "typisk", "hednisk", "årlig"], feedback: [{ match: "typisk", tip: "*typisk* betekent „typisch”. Lees de zin nog eens: wat past hier?" }] }] }
+          - { id: qfhd, type: gap, text: "På lördag har vi en liten ___ hemma för grannarna.", gaps: [{ answers: ["bjudning"], options: ["bjudning", "högtid", "begravning", "sed"], feedback: [{ match: "högtid", tip: "*högtid* betekent „een feestdag”. Lees de zin nog eens: wat past hier?" }] }] }
+
+  - id: bestamd
+    title: "Grammatik: förra veckan, nästa vecka"
+    exercises:
+      - id: bestamd-kiezen
+        title: Bepaald of onbepaald?
+        instruction: Kies de goede vorm.
+        topic: bestamd-utan-artikel
+        shuffle: true
+        items:
+          - { id: jf4q, type: gap, text: "Vi var i Göteborg förra ___.", gaps: [{ answers: ["veckan"], options: ["vecka", "veckan"], shuffle: false, feedback: [{ match: "vecka", tip: "Na förra: bepaald, veckan." }] }] }
+          - { id: 3chf, type: gap, text: "Vi ses nästa ___!", gaps: [{ answers: ["vecka"], options: ["vecka", "veckan"], shuffle: false, feedback: [{ match: "veckan", tip: "Na nästa: onbepaald, vecka." }] }] }
+          - { id: ddsb, type: gap, text: "Det regnade hela ___.", gaps: [{ answers: ["dagen"], options: ["dag", "dagen"], shuffle: false }] }
+          - { id: 947z, type: gap, text: "Det var första ___ jag åt surströmming.", gaps: [{ answers: ["gången"], options: ["gång", "gången"], shuffle: false }] }
+          - { id: rhyz, type: gap, text: "Vi är födda samma ___.", gaps: [{ answers: ["år"], options: ["år", "året"], shuffle: false, feedback: [{ match: "året", tip: "Na samma: onbepaald, år." }] }] }
+          - { id: k8wu, type: gap, text: "Båda ___ var sjuka på julafton.", gaps: [{ answers: ["barnen"], options: ["barn", "barnen"], shuffle: false }] }
+          - { id: pvfw, type: gap, text: "Själva ___ var kort, men festen efteråt var lång.", gaps: [{ answers: ["ceremonin"], options: ["ceremoni", "ceremonin"], shuffle: false }] }
+          - { id: 2gbu, type: gap, text: "Vilken ___ firar ni midsommar?", gaps: [{ answers: ["dag"], options: ["dag", "dagen"], shuffle: false }] }
+
+      - id: bestamd-vertalen
+        title: Vertaal
+        instruction: Vertaal naar het Zweeds.
+        topic: bestamd-utan-artikel
+        shuffle: true
+        items:
+          - { id: 6yh2, type: translate, prompt: "vorig jaar", answers: ["förra året", "{i fjol|ifjol}"], feedback: [{ match: "förra år", tip: "Na förra: bepaald, året." }] }
+          - { id: qf35, type: translate, prompt: "volgend jaar", answers: ["nästa år"], feedback: [{ match: "nästa året", tip: "Na nästa: onbepaald, år." }] }
+          - { id: grte, type: translate, prompt: "de hele zomer", answers: ["hela sommaren"], feedback: [{ match: "hela sommar", tip: "Na hela: bepaald, sommaren." }, { match: "den hela sommaren", tip: "Zonder den: hela sommaren." }] }
+          - { id: cbze, type: translate, prompt: "de eerste keer", answers: ["[den ]första gången"], feedback: [{ match: "första gång", tip: "Na första: bepaald, gången." }] }
+          - { id: 9a7k, type: translate, prompt: "dezelfde dag", answers: ["samma dag"], feedback: [{ match: ["samma dagen", "den samma dagen"], tip: "Na samma: onbepaald, en zonder den: samma dag." }] }
+          - { id: wv2y, type: translate, prompt: "beide ouders", answers: ["{båda|bägge} föräldrarna", "de {båda|bägge} föräldrarna"], feedback: [{ match: "båda föräldrar", tip: "Na båda: bepaald, föräldrarna." }] }
+          - { id: xhdf, type: translate, prompt: "de hele dag", answers: ["hela dagen"], feedback: [{ match: "hela dag", tip: "Na hela: bepaald, dagen." }] }
+          - { id: 6y93, type: translate, prompt: "volgende week", answers: ["nästa vecka"], feedback: [{ match: "nästa veckan", tip: "Na nästa: onbepaald, vecka." }] }
+
+      - id: bestamd-in-zinnen
+        title: Bepaald of onbepaald in een langere zin
+        instruction: Kies de goede vorm.
+        topic: bestamd-utan-artikel
+        shuffle: true
+        items:
+          - { id: hkjj, type: gap, text: "Förra ___ firade vi Valborg med studenterna i Uppsala, och det regnade hela dagen.", gaps: [{ answers: ["våren"], options: ["vår", "våren"], shuffle: false, feedback: [{ match: "vår", tip: "Na förra: bepaald, våren." }] }] }
+          - { id: venb, type: gap, text: "Nästa ___ vill Sanne baka lussekatter till Lucia tillsammans med sin kollega Elin.", gaps: [{ answers: ["år"], options: ["år", "året"], shuffle: false, feedback: [{ match: "året", tip: "Na nästa: onbepaald, år." }] }] }
+          - { id: hjqj, type: gap, text: "Hela ___ satt vi ute i trädgården och åt sill och nypotatis.", gaps: [{ answers: ["eftermiddagen"], options: ["eftermiddag", "eftermiddagen"], shuffle: false, feedback: [{ match: "eftermiddag", tip: "Na hela: bepaald, eftermiddagen." }] }] }
+          - { id: y2u5, type: gap, text: "Båda ___ hjälpte till att klä midsommarstången med blommor från trädgården.", gaps: [{ answers: ["flickorna"], options: ["flickor", "flickorna"], shuffle: false, feedback: [{ match: "flickor", tip: "Na båda: bepaald, flickorna." }] }] }
+          - { id: 6swd, type: gap, text: "Själva ___ tog bara en timme, men julmiddagen efteråt varade hela kvällen.", gaps: [{ answers: ["gudstjänsten"], options: ["gudstjänst", "gudstjänsten"], shuffle: false, feedback: [{ match: "gudstjänst", tip: "Na själva: bepaald, gudstjänsten." }] }] }
+          - { id: qpg5, type: gap, text: "Vi åkte till Dalarna samma ___ som skolan slutade och stannade i tre veckor.", gaps: [{ answers: ["dag"], options: ["dag", "dagen"], shuffle: false, feedback: [{ match: "dagen", tip: "Na samma: onbepaald, dag." }] }] }
+          - { id: gk4h, type: gap, text: "Varje ___ samlas hela släkten hos mormor för att äta julbord tillsammans.", gaps: [{ answers: ["jul"], options: ["jul", "julen"], shuffle: false, feedback: [{ match: "julen", tip: "Na varje: onbepaald, jul." }] }] }
+          - { id: t2fw, type: gap, text: "Det var första ___ som jag firade midsommar i Sverige, och jag älskade det.", gaps: [{ answers: ["gången"], options: ["gång", "gången"], shuffle: false, feedback: [{ match: "gång", tip: "Na första: bepaald, gången." }] }] }
+
+      - id: bestamd-zinsbouw
+        title: Zinnen bouwen
+        instruction: Zet de woorden in de goede volgorde.
+        topic: bestamd-utan-artikel
+        shuffle: true
+        items:
+          - { id: uyg8, type: order, start: "Förra sommaren", tokens: ["dansade", "vi", "runt", "midsommarstången", "hela", "eftermiddagen"], answers: ["Förra sommaren dansade vi runt midsommarstången hela eftermiddagen.", "Förra sommaren dansade vi hela eftermiddagen runt midsommarstången."] }
+          - { id: zwbt, type: order, start: "Nästa år", tokens: ["ska", "Sanne", "baka", "lussekatter", "till Lucia", "för första gången"], answers: ["Nästa år ska Sanne baka lussekatter till Lucia för första gången.", "Nästa år ska Sanne baka lussekatter för första gången till Lucia.", "Nästa år ska Sanne för första gången baka lussekatter till Lucia."] }
+          - { id: fyfq, type: order, start: "Båda mina grannar", tokens: ["kom", "på", "fika", "samma", "dag", "som", "jag", "bakade"], answers: ["Båda mina grannar kom på fika samma dag som jag bakade."] }
+          - { id: dpj6, type: order, start: "Hela släkten", tokens: ["samlas", "hos", "mormor", "varje", "jul", "för att", "äta", "julbord"], answers: ["Hela släkten samlas hos mormor varje jul för att äta julbord.", "Hela släkten samlas varje jul hos mormor för att äta julbord."] }
+
+      - id: bestamd-zinnen
+        title: Vertaal de zinnen
+        instruction: Vertaal naar het Zweeds. Let op de vorm na förra, nästa, hela, båda, själva, samma en varje.
+        topic: bestamd-utan-artikel
+        shuffle: true
+        items:
+          - id: 77ur
+            type: translate
+            prompt: "Vorige week heb ik voor het eerst een semla gegeten."
+            answers:
+              - "Förra veckan åt jag {en semla|semla} för [den ]första gången."
+              - "Förra veckan åt jag för [den ]första gången {en semla|semla}."
+              - "Jag åt {en semla|semla} för [den ]första gången förra veckan."
+              - "Jag åt för [den ]första gången {en semla|semla} förra veckan."
+              - "För [den ]första gången åt jag {en semla|semla} förra veckan."
+            feedback:
+              - { contains: "har ätit", tip: "Met een afgesloten tijdstip (förra veckan) gebruik je de verleden tijd: åt." }
+              - { contains: "förra vecka ", tip: "Na förra: bepaald, veckan." }
+              - { contains: "första gång ", tip: "Na första: bepaald, gången." }
+          - id: ah6y
+            type: translate
+            prompt: "Het regende de hele dag, maar het feest zelf was heel gezellig."
+            answers: ["Det regnade hela dagen, men själva festen var {väldigt |mycket |riktigt |jätte}{trevlig|mysig}."]
+            feedback:
+              - { contains: "hela dag ", tip: "Na hela: bepaald, dagen." }
+              - { contains: "den hela", tip: "Na hela geen den: hela dagen." }
+              - { contains: "själva fest ", tip: "Na själva: bepaald, festen." }
+          - id: 5j34
+            type: translate
+            prompt: "Volgende week bakken we samen met de buren saffraanbroodjes."
+            answers:
+              - "Nästa vecka {bakar vi|ska vi baka} {lussekatter|saffransbullar} [tillsammans ]med grannarna."
+              - "Nästa vecka {bakar vi|ska vi baka} [tillsammans ]med grannarna {lussekatter|saffransbullar}."
+            feedback:
+              - { contains: "nästa veckan", tip: "Na nästa: onbepaald, vecka." }
+          - id: u6dc
+            type: translate
+            prompt: "Beide kinderen zongen voor het eerst in de luciaoptocht."
+            answers:
+              - "{Båda|Bägge} barnen sjöng i luciatåget för [den ]första gången."
+              - "För [den ]första gången sjöng {båda|bägge} barnen i luciatåget."
+              - "{Båda|Bägge} barnen sjöng för [den ]första gången i luciatåget."
+            feedback:
+              - { contains: "båda barn ", tip: "Na båda: bepaald, barnen." }
+              - { contains: "första gång ", tip: "Na första: bepaald, gången." }
+          - id: jccf
+            type: translate
+            prompt: "Mijn zus en ik zijn op dezelfde dag jarig, maar niet in hetzelfde jaar."
+            answers: ["{Min syster och jag|Jag och min syster} {fyller år|har födelsedag} {samma dag|på samma dag}, men inte {samma år|i samma år}."]
+            feedback:
+              - { contains: "samma dagen", tip: "Na samma: onbepaald, dag." }
+              - { contains: "samma året", tip: "Na samma: onbepaald, år." }
+          - id: x7qx
+            type: translate
+            prompt: "De volgende dag aten we de rest van de taart op."
+            answers:
+              - "{Följande dag|Nästa dag|Dagen efter|Dagen därpå|Den följande dagen} åt vi [upp ]resten av tårtan."
+              - "Vi åt [upp ]resten av tårtan {följande dag|nästa dag|dagen efter|dagen därpå}."
+            feedback:
+              - { match: ["följande dagen åt vi upp resten av tårtan", "vi åt upp resten av tårtan följande dagen"], tip: "Na följande: onbepaald, dag (of den följande dagen)." }
+          - id: c6qk
+            type: translate
+            prompt: "Elk jaar viert de hele familie kerst bij mijn oma in Örebro."
+            answers: ["Varje år firar hela {familjen|släkten} {jul|julen} hos {min mormor|min farmor} i Örebro."]
+            feedback:
+              - { contains: "varje året", tip: "Na varje: onbepaald, år." }
+              - { contains: "hela familj ", tip: "Na hela: bepaald, familjen." }
+              - { contains: "den hela", tip: "Na hela geen den: hela familjen." }
+          - id: fxt4
+            type: translate
+            prompt: "Vorige winter waren we de hele kerstvakantie bij mijn schoonouders."
+            answers:
+              - "Förra vintern var vi hos mina svärföräldrar [under ]hela jullovet."
+              - "Förra vintern var vi [under ]hela jullovet hos mina svärföräldrar."
+              - "Vi var hos mina svärföräldrar [under ]hela jullovet förra vintern."
+            feedback:
+              - { contains: "förra vinter ", tip: "Na förra: bepaald, vintern." }
+              - { contains: "hela jullov ", tip: "Na hela: bepaald, jullovet." }
+
+  - id: sammansattning
+    title: "Grammatik: samenstellingen"
+    exercises:
+      - id: samenstellen
+        title: Maak het woord
+        instruction: Maak één woord van de twee delen.
+        topic: sammansattning
+        shuffle: true
+        items:
+          - { id: jfx5, type: gap, text: "tidning + artikel → ___", gaps: [{ answers: ["tidningsartikel", "en tidningsartikel"], feedback: [{ match: "tidningartikel", tip: "Na -ing komt een -s-: tidningsartikel." }] }] }
+          - { id: s3d3, type: gap, text: "skola + väska → ___", gaps: [{ answers: ["skolväska", "en skolväska"], feedback: [{ match: "skolaväska", tip: "De -a van skola valt weg: skolväska." }] }] }
+          - { id: tq77, type: gap, text: "arbete + plats → ___", gaps: [{ answers: ["arbetsplats", "en arbetsplats"], feedback: [{ match: ["arbeteplats", "arbetesplats"], tip: "De -e valt weg en er komt een -s-: arbetsplats." }] }] }
+          - { id: 5cjz, type: gap, text: "jul + gran → ___", gaps: [{ answers: ["julgran", "en julgran"], feedback: [{ match: "julsgran", tip: "Hier komt niets tussen: julgran." }] }] }
+          - { id: njht, type: gap, text: "säkerhet + bälte → ___", gaps: [{ answers: ["säkerhetsbälte", "ett säkerhetsbälte"], feedback: [{ match: "säkerhetbälte", tip: "Na -het komt een -s-: säkerhetsbälte." }] }] }
+          - { id: gqb5, type: gap, text: "kanel + bulle → ___", gaps: [{ answers: ["kanelbulle", "en kanelbulle"] }] }
+          - { id: 4drw, type: gap, text: "barndom + vän → ___", gaps: [{ answers: ["barndomsvän", "en barndomsvän"], feedback: [{ match: "barndomvän", tip: "Na -dom komt een -s-: barndomsvän." }] }] }
+          - { id: wyqk, type: gap, text: "fotboll + match → ___", gaps: [{ answers: ["fotbollsmatch", "en fotbollsmatch"], feedback: [{ match: "fotbollmatch", tip: "fotboll is al samengesteld: dan komt er vaak een -s-, fotbollsmatch." }] }] }
+
+      - id: samenstelling-geslacht
+        title: En of ett?
+        instruction: Het laatste deel bepaalt het geslacht. Kies **en** of **ett**.
+        topic: sammansattning
+        shuffle: true
+        items:
+          - { id: 4gng, type: mc, prompt: "solsken (sol + ett sken)", options: ["en", "ett"], answer: 1, shuffle: false, tip: "Het laatste deel is sken (ett)." }
+          - { id: 4pgu, type: mc, prompt: "husvagn (ett hus + vagn)", options: ["en", "ett"], answer: 0, shuffle: false, tip: "Het laatste deel is vagn (en)." }
+          - { id: a9zj, type: mc, prompt: "julbord (en jul + bord)", options: ["en", "ett"], answer: 1, shuffle: false, tip: "bord is een ett-woord." }
+          - { id: dhye, type: mc, prompt: "barnvagn (ett barn + vagn)", options: ["en", "ett"], answer: 0, shuffle: false, tip: "vagn is een en-woord." }
+          - { id: 3jrr, type: mc, prompt: "skolbibliotek (en skola + bibliotek)", options: ["en", "ett"], answer: 1, shuffle: false, tip: "bibliotek is een ett-woord." }
+          - { id: tkvb, type: mc, prompt: "tågbiljett (ett tåg + biljett)", options: ["en", "ett"], answer: 0, shuffle: false, tip: "biljett is een en-woord." }
+          - { id: enrq, type: mc, prompt: "sommarhus (en sommar + hus)", options: ["en", "ett"], answer: 1, shuffle: false, tip: "hus is een ett-woord." }
+          - { id: e7th, type: mc, prompt: "kaffekopp (ett kaffe + kopp)", options: ["en", "ett"], answer: 0, shuffle: false, tip: "kopp is een en-woord." }
+
+      - id: samenstelling-s
+        title: Met of zonder -s-?
+        instruction: Heeft het woord een **-s-** in het midden?
+        topic: sammansattning
+        items:
+          - id: rxyc
+            type: sort
+            categories: ["met -s-", "zonder -s-"]
+            items:
+              - { text: "arbet_plats", cat: 0 }
+              - { text: "tidning_artikel", cat: 0, tip: "Na -ing: -s-." }
+              - { text: "jul_gran", cat: 1 }
+              - { text: "födelse_dag", cat: 1, tip: "Uitzondering: födelsedag zonder s." }
+              - { text: "station_hus", cat: 0, tip: "Na -tion: -s-." }
+              - { text: "kanel_bulle", cat: 1 }
+
+      - id: samenstelling-in-zinnen
+        title: Samenstellingen in een zin
+        instruction: Maak één woord van de delen tussen haakjes en vul het in.
+        topic: sammansattning
+        shuffle: true
+        items:
+          - { id: jpan, type: gap, text: "Mormor har ett gammalt ___ (kaka + recept) som har gått i arv i fyra generationer.", gaps: [{ answers: ["kakrecept"], feedback: [{ match: "kakarecept", tip: "De -a van kaka valt weg: kakrecept." }, { match: "kaka recept", tip: "Een samenstelling schrijf je aan elkaar, en de -a valt weg: kakrecept." }] }] }
+          - { id: bwjs, type: gap, text: "Den trettonde december går barnen i ett ___ (lucia + tåg) och sjunger traditionella sånger.", gaps: [{ answers: ["luciatåg"], feedback: [{ match: "lucia tåg", tip: "Een samenstelling schrijf je aan elkaar: luciatåg." }] }] }
+          - { id: vsah, type: gap, text: "Hela familjen öppnar sina ___ (jul + klappar) efter middagen på julafton.", gaps: [{ answers: ["julklappar"], feedback: [{ match: ["julsklappar", "jul klappar"], tip: "Hier komt niets tussen, en je schrijft het aan elkaar: julklappar." }] }] }
+          - { id: zntw, type: gap, text: "Varje jul åker Elin hem till sitt ___ (barndom + hem) i Dalarna.", gaps: [{ answers: ["barndomshem"], feedback: [{ match: "barndomhem", tip: "Na -dom komt een -s-: barndomshem." }] }] }
+          - { id: t67v, type: gap, text: "På alla helgons dag tänder många människor ljus på ___ (kyrka + gård, bepaald).", gaps: [{ answers: ["kyrkogården", "kyrkgården"], feedback: [{ match: "kyrkagården", tip: "Hier wordt de -a een -o-: kyrkogården." }, { match: ["kyrkogård", "kyrkgård"], tip: "Bepaald: kyrkogården." }] }] }
+          - { id: 4wak, type: gap, text: "Den fjärde oktober är en vanlig ___ (arbete + dag), men nästan alla äter kanelbullar.", gaps: [{ answers: ["arbetsdag"], feedback: [{ match: ["arbetedag", "arbetesdag"], tip: "De -e valt weg en er komt een -s-: arbetsdag." }] }] }
+          - { id: 335c, type: gap, text: "På förmiddagen klädde barnen ___ (midsommar + stång, bepaald) med blommor från trädgården.", gaps: [{ answers: ["midsommarstången"], feedback: [{ match: ["midsommarsstången", "midsommar stången"], tip: "Gewoon aan elkaar, zonder -s-: midsommarstången." }, { match: "midsommarstång", tip: "Bepaald: midsommarstången." }] }] }
+          - { id: dwgk, type: gap, text: "Efter middagen satt hela familjen kvar vid ___ (jul + bord, bepaald) och pratade om gamla minnen i flera timmar.", gaps: [{ answers: ["julbordet"], feedback: [{ match: ["julsbordet", "jul bordet"], tip: "Gewoon aan elkaar, zonder -s-: julbordet." }, { match: "julbord", tip: "Bepaald: julbordet." }] }] }
+          - { id: pn8e, type: gap, text: "Elin har sparat alla ___ (födelsedag + kort) som hon har fått sedan hon var liten.", gaps: [{ answers: ["födelsedagskort"], feedback: [{ match: "födelsedagkort", tip: "födelsedag is al een samenstelling: dan komt er vaak een -s-, födelsedagskort." }] }] }
+          - { id: 2kan, type: gap, text: "I bilen på väg till midsommarfesten måste alla barn ha ___ (säkerhet + bälte) på sig.", gaps: [{ answers: ["säkerhetsbälte"], feedback: [{ match: "säkerhetbälte", tip: "Na -het komt een -s-: säkerhetsbälte." }] }] }
+
+      - id: langere-zinnen
+        title: "Vertaal: langere zinnen"
+        instruction: Vertaal de hele zin. Let op de woordvolgorde in de bijzin en na een woord vooraan.
+        items:
+          - { id: krkw, type: translate, topic: bestamd-utan-artikel, prompt: "Afgelopen kerst vierde de hele familie samen bij mijn oma in een oud huis op het platteland.", answers: ["Förra julen firade hela släkten tillsammans hos min mormor i ett gammalt hus på landet.", "{Förra julen|I julas} firade hela {släkten|familjen} [tillsammans ]hos min {mormor|farmor} i ett gammalt hus på landet."], feedback: [{ contains: "Den förra julen", tip: "Förra julen: zonder den." }] }
+          - { id: t8hy, type: translate, topic: sammansattning, prompt: "Voor het midzomerfeest bakten we een grote aardbeientaart en dekten we een lange tafel in de tuin.", answers: ["Till midsommarfesten bakade vi en stor jordgubbstårta och dukade ett långt bord i trädgården.", "{Till|Inför} {midsommarfesten|midsommar} bakade vi en stor jordgubbstårta och dukade ett långt bord i trädgården."], feedback: [{ contains: "jordgubb tårta", tip: "Een samenstelling schrijf je aan elkaar: jordgubbstårta." }] }
+
+  - id: zoek-de-fout
+    title: Zoek de fout
+    exercises:
+      - id: zoek-de-fout
+        title: Zoek de fout
+        instruction: Klik op het woord dat niet klopt en verbeter de zin.
+        topic: bestamd-utan-artikel
+        shuffle: true
+        items:
+          - { id: peya, type: findError, sentence: "Vi ses nästa veckan.", wrong: [3], answers: ["Vi ses nästa vecka."], tip: "Na nästa: onbepaald." }
+          - { id: j9kb, type: findError, sentence: "Förra år var vi i Kiruna.", wrong: [1], answers: ["Förra året var vi i Kiruna.", "{I fjol|Ifjol} var vi i Kiruna."], tip: "Na förra: bepaald." }
+          - { id: azwd, type: findError, sentence: "Det regnade den hela dagen.", wrong: [2], answers: ["Det regnade hela dagen."], tip: "Na hela: geen den." }
+          - { id: f4qe, type: findError, sentence: "Vi föddes samma året.", wrong: [3], answers: ["Vi föddes samma år."], tip: "Na samma: onbepaald." }
+          - { id: ay2n, type: findError, topic: sammansattning, sentence: "Jag läste en tidningartikel om Lucia.", wrong: [3], answers: ["Jag läste en tidningsartikel om Lucia."], tip: "Wat komt er na -ing?" }
+          - { id: uy2u, type: findError, sentence: "Nästa veckan ska hela klassen gå i luciatåget i kyrkan.", wrong: [1], answers: ["Nästa vecka ska hela klassen gå i luciatåget i kyrkan."], tip: "Na nästa: onbepaald." }
+          - { id: dvv5, type: findError, sentence: "Vi firade midsommar hos Elins föräldrar och dansade runt stången den hela eftermiddagen.", wrong: [10], answers: ["Vi firade midsommar hos Elins föräldrar och dansade runt stången hela eftermiddagen."], tip: "Na hela: geen den." }
+          - { id: kynm, type: findError, sentence: "Båda barn fick en lussekatt och ett glas varm mjölk efter luciatåget.", wrong: [1], answers: ["{Båda|Bägge} barnen fick en lussekatt och ett glas varm mjölk efter luciatåget."], tip: "Na båda: bepaald." }
+          - { id: 38d3, type: findError, sentence: "Vi åkte hem samma kvällen eftersom barnen var trötta efter den långa festen.", wrong: [4], answers: ["Vi åkte hem samma kväll eftersom barnen var trötta efter den långa festen."], tip: "Na samma: onbepaald." }
+          - { id: wph8, type: findError, topic: sammansattning, sentence: "Före jul köpte vi en julsgran på torget och klädde den tillsammans.", wrong: [5], answers: ["Före jul köpte vi en julgran på torget och klädde den tillsammans."], tip: "Komt er iets tussen jul en gran?" }
+
+  - id: lyssna
+    title: Lyssna · luisteren
+    exercises:
+      - id: lyssna-valborg
+        title: "Luisteren: Valborg"
+        instruction: Luister naar de gids. Is de bewering **rätt** of **fel**?
+        topic: bestamd-utan-artikel
+        listen: true
+        textTitle: Valborg i Uppsala
+        text: |
+          Valborgsmässoafton firas den trettionde april, och det är ett sätt att välkomna våren. På kvällen tänder man stora brasor på många platser i landet, och körer sjunger vårsånger.
+
+          I Uppsala firar studenterna hela dagen. På förmiddagen paddlar de nerför Fyrisån i hemmabyggda flottar, och tusentals människor står längs ån och tittar. Klockan tre tar studenterna på sig sina vita mössor.
+
+          Dagen efter, den första maj, är en helgdag, så många kan sova länge.
+        items:
+          - { id: hqah, type: truefalse, statement: "Valborg firas den trettionde april.", answer: true }
+          - { id: 6rqm, type: truefalse, statement: "Man tänder brasor på morgonen.", answer: false, correction: { answers: ["Man tänder brasor på kvällen."] } }
+          - { id: s44u, type: truefalse, statement: "I Uppsala paddlar studenterna på Fyrisån.", answer: true }
+          - { id: hpgq, type: truefalse, statement: "Studenterna tar på sig svarta mössor.", answer: false, correction: { answers: ["{Studenterna|De} tar på sig [sina ]vita mössor."] } }
+          - { id: g989, type: truefalse, statement: "Den första maj är en vanlig arbetsdag.", answer: false, correction: { answers: ["Den första maj är en helgdag."] } }
+
+      - id: lyssna-dictee
+        title: Dictee
+        instruction: Luister en maak de zin die je hoort.
+        topic: bestamd-utan-artikel
+        shuffle: true
+        items:
+          - { id: nxq6, type: listen, say: "Förra året bakade jag kanelbullar." }
+          - { id: yhae, type: listen, say: "Nästa år ska vi fira midsommar i Dalarna." }
+          - { id: sq65, type: listen, say: "Det var första gången jag åt semla." }
+          - { id: cws4, type: listen, say: "Båda barnen sjöng i kören." }
+
+  - id: praktiskt
+    title: Praktiskt · een traditie uitleggen
+    exercises:
+      - id: dialoog-sinterklaas
+        title: Sinterklaas uitleggen
+        instruction: Zet het gesprek in de goede volgorde.
+        topic: bestamd-utan-artikel
+        items:
+          - id: 2ufw
+            type: dialogue
+            lines:
+              - "Johanna: Vad firar ni i Nederländerna i december?"
+              - "Niels: Den femte december firar vi Sinterklaas. Det är nästan viktigare än julen för barnen."
+              - "Johanna: Sinterklaas? Är det som jultomten?"
+              - "Niels: Lite. Han är en gammal man med långt vitt skägg, men han kommer från Spanien med båt."
+              - "Johanna: Från Spanien? Vad roligt! Och vad gör man på själva kvällen?"
+              - "Niels: Man ger varandra presenter och skriver små dikter till varandra."
+              - "Johanna: Dikter! Det måste jag prova nästa år."
+
+      - id: wat-zeg-je-zelf
+        title: Wat zeg je? (zelf)
+        instruction: Zeg het nu zelf in het Zweeds. Er is vaak meer dan één goed antwoord.
+        kind: situatie
+        items:
+          - { id: csje, type: translate, topic: bestamd-utan-artikel, prompt: "Vertel dat je vorige week bij je schoonmoeder was.", answers: ["Förra veckan var jag hos min svärmor.", "Jag var hos min svärmor förra veckan."], feedback: [{ contains: "den förra veckan", tip: "Förra veckan: zonder den." }] }
+          - { id: fanc, type: translate, topic: sammansattning, prompt: "Zeg dat je van verjaardagstaart houdt.", answers: ["Jag {tycker om|gillar|älskar} födelsedagstårta."], feedback: [{ contains: "födelsedag tårta", tip: "Een samenstelling schrijf je aan elkaar, hier met -s-: födelsedagstårta." }, { contains: "födelsedagtårta", tip: "Hier met -s-: födelsedagstårta." }] }
+          - { id: mcfa, type: translate, topic: bestamd-utan-artikel, prompt: "Zeg dat je het hele weekend hebt gewerkt.", answers: ["Jag har {jobbat|arbetat} hela helgen.", "Jag {jobbade|arbetade} hela helgen."], feedback: [{ contains: "hela den helgen", tip: "Na hela: de bepaalde vorm zonder den (hela helgen)." }] }
+          - { id: wh4b, type: translate, topic: sammansattning, prompt: "Vertel dat het treinstation dicht bij je huis ligt.", answers: ["{Järnvägsstationen|Tågstationen|Stationen} ligger nära {mitt hus|mitt hem|där jag bor}."] }
+          - { id: g8q9, type: translate, topic: bestamd-utan-artikel, prompt: "Zeg dat je vorig jaar met je familie naar Gotland ging.", answers: ["{Förra året|I fjol} {åkte|reste|for} jag till Gotland med min familj.", "{Förra året|I fjol} {åkte|reste|for} jag med min familj till Gotland.", "Jag {åkte|reste|for} till Gotland med min familj {förra året|i fjol}.", "{Förra året|I fjol} {åkte|reste|for} jag och min familj till Gotland.", "{Jag och min familj|Min familj och jag} {åkte|reste|for} till Gotland {förra året|i fjol}."], feedback: [{ contains: "det förra året", tip: "Zonder lidwoord: förra året." }, { contains: "förra år ", tip: "Na förra komt de bepaalde vorm: förra året." }] }
+          - { id: wtt3, type: translate, topic: sammansattning, prompt: "Je bent in een winkel. Vraag of ze ook verjaardagskaarten met een Zweedse tekst hebben.", answers: ["Har ni [också ]{födelsedagskort|grattiskort} {med [en ]svensk text|på svenska}[ också]?"], feedback: [{ contains: ["födelsedag kort", "födelsedagkort"], tip: "Een samenstelling schrijf je aan elkaar, hier met -s-: födelsedagskort." }] }
+          - { id: pgeh, type: translate, topic: bestamd-utan-artikel, prompt: "Zeg dat je volgende week vrij hebt en naar je ouders gaat.", answers: ["Jag {är ledig|har ledigt} nästa vecka och {åker|ska åka|reser|ska resa} [hem ]till mina föräldrar.", "Nästa vecka {är jag ledig|har jag ledigt} och {åker|ska åka|reser|ska resa} [hem ]till mina föräldrar.", "Jag {är ledig|har ledigt} nästa vecka och {hälsar|ska hälsa} på mina föräldrar.", "Nästa vecka {är jag ledig|har jag ledigt} och {hälsar|ska hälsa} på mina föräldrar."], feedback: [{ contains: "nästa veckan", tip: "Na nästa komt de onbepaalde vorm: nästa vecka." }] }
+          - { id: 683g, type: translate, topic: sammansattning, prompt: "Vertel dat jullie op midzomeravond altijd haring en aardappels eten.", answers: ["På midsommarafton äter vi alltid sill och {potatis|färskpotatis}.", "Vi äter alltid sill och {potatis|färskpotatis} på midsommarafton."], feedback: [{ contains: "midsommar afton", tip: "Een samenstelling schrijf je aan elkaar: midsommarafton." }] }
+
+  - id: skriva
+    title: Skriva · schrijven
+    intro: "Schrijfdoel: een beschrijving van een feest."
+    exercises:
+      - id: skriva-tradition
+        title: Beschrijf een traditie
+        instruction: "Bouw eerst je tekst over een feest op in vier stappen die de app nakijkt. Daarna schrijf je de hele tekst, als je wilt."
+        topic: bestamd-utan-artikel
+        items:
+          - { id: xrm4, type: mc, prompt: "Kies de beste openingszin.", options: ["I Nederländerna firar vi Kungens dag den tjugosjunde april.", "I Nederländerna vi firar Kungens dag den tjugosjunde april.", "I Nederländerna firar vi Kungens dag den tjugosju april."], answer: 0, tip: "Na I Nederländerna komt het werkwoord op plaats 2, en een datum is een rangtelwoord: den tjugosjunde." }
+          - { id: xw2y, type: gap, topic: bestamd-utan-artikel, prompt: "Kies het goede woord.", text: "___ landet blir orange.", gaps: [{ answers: ["Hela"], options: ["Hela", "Helt", "Hel"], tip: "Het hele land: hela landet (hela + bepaalde vorm)." }] }
+          - { id: fgqc, type: gap, topic: bestamd-utan-artikel, prompt: "Kies het goede woord.", text: "Förra ___ var jag i Amsterdam på Kungens dag.", gaps: [{ answers: ["året"], options: ["året", "år", "åren"], tip: "Na förra komt de bepaalde vorm: förra året." }] }
+          - { id: 4ds3, type: gap, topic: sammansattning, prompt: "Vul één woord in: verjaardag.", text: "Kungens dag är egentligen kungens ___.", gaps: [{ answers: ["födelsedag"], feedback: [{ match: "födelse dag", tip: "Een samenstelling schrijf je aan elkaar: födelsedag." }] }] }
+          - id: bfzv
+            type: free
+            prompt: "Beschrijf een feest of traditie uit Nederland of België (bijvoorbeeld Koningsdag, Sinterklaas of carnaval) in 80–120 woorden. Wanneer is het, wat doet men, wat eet men? Vertel ook hoe jij het vorig jaar hebt gevierd. Gebruik minstens twee van: *förra, hela, första, nästa, samma*."
+            minWords: 75
+            require:
+              - { any: ["firar", "fira", "firas", "firade"], label: "Je gebruikt fira" }
+              - { any: ["man"], label: "Je vertelt wat men doet (man …)" }
+              - { any: ["förra"], label: "Je gebruikt förra (vorig)" }
+              - { any: ["hela", "första", "nästa", "samma", "båda", "själva"], label: "Je gebruikt hela, första, nästa, samma, båda of själva" }
+            model: "I Nederländerna firar vi Kungens dag den tjugosjunde april. Hela landet blir orange: man har orange kläder och orange hattar på sig, och ibland till och med orange hår. På morgonen säljer barn och vuxna gamla saker på gatan. Det är som en enda stor loppis. Sedan går man ut och lyssnar på musik, och många festar hela dagen. Förra året var jag i Amsterdam för första gången på Kungens dag. Det var fullt med båtar på kanalerna! Nästa år vill jag fira i en mindre stad."
+
+  - id: herhaling
+    title: Herhaling
+    exercises:
+      - id: herhaling-13-21
+        title: Hoofdstuk 13 tot en met 21 door elkaar
+        instruction: Gemengde vragen.
+        shuffle: true
+        items:
+          - { id: jskb, type: gap, topic: passiv-s, text: "Kanelbullens dag ___ (fira) den fjärde oktober.", gaps: [{ answers: ["firas"] }] }
+          - { id: sdbf, type: gap, topic: particip, text: "Vi åt ___ (koka) ägg till frukost.", gaps: [{ answers: ["kokta", "nykokta"] }] }
+          - { id: 7yfp, type: gap, topic: man-en-ens, text: "På Valborg tänder ___ stora brasor.", gaps: [{ answers: ["man"], options: ["man", "en", "ens"], shuffle: false }] }
+          - { id: vvvk, type: gap, topic: nagon-ingen, text: "Jag har aldrig ätit ___ semla.", gaps: [{ answers: ["någon"], options: ["någon", "ingen", "något"], shuffle: false, tip: "Na aldrig: någon (aldrig is al ontkennend)." }] }
+          - { id: 8u2e, type: transform, topic: indirekt-tal-b1, prompt: "Sanne: ”Jag har bakat bullar.”", task: "Sanne sa att …", answers: ["Sanne sa att hon {hade|har} bakat bullar."] }
+          - { id: gqen, type: gap, topic: bestamd-utan-artikel, text: "Vi firade jul hos mormor förra ___.", gaps: [{ answers: ["året"], options: ["år", "året"], shuffle: false }] }
+          - { id: cwyz, type: gap, topic: bestamd-utan-artikel, text: "Förra ___ (vinter) firade vi jul hos mormor i Dalarna.", gaps: [{ answers: ["vintern"] }] }
+          - { id: mqzt, type: gap, topic: sammansattning, text: "I år köpte vi ___ julgran som var nästan tre meter hög.", gaps: [{ answers: ["en"], options: ["en", "ett"], shuffle: false }] }
+          - { id: w5xd, type: transform, topic: indirekt-tal-b1, prompt: "Mormor: ”Jag är trött efter julen.”", task: "Mormor sa att …", answers: ["Mormor sa att hon var trött efter julen."] }
+          - { id: rkv7, type: transform, topic: relativ-som, task: "Maak er één zin van met som.", prompt: "Vi åt en tårta. Min syster hade bakat den.", answers: ["Vi åt en tårta[ som] min syster [hade ]bakat."] }
+
+      - id: herhaling-woorden
+        title: Woorden van eerder
+        instruction: Kies het woord dat past. Deze woorden komen uit eerdere hoofdstukken.
+        topic: woordenschat
+        shuffle: true
+        items:
+          - { id: a8a6, type: gap, text: "Lämna tidningar och glasburkar vid ___ i stället för att slänga dem bland de vanliga soporna.", gaps: [{ answers: ["återvinningsstationen"], options: ["återvinningsstationen", "komposten", "sophämtningen", "växthuseffekten"], feedback: [{ match: "komposten", tip: "*kompost* betekent „een composthoop”. Lees de zin nog eens: wat past hier?" }] }] }
+          - { id: vsgu, type: gap, text: "Vi ___ alla våra sopor: plast, papper och kartong.", gaps: [{ answers: ["källsorterar"], options: ["källsorterar", "förorenar", "slösar", "isolerar"], feedback: [{ match: "förorenar", tip: "*förorena* betekent „vervuilen”. Lees de zin nog eens: wat past hier?" }] }] }
+          - { id: g5w3, type: gap, text: "Vi har satt upp ___ på taket och får nu mycket egen el.", gaps: [{ answers: ["solceller"], options: ["solceller", "komposter", "resurser", "översvämningar"], feedback: [{ match: "komposter", tip: "*kompost* betekent „een composthoop”. Lees de zin nog eens: wat past hier?" }] }] }
+          - { id: 7ss2, type: gap, text: "Det tog ett tag att ___ vid att köpa begagnade kläder, men nu tycker jag om det.", gaps: [{ answers: ["vänja mig"], options: ["vänja mig", "slösa", "panta", "återvinna"], feedback: [{ match: "panta", tip: "*panta* betekent „inleveren (voor statiegeld)”. Lees de zin nog eens: wat past hier?" }] }] }
+          - { id: gdg5, type: gap, text: "Batterier är ___ och får inte slängas bland de vanliga soporna.", gaps: [{ answers: ["giftiga"], options: ["giftiga", "förnybara", "klimatsmarta", "begagnade"], feedback: [{ match: "förnybara", tip: "*förnybar* betekent „hernieuwbaar”. Lees de zin nog eens: wat past hier?" }] }] }
+          - { id: prd9, type: gap, text: "Det finns ___ att panta burkar i den här byn, så jag får åka in till stan.", gaps: [{ answers: ["ingenstans"], options: ["ingenstans", "någonstans", "överallt", "alltid"], feedback: [{ match: "någonstans", tip: "*någonstans* betekent „ergens”. Lees de zin nog eens: wat past hier?" }] }] }
+
+vocab:
+  - { sv: "en tradition", nl: "een traditie", def: "traditionen", pl: "traditioner", plDef: "traditionerna", ex: "Att äta semlor på fettisdagen är en gammal **tradition**.", exNl: "Semla's eten op vastenavond is een oude traditie." }
+  - { sv: "en högtid", nl: "een feestdag", def: "högtiden", pl: "högtider", plDef: "högtiderna", ex: "Jul och påsk är de största **högtiderna** i Sverige.", exNl: "Kerst en Pasen zijn de grootste feestdagen in Zweden." }
+  - { sv: "en helgdag", nl: "een vrije feestdag", def: "helgdagen", pl: "helgdagar", plDef: "helgdagarna", ex: "Första maj är en **helgdag** i Sverige.", exNl: "1 mei is in Zweden een vrije feestdag." }
+  - { sv: "ett bakverk", nl: "een gebakje", def: "bakverket", pl: "bakverk", plDef: "bakverken", ex: "Nästan varje årstid har sitt eget **bakverk**.", exNl: "Bijna elk seizoen heeft zijn eigen gebakje." }
+  - { sv: "ett bageri", nl: "een bakkerij", def: "bageriet", pl: "bagerier", plDef: "bagerierna", ex: "Det luktar nybakat bröd från **bageriet** på hörnet.", exNl: "Het ruikt naar versgebakken brood van de bakkerij op de hoek." }
+  - { sv: "en semla", nl: "een semla (vastenavondbroodje)", def: "semlan", pl: "semlor", plDef: "semlorna", ex: "Hur många **semlor** har du ätit i år?", exNl: "Hoeveel semla's heb je dit jaar gegeten?" }
+  - { sv: "en våffla", nl: "een wafel", def: "våfflan", pl: "våfflor", plDef: "våfflorna", ex: "På våffeldagen äter många svenskar **våfflor** med sylt och grädde.", exNl: "Op wafeldag eten veel Zweden wafels met jam en slagroom." }
+  - { sv: "en brasa", nl: "een vreugdevuur, een haardvuur", def: "brasan", pl: "brasor", plDef: "brasorna", ex: "Vi satt vid **brasan** och grillade korv.", exNl: "We zaten bij het vuur worstjes te roosteren." }
+  - { sv: "en kör", nl: "een koor", def: "kören", pl: "körer", plDef: "körerna", ex: "En **kör** sjöng vårsånger vid brasan.", exNl: "Een koor zong lenteliederen bij het vreugdevuur." }
+  - { sv: "en sed", nl: "een gewoonte, een gebruik", def: "seden", pl: "seder", plDef: "sederna", ex: "Det är en gammal **sed** att dricka glögg i december.", exNl: "Het is een oud gebruik om in december glögg te drinken." }
+  - { sv: "ett skämt", nl: "een grap", def: "skämtet", pl: "skämt", plDef: "skämten", ex: "Först trodde jag att kanelbullens dag var ett **skämt**.", exNl: "Eerst dacht ik dat de dag van het kaneelbroodje een grap was." }
+  - { sv: "en årstid", nl: "een seizoen", def: "årstiden", pl: "årstider", plDef: "årstiderna", ex: "Vilken **årstid** tycker du bäst om?", exNl: "Welk seizoen vind je het leukst?" }
+  - { sv: "att fira", nl: "vieren", ex: "Hur **firar** ni jul i Nederländerna?", exNl: "Hoe vieren jullie kerst in Nederland?" }
+  - { sv: "att baka", nl: "bakken", ex: "Förra året **bakade** jag lussekatter själv.", exNl: "Vorig jaar bakte ik zelf saffraanbroodjes." }
+  - { sv: "att tända", nl: "aansteken", ex: "I advent **tänder** vi ett ljus i fönstret.", exNl: "In de advent steken we een kaars aan in het raam." }
+  - { sv: "att dyka upp", nl: "opduiken, verschijnen", ex: "Semlorna **dyker upp** i bagerierna redan i januari.", exNl: "De semla's duiken al in januari op in de bakkerijen." }
+  - { sv: "att höra talas om", nl: "horen over", ex: "Jag hade aldrig **hört talas om** våffeldagen.", exNl: "Ik had nog nooit over wafeldag gehoord." }
+  - { sv: "förra", nl: "vorig(e)", ex: "**Förra** sommaren firade vi midsommar på Gotland.", exNl: "Vorige zomer vierden we midzomer op Gotland." }
+  - { sv: "nästa", nl: "volgend(e)", ex: "**Nästa** år ska jag baka lussekatter till Lucia.", exNl: "Volgend jaar ga ik saffraanbroodjes bakken voor Lucia." }
+  - { sv: "i fjol", nl: "vorig jaar", ex: "Vi var i Dalarna på midsommar **i fjol**.", exNl: "Vorig jaar waren we met midzomer in Dalarna." }
+  - { sv: "en midsommar", nl: "midzomer (het midzomerfeest)", def: "midsommaren", mass: true, ex: "Vi firar **midsommar** hos mina svärföräldrar i Dalarna.", exNl: "We vieren midzomer bij mijn schoonouders in Dalarna." }
+  - { sv: "en midsommarstång", nl: "een midzomerpaal (meiboom)", def: "midsommarstången", pl: "midsommarstänger", ex: "Barnen hjälpte till att klä **midsommarstången** med blommor.", exNl: "De kinderen hielpen de midzomerpaal met bloemen te versieren." }
+  - { sv: "en fettisdag", nl: "een vastenavond (dinsdag voor de vasten)", def: "fettisdagen", pl: "fettisdagar", ex: "På **fettisdagen** äter många svenskar semlor.", exNl: "Op vastenavond eten veel Zweden semla's." }
+  - { sv: "en nationaldag", nl: "een nationale feestdag", def: "nationaldagen", pl: "nationaldagar", ex: "Sveriges **nationaldag** firas den sjätte juni.", exNl: "De nationale feestdag van Zweden wordt op 6 juni gevierd." }
+  - { sv: "en surströmming", nl: "een zure haring (gegiste Oostzeeharing)", def: "surströmmingen", pl: "surströmmingar", ex: "**Surströmmingen** luktar så starkt att många äter den utomhus.", exNl: "De zure haring ruikt zo sterk dat veel mensen hem buiten eten." }
+  - { sv: "en sill", nl: "een haring", def: "sillen", pl: "sillar", ex: "Ingen midsommarlunch utan inlagd **sill** och nypotatis!", exNl: "Geen midzomerlunch zonder ingelegde haring en nieuwe aardappeltjes!" }
+  - { sv: "en snaps", nl: "een borrel (glaasje sterkedrank)", def: "snapsen", pl: "snapsar", ex: "Till sillen dricker många en **snaps**.", exNl: "Bij de haring drinken velen een borrel." }
+  - { sv: "en snapsvisa", nl: "een drinklied", def: "snapsvisan", pl: "snapsvisor", ex: "Innan man skålar sjunger man en **snapsvisa**.", exNl: "Voordat men proost, zingt men een drinklied." }
+  - { sv: "ett firande", nl: "een viering", def: "firandet", pl: "firanden", ex: "**Firandet** av Valborg börjar redan på eftermiddagen.", exNl: "De viering van Walpurgisnacht begint al 's middags." }
+  - { sv: "en gudstjänst", nl: "een kerkdienst", def: "gudstjänsten", pl: "gudstjänster", ex: "Julottan är en tidig **gudstjänst** på juldagens morgon.", exNl: "De julotta is een vroege kerkdienst op de ochtend van eerste kerstdag." }
+  - { sv: "en namnsdag", nl: "een naamdag", def: "namnsdagen", pl: "namnsdagar", ex: "I Sverige firar man både födelsedag och **namnsdag**.", exNl: "In Zweden viert men zowel zijn verjaardag als zijn naamdag." }
+  - { sv: "en studentmössa", nl: "een studentenpet (bij het eindexamen)", def: "studentmössan", pl: "studentmössor", ex: "Eleverna springer ut med **{studentmössan|studentmössorna}** på huvudet.", exNl: "De geslaagde leerlingen rennen naar buiten met de studentenpet op hun hoofd." }
+  - { sv: "ett dop", nl: "een doop", def: "dopet", pl: "dop", ex: "Efter **dopet** bjöd familjen på tårta.", exNl: "Na de doop trakteerde de familie op taart." }
+  - { sv: "en begravning", nl: "een begrafenis", def: "begravningen", pl: "begravningar", ex: "Hela byn kom till **begravningen**.", exNl: "Het hele dorp kwam naar de begrafenis." }
+  - { sv: "ett ursprung", nl: "een oorsprong, een herkomst", def: "ursprunget", pl: "ursprung", ex: "Luciafirandets **ursprung** är inte helt känt.", exNl: "De oorsprong van het luciafeest is niet helemaal bekend." }
+  - { sv: "en klämdag", nl: "een brugdag", def: "klämdagen", pl: "klämdagar", ex: "Många tar ledigt på **klämdagen** efter Kristi himmelsfärd.", exNl: "Veel mensen nemen vrij op de brugdag na Hemelvaart." }
+  - { sv: "en påskkärring", nl: "een paasheksje", def: "påskkärringen", pl: "påskkärringar", ex: "På skärtorsdagen går barnen runt som **påskkärringar**.", exNl: "Op Witte Donderdag gaan de kinderen als paasheksjes langs de deuren." }
+  - { sv: "att klä ut sig", nl: "zich verkleden", ex: "Vad ska du **klä ut dig** till på festen?", exNl: "Als wat ga jij je verkleden op het feest?" }
+  - { sv: "att hitta på", nl: "verzinnen, bedenken", ex: "Kanelbullens dag **hittades på** 1999.", exNl: "De dag van het kaneelbroodje werd in 1999 bedacht." }
+  - { sv: "att hålla fast vid", nl: "vasthouden aan", ex: "Min mormor **håller fast vid** gamla traditioner.", exNl: "Mijn oma houdt vast aan oude tradities." }
+  - { sv: "att gå i arv", nl: "doorgegeven worden (van generatie op generatie)", ex: "Receptet har **gått i arv** i fyra generationer.", exNl: "Het recept is al vier generaties lang doorgegeven." }
+  - { sv: "att uppmärksamma", nl: "aandacht besteden aan, stilstaan bij", ex: "Skolan **uppmärksammar** nationaldagen med sång och flaggor.", exNl: "De school staat stil bij de nationale feestdag met zang en vlaggen." }
+  - { sv: "att sjunga in", nl: "inzingen (de lente)", ex: "Kören samlas vid brasan för att **sjunga in** våren.", exNl: "Het koor komt bij het vuur samen om de lente in te zingen." }
+  - { sv: "att bjuda in", nl: "uitnodigen", ex: "Vi har **bjudit in** grannarna till kräftskiva.", exNl: "We hebben de buren uitgenodigd voor een rivierkreeftenfeest." }
+  - { sv: "att göra i ordning", nl: "klaarmaken, in orde maken", ex: "Hela familjen hjälps åt att **göra i ordning** julbordet.", exNl: "De hele familie helpt mee om het kerstbuffet klaar te maken." }
+  - { sv: "att härstamma från", nl: "stammen uit, afstammen van", ex: "Många av våra jultraditioner **härstammar från** Tyskland.", exNl: "Veel van onze kersttradities stammen uit Duitsland." }
+  - { sv: "att äga rum", nl: "plaatsvinden", ex: "Luciatåget **äger rum** i kyrkan klockan sju.", exNl: "De luciaoptocht vindt om zeven uur in de kerk plaats." }
+  - { sv: "att samlas", nl: "samenkomen, zich verzamelen", ex: "Hela släkten **samlas** hos oss på julafton.", exNl: "De hele familie komt op kerstavond bij ons samen." }
+  - { sv: "att hylla", nl: "eren, hulde brengen", ex: "På fars dag **hyllar** man alla pappor.", exNl: "Op vaderdag eert men alle vaders." }
+  - { sv: "att kallas", nl: "genoemd worden, heten", ex: "Dagen före midsommardagen **kallas** midsommarafton.", exNl: "De dag vóór midzomerdag wordt midsommarafton genoemd." }
+  - { sv: "ursprungligen", nl: "oorspronkelijk", ex: "Våffeldagen hette **ursprungligen** Vårfrudagen.", exNl: "Wafeldag heette oorspronkelijk Vårfrudagen." }
+  - { sv: "kyrklig", nl: "kerkelijk", ex: "Våffeldagen var från början en **kyrklig** helgdag.", exNl: "Wafeldag was oorspronkelijk een kerkelijke feestdag." }
+  - { sv: "religiös", nl: "religieus", ex: "Många firar jul utan att vara **religiösa**.", exNl: "Veel mensen vieren kerst zonder religieus te zijn." }
+  - { sv: "hednisk", nl: "heidens", ex: "Midsommarfirandet har **hedniska** rötter.", exNl: "Het midzomerfeest heeft heidense wortels." }
+  - { sv: "årlig", nl: "jaarlijks", ex: "Marknaden är en **årlig** tradition i byn.", exNl: "De markt is een jaarlijkse traditie in het dorp." }
+  - { sv: "traditionell", nl: "traditioneel", ex: "På julbordet finns **traditionell** mat som skinka och sill.", exNl: "Op het kerstbuffet staat traditioneel eten zoals ham en haring." }
+  - { sv: "i julas", nl: "afgelopen kerst", ex: "Vi var hos min syster **i julas**.", exNl: "Afgelopen kerst waren we bij mijn zus." }
+  - { sv: "i påskas", nl: "afgelopen Pasen", ex: "**I påskas** målade barnen ägg.", exNl: "Afgelopen Pasen beschilderden de kinderen eieren." }
+  - { sv: "nuförtiden", nl: "tegenwoordig", alt: ["numera", "nu för tiden"], ex: "**{Nuförtiden|Nu för tiden|Numera}** säljs semlor hela vintern.", exNl: "Tegenwoordig worden semla's de hele winter verkocht." }
+  - { sv: "Glad påsk!", nl: "Vrolijk Pasen!", ex: "**Glad påsk**, och tack för ägget!", exNl: "Vrolijk Pasen, en bedankt voor het ei!" }
+  - { sv: "Valborg", nl: "Walpurgisnacht (30 april)", alt: ["valborgsmässoafton"], ex: "På **{Valborg|valborgsmässoafton}** tänder man stora brasor i hela landet.", exNl: "Op Walpurgisnacht steekt men in het hele land grote vuren aan." }
+  - { sv: "en sång", nl: "een lied", def: "sången", pl: "sånger", plDef: "sångerna", ex: "Alla kan **sångerna** utantill.", exNl: "Iedereen kent de liedjes uit het hoofd." }
+  - { sv: "en ledighet", nl: "vrije tijd, verlof", def: "ledigheten", mass: true, ex: "Många tar **ledighet** från jobbet under julen.", exNl: "Met kerst hebben veel mensen vrij van hun werk." }
+  - { sv: "typisk", nl: "typisch", ex: "Sill är **typisk** midsommarmat.", exNl: "Haring is typisch midzomereten." }
+  - { sv: "festlig", nl: "feestelijk", ex: "Det var en **festlig** kväll.", exNl: "Het was een feestelijke avond." }
+  - { sv: "högtidlig", nl: "plechtig", ex: "Det var en **högtidlig** stund i kyrkan.", exNl: "Het was een plechtig moment in de kerk." }
+  - { sv: "en ceremoni", nl: "een ceremonie", def: "ceremonin", pl: "ceremonier", plDef: "ceremonierna", ex: "**Ceremonin** började klockan två.", exNl: "De ceremonie begon om twee uur." }
+  - { sv: "en bjudning", nl: "een etentje, feestje (thuis)", def: "bjudningen", pl: "bjudningar", plDef: "bjudningarna", ex: "Vi ska på **bjudning** hos grannarna i kväll.", exNl: "We zijn vanavond op een feestje bij de buren." }

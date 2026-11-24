@@ -1,0 +1,30 @@
+{
+  "name": "svensk-ovningar",
+  "private": true,
+  "version": "1.0.0",
+  "type": "module",
+  "description": "Interactieve oefeningen Zweeds, per hoofdstuk automatisch nagekeken.",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "test": "vitest run",
+    "ids": "node scripts/add-ids.mjs",
+    "check-sync": "node scripts/check-sync.mjs",
+    "vocab-report": "node scripts/vocab-report.mjs",
+    "stats": "node scripts/stats-report.mjs",
+    "difficulty-report": "node scripts/difficulty-report.mjs",
+    "content-report": "node scripts/content-report.mjs",
+    "smoke": "node scripts/smoke.mjs",
+    "spelling": "node scripts/spelling.mjs",
+    "coverage": "vitest run --coverage"
+  },
+  "devDependencies": {
+    "@vitest/coverage-v8": "4.1.12",
+    "happy-dom": "21.0.4",
+    "js-yaml": "4.3.2",
+    "vite": "6.4.6",
+    "vitest": "4.1.12"
+  },
+  "license": "SEE LICENSE IN LICENSE"
+}

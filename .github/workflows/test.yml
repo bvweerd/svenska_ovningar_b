@@ -1,0 +1,58 @@
+name: Tests
+
+on:
+  pull_request:
+  push:
+    branches-ignore: [main]
+
+# Alleen lezen: de tests schrijven niets naar de repo.
+permissions:
+  contents: read
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1 # v7.1.0
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci
+      # Spellingscontrole van het Zweeds (tests/spelling.test.js) gebruikt hunspell met het woordenboek sv_SE.
+      - run: sudo apt-get install -y --no-install-recommends hunspell hunspell-sv
+      # Alle tests, met codedekking van src/ (minimum in vite.config.js).
+      - run: npm run coverage
+      - run: npm run build
+      # Rooktest in een browser (elke pagina, telefoonformaat, licht en donker). Playwright staat
+      # niet in package.json; hier wordt het alleen voor deze stap geïnstalleerd.
+      - name: Rooktest
+        run: |
+          npm install --no-save playwright@1.63.0
+          npx playwright install --with-deps chromium
+          npm run smoke
+      # Gedeelde code (src/, tests/, scripts/ …) moet gelijk zijn aan die van de zusterrepo:
+      # zelfde branch als die bestaat, anders main.
+      - name: Gedeelde code gelijk aan zusterrepo
+        env:
+          BRANCH: ${{ github.head_ref || github.ref_name }}
+        run: |
+          case "${GITHUB_REPOSITORY}" in
+            *_b) SIB="${GITHUB_REPOSITORY%_b}" ;;
+            *) SIB="${GITHUB_REPOSITORY}_b" ;;
+          esac
+          git clone --depth 1 --branch "$BRANCH" "https://github.com/$SIB.git" "$RUNNER_TEMP/sibling" \
+            || git clone --depth 1 "https://github.com/$SIB.git" "$RUNNER_TEMP/sibling"
+          SIBLING_DIR="$RUNNER_TEMP/sibling" npm run check-sync
+      # Rapport over taalinhoud en didactiek (scripts/content-report.mjs): verschijnt als samenvatting van
+      # deze run. Alleen ter informatie; laat de run nooit falen. De B-site leest de A-site als bekende stof.
+      - name: Rapport inhoud en didactiek
+        if: always()
+        continue-on-error: true
+        env:
+          SIBLING_DIR: ${{ runner.temp }}/sibling
+        run: |
+          npm run --silent content-report -- --out "$RUNNER_TEMP/inhoud.md"
+          cat "$RUNNER_TEMP/inhoud.md" >> "$GITHUB_STEP_SUMMARY"

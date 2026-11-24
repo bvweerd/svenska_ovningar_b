@@ -1,0 +1,620 @@
+chapter: 14
+# Kan-doen-uitspraken: de app vinkt ze zelf af als de vragen over deze onderwerpen
+# grotendeels in doos 3 of hoger staan (src/progress.js, canDoStatus).
+canDo:
+  - { text: "Ik kan vertellen wat er met iets of iemand gebeurd is (lijdende vorm met bli)", topics: [passiv-bli] }
+  - { text: "Ik kan voltooide deelwoorden als bijvoeglijk naamwoord gebruiken", topics: [particip] }
+
+grammar:
+  - id: passiv-bli
+    title: De lijdende vorm met bli
+    summary: "**bli + voltooid deelwoord** dat meebuigt: *Han blev antagen. Huset blev sålt. Böckerna blev sålda.* Vaak bij een resultaat of een eenmalige gebeurtenis."
+    body: |
+      Naast de -s-vorm (hoofdstuk 13) heeft het Zweeds een lijdende vorm met **bli** (worden) + het **voltooid deelwoord**:
+
+      - *Hon **blev antagen** till utbildningen.* – Ze werd toegelaten tot de opleiding.
+      - *Mötet **blev inställt**.* – De vergadering werd afgelast.
+
+      Het deelwoord buigt mee met het onderwerp, net als een bijvoeglijk naamwoord:
+
+      | en-woord | ett-woord | meervoud |
+      |---|---|---|
+      | Kursen blev inställ**d** | Provet blev inställ**t** | Kurserna blev inställ**da** |
+      | Uppsatsen blev godkän**d** | Arbetet blev godkän**t** | Uppsatserna blev godkän**da** |
+
+      ### -s of bli?
+      Vaak kan allebei. Grofweg:
+      - **-s** voor processen, regels, gewoontes en in formele teksten: *Ansökan skickas till …*, *Kaffe serveras.*
+      - **bli** voor een resultaat of een gebeurtenis die iemand overkomt, vaker in spreektaal: *Min cykel blev stulen. Jag blev bjuden på middag.*
+
+      Met **vara** + deelwoord beschrijf je een toestand: *Dörren **är** stängd.* (de deur is dicht) tegenover *Dörren **blev** stängd klockan sex.* (werd dichtgedaan).
+
+  - id: particip
+    title: Deelwoorden als bijvoeglijk naamwoord
+    summary: "Voltooid deelwoord: *en målad vägg, ett målat hus, målade väggar, den målade väggen*. Sterk: *skriven, skrivet, skrivna*. Tegenwoordig deelwoord op **-ande/-ende**: *en spännande kurs*."
+    body: |
+      ### Voltooid deelwoord (perfekt particip)
+      Het voltooid deelwoord gebruik je als bijvoeglijk naamwoord, met de gewone uitgangen:
+
+      | soort | en-woord | ett-woord | meervoud en bepaald |
+      |---|---|---|---|
+      | -ar (måla) | målad | målat | målade |
+      | -er (stänga) | stängd | stängt | stängda |
+      | -er met k, p, s, t (köpa) | köpt | köpt | köpta |
+      | kort (sy) | sydd | sytt | sydda |
+      | sterk (skriva) | skriven | skrivet | skrivna |
+
+      - *en **bortglömd** väska*, *ett **renoverat** hus*, *de **stulna** cyklarna*
+      - Bepaald: *den **målade** väggen*, *det **inställda** mötet* – de meervoudsvorm, zoals bij gewone bijvoeglijke naamwoorden.
+
+      Sterke werkwoorden hebben een deelwoord op *-en*: *anta → antagen*, *bjuda → bjuden*, *stjäla → stulen*, *skriva → skriven*. Let ook op het onregelmatige *sälja → såld*.
+
+      ### Tegenwoordig deelwoord (presens particip)
+      Op **-ande** (meestal) of **-ende** (na een lange klinker, bijv. *le → leende*, *gå → gående*). Het verandert nooit:
+
+      - *en **spännande** kurs, ett **spännande** program, **spännande** kurser*
+      - *ett **leende** barn*, *under **kommande** år*
+      - Ook als bijwoord bij een beweging: *Han kom **springande**.*
+
+sections:
+  - id: lasa
+    title: Läsa · lezen
+    exercises:
+      - id: lasa-joost
+        title: "Lezen: van SFI naar de universiteit"
+        instruction: Lees de tekst en beantwoord de vragen.
+        topic: woordenschat
+        textTitle: Från SFI till universitetet
+        text: |
+          Joost flyttade från Nijmegen till Umeå för fyra år sedan. Först läste han svenska på SFI, och sedan fortsatte han på Komvux, där han läste svenska som andraspråk och samhällskunskap. Det var tufft, men lärarna var engagerade och klasserna var små. Under tiden på Komvux jobbade han extra på en förskola, och det var där han bestämde sig för att bli lärare.
+
+          För två år sedan sökte han till lärarprogrammet på universitetet. Hans utbildning från Nederländerna måste först bedömas av en myndighet, och det tog flera månader. Men i juli kom beskedet: han hade blivit antagen!
+
+          Nu läser Joost andra året. Han har föreläsningar tre dagar i veckan, och resten av tiden pluggar han hemma eller på biblioteket. Det svåraste är de skriftliga tentorna, eftersom man måste skriva snabbt på svenska. Han får studiemedel från CSN, men han jobbar också extra på ett café på helgerna.
+
+          Nästa termin ska Joost göra sin första praktik. Praktikplatserna fördelas av universitetet, och han blev placerad på en högstadieskola nära där han bor. Han är lite nervös, men också förväntansfull.
+
+          – Jag har ju själv varit nybörjare i ett nytt land, säger han. Därför tror jag att jag förstår hur det känns att inte kunna allt.
+
+          – Det bästa med att plugga i Sverige är att man får säga emot läraren, säger Joost. Ingen blir arg om man har en annan åsikt.
+        items:
+          - { id: 3wyp, type: mc, prompt: "Var läste Joost svenska först?", options: ["på SFI", "på universitetet", "i Nijmegen", "på jobbet"], answer: 0 }
+          - { id: 6cxb, type: truefalse, statement: "Joost läste samhällskunskap på Komvux.", answer: true }
+          - { id: jm9d, type: truefalse, statement: "Hans utbildning från Nederländerna bedömdes på en vecka.", answer: false, tip: "Hoe lang duurde het?", correction: { answers: ["Det tog flera månader[ att bedöma {den|hans utbildning}]."] } }
+          - { id: 32pd, type: mc, prompt: "Vad hände i juli?", options: ["Han blev antagen till lärarprogrammet.", "Han flyttade till Umeå.", "Han började på SFI.", "Han fick jobb på ett café."], answer: 0 }
+          - { id: yyhs, type: truefalse, statement: "Joost tycker att de skriftliga tentorna är lätta.", answer: false, correction: { answers: ["{Joost|Han} tycker att {de skriftliga tentorna|tentorna|de} är svåra[st]."] } }
+          - { id: e8sp, type: mc, prompt: "Var bestämde sig Joost för att bli lärare?", options: ["på en förskola där han jobbade extra", "på SFI", "på universitetet", "på caféet där han jobbar"], answer: 0, tip: "Lees het einde van de eerste alinea." }
+          - { id: 95a4, type: mc, prompt: "Hur försörjer sig Joost?", options: ["med studiemedel och ett extrajobb", "bara med studiemedel", "hans föräldrar betalar", "han jobbar heltid"], answer: 0 }
+          - { id: 2whd, type: mc, prompt: "Wat vindt Joost het beste aan studeren in Zweden?", options: ["Je mag het oneens zijn met de docent.", "De tentamens zijn makkelijk.", "Je hoeft niet naar college.", "Er is gratis koffie."], answer: 0, tip: "säga emot = tegenspreken." }
+          - { id: shnm, type: truefalse, statement: "Joost fick själv välja skola för sin praktik.", answer: false, tip: "Wie verdeelt de stageplaatsen?", correction: { answers: ["{Praktikplatserna|De} fördelas av universitetet.", "Universitetet fördelar praktikplatserna.", "{Han|Joost} {blev placerad|placerades} på en högstadieskola[ nära där han bor].", "{Joost|Han} fick inte [själv ]välja skola[ för sin praktik]."] } }
+          - id: gfr5
+            type: multi
+            prompt: "Welke vormen in de tekst zijn een lijdende vorm of een voltooid deelwoord?"
+            options: ["bedömas", "antagen", "engagerade", "skriftliga", "flyttade", "pluggar"]
+            answers: [0, 1, 2]
+            tip: "engagerade (betrokken) is een deelwoord als bijvoeglijk naamwoord. skriftliga (schriftelijk) is een gewoon bijvoeglijk naamwoord en flyttade is gewoon preteritum."
+
+      - id: makkelijk-1
+        title: "Makkelijk lezen: Kursen på distans"
+        instruction: Een korte tekst met woorden die je al kent. Lees hem vlot door en kies rätt of fel.
+        topic: woordenschat
+        kind: makkelijk
+        textTitle: "Kursen på distans"
+        text: |
+          Anouk läser en kurs i svenska på distans. Varje vecka skickas en ny uppgift ut, och den ska vara inlämnad på söndag. Uppgifterna rättas av läraren, och sedan får Anouk svar. Förra veckan visade läraren Anouks uppgift för hela gruppen. Hon blev glad och stolt. Kursen är på halvfart, så Anouk kan jobba också. Efter kursen vill hon söka till en utbildning på högskolan.
+        items:
+          - { id: q52x, type: truefalse, statement: "Kursen är på distans.", answer: true }
+          - { id: ydnr, type: truefalse, statement: "Uppgifterna rättas av en annan student.", answer: false }
+          - { id: 6dcf, type: truefalse, statement: "Anouk vill studera vidare.", answer: true }
+
+      - id: makkelijk-2
+        title: "Makkelijk lezen: Tentan"
+        instruction: Een korte tekst met woorden die je al kent. Lees hem vlot door en kies rätt of fel.
+        topic: woordenschat
+        kind: makkelijk
+        textTitle: "Tentan"
+        text: |
+          Lars hade en tenta i fredags. Han hade pluggat i två veckor och kände sig väl förberedd. Tentan var lång, men frågorna var tydligt formulerade. Efter tre timmar lämnade han in. I går kom resultatet: han hade klarat tentan med ett bra betyg. Det firades hemma med tårta. Nästa termin börjar en ny kurs, och Lars är redan anmäld. Hans föräldrar ringde och gratulerade.
+        items:
+          - { id: zs5n, type: truefalse, statement: "Lars klarade inte tentan.", answer: false }
+          - { id: bqs4, type: truefalse, statement: "Lars har anmält sig till en ny kurs.", answer: true }
+
+      - id: makkelijk-3
+        title: "Makkelijk lezen: Kvällskursen"
+        instruction: Een korte tekst met woorden die je al kent. Lees hem vlot door en beantwoord de vragen.
+        topic: woordenschat
+        kind: makkelijk
+        textTitle: "Kvällskursen"
+        text: |
+          Ahmed går en kurs i svenska på kvällarna, två gånger i veckan. Kursen är gratis. Varje lektion börjar med en kort genomgång, och sedan arbetar deltagarna i par. Förra veckan blev lektionen inställd, eftersom läraren var sjuk. Den flyttades till lördag i stället. Ahmed tycker att kursen är viktig, eftersom han vill söka ett nytt jobb. Efter kursen får alla ett papper som visar att de har gått kursen.
+        items:
+          - { id: 9b97, type: truefalse, statement: "Kursen är på dagen.", answer: false }
+          - { id: ac6f, type: mc, prompt: "Varför blev lektionen inställd?", options: ["Läraren var sjuk.", "Lokalen var stängd.", "Det kom för få deltagare."], answer: 0 }
+          - { id: vf3c, type: truefalse, statement: "Ahmed vill söka ett nytt jobb.", answer: true }
+
+      - id: makkelijk-4
+        title: "Makkelijk lezen: Den nya skolan"
+        instruction: Een korte tekst met woorden die je al kent. Lees hem vlot door en beantwoord de vragen.
+        topic: woordenschat
+        kind: makkelijk
+        textTitle: "Den nya skolan"
+        text: |
+          Emmas son Leo har börjat i en ny skola. Skolan byggdes förra året och är ljus och fin. Klassrummen är stora, och skolgården är fin. Leo var nervös den första dagen, men hans lärare var snäll mot honom. Nu har han redan fått två nya kompisar. Lunchen lagas i skolans kök, och Leo tycker att maten är god. Emma är glad och lugn. Leo tycker att den nya skolan är bättre än den gamla.
+        items:
+          - { id: rane, type: mc, prompt: "När byggdes skolan?", options: ["Förra året.", "För tio år sedan.", "I år."], answer: 0 }
+          - { id: nstu, type: truefalse, statement: "Leo har inga kompisar än.", answer: false }
+          - { id: s2hk, type: truefalse, statement: "Maten lagas i skolans kök.", answer: true }
+
+  - id: ord
+    title: Ord och fraser · woorden en uitdrukkingen
+    exercises:
+      - id: ord-studera
+        title: Studeren in Zweden
+        instruction: Koppel het woord aan de betekenis.
+        topic: woordenschat
+        items:
+          - id: kwbw
+            type: match
+            pairs:
+              - ["en tenta", "een tentamen"]
+              - ["en föreläsning", "een hoorcollege"]
+              - ["en uppsats", "een scriptie, werkstuk"]
+              - ["ett betyg", "een cijfer, beoordeling"]
+              - ["en examen", "een afgeronde opleiding, een graad"]
+              - ["studiemedel", "studiefinanciering"]
+          - id: 36gb
+            type: match
+            pairs:
+              - ["plugga", "studeren, blokken"]
+              - ["läsa en kurs", "een cursus volgen"]
+              - ["bli antagen", "toegelaten worden"]
+              - ["klara tentan", "slagen voor het tentamen"]
+              - ["köra på tentan", "zakken voor het tentamen"]
+              - ["på distans", "op afstand, online"]
+
+      - id: ord-lasa-plugga
+        title: Läsa, studera of plugga?
+        instruction: Kies het woord dat past.
+        topic: woordenschat
+        shuffle: true
+        items:
+          - { id: sasd, type: gap, text: "Jag är student och ___ juridik på universitetet.", gaps: [{ answers: ["läser"], options: ["läser", "lär", "undervisar i"], feedback: [{ match: "lär", tip: "lära = onderwijzen (iemand iets leren). Een studie volgen: läsa of studera." }] }] }
+          - { id: rfu5, type: gap, text: "I kväll måste jag ___ inför tentan.", gaps: [{ answers: ["plugga"], options: ["plugga", "lära", "undervisa"] }] }
+          - { id: jue6, type: gap, text: "Hon ___ sig att köra bil förra sommaren.", gaps: [{ answers: ["lärde"], options: ["lärde", "läste", "pluggade"], tip: "lära sig = (zelf) leren." }] }
+          - { id: 3m9c, type: gap, text: "Han är lärare och ___ matematik på en gymnasieskola.", gaps: [{ answers: ["undervisar i"], options: ["undervisar i", "läser", "pluggar"], feedback: [{ match: "läser", tip: "Hier is hij de docent: undervisa i (lesgeven in)." }] }] }
+          - { id: sfsy, type: gap, text: "Jag gick på en ___ om svensk historia i går.", gaps: [{ answers: ["föreläsning"], options: ["föreläsning", "uppsats", "examen"] }] }
+
+      - id: ord-skolan-gap
+        title: "Woorden in een zin: op school"
+        instruction: Kies het woord dat past.
+        topic: woordenschat
+        shuffle: true
+        items:
+          - { id: fdut, type: gap, text: "Efter nian börjar de flesta svenska ungdomar på ___.", gaps: [{ answers: ["gymnasiet"], options: ["gymnasiet", "examen", "lektionen", "kursplanen"], feedback: [{ match: "examen", tip: "*examen* is een afgeronde opleiding. De school voor 16- tot 19-jarigen: *gymnasiet*." }] }] }
+          - { id: hxmk, type: gap, text: "Det går tjugofem ___ i min sons klass.", gaps: [{ answers: ["elever"], options: ["elever", "rektorer", "handledare", "ämnen"], feedback: [{ match: "rektorer", tip: "*en rektor* is het schoolhoofd; een school heeft er maar één. Kinderen in een klas: *elever*." }] }] }
+          - { id: 7ksq, type: gap, text: "Vilket ___ tycker du bäst om i skolan, matte eller historia?", gaps: [{ answers: ["ämne"], options: ["ämne", "grupparbete", "studielån", "gymnasium"], feedback: [{ match: "grupparbete", tip: "*ett grupparbete* is een groepsopdracht. Wiskunde en geschiedenis zijn vakken: *ämnen*." }] }] }
+          - { id: zvah, type: gap, text: "Vi har två ___ i svenska i veckan, på måndagar och torsdagar.", gaps: [{ answers: ["lektioner"], options: ["lektioner", "kursplaner", "elever", "ämnen"], feedback: [{ match: "ämnen", tip: "*ämnen* zijn vakken. Twee keer per week Zweeds: twee *lektioner* (lessen)." }] }] }
+          - { id: jn23, type: gap, text: "Min gamla ___ och jag satt bredvid varandra i tre år på gymnasiet.", gaps: [{ answers: ["klasskamrat"], options: ["klasskamrat", "rektor", "handledare", "studievägledare"], feedback: [{ match: "rektor", tip: "*en rektor* is het schoolhoofd. Iemand uit je klas: *en klasskamrat*." }] }] }
+          - { id: suda, type: gap, text: "Skolans ___ skickade ett brev till alla föräldrar om de nya reglerna.", gaps: [{ answers: ["rektor"], options: ["rektor", "elev", "klasskamrat", "handledare"], feedback: [{ match: "elev", tip: "*en elev* is een leerling. Wie de school leidt: *rektor* (na *skolans* zonder -n)." }] }] }
+          - { id: b2tj, type: gap, text: "Han ___ på provet och fick noll poäng när läraren upptäckte det.", gaps: [{ answers: ["fuskade"], options: ["fuskade", "repeterade", "sammanfattade", "presenterade"], feedback: [{ match: "repeterade", tip: "*repetera* is leerstof herhalen. Nul punten toen de leraar het zag: hij *fuskade* (spiekte)." }] }] }
+          - { id: ekse, type: gap, text: "Hon ___ gymnasiet efter ett år och började jobba på ett kafé.", gaps: [{ answers: ["hoppade av"], options: ["hoppade av", "tog igen", "hängde med", "satte sig in i"], feedback: [{ match: "tog igen", tip: "*ta igen* is een achterstand inhalen. Stoppen met een opleiding = *hoppa av*." }] }] }
+          - { id: cg23, type: gap, text: "Inför provet ___ vi alla glosor från hela terminen.", gaps: [{ answers: ["repeterade"], options: ["repeterade", "fuskade", "diskuterade", "presenterade"], feedback: [{ match: "fuskade", tip: "*fuska* is spieken. Leerstof herhalen voor een toets = *repetera*." }] }] }
+          - { id: 3d63, type: gap, text: "Föreläsaren pratar så snabbt att ingen i salen ___.", gaps: [{ answers: ["hänger med"], options: ["hänger med", "tar igen", "hoppar av", "sätter sig in i"], feedback: [{ match: "hoppar av", tip: "*hoppa av* is stoppen met een opleiding. Iets niet kunnen volgen = *inte hänga med*: *ingen hänger med*." }] }] }
+          - { id: 4v2c, type: gap, text: "Om du vill säga något på lektionen, ska du först ___.", gaps: [{ answers: ["räcka upp handen"], options: ["räcka upp handen", "hänga med", "ta igen", "hoppa av"], feedback: [{ match: "hänga med", tip: "*hänga med* is kunnen volgen. Eerst je vinger opsteken = *räcka upp handen*." }] }] }
+          - { id: gdjs, type: gap, text: "Jag var sjuk i två veckor, så nu måste jag ___ allt jag har missat.", gaps: [{ answers: ["ta igen"], options: ["ta igen", "hoppa av", "räcka upp handen", "hänga med"], feedback: [{ match: "hänga med", tip: "*hänga med* is kunnen volgen. Wat je gemist hebt inhalen = *ta igen*." }] }] }
+          - { id: pzc2, type: gap, text: "Det står i ___ vad studenterna ska lära sig på kursen.", gaps: [{ answers: ["kursplanen"], options: ["kursplanen", "antagningen", "examen", "ansökningsperioden"], feedback: [{ match: "antagningen", tip: "*antagningen* is de toelating. Wat je in een cursus leert, staat in *kursplanen*." }] }] }
+
+      - id: ord-studera-gap
+        title: "Woorden in een zin: studeren"
+        instruction: Kies het woord dat past.
+        topic: woordenschat
+        shuffle: true
+        items:
+          - { id: 67cn, type: gap, text: "Hon tog sin ___ i juridik i Uppsala och jobbar nu som advokat.", gaps: [{ answers: ["examen"], options: ["examen", "behörighet", "antagning", "kursplan"], feedback: [{ match: "behörighet", tip: "*behörighet* is de vereiste vooropleiding. Je diploma halen = *ta examen*." }] }] }
+          - { id: 6rb3, type: gap, text: "Utan matte på gymnasiet har man inte ___ till ingenjörsutbildningen.", gaps: [{ answers: ["behörighet"], options: ["behörighet", "examen", "studielån", "kunskap"], feedback: [{ match: "examen", tip: "*examen* is een afgeronde opleiding. Wat je nodig hebt om toegelaten te worden: *behörighet*." }] }] }
+          - { id: 76ea, type: gap, text: "Om du inte vet vilken utbildning du ska välja, kan du prata med en ___.", gaps: [{ answers: ["studievägledare"], options: ["studievägledare", "handledare", "rektor", "klasskamrat"], feedback: [{ match: "handledare", tip: "*en handledare* begeleidt je bij een scriptie of stage. Advies over je studiekeuze: *en studievägledare*." }] }] }
+          - { id: 9bg9, type: gap, text: "Min ___ läser alla kapitel i uppsatsen och ger mig råd.", gaps: [{ answers: ["handledare"], options: ["handledare", "studievägledare", "klasskamrat", "rektor"], feedback: [{ match: "studievägledare", tip: "*en studievägledare* helpt je een opleiding kiezen. Wie je scriptie begeleidt: *din handledare*." }] }] }
+          - { id: v6hy, type: gap, text: "Ett år på heltid ger sextio ___.", gaps: [{ answers: ["högskolepoäng"], options: ["högskolepoäng", "ämnen", "kunskaper", "lektioner"], feedback: [{ match: "lektioner", tip: "*lektioner* zijn lessen. Studiepunten = *högskolepoäng*." }] }] }
+          - { id: 2mjd, type: gap, text: "Hon har goda ___ i både tyska och franska.", gaps: [{ answers: ["kunskaper"], options: ["kunskaper", "högskolepoäng", "lektioner", "behörigheter"], feedback: [{ match: "behörigheter", tip: "*behörighet* is de vereiste vooropleiding. Wat je weet en kunt: *kunskaper*." }] }] }
+          - { id: hh2g, type: gap, text: "Kursen är för nybörjare, så man behöver inga ___.", gaps: [{ answers: ["förkunskaper"], options: ["förkunskaper", "grupparbeten", "rektorer", "klasskamrater"], feedback: [{ match: "grupparbeten", tip: "*grupparbeten* zijn groepsopdrachten. Voor beginners: geen voorkennis, *förkunskaper*." }] }] }
+          - { id: h74p, type: gap, text: "Många studenter tar ___ för att kunna betala hyran.", gaps: [{ answers: ["studielån"], options: ["studielån", "högskolepoäng", "ämnen", "kursplaner"], feedback: [{ match: "högskolepoäng", tip: "*högskolepoäng* zijn studiepunten. Geld lenen voor je studie = *studielån*." }] }] }
+          - { id: wkfs, type: gap, text: "Du hinner fortfarande söka, för ___ slutar först den 15 april.", gaps: [{ answers: ["ansökningsperioden"], options: ["ansökningsperioden", "antagningen", "kursplanen", "lektionen"], feedback: [{ match: "antagningen", tip: "*antagningen* is de toelating (daarna). Wanneer je je kunt aanmelden: *ansökningsperioden*." }] }] }
+          - { id: 8kmw, type: gap, text: "Hon fick besked om ___ i juli: hon kommer in på läkarprogrammet!", gaps: [{ answers: ["antagningen"], options: ["antagningen", "ansökningsperioden", "examen", "kursplanen"], feedback: [{ match: "ansökningsperioden", tip: "*ansökningsperioden* is de tijd waarin je je aanmeldt. Of je erin komt: *antagningen* (de toelating)." }] }] }
+          - { id: dbht, type: gap, text: "Efter tio år som sjuksköterska vill hon ___ till barnmorska.", gaps: [{ answers: ["vidareutbilda sig"], options: ["vidareutbilda sig", "hoppa av", "ta igen", "fuska"], feedback: [{ match: "hoppa av", tip: "*hoppa av* is stoppen met een opleiding. Je verder bijscholen = *vidareutbilda sig*." }] }] }
+          - { id: w96u, type: gap, text: "Innan du börjar på det nya jobbet, måste du ___ de nya reglerna.", gaps: [{ answers: ["sätta dig in i"], options: ["sätta dig in i", "hänga med", "räcka upp handen", "hoppa av"], feedback: [{ match: "hänga med", tip: "*hänga med* is kunnen volgen (zonder lijdend voorwerp). Je in iets verdiepen = *sätta sig in i*." }] }] }
+
+      - id: ord-kursen-gap
+        title: "Woorden in een zin: de cursus"
+        instruction: Kies het woord dat past.
+        topic: woordenschat
+        shuffle: true
+        items:
+          - { id: shac, type: gap, text: "Den första lektionen är ___: den som inte kommer förlorar sin plats.", gaps: [{ answers: ["obligatorisk"], options: ["obligatorisk", "muntlig", "frånvarande", "givande"], feedback: [{ match: "frånvarande", tip: "*frånvarande* is afwezig. Wie niet komt, verliest zijn plaats: de les is *obligatorisk* (verplicht)." }] }] }
+          - { id: xusv, type: gap, text: "Provet är ___: vi pratar med läraren i tio minuter i stället för att skriva.", gaps: [{ answers: ["muntligt"], options: ["muntligt", "teoretiskt", "obligatoriskt", "praktiskt"], feedback: [{ match: "teoretiskt", tip: "*teoretisk* is theoretisch. Praten in plaats van schrijven = *muntligt* (mondeling)." }] }] }
+          - { id: myy8, type: gap, text: "Skådespelarna måste kunna hela texten ___.", gaps: [{ answers: ["utantill"], options: ["utantill", "muntlig", "praktisk", "frånvarande"], feedback: [{ match: "muntlig", tip: "*muntlig* is mondeling. Een tekst uit het hoofd kennen = *kunna den utantill*." }] }] }
+          - { id: k42y, type: gap, text: "Utbildningen är väldigt ___: vi pluggar varje kväll och varje helg.", gaps: [{ answers: ["krävande"], options: ["krävande", "givande", "frånvarande", "muntlig"], feedback: [{ match: "givande", tip: "*givande* is leerzaam. Elke avond en elk weekend studeren: de opleiding is *krävande* (zwaar)." }] }] }
+          - { id: zja9, type: gap, text: "Kursen var svår, men den var väldigt ___, och jag lärde mig mycket.", gaps: [{ answers: ["givande"], options: ["givande", "krävande", "frånvarande", "obligatorisk"], feedback: [{ match: "krävande", tip: "*krävande* is zwaar, en dat zegt *svår* al. Na *men*: hij was wel de moeite waard, *givande*." }] }] }
+          - { id: pfxs, type: gap, text: "Tre elever är ___ idag, för de är sjuka.", gaps: [{ answers: ["frånvarande"], options: ["frånvarande", "givande", "krävande", "muntliga"], feedback: [{ match: "givande", tip: "*givande* is leerzaam. Wie ziek thuis is, is *frånvarande* (afwezig)." }] }] }
+          - { id: u4de, type: gap, text: "I kursen gör vi ett stort ___ i grupper om fyra.", gaps: [{ answers: ["grupparbete"], options: ["grupparbete", "studielån", "gymnasium", "ämne"], feedback: [{ match: "ämne", tip: "*ett ämne* is een vak. Samen in een groep werken: *ett grupparbete*." }] }] }
+          - { id: 5daf, type: gap, text: "Varje grupp ska ___ sitt arbete för klassen i tio minuter.", gaps: [{ answers: ["presentera"], options: ["presentera", "fuska", "repetera", "hoppa av"], feedback: [{ match: "repetera", tip: "*repetera* is leerstof herhalen. Je werk aan de klas laten zien = *presentera*." }] }] }
+          - { id: 8ya6, type: gap, text: "Kan du ___ föreläsningen för mig? Jag missade den.", gaps: [{ answers: ["sammanfatta"], options: ["sammanfatta", "diskutera", "fuska", "hoppa av"], feedback: [{ match: "diskutera", tip: "*diskutera* is bespreken. Iets kort samenvatten = *sammanfatta*." }] }] }
+          - { id: b5qx, type: gap, text: "Efter föreläsningen ___ vi frågan i små grupper i en timme.", gaps: [{ answers: ["diskuterade"], options: ["diskuterade", "fuskade", "hoppade av", "räckte upp handen"], feedback: [{ match: "fuskade", tip: "*fuska* is spieken. Samen over een vraag praten = *diskutera*." }] }] }
+          - { id: p7yc, type: gap, text: "Första året är mest ___: vi läser böcker och lyssnar på föreläsningar.", gaps: [{ answers: ["teoretiskt"], options: ["teoretiskt", "praktiskt", "muntligt", "frånvarande"], feedback: [{ match: "praktiskt", tip: "*praktisk* is praktisch. Boeken en colleges = *teoretiskt*." }] }] }
+          - { id: h5a9, type: gap, text: "Andra året är mer ___: då jobbar vi på ett riktigt sjukhus.", gaps: [{ answers: ["praktiskt"], options: ["praktiskt", "teoretiskt", "utantill", "frånvarande"], feedback: [{ match: "teoretiskt", tip: "*teoretisk* is theoretisch. Echt in een ziekenhuis werken = *praktiskt*." }] }] }
+
+  - id: bli-passiv
+    title: "Grammatik: de lijdende vorm met bli"
+    exercises:
+      - id: vara-of-bli
+        title: Toestand of gebeurtenis?
+        instruction: Kies **är/var** (toestand) of **blev** (iets gebeurde).
+        topic: passiv-bli
+        items:
+          - id: rbkp
+            type: sort
+            categories: ["toestand (vara)", "gebeurtenis (bli)"]
+            items:
+              - { text: "Biblioteket **är** stängt på söndagar.", cat: 0 }
+              - { text: "Vägen **blev** avstängd efter olyckan.", cat: 1 }
+              - { text: "Alla platser **är** bokade.", cat: 0 }
+              - { text: "Hon **blev** överraskad av resultatet.", cat: 1, tip: "Er gebeurde iets met haar: ze werd verrast." }
+              - { text: "Fönstret **var** öppet hela natten.", cat: 0 }
+              - { text: "Han **blev** påkörd av en bil.", cat: 1 }
+
+      - id: bli-invullen
+        title: Bli + deelwoord
+        instruction: Vul het voltooid deelwoord in de goede vorm in.
+        topic: passiv-bli
+        shuffle: true
+        items:
+          - { id: a8zu, type: gap, text: "Hon blev ___ (anta) till programmet.", gaps: [{ answers: ["antagen"], feedback: [{ match: ["antagit", "antaget"], tip: "Het onderwerp is hon (en-vorm): antagen." }, { match: "antad", tip: "anta is sterk: antagen." }] }] }
+          - { id: 85t3, type: gap, text: "Provet blev ___ (ställa in).", hint: "ställa in = afgelasten; als deelwoord: inställd.", gaps: [{ answers: ["inställt"], feedback: [{ match: "inställd", tip: "Provet is een ett-woord: inställt." }] }] }
+          - { id: f3sq, type: gap, text: "Alla studenter blev ___ (bjuda) på fika.", gaps: [{ answers: ["bjudna"], feedback: [{ match: ["bjuden", "bjudet"], tip: "Alla studenter is meervoud: bjudna." }] }] }
+          - { id: xgyn, type: gap, text: "Uppsatsen blev ___ (godkänna).", gaps: [{ answers: ["godkänd"], feedback: [{ match: "godkänt", tip: "uppsats is een en-woord: godkänd." }] }] }
+          - { id: r4wb, type: gap, text: "Brevet blev ___ (skriva) på engelska.", gaps: [{ answers: ["skrivet"], feedback: [{ match: "skriven", tip: "brev is een ett-woord: skrivet." }] }] }
+          - { id: unwk, type: gap, text: "Böckerna blev ___ (sälja) på en vecka.", gaps: [{ answers: ["sålda"], feedback: [{ match: ["sålde", "säljda"], tip: "sälja → såld. Meervoud: sålda." }] }] }
+          - { id: q2gr, type: gap, text: "Min cykel blev ___ (stjäla) i natt.", gaps: [{ answers: ["stulen"], feedback: [{ match: ["stjälad", "stjäld", "stulet"], tip: "stjäla is sterk: stulen (en), stulet (ett), stulna (meervoud)." }] }] }
+          - { id: fgd8, type: gap, text: "Huset blev ___ (måla) i fjol.", gaps: [{ answers: ["målat"], feedback: [{ match: ["målad", "målade"], tip: "hus is een ett-woord: målat." }] }] }
+
+      - id: s-naar-bli
+        title: Van -s naar bli
+        instruction: Schrijf de zin met **bli** + deelwoord.
+        topic: passiv-bli
+        items:
+          - { id: 78bk, type: transform, prompt: "Hon antogs till utbildningen.", answers: ["Hon blev antagen till utbildningen."] }
+          - { id: g8va, type: transform, prompt: "Kursen ställdes in.", answers: ["Kursen blev inställd."], feedback: [{ match: "Kursen blev inställt.", tip: "kurs is een en-woord: inställd." }] }
+          - { id: wa2m, type: transform, prompt: "Breven skickades i går.", answers: ["Breven blev skickade {i går|igår}."], feedback: [{ contains: "blev skickad", tip: "breven is meervoud: skickade." }] }
+          - { id: w3w7, type: transform, prompt: "Huset såldes förra året.", answers: ["Huset blev sålt förra året."], feedback: [{ contains: "blev såld", tip: "hus is een ett-woord: sålt." }] }
+          - { id: tg7y, type: transform, prompt: "Jag bjöds på middag.", answers: ["Jag blev bjuden på middag."] }
+          - { id: 9mah, type: transform, prompt: "Tentorna rättades snabbt.", answers: ["Tentorna blev rättade snabbt.", "Tentorna blev snabbt rättade."] }
+          - { id: 86bd, type: transform, prompt: "Mötet flyttades till fredag.", answers: ["Mötet blev flyttat till fredag."], feedback: [{ contains: "blev flyttad ", tip: "möte is een ett-woord: flyttat." }] }
+          - { id: mjtb, type: transform, prompt: "Studenterna informerades om ändringen.", answers: ["Studenterna blev informerade om ändringen."], feedback: [{ contains: "blev informerad ", tip: "studenterna is meervoud: informerade." }] }
+
+      - id: bli-vertalen
+        title: Vertaal met bli
+        instruction: Vertaal naar het Zweeds. Gebruik **bli** + voltooid deelwoord, tenzij er iets anders staat.
+        topic: passiv-bli
+        shuffle: true
+        items:
+          - { id: bp7k, type: translate, prompt: "Joost werd vorig jaar toegelaten tot de lerarenopleiding aan de universiteit in Umeå.", answers: ["Joost blev antagen till {lärarprogrammet|lärarutbildningen} {på universitetet i Umeå|vid universitetet i Umeå|på Umeå universitet|vid Umeå universitet} {förra året|i fjol}.", "{Förra året|I fjol} blev Joost antagen till {lärarprogrammet|lärarutbildningen} {på universitetet i Umeå|vid universitetet i Umeå|på Umeå universitet|vid Umeå universitet}."], feedback: [{ contains: ["blev antaget", "blev antagit", "blev antad", "blev antagna"], tip: "anta is sterk en het onderwerp is één persoon (en-vorm): antagen." }, { contains: ["året joost blev", "fjol joost blev"], tip: "Na Förra året vooraan komt eerst het werkwoord: Förra året blev Joost …" }] }
+          - { id: sybq, type: translate, prompt: "De cursus Engels werd afgelast omdat er te weinig studenten waren.", answers: ["{Kursen i engelska|Engelskakursen} blev inställd {eftersom|för att|då} det {var|fanns} för få {studenter|deltagare}."], feedback: [{ contains: "blev inställt", tip: "kurs is een en-woord: inställd." }, { contains: "blev inställda", tip: "Eén cursus, onbepaald na blev: inställd." }, { contains: "för lite studenter", tip: "Te weinig (te tellen) = för få." }] }
+          - { id: fs2g, type: translate, prompt: "Mijn scriptie werd goedgekeurd, maar twee van mijn tentamens werden afgekeurd.", answers: ["{Min uppsats blev godkänd|Mitt examensarbete blev godkänt}, men två av mina {tentor|tentamina} blev underkända."], feedback: [{ contains: "uppsats blev godkänt", tip: "uppsats is een en-woord: godkänd." }, { contains: ["tentor blev underkänd", "tentor blev underkänt"], tip: "Twee tentamens: meervoud, underkända." }] }
+          - { id: ycnx, type: translate, prompt: "Mijn fiets werd gestolen terwijl ik in de bibliotheek aan het studeren was.", answers: ["Min cykel blev stulen {medan|när} jag {pluggade|studerade|satt och pluggade|satt och studerade|läste} {på|i} biblioteket."], feedback: [{ contains: ["blev stjälad", "blev stjäld", "blev stulet", "blev stulna"], tip: "stjäla is sterk: stulen (en-woord), stulet (ett-woord), stulna (meervoud). cykel is een en-woord." }, { contains: "medan pluggade jag", tip: "In een bijzin komt het onderwerp direct na medan: medan jag pluggade." }] }
+          - { id: 4g88, type: translate, prompt: "Alle nieuwe studenten werden na het eerste college op koffie getrakteerd.", answers: ["Alla nya studenter blev bjudna på {fika|kaffe} efter {den första|första} föreläsningen.", "Efter {den första|första} föreläsningen blev alla nya studenter bjudna på {fika|kaffe}."], feedback: [{ contains: ["blev bjuden", "blev bjudet", "blev bjudda"], tip: "bjuda is sterk en studenter is meervoud: bjudna." }] }
+          - { id: tgpv, type: translate, prompt: "De stageplaatsen worden door de universiteit verdeeld, en Joost werd op een school in Umeå geplaatst.", answers: ["Praktikplatserna {fördelas|blir fördelade} av universitetet, och Joost {blev placerad|placerades} på en {skola|högstadieskola} i Umeå."], feedback: [{ contains: ["blev placerat", "blev placerade"], tip: "Joost is één persoon (en-vorm): placerad." }, { contains: "fördelar", tip: "De stageplaatsen verdelen niet zelf: fördelas (een vaste regel, dus -s)." }] }
+          - { id: djp7, type: translate, prompt: "Het tentamen van vrijdag werd naar volgende week verplaatst omdat de docent ziek was.", answers: ["{Tentan på fredag|Fredagens tenta} {blev flyttad|flyttades} till nästa vecka {eftersom|för att|då} läraren var sjuk."], feedback: [{ contains: ["blev flyttat", "blev flyttade"], tip: "tenta is een en-woord: flyttad." }, { contains: "läraren är sjuk", tip: "Het gebeurde in het verleden: läraren var sjuk." }] }
+          - { id: d9ey, type: translate, prompt: "Het oude schoolgebouw werd vorig jaar verkocht en wordt nu een bibliotheek.", answers: ["{Den gamla skolbyggnaden|Den gamla skolan} {blev såld|såldes} {förra året|i fjol} och {blir nu|ska nu bli} ett bibliotek.", "Det gamla skolhuset {blev sålt|såldes} {förra året|i fjol} och {blir nu|ska nu bli} ett bibliotek."], feedback: [{ contains: ["skolbyggnaden blev sålt", "skolhuset blev såld"], tip: "byggnad is een en-woord (såld), hus een ett-woord (sålt)." }, { contains: ["blev säljd", "blev säljt", "blev sålde"], tip: "sälja is onregelmatig: såld, sålt, sålda." }] }
+          - { id: 7ddr, type: translate, prompt: "Toen ik de brief opende, zag ik dat mijn aanvraag was goedgekeurd.", answers: ["När jag öppnade brevet såg jag att min {ansökan|anmälan} {hade blivit godkänd|blev godkänd|var godkänd|hade godkänts}."], feedback: [{ contains: ["blivit godkänt", "blev godkänt", "var godkänt"], tip: "ansökan is een en-woord: godkänd." }, { contains: "brevet jag såg", tip: "Na een bijzin vooraan (När …) komt eerst het werkwoord: såg jag." }] }
+
+  - id: particip
+    title: "Grammatik: deelwoorden"
+    exercises:
+      - id: ontdek-particip
+        title: Ontdek de regel – deelwoorden
+        instruction: Bekijk de voorbeelden en ontdek zelf de regel. Pas hem daarna toe. De uitleg staat ook op de kaart.
+        topic: particip
+        items:
+          - id: hjvs
+            type: steps
+            steps:
+              - { type: mc, prompt: "Kijk: *en målad vägg – ett målat hus – målade väggar*. Wat valt op?", options: ["Het deelwoord krijgt dezelfde uitgangen als een bijvoeglijk naamwoord: -t bij een ett-woord, een uitgang in het meervoud.", "Het deelwoord verandert nooit.", "Bij een en-woord komt er -t achter."], answer: 0, tip: "målad, målat, målade: net als stor, stort, stora." }
+              - { type: gap, text: "ett ___ fönster (stänga)", gaps: [{ answers: ["stängt"], feedback: [{ match: ["stängd", "stängda"], tip: "fönster is een ett-woord: stängt." }, { match: "stängat", tip: "stänga is een -er-werkwoord: stängd, en bij een ett-woord stängt." }] }] }
+          - id: h4a4
+            type: steps
+            steps:
+              - { type: mc, prompt: "Kijk: *en skriven text – ett skrivet brev – skrivna texter*. Wat valt op bij een sterk werkwoord als *skriva*?", options: ["Het deelwoord eindigt op -en, bij een ett-woord op -et, in het meervoud op -na.", "Het deelwoord eindigt altijd op -ad.", "Het meervoud krijgt -er."], answer: 0, tip: "skriv**en**, skriv**et**, skriv**na**." }
+              - { type: gap, text: "Breven är redan ___. (skriva)", gaps: [{ answers: ["skrivna"], feedback: [{ match: ["skrivet", "skriven"], tip: "breven is meervoud: skrivna." }, { match: "skrivit", tip: "skrivit is het supinum (na har). Na är komt het deelwoord, en breven is meervoud: skrivna." }] }] }
+
+      - id: particip-tabel
+        title: Drie vormen
+        instruction: Vul het voltooid deelwoord in voor een en-woord, een ett-woord en het meervoud.
+        topic: particip
+        items:
+          - id: xa32
+            type: table
+            columns: ["infinitief", "en-woord", "ett-woord", "meervoud"]
+            rows:
+              - ["måla", "målad", { answers: ["målat"] }, { answers: ["målade"] }]
+              - ["stänga", { answers: ["stängd"] }, { answers: ["stängt"] }, { answers: ["stängda"] }]
+              - ["köpa", { answers: ["köpt"] }, "köpt", { answers: ["köpta"] }]
+              - ["skriva", { answers: ["skriven"] }, { answers: ["skrivet"] }, { answers: ["skrivna"] }]
+              - ["sälja", { answers: ["såld"] }, { answers: ["sålt"] }, { answers: ["sålda"] }]
+
+      - id: particip-bijvoeglijk
+        title: Deelwoord voor een zelfstandig naamwoord
+        instruction: Vul het deelwoord in de goede vorm in.
+        topic: particip
+        shuffle: true
+        items:
+          - { id: 3hvr, type: gap, text: "Jag hittade en ___ (glömma bort) väska på bussen.", hint: "Bij een deelwoord komt het partikel ervoor: glömma bort → bortglömd.", gaps: [{ answers: ["bortglömd", "kvarglömd"], feedback: [{ match: ["bortglömt", "bortglömda"], tip: "väska is een en-woord, onbepaald: bortglömd." }, { match: "glömd", tip: "Voor een vergeten voorwerp zeg je bortglömd (of kvarglömd)." }] }] }
+          - { id: 56dz, type: gap, text: "Vi bor i ett nyligen ___ (renovera) hus.", gaps: [{ answers: ["renoverat"], feedback: [{ match: "renoverad", tip: "hus is een ett-woord: renoverat." }] }] }
+          - { id: f6m9, type: gap, text: "De ___ (stjäla) cyklarna hittades i skogen.", gaps: [{ answers: ["stulna"], feedback: [{ match: ["stulen", "stulet"], tip: "Na de en voor een meervoud: stulna." }] }] }
+          - { id: b4fb, type: gap, text: "Den ___ (skriva) uppsatsen ska lämnas in på fredag.", gaps: [{ answers: ["skrivna"], feedback: [{ match: "skriven", tip: "Na den (bepaald) krijgt het deelwoord dezelfde vorm als het meervoud: skrivna." }] }] }
+          - { id: wsjf, type: gap, text: "Det ___ (ställa in) mötet ersätts av ett mejl.", gaps: [{ answers: ["inställda"], feedback: [{ match: "inställt", tip: "Na det (bepaald): de -a-vorm, inställda." }] }] }
+          - { id: xmc6, type: gap, text: "Hon har ett ___ (måla) porträtt av sin mormor.", gaps: [{ answers: ["målat"] }] }
+          - { id: v54u, type: gap, text: "Han köpte en ___ (använda) cykel.", gaps: [{ answers: ["använd"], feedback: [{ match: ["använt", "använda"], tip: "cykel is een en-woord, onbepaald: använd." }] }] }
+          - { id: p7t9, type: gap, text: "Alla ___ (anmäla) studenter får ett mejl.", gaps: [{ answers: ["anmälda"], feedback: [{ match: ["anmäld", "anmält"], tip: "Meervoud: anmälda." }] }] }
+
+      - id: presens-particip
+        title: Spännande en leende
+        instruction: Kies de goede vorm.
+        topic: particip
+        shuffle: true
+        items:
+          - { id: zn4d, type: mc, prompt: "Kursen var väldigt ___.", options: ["spännande", "spänd", "spännad"], answer: 0, optionTips: [null, "spänd = gespannen, nerveus (over een persoon).", null] }
+          - { id: nx9g, type: mc, prompt: "Ett ___ barn vinkade till oss.", options: ["leende", "leande", "lett"], answer: 0, optionTips: [null, "le eindigt op een lange klinker: -ende.", null] }
+          - { id: hqes, type: mc, prompt: "Under ___ år ska skolan byggas om.", options: ["kommande", "kommen", "kommade"], answer: 0 }
+          - { id: khn9, type: mc, prompt: "Han kom ___ in i klassrummet.", options: ["springande", "sprungen", "springer"], answer: 0 }
+          - { id: 249y, type: mc, prompt: "Vi läste en ___ artikel om skolsystemet.", options: ["intressant", "intresserande", "intresserad"], answer: 0, tip: "intressant is een gewoon bijvoeglijk naamwoord; intresserad (av) zeg je over een persoon." }
+          - { id: u28p, type: mc, prompt: "Hon är en ___ lärare. (inspirerend)", options: ["inspirerande", "inspirerad", "inspirerat"], answer: 0, tip: "Iets wat inspireert: inspirerande. inspirerad = geïnspireerd." }
+          - { id: ua3u, type: mc, prompt: "Nils kom ___ in i rummet. (rennend)", options: ["springande", "sprungen", "springer"], answer: 0 }
+          - { id: mwp5, type: mc, prompt: "Han är en ___ student. (veelbelovend)", options: ["lovande", "lovad", "lovar"], answer: 0 }
+
+      - id: particip-vertalen
+        title: Vertaal met een deelwoord
+        instruction: Vertaal naar het Zweeds. Let op de vorm van het deelwoord.
+        topic: particip
+        shuffle: true
+        items:
+          - { id: etq6, type: translate, prompt: "De gestolen fietsen werden twee weken later in het bos gevonden.", answers: ["De stulna cyklarna {hittades|blev hittade} {i skogen två veckor senare|två veckor senare i skogen|i skogen efter två veckor|efter två veckor i skogen}.", "{Två veckor senare|Efter två veckor} {hittades de stulna cyklarna|blev de stulna cyklarna hittade} i skogen."], feedback: [{ contains: ["de stulen", "de stulet", "de stjälade", "de stulade"], tip: "stjäla is sterk; na de (bepaald meervoud): de stulna cyklarna." }, { contains: ["senare de stulna", "veckor de stulna"], tip: "Na Två veckor senare vooraan komt eerst het werkwoord: Två veckor senare hittades …" }] }
+          - { id: 56vq, type: translate, prompt: "Hij kocht een gebruikte fiets en een gebruikt bureau voor zijn nieuwe kamer.", answers: ["Han köpte en använd cykel och ett använt skrivbord {till|för} sitt nya rum.", "Han köpte en begagnad cykel och ett begagnat skrivbord {till|för} sitt nya rum."], feedback: [{ contains: ["en använt", "en använda"], tip: "cykel is een en-woord, onbepaald: en använd cykel." }, { contains: ["ett använd ", "ett använda"], tip: "skrivbord is een ett-woord: ett använt skrivbord." }, { contains: "hans nya rum", tip: "Het is zijn eigen kamer (van het onderwerp han): sitt nya rum." }] }
+          - { id: qcyf, type: translate, prompt: "Het afgelaste college wordt volgende week door een andere docent gegeven.", answers: ["Den inställda föreläsningen {ges|hålls|ska ges|ska hållas|kommer att ges|kommer att hållas} {av en annan lärare nästa vecka|nästa vecka av en annan lärare}.", "Nästa vecka {ges|hålls} den inställda föreläsningen av en annan lärare.", "Nästa vecka ska den inställda föreläsningen {ges|hållas} av en annan lärare.", "Nästa vecka kommer den inställda föreläsningen att {ges|hållas} av en annan lärare."], feedback: [{ contains: ["den inställd ", "den inställt"], tip: "Na den (bepaald) krijgt het deelwoord de -a-vorm: den inställda föreläsningen." }, { contains: "vecka den inställda", tip: "Na Nästa vecka vooraan komt eerst het werkwoord: Nästa vecka ges …" }] }
+          - { id: vyqk, type: translate, prompt: "Het was een spannende cursus met een docent die erg inspirerend was.", answers: ["Det var en spännande kurs med en lärare som var {väldigt|mycket} inspirerande."], feedback: [{ contains: ["spänd kurs", "spännad kurs"], tip: "Een cursus die spanning geeft: spännande. spänd zeg je over een persoon (gespannen)." }, { contains: ["var väldigt inspirerad", "var mycket inspirerad"], tip: "Iemand die anderen inspireert: inspirerande. inspirerad = zelf geïnspireerd." }] }
+          - { id: 52nx, type: translate, prompt: "Alle ingeleverde opdrachten worden binnen twee weken door de docent nagekeken.", answers: ["Alla inlämnade uppgifter {rättas|blir rättade} {av läraren inom två veckor|inom två veckor av läraren}."], feedback: [{ contains: ["lämnade in uppgifter", "lämnad in", "lämnade uppgifter"], tip: "Bij een deelwoord komt het partikel ervoor: lämna in → inlämnad, meervoud inlämnade." }, { contains: "inlämnad uppgifter", tip: "uppgifter is meervoud: inlämnade." }] }
+          - { id: qukh, type: translate, prompt: "Een lachende student kwam het klaslokaal binnenrennen met het goede nieuws.", answers: ["En {leende|skrattande} student kom springande in i {klassrummet|lektionssalen} med {de goda nyheterna|den goda nyheten}."], feedback: [{ contains: "leande", tip: "le eindigt op een lange klinker: -ende, leende." }, { contains: ["sprang in i klassrummet", "sprang in i lektionssalen"], tip: "Goed Zweeds, maar oefen hier het tegenwoordig deelwoord: kom springande in (kwam binnenrennen)." }, { contains: "springer in", tip: "Kom … binnenrennen: kom springande in (tegenwoordig deelwoord bij een beweging)." }] }
+
+      - id: langere-zinnen
+        title: "Vertaal: langere zinnen"
+        instruction: Vertaal de hele zin. Let op de woordvolgorde in de bijzin en na een woord vooraan.
+        items:
+          - { id: enn4, type: translate, topic: passiv-bli, prompt: "Mijn aanmelding is gisteren goedgekeurd, dus nu kan ik in de herfst aan de opleiding beginnen.", answers: ["Min ansökan blev godkänd i går, så nu kan jag börja på utbildningen i höst.", "Min ansökan {blev godkänd|godkändes} {i går|igår}, så nu kan jag börja [på ]utbildningen {i höst|till hösten}."], feedback: [{ contains: "blev godkänt", tip: "ansökan is een en-woord: godkänd." }] }
+          - { id: 8qbd, type: translate, topic: particip, prompt: "Alle opdrachten moeten uiterlijk vrijdag ingeleverd zijn, anders worden ze niet door de docent nagekeken.", answers: ["Alla uppgifter måste vara inlämnade senast på fredag, annars blir de inte rättade av läraren.", "Alla uppgifter måste {vara inlämnade|lämnas in} senast [på ]fredag, annars {blir de inte rättade|rättas de inte} av läraren."], feedback: [{ contains: "inlämnad senast", tip: "uppgifter is meervoud: inlämnade." }] }
+          - { id: gma7, type: translate, topic: passiv-bli, prompt: "Het college werd afgelast omdat de docent ziek was, maar het wordt volgende week ingehaald.", answers: ["Föreläsningen blev inställd eftersom läraren var sjuk, men den tas igen nästa vecka.", "Föreläsningen {blev inställd|ställdes in} eftersom läraren var sjuk, men den {tas igen|hålls i stället|kommer att tas igen|ska tas igen} nästa vecka."], feedback: [{ contains: "blev inställt", tip: "föreläsning is een en-woord: inställd." }] }
+          - { id: 3w6k, type: translate, topic: woordenschat, prompt: "De nieuwe cursus, die erg populair is geworden, wordt op afstand en in deeltijd gegeven.", answers: ["Den nya kursen, som har blivit mycket populär, ges på distans och på halvfart.", "Den nya kursen, som har blivit {mycket|väldigt} populär, {ges|går} på distans och på {halvfart|deltid}."], feedback: [{ contains: "populärt", tip: "kurs is een en-woord: populär." }] }
+          - { id: 2vz6, type: translate, topic: passiv-bli, prompt: "Studenten die voor het tentamen zakken, mogen aan het eind van het semester een herkansing doen.", answers: ["Studenter som blir underkända på tentan får göra en omtenta i slutet av terminen.", "{Studenter|De studenter} som {blir underkända på tentan|inte klarar tentan} får {göra|skriva} en omtenta i slutet av terminen."], feedback: [{ contains: "underkänd på", tip: "studenter is meervoud: underkända." }] }
+          - { id: dary, type: translate, topic: particip, prompt: "Het essay is in het Zweeds geschreven en wordt in juni door twee verschillende docenten beoordeeld.", answers: ["Uppsatsen är skriven på svenska och kommer att bedömas av två olika lärare i juni.", "Uppsatsen är skriven på svenska och {kommer att bedömas|kommer bedömas|bedöms|ska bedömas} av två olika lärare i juni.", "Uppsatsen är skriven på svenska och {kommer att bedömas|kommer bedömas|bedöms|ska bedömas} i juni av två olika lärare."], feedback: [{ contains: "är skrivit", tip: "Na är: het deelwoord (skriven), niet het supinum." }] }
+
+  - id: zoek-de-fout
+    title: Zoek de fout
+    exercises:
+      - id: zoek-de-fout
+        title: Zoek de fout
+        instruction: Klik op het woord dat niet klopt en verbeter de zin.
+        topic: passiv-bli
+        shuffle: true
+        items:
+          - { id: jufa, type: findError, sentence: "Huset blev såld förra året.", wrong: [2], answers: ["Huset blev sålt förra året."], tip: "hus is een ett-woord." }
+          - { id: rvnz, type: findError, sentence: "Böckerna blev stulen i natt.", wrong: [2], answers: ["Böckerna blev stulna i natt."], tip: "Hoeveel boeken?" }
+          - { id: pann, type: findError, topic: particip, sentence: "Den stulen cykeln hittades i skogen.", wrong: [1], answers: ["Den stulna cykeln hittades i skogen."], tip: "Na den: de bepaalde vorm van het deelwoord." }
+          - { id: dcmk, type: findError, topic: particip, sentence: "Det var en spänd film.", wrong: [3], answers: ["Det var en spännande film."], tip: "Een film die spanning geeft." }
+          - { id: 8mzh, type: findError, sentence: "Hon blev antaget till kursen.", wrong: [2], answers: ["Hon blev antagen till kursen."], tip: "Het onderwerp is hon." }
+          - { id: js4h, type: findError, sentence: "Alla tentor som lämnades in i fredags blev rättat på bara två dagar.", wrong: [8], answers: ["Alla tentor som lämnades in i fredags blev rättade på bara två dagar."], tip: "Hoeveel tentamens?" }
+          - { id: hw74, type: findError, topic: particip, sentence: "Biblioteket var stängd hela helgen, så jag fick plugga hemma i stället.", wrong: [2], answers: ["Biblioteket var stängt hela helgen, så jag fick plugga hemma i stället."], tip: "Is bibliotek een en-woord of een ett-woord?" }
+          - { id: 7nyz, type: findError, sentence: "Hon blev antagen till programmet, men de andra sökande blev inte antagen.", wrong: [11], answers: ["Hon blev antagen till programmet, men de andra sökande blev inte antagna."], tip: "Over hoeveel mensen gaat het in het tweede deel van de zin?" }
+
+  - id: lyssna
+    title: Lyssna · luisteren
+    intro: Deze oefeningen gebruiken de voorleesfunctie van je browser.
+    exercises:
+      - id: lyssna-studievagledare
+        title: "Luisteren: een bericht van de studieadviseur"
+        instruction: Luister naar het voicemailbericht. Is de bewering **rätt** of **fel**?
+        topic: passiv-bli
+        listen: true
+        textTitle: Ett meddelande från Komvux
+        text: |
+          Hej, det här är Karin från studievägledningen på Komvux. Jag ringer angående din anmälan till kursen i engelska. Tyvärr blev kursen full, men du har fått en plats på reservlistan.
+
+          Det finns också en distanskurs som startar den tredje februari. Den kursen är på halvfart, och de flesta uppgifterna lämnas in på nätet. Om du är intresserad kan du ringa mig på telefontiden, måndag till torsdag mellan nio och elva. Hej då!
+        items:
+          - { id: xrg4, type: truefalse, statement: "Kursen i engelska blev full.", answer: true }
+          - { id: eyqd, type: truefalse, statement: "Distanskursen startar i januari.", answer: false, correction: { answers: ["{Distanskursen|Den} startar {den tredje februari|den 3 februari|i februari}."] } }
+          - { id: csmf, type: truefalse, statement: "Distanskursen är på heltid.", answer: false, correction: { answers: ["{Distanskursen|Den|Kursen} är på halvfart."] } }
+          - { id: mf5d, type: truefalse, statement: "Uppgifterna lämnas in på nätet.", answer: true }
+          - { id: ejmz, type: truefalse, statement: "Man kan ringa Karin på fredagar.", answer: false, correction: { answers: ["{Man|Du} kan ringa {henne|Karin} [från ]måndag till torsdag[ mellan nio och elva]."] } }
+
+      - id: lyssna-vorm
+        title: Welke vorm hoor je?
+        instruction: Luister en kies wat je hoort.
+        topic: passiv-bli
+        shuffle: true
+        items:
+          - { id: ekck, type: listen, say: "Hon blev antagen till läkarprogrammet.", options: ["antagen", "antaget", "antagna"], answer: 0 }
+          - { id: xa43, type: listen, say: "Alla tentor är rättade nu.", options: ["rättade", "rättad", "rättat"], answer: 0 }
+          - { id: 2meh, type: listen, say: "Det var en spännande föreläsning.", options: ["spännande", "spänd", "spänt"], answer: 0 }
+          - { id: mcew, type: listen, say: "Biblioteket är stängt i dag.", options: ["stängt", "stängd", "stängda"], answer: 0 }
+
+      - id: lyssna-dictee
+        title: Dictee
+        instruction: Luister en maak de zin die je hoort.
+        topic: passiv-bli
+        shuffle: true
+        items:
+          - { id: 6bh2, type: listen, say: "Han blev antagen till lärarprogrammet." }
+          - { id: e3zm, type: listen, say: "Kursen ges på distans." }
+          - { id: mwua, type: listen, say: "De skriftliga tentorna är svårast." }
+          - { id: un7t, type: listen, say: "Mötet blev inställt i sista minuten." }
+
+  - id: praktiskt
+    title: Praktiskt · aanmelden voor een cursus
+    exercises:
+      - id: dialoog-anmalan
+        title: Bij de studieadviseur
+        instruction: Zet het gesprek in de goede volgorde.
+        topic: woordenschat
+        items:
+          - id: jwdy
+            type: dialogue
+            lines:
+              - "Studievägledaren: Hej, vad kan jag hjälpa dig med?"
+              - "Eva: Hej! Jag skulle vilja läsa svenska på högre nivå. Vilka kurser finns det?"
+              - "Studievägledaren: Vi har Svenska som andraspråk 2. Den finns både på dagtid och på distans."
+              - "Eva: Jag jobbar på dagarna, så distans passar bäst. När börjar den?"
+              - "Studievägledaren: Nästa kursstart är i augusti. Du anmäler dig på vår webbplats."
+              - "Eva: Kostar det något?"
+              - "Studievägledaren: Nej, kurserna på Komvux är gratis, men du köper själv kurslitteraturen."
+              - "Eva: Toppen, tack för hjälpen!"
+
+      - id: wat-zeg-je
+        title: Wat zeg je?
+        instruction: Kies wat je zegt.
+        topic: woordenschat
+        shuffle: true
+        items:
+          - { id: 8psa, type: mc, prompt: "Je wilt je aanmelden voor een cursus.", options: ["Jag skulle vilja anmäla mig till kursen.", "Jag skulle vilja säga upp mig.", "Jag vill avboka kursen.", "Jag har redan klarat kursen."], answer: 0 }
+          - { id: gdkb, type: mc, prompt: "Je wilt weten wanneer de cursus begint.", options: ["När är kursstarten?", "När är kursen slut?", "Hur länge har du undervisat?", "Var ligger biblioteket?"], answer: 0 }
+          - { id: 45xs, type: mc, prompt: "Je wilt weten of de cursus online kan.", options: ["Går det att läsa kursen på distans?", "Går det att läsa kursen på heltid?", "Går kursen fort?", "Är kursen gratis?"], answer: 0 }
+          - { id: nx4g, type: mc, prompt: "Je wilt weten hoeveel uur per week je kwijt bent.", options: ["Hur mycket tid tar kursen i veckan?", "Hur mycket kostar kursen?", "Hur många är vi i gruppen?", "Hur dags är det?"], answer: 0 }
+
+      - id: wat-zeg-je-zelf
+        title: Wat zeg je? (zelf)
+        instruction: Zeg het nu zelf in het Zweeds. Er is vaak meer dan één goed antwoord.
+        kind: situatie
+        items:
+          - { id: pkhz, type: translate, topic: passiv-bli, prompt: "Vertel dat je bent toegelaten tot de opleiding.", answers: ["Jag {har blivit|blev|är} antagen till utbildningen.", "Jag har kommit in på utbildningen."] }
+          - { id: xm83, type: translate, topic: particip, prompt: "Zeg dat je opdracht al ingeleverd is.", answers: ["{Uppgiften|Min uppgift} är redan inlämnad.", "Jag har redan lämnat in {uppgiften|min uppgift}."], feedback: [{ contains: "inlämnat", tip: "uppgift is een en-woord: inlämnad." }] }
+          - { id: f5zc, type: translate, topic: passiv-bli, prompt: "Zeg dat je tentamen nog niet is nagekeken.", answers: ["{Tentan|Min tenta} har inte {blivit rättad|rättats} {än|ännu}.", "{Tentan|Min tenta} är inte rättad {än|ännu}."] }
+          - { id: cr2h, type: translate, topic: passiv-bli, prompt: "Vraag of de colleges worden opgenomen.", answers: ["Spelas föreläsningarna in?", "Blir föreläsningarna inspelade?", "Kommer föreläsningarna att spelas in?", "Spelar ni in föreläsningarna?"] }
+          - { id: rsgu, type: translate, topic: passiv-bli, prompt: "Een medestudent vraagt naar het tentamen van gisteren. Zeg dat het werd uitgesteld.", answers: ["{Tentan|Tentamen|Den} {blev|har blivit} {uppskjuten|flyttad|framflyttad}.", "Det {blev|har blivit} {uppskjutet|flyttat|framflyttat}."], feedback: [{ contains: ["tentan blev uppskjutet", "tentamen blev uppskjutet", "den blev uppskjutet", "tentan blev flyttat", "tentamen blev flyttat", "den blev flyttat"], tip: "tenta(men) is een en-woord: uppskjuten." }, { contains: ["sköts upp", "flyttades"], retry: true, tip: "Goed Zweeds (lijdende vorm met -s), maar oefen hier bli: blev uppskjuten." }] }
+          - { id: mf2n, type: translate, topic: particip, prompt: "Je laat je studentenkamer zien. Zeg dat de deur altijd op slot is.", answers: ["Dörren är {alltid låst|låst hela tiden}."], feedback: [{ contains: ["låsad", "låsat"], tip: "låsa – låste – låst: dörren är låst." }] }
+          - { id: gs6h, type: translate, topic: particip, prompt: "Je docent vraagt naar je verslag. Zeg dat het al geschreven is.", answers: ["{Den|Rapporten|Min rapport} är redan {skriven|färdigskriven}."], feedback: [{ contains: "redan skrivet", tip: "rapport is een en-woord: skriven." }, { contains: "redan skrivit", tip: "Als bijvoeglijk naamwoord: skriven (skrivit is het supinum, na har)." }] }
+          - { id: 7z68, type: translate, topic: passiv-bli, prompt: "Vertel dat je bent uitgenodigd voor een gesprek op de universiteit.", answers: ["Jag {har blivit|blev} {inbjuden|kallad} till {en intervju|intervju|ett samtal|ett möte} {på|vid} universitetet."], feedback: [{ contains: ["är inbjudit", "har inbjudit"], tip: "Lijdende vorm: jag har blivit inbjuden." }, { contains: ["jag är inbjuden", "jag är kallad"], retry: true, tip: "Goed Zweeds, maar oefen hier de lijdende vorm met bli: jag har blivit inbjuden." }] }
+
+  - id: skriva
+    title: Skriva · schrijven
+    intro: "Schrijfdoel: een aanmelding voor een cursus."
+    exercises:
+      - id: skriva-anmalan
+        title: Meld je aan
+        instruction: "Bouw eerst je mail aan Komvux op in vier stappen die de app nakijkt. Daarna schrijf je de hele mail, als je wilt."
+        topic: formell-mail
+        items:
+          - { id: 7frs, type: mc, prompt: "Welke zin zegt goed waarvoor je schrijft?", options: ["Jag skulle vilja anmäla mig till kursen Svenska som andraspråk 2.", "Jag skulle vilja anmäla till kursen Svenska som andraspråk 2.", "Jag skulle vilja anmäla mig på kursen Svenska som andraspråk 2."], answer: 0, tip: "Je aanmelden voor iets: anmäla sig till: Jag anmäler mig till kursen." }
+          - { id: uwvq, type: gap, prompt: "Kies het woord dat past.", text: "Jag vill läsa på distans, ___ jag jobbar heltid på dagarna.", gaps: [{ answers: ["eftersom"], options: ["eftersom", "därför", "men"], tip: "Je geeft de reden: eftersom (omdat). Därför (daarom) begint een nieuwe hoofdzin." }] }
+          - { id: dagt, type: gap, topic: particip, prompt: "Vul de goede vorm in.", text: "Är kurslitteraturen ___ (inkludera) i priset?", gaps: [{ answers: ["inkluderad"], feedback: [{ match: ["inkluderat", "inkluderade"], tip: "kurslitteraturen is een en-woord, enkelvoud: inkluderad." }] }] }
+          - { id: a3z8, type: translate, prompt: "Moet je de cursusboeken zelf kopen?", answers: ["{Måste|Behöver} {man|jag|du} köpa {kurslitteraturen|kursböckerna|böckerna} själv?", "{Måste|Behöver} {man|jag|du} själv köpa {kurslitteraturen|kursböckerna|böckerna}?"], feedback: [{ contains: "man måste", tip: "In een ja/nee-vraag staat het werkwoord vooraan: Måste man …?" }] }
+          - id: jceh
+            type: free
+            prompt: "Je wilt je aanmelden voor een cursus Zweeds op afstand. Schrijf een korte mail (60–100 woorden): stel jezelf voor, zeg welke cursus je wilt volgen en waarom, en stel twee vragen (bijvoorbeeld over de start en de kosten)."
+            minWords: 55
+            require:
+              - { any: ["hej"], label: "Je begint met een aanhef" }
+              - { any: ["anmäla", "anmälan", "läsa", "söka"], label: "Je zegt welke cursus je wilt volgen" }
+              - { any: ["distans"], label: "Je noemt dat je op afstand wilt studeren" }
+              - { any: ["när", "hur", "vad", "kostar", "finns"], label: "Je stelt een vraag" }
+              - { any: ["hälsningar"], label: "Je sluit af met (Med) vänliga hälsningar" }
+            model: "Hej! Jag heter Eva Jansen och jag kommer från Nederländerna. Jag har bott i Sverige i två år och jag har läst SFI. Nu skulle jag vilja anmäla mig till kursen Svenska som andraspråk 2 på distans, eftersom jag jobbar heltid på dagarna. Jag har två frågor: När startar nästa kurs, och måste man köpa kurslitteraturen själv? Tack på förhand! Med vänliga hälsningar, Eva Jansen"
+
+  - id: herhaling
+    title: Herhaling
+    exercises:
+      - id: herhaling-13-14
+        title: Hoofdstuk 13 en 14 door elkaar
+        instruction: Gemengde vragen over de lijdende vorm, deelwoorden en zinnen met som.
+        shuffle: true
+        items:
+          - { id: 6xpf, type: gap, topic: passiv-s, text: "Ansökan måste ___ (skicka) före fredag.", gaps: [{ answers: ["skickas"] }] }
+          - { id: he35, type: gap, topic: passiv-s, text: "Skolan ___ (bygga) på 1960-talet.", gaps: [{ answers: ["byggdes"] }] }
+          - { id: yhf4, type: transform, topic: relativ-som, prompt: "Jag har en lärare. Hon kommer från Iran.", answers: ["Jag har en lärare som kommer från Iran."] }
+          - { id: wb8t, type: transform, topic: relativ-som, prompt: "Det är en kurs. Den kräver inte förkunskaper.", answers: ["Det är en kurs som inte kräver förkunskaper."], feedback: [{ contains: "som kräver inte", tip: "In een bijzin staat inte vóór het werkwoord." }] }
+          - { id: 6nay, type: gap, topic: passiv-bli, text: "Biljetterna blev ___ (sälja) på en timme.", gaps: [{ answers: ["sålda"] }] }
+          - { id: p3vh, type: mc, topic: particip, prompt: "Det var en ___ bok.", options: ["spännande", "spänd", "spännad"], answer: 0 }
+          - { id: 2jwh, type: gap, topic: relativ-som, text: "Kursen ___ jag går på börjar klockan åtta varje morgon.", gaps: [{ answers: ["som"], options: ["som", "vars", "där"], shuffle: false }] }
+          - { id: c3bd, type: transform, topic: passiv-bli, task: "Maak er een lijdende zin van met bli.", prompt: "Man antog henne till programmet i våras.", answers: ["Hon blev antagen till programmet i våras."] }
+          - { id: dpdb, type: gap, topic: particip, text: "De ___ (skriva) uppsatserna ska lämnas in på fredag.", gaps: [{ answers: ["skrivna"] }] }
+          - { id: qj6m, type: gap, topic: passiv-s, text: "Ansökan måste ___ (skicka) senast den första maj.", gaps: [{ answers: ["skickas"] }] }
+
+vocab:
+  - { sv: "en utbildning", nl: "een opleiding", def: "utbildningen", pl: "utbildningar", plDef: "utbildningarna", ex: "Det tog flera månader innan hans **utbildning** blev godkänd.", exNl: "Het duurde enkele maanden voordat zijn opleiding werd erkend." }
+  - { sv: "en kurs", nl: "een cursus", def: "kursen", pl: "kurser", plDef: "kurserna", ex: "Jag läser en **kurs** i svenska på kvällstid.", exNl: "Ik volg 's avonds een cursus Zweeds." }
+  - { sv: "en tenta", nl: "een tentamen", def: "tentan", pl: "tentor", plDef: "tentorna", ex: "De skriftliga **tentorna** är svårast för Joost.", exNl: "De schriftelijke tentamens zijn voor Joost het moeilijkst." }
+  - { sv: "en föreläsning", nl: "een hoorcollege", def: "föreläsningen", pl: "föreläsningar", plDef: "föreläsningarna", ex: "Han har **föreläsningar** tre dagar i veckan.", exNl: "Hij heeft drie dagen per week hoorcolleges." }
+  - { sv: "en uppsats", nl: "een scriptie, een werkstuk", def: "uppsatsen", pl: "uppsatser", plDef: "uppsatserna", ex: "Jag måste skicka min **uppsats** till läraren före fredag.", exNl: "Ik moet mijn scriptie vóór vrijdag naar de docent sturen." }
+  - { sv: "ett betyg", nl: "een cijfer, een beoordeling", def: "betyget", pl: "betyg", plDef: "betygen", ex: "Vilket **betyg** fick du på tentan?", exNl: "Welk cijfer kreeg je voor het tentamen?" }
+  - { sv: "en examen", nl: "een afgeronde opleiding, een graad", def: "examen", ex: "Hon tog **examen** från universitetet i juni.", exNl: "Ze studeerde in juni af aan de universiteit." }
+  - { sv: "en lärare", nl: "een leraar, een docent", def: "läraren", pl: "lärare", plDef: "lärarna", ex: "Min dotter vill bli **lärare** när hon blir stor.", exNl: "Mijn dochter wil leraar worden als ze groot is." }
+  - { sv: "en student", nl: "een student", def: "studenten", pl: "studenter", plDef: "studenterna", ex: "Många **studenter** jobbar extra på helgerna.", exNl: "Veel studenten hebben in het weekend een bijbaan." }
+  - { sv: "ett bibliotek", nl: "een bibliotheek", def: "biblioteket", pl: "bibliotek", plDef: "biblioteken", ex: "Han pluggar ofta på **biblioteket** efter föreläsningarna.", exNl: "Hij studeert vaak in de bibliotheek na de colleges." }
+  - { sv: "en anmälan", nl: "een aanmelding", pl: "anmälningar", plDef: "anmälningarna", ex: "Din **anmälan** måste vara inne senast den 15 april.", exNl: "Je aanmelding moet uiterlijk 15 april binnen zijn." }
+  - { sv: "en myndighet", nl: "een overheidsinstantie", def: "myndigheten", pl: "myndigheter", plDef: "myndigheterna", ex: "Hans betyg bedömdes av en svensk **myndighet**.", exNl: "Zijn cijfers werden door een Zweedse overheidsinstantie beoordeeld." }
+  - { sv: "att plugga", nl: "studeren, blokken", ex: "Jag **pluggade** hela natten inför tentan.", exNl: "Ik blokte de hele nacht voor het tentamen." }
+  - { sv: "att anmäla sig", nl: "zich aanmelden", ex: "Du kan **anmäla dig** till kursen på vår webbplats.", exNl: "Je kunt je op onze website aanmelden voor de cursus." }
+  - { sv: "att bli antagen", nl: "toegelaten worden", ex: "Hon **blev antagen** till läkarprogrammet i Lund.", exNl: "Ze werd toegelaten tot de opleiding geneeskunde in Lund." }
+  - { sv: "att undervisa", nl: "lesgeven", ex: "Hon **undervisar** i matematik på ett gymnasium.", exNl: "Ze geeft les in wiskunde op een middelbare school." }
+  - { sv: "att klara", nl: "halen, slagen voor", ex: "Jag **klarade** tentan på första försöket!", exNl: "Ik haalde het tentamen in één keer!" }
+  - { sv: "på distans", nl: "op afstand, online", ex: "Kursen går **på distans**, så du kan plugga hemifrån.", exNl: "De cursus wordt op afstand gegeven, dus je kunt thuis studeren." }
+  - { sv: "på halvfart", nl: "in deeltijd (50%)", ex: "Hon pluggar **på halvfart** och jobbar resten av tiden.", exNl: "Ze studeert in deeltijd en werkt de rest van de tijd." }
+  - { sv: "spännande", nl: "spannend", ex: "Det var en väldigt **spännande** föreläsning om hjärnan.", exNl: "Het was een heel spannend college over de hersenen." }
+  - { sv: "en termin", nl: "een semester (studiehalfjaar)", def: "terminen", pl: "terminer", ex: "Den här **terminen** läser jag tre kurser.", exNl: "Dit semester volg ik drie vakken." }
+  - { sv: "ett ämne", nl: "een vak (op school), een onderwerp", def: "ämnet", pl: "ämnen", ex: "Vilket **ämne** tyckte du bäst om i skolan?", exNl: "Welk vak vond je het leukst op school?" }
+  - { sv: "en högskola", nl: "een hogeschool", def: "högskolan", pl: "högskolor", ex: "Hon läser ekonomi på en **högskola** i Jönköping.", exNl: "Ze studeert economie aan een hogeschool in Jönköping." }
+  - { sv: "ett universitet", nl: "een universiteit", def: "universitetet", pl: "universitet", ex: "Joost läser andra året på **universitetet** i Umeå.", exNl: "Joost zit in het tweede jaar aan de universiteit van Umeå." }
+  - { sv: "en uppgift", nl: "een opdracht, een taak", def: "uppgiften", pl: "uppgifter", ex: "De flesta **uppgifterna** lämnas in på nätet.", exNl: "De meeste opdrachten worden online ingeleverd." }
+  - { sv: "en behörighet", nl: "de vereiste vooropleiding, een bevoegdheid", def: "behörigheten", pl: "behörigheter", ex: "Har du **behörighet** att söka till sjuksköterskeprogrammet?", exNl: "Heb je de vereiste vooropleiding om je aan te melden voor de opleiding verpleegkunde?" }
+  - { sv: "en studievägledare", nl: "een studieadviseur", def: "studievägledaren", pl: "studievägledare", ex: "Prata med en **studievägledare** innan du väljer kurser.", exNl: "Praat met een studieadviseur voordat je vakken kiest." }
+  - { sv: "en klasskamrat", nl: "een klasgenoot", def: "klasskamraten", pl: "klasskamrater", ex: "Jag pluggar ofta med två **klasskamrater** från Syrien.", exNl: "Ik studeer vaak met twee klasgenoten uit Syrië." }
+  - { sv: "en handledare", nl: "een begeleider (bij een scriptie of stage)", def: "handledaren", pl: "handledare", ex: "Min **handledare** läste uppsatsen och gav mig råd.", exNl: "Mijn begeleider las de scriptie en gaf me advies." }
+  - { sv: "en högskolepoäng", nl: "een studiepunt (EC)", def: "högskolepoängen", pl: "högskolepoäng", ex: "En termin på heltid ger trettio **högskolepoäng**.", exNl: "Een voltijds semester levert dertig studiepunten op." }
+  - { sv: "en kunskap", nl: "kennis (wat je weet)", def: "kunskapen", pl: "kunskaper", mass: true, ex: "**Kunskap** är något som ingen kan ta ifrån dig.", exNl: "Kennis is iets wat niemand je kan afnemen." }
+  - { sv: "en lektion", nl: "een les", def: "lektionen", pl: "lektioner", ex: "Vi har två **lektioner** i svenska varje dag.", exNl: "We hebben elke dag twee lessen Zweeds." }
+  - { sv: "ett gymnasium", nl: "een middelbare school (bovenbouw, 16–19 jaar)", def: "gymnasiet", pl: "gymnasier", ex: "Hon gick på **gymnasiet** i Malmö.", exNl: "Ze zat op de middelbare school in Malmö." }
+  - { sv: "en elev", nl: "een leerling", def: "eleven", pl: "elever", ex: "Det går tjugo **elever** i min dotters klass.", exNl: "Er zitten twintig leerlingen in de klas van mijn dochter." }
+  - { sv: "ett studielån", nl: "een studielening", def: "studielånet", pl: "studielån", ex: "Det tar många år att betala tillbaka **studielånet**.", exNl: "Het duurt vele jaren om de studielening terug te betalen." }
+  - { sv: "en omtenta", nl: "een herkansing", def: "omtentan", pl: "omtentor", ex: "Jag klarade inte tentan, så jag skriver **omtentan** i augusti.", exNl: "Ik haalde het tentamen niet, dus ik doe in augustus de herkansing." }
+  - { sv: "att vidareutbilda sig", nl: "zich bijscholen", ex: "Många sjuksköterskor **vidareutbildar sig** efter några år.", exNl: "Veel verpleegkundigen scholen zich na een paar jaar bij." }
+  - { sv: "att lämna in", nl: "inleveren", ex: "Du måste **lämna in** uppsatsen före fredag.", exNl: "Je moet de scriptie vóór vrijdag inleveren." }
+  - { sv: "att fuska", nl: "spieken, frauderen", ex: "Två studenter **fuskade** på tentan och blev avstängda.", exNl: "Twee studenten spiekten bij het tentamen en werden geschorst." }
+  - { sv: "att bli underkänd", nl: "zakken, een onvoldoende krijgen", ex: "Hon **blev underkänd** på den muntliga tentan.", exNl: "Ze zakte voor het mondelinge tentamen." }
+  - { sv: "att bli godkänd", nl: "een voldoende krijgen, slagen", ex: "Alla studenter i gruppen **blev godkända** på kursen.", exNl: "Alle studenten in de groep kregen een voldoende voor de cursus." }
+  - { sv: "att hoppa av", nl: "stoppen (met een opleiding), afhaken", ex: "Han **hoppade av** utbildningen efter ett år.", exNl: "Hij stopte na een jaar met de opleiding." }
+  - { sv: "att repetera", nl: "herhalen (leerstof)", ex: "Vi **repeterar** glosorna en gång till innan provet.", exNl: "We herhalen de woordjes nog een keer voor de toets." }
+  - { sv: "att sätta sig in i", nl: "zich verdiepen in", ex: "Det tar tid att **sätta sig in i** ett nytt ämne.", exNl: "Het kost tijd om je in een nieuw onderwerp te verdiepen." }
+  - { sv: "att bedöma", nl: "beoordelen", ex: "Alla uppsatser **bedöms** av två lärare.", exNl: "Alle scripties worden door twee docenten beoordeeld." }
+  - { sv: "att hänga med", nl: "kunnen volgen, bijbenen", ex: "Läraren pratar så snabbt att jag inte **hänger med**.", exNl: "De docent praat zo snel dat ik het niet kan volgen." }
+  - { sv: "att plugga in", nl: "erin stampen", ex: "Jag måste **plugga in** alla årtal före provet.", exNl: "Ik moet vóór de toets alle jaartallen erin stampen." }
+  - { sv: "att räcka upp handen", nl: "je vinger opsteken", ex: "**Räck upp handen** om du har en fråga!", exNl: "Steek je vinger op als je een vraag hebt!" }
+  - { sv: "att ta igen", nl: "inhalen (een achterstand)", ex: "Jag var sjuk en vecka och måste **ta igen** allt.", exNl: "Ik was een week ziek en moet alles inhalen." }
+  - { sv: "att lära ut", nl: "overbrengen (kennis), onderwijzen", ex: "Hon är väldigt bra på att **lära ut** svåra saker.", exNl: "Ze is heel goed in het overbrengen van moeilijke dingen." }
+  - { sv: "obligatorisk", nl: "verplicht", ex: "Det är **obligatorisk** närvaro på alla seminarier.", exNl: "Bij alle werkgroepen is aanwezigheid verplicht." }
+  - { sv: "skriftlig", nl: "schriftelijk", ex: "Kursen avslutas med en **skriftlig** tenta.", exNl: "De cursus wordt afgesloten met een schriftelijk tentamen." }
+  - { sv: "muntlig", nl: "mondeling", ex: "I morgon har vi ett **muntligt** prov i svenska.", exNl: "Morgen hebben we een mondelinge toets Zweeds." }
+  - { sv: "engagerad", nl: "betrokken, gedreven", ex: "Lärarna på Komvux var väldigt **engagerade**.", exNl: "De docenten bij Komvux waren erg betrokken." }
+  - { sv: "utantill", nl: "uit het hoofd", ex: "Vi måste kunna dikten **utantill** till fredag.", exNl: "We moeten het gedicht vrijdag uit het hoofd kennen." }
+  - { sv: "krävande", nl: "veeleisend, zwaar", ex: "Läkarprogrammet är en väldigt **krävande** utbildning.", exNl: "Geneeskunde is een erg veeleisende opleiding." }
+  - { sv: "givande", nl: "leerzaam, de moeite waard", ex: "Kursen var svår men väldigt **givande**.", exNl: "De cursus was moeilijk maar heel leerzaam." }
+  - { sv: "på egen hand", nl: "op eigen houtje, zelfstandig", ex: "Hon lärde sig svenska helt **på egen hand**.", exNl: "Ze leerde helemaal op eigen houtje Zweeds." }
+  - { sv: "i mån av plats", nl: "zolang er plaats is", ex: "Sena anmälningar tas emot **i mån av plats**.", exNl: "Late aanmeldingen worden aangenomen zolang er plaats is." }
+  - { sv: "ett prov", nl: "een toets", def: "provet", pl: "prov", plDef: "proven", ex: "I morgon har vi ett **prov** i matte.", exNl: "Morgen hebben we een toets wiskunde." }
+  - { sv: "en rektor", nl: "een schoolhoofd, rector", def: "rektorn", pl: "rektorer", plDef: "rektorerna", ex: "**Rektorn** pratade med alla föräldrar.", exNl: "Het schoolhoofd sprak met alle ouders." }
+  - { sv: "en förkunskap", nl: "voorkennis (meestal meervoud: förkunskaper)", def: "förkunskapen", pl: "förkunskaper", plDef: "förkunskaperna", ex: "Kursen kräver inga **förkunskaper**.", exNl: "De cursus vereist geen voorkennis." }
+  - { sv: "en ansökningsperiod", nl: "een aanmeldperiode", def: "ansökningsperioden", pl: "ansökningsperioder", plDef: "ansökningsperioderna", ex: "**Ansökningsperioden** slutar den 15 april.", exNl: "De aanmeldperiode eindigt op 15 april." }
+  - { sv: "att förbereda sig", nl: "zich voorbereiden", ex: "Hon **förbereder sig** inför tentan.", exNl: "Ze bereidt zich voor op het tentamen." }
+  - { sv: "att diskutera", nl: "bespreken, discussiëren", ex: "Vi **diskuterade** texten i grupp.", exNl: "We bespraken de tekst in een groep." }
+  - { sv: "frånvarande", nl: "afwezig", ex: "Tre elever var **frånvarande** i dag.", exNl: "Drie leerlingen waren vandaag afwezig." }
+  - { sv: "en antagning", nl: "een toelating", def: "antagningen", pl: "antagningar", plDef: "antagningarna", ex: "Besked om **antagningen** kommer i juli.", exNl: "Bericht over de toelating komt in juli." }
+  - { sv: "en kursplan", nl: "een studieplan, syllabus", def: "kursplanen", pl: "kursplaner", plDef: "kursplanerna", ex: "I **kursplanen** står vad du ska lära dig.", exNl: "In het studieplan staat wat je moet leren." }
+  - { sv: "ett grupparbete", nl: "een groepsopdracht", def: "grupparbetet", pl: "grupparbeten", plDef: "grupparbetena", ex: "Vi har ett **grupparbete** om klimatet.", exNl: "We hebben een groepsopdracht over het klimaat." }
+  - { sv: "att presentera", nl: "presenteren", ex: "I morgon ska vi **presentera** vårt arbete.", exNl: "Morgen presenteren we ons werk." }
+  - { sv: "att sammanfatta", nl: "samenvatten", ex: "Kan du **sammanfatta** texten i tre meningar?", exNl: "Kun je de tekst in drie zinnen samenvatten?" }
+  - { sv: "teoretisk", nl: "theoretisch", ex: "Kursen är mest **teoretisk**.", exNl: "De cursus is vooral theoretisch." }
+  - { sv: "praktisk", nl: "praktisch", ex: "Jag lär mig bäst med **praktiska** uppgifter.", exNl: "Ik leer het best met praktische opdrachten." }

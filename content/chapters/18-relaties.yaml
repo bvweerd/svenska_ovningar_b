@@ -1,0 +1,537 @@
+chapter: 18
+# Kan-doen-uitspraken: de app vinkt ze zelf af als de vragen over deze onderwerpen
+# grotendeels in doos 3 of hoger staan (src/progress.js, canDoStatus).
+canDo:
+  - { text: "Ik kan zeggen wat er zou gebeuren als … (skulle)", topics: [villkor] }
+  - { text: "Ik kan advies geven en beleefd iets vragen of wensen", topics: [rad-onskan] }
+
+grammar:
+  - id: villkor
+    title: "Als … dan: skulle"
+    summary: "Werkelijke voorwaarde: *Om jag **har** tid **hjälper** jag dig.* Denkbeeldig: *Om jag **hade** tid **skulle** jag **hjälpa** dig.* Verleden: *Om jag **hade vetat** det **skulle** jag **ha kommit**.*"
+    body: |
+      ### Werkelijke voorwaarde
+      Het kan echt gebeuren: gewone **presens** in beide delen.
+
+      - *Om det **regnar**, **stannar** vi hemma.*
+
+      ### Denkbeeldige voorwaarde (nu of later)
+      Het is niet zo, of onwaarschijnlijk: **preteritum** in de om-zin, **skulle + infinitief** in de hoofdzin.
+
+      - *Om jag **hade** mer tid, **skulle** jag **träna** mer.* – Als ik meer tijd had, zou ik meer sporten.
+      - *Vad **skulle** du **göra** om du **vann** en miljon?*
+
+      In spreektaal hoor je ook de verleden tijd in beide delen: *Om jag hade tid, **hjälpte** jag dig.* Na de om-zin mag ook *så* staan: *Om jag hade tid, **så** skulle jag hjälpa dig.*
+
+      ### Denkbeeldig in het verleden
+      Het is niet gebeurd: **hade + supinum** in de om-zin, **skulle ha + supinum** (of *hade + supinum*) in de hoofdzin.
+
+      - *Om jag **hade vetat** det, **skulle** jag **ha kommit**.* – Als ik het had geweten, was ik gekomen.
+      - Korter en ook gewoon: *Om jag hade vetat det, **hade** jag **kommit**.*
+
+      ### Woordvolgorde
+      Begint de zin met de om-zin, dan komt in de hoofdzin eerst het werkwoord (V2): *Om jag hade tid, **skulle jag** hjälpa dig.*
+
+      *Om jag var du* is gewoon Zweeds; *om jag **vore** du* is wat formeler.
+
+  - id: rad-onskan
+    title: Advies en wensen
+    summary: "Advies: *Du **borde** …, Om jag var du **skulle** jag …, Du **kanske skulle** …* Beleefd vragen: ***Skulle** du kunna …?* Wens: *Jag **önskar** att jag **hade** mer tid.*"
+    body: |
+      ### Advies geven
+      | zin | betekenis |
+      |---|---|
+      | *Du **borde** prata med honom.* | Je zou met hem moeten praten. |
+      | *Om jag var du **skulle** jag prata med honom.* | Als ik jou was, zou ik met hem praten. |
+      | *Du **kanske skulle** prata med honom?* | Misschien moet je met hem praten? (voorzichtig) |
+      | *Har du **tänkt på** att …?* | Heb je eraan gedacht dat …? |
+      | *Det **vore** bra om du …* | Het zou goed zijn als je … |
+
+      *borde* is de verleden tijd van *böra* (moeten, horen te). In persoonlijk advies gebruik je meestal *borde*. De presens *bör* is ook heel gewoon, vooral in formele tekst en regels: *Man **bör** boka tid i förväg.*
+
+      ### Beleefd vragen
+      - ***Skulle** du kunna hjälpa mig?* – Zou je me kunnen helpen?
+      - *Jag **skulle vilja** ha en kopp kaffe.* – Ik zou graag …
+
+      ### Wensen
+      Gaat het om een **onwerkelijke** wens, dan komt na *önska att* en *tänk om* de **verleden tijd**, net als bij een denkbeeldige voorwaarde:
+
+      - *Jag **önskar** att jag **hade** mer tid.* – Ik wou dat ik meer tijd had.
+      - ***Tänk om** vi **kunde** åka till Island!* – Stel je voor dat we naar IJsland konden!
+      - *Om jag **ändå** **hade** lyssnat!* – Had ik maar geluisterd!
+
+      Kan de wens echt uitkomen, dan blijft de presens: *Jag **önskar** att du **får** en fin dag.* *Tänk om det **regnar** i morgon?* (en als het morgen regent?)
+
+sections:
+  - id: lasa
+    title: Läsa · lezen
+    exercises:
+      - id: lasa-fraga-frida
+        title: "Lezen: vraag het Frida"
+        instruction: Lees de brief en het antwoord. Beantwoord de vragen.
+        topic: woordenschat
+        textTitle: Fråga Frida
+        text: |
+          **Hej Frida!** Jag och min sambo Erik har bott tillsammans i Stockholm i fem år. Nu har Erik fått ett jobberbjudande i Luleå, där han växte upp, och han vill gärna flytta tillbaka. Men jag trivs i Stockholm. Här har jag mitt jobb, mina vänner och min kör. Om vi flyttade skulle jag inte känna någon. Samtidigt vet jag att Erik har längtat hem länge. Hans föräldrar börjar bli gamla, och han skulle vilja bo närmare dem. I helgen grälade vi om det för första gången på länge. Jag önskar att jag kunde vara lika glad som han är. Vad ska jag göra? *Kluven i Stockholm*
+
+          **Hej Kluven!** Det låter som ett svårt beslut, och det är bra att du tar det på allvar. Om jag var du skulle jag först prata öppet med Erik om vad ni båda vill de närmaste åren. Ni kanske kan hitta en kompromiss? Erik skulle kunna ta jobbet på prov i ett år, och ni skulle kunna hälsa på varandra varannan helg. Du borde också åka upp till Luleå en vecka och se hur det känns. Kanske finns det en kör där också! Har ni tänkt på att du kanske kan jobba på distans några dagar i veckan? Då skulle du inte behöva säga upp dig direkt. Det vore också bra om ni skrev ner vad som är viktigast för var och en av er. Om ni bestämmer er tillsammans blir det lättare, vad ni än väljer. Lycka till! *Frida*
+        items:
+          - { id: zagv, type: mc, prompt: "Varför vill Erik flytta till Luleå?", options: ["Han har fått ett jobberbjudande där.", "Han tycker inte om Stockholm.", "Hans föräldrar är sjuka.", "Han vill sjunga i en kör."], answer: 0 }
+          - { id: vugf, type: truefalse, statement: "Kluven trivs inte i Stockholm.", answer: false, correction: { answers: ["{Kluven|Hon|Han} trivs [bra ]i Stockholm."] } }
+          - { id: muyt, type: mc, prompt: "Vad skulle hända om de flyttade, enligt Kluven?", options: ["Hon skulle inte känna någon.", "Hon skulle få ett nytt jobb.", "Erik skulle bli arg.", "De skulle köpa ett hus."], answer: 0 }
+          - { id: p555, type: mc, prompt: "Vad är Fridas första råd?", options: ["att prata öppet med Erik", "att flytta direkt", "att göra slut", "att stanna i Stockholm"], answer: 0 }
+          - { id: rpub, type: truefalse, statement: "Frida föreslår att Erik tar jobbet på prov i ett år.", answer: true }
+          - { id: f7fm, type: mc, prompt: "Wat betekent *kluven*?", options: ["verscheurd, in tweestrijd", "boos", "verliefd", "eenzaam"], answer: 0 }
+          - id: cnmd
+            type: multi
+            prompt: "Welke zinnen in de tekst geven advies?"
+            options: ["Om jag var du skulle jag först prata öppet med Erik.", "Du borde också åka upp till Luleå.", "Erik skulle kunna ta jobbet på prov.", "Om vi flyttade skulle jag inte känna någon.", "Han vill gärna flytta tillbaka."]
+            answers: [0, 1, 2]
+            tip: "Om vi flyttade … is een denkbeeldige situatie, geen advies."
+          - { id: 4u2f, type: mc, prompt: "Varför vill Erik bo närmare sina föräldrar?", options: ["De börjar bli gamla.", "De har köpt ett hus i Luleå.", "De är arga på honom.", "De vill träffa Kluven oftare."], answer: 0 }
+          - { id: hmqy, type: truefalse, statement: "Frida föreslår att Kluven säger upp sig direkt.", answer: false, correction: { answers: ["{Frida|Hon} föreslår att {Kluven|hon|han} [kanske ]jobbar på distans[ några dagar i veckan].", "{Kluven|Hon|Han} kan kanske jobba på distans[ några dagar i veckan].", "{Kluven|Hon|Han} {behöver|ska} inte säga upp sig direkt."] } }
+          - { id: s2kn, type: mc, topic: rad-onskan, prompt: "Wat betekent *Jag önskar att jag kunde vara lika glad som han är*?", options: ["Ik wou dat ik net zo blij kon zijn als hij.", "Ik hoop dat ik net zo blij word als hij.", "Ik ben net zo blij als hij.", "Ik wens hem veel geluk."], answer: 0 }
+
+      - id: makkelijk-1
+        title: "Makkelijk lezen: Om jag vore du"
+        instruction: Een korte tekst met woorden die je al kent. Lees hem vlot door en kies rätt of fel.
+        topic: woordenschat
+        kind: makkelijk
+        textTitle: "Om jag vore du"
+        text: |
+          Hanna skriver till sin vän Tove: ”Min pojkvän vill att vi flyttar ihop, men jag är inte säker. Vad skulle du göra?” Tove svarar: ”Om jag vore du skulle jag prata med honom om det. Ni kunde kanske prova att bo ihop en månad först. Om det inte fungerar kan ni alltid ändra er.” Hanna tycker att det är ett bra råd.
+        items:
+          - { id: 9xf5, type: truefalse, statement: "Hannas pojkvän vill flytta ihop.", answer: true }
+          - { id: rgfg, type: truefalse, statement: "Tove tycker att Hanna ska göra slut.", answer: false }
+
+      - id: makkelijk-2
+        title: "Makkelijk lezen: Bröllopet"
+        instruction: Een korte tekst met woorden die je al kent. Lees hem vlot door en kies rätt of fel.
+        topic: woordenschat
+        kind: makkelijk
+        textTitle: "Bröllopet"
+        text: |
+          Oskar och Sanna ska gifta sig i juni. De skulle helst vilja ha ett stort bröllop med hela släkten, men det kostar mycket. Därför har de bestämt sig för en liten fest i trädgården. Oskars mamma ska baka tårtan. Om det regnar blir festen inomhus. Sanna har redan skrivit inbjudningarna. Hon skulle vilja bjuda alla kollegor också, men det finns inte plats. Det blir ändå en fin dag, tror de.
+        items:
+          - { id: twvm, type: truefalse, statement: "Oskar och Sanna har bestämt sig för ett stort bröllop.", answer: false }
+          - { id: zepw, type: truefalse, statement: "Oskars mamma ska baka tårtan.", answer: true }
+
+      - id: makkelijk-3
+        title: "Makkelijk lezen: Grannens hund"
+        instruction: Een korte tekst met woorden die je al kent. Lees hem vlot door en beantwoord de vragen.
+        topic: woordenschat
+        kind: makkelijk
+        textTitle: "Grannens hund"
+        text: |
+          Lina bor bredvid en man som har en stor hund. Hunden skäller varje gång Lina går förbi, och hon blir rädd. Hennes mamma säger: ”Du borde prata med grannen.” Lina tycker att det är svårt, men en dag gör hon det. Grannen blir inte arg. Han säger att hunden är snäll och att den bara vill hälsa. Nu klappar Lina hunden ibland, och den skäller inte längre.
+        items:
+          - { id: euxg, type: truefalse, statement: "Grannen blir arg på Lina.", answer: false }
+          - { id: z7hg, type: mc, prompt: "Vad tycker mamman att Lina ska göra?", options: ["Flytta.", "Prata med grannen.", "Ringa polisen."], answer: 1 }
+          - { id: daz7, type: truefalse, statement: "Nu skäller hunden inte längre.", answer: true }
+
+      - id: makkelijk-4
+        title: "Makkelijk lezen: Jobbet i Umeå"
+        instruction: Een korte tekst met woorden die je al kent. Lees hem vlot door en beantwoord de vragen.
+        topic: woordenschat
+        kind: makkelijk
+        textTitle: "Jobbet i Umeå"
+        text: |
+          Mattias har fått ett jobberbjudande i Umeå. Han skulle gärna vilja ta det, men hans flickvän Elsa har ett bra jobb i Malmö. ”Om du flyttar, kommer jag att sakna dig”, säger hon. Mattias frågar sina vänner vad de skulle göra. En vän säger att han borde tacka nej. En annan tycker att de kunde prova att bo på olika ställen i ett år. Mattias har inte bestämt sig än.
+        items:
+          - { id: bsaf, type: mc, prompt: "Var jobbar Elsa?", options: ["I Umeå.", "I Malmö.", "I Göteborg."], answer: 1 }
+          - { id: gnp6, type: truefalse, statement: "Mattias har redan tackat ja.", answer: false }
+          - { id: 238t, type: truefalse, statement: "En vän tycker att Mattias borde tacka nej.", answer: true }
+
+  - id: ord
+    title: Ord och fraser · woorden en uitdrukkingen
+    exercises:
+      - id: ord-relaties
+        title: Relaties
+        instruction: Koppel het woord aan de betekenis.
+        topic: woordenschat
+        items:
+          - id: h6jc
+            type: match
+            pairs:
+              - ["en sambo", "een samenwonende partner"]
+              - ["en särbo", "een partner met wie je niet samenwoont"]
+              - ["bli ihop", "verkering krijgen"]
+              - ["göra slut", "het uitmaken"]
+              - ["vara kär i", "verliefd zijn op"]
+              - ["gräla", "ruziemaken"]
+          - id: jfzq
+            type: match
+            pairs:
+              - ["förlovad", "verloofd"]
+              - ["gifta sig", "trouwen"]
+              - ["skilja sig", "scheiden"]
+              - ["svärmor", "schoonmoeder"]
+              - ["ett förhållande", "een relatie"]
+              - ["längta efter", "verlangen naar"]
+
+      - id: ord-familj-gap
+        title: "Woorden in een zin: familie"
+        instruction: Kies het woord dat past.
+        topic: woordenschat
+        shuffle: true
+        items:
+          - { id: 845x, type: gap, text: "Min syster är gift med Lars, så Lars är min ___.", gaps: [{ answers: ["svåger"], options: ["svåger", "svärfar", "styvpappa", "make"], feedback: [{ match: "svärfar", tip: "*svärfar* is je schoonvader (de vader van je partner). De man van je zus is je *svåger*." }] }] }
+          - { id: vyds, type: gap, text: "Jag är gift med Jonas, och hans syster Anna är min ___.", gaps: [{ answers: ["svägerska"], options: ["svägerska", "svärmor", "maka", "bekant"], feedback: [{ match: "svärmor", tip: "*svärmor* is je schoonmoeder. De zus van je partner is je *svägerska*." }] }] }
+          - { id: t686, type: gap, text: "Min mans mamma är min ___, och vi äter middag hos henne varje söndag.", gaps: [{ answers: ["svärmor"], options: ["svärmor", "svägerska", "maka", "särbo"], feedback: [{ match: "svägerska", tip: "*svägerska* is je schoonzus. De moeder van je man is je *svärmor*." }] }] }
+          - { id: mgsm, type: gap, text: "Jag är gift med Ahmed. Hans pappa Erik är alltså min ___.", gaps: [{ answers: ["svärfar"], options: ["svärfar", "svåger", "styvpappa", "make"], feedback: [{ match: "styvpappa", tip: "*styvpappa* is een stiefvader. De vader van je partner is je *svärfar*." }] }] }
+          - { id: qdwq, type: gap, text: "Mina föräldrar skilde sig när jag var fem, och sedan växte jag upp med min mamma och min ___.", gaps: [{ answers: ["styvpappa"], options: ["styvpappa", "svärfar", "svåger", "särbo"], feedback: [{ match: "svärfar", tip: "*svärfar* is je schoonvader. De nieuwe man van je moeder is je *styvpappa*." }] }] }
+          - { id: meh7, type: gap, text: "Kerstin presenterade sin ___ Bengt för alla gästerna på festen.", gaps: [{ answers: ["make"], options: ["make", "maka", "svärmor", "svägerska"], feedback: [{ match: "maka", tip: "*maka* is een echtgenote. Bengt is een man: *make*." }] }] }
+          - { id: wnkx, type: gap, text: "Omar höll ett fint tal om sin ___ Sara på deras bröllopsdag.", gaps: [{ answers: ["maka"], options: ["maka", "make", "svåger", "svärfar"], feedback: [{ match: "make", tip: "*make* is een echtgenoot. Sara is een vrouw: *maka*." }] }] }
+          - { id: 3nb8, type: gap, text: "Han är inte min vän, bara en ___ från jobbet.", gaps: [{ answers: ["bekant"], options: ["bekant", "släkting", "svåger", "särbo"], feedback: [{ match: "släkting", tip: "*släkting* is een familielid. Iemand van je werk die je kent: *en bekant*." }] }] }
+          - { id: phgy, type: gap, text: "På inbjudan står det att man får ta med sin ___, oavsett om man är gift eller inte.", gaps: [{ answers: ["partner"], options: ["partner", "svärmor", "svåger", "svärfar"], feedback: [{ match: "svärmor", tip: "*svärmor* is je schoonmoeder. Wie je meeneemt, gehuwd of niet: *din partner*." }] }] }
+          - { id: tawy, type: gap, text: "På bröllopet kom alla våra ___: kusiner, mostrar, farbröder och många fler.", gaps: [{ answers: ["släktingar"], options: ["släktingar", "bekanta", "tonåringar", "partner"], feedback: [{ match: "bekanta", tip: "*bekanta* zijn kennissen. Neven, tantes en ooms zijn familie: *släktingar*." }] }] }
+          - { id: c64w, type: gap, text: "Det är inte alltid lätt att vara ___: man är inte barn längre, men inte heller vuxen.", gaps: [{ answers: ["tonåring"], options: ["tonåring", "släkting", "särbo", "bekant"], feedback: [{ match: "släkting", tip: "*släkting* is een familielid. Geen kind meer en nog geen volwassene: *tonåring*." }] }] }
+          - { id: 3xf9, type: gap, text: "Hon har ___ tre barn helt ensam.", gaps: [{ answers: ["uppfostrat"], options: ["uppfostrat", "förlåtit", "svikit", "lovat"], feedback: [{ match: "förlåtit", tip: "*förlåta* is vergeven. Kinderen grootbrengen = *uppfostra*." }] }] }
+
+      - id: ord-karlek-gap
+        title: "Woorden in een zin: liefde"
+        instruction: Kies het woord dat past.
+        topic: woordenschat
+        shuffle: true
+        items:
+          - { id: fz93, type: gap, text: "De har varit ett par i fem år, men de är inte gifta och bor inte ihop. Han är hennes ___.", gaps: [{ answers: ["särbo"], options: ["särbo", "make", "sambo", "svåger"], feedback: [{ match: "sambo", tip: "*sambo* betekent dat je samenwoont. Samen, maar niet samenwonend: *särbo*." }] }] }
+          - { id: v379, type: gap, text: "Sedan i våras har de ett ___, men de vill inte berätta det för sina föräldrar än.", gaps: [{ answers: ["förhållande"], options: ["förhållande", "förtroende", "ex", "intresse"], feedback: [{ match: "förtroende", tip: "*förtroende* is vertrouwen. Een relatie = *ett förhållande*." }] }] }
+          - { id: kse2, type: gap, text: "Efter tjugo år tog deras ___ slut, och nu är de skilda.", gaps: [{ answers: ["äktenskap"], options: ["äktenskap", "förlovning", "dejt", "förtroende"], feedback: [{ match: "förlovning", tip: "*förlovning* is een verloving. Na twintig jaar en een scheiding gaat het om een huwelijk: *äktenskap*." }] }] }
+          - { id: tsum, type: gap, text: "I går träffade jag mitt ___ på stan. Vi var ihop i tre år, men nu är vi bara vänner.", gaps: [{ answers: ["ex"], options: ["ex", "särbo", "förhållande", "partner"], feedback: [{ match: "särbo", tip: "*särbo* is een partner met wie je nu samen bent, maar niet samenwoont. Je vroegere partner: *mitt ex*." }] }] }
+          - { id: 2nm4, type: gap, text: "Det började som en ___ på gymnasiet, och nu har de varit gifta i tio år.", gaps: [{ answers: ["förälskelse"], options: ["förälskelse", "skilsmässa", "förlovning", "känsla"], feedback: [{ match: "skilsmässa", tip: "*skilsmässa* is een echtscheiding. Het begon met verliefdheid: *förälskelse*." }] }] }
+          - { id: 736y, type: gap, text: "Hennes sånger handlar alltid om ___: om att bli kär och om att vara lycklig tillsammans.", gaps: [{ answers: ["kärlek"], options: ["kärlek", "konflikter", "skilsmässor", "förtroende"], feedback: [{ match: "konflikter", tip: "*konflikter* zijn conflicten. Over verliefd en gelukkig zijn: *kärlek*." }] }] }
+          - { id: 8um8, type: gap, text: "De berättade om sin ___ på julafton, och bröllopet blir i juni.", gaps: [{ answers: ["förlovning"], options: ["förlovning", "skilsmässa", "dejt", "konflikt"], feedback: [{ match: "skilsmässa", tip: "*skilsmässa* is een echtscheiding. Vóór de bruiloft: *förlovning*." }] }] }
+          - { id: ewqn, type: gap, text: "Vi hade vår första ___ på ett litet kafé i Gamla stan, och efter det började vi träffas varje vecka.", gaps: [{ answers: ["dejt"], options: ["dejt", "förlovning", "skilsmässa", "känsla"], feedback: [{ match: "förlovning", tip: "*förlovning* is een verloving. Een eerste afspraakje: *dejt*." }] }] }
+          - { id: gxzh, type: gap, text: "Hennes ___ till sin pappa blev bättre när hon flyttade hemifrån.", gaps: [{ answers: ["relation"], options: ["relation", "förlovning", "dejt", "skilsmässa"], feedback: [{ match: "förlovning", tip: "*förlovning* is een verloving. Haar band met haar vader: *relation*." }] }] }
+          - { id: nh6p, type: gap, text: "De skrattar hela tiden och ser väldigt ___ ut tillsammans.", gaps: [{ answers: ["lyckliga"], options: ["lyckliga", "besvikna", "svartsjuka", "avundsjuka"], feedback: [{ match: "besvikna", tip: "*besviken* is teleurgesteld. Mensen die steeds lachen zijn *lyckliga*." }] }] }
+          - { id: tsye, type: gap, text: "Hon är ___ i en kille i parallellklassen, men hon vågar inte säga något.", gaps: [{ answers: ["kär"], options: ["kär", "förlovad", "trogen", "besviken"], feedback: [{ match: "förlovad", tip: "*förlovad* is verloofd. Verliefd op iemand = *kär i*." }] }] }
+          - { id: 4qe7, type: gap, text: "De är ___ sedan i julas och ska gifta sig nästa sommar.", gaps: [{ answers: ["förlovade"], options: ["förlovade", "trogna", "besvikna", "svartsjuka"], feedback: [{ match: "trogna", tip: "*trogen* is trouw. Na een verloving ben je *förlovad* (verloofd)." }] }] }
+
+      - id: ord-brak-gap
+        title: "Woorden in een zin: ruzie en vertrouwen"
+        instruction: Kies het woord dat past.
+        topic: woordenschat
+        shuffle: true
+        items:
+          - { id: 76jq, type: gap, text: "Efter femton år bestämde de sig för att ___. Nu bor barnen varannan vecka hos mamma och varannan hos pappa.", gaps: [{ answers: ["skilja sig"], options: ["skilja sig", "hålla ihop", "förlåta", "stötta"], feedback: [{ match: "hålla ihop", tip: "*hålla ihop* is bij elkaar blijven. Om-en-om bij elk van de ouders wonen: ze gingen *skilja sig*." }] }] }
+          - { id: bv7b, type: gap, text: "Deras ___ tog lång tid, och de bråkade länge om huset och bilen.", gaps: [{ answers: ["skilsmässa"], options: ["skilsmässa", "förlovning", "förälskelse", "känsla"], feedback: [{ match: "förlovning", tip: "*förlovning* is een verloving. Ruzie over het huis en de auto: *skilsmässa*." }] }] }
+          - { id: m7na, type: gap, text: "Det blev en ___ på jobbet när två kollegor ville ha samma semestervecka.", gaps: [{ answers: ["konflikt"], options: ["konflikt", "förlovning", "känsla", "kärlek"], feedback: [{ match: "känsla", tip: "*känsla* is een gevoel. Twee collega's willen hetzelfde: *en konflikt*." }] }] }
+          - { id: uqne, type: gap, text: "Om man ljuger för sin partner, förlorar man lätt hans eller hennes ___.", gaps: [{ answers: ["förtroende"], options: ["förtroende", "förhållande", "äktenskap", "ex"], feedback: [{ match: "förhållande", tip: "*förhållande* is een relatie. Door te liegen verlies je *förtroende* (vertrouwen)." }] }] }
+          - { id: vber, type: gap, text: "Barnen ___ alltid om vem som ska sitta fram i bilen.", gaps: [{ answers: ["bråkar"], options: ["bråkar", "stöttar", "saknar", "lovar"], feedback: [{ match: "stöttar", tip: "*stötta* is steunen. Ruziemaken over iets = *bråka om*." }] }] }
+          - { id: ksw2, type: gap, text: "När jag blev arbetslös ___ min familj mig hela tiden.", gaps: [{ answers: ["stöttade"], options: ["stöttade", "ljög", "saknade", "lovade"], feedback: [{ match: "saknade", tip: "*sakna* is missen. Je familie hielp je: *stöttade*." }] }] }
+          - { id: zcjr, type: gap, text: "Hon bad om ursäkt, och till slut kunde han ___ henne.", gaps: [{ answers: ["förlåta"], options: ["förlåta", "svika", "uppfostra", "bråka"], feedback: [{ match: "svika", tip: "*svika* is in de steek laten. Na een excuus kun je iemand *förlåta*." }] }] }
+          - { id: 8b9b, type: gap, text: "Sedan min bästa vän flyttade till Kanada ___ jag henne varje dag.", gaps: [{ answers: ["saknar"], options: ["saknar", "förlåter", "sviker", "ljuger"], feedback: [{ match: "förlåter", tip: "*förlåta* is vergeven. Iemand missen = *sakna*." }] }] }
+          - { id: snh7, type: gap, text: "Han lovar alltid att hjälpa mig, men varje gång ___ han mig.", gaps: [{ answers: ["sviker"], options: ["sviker", "stöttar", "förlåter", "saknar"], feedback: [{ match: "stöttar", tip: "*stötta* is steunen. Hij komt zijn belofte niet na: hij *sviker* je." }] }] }
+          - { id: aqbx, type: gap, text: "Man ska inte ___ för sina vänner, även om sanningen är obekväm.", gaps: [{ answers: ["ljuga"], options: ["ljuga", "stötta", "förlåta", "sakna"], feedback: [{ match: "stötta", tip: "*stötta* is steunen. Niet de waarheid zeggen = *ljuga*." }] }] }
+          - { id: 74h4, type: gap, text: "Mina föräldrar har haft många problem, men de har ändå ___ i fyrtio år.", gaps: [{ answers: ["hållit ihop"], options: ["hållit ihop", "skilt sig", "svikit", "förlåtit"], feedback: [{ match: "skilt sig", tip: "*skilja sig* is scheiden. *men … ändå* (maar toch): ze zijn bij elkaar gebleven, *hållit ihop*." }] }] }
+          - { id: 9une, type: gap, text: "Han blir ___ varje gång hans flickvän pratar med en annan kille.", gaps: [{ answers: ["svartsjuk"], options: ["svartsjuk", "avundsjuk", "trogen", "förstående"], feedback: [{ match: "avundsjuk", tip: "*avundsjuk* is jaloers op wat een ander hééft. Jaloers in de liefde = *svartsjuk*." }] }] }
+          - { id: thk9, type: gap, text: "Hon är ___ på sin syster, som har ett större hus och en dyrare bil.", gaps: [{ answers: ["avundsjuk"], options: ["avundsjuk", "svartsjuk", "trogen", "förlovad"], feedback: [{ match: "svartsjuk", tip: "*svartsjuk* is jaloers in de liefde. Jaloers op iemands huis en auto = *avundsjuk*." }] }] }
+          - { id: 333x, type: gap, text: "Han har varit ___ mot sin fru i fyrtio år och har aldrig ens tittat på någon annan.", gaps: [{ answers: ["trogen"], options: ["trogen", "svartsjuk", "besviken", "avundsjuk"], feedback: [{ match: "svartsjuk", tip: "*svartsjuk* is jaloers. Nooit naar een ander kijken = *trogen* (trouw)." }] }] }
+          - { id: pxj5, type: gap, text: "Jag blev ___ när konserten ställdes in i sista minuten.", gaps: [{ answers: ["besviken"], options: ["besviken", "trogen", "förlovad", "ömsesidig"], feedback: [{ match: "trogen", tip: "*trogen* is trouw. Een afgelast concert maakt je *besviken* (teleurgesteld)." }] }] }
+          - { id: thdk, type: gap, text: "Chefen var väldigt ___ och sa direkt att jag kunde gå hem till mitt sjuka barn.", gaps: [{ answers: ["förstående"], options: ["förstående", "svartsjuk", "trogen", "avundsjuk"], feedback: [{ match: "svartsjuk", tip: "*svartsjuk* is jaloers. Wie rekening met je houdt, is *förstående* (begripvol)." }] }] }
+          - { id: vdg3, type: gap, text: "Respekt i ett förhållande måste vara ___: båda ska lyssna på varandra.", gaps: [{ answers: ["ömsesidig"], options: ["ömsesidig", "svartsjuk", "besviken", "förlovad"], feedback: [{ match: "besviken", tip: "*besviken* is teleurgesteld. Van twee kanten = *ömsesidig*." }] }] }
+          - { id: 8g7h, type: gap, text: "Det är svårt att sätta ord på sina ___ när man är ledsen.", gaps: [{ answers: ["känslor"], options: ["känslor", "dejter", "förlovningar", "släktingar"], feedback: [{ match: "dejter", tip: "*dejter* zijn afspraakjes. Wat je voelt = *känslor*." }] }] }
+          - { id: 8v93, type: gap, text: "Jag ___ att aldrig mer komma för sent.", gaps: [{ answers: ["lovar"], options: ["lovar", "ljuger", "sviker", "saknar"], feedback: [{ match: "sviker", tip: "*svika* is in de steek laten. Iets beloven = *lova*." }] }] }
+
+  - id: villkor
+    title: "Grammatik: als … dan"
+    exercises:
+      - id: villkor-sorteren
+        title: Echt of denkbeeldig?
+        instruction: Kan het echt gebeuren, of is het denkbeeldig?
+        topic: villkor
+        items:
+          - id: r8et
+            type: sort
+            categories: ["echte voorwaarde", "denkbeeldig"]
+            items:
+              - { text: "Om du kommer i tid, hinner vi med tåget.", cat: 0 }
+              - { text: "Om jag var rik, skulle jag köpa ett hus vid havet.", cat: 1 }
+              - { text: "Om det är fint väder, grillar vi.", cat: 0 }
+              - { text: "Om vi hade träffats tidigare, hade allt varit annorlunda.", cat: 1 }
+              - { text: "Om du vill, kan jag följa med.", cat: 0 }
+              - { text: "Om jag kunde flyga, skulle jag besöka dig varje dag.", cat: 1 }
+
+      - id: villkor-invullen
+        title: Skulle en hade
+        instruction: Vul het werkwoord in de goede vorm in.
+        topic: villkor
+        shuffle: true
+        items:
+          - { id: nh5y, type: gap, text: "Om jag ___ (ha) mer tid, skulle jag träna mer.", gaps: [{ answers: ["hade"], feedback: [{ match: "har", tip: "Het is denkbeeldig (ik heb geen tijd): verleden tijd, hade." }, { match: "skulle ha", tip: "In de om-zin komt geen skulle: hade." }] }] }
+          - { id: 24f5, type: gap, text: "Om vi bodde närmare, ___ vi ses oftare.", gaps: [{ answers: ["skulle"], options: ["skulle", "ska", "kommer att"], shuffle: false, feedback: [{ match: "ska", tip: "Denkbeeldig: skulle." }] }] }
+          - { id: wkv9, type: gap, text: "Vad ___ du göra om du vann en miljon?", gaps: [{ answers: ["skulle"], options: ["skulle", "ska", "kommer"], shuffle: false }] }
+          - { id: tqz4, type: gap, text: "Om jag hade vetat det, skulle jag ___ ringt dig.", gaps: [{ answers: ["ha"], options: ["ha", "har", "hade"], shuffle: false, tip: "skulle ha + supinum: skulle ha ringt." }] }
+          - { id: kmxu, type: gap, text: "Om hon ___ (vara) här nu, skulle hon skratta.", gaps: [{ answers: ["var", "vore"], feedback: [{ match: "är", tip: "Ze is er niet: denkbeeldig, dus var (of formeel vore)." }] }] }
+          - { id: 447z, type: gap, text: "Om du ___ (fråga) honom i går, hade han hjälpt dig.", gaps: [{ answers: ["hade frågat"], feedback: [{ match: "frågade", tip: "Het gaat om het verleden en het is niet gebeurd: hade frågat." }] }] }
+          - { id: rwgr, type: gap, text: "Om jag ___ (vinna) en miljon, skulle jag resa jorden runt.", gaps: [{ answers: ["vann"], feedback: [{ match: "vinner", tip: "Het is denkbeeldig: verleden tijd, vann." }, { match: "vinnade", tip: "vinna is sterk: vann." }] }] }
+          - { id: ugmb, type: gap, text: "Vad ___ du ha gjort om bussen inte hade kommit?", gaps: [{ answers: ["skulle"], options: ["skulle", "ska", "hade"], shuffle: false }] }
+
+      - id: villkor-omvormen
+        title: Van echt naar denkbeeldig
+        instruction: Maak de voorwaarde denkbeeldig (met **hade/-de** en **skulle**).
+        topic: villkor
+        items:
+          - { id: rwtu, type: transform, prompt: "Om jag har tid, hjälper jag dig.", answers: ["Om jag hade tid, skulle jag hjälpa dig.", "Om jag hade tid, hjälpte jag dig.", "Om jag hade tid, så {skulle jag hjälpa|hjälpte jag} dig."], feedback: [{ contains: "skulle jag hjälpte", tip: "Na skulle komt de infinitief: skulle jag hjälpa." }, { contains: "jag skulle hjälpa", tip: "Na de om-zin komt eerst het werkwoord: skulle jag hjälpa." }] }
+          - { id: pmg9, type: transform, prompt: "Om det regnar, stannar vi hemma.", answers: ["Om det regnade, skulle vi stanna hemma.", "Om det regnade, stannade vi hemma.", "Om det regnade, så {skulle vi stanna|stannade vi} hemma."], feedback: [{ contains: "vi skulle", tip: "Na de om-zin komt eerst het werkwoord: skulle vi." }] }
+          - { id: 7js3, type: transform, prompt: "Om du frågar, svarar hon.", answers: ["Om du frågade, skulle hon svara.", "Om du frågade, svarade hon.", "Om du frågade, så {skulle hon svara|svarade hon}."] }
+          - { id: qa5m, type: transform, prompt: "Jag visste det inte, så jag kom inte. (Begin met: Om jag hade …)", answers: ["Om jag hade vetat det, skulle jag ha kommit.", "Om jag hade vetat det, hade jag kommit.", "Om jag hade vetat det, så {skulle jag ha kommit|hade jag kommit}."], feedback: [{ contains: "skulle jag kommit", tip: "In spreektaal valt ha vaak weg, maar schrijf: skulle jag ha kommit." }] }
+          - { id: qzfa, type: transform, prompt: "Om vi har råd, köper vi ett hus.", answers: ["Om vi hade råd, [så ]skulle vi köpa ett hus.", "Om vi hade råd, [så ]köpte vi ett hus."], feedback: [{ contains: "skulle vi köpte", tip: "Na skulle komt de infinitief: skulle vi köpa." }] }
+          - { id: qcct, type: transform, prompt: "Om hon kommer, blir jag glad.", answers: ["Om hon kom, [så ]skulle jag bli glad.", "Om hon kom, [så ]blev jag glad."] }
+          - { id: bk3u, type: transform, prompt: "Om det är soligt, går vi till stranden.", answers: ["Om det {var|vore} soligt, [så ]skulle vi gå till stranden.", "Om det {var|vore} soligt, [så ]gick vi till stranden."], feedback: [{ contains: ["soligt vi skulle", "soligt, vi skulle"], tip: "Na de om-zin komt eerst het werkwoord: skulle vi." }] }
+          - { id: n5fb, type: transform, prompt: "Han ringde inte, så hon blev arg. (Begin met: Om han hade …)", answers: ["Om han hade ringt, [så ]skulle hon inte ha blivit arg.", "Om han hade ringt, [så ]hade hon inte blivit arg."], feedback: [{ contains: "hade ringat", tip: "ringa – ringde – ringt." }] }
+
+      - id: villkor-vertalen
+        title: Vertaal
+        instruction: Vertaal naar het Zweeds. Is de voorwaarde echt of denkbeeldig?
+        topic: villkor
+        shuffle: true
+        items:
+          - { id: gnpq, type: translate, prompt: "Als ik een auto had, zou ik elk weekend naar mijn ouders rijden.", answers: ["Om jag hade {en bil|bil} [så ]skulle jag {köra|åka} [hem ]till mina föräldrar varje helg.", "Om jag hade {en bil|bil} [så ]{körde|åkte} jag [hem ]till mina föräldrar varje helg.", "Jag skulle {köra|åka} [hem ]till mina föräldrar varje helg om jag hade {en bil|bil}."], feedback: [{ contains: "om jag har", tip: "Je hebt geen auto: denkbeeldig, dus verleden tijd, om jag hade." }, { contains: "bil jag skulle", tip: "Na de om-zin komt eerst het werkwoord: skulle jag köra." }, { contains: ["skulle jag körde", "skulle jag åkte"], tip: "Na skulle komt de infinitief: skulle jag köra." }] }
+          - { id: nxcr, type: translate, prompt: "Als je het me eerder had verteld, had ik je kunnen helpen.", answers: ["Om du [hade ]{berättat det[ för mig]|sagt det[ till mig]} tidigare [så ]{hade jag kunnat|skulle jag ha kunnat} hjälpa dig.", "{Jag hade kunnat|Jag skulle ha kunnat} hjälpa dig om du hade {berättat det[ för mig]|sagt det[ till mig]} tidigare."], feedback: [{ contains: ["om du berättade", "om du sa"], tip: "Het is niet gebeurd, in het verleden: om du hade berättat." }, { contains: "tidigare jag", tip: "Na de om-zin komt eerst het werkwoord: hade jag kunnat." }, { contains: "skulle jag kunnat", tip: "Schrijf ha erbij: skulle jag ha kunnat." }] }
+          - { id: e9r4, type: translate, prompt: "Wat zou je doen als je een jaar niet hoefde te werken?", answers: ["Vad skulle du göra om du inte behövde {jobba|arbeta} {på|under|i} ett år?", "Om du inte behövde {jobba|arbeta} {på|under|i} ett år[,] vad skulle du göra[ då]?"], feedback: [{ contains: "om du behövde inte", tip: "In een bijzin (na om) staat inte vóór het werkwoord: om du inte behövde." }, { contains: "om du behöver", tip: "Denkbeeldig: verleden tijd, om du inte behövde." }, { contains: "skulle du gör", tip: "Na skulle komt de infinitief: skulle du göra." }] }
+          - { id: k2cn, type: translate, prompt: "Als het morgen mooi weer is, gaan we met de kinderen naar het strand.", answers: ["Om {det är fint väder|det är soligt väder|det är fint|det är soligt|det blir fint väder|det blir fint|vädret är fint|vädret blir fint} {i morgon|imorgon} [så ]{går vi|åker vi|ska vi gå|ska vi åka} {till stranden med barnen|med barnen till stranden}.", "Vi {går|åker|ska gå|ska åka} {till stranden med barnen|med barnen till stranden} om {det är fint väder|det är soligt väder|det är fint|det är soligt|det blir fint väder|det blir fint|vädret är fint|vädret blir fint} {i morgon|imorgon}."], feedback: [{ contains: ["om det var", "om det vore", "skulle vi"], tip: "Het kan echt gebeuren: gewone presens, om det är fint väder går vi …" }, { contains: ["morgon vi går", "imorgon vi"], tip: "Na de om-zin komt eerst het werkwoord: går vi." }] }
+
+  - id: rad
+    title: "Grammatik: advies en wensen"
+    exercises:
+      - id: rad-kiezen
+        title: Een goed advies
+        instruction: Je vriendin zegt iets. Kies het beste advies.
+        topic: rad-onskan
+        shuffle: true
+        items:
+          - { id: zm84, type: mc, prompt: "*Jag är så trött hela tiden.*", options: ["Du borde kanske gå och lägga dig tidigare.", "Du borde vara trött.", "Om jag var du skulle jag vara trött.", "Jag önskar att du var trött."], answer: 0 }
+          - { id: gbcy, type: mc, prompt: "*Min chef ger mig för mycket jobb.*", options: ["Om jag var du skulle jag prata med henne om det.", "Om jag var din chef skulle jag ge dig mer.", "Du borde jobba mindre hemma.", "Tänk om du hade ett jobb!"], answer: 0 }
+          - { id: yxsn, type: mc, prompt: "*Jag har grälat med min syster.*", options: ["Du kanske skulle ringa henne och be om ursäkt?", "Du borde gräla mer.", "Om jag var din syster skulle jag gräla.", "Jag önskar att jag hade en syster."], answer: 0 }
+          - { id: mag4, type: mc, prompt: "*Jag har ont i ryggen efter jobbet.*", options: ["Du borde kanske ta en paus då och då.", "Du borde ha ont i ryggen.", "Om jag var din rygg skulle jag vila.", "Tänk om du hade en rygg!"], answer: 0 }
+          - { id: safw, type: mc, prompt: "*Jag vet inte vad jag ska ge Olle i present.*", options: ["Du skulle kunna fråga hans fru.", "Du borde inte ge Olle.", "Om jag var Olle skulle jag ge dig en present.", "Jag önskar att jag var en present."], answer: 0 }
+          - { id: rg6d, type: mc, prompt: "*Jag är så nervös inför intervjun.*", options: ["Om jag var du skulle jag förbereda några frågor.", "Du borde vara mer nervös.", "Tänk om du var nervös!", "Jag önskar att jag hade en intervju."], answer: 0 }
+          - { id: d65d, type: mc, prompt: "*Vi bråkar alltid om disken.*", options: ["Ni kanske skulle göra ett schema?", "Ni borde bråka mer om disken.", "Om jag var disken skulle jag gå.", "Jag önskar att jag hade disk."], answer: 0 }
+          - { id: b4mm, type: mc, prompt: "*Jag har ingen lust att träna.*", options: ["Du skulle kunna börja med korta promenader.", "Du borde ha ingen lust.", "Om jag var du skulle jag ha lust.", "Tänk om du hade lust!"], answer: 0 }
+
+      - id: rad-vertalen
+        title: Vertaal
+        instruction: Vertaal naar het Zweeds.
+        topic: rad-onskan
+        items:
+          - { id: 8naq, type: translate, prompt: "Als ik jou was, zou ik met hem praten.", answers: ["Om jag {var|vore} du, [så ]skulle jag prata med honom.", "Om jag {var|vore} du, [så ]hade jag pratat med honom."], feedback: [{ contains: "jag skulle prata", tip: "Na de om-zin komt eerst het werkwoord: skulle jag prata." }, { contains: "om jag är du", tip: "Denkbeeldig: om jag var du." }] }
+          - { id: q4h2, type: translate, prompt: "Je zou meer moeten slapen.", answers: ["Du borde sova mer.", "Du bör sova mer.", "Du skulle behöva sova mer."], feedback: [{ contains: "skulle måste", tip: "Moeten (advies) = borde: Du borde sova mer." }] }
+          - { id: dz4s, type: translate, prompt: "Ik wou dat ik meer tijd had.", answers: ["Jag önskar [att ]jag hade mer tid."], feedback: [{ contains: "att jag har", tip: "Na önskar att: verleden tijd, hade." }] }
+          - { id: 9p28, type: translate, prompt: "Zou je me kunnen helpen?", answers: ["Skulle du kunna hjälpa mig?"] }
+          - { id: ew3k, type: translate, prompt: "Stel je voor dat we naar IJsland konden gaan!", answers: ["Tänk om vi kunde {åka|resa} till Island!"] }
+          - { id: gwvu, type: translate, prompt: "Je zou eens met een dokter moeten praten.", answers: ["Du borde [kanske ]prata med en {läkare|doktor}.", "Du borde [kanske ]prata med {läkaren|doktorn|din läkare}.", "Du skulle [kanske ]behöva prata med en {läkare|doktor}."], feedback: [{ contains: "skulle måste", tip: "Moeten (advies) = borde." }] }
+          - { id: 3zre, type: translate, prompt: "Als ik jou was, zou ik dat niet doen.", answers: ["Om jag {var|vore} du, [så ]skulle jag inte göra det.", "Om jag {var|vore} du, [så ]hade jag inte gjort det."], feedback: [{ contains: "jag skulle inte", tip: "Na de om-zin komt eerst het werkwoord: skulle jag." }] }
+          - { id: m5nb, type: translate, prompt: "Ik wou dat het zomer was.", answers: ["Jag önskar [att ]det {var|vore} sommar."], feedback: [{ contains: "det är sommar", tip: "Na önskar att: verleden tijd, det var." }] }
+          - { id: b9mk, type: translate, prompt: "Je zou je baas om een vrije dag moeten vragen.", answers: ["Du {borde|bör|skulle behöva} [kanske ]{be|fråga} din chef om {en ledig dag|ledigt en dag}."], feedback: [{ contains: "skulle måste", tip: "Moeten (advies) = borde." }, { contains: "borde att", tip: "Na borde komt geen att." }] }
+          - { id: u3w6, type: translate, prompt: "Ik wou dat mijn ouders dichter bij ons woonden.", answers: ["Jag önskar [att ]mina föräldrar bodde närmare oss."], feedback: [{ contains: ["föräldrar bor", "föräldrar ska bo"], tip: "Een onwerkelijke wens: na önskar att komt de verleden tijd, bodde." }] }
+          - { id: mma2, type: translate, prompt: "Zou je me morgen naar het ziekenhuis kunnen brengen?", answers: ["Skulle du kunna {köra|skjutsa} mig till sjukhuset {i morgon|imorgon}?"], feedback: [{ contains: "skulle du kan", tip: "Na skulle komt de infinitief: skulle du kunna." }] }
+          - { id: maff, type: translate, prompt: "Het zou goed zijn als je je vrienden wat vaker belde.", answers: ["Det {vore|skulle vara} bra om du ringde {[till ]dina {vänner|kompisar} [lite ]oftare|[lite ]oftare till dina {vänner|kompisar}}."], feedback: [{ contains: "om du ringer", tip: "In spreektaal hoor je soms de presens, maar hier oefenen we de wensvorm: na Det vore bra om volgt de verleden tijd, ringde (net als belde)." }] }
+
+  - id: zoek-de-fout
+    title: Zoek de fout
+    exercises:
+      - id: zoek-de-fout
+        title: Zoek de fout
+        instruction: Klik op het woord dat niet klopt en verbeter de zin.
+        topic: villkor
+        shuffle: true
+        items:
+          - { id: ccp9, type: findError, sentence: "Om jag har pengar skulle jag resa jorden runt.", wrong: [2], answers: ["Om jag hade pengar skulle jag resa jorden runt."], tip: "Het is denkbeeldig." }
+          - { id: nfps, type: findError, sentence: "Om jag hade tid jag skulle hjälpa dig.", wrong: [4, 5], answers: ["Om jag hade tid skulle jag hjälpa dig."], tip: "V2: na de om-zin komt eerst het werkwoord." }
+          - { id: 5bea, type: findError, topic: rad-onskan, sentence: "Jag önskar att jag har mer tid.", wrong: [4], answers: ["Jag önskar att jag hade mer tid."], tip: "Na önskar att: verleden tijd." }
+          - { id: p9ek, type: findError, sentence: "Om jag hade vetat det skulle jag kommit.", wrong: [6, 7], answers: ["Om jag hade vetat det skulle jag ha kommit."], tip: "In spreektaal valt ha vaak weg, maar schrijf het wel: skulle … kommit." }
+          - { id: fkg9, type: findError, topic: rad-onskan, sentence: "Du borde att sova mer.", wrong: [2], answers: ["Du borde sova mer."], tip: "Na borde komt geen att." }
+
+  - id: lyssna
+    title: Lyssna · luisteren
+    exercises:
+      - id: lyssna-sara
+        title: "Luisteren: Sara vraagt om advies"
+        instruction: Luister naar het bericht van Sara. Is de bewering **rätt** of **fel**?
+        topic: villkor
+        listen: true
+        textTitle: Ett röstmeddelande från Sara
+        text: |
+          Hej, det är Sara! Jag behöver ditt råd. Min bästa vän Linnea har glömt min födelsedag för andra året i rad. Hon skickade inte ens ett sms. Jag är faktiskt ganska ledsen.
+
+          Om det bara hade hänt en gång, skulle jag inte bry mig. Men nu känns det som att hon inte tycker att vår vänskap är viktig. Ska jag säga något till henne, eller borde jag bara glömma det? Ring mig när du hör det här!
+        items:
+          - { id: krdu, type: truefalse, statement: "Linnea har glömt Saras födelsedag två år i rad.", answer: true }
+          - { id: f3cw, type: truefalse, statement: "Linnea skickade ett sms.", answer: false, correction: { answers: ["{Linnea|Hon} skickade inte [ens ]ett sms."] } }
+          - { id: y8zd, type: truefalse, statement: "Sara är glad.", answer: false, correction: { answers: ["{Sara|Hon} är [ganska ]ledsen."] } }
+          - { id: ugwj, type: truefalse, statement: "Om det bara hade hänt en gång, skulle Sara inte bry sig.", answer: true }
+          - { id: ern5, type: truefalse, statement: "Sara vill att du skickar ett sms.", answer: false, correction: { answers: ["{Sara|Hon} vill att du ringer {henne|[till ]Sara}."] } }
+
+      - id: lyssna-dictee
+        title: Dictee
+        instruction: Luister en maak de zin die je hoort.
+        topic: villkor
+        shuffle: true
+        items:
+          - { id: 4wt4, type: listen, say: "Om jag hade tid, skulle jag hjälpa dig." }
+          - { id: yx9y, type: listen, say: "Du borde prata med henne." }
+          - { id: gf68, type: listen, say: "Jag önskar att du var här." }
+          - { id: 6ncj, type: listen, say: "Skulle du kunna ringa mig i kväll?" }
+
+  - id: praktiskt
+    title: Praktiskt · advies vragen en geven
+    exercises:
+      - id: dialoog-rad
+        title: Een vriend om raad vragen
+        instruction: Zet het gesprek in de goede volgorde.
+        topic: rad-onskan
+        items:
+          - id: 8qfg
+            type: dialogue
+            lines:
+              - "Lotte: Har du tid en stund? Jag behöver ett råd."
+              - "Johan: Visst. Vad har hänt?"
+              - "Lotte: Jag har fått ett nytt jobb i Göteborg, men min sambo vill inte flytta."
+              - "Johan: Oj, det låter svårt. Har ni pratat ordentligt om det?"
+              - "Lotte: Inte riktigt. Vi blir arga på varandra direkt."
+              - "Johan: Om jag var du skulle jag föreslå att ni tar en promenad och pratar i lugn och ro."
+              - "Lotte: Du har nog rätt. Tack, det ska jag göra!"
+
+      - id: wat-zeg-je-zelf
+        title: Wat zeg je? (zelf)
+        instruction: Zeg het nu zelf in het Zweeds. Er is vaak meer dan één goed antwoord.
+        kind: situatie
+        items:
+          - { id: cvbd, type: translate, topic: villkor, prompt: "Zeg: als ik meer tijd had, zou ik meer lezen.", answers: ["Om jag hade mer tid, [så ]skulle jag läsa mer.", "Hade jag mer tid, skulle jag läsa mer.", "Jag skulle läsa mer om jag hade mer tid."], feedback: [{ contains: "skulle jag har", tip: "Na skulle: de infinitief." }] }
+          - { id: nad5, type: translate, topic: rad-onskan, prompt: "Geef je vriendin advies: als ik jou was, zou ik met hem praten.", answers: ["Om jag {vore|var} du, [så ]skulle jag prata med honom.", "I ditt ställe skulle jag prata med honom.", "Jag skulle prata med honom om jag {vore|var} du."] }
+          - { id: 2qnc, type: translate, topic: rad-onskan, prompt: "Vraag beleefd of iemand je kan helpen.", answers: ["[Ursäkta, ]{skulle du kunna|kunde du|kan du} hjälpa mig?"] }
+          - { id: 9wjt, type: translate, topic: rad-onskan, prompt: "Zeg dat je graag in Zweden zou willen wonen.", answers: ["Jag skulle {vilja|gärna vilja} bo i Sverige.", "Jag skulle gärna bo i Sverige."] }
+          - { id: yjms, type: translate, topic: villkor, prompt: "Een vriend vraagt wat je met een miljoen kronen zou doen. Zeg dat je een huis aan zee zou kopen.", answers: ["{Jag skulle|Då skulle jag} köpa [mig ]ett hus {vid havet|vid kusten|nära havet}."], feedback: [{ contains: ["skulle köpte", "skulle köper"], tip: "skulle + infinitief: skulle köpa." }, { contains: "vid sjön", tip: "en sjö is een meer; zee = havet." }] }
+          - { id: 7cw9, type: translate, topic: rad-onskan, prompt: "Je vriend is erg moe. Geef advies: je zou wat vaker vrij moeten nemen.", answers: ["Du {borde|kanske borde|borde kanske|skulle behöva|kanske skulle|skulle kanske} {ta ledigt|vara ledig} {lite oftare|oftare}."], feedback: [{ contains: "borde att", tip: "borde + infinitief, zonder att." }] }
+          - { id: 48wm, type: translate, topic: rad-onskan, prompt: "Vraag je buurvrouw beleefd of ze je kat eten kan geven als jij weg bent.", answers: ["Skulle du kunna {ge min katt mat|ge katten mat|ge mat till min katt|ge mat till katten|mata min katt|mata katten} {när|medan} jag {är borta|är bortrest|inte är hemma}?"], feedback: [{ contains: "skulle du kan", tip: "skulle + infinitief: skulle du kunna." }, { contains: ["kan du ge", "kan du mata"], retry: true, tip: "Goed Zweeds, maar het kan beleefder: skulle du kunna …?" }] }
+          - { id: pxch, type: translate, topic: villkor, prompt: "Zeg: als het mooi weer was, zouden we gaan wandelen.", answers: ["Om {det var|det vore} {fint|vackert} väder[,] skulle vi {gå på en promenad|gå på promenad|gå en promenad|ta en promenad|promenera|gå ut och gå}.", "Om vädret {var|vore} fint[,] skulle vi {gå på en promenad|gå på promenad|gå en promenad|ta en promenad|promenera|gå ut och gå}.", "Vi skulle {gå på en promenad|gå på promenad|gå en promenad|ta en promenad|promenera|gå ut och gå} om det {var|vore} {fint|vackert} väder."], feedback: [{ contains: "om det är fint", tip: "Een situatie die niet echt is: om det var (of vore) fint väder." }, { contains: ["väder vi skulle", "väder, vi skulle"], tip: "Na de bijzin vooraan komt het werkwoord direct: … skulle vi." }] }
+
+  - id: skriva
+    title: Skriva · schrijven
+    intro: "Schrijfdoel: een persoonlijke brief met advies."
+    exercises:
+      - id: skriva-rad
+        title: Geef advies
+        instruction: "Bouw eerst je antwoord aan Sara op in vier stappen die de app nakijkt. Daarna schrijf je het hele bericht, als je wilt."
+        topic: rad-onskan
+        items:
+          - { id: 3hmf, type: mc, prompt: "Je toont eerst begrip. Kies de beste openingszin.", options: ["Vad tråkigt att höra! Jag förstår att du är ledsen.", "Vad roligt att höra! Jag förstår att du är ledsen.", "Vad tråkigt att höra! Jag förstår att du ledsen är."], answer: 0, tip: "Bij slecht nieuws: Vad tråkigt! En in de bijzin na att staat het werkwoord direct na het onderwerp: att du är ledsen." }
+          - { id: 96hg, type: gap, topic: villkor, prompt: "Kies het goede woord.", text: "Om jag var du, ___ jag prata med Linnea.", gaps: [{ answers: ["skulle"], options: ["skulle", "ska", "kommer"], tip: "Een denkbeeldige situatie (Om jag var du): skulle. Na de om-zin komt het werkwoord eerst." }] }
+          - { id: hywd, type: order, prompt: "Geef een advies met borde.", start: "Ni", tokens: ["borde", "träffas", "och", "ta", "en", "fika"], answers: ["Ni borde träffas och ta en fika."] }
+          - { id: bwc3, type: order, topic: villkor, prompt: "Maak de zin af. Let op de woordvolgorde na de om-zin.", start: "Om hon ber om ursäkt,", tokens: ["vet", "du", "att", "vänskapen", "är", "viktig", "för", "henne"], answers: ["Om hon ber om ursäkt, vet du att vänskapen är viktig för henne."] }
+          - id: 8fr2
+            type: free
+            prompt: "Je vriendin Sara is verdrietig omdat haar beste vriendin haar verjaardag twee keer is vergeten (zie de luisteroefening). Schrijf haar een bericht (70–120 woorden). Toon begrip en geef minstens twee adviezen. Gebruik *borde*, *om jag var du skulle jag …* en een *om*-zin."
+            minWords: 65
+            require:
+              - { any: ["hej"], label: "Je begint met een aanhef" }
+              - { any: ["borde"], label: "Je gebruikt borde" }
+              - { any: ["skulle"], label: "Je gebruikt skulle" }
+              - { any: ["om"], label: "Je gebruikt een om-zin" }
+              - { any: ["kram", "hälsningar", "hörs"], label: "Je sluit persoonlijk af" }
+            model: "Hej Sara! Vad tråkigt att höra. Jag förstår verkligen att du är ledsen, det skulle jag också vara. Om jag var du skulle jag prata med Linnea, men inte via sms. Ni borde träffas och ta en fika. Säg lugnt hur du känner dig, utan att anklaga henne. Kanske har hon haft det jobbigt och glömt allt annat också? Om hon blir ledsen och ber om ursäkt, vet du att vänskapen är viktig för henne. Om hon inte bryr sig, borde du kanske lägga mer tid på andra vänner. Ring mig när du vill! Kram, Emma"
+
+  - id: herhaling
+    title: Herhaling
+    exercises:
+      - id: herhaling-13-18
+        title: Hoofdstuk 13 tot en met 18 door elkaar
+        instruction: Gemengde vragen.
+        shuffle: true
+        items:
+          - { id: th8t, type: gap, topic: passiv-bli, text: "Han blev ___ (bjuda) på bröllopet.", gaps: [{ answers: ["bjuden"] }] }
+          - { id: kkfy, type: gap, topic: deponens, text: "De ___ (träffas) på en fest för tio år sedan.", gaps: [{ answers: ["träffades"] }] }
+          - { id: ejhj, type: gap, topic: prep-verb, text: "Hon är kär ___ sin granne.", gaps: [{ answers: ["i"], feedback: [{ match: "på", tip: "Verliefd op = kär i." }] }] }
+          - { id: b8ak, type: gap, topic: framtid, text: "Ni ___ att bli så lyckliga tillsammans!", gaps: [{ answers: ["kommer"], options: ["kommer", "ska", "tänker"], shuffle: false }] }
+          - { id: 5j42, type: transform, topic: relativ-som, prompt: "Jag har en kompis. Hon har just gift sig.", answers: ["Jag har en kompis som {just|precis|nyss} har gift sig."] }
+          - { id: 5trs, type: gap, topic: villkor, text: "Om jag ___ (vara) du, skulle jag ringa henne.", gaps: [{ answers: ["var", "vore"] }] }
+          - { id: 898e, type: gap, topic: villkor, text: "Om jag ___ (ha) mer tid, skulle jag träffa mina vänner oftare.", gaps: [{ answers: ["hade"] }] }
+          - { id: 3v2z, type: gap, topic: rad-onskan, text: "Du ___ prata med henne innan det är för sent.", gaps: [{ answers: ["borde"], options: ["borde", "kommer", "tänker"], shuffle: false }] }
+          - { id: jjnk, type: gap, topic: framtid, text: "Vi ___ gifta oss i juni, det har vi redan bestämt.", gaps: [{ answers: ["ska"], options: ["ska", "kommer att"], shuffle: false }] }
+          - { id: y8ty, type: gap, topic: prep-verb, text: "Hon har varit kär ___ sin bästa vän i flera år.", gaps: [{ answers: ["i"] }] }
+
+      - id: herhaling-woorden
+        title: Woorden van eerder
+        instruction: Kies het woord dat past. Deze woorden komen uit eerdere hoofdstukken.
+        topic: woordenschat
+        shuffle: true
+        items:
+          - { id: 4m6s, type: gap, text: "Jag har feber och en ___, så jag stannar hemma från jobbet.", gaps: [{ answers: ["förkylning"], options: ["förkylning", "remiss", "spruta", "biverkning"], feedback: [{ match: "remiss", tip: "*remiss* betekent „een verwijzing”. Lees de zin nog eens: wat past hier?" }] }] }
+          - { id: gas9, type: gap, text: "Efter sprutan blev jag ___ och mådde illa.", gaps: [{ answers: ["yr"], options: ["yr", "kronisk", "receptfri", "smittsam"], feedback: [{ match: "receptfri", tip: "*receptfri* betekent „zonder recept verkrijgbaar”. Lees de zin nog eens: wat past hier?" }] }] }
+          - { id: kp58, type: gap, text: "Fysioterapeuten säger att mitt knä är ___ efter operationen.", gaps: [{ answers: ["stelt"], options: ["stelt", "smittsamt", "receptfritt", "akut"], feedback: [{ match: "smittsamt", tip: "*smittsam* betekent „besmettelijk”. Lees de zin nog eens: wat past hier?" }] }] }
+          - { id: s62t, type: gap, text: "Hämta läkemedlet på apoteket och läs om ___ på lappen.", gaps: [{ answers: ["biverkningarna"], options: ["biverkningarna", "remisserna", "sprutorna", "plåstren"], feedback: [{ match: "remisserna", tip: "*remiss* betekent „een verwijzing”. Lees de zin nog eens: wat past hier?" }] }] }
+          - { id: vvah, type: gap, text: "Hon ___ i väntrummet och fick åka till akuten.", gaps: [{ answers: ["svimmade"], options: ["svimmade", "stukade", "vaccinerade", "opererade"], feedback: [{ match: "stukade", tip: "*stuka* betekent „verstuiken”. Lees de zin nog eens: wat past hier?" }] }] }
+          - { id: sntw, type: gap, text: "Jag fick en ___ på två veckor, eftersom smärtan i ryggen var så stark.", gaps: [{ answers: ["sjukskrivning"], options: ["sjukskrivning", "vaccination", "egenavgift", "infektion"], feedback: [{ match: "egenavgift", tip: "*egenavgift* betekent „een eigen bijdrage”. Lees de zin nog eens: wat past hier?" }] }] }
+
+vocab:
+  - { sv: "en sambo", nl: "een samenwonende partner", def: "sambon", pl: "sambor", plDef: "samborna", ex: "Jag och min **sambo** har bott tillsammans i fem år.", exNl: "Mijn samenwonende partner en ik wonen al vijf jaar samen." }
+  - { sv: "en särbo", nl: "een LAT-partner", def: "särbon", pl: "särbor", plDef: "särborna", ex: "De är **särbor** och bor i var sin lägenhet.", exNl: "Ze zijn LAT-partners en wonen elk in een eigen appartement." }
+  - { sv: "ett förhållande", nl: "een relatie", def: "förhållandet", pl: "förhållanden", plDef: "förhållandena", ex: "Deras **förhållande** höll i tio år.", exNl: "Hun relatie hield tien jaar stand." }
+  - { sv: "en vänskap", nl: "een vriendschap", def: "vänskapen", pl: "vänskaper", plDef: "vänskaperna", ex: "Vår **vänskap** började redan i förskolan.", exNl: "Onze vriendschap begon al op de kleuterschool." }
+  - { sv: "ett råd", nl: "een advies, een raad", def: "rådet", pl: "råd", plDef: "råden", ex: "Tack för alla goda **råd**!", exNl: "Bedankt voor alle goede adviezen!" }
+  - { sv: "ett beslut", nl: "een besluit", def: "beslutet", pl: "beslut", plDef: "besluten", ex: "Det var ett svårt **beslut** att flytta isär.", exNl: "Het was een moeilijk besluit om uit elkaar te gaan wonen." }
+  - { sv: "en kompromiss", nl: "een compromis", def: "kompromissen", pl: "kompromisser", plDef: "kompromisserna", ex: "Till slut hittade vi en **kompromiss** som passade oss båda.", exNl: "Uiteindelijk vonden we een compromis dat ons allebei uitkwam." }
+  - { sv: "ett bröllop", nl: "een bruiloft", def: "bröllopet", pl: "bröllop", plDef: "bröllopen", ex: "Vi är bjudna på två **bröllop** i sommar.", exNl: "We zijn deze zomer op twee bruiloften uitgenodigd." }
+  - { sv: "en svärmor", nl: "een schoonmoeder", def: ["svärmodern", "svärmorn"], pl: "svärmödrar", plDef: "svärmödrarna", ex: "Min **svärmor** ringer varje söndag.", exNl: "Mijn schoonmoeder belt elke zondag." }
+  - { sv: "att gifta sig", nl: "trouwen", ex: "De **gifte sig** i en liten kyrka på Gotland.", exNl: "Ze trouwden in een kerkje op Gotland." }
+  - { sv: "att skilja sig", nl: "scheiden", ex: "Hennes föräldrar **skilde sig** när hon var tio år.", exNl: "Haar ouders scheidden toen ze tien was." }
+  - { sv: "att gräla", nl: "ruziemaken", ex: "Vi **grälar** ofta om vem som ska diska.", exNl: "We maken vaak ruzie over wie moet afwassen." }
+  - { sv: "att göra slut", nl: "het uitmaken", ex: "Hon **gjorde slut** med sin pojkvän i går.", exNl: "Ze heeft het gisteren uitgemaakt met haar vriend." }
+  - { sv: "att längta", nl: "verlangen", ex: "Jag **längtar** efter dig varje dag.", exNl: "Ik verlang elke dag naar je." }
+  - { sv: "att önska", nl: "wensen", ex: "Jag **önskar** att jag hade mer tid.", exNl: "Ik wou dat ik meer tijd had." }
+  - { sv: "att föreslå", nl: "voorstellen", ex: "Frida **föreslår** att de pratar öppet med varandra.", exNl: "Frida stelt voor dat ze openlijk met elkaar praten." }
+  - { sv: "kär", nl: "verliefd", ex: "De är fortfarande **kära** i varandra.", exNl: "Ze zijn nog steeds verliefd op elkaar." }
+  - { sv: "ledsen", nl: "verdrietig", ex: "Han blev **ledsen** när hon flyttade.", exNl: "Hij werd verdrietig toen ze verhuisde." }
+  - { sv: "kluven", nl: "verscheurd, in tweestrijd", ex: "Jag är **kluven** inför flytten till Luleå.", exNl: "Ik ben verscheurd over de verhuizing naar Luleå." }
+  - { sv: "förlovad", nl: "verloofd", ex: "Lisa och Ahmed är **förlovade** sedan i julas.", exNl: "Lisa en Ahmed zijn sinds afgelopen kerst verloofd." }
+  - { sv: "ett äktenskap", nl: "een huwelijk", def: "äktenskapet", pl: "äktenskap", ex: "Deras **äktenskap** varade i över femtio år.", exNl: "Hun huwelijk duurde meer dan vijftig jaar." }
+  - { sv: "en make", nl: "een echtgenoot", def: "maken", pl: "makar", ex: "Hon presenterade sin **make** för alla gäster.", exNl: "Ze stelde haar echtgenoot voor aan alle gasten." }
+  - { sv: "en maka", nl: "een echtgenote", def: "makan", pl: "makor", alt: ["en fru"], ex: "Han firade bröllopsdagen med sin **{maka|fru}**.", exNl: "Hij vierde de trouwdag met zijn echtgenote." }
+  - { sv: "en svärfar", nl: "een schoonvader", def: ["svärfadern", "svärfarn"], pl: "svärfäder", ex: "Min **svärfar** hjälpte oss att renovera köket.", exNl: "Mijn schoonvader hielp ons de keuken op te knappen." }
+  - { sv: "ett ex", nl: "een ex", def: "exet", pl: "ex", ex: "Hon har fortfarande kontakt med sitt **ex**.", exNl: "Ze heeft nog steeds contact met haar ex." }
+  - { sv: "en förälskelse", nl: "een verliefdheid", def: "förälskelsen", pl: "förälskelser", ex: "Det var bara en kort **förälskelse** under sommarlovet.", exNl: "Het was maar een korte verliefdheid in de zomervakantie." }
+  - { sv: "en kärlek", nl: "een liefde", def: "kärleken", pl: "kärlekar", ex: "Hon träffade sitt livs **kärlek** på en tågresa.", exNl: "Ze ontmoette de liefde van haar leven tijdens een treinreis." }
+  - { sv: "ett gräl", nl: "een ruzie", def: "grälet", pl: "gräl", ex: "Efter **grälet** pratade de inte med varandra på två dagar.", exNl: "Na de ruzie spraken ze twee dagen niet met elkaar." }
+  - { sv: "en konflikt", nl: "een conflict", def: "konflikten", pl: "konflikter", ex: "Det är viktigt att lösa **konflikter** innan de växer.", exNl: "Het is belangrijk conflicten op te lossen voordat ze groter worden." }
+  - { sv: "ett förtroende", nl: "het vertrouwen", def: "förtroendet", mass: true, ex: "Jag har stort **förtroende** för henne.", exNl: "Ik heb veel vertrouwen in haar." }
+  - { sv: "en skilsmässa", nl: "een echtscheiding", def: "skilsmässan", pl: "skilsmässor", ex: "Efter **skilsmässan** bodde barnen varannan vecka hos varje förälder.", exNl: "Na de scheiding woonden de kinderen om de week bij elke ouder." }
+  - { sv: "en förlovning", nl: "een verloving", def: "förlovningen", pl: "förlovningar", ex: "De firade **förlovningen** med en middag för familjen.", exNl: "Ze vierden de verloving met een etentje voor de familie." }
+  - { sv: "en dejt", nl: "een date, een afspraakje", def: "dejten", pl: "dejter", ex: "Hur gick **dejten** i går?", exNl: "Hoe ging de date gisteren?" }
+  - { sv: "en svåger", nl: "een zwager", def: "svågern", pl: "svågrar", ex: "Min **svåger** är gift med min syster.", exNl: "Mijn zwager is getrouwd met mijn zus." }
+  - { sv: "en svägerska", nl: "een schoonzus", def: "svägerskan", pl: "svägerskor", ex: "Jag kommer bra överens med mina **svägerskor**.", exNl: "Ik kan goed opschieten met mijn schoonzussen." }
+  - { sv: "en styvpappa", nl: "een stiefvader", def: "styvpappan", pl: "styvpappor", alt: ["en bonuspappa", "en styvfar"], ex: "Hennes **{styvpappa|bonuspappa|styvfar}** har varit som en riktig pappa för henne.", exNl: "Haar stiefvader is als een echte vader voor haar geweest." }
+  - { sv: "en bekant", nl: "een kennis (persoon)", def: "bekanten", pl: "bekanta", ex: "Han är ingen vän, bara en **bekant** från jobbet.", exNl: "Hij is geen vriend, alleen een kennis van het werk." }
+  - { sv: "att bli ihop", nl: "verkering krijgen", ex: "Linnea och Omar **blev ihop** på gymnasiet.", exNl: "Linnea en Omar kregen verkering op de middelbare school." }
+  - { sv: "att bli kär i", nl: "verliefd worden op", ex: "Han **blev kär i** henne redan första dagen.", exNl: "Hij werd al op de eerste dag verliefd op haar." }
+  - { sv: "att flytta ihop", nl: "gaan samenwonen", ex: "Vi **flyttade ihop** efter ett år.", exNl: "Na een jaar gingen we samenwonen." }
+  - { sv: "att gå isär", nl: "uit elkaar gaan", ex: "Efter tio år bestämde de sig för att **gå isär**.", exNl: "Na tien jaar besloten ze uit elkaar te gaan." }
+  - { sv: "att bråka", nl: "ruziemaken, kibbelen", ex: "Syskonen **bråkar** om allt, från tv:n till godiset.", exNl: "De broers en zussen kibbelen over alles, van de tv tot het snoep." }
+  - { sv: "att stötta", nl: "steunen", alt: ["att stödja"], ex: "Mina vänner **{stöttade|stödde}** mig under skilsmässan.", exNl: "Mijn vrienden steunden me tijdens de scheiding." }
+  - { sv: "att ställa upp för", nl: "klaarstaan voor", ex: "Hon har alltid **ställt upp för** sina vänner.", exNl: "Ze heeft altijd voor haar vrienden klaargestaan." }
+  - { sv: "att förlåta", nl: "vergeven", ex: "Det tog lång tid innan hon kunde **förlåta** honom.", exNl: "Het duurde lang voordat ze hem kon vergeven." }
+  - { sv: "att be om ursäkt", nl: "excuses aanbieden, sorry zeggen", ex: "Han **bad om ursäkt** för att han hade glömt hennes födelsedag.", exNl: "Hij bood zijn excuses aan omdat hij haar verjaardag was vergeten." }
+  - { sv: "att bli sams", nl: "het weer goedmaken", ex: "De grälade på morgonen men **blev sams** före lunch.", exNl: "Ze kregen 's ochtends ruzie, maar maakten het voor de lunch weer goed." }
+  - { sv: "att sakna", nl: "missen (iemand), het gemis voelen", ex: "Jag **saknar** dig när du är bortrest.", exNl: "Ik mis je als je op reis bent." }
+  - { sv: "att svika", nl: "in de steek laten, verraden", ex: "Jag lovar att aldrig **svika** dig.", exNl: "Ik beloof je nooit in de steek te laten." }
+  - { sv: "att ljuga", nl: "liegen", ex: "Han **ljög** om var han hade varit.", exNl: "Hij loog over waar hij was geweest." }
+  - { sv: "att hålla ihop", nl: "bij elkaar blijven", ex: "De har **hållit ihop** i trettio år.", exNl: "Ze zijn dertig jaar bij elkaar gebleven." }
+  - { sv: "svartsjuk", nl: "jaloers", ex: "Han blir **svartsjuk** när hon pratar med andra killar.", exNl: "Hij wordt jaloers als ze met andere jongens praat." }
+  - { sv: "trogen", nl: "trouw", ex: "Han har alltid varit **trogen** mot sin fru.", exNl: "Hij is altijd trouw geweest aan zijn vrouw." }
+  - { sv: "besviken", nl: "teleurgesteld", ex: "Vi var mycket **besvikna** på honom.", exNl: "We waren erg teleurgesteld in hem." }
+  - { sv: "förstående", nl: "begripvol", ex: "Min chef var väldigt **förstående** när jag behövde ledigt.", exNl: "Mijn baas was heel begripvol toen ik vrij nodig had." }
+  - { sv: "ömsesidig", nl: "wederzijds", ex: "Känslorna var **ömsesidiga**.", exNl: "De gevoelens waren wederzijds." }
+  - { sv: "varannan", nl: "elke tweede, om de (twee)", ex: "Barnen bor hos sin pappa **varannan** vecka.", exNl: "De kinderen wonen om de week bij hun vader." }
+  - { sv: "på allvar", nl: "serieus, echt", ex: "Du måste ta hans problem **på allvar**.", exNl: "Je moet zijn problemen serieus nemen." }
+  - { sv: "Lycka till!", nl: "Succes!", ex: "**Lycka till** med flytten!", exNl: "Succes met de verhuizing!" }
+  - { sv: "för alltid", nl: "voor altijd", ex: "Jag trodde att vi skulle vara tillsammans **för alltid**.", exNl: "Ik dacht dat we voor altijd samen zouden blijven." }
+  - { sv: "om jag var du", nl: "als ik jou was", alt: ["om jag vore du"], ex: "**{Om jag var du|Om jag vore du}** skulle jag prata med henne.", exNl: "Als ik jou was, zou ik met haar praten." }
+  - { sv: "en känsla", nl: "een gevoel", def: "känslan", pl: "känslor", plDef: "känslorna", ex: "Det är svårt att prata om **känslor**.", exNl: "Het is moeilijk om over gevoelens te praten." }
+  - { sv: "en relation", nl: "een relatie", def: "relationen", pl: "relationer", plDef: "relationerna", ex: "De har en bra **relation** till sina grannar.", exNl: "Ze hebben een goede relatie met hun buren." }
+  - { sv: "lycklig", nl: "gelukkig", ex: "De ser väldigt **lyckliga** ut tillsammans.", exNl: "Ze zien er samen heel gelukkig uit." }
+  - { sv: "en partner", nl: "een partner", def: "partnern", pl: "partner", plDef: "partnerna", ex: "Kommer du med din **partner** till festen?", exNl: "Kom je met je partner naar het feest?" }
+  - { sv: "en släkting", nl: "een familielid", def: "släktingen", pl: "släktingar", plDef: "släktingarna", ex: "Vi har **släktingar** i Norge.", exNl: "We hebben familie in Noorwegen." }
+  - { sv: "en tonåring", nl: "een tiener", def: "tonåringen", pl: "tonåringar", plDef: "tonåringarna", ex: "Det är inte lätt att vara **tonåring**.", exNl: "Het is niet makkelijk om tiener te zijn." }
+  - { sv: "att lova", nl: "beloven", ex: "Jag **lovar** att ringa i morgon.", exNl: "Ik beloof dat ik morgen bel." }
+  - { sv: "att uppfostra", nl: "opvoeden", ex: "De **uppfostrade** sina barn på landet.", exNl: "Ze voedden hun kinderen op het platteland op." }
+  - { sv: "avundsjuk", nl: "jaloers (op iets van een ander)", ex: "Han är **avundsjuk** på sin bror.", exNl: "Hij is jaloers op zijn broer." }

@@ -1,0 +1,728 @@
+chapter: 22
+# Kan-doen-uitspraken: de app vinkt ze zelf af als de vragen over deze onderwerpen
+# grotendeels in doos 3 of hoger staan (src/progress.js, canDoStatus).
+canDo:
+  - { text: "Ik kan op reis werkwoorden met een partikel gebruiken (stiga på, hinna med)", topics: [partikelverb-2] }
+  - { text: "Ik kan zinnen en delen van een verhaal met elkaar verbinden", topics: [sambandsord] }
+
+grammar:
+  - id: partikelverb-2
+    title: Partikelwerkwoorden op reis
+    summary: "*stiga på/av, komma fram, hinna med, åka iväg, ta med sig*. Als deelwoord komt het partikel **vooraan**: *ställa in → **in**ställd*, *boka om → **om**bokad*: *Tåget är **inställt**.*"
+    body: |
+      Nog meer werkwoorden met een beklemtoond partikel (zie hoofdstuk 15):
+
+      | Zweeds | betekenis |
+      |---|---|
+      | stiga **på** / stiga **av** | instappen / uitstappen |
+      | gå **av** (bussen) | uitstappen |
+      | komma **fram** | aankomen |
+      | hinna **med** | halen (op tijd) |
+      | åka **iväg** | vertrekken |
+      | ta **med** sig | meenemen |
+      | köra **om** | inhalen (auto) |
+      | ställa **in** | afgelasten |
+      | boka **om** | omboeken |
+
+      Bij *ta med sig* en *ha med sig* staat *sig* na het partikel: *Ta **med dig** passet!* *Jag tog **med mig** kameran.* Bij de meeste andere wederkerende partikelwerkwoorden staat *sig* vóór het partikel: *sätta **sig ner***, *ge **sig iväg***.
+
+      ### Deelwoord: partikel vooraan
+      Maak je een deelwoord van een partikelwerkwoord, dan komt het partikel **ervoor** en plak je het eraan:
+
+      | werkwoord | deelwoord | voorbeeld |
+      |---|---|---|
+      | ställa in | **in**ställd | *Flyget är **inställt**.* |
+      | boka om | **om**bokad | *Biljetten är **ombokad**.* |
+      | packa upp | **upp**ackad | *Väskorna är **uppackade**.* |
+      | stänga av | **av**stängd | *Mobilen är **avstängd**.* |
+
+      Ook in de lijdende vorm met -s kan het partikel achteraan blijven: *Flyget **ställdes in**.* (gewoner dan *inställdes*)
+
+  - id: sambandsord
+    title: Verbindingswoorden
+    summary: "**och, men, så, för, eller** verbinden zinnen zonder inversie: *…, så vi missade bussen.* Bijwoorden als **därför, dessutom, däremot, ändå, sedan** veroorzaken **inversie** vooraan: ***Därför** missade vi bussen.*"
+    body: |
+      Met verbindingswoorden maak je van losse zinnen een lopende tekst.
+
+      | functie | woorden |
+      |---|---|
+      | toevoegen | *och, dessutom, även, också* |
+      | tegenstelling | *men, däremot, ändå, trots det, i stället* |
+      | reden | *för, eftersom* |
+      | gevolg | *så, därför, alltså* |
+      | volgorde | *först, sedan, efter det, till slut* |
+
+      ### Woordvolgorde
+      **Nevenschikkende voegwoorden** (*och, men, så, för, eller*) staan tussen twee hoofdzinnen. Daarna gewone volgorde:
+
+      - *Tåget var sent, **så vi missade** bussen.*
+
+      In spreektaal hoor je ook *så missade vi* (dan werkt *så* als bijwoord, 'toen'). In geschreven tekst is *så vi missade* de norm.
+
+      **Bijwoorden** (*därför, dessutom, däremot, ändå, sedan, alltså, till slut*) zijn een zinsdeel. Staan ze vooraan, dan volgt **inversie** (V2):
+
+      - ***Därför missade vi** bussen.* (niet ~~*Därför vi missade*~~)
+      - *Hotellet var dyrt. **Dessutom var det** smutsigt.*
+
+      *eftersom* begint een bijzin: *Vi kom sent **eftersom tåget var** försenat.*
+
+sections:
+  - id: lasa
+    title: Läsa · lezen
+    exercises:
+      - id: lasa-nattag
+        title: "Lezen: met de nachttrein naar Lapland"
+        instruction: Lees de blog en beantwoord de vragen.
+        topic: woordenschat
+        textTitle: En resa som inte gick som planerat
+        text: |
+          Förra sommaren bestämde jag och min kompis Joyce oss för att åka nattåg från Stockholm till Abisko för att vandra. Vi bokade biljetterna två månader i förväg och packade ner allt vi behövde: tält, sovsäckar och mat för en vecka.
+
+          Tåget skulle gå klockan sex på kvällen. Först blev det en timmes försening, och sedan stannade tåget helt utanför Umeå på grund av ett signalfel. Därför kom vi fram till Abisko fem timmar för sent. Dessutom hade vi missat bussen till vandringsleden, så vi fick vänta till nästa dag.
+
+          Vi hade tänkt sova i tält redan den första natten, men vi var så trötta att vi inte orkade sätta upp det. Därför frågade vi på turiststationen om de hade några lediga sängar. Till slut fick vi två platser i ett rum med fyra andra vandrare. Det var trångt, men det var i alla fall varmt och torrt.
+
+          Ändå var det värt det. Fjällen var fantastiska, och vi såg både renar och midnattssol. Sedan vandrade vi i fem dagar och sov i tältet varje natt. Bara en dag regnade det, men då blev nästan allt blött, även sovsäckarna. Dessutom hade Joyce glömt att ta med sig myggmedel, så vi fick dela på mitt.
+
+          När vi kom hem skrev jag ett klagomål till tågbolaget. Två veckor senare fick vi tillbaka en del av pengarna. Nästa sommar vill vi åka dit igen, men då ska vi ta god tid på oss.
+        items:
+          - { id: s65v, type: mc, prompt: "Varför åkte de till Abisko?", options: ["för att vandra", "för att hälsa på släkt", "för att jobba", "för att åka skidor"], answer: 0 }
+          - { id: 4d7c, type: truefalse, statement: "De bokade biljetterna i sista minuten.", answer: false, correction: { answers: ["De bokade {biljetterna|dem} två månader i förväg."] } }
+          - { id: 2qfe, type: mc, prompt: "Varför stannade tåget utanför Umeå?", options: ["på grund av ett signalfel", "på grund av snö", "på grund av en älg", "för att byta förare"], answer: 0 }
+          - { id: 76hu, type: truefalse, statement: "De kom fram fem timmar för sent.", answer: true }
+          - { id: pd3e, type: mc, prompt: "Vad hände med bussen till vandringsleden?", options: ["De hade missat den.", "Den var inställd.", "Den var full.", "Den var gratis."], answer: 0 }
+          - { id: ahpn, type: truefalse, statement: "Skribenten tycker att resan inte var värd det.", answer: false, correction: { answers: ["{Hon|Skribenten|Han} tycker att resan var värd det.", "{Hon|Skribenten|Han} tycker att det var värt det.", "Det var värt det."] } }
+          - id: h6bd
+            type: multi
+            prompt: "Welke verbindingswoorden in de tekst geven een gevolg?"
+            options: ["därför", "så", "dessutom", "ändå", "först"]
+            answers: [0, 1]
+            tip: "dessutom voegt iets toe, ändå is een tegenstelling, först geeft een volgorde."
+          - { id: 43v8, type: mc, prompt: "Varför satte de inte upp tältet den första natten?", options: ["De var för trötta.", "Det regnade för mycket.", "De hade glömt tältet.", "Det var förbjudet att tälta."], answer: 0 }
+          - { id: bzs4, type: truefalse, statement: "På turiststationen fick de ett eget rum.", answer: false, correction: { answers: ["De fick [två ]platser i ett rum med fyra andra[ vandrare]."] } }
+          - { id: b3t4, type: mc, prompt: "Vad hade Joyce glömt att ta med sig?", options: ["myggmedel", "sin sovsäck", "sitt pass", "tältet"], answer: 0 }
+
+      - id: makkelijk-1
+        title: "Makkelijk lezen: Bytet i Stockholm"
+        instruction: Een korte tekst met woorden die je al kent. Lees hem vlot door en kies rätt of fel.
+        topic: woordenschat
+        kind: makkelijk
+        textTitle: "Bytet i Stockholm"
+        text: |
+          Daan skulle åka tåg från Göteborg till Kiruna. Han skulle byta tåg i Stockholm, men det första tåget var försenat. Därför hann han inte med det andra tåget. Han gick till informationen och fick en ny biljett. Dessutom fick han en matkupong. Han kom fram fyra timmar senare, men han var ändå nöjd med resan. Nästa gång vill han åka tåg igen.
+        items:
+          - { id: wn5v, type: truefalse, statement: "Daan hann med bytet i Stockholm.", answer: false }
+          - { id: 58a3, type: truefalse, statement: "Daan fick en ny biljett.", answer: true }
+
+      - id: makkelijk-2
+        title: "Makkelijk lezen: Vilse i fjällen"
+        instruction: Een korte tekst met woorden die je al kent. Lees hem vlot door en kies rätt of fel.
+        topic: woordenschat
+        kind: makkelijk
+        textTitle: "Vilse i fjällen"
+        text: |
+          Joyce och hennes kompis gick vilse på en vandringsled i fjällen. De hade glömt kartan i stugan. Som tur var mötte de en annan vandrare, som visade dem vägen tillbaka. Sedan dess tar Joyce alltid med sig både karta och mobil. Vandraren berättade att många går vilse just där, eftersom leden delar sig. Joyce och kompisen kom tillbaka till stugan innan det blev mörkt. De var trötta men glada.
+        items:
+          - { id: d2yt, type: truefalse, statement: "De hade kartan med sig.", answer: false }
+          - { id: xzvv, type: truefalse, statement: "En annan vandrare hjälpte dem.", answer: true }
+
+      - id: makkelijk-3
+        title: "Makkelijk lezen: Försenat flyg"
+        instruction: Een korte tekst met woorden die je al kent. Lees hem vlot door en beantwoord de vragen.
+        topic: woordenschat
+        kind: makkelijk
+        textTitle: "Försenat flyg"
+        text: |
+          Sanne och Bas skulle flyga till Kiruna i fredags. Flyget var försenat i tre timmar, eftersom det snöade mycket i norr. De satt på flygplatsen och väntade, och kaféet var dessutom stängt. Trots att de var hungriga och trötta var de på gott humör. När de till slut landade, var det mörkt och tjugo grader kallt. De checkade in på hotellet och somnade direkt.
+        items:
+          - { id: 2bph, type: truefalse, statement: "Flyget var försenat i en timme.", answer: false }
+          - { id: xtwk, type: mc, prompt: "Varför var flyget försenat?", options: ["Det snöade mycket.", "Piloten var sjuk.", "Det var strejk."], answer: 0 }
+          - { id: ngqe, type: truefalse, statement: "Det var mörkt när de landade.", answer: true }
+
+      - id: makkelijk-4
+        title: "Makkelijk lezen: Tågluffen"
+        instruction: Een korte tekst met woorden die je al kent. Lees hem vlot door en beantwoord de vragen.
+        topic: woordenschat
+        kind: makkelijk
+        textTitle: "Tågluffen"
+        text: |
+          Efter studenten åker Moa och hennes kompis Ella på tågluff i Europa. De ska vara borta i en månad. De har köpt ett Interrailkort, och därför kan de åka så mycket de vill. Först åker de ner till Köpenhamn och vidare till Berlin. Där stannar de i fyra dagar. Sedan fortsätter de till Prag och Wien. De bor på billiga vandrarhem. Moa skriver dagbok varje kväll, så att hon kommer ihåg allt.
+        items:
+          - { id: t8t7, type: mc, prompt: "Hur länge ska de vara borta?", options: ["En vecka.", "En månad.", "Ett år."], answer: 1 }
+          - { id: e2d6, type: truefalse, statement: "De stannar i Berlin i fyra dagar.", answer: true }
+          - { id: dnwd, type: truefalse, statement: "De bor på dyra hotell.", answer: false }
+
+  - id: ord
+    title: Ord och fraser · woorden en uitdrukkingen
+    exercises:
+      - id: ord-reizen
+        title: Onderweg
+        instruction: Koppel het woord aan de betekenis.
+        topic: partikelverb-2
+        items:
+          - id: uykf
+            type: match
+            pairs:
+              - ["stiga på", "instappen"]
+              - ["stiga av", "uitstappen"]
+              - ["komma fram", "aankomen"]
+              - ["hinna med", "halen (op tijd)"]
+              - ["åka iväg", "vertrekken"]
+              - ["köra om", "inhalen"]
+          - id: 43sv
+            type: match
+            pairs:
+              - ["en försening", "een vertraging"]
+              - ["ett spår", "een spoor (spoornummer)"]
+              - ["en avgång", "een vertrek"]
+              - ["en ankomst", "een aankomst"]
+              - ["ett byte", "een overstap"]
+              - ["ersättning", "vergoeding, compensatie"]
+
+      - id: ord-alle-woorden
+        title: "Woorden in een zin: de rest van de lijst"
+        instruction: Kies het woord dat past. Zo zie je ook de woorden uit de lijst die nog nergens in een zin stonden.
+        topic: woordenschat
+        shuffle: true
+        items:
+          - { id: benh, type: gap, text: "Vi tog nattåget och sov i en ___.", gaps: [{ answers: ["sovvagn"], options: ["sovvagn", "sittplats", "tull", "gräns"], feedback: [{ match: "sittplats", tip: "*sittplats* betekent „een zitplaats”. Lees de zin nog eens: wat past hier?" }] }] }
+          - { id: sfnv, type: gap, text: "Tågets ___ till Kiruna är klockan 11.40, men det kan bli försenat.", gaps: [{ answers: ["ankomst"], options: ["ankomst", "anslutning", "gräns", "tull"], feedback: [{ match: "anslutning", tip: "*anslutning* betekent „een aansluiting”. Lees de zin nog eens: wat past hier?" }] }] }
+          - { id: 62xe, type: gap, text: "Våra platser är i vagn nummer fem, i en ___ längst bak.", gaps: [{ answers: ["kupé"], options: ["kupé", "tull", "gräns", "sevärdhet"], feedback: [{ match: "tull", tip: "*tull* betekent „de douane; invoerheffing”. Lees de zin nog eens: wat past hier?" }] }] }
+          - { id: gqee, type: gap, text: "Tåget var fullbokat, så vi fick ingen ___.", gaps: [{ answers: ["sittplats"], options: ["sittplats", "ankomst", "sevärdhet", "tull"], feedback: [{ match: "ankomst", tip: "*ankomst* betekent „een aankomst”. Lees de zin nog eens: wat past hier?" }] }] }
+          - { id: dnpe, type: gap, text: "Rom är ett populärt ___ med många ___.", gaps: [{ answers: ["resmål"], options: ["resmål", "boende", "tull", "gräns"], feedback: [{ match: "boende", tip: "*boende* betekent „een accommodatie, een verblijf”. Lees de zin nog eens: wat past hier?" }] }, { answers: ["sevärdheter"], options: ["sevärdheter", "tullar", "ankomster", "tullar"] }] }
+          - { id: 3j8y, type: gap, text: "Det finns en direkt ___ med tåg mellan Stockholm och Oslo.", gaps: [{ answers: ["förbindelse"], options: ["förbindelse", "sevärdhet", "tull", "ankomst"], feedback: [{ match: "ankomst", tip: "*ankomst* betekent „een aankomst”. Lees de zin nog eens: wat past hier?" }] }] }
+          - { id: qq4p, type: gap, text: "Tåget var försenat, så vi missade ___ till bussen.", gaps: [{ answers: ["anslutningen"], options: ["anslutningen", "ankomsten", "gränsen", "tullen"], feedback: [{ match: "ankomsten", tip: "*ankomst* betekent „een aankomst”. Lees de zin nog eens: wat past hier?" }] }] }
+          - { id: p2fk, type: gap, text: "Vi köpte en ___ till Kreta, med flyg och hotell i samma paket.", gaps: [{ answers: ["charterresa"], options: ["charterresa", "reseförsäkring", "returbiljett", "sevärdhet"], feedback: [{ match: "reseförsäkring", tip: "*reseförsäkring* betekent „een reisverzekering”. Lees de zin nog eens: wat past hier?" }] }] }
+          - { id: 3r4a, type: gap, text: "Innan man reser utomlands är det bra att ha en ___.", gaps: [{ answers: ["reseförsäkring"], options: ["reseförsäkring", "charterresa", "sittplats", "kupé"], feedback: [{ match: "charterresa", tip: "*charterresa* betekent „een pakketreis”. Lees de zin nog eens: wat past hier?" }] }] }
+          - { id: ufqh, type: gap, text: "Vi hittade ett billigt ___ nära stranden och ___ där på vägen hem.", gaps: [{ answers: ["boende"], options: ["boende", "resmål", "tull", "gräns"], feedback: [{ match: "resmål", tip: "*resmål* betekent „een reisbestemming”. Lees de zin nog eens: wat past hier?" }] }, { answers: ["övernattade"], options: ["övernattade", "köade", "utforskade", "körde om"] }] }
+          - { id: b7dt, type: gap, text: "Det är förbjudet att ___ på höger sida.", gaps: [{ answers: ["köra om"], options: ["köra om", "köa", "hämta upp", "utforska"], feedback: [{ match: "köa", tip: "*köa* betekent „in de rij staan”. Lees de zin nog eens: wat past hier?" }] }] }
+          - { id: b8mj, type: gap, text: "Svenskar ___ i lugn och ro i affären.", gaps: [{ answers: ["köar"], options: ["köar", "kör om", "hämtar upp", "utforskar"], feedback: [{ match: "kör om", tip: "*köra om* betekent „inhalen (in het verkeer)”. Lees de zin nog eens: wat past hier?" }] }] }
+          - { id: y5sg, type: gap, text: "Kan du ___ oss på stationen klockan sju?", gaps: [{ answers: ["hämta upp"], options: ["hämta upp", "köra om", "köa", "utforska"], feedback: [{ match: "köra om", tip: "*köra om* betekent „inhalen (in het verkeer)”. Lees de zin nog eens: wat past hier?" }] }] }
+          - { id: 3sej, type: gap, text: "Vi hyrde cyklar för att ___ ön.", gaps: [{ answers: ["utforska"], options: ["utforska", "övernatta", "köa", "köra om"], feedback: [{ match: "övernatta", tip: "*övernatta* betekent „overnachten”. Lees de zin nog eens: wat past hier?" }] }] }
+          - { id: wyy3, type: gap, text: "Tåget är inställt. Vi måste ___ ta bussen.", gaps: [{ answers: ["alltså"], options: ["alltså", "trots", "så att", "på grund av"], feedback: [{ match: "trots", tip: "*trots* betekent „ondanks”. Lees de zin nog eens: wat past hier?" }] }] }
+          - { id: vxxv, type: gap, text: "Stolen i första klass var mycket ___.", gaps: [{ answers: ["bekväm"], options: ["bekväm", "fullbokad", "försenad", "utomlands"], feedback: [{ match: "fullbokad", tip: "*fullbokad* betekent „volgeboekt”. Lees de zin nog eens: wat past hier?" }] }] }
+          - { id: j4e2, type: gap, text: "Visby är en populär ___ för svenska familjer.", gaps: [{ answers: ["semesterort"], options: ["semesterort", "tull", "gräns", "kupé"], feedback: [{ match: "tull", tip: "*tull* betekent „de douane; invoerheffing”. Lees de zin nog eens: wat past hier?" }] }] }
+          - { id: 5fgp, type: gap, text: "När vi kom till ___ mellan Sverige och Norge stoppade ___ oss.", gaps: [{ answers: ["gränsen"], options: ["gränsen", "tullen", "kupén", "ankomsten"], feedback: [{ match: "tullen", tip: "*tull* betekent „de douane; invoerheffing”. Lees de zin nog eens: wat past hier?" }] }, { answers: ["tullen"], options: ["tullen", "gränsen", "kupén", "vagnen"] }] }
+          - { id: dcsn, type: gap, text: "Glöm inte att köpa en ___, annars blir hemresan dyr.", gaps: [{ answers: ["returbiljett"], options: ["returbiljett", "sevärdhet", "sittplats", "sovvagn"], feedback: [{ match: "sevärdhet", tip: "*sevärdhet* betekent „een bezienswaardigheid”. Lees de zin nog eens: wat past hier?" }] }] }
+
+  - id: partikel
+    title: "Grammatik: partikelwerkwoorden"
+    exercises:
+      - id: partikel-reizen
+        title: Het goede partikel
+        instruction: Kies wat past.
+        topic: partikelverb-2
+        shuffle: true
+        items:
+          - { id: m7p9, type: gap, text: "Vi måste skynda oss om vi ska ___ tåget.", gaps: [{ answers: ["hinna med"], options: ["hinna med", "komma fram", "stiga av"] }] }
+          - { id: 9cqu, type: gap, text: "Hotellet ligger precis vid Centralstationen, så där ska du ___.", gaps: [{ answers: ["stiga av"], options: ["stiga av", "stiga på", "åka iväg"] }] }
+          - { id: cjk8, type: gap, text: "När kom ni ___ till hotellet?", gaps: [{ answers: ["fram"], options: ["fram", "av", "på", "iväg"], shuffle: false }] }
+          - { id: bvra, type: gap, text: "Glöm inte att ta med ___ passet!", gaps: [{ answers: ["dig"], options: ["dig", "sig", "du"], shuffle: false, feedback: [{ match: "sig", tip: "Tegen jou (du): ta med dig." }] }] }
+          - { id: ygrq, type: gap, text: "Bussen ___ klockan sju i morse, så vi missade den.", gaps: [{ answers: ["åkte iväg"], options: ["åkte iväg", "kom fram", "steg på"], tip: "Vertrekken: åka iväg." }] }
+          - { id: fns3, type: gap, text: "Var ska vi ___ bussen? (instappen)", gaps: [{ answers: ["stiga på"], options: ["stiga på", "stiga av", "komma fram"] }] }
+          - { id: mauq, type: gap, text: "Tåget var försenat, så vi ___ bussen.", gaps: [{ answers: ["hann inte med"], options: ["hann inte med", "kom inte fram", "steg inte av"], tip: "Iets nog halen: hinna med. Inte staat tussen werkwoord en partikel: hann inte med." }] }
+          - { id: r9t7, type: gap, text: "Mitt flyg blev inställt, så jag måste ___ biljetten.", gaps: [{ answers: ["boka om"], options: ["boka om", "boka in", "boka ut"], tip: "Omboeken: boka om." }] }
+
+      - id: partikel-deelwoord
+        title: Het partikel vooraan
+        instruction: Vul het deelwoord in. Het partikel komt vooraan.
+        topic: partikelverb-2
+        shuffle: true
+        items:
+          - { id: yztf, type: gap, text: "ställa in → Flyget är ___.", gaps: [{ answers: ["inställt"], feedback: [{ match: ["ställt in", "inställd"], tip: "flyg is een ett-woord en het partikel komt vooraan: inställt." }] }] }
+          - { id: wts2, type: gap, text: "boka om → Biljetten är ___.", gaps: [{ answers: ["ombokad"], feedback: [{ match: "bokad om", tip: "Het partikel komt vooraan: ombokad." }] }] }
+          - { id: 5afn, type: gap, text: "packa upp → Väskorna är ___.", gaps: [{ answers: ["uppackade"], feedback: [{ match: ["upppackade", "uppackad"], tip: "Meervoud: uppackade (met twee p's)." }] }] }
+          - { id: 6bq9, type: gap, text: "stänga av → Mobilen är ___.", gaps: [{ answers: ["avstängd"], feedback: [{ match: "stängd av", tip: "Het partikel komt vooraan: avstängd." }] }] }
+          - { id: 2hka, type: gap, text: "låsa upp → Dörren är ___.", gaps: [{ answers: ["upplåst"], feedback: [{ match: "låst upp", tip: "Het partikel komt vooraan: upplåst." }] }] }
+          - { id: et7e, type: gap, text: "slå på → Datorn är ___.", gaps: [{ answers: ["påslagen"], feedback: [{ match: ["slagen på", "påslaget"], tip: "dator is een en-woord en het partikel komt vooraan: påslagen." }] }] }
+          - { id: uzzz, type: gap, text: "skriva ut → Biljetterna är ___.", gaps: [{ answers: ["utskrivna"], feedback: [{ match: ["utskriven", "skrivna ut"], tip: "Meervoud, met het partikel vooraan: utskrivna." }] }] }
+          - { id: hcn5, type: gap, text: "sätta upp → Tältet är ___.", gaps: [{ answers: ["uppsatt"], feedback: [{ match: ["satt upp", "uppsatta"], tip: "tält is een ett-woord en het partikel komt vooraan: uppsatt." }] }] }
+
+      - id: partikel-vertalen
+        title: Vertaal
+        instruction: Vertaal naar het Zweeds. Gebruik een werkwoord met een partikel.
+        topic: partikelverb-2
+        shuffle: true
+        items:
+          - id: u5cg
+            type: translate
+            prompt: "We moeten opschieten, anders halen we de laatste trein naar Kiruna niet."
+            answers: ["Vi {måste|får} skynda oss, annars hinner vi inte med {det sista tåget|sista tåget} till Kiruna."]
+            feedback:
+              - { contains: "annars vi", tip: "*annars* vooraan geeft inversie: *annars hinner vi*." }
+              - { contains: "hinner vi med inte", tip: "*inte* staat vóór het partikel: *hinner vi inte med*." }
+          - id: n9tu
+            type: translate
+            prompt: "Vergeet niet je slaapzak en je paspoort mee te nemen!"
+            answers: ["Glöm inte [att ]ta med [dig ]{sovsäcken|din sovsäck} och {passet|ditt pass}!"]
+            feedback:
+              - { contains: "ta med sig", tip: "Tegen jou (du): *ta med dig*." }
+              - { contains: "ta dig med", tip: "Bij *ta med* staat *dig* na het partikel: *ta med dig*." }
+          - id: ssjj
+            type: translate
+            prompt: "Toen we eindelijk in Abisko aankwamen, was de bus al vertrokken."
+            answers:
+              - "När vi {äntligen|till slut} kom fram till Abisko, hade bussen redan {åkt iväg|åkt|gått}."
+              - "Bussen hade redan {åkt iväg|åkt|gått} när vi {äntligen|till slut} kom fram till Abisko."
+            feedback:
+              - { contains: "abisko bussen hade", tip: "Na de bijzin vooraan komt eerst het werkwoord: *hade bussen*." }
+          - id: emfg
+            type: translate
+            prompt: "Onze vlucht is geannuleerd, dus we moeten de kaartjes omboeken."
+            answers: ["Vårt flyg {är inställt|har ställts in|ställdes in|blev inställt|har blivit inställt}, så vi måste boka om biljetterna."]
+            feedback:
+              - { contains: "är inställd ", tip: "*flyg* is een ett-woord: *vårt flyg är inställt*." }
+              - { contains: "är ställt in", tip: "Als deelwoord komt het partikel vooraan: *inställt*." }
+              - { contains: "så måste vi", tip: "Na het voegwoord *så* (= dus) geen inversie: *så vi måste*." }
+          - id: eqw7
+            type: translate
+            prompt: "Waar moeten we uitstappen als we naar het hotel willen?"
+            answers: ["Var {ska|måste} vi {stiga|gå|kliva} av om vi {vill|ska} [åka ]till hotellet?"]
+            feedback:
+              - { contains: "stiga ut", tip: "Uitstappen is *stiga av* (of *gå av*)." }
+          - id: 5had
+            type: translate
+            prompt: "Alle koffers zijn al uitgepakt en de telefoons zijn uitgezet."
+            answers: ["{Alla väskor|Alla väskorna|Väskorna|Alla resväskor|Alla resväskorna|Resväskorna} är redan uppackade[,] och {mobilerna|telefonerna} är avstängda."]
+            feedback:
+              - { contains: "packade upp", tip: "Als deelwoord komt het partikel vooraan: *uppackade*." }
+              - { contains: "stängda av", tip: "Als deelwoord komt het partikel vooraan: *avstängda*." }
+          - id: s7am
+            type: translate
+            prompt: "De conducteur vroeg of we in Umeå wilden uitstappen."
+            answers: ["Konduktören frågade om vi ville {stiga|gå|kliva} av i Umeå."]
+            feedback:
+              - { contains: "om ville vi", tip: "Na *om* volgt een bijzin: eerst het onderwerp, *om vi ville*." }
+          - { id: dj5f, type: translate, prompt: "Mijn vrienden in Uppsala hebben me uitgenodigd voor hun midzomerfeest.", answers: ["Mina {vänner|kompisar} i Uppsala har {bjudit in mig|bjudit mig} till sin midsommarfest."], feedback: [{ contains: "deras midsommarfest", tip: "Het eigen feest van het onderwerp (*mina vänner*): *sin midsommarfest*." }] }
+
+  - id: sambandsord
+    title: "Grammatik: verbindingswoorden"
+    exercises:
+      - id: samband-sorteren
+        title: Inversie of niet?
+        instruction: Komt er na het woord vooraan in de zin **inversie** (werkwoord vóór onderwerp)?
+        topic: sambandsord
+        items:
+          - id: xswn
+            type: sort
+            categories: ["inversie: Därför kom vi …", "geen inversie: … så vi kom"]
+            items:
+              - { text: "därför", cat: 0 }
+              - { text: "och", cat: 1 }
+              - { text: "dessutom", cat: 0 }
+              - { text: "men", cat: 1 }
+              - { text: "ändå", cat: 0 }
+              - { text: "så (= dus)", cat: 1 }
+              - { text: "sedan", cat: 0 }
+              - { text: "eller", cat: 1 }
+
+      - id: samband-kiezen
+        title: Het goede verbindingswoord
+        instruction: Kies het woord dat past.
+        topic: sambandsord
+        shuffle: true
+        items:
+          - { id: eyfk, type: gap, text: "Tåget var försenat. ___ missade vi bussen.", gaps: [{ answers: ["Därför"], options: ["Därför", "Dessutom", "Däremot"], shuffle: false }] }
+          - { id: tq2e, type: gap, text: "Hotellet var dyrt. ___ var det smutsigt.", gaps: [{ answers: ["Dessutom"], options: ["Därför", "Dessutom", "Däremot"], shuffle: false }] }
+          - { id: jfkt, type: gap, text: "Tåget var försenat, ___ vi missade bussen.", gaps: [{ answers: ["så"], options: ["så", "därför", "dessutom"], shuffle: false, feedback: [{ match: ["därför", "dessutom"], tip: "Na een komma met gewone woordvolgorde (vi missade): het voegwoord så." }] }] }
+          - { id: 8byx, type: gap, text: "Bussen var full. Tåget ___ var nästan tomt.", gaps: [{ answers: ["däremot"], options: ["däremot", "därför", "dessutom"], shuffle: false, tip: "Een tegenstelling: däremot." }] }
+          - { id: 4mcn, type: gap, text: "Det regnade hela veckan. ___ hade vi roligt.", gaps: [{ answers: ["Ändå"], options: ["Ändå", "Därför", "Dessutom"], shuffle: false, tip: "Toch: ändå." }] }
+          - { id: c54n, type: gap, text: "___ åkte vi till Kiruna, och sedan vidare till Abisko.", gaps: [{ answers: ["Först"], options: ["Först", "Till slut", "Däremot"], shuffle: false }] }
+          - { id: h56y, type: gap, text: "Jag gillar att resa med tåg. Min man ___ föredrar flyg.", gaps: [{ answers: ["däremot"], options: ["däremot", "därför", "dessutom"], shuffle: false, tip: "Een tegenstelling: däremot." }] }
+          - { id: zjmy, type: gap, text: "Vi åt middag och gick på museum. ___ åkte vi hem.", gaps: [{ answers: ["Till slut"], options: ["Till slut", "Däremot", "Dessutom"], shuffle: false }] }
+
+      - id: samband-zinsbouw
+        title: Let op de woordvolgorde
+        instruction: Zet de woorden in de goede volgorde.
+        topic: sambandsord
+        shuffle: true
+        items:
+          - { id: vwdq, type: order, start: "Därför", tokens: ["kom", "vi", "fram", "sent"], answers: ["Därför kom vi fram sent."] }
+          - { id: peev, type: order, start: "Dessutom", tokens: ["hade", "vi", "missat", "bussen"], answers: ["Dessutom hade vi missat bussen."] }
+          - { id: 7jtb, type: order, start: "Tåget var sent, så", tokens: ["vi", "missade", "bussen"], answers: ["Tåget var sent, så vi missade bussen."] }
+          - { id: xdqr, type: order, start: "Till slut", tokens: ["kom", "vi", "fram", "till Abisko"], answers: ["Till slut kom vi fram till Abisko."] }
+          - { id: 4u9b, type: order, start: "Vi kom sent eftersom", tokens: ["tåget", "inte", "gick", "i tid"], answers: ["Vi kom sent eftersom tåget inte gick i tid."] }
+          - { id: e9cj, type: order, start: "Däremot", tokens: ["var", "hotellet", "billigt"], answers: ["Däremot var hotellet billigt."] }
+          - { id: 4eyy, type: order, start: "Ändå", tokens: ["hade", "vi", "en fin resa"], answers: ["Ändå hade vi en fin resa."] }
+          - { id: s5rk, type: order, start: "Först", tokens: ["åkte", "vi", "till Stockholm"], answers: ["Först åkte vi till Stockholm."] }
+
+      - id: samband-vertalen
+        title: Vertaal
+        instruction: Vertaal naar het Zweeds. Let op de woordvolgorde na het verbindingswoord.
+        topic: sambandsord
+        shuffle: true
+        items:
+          - id: akur
+            type: translate
+            prompt: "Het hotel was duur. Bovendien was de kamer klein en vies."
+            answers: ["Hotellet var dyrt. Dessutom var rummet {litet|smått} och smutsigt."]
+            feedback:
+              - { contains: "dessutom rummet", tip: "Na *dessutom* vooraan: inversie, *dessutom var rummet*." }
+              - { contains: "rummet var liten", tip: "*rum* is een ett-woord: *litet*." }
+          - id: r79y
+            type: translate
+            prompt: "Het vliegtuig was vertraagd, dus we hebben de laatste bus naar het hotel gemist."
+            answers: ["{Flyget|Planet} {var|blev} försenat, så vi {missade|har missat} {den sista bussen|sista bussen} till hotellet."]
+            feedback:
+              - { contains: "så missade vi", tip: "Na het voegwoord *så* (= dus) geen inversie: *så vi missade*." }
+              - { contains: "var försenad", tip: "*flyg* is een ett-woord: *flyget var försenat*." }
+          - id: 7gua
+            type: translate
+            prompt: "Het regende de hele week. Toch hadden we een fantastische vakantie."
+            answers:
+              - "Det regnade hela veckan. {Ändå|Trots det} hade vi en {fantastisk|underbar} semester."
+              - "Det regnade hela veckan. Vi hade ändå en {fantastisk|underbar} semester."
+            feedback:
+              - { contains: "ändå vi hade", tip: "Na *ändå* vooraan: inversie, *ändå hade vi*." }
+          - id: rgc3
+            type: translate
+            prompt: "We kwamen vijf uur te laat aan. Daarom willen we een vergoeding aanvragen."
+            answers: ["Vi kom[ fram] fem timmar för sent. Därför vill vi {ansöka om|söka|begära|kräva} ersättning."]
+            feedback:
+              - { contains: "därför vi", tip: "Na *därför* vooraan: inversie, *därför vill vi*." }
+          - id: ccwd
+            type: translate
+            prompt: "Eerst namen we de trein naar Kiruna en daarna de bus naar Abisko."
+            answers:
+              - "Först tog vi tåget till Kiruna[,] och {sedan|sen|efter det|därefter} tog vi bussen till Abisko."
+              - "Först tog vi tåget till Kiruna[,] och {sedan|sen|efter det|därefter} bussen till Abisko."
+            feedback:
+              - { contains: "först vi tog", tip: "Na *först* vooraan: inversie, *först tog vi*." }
+              - { contains: "sedan vi tog", tip: "Na *sedan* vooraan: inversie, *sedan tog vi*." }
+          - id: tvzt
+            type: translate
+            prompt: "Mijn vriendin reist graag met het vliegtuig. Ik neem daarentegen liever de trein."
+            answers: ["Min {kompis|vän|väninna|flickvän} {reser gärna med flyg|reser gärna med flygplan|flyger gärna}. {Jag tar däremot hellre tåget|Däremot tar jag hellre tåget|Jag åker däremot hellre tåg|Däremot åker jag hellre tåg}."]
+            feedback:
+              - { contains: "däremot jag", tip: "Na *däremot* vooraan: inversie, *däremot tar jag*." }
+          - id: add7
+            type: translate
+            prompt: "We waren moe, want we hadden de hele nacht in de trein gezeten."
+            answers:
+              - "Vi var trötta, {för|eftersom} vi hade suttit {på|i} tåget hela natten."
+              - "Vi var trötta, {för|eftersom} vi hade suttit hela natten {på|i} tåget."
+            feedback:
+              - { contains: "för hade vi", tip: "Na *för* (= want) geen inversie: *för vi hade*." }
+              - { contains: "hela natt ", tip: "Na *hela*: bepaald, *hela natten*." }
+          - { id: mbs7, type: translate, prompt: "We wilden midzomer bij het meer vieren, maar het regende helaas de hele dag.", answers: ["Vi ville fira midsommar vid sjön, men {det regnade tyvärr|tyvärr regnade det} hela dagen."], feedback: [{ contains: "tyvärr det regnade", tip: "Na *tyvärr* vooraan: inversie, *tyvärr regnade det*." }] }
+          - { id: akup, type: translate, prompt: "Kerst is de belangrijkste feestdag van het jaar, daarom zijn de treinen in december altijd vol.", answers: ["{Julen|Jul} är {årets viktigaste högtid|den viktigaste högtiden {under|på} året}, [och ]därför är tågen {alltid fulla i december|i december alltid fulla|alltid fullsatta i december|i december alltid fullsatta}.", "{Julen|Jul} är {årets viktigaste högtid|den viktigaste högtiden {under|på} året}, så {tågen är|är tågen} {alltid fulla i december|i december alltid fulla|alltid fullsatta i december|i december alltid fullsatta}."], feedback: [{ contains: "därför tågen", tip: "Na *därför* vooraan: inversie, *därför är tågen*." }, { contains: "viktigast högtid", tip: "Na *årets* staat de overtreffende trap op -e: *årets viktigaste högtid*." }] }
+
+      - id: langere-zinnen
+        title: "Vertaal: langere zinnen"
+        instruction: Vertaal de hele zin. Let op de woordvolgorde in de bijzin en na een woord vooraan.
+        items:
+          - { id: hc7n, type: translate, topic: sambandsord, prompt: "De trein had vertraging door een seinstoring, dus we haalden de overstap in Stockholm niet.", answers: ["Tåget var försenat på grund av ett signalfel, så vi hann inte med bytet i Stockholm.", "Tåget var försenat på grund av ett signalfel, {så vi hann inte med|så vi missade|och därför hann vi inte med|därför hann vi inte med|och därför missade vi|därför missade vi} bytet i Stockholm."], feedback: [{ contains: "därför vi hann", tip: "Na därför: werkwoord eerst (därför hann vi)." }] }
+          - { id: dbyt, type: translate, topic: partikelverb-2, prompt: "We stapten bij de verkeerde halte uit en moesten bijna twee kilometer teruglopen naar het hotel.", answers: ["Vi steg av vid fel hållplats och fick gå nästan två kilometer tillbaka till hotellet.", "Vi {steg|klev|gick} av vid fel hållplats och {fick|måste|var tvungna att} gå {nästan två kilometer tillbaka|tillbaka nästan två kilometer} till hotellet."], feedback: [{ contains: "steg ut vid", tip: "Bij bus en trein zeg je meestal stiga av." }] }
+          - { id: 9pkm, type: translate, topic: sambandsord, prompt: "Het regende de hele week, maar we wandelden toch elke dag omdat het uitzicht fantastisch was.", answers: ["Det regnade hela veckan, men vi vandrade ändå varje dag eftersom utsikten var fantastisk.", "Det regnade hela veckan, men vi {vandrade|promenerade} {ändå varje dag|varje dag ändå} {eftersom|för att} utsikten var fantastisk."], feedback: [{ contains: "eftersom var utsikten", tip: "In een bijzin: onderwerp, dan werkwoord (eftersom utsikten var)." }] }
+          - { id: cb7a, type: translate, topic: sambandsord, prompt: "Bovendien was het hotel volgeboekt, dus we moesten die nacht in een klein tentje bij het meer slapen.", answers: ["Dessutom var hotellet fullbokat, så vi fick sova i ett litet tält vid sjön den natten.", "Dessutom var hotellet fullbokat, så vi {fick|måste} sova i ett litet tält vid sjön den natten."], feedback: [{ contains: "Dessutom hotellet var", tip: "Na dessutom vooraan: werkwoord eerst (dessutom var hotellet)." }] }
+
+  - id: zoek-de-fout
+    title: Zoek de fout
+    exercises:
+      - id: zoek-de-fout
+        title: Zoek de fout
+        instruction: Klik op het woord dat niet klopt en verbeter de zin.
+        topic: sambandsord
+        shuffle: true
+        items:
+          - { id: qyqg, type: findError, sentence: "Därför vi missade bussen.", wrong: [1, 2], answers: ["Därför missade vi bussen."], tip: "Inversie na därför." }
+          - { id: kx95, type: findError, sentence: "Dessutom hotellet var dyrt.", wrong: [1, 2], answers: ["Dessutom var hotellet dyrt."], tip: "Inversie na dessutom." }
+          - { id: gf78, type: findError, topic: partikelverb-2, sentence: "Flyget är ställt in.", wrong: [2, 3], answers: ["Flyget är inställt."], tip: "Bij een deelwoord komt het partikel vooraan." }
+          - { id: ahuu, type: findError, topic: partikelverb-2, sentence: "Ta med sig passet!", wrong: [2], answers: ["Ta med dig passet!"], tip: "Tegen wie praat je?" }
+          - { id: butj, type: findError, sentence: "Tåget var sent, så missade vi bussen.", wrong: [4, 5], answers: ["Tåget var sent, så vi missade bussen."], tip: "Na het voegwoord så (= dus): geen inversie. In spreektaal hoor je ook så missade vi, maar schrijf så vi missade." }
+
+  - id: lyssna
+    title: Lyssna · luisteren
+    exercises:
+      - id: lyssna-utrop
+        title: "Luisteren: een omroepbericht"
+        instruction: Luister naar het omroepbericht op het station. Is de bewering **rätt** of **fel**?
+        topic: partikelverb-2
+        listen: true
+        textTitle: Utrop på stationen
+        text: |
+          Information om tåg nittiofyra till Kiruna, med avgång klockan arton och fyra. Tåget är försenat cirka fyrtio minuter på grund av ett signalfel. Ny beräknad avgångstid är arton och fyrtiofem.
+
+          Observera att tåget avgår från spår tolv i stället för spår fjorton. Resenärer som ska byta till bussen i Boden ombeds kontakta personalen på tåget. Vi ber om ursäkt för förseningen.
+        items:
+          - { id: 5mz5, type: truefalse, statement: "Tåget går till Kiruna.", answer: true }
+          - { id: 74ty, type: truefalse, statement: "Tåget är försenat cirka en timme.", answer: false, correction: { answers: ["{Tåget|Det} är försenat {cirka|ungefär} fyrtio minuter."] } }
+          - { id: ukby, type: truefalse, statement: "Förseningen beror på ett signalfel.", answer: true }
+          - { id: 5j44, type: truefalse, statement: "Tåget avgår från spår fjorton.", answer: false, correction: { answers: ["{Tåget|Det} avgår från spår tolv[ i stället]."] } }
+          - { id: jkse, type: truefalse, statement: "Den som ska byta till bussen i Boden ska kontakta personalen.", answer: true }
+
+      - id: lyssna-dictee
+        title: Dictee
+        instruction: Luister en maak de zin die je hoort.
+        topic: sambandsord
+        shuffle: true
+        items:
+          - { id: fdg2, type: listen, say: "Därför kom vi fram fem timmar för sent." }
+          - { id: 65ec, type: listen, say: "Flyget är inställt på grund av dimma." }
+          - { id: 2yca, type: listen, say: "Glöm inte att ta med dig passet." }
+          - { id: w28r, type: listen, say: "Dessutom hade vi missat bussen." }
+
+  - id: praktiskt
+    title: Praktiskt · een reis plannen en klagen
+    exercises:
+      - id: dialoog-biljett
+        title: Kaartjes kopen
+        instruction: Zet het gesprek in de goede volgorde.
+        topic: partikelverb-2
+        items:
+          - id: phem
+            type: dialogue
+            lines:
+              - "Mirjam: Hej! Jag skulle vilja boka två biljetter till Abisko i juli."
+              - "Personalen: Vill ni åka nattåg eller flyga till Kiruna?"
+              - "Mirjam: Nattåg, tack. Helst med sovvagn."
+              - "Personalen: Det finns plats den tolfte juli, med avgång klockan arton och fyra."
+              - "Mirjam: Perfekt. Behöver vi byta någonstans?"
+              - "Personalen: Nej, tåget går direkt. Ni kommer fram nästa förmiddag."
+              - "Mirjam: Toppen. Då tar vi de biljetterna."
+
+      - id: wat-zeg-je
+        title: Wat zeg je?
+        instruction: Kies wat je zegt.
+        topic: partikelverb-2
+        shuffle: true
+        items:
+          - { id: nrg5, type: mc, prompt: "Je wilt je kaartje omboeken.", options: ["Kan jag boka om min biljett?", "Kan jag boka in min biljett?", "Kan jag boka av min biljett?", "Kan jag boka upp min biljett?"], answer: 0 }
+          - { id: 6tzy, type: mc, prompt: "Je wilt weten waar je moet overstappen.", options: ["Var ska jag byta?", "Var ska jag stiga på?", "Var ska jag komma fram?", "Var ska jag åka om?"], answer: 0 }
+          - { id: s9fh, type: mc, prompt: "Je wilt compensatie voor de vertraging.", options: ["Jag vill ansöka om ersättning för förseningen.", "Jag vill betala för förseningen.", "Jag vill boka en försening.", "Jag vill hinna med förseningen."], answer: 0 }
+
+      - id: taak-trein-geschrapt
+        title: "Taak: je trein is geschrapt"
+        instruction: "Je staat op het centraal station van Stockholm. Je trein naar Göteborg van 14.10 is net geschrapt, en je moet vóór zeven uur 's avonds in Göteborg zijn voor een bruiloft. **Doel:** laat je kaartje omboeken naar een trein die op tijd aankomt, vraag naar een vergoeding en zorg dat je de trein haalt. Kies of schrijf bij elke stap wat jij zegt."
+        topic: partikelverb-2
+        items:
+          - id: 57vw
+            type: steps
+            explain: "Gelukt: je zit in de trein van 15.20, die om 18.30 in Göteborg is, en je kunt via de website een vergoeding aanvragen."
+            steps:
+              - type: mc
+                topic: partikelverb-2
+                prompt: "**Personalen:** Hej, vad kan jag hjälpa till med? — *Vertel wat er is en vraag om je kaartje om te boeken.*"
+                options:
+                  - "Hej! Mitt tåg till Göteborg är inställt. Kan jag boka om biljetten?"
+                  - "Hej! Mitt tåg till Göteborg är ställt in. Kan jag boka om biljetten?"
+                  - "Hej! Mitt tåg till Göteborg är inställd. Kan jag boka om biljetten?"
+                  - "Hej! Mitt tåg till Göteborg är inställt. Kan jag boka in biljetten?"
+                answer: 0
+                optionTips:
+                  - null
+                  - "Als deelwoord komt het partikel vooraan en plak je het eraan: *ställa in → inställt*."
+                  - "*tåg* is een ett-woord, dus het deelwoord krijgt -t: *tåget är inställt*."
+                  - "Omboeken is *boka om*. *Boka in* gebruik je voor iets nieuws inplannen."
+              - type: translate
+                topic: partikelverb-2
+                prompt: "Personalen: Absolut. Det går ett tåg klockan 15.20 och ett klockan 16.05. — Vraag: Wanneer komt de trein van 15.20 aan in Göteborg?"
+                answers:
+                  - "{När|Hur dags|Vilken tid} kommer tåget {{klockan|kl.} 15.20|som {går|avgår} [klockan ]15.20} fram [till Göteborg]?"
+                  - "{När|Hur dags|Vilken tid} är tåget {{klockan|kl.} 15.20|som {går|avgår} [klockan ]15.20} framme [i Göteborg]?"
+                  - "{När|Hur dags|Vilken tid} kommer 15.20-tåget fram [till Göteborg]?"
+                  - "{När|Hur dags|Vilken tid} är 15.20-tåget framme [i Göteborg]?"
+                  - "{När|Hur dags|Vilken tid} anländer tåget {{klockan|kl.} 15.20|som {går|avgår} [klockan ]15.20} [till Göteborg]?"
+                feedback:
+                  - { contains: "kommer fram tåget", tip: "In een vraag komt het onderwerp tussen werkwoord en partikel: *När kommer **tåget** fram?*" }
+              - type: gap
+                topic: sambandsord
+                prompt: "**Personalen:** Det är framme i Göteborg 18.30. Tåget klockan 16.05 kommer fram först 19.15. — *Je kiest de trein van 15.20.*"
+                text: "Då tar jag tåget klockan 15.20, ___ jag måste vara i Göteborg före sju."
+                gaps:
+                  - answers: ["eftersom"]
+                    options: ["eftersom", "därför", "dessutom", "ändå"]
+                    feedback:
+                      - { match: "därför", tip: "*därför* betekent *daarom* (een gevolg) en geeft inversie. Hier geef je een reden: *eftersom*." }
+                      - { match: "dessutom", tip: "*dessutom* (bovendien) voegt iets toe. Hier geef je een reden: *eftersom*." }
+                      - { match: "ändå", tip: "*ändå* (toch) is een tegenstelling. Hier geef je een reden: *eftersom*." }
+              - type: mc
+                topic: partikelverb-2
+                prompt: "**Personalen:** Så, nu är biljetten ombokad. Du har plats 54 i vagn 3. — *Je wilt ook een vergoeding, omdat je trein geschrapt is.*"
+                options:
+                  - "Tack! Kan jag också få ersättning för det inställda tåget?"
+                  - "Tack! Kan jag också få ersättning för det ställda in tåget?"
+                  - "Tack! Kan jag också få ersättning för den inställda tåget?"
+                  - "Tack! Kan jag också betala ersättning för det inställda tåget?"
+                answer: 0
+                optionTips:
+                  - null
+                  - "Als deelwoord komt het partikel vooraan: *det inställda tåget*."
+                  - "*tåg* is een ett-woord: *det inställda tåget*."
+                  - "Jij wilt geld krijgen, niet betalen: *få ersättning*."
+              - type: translate
+                topic: woordenschat
+                prompt: "Personalen: Ja, du kan ansöka om ersättning på vår hemsida. Men tåget går om tio minuter, så du måste skynda dig! — Vraag: Van welk spoor vertrekt hij?"
+                answers:
+                  - "{Från|På} vilket spår {går|avgår} {det|tåget}?"
+                  - "Vilket spår {går|avgår} {det|tåget} {från|på}?"
+                feedback:
+                  - { contains: "går den", tip: "*tåg* is een ett-woord. Je verwijst ernaar met *det*: *Från vilket spår går det?*" }
+                  - { contains: "vilken spår", tip: "*spår* is een ett-woord: *vilket spår*." }
+              - type: translate
+                topic: sambandsord
+                prompt: "Personalen: Spår 12, längst bort. — Zeg: Dan ren ik, anders haal ik de trein niet!"
+                answers:
+                  - "{Då springer jag|Jag springer|Då får jag springa|Då måste jag springa}, [för ]annars hinner jag inte[ med tåget]!"
+                  - "{Då springer jag|Jag springer|Då får jag springa|Då måste jag springa}, [för ]annars missar jag tåget!"
+                feedback:
+                  - { contains: "annars jag", tip: "*annars* vooraan in de zin geeft inversie: *annars **hinner jag** inte med tåget*." }
+                  - { contains: "då jag springer", tip: "Na *då* vooraan komt het werkwoord op plaats 2: *då **springer jag***." }
+                  - { contains: "hinner jag med inte", tip: "*inte* staat vóór het partikel: *hinner jag **inte med** tåget*." }
+              - type: translate
+                topic: partikelverb-2
+                prompt: "Konduktören (in de trein): Biljetterna, tack! — Zeg: Hier is mijn kaartje. Het is omgeboekt, omdat mijn trein geschrapt was."
+                answers:
+                  - "[Varsågod, ]{Här är|Här har du} min biljett. Den {är|har blivit|blev} ombokad, {eftersom|för|för att} mitt tåg {var inställt|ställdes in|hade ställts in}."
+                  - "[Varsågod, ]{Här är|Här har du} min biljett. Den {har bokats|bokades} om, {eftersom|för|för att} mitt tåg {var inställt|ställdes in|hade ställts in}."
+                feedback:
+                  - { contains: "är ombokat", tip: "*biljett* is een en-woord: *den är ombokad*." }
+                  - { contains: "är bokad om", tip: "Als deelwoord komt het partikel vooraan: *ombokad*." }
+                  - { contains: "var inställd", tip: "*tåg* is een ett-woord: *mitt tåg var inställt*." }
+                  - { contains: "eftersom mitt tåg inställt", tip: "Je mist het werkwoord: *eftersom mitt tåg **var** inställt*." }
+
+      - id: wat-zeg-je-zelf
+        title: Wat zeg je? (zelf)
+        instruction: Zeg het nu zelf in het Zweeds. Er is vaak meer dan één goed antwoord.
+        kind: situatie
+        items:
+          - { id: t3yr, type: translate, topic: partikelverb-2, prompt: "Zeg dat je de trein niet hebt gehaald.", answers: ["Jag {hann inte med|missade} tåget.", "Jag har missat tåget.", "Jag hann inte till tåget."] }
+          - { id: qrxs, type: translate, topic: partikelverb-2, prompt: "Vraag waar je moet uitstappen.", answers: ["Var {ska|måste} jag {stiga|kliva|gå} av?"] }
+          - { id: duwx, type: translate, topic: sambandsord, prompt: "Zeg dat de trein vertraging had en dat je daarom te laat bent.", answers: ["Tåget var försenat, så jag {är sen|kommer för sent}.", "Tåget var försenat, [och ]därför {är jag sen|kommer jag för sent}.", "Tåget var försenat. Därför {är jag sen|kommer jag för sent}.", "Jag {är sen|kommer för sent} eftersom tåget var försenat."], feedback: [{ contains: "därför jag är", tip: "Na därför komt het werkwoord eerst: därför är jag sen." }] }
+          - { id: ra25, type: translate, topic: sambandsord, prompt: "Zeg dat het regende, maar dat jullie toch gingen wandelen.", answers: ["Det regnade, men vi {gick på promenad|gick en promenad|tog en promenad|gick ut och gick|vandrade|promenerade} ändå."] }
+          - { id: 8qbn, type: translate, topic: partikelverb-2, prompt: "Je zit met een vriend in de bus. Zeg: hier moeten we uitstappen.", answers: ["Här {ska|måste} vi {stiga|gå|kliva} av.", "Vi {ska|måste} {stiga|gå|kliva} av här.", "Det är här vi {ska|måste} {stiga|gå|kliva} av.", "Här {går|stiger|kliver} vi av.", "Vi {går|stiger|kliver} av här."], feedback: [{ contains: ["stiga ut", "gå ut", "kliva ut"], tip: "Uitstappen = stiga av (of gå av)." }] }
+          - { id: juxy, type: translate, topic: sambandsord, prompt: "Vertel over je reis: eerst namen jullie de trein naar Stockholm, daarna de boot naar Finland.", answers: ["Först tog vi tåget till Stockholm[,] {och |}{sedan|sen|därefter|efter det} {tog vi |}{båten|färjan} till Finland.", "Först åkte vi tåg till Stockholm[,] {och |}{sedan|sen|därefter|efter det} {åkte vi |}{båt|färja} till Finland."], feedback: [{ contains: ["sedan vi tog", "sen vi tog", "sedan vi åkte", "sen vi åkte"], tip: "sedan is een bijwoord: daarna komt het werkwoord direct, sedan tog vi." }] }
+          - { id: e36j, type: translate, topic: partikelverb-2, prompt: "Je belt het hotel. Zeg dat je pas om tien uur 's avonds aankomt.", answers: ["{Jag|Vi} {kommer fram|är framme} först {klockan|kl.} {tio på kvällen|22}.", "{Jag|Vi} {kommer inte fram|är inte framme} förrän {klockan|kl.} {tio på kvällen|22}."], feedback: [{ contains: "kommer an", tip: "Aankomen = komma fram." }, { contains: ["kommer först", "kommer inte förrän"], retry: true, tip: "Goed Zweeds, maar oefen hier het partikelwerkwoord: komma fram." }] }
+          - { id: 5nuh, type: translate, topic: sambandsord, prompt: "Zeg dat de vlucht werd geannuleerd en dat jullie daarom een nacht langer bleven.", answers: ["Flyget {ställdes in|blev inställt}[,] {så vi stannade|och därför stannade vi|därför stannade vi} {en natt till|en natt extra|en natt längre|en extra natt}.", "Vi stannade {en natt till|en natt extra|en natt längre|en extra natt} eftersom flyget {ställdes in|blev inställt}."], feedback: [{ contains: "därför vi stannade", tip: "därför is een bijwoord: daarna komt het werkwoord direct, därför stannade vi." }, { contains: "flyget blev inställd", tip: "flyg is een ett-woord: inställt." }] }
+
+  - id: skriva
+    title: Skriva · schrijven
+    intro: "Schrijfdoel: een klachtmail."
+    exercises:
+      - id: skriva-klagomal
+        title: Schrijf een klacht
+        instruction: "Bouw eerst je klachtmail op in vijf stappen die de app nakijkt. Daarna schrijf je de hele mail, als je wilt."
+        topic: sambandsord
+        items:
+          - { id: hf68, type: mc, prompt: "Kies de beste eerste zin na de aanhef.", options: ["Den tolfte juli reste jag med nattåget från Stockholm till Abisko.", "Den tolfte juli jag reste med nattåget från Stockholm till Abisko.", "Den tolv juli reste jag med nattåget från Stockholm till Abisko."], answer: 0, tip: "Na de tijdsbepaling vooraan komt het werkwoord op plaats 2, en een datum is een rangtelwoord: den tolfte." }
+          - { id: xpvu, type: gap, topic: partikelverb-2, prompt: "Kies het woord dat past.", text: "Tåget stannade helt, och vi kom inte ___ förrän klockan tolv.", gaps: [{ answers: ["fram"], options: ["fram", "bort", "av"], tip: "aankomen = komma fram." }] }
+          - { id: 6aq4, type: gap, topic: sambandsord, prompt: "Kies het verbindingswoord dat past.", text: "Det blev ett signalfel. ___ kom vi fram fem timmar för sent.", gaps: [{ answers: ["Därför"], options: ["Därför", "Eftersom", "Däremot"], tip: "Het te laat komen is het gevolg: därför (daarom), met het werkwoord direct erna." }] }
+          - { id: zv7w, type: gap, topic: sambandsord, prompt: "Kies het verbindingswoord dat past.", text: "Vi kom fram för sent. ___ missade vi den sista bussen.", gaps: [{ answers: ["Dessutom"], options: ["Dessutom", "Trots att", "Medan"], tip: "Je voegt nog een probleem toe: dessutom (bovendien)." }] }
+          - { id: zhbn, type: translate, topic: woordenschat, prompt: "Ik wil een vergoeding aanvragen voor de vertraging.", answers: ["Jag {vill|skulle vilja} {ansöka om|söka|begära} ersättning för förseningen."], feedback: [{ contains: "vertraging", tip: "vertraging = försening, de vertraging = förseningen." }] }
+          - id: emrk
+            type: free
+            prompt: "Je trein was vijf uur te laat en je hebt daardoor een bus en een overnachting gemist. Schrijf een klachtmail (80–120 woorden): wanneer en waar je reisde, wat er gebeurde, wat de gevolgen waren en wat je wilt. Gebruik minstens drie verbindingswoorden, waaronder **därför** en **dessutom**."
+            minWords: 75
+            require:
+              - { any: ["hej"], label: "Je begint met een aanhef" }
+              - { any: ["försenat", "försening", "förseningen", "sent"], label: "Je beschrijft de vertraging" }
+              - { any: ["därför"], label: "Je gebruikt därför" }
+              - { any: ["dessutom"], label: "Je gebruikt dessutom" }
+              - { any: ["ersättning", "pengarna tillbaka", "pengar tillbaka"], label: "Je zegt wat je wilt (ersättning)" }
+              - { any: ["hälsningar"], label: "Je sluit netjes af" }
+            model: "Hej! Den tolfte juli reste jag med nattåget från Stockholm till Abisko. Först blev tåget en timme försenat, och sedan stannade det helt utanför Umeå på grund av ett signalfel. Därför kom vi fram fem timmar för sent. Dessutom missade vi den sista bussen till vandringsleden, så vi fick betala för en extra natt på ett hotell. Jag förstår att signalfel kan hända, men jag tycker ändå att ni borde informera resenärerna bättre. Jag vill därför ansöka om ersättning för förseningen och för hotellnatten. Kvittot bifogas. Med vänliga hälsningar, Mirjam de Groot"
+
+  - id: herhaling
+    title: Herhaling
+    exercises:
+      - id: herhaling-13-22
+        title: Hoofdstuk 13 tot en met 22 door elkaar
+        instruction: Gemengde vragen.
+        shuffle: true
+        items:
+          - { id: 8dk6, type: gap, topic: passiv-s, text: "Biljetterna ___ (sälja) bara på nätet.", gaps: [{ answers: ["säljs"] }] }
+          - { id: djqv, type: gap, topic: dar-dit-vars, text: "Abisko är platsen ___ vi åkte förra sommaren.", gaps: [{ answers: ["dit"], options: ["där", "dit", "vars"], shuffle: false }] }
+          - { id: fbmu, type: gap, topic: framtid, text: "Tåget ___ att vara försenat i kväll också.", gaps: [{ answers: ["kommer"], options: ["kommer", "ska", "tänker"], shuffle: false }] }
+          - { id: re9s, type: gap, topic: nagon-ingen, text: "Vi har inte sett ___ renar än.", gaps: [{ answers: ["några"], options: ["några", "inga", "något"], shuffle: false }] }
+          - { id: u3vz, type: gap, topic: bestamd-utan-artikel, text: "Vi vandrade hela ___.", gaps: [{ answers: ["dagen"], options: ["dag", "dagen"], shuffle: false }] }
+          - { id: zut5, type: order, topic: sambandsord, start: "Därför", tokens: ["tog", "vi", "bussen"], answers: ["Därför tog vi bussen."] }
+          - { id: zgad, type: gap, topic: partikelverb-2, text: "Vi måste ___ vid nästa station, annars missar vi bussen.", gaps: [{ answers: ["stiga av"], options: ["stiga av", "stiga på", "hinna med"], shuffle: false }] }
+          - { id: djva, type: gap, topic: sambandsord, text: "Tåget var försenat, ___ missade vi vårt flyg till Luleå.", gaps: [{ answers: ["därför"], options: ["därför", "för", "men"], shuffle: false }] }
+          - { id: quzd, type: gap, topic: bestamd-utan-artikel, text: "Vi var ute och reste hela ___ (vecka).", gaps: [{ answers: ["veckan"] }] }
+          - { id: 4c6b, type: transform, topic: passiv-s, task: "Maak er een lijdende zin van met -s.", prompt: "Man ställde in flyget på grund av stormen.", answers: ["Flyget {ställdes in|inställdes} på grund av stormen."] }
+          - { id: vfap, type: gap, topic: rad-onskan, text: "Jag önskar att jag ___ mer tid för mina vänner. (ha – ik wou dat ik meer tijd had)", gaps: [{ answers: ["hade"], feedback: [{ match: ["har", "ha"], tip: "Een wens die niet uitkomt: önskar att + verleden tijd, hade." }] }] }
+
+      - id: herhaling-woorden
+        title: Woorden van eerder
+        instruction: Kies het woord dat past. Deze woorden komen uit eerdere hoofdstukken.
+        topic: woordenschat
+        shuffle: true
+        items:
+          - { id: knga, type: gap, text: "På midsommar dansar vi runt ___ och äter sill.", gaps: [{ answers: ["midsommarstången"], options: ["midsommarstången", "studentmössan", "gudstjänsten", "begravningen"], feedback: [{ match: "gudstjänsten", tip: "*gudstjänst* betekent „een kerkdienst”. Lees de zin nog eens: wat past hier?" }] }] }
+          - { id: 96ur, type: gap, text: "På fettisdagen äter många semlor, och på våffeldagen äter man ___.", gaps: [{ answers: ["våfflor"], options: ["våfflor", "sill", "snapsar", "surströmming"], feedback: [{ match: "sill", tip: "*sill* betekent „een haring”. Lees de zin nog eens: wat past hier?" }] }] }
+          - { id: qwtx, type: gap, text: "Julen är ett gammalt ___ som har sitt ursprung i en hednisk fest.", gaps: [{ answers: ["firande"], options: ["firande", "dop", "skämt", "bageri"], feedback: [{ match: "skämt", tip: "*skämt* betekent „een grap”. Lees de zin nog eens: wat past hier?" }] }] }
+          - { id: mjdf, type: gap, text: "Efter gudstjänsten sjöng vi en traditionell ___.", gaps: [{ answers: ["sång"], options: ["sång", "snaps", "sed", "helgdag"], feedback: [{ match: "snaps", tip: "*snaps* betekent „een borrel (glaasje sterkedrank)”. Lees de zin nog eens: wat past hier?" }] }] }
+          - { id: uanu, type: gap, text: "På Valborg ___ man stora eldar och sjunger in våren.", gaps: [{ answers: ["tänder"], options: ["tänder", "släcker", "hyllar", "klär ut"], feedback: [{ match: "släcker", tip: "*släcka* betekent „uitdoen (licht), blussen”. Lees de zin nog eens: wat past hier?" }] }] }
+          - { id: rgz2, type: gap, text: "Vilken ___ tycker du bäst om, våren eller hösten?", gaps: [{ answers: ["årstid"], options: ["årstid", "helgdag", "namnsdag", "ceremoni"], feedback: [{ match: "helgdag", tip: "*helgdag* betekent „een vrije feestdag”. Lees de zin nog eens: wat past hier?" }] }] }
+          - { id: 52fp, type: gap, text: "Begravningen var mycket ___, och efteråt bjöd familjen på kaffe.", gaps: [{ answers: ["högtidlig"], options: ["högtidlig", "festlig", "hednisk", "årlig"], feedback: [{ match: "festlig", tip: "*festlig* betekent „feestelijk”. Lees de zin nog eens: wat past hier?" }] }] }
+          - { id: 94b8, type: gap, text: "Han berättade ett roligt ___ på sin namnsdag.", gaps: [{ answers: ["skämt"], options: ["skämt", "ursprung", "dop", "firande"], feedback: [{ match: "ursprung", tip: "*ursprung* betekent „een oorsprong, een herkomst”. Lees de zin nog eens: wat past hier?" }] }] }
+
+vocab:
+  - { sv: "ett nattåg", nl: "een nachttrein", def: "nattåget", pl: "nattåg", plDef: "nattågen", ex: "Vi tog **nattåget** från Stockholm till Abisko.", exNl: "We namen de nachttrein van Stockholm naar Abisko." }
+  - { sv: "en sovvagn", nl: "een slaaprijtuig", def: "sovvagnen", pl: "sovvagnar", plDef: "sovvagnarna", ex: "Vi sov gott i **sovvagnen** hela natten.", exNl: "We sliepen de hele nacht goed in het slaaprijtuig." }
+  - { sv: "en biljett", nl: "een kaartje", def: "biljetten", pl: "biljetter", plDef: "biljetterna", ex: "Vi bokade **biljetterna** två månader i förväg.", exNl: "We boekten de kaartjes twee maanden van tevoren." }
+  - { sv: "en försening", nl: "een vertraging", def: "förseningen", pl: "förseningar", plDef: "förseningarna", ex: "**Förseningen** berodde på ett signalfel.", exNl: "De vertraging kwam door een seinstoring." }
+  - { sv: "ett spår", nl: "een spoor", def: "spåret", pl: "spår", plDef: "spåren", ex: "Tåget till Göteborg avgår från **spår** sju.", exNl: "De trein naar Göteborg vertrekt van spoor zeven." }
+  - { sv: "en avgång", nl: "een vertrek", def: "avgången", pl: "avgångar", plDef: "avgångarna", ex: "Nästa **avgång** mot Kiruna är klockan 18.10.", exNl: "Het volgende vertrek richting Kiruna is om 18.10 uur." }
+  - { sv: "en ankomst", nl: "een aankomst", def: "ankomsten", pl: "ankomster", plDef: "ankomsterna", ex: "Beräknad **ankomst** är klockan nio.", exNl: "De verwachte aankomst is om negen uur." }
+  - { sv: "ett byte", nl: "een overstap", def: "bytet", pl: "byten", plDef: "bytena", ex: "Resan tar fem timmar med ett **byte** i Sundsvall.", exNl: "De reis duurt vijf uur met één overstap in Sundsvall." }
+  - { sv: "ett klagomål", nl: "een klacht", def: "klagomålet", pl: "klagomål", plDef: "klagomålen", ex: "Jag skrev ett **klagomål** till tågbolaget.", exNl: "Ik schreef een klacht aan de spoorwegmaatschappij." }
+  - { sv: "en ersättning", nl: "een vergoeding", def: "ersättningen", pl: "ersättningar", plDef: "ersättningarna", ex: "Vid stor försening har man rätt till **ersättning**.", exNl: "Bij een grote vertraging heb je recht op een vergoeding." }
+  - { sv: "ett tält", nl: "een tent", def: "tältet", pl: "tält", plDef: "tälten", ex: "Vi satte upp **tältet** vid en sjö.", exNl: "We zetten de tent op bij een meer." }
+  - { sv: "en resenär", nl: "een reiziger", def: "resenären", pl: "resenärer", plDef: "resenärerna", ex: "Tågbolaget bad **resenärerna** om ursäkt.", exNl: "De spoorwegmaatschappij bood de reizigers excuses aan." }
+  - { sv: "att stiga på", nl: "instappen", ex: "Vi **steg på** tåget i Stockholm.", exNl: "We stapten in Stockholm in de trein." }
+  - { sv: "att stiga av", nl: "uitstappen", ex: "Vi **steg av** vid fel hållplats.", exNl: "We stapten bij de verkeerde halte uit." }
+  - { sv: "att komma fram", nl: "aankomen", ex: "Vi **kom fram** till Abisko fem timmar för sent.", exNl: "We kwamen vijf uur te laat in Abisko aan." }
+  - { sv: "att hinna med", nl: "halen (op tijd)", ex: "Vi sprang och **hann med** bussen i sista stund.", exNl: "We renden en haalden de bus op het nippertje." }
+  - { sv: "att boka om", nl: "omboeken", ex: "Kan jag **boka om** min biljett till i morgon?", exNl: "Kan ik mijn kaartje omboeken naar morgen?" }
+  - { sv: "därför", nl: "daarom", ex: "Tåget var försenat. **Därför** missade vi bussen.", exNl: "De trein had vertraging. Daarom misten we de bus." }
+  - { sv: "dessutom", nl: "bovendien", ex: "Tåget var försenat, och **dessutom** var det fullt.", exNl: "De trein had vertraging en bovendien was hij vol." }
+  - { sv: "ändå", nl: "toch", ex: "Det regnade hela veckan, men vi hade **ändå** roligt.", exNl: "Het regende de hele week, maar we hadden toch plezier." }
+  - { sv: "en vandringsled", nl: "een wandelroute", def: "vandringsleden", pl: "vandringsleder", ex: "Kungsleden är Sveriges mest kända **vandringsled**.", exNl: "De Kungsleden is de bekendste wandelroute van Zweden." }
+  - { sv: "en sovsäck", nl: "een slaapzak", def: "sovsäcken", pl: "sovsäckar", ex: "Glöm inte att packa ner **sovsäcken**!", exNl: "Vergeet niet de slaapzak in te pakken!" }
+  - { sv: "ett signalfel", nl: "een seinstoring", def: "signalfelet", pl: "signalfel", ex: "Ett **signalfel** utanför Umeå stoppade all trafik.", exNl: "Een seinstoring buiten Umeå legde al het verkeer stil." }
+  - { sv: "ett tågbolag", nl: "een spoorwegmaatschappij", def: "tågbolaget", pl: "tågbolag", ex: "Vilket **tågbolag** kör nattåget till Narvik?", exNl: "Welke spoorwegmaatschappij rijdt de nachttrein naar Narvik?" }
+  - { sv: "en konduktör", nl: "een conducteur", def: "konduktören", pl: "konduktörer", ex: "**Konduktören** kontrollerade våra biljetter.", exNl: "De conducteur controleerde onze kaartjes." }
+  - { sv: "en vagn", nl: "een rijtuig, een wagon", def: "vagnen", pl: "vagnar", ex: "Våra platser är i **vagn** åtta.", exNl: "Onze plaatsen zijn in rijtuig acht." }
+  - { sv: "en kupé", nl: "een coupé (in een trein)", def: "kupén", pl: "kupéer", ex: "Vi delade **kupé** med en familj från Tyskland.", exNl: "We deelden een coupé met een gezin uit Duitsland." }
+  - { sv: "en sittplats", nl: "een zitplaats", def: "sittplatsen", pl: "sittplatser", ex: "Det fanns inga lediga **sittplatser** på tåget.", exNl: "Er waren geen vrije zitplaatsen in de trein." }
+  - { sv: "ett resmål", nl: "een reisbestemming", def: "resmålet", pl: "resmål", ex: "Thailand är ett populärt **resmål** för svenskar.", exNl: "Thailand is een populaire reisbestemming voor Zweden." }
+  - { sv: "en förbindelse", nl: "een verbinding", def: "förbindelsen", pl: "förbindelser", ex: "Det finns bra **förbindelser** mellan Malmö och Köpenhamn.", exNl: "Er zijn goede verbindingen tussen Malmö en Kopenhagen." }
+  - { sv: "en anslutning", nl: "een aansluiting", def: "anslutningen", pl: "anslutningar", ex: "Vi missade **anslutningen** i Boden.", exNl: "We misten de aansluiting in Boden." }
+  - { sv: "en ren", nl: "een rendier", def: "renen", pl: "renar", ex: "På vägen såg vi flera **renar**.", exNl: "Onderweg zagen we verscheidene rendieren." }
+  - { sv: "en midnattssol", nl: "de middernachtzon", def: "midnattssolen", mass: true, ex: "I juni kan man se **midnattssolen** i Abisko.", exNl: "In juni kun je in Abisko de middernachtzon zien." }
+  - { sv: "en charterresa", nl: "een pakketreis", def: "charterresan", pl: "charterresor", ex: "Förr åkte många svenskar på **charterresa** till Mallorca.", exNl: "Vroeger gingen veel Zweden op pakketreis naar Mallorca." }
+  - { sv: "en reseförsäkring", nl: "een reisverzekering", def: "reseförsäkringen", pl: "reseförsäkringar", ex: "Har du tecknat en **reseförsäkring**?", exNl: "Heb je een reisverzekering afgesloten?" }
+  - { sv: "en sevärdhet", nl: "een bezienswaardigheid", def: "sevärdheten", pl: "sevärdheter", ex: "Vasamuseet är en av Stockholms största **sevärdheter**.", exNl: "Het Vasamuseum is een van de grootste bezienswaardigheden van Stockholm." }
+  - { sv: "ett boende", nl: "een accommodatie, een verblijf", def: "boendet", pl: "boenden", ex: "Vi hittade ett billigt **boende** nära stationen.", exNl: "We vonden een goedkope accommodatie vlak bij het station." }
+  - { sv: "att åka iväg", nl: "vertrekken, weggaan", ex: "Vi **åker iväg** tidigt i morgon.", exNl: "We vertrekken morgen vroeg." }
+  - { sv: "att köra om", nl: "inhalen (in het verkeer)", ex: "Lastbilen **körde om** oss i en kurva.", exNl: "De vrachtwagen haalde ons in een bocht in." }
+  - { sv: "att packa ner", nl: "inpakken", ex: "Vi **packade ner** tält, sovsäckar och mat för en vecka.", exNl: "We pakten een tent, slaapzakken en eten voor een week in." }
+  - { sv: "att checka in", nl: "inchecken", ex: "Man kan **checka in** på hotellet från klockan tre.", exNl: "Je kunt vanaf drie uur inchecken in het hotel." }
+  - { sv: "att checka ut", nl: "uitchecken", ex: "Vi måste **checka ut** före klockan elva.", exNl: "We moeten vóór elf uur uitchecken." }
+  - { sv: "att köa", nl: "in de rij staan", ex: "Vi fick **köa** i en timme vid säkerhetskontrollen.", exNl: "We moesten een uur in de rij staan bij de veiligheidscontrole." }
+  - { sv: "att ta med sig", nl: "meenemen", ex: "Glöm inte att **ta med dig** passet!", exNl: "Vergeet niet je paspoort mee te nemen!" }
+  - { sv: "att ta sig", nl: "ergens komen, zich verplaatsen", ex: "Det är svårt att **ta sig** runt på ön utan bil.", exNl: "Het is moeilijk om je zonder auto op het eiland te verplaatsen." }
+  - { sv: "att hämta upp", nl: "ophalen (met de auto)", ex: "Min bror **hämtade upp** oss på flygplatsen.", exNl: "Mijn broer haalde ons op van het vliegveld." }
+  - { sv: "att gå ombord", nl: "aan boord gaan", ex: "Passagerarna kan **gå ombord** från klockan sju.", exNl: "De passagiers kunnen vanaf zeven uur aan boord gaan." }
+  - { sv: "att övernatta", nl: "overnachten", ex: "Vi **övernattade** på ett vandrarhem i Kiruna.", exNl: "We overnachtten in een jeugdherberg in Kiruna." }
+  - { sv: "att utforska", nl: "verkennen, ontdekken", ex: "Vi hyrde cyklar för att **utforska** ön.", exNl: "We huurden fietsen om het eiland te verkennen." }
+  - { sv: "att resa runt", nl: "rondreizen", ex: "Hon vill **resa runt** i Asien i ett halvår.", exNl: "Ze wil een half jaar door Azië rondreizen." }
+  - { sv: "på vägen", nl: "onderweg", ex: "**På vägen** till Abisko stannade vi i Kiruna.", exNl: "Onderweg naar Abisko stopten we in Kiruna." }
+  - { sv: "på grund av", nl: "vanwege, door", ex: "Bussen var sen **på grund av** snön.", exNl: "De bus was laat vanwege de sneeuw." }
+  - { sv: "det är värt det", nl: "het is de moeite waard", ex: "Resan var lång, men **det var värt det**.", exNl: "De reis was lang, maar het was de moeite waard." }
+  - { sv: "så att", nl: "zodat", ex: "Vi gick upp tidigt **så att** vi skulle hinna med tåget.", exNl: "We stonden vroeg op, zodat we de trein zouden halen." }
+  - { sv: "alltså", nl: "dus", ex: "Bussen går om en kvart. Vi har **alltså** lite tid kvar.", exNl: "De bus gaat over een kwartier. We hebben dus nog wat tijd." }
+  - { sv: "annars", nl: "anders", ex: "Skynda dig, **annars** missar vi tåget!", exNl: "Schiet op, anders missen we de trein!" }
+  - { sv: "trots", nl: "ondanks", ex: "**Trots** förseningen kom vi fram i tid till bröllopet.", exNl: "Ondanks de vertraging kwamen we op tijd aan voor de bruiloft." }
+  - { sv: "fullbokad", nl: "volgeboekt", ex: "Alla hotell i stan var **fullbokade**.", exNl: "Alle hotels in de stad waren volgeboekt." }
+  - { sv: "bekväm", nl: "comfortabel, gemakkelijk", ex: "Sängarna i sovvagnen var förvånansvärt **bekväma**.", exNl: "De bedden in het slaaprijtuig waren verrassend comfortabel." }
+  - { sv: "utomlands", nl: "in het buitenland, naar het buitenland", ex: "Förra året reste vi inte **utomlands** alls.", exNl: "Vorig jaar zijn we helemaal niet naar het buitenland geweest." }
+  - { sv: "i sista minuten", nl: "op het laatste moment", alt: ["i sista stund"], ex: "Vi bokade resan **{i sista minuten|i sista stund}**.", exNl: "We boekten de reis op het laatste moment." }
+  - { sv: "ett flyg", nl: "een vlucht, het vliegtuig", def: "flyget", pl: "flyg", plDef: "flygen", ex: "**Flyget** till Luleå var inställt.", exNl: "De vlucht naar Luleå was geannuleerd." }
+  - { sv: "en utsikt", nl: "een uitzicht", def: "utsikten", pl: "utsikter", plDef: "utsikterna", ex: "Från toppen är **utsikten** fantastisk.", exNl: "Vanaf de top is het uitzicht fantastisch." }
+  - { sv: "en semesterort", nl: "een vakantieplaats", def: "semesterorten", pl: "semesterorter", plDef: "semesterorterna", ex: "Visby är en populär **semesterort**.", exNl: "Visby is een populaire vakantieplaats." }
+  - { sv: "en tull", nl: "de douane; invoerheffing", def: "tullen", pl: "tullar", plDef: "tullarna", ex: "Vi fick vänta i **tullen**.", exNl: "We moesten wachten bij de douane." }
+  - { sv: "en gräns", nl: "een grens", def: "gränsen", pl: "gränser", plDef: "gränserna", ex: "Vi körde över **gränsen** till Norge.", exNl: "We reden de grens over naar Noorwegen." }
+  - { sv: "en returbiljett", nl: "een retourkaartje", def: "returbiljetten", pl: "returbiljetter", plDef: "returbiljetterna", ex: "En **returbiljett** är billigare än två enkla.", exNl: "Een retourkaartje is goedkoper dan twee enkele." }
+  - { sv: "lugn", nl: "rustig, kalm", ex: "Vi bodde på ett **lugnt** hotell vid sjön.", exNl: "We logeerden in een rustig hotel aan het meer." }

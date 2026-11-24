@@ -1,0 +1,683 @@
+chapter: 13
+# Kan-doen-uitspraken: de app vinkt ze zelf af als de vragen over deze onderwerpen
+# grotendeels in doos 3 of hoger staan (src/progress.js, canDoStatus).
+canDo:
+  - { text: "Ik kan de lijdende vorm met -s herkennen en maken, zoals in vacatures en regels (kaffe serveras, huset byggdes)", topics: [passiv-s] }
+  - { text: "Ik kan iemand of iets nader beschrijven met som", topics: [relativ-som] }
+  - { text: "Ik ken de vaste zinnen voor een korte, formele mail", topics: [formell-mail] }
+
+grammar:
+  - id: passiv-s
+    title: De lijdende vorm met -s
+    summary: "Werkwoord + **-s**: *Kaffe serveras klockan tio. Huset byggdes 1925. Mejlet har skickats.* Wie het doet, komt (als dat nodig is) na **av**."
+    body: |
+      Met de lijdende vorm (passief) staat de **handeling** centraal, niet wie het doet. In het Zweeds plak je meestal een **-s** aan het werkwoord. Dat zie je veel in vacatures, regels, nieuws en formele teksten.
+
+      - *Personalen **anställs** av chefen.* – Het personeel wordt door de baas aangenomen.
+      - *Ansökan **skickas** till Petra.* – De sollicitatie wordt naar Petra gestuurd.
+
+      Wie het doet, noem je alleen als dat nodig is, met **av**: *Boken skrevs **av** en känd författare.*
+
+      ### De vormen
+      | infinitief | presens | preteritum | supinum |
+      |---|---|---|---|
+      | måla*s* | mål**as** | målad**es** | har målat**s** |
+      | köpa*s* | köp**s** | köpt**es** | har köpt**s** |
+      | bygga*s* | bygg**s** | byggd**es** | har byggt**s** |
+      | läsa*s* | läs**es** | läst**es** | har läst**s** |
+      | skriva*s* | skriv**s** | skrev**s** | har skrivit**s** |
+      | göra*s* | gör**s** | gjord**es** | har gjort**s** |
+
+      Zo onthoud je het:
+      - **presens**: *-ar* wordt *-as*; *-er* wordt *-s* (*köper → köps*). Eindigt de stam op een *s*, dan *-es*: *läser → läses*.
+      - **preteritum**: de gewone verleden tijd + *-s*: *målade → målades*, *skrev → skrevs*.
+      - **supinum**: *har* + supinum + *-s*: *har målats*.
+      - Na een modaal werkwoord: infinitief + *-s*: *Ansökan **måste skickas** före fredag.*
+
+      ### Let op
+      - Werkwoorden als *hoppas, finns, trivs* en *ses* eindigen ook op -s, maar zijn **niet** lijdend. Die komen in hoofdstuk 16 terug.
+      - In advertenties zie je soms de ouderwetse vorm op **-es**: *Lägenhet uthyres, Personal sökes*. Gewoon Zweeds is *söks*.
+
+  - id: relativ-som
+    title: Betrekkelijke bijzinnen met som
+    summary: "**som** = die/dat: *en kollega **som** kommer från Chile*. In de bijzin staat *inte* vóór het werkwoord: *ett jobb som **inte kräver** erfarenhet*. Is *som* lijdend voorwerp, dan mag het weg."
+    body: |
+      Met **som** voeg je informatie toe over een zelfstandig naamwoord. *Som* is hetzelfde voor en-woorden, ett-woorden en meervoud.
+
+      - *Jag har en kollega. Hon kommer från Chile.* → *Jag har en kollega **som** kommer från Chile.*
+      - *Det är ett företag **som** säljer möbler.*
+
+      ### Bijzinvolgorde
+      Een *som*-zin is een bijzin. Woorden als *inte, aldrig, alltid* staan daarom **vóór** het werkwoord:
+
+      - *en chef som **inte lyssnar***
+      - *en kollega som **aldrig kommer** i tid*
+
+      ### Wanneer mag som weg?
+      - Is *som* het **onderwerp** van de bijzin, dan moet het blijven: *Mannen **som** bor här är polis.*
+      - Is *som* het **lijdend voorwerp**, dan mag het weg: *Boken (som) jag läser är spännande.*
+
+      Een snelle test: staat er direct na *som* een onderwerp (*jag, du, hon, Petra* …)? Dan mag *som* weg.
+
+      ### Voorzetsel aan het eind
+      Het voorzetsel blijft achteraan staan, net als vaak in het Nederlands: *kontoret som jag jobbar **på***, *kollegan som jag delar rum **med***.
+
+      Verder herhaal je het woord niet: ~~*annonsen som du skickade **den***~~ → *annonsen som du skickade*.
+
+  - id: formell-mail
+    title: Een formele mail
+    summary: "Begin met **Hej Petra,** of **Hej!** (ook formeel heel gewoon). Gebruik **jag skriver angående …**, **jag ser fram emot att …** en sluit af met **Med vänliga hälsningar**."
+    body: |
+      Zweden spreken elkaar bijna altijd met **du** aan, ook in formele situaties. Een sollicitatie begint dus gewoon met *Hej Petra,* of, als je geen naam weet, met *Hej!*. *Ni* gebruik je als je een organisatie of meerdere mensen aanspreekt: *Jag ser fram emot att höra från **er**.*
+
+      | Deel | Voorbeeld |
+      |---|---|
+      | aanhef | *Hej Petra,* · *Hej!* |
+      | reden | *Jag skriver angående tjänsten som …* · *Jag vill ansöka om tjänsten som …* |
+      | ervaring | *Jag har arbetat med … i fyra år.* · *Jag har erfarenhet av …* |
+      | motivatie | *Jag är intresserad av …* · *Jag tycker om att …* |
+      | bijlage | *Jag bifogar mitt cv.* · *Bifogat finns mitt cv.* |
+      | afsluiting | *Jag ser fram emot att höra från er.* · *Tack för att du läser min ansökan.* |
+      | groet | *Med vänliga hälsningar* · *Vänliga hälsningar* |
+
+      Informeel (vrienden, collega's): *Tjena!*, *Hörs!*, *Ses!*, *Kram!*. Die passen niet in een sollicitatie.
+
+sections:
+  - id: lasa
+    title: Läsa · lezen
+    intro: Een vacature lezen en begrijpen.
+    exercises:
+      - id: lasa-annons
+        title: "Lezen: een vacature"
+        instruction: Lees de vacature en beantwoord de vragen.
+        topic: woordenschat
+        textTitle: "Lindhem AB söker kundtjänstmedarbetare"
+        text: |
+          Lindhem AB säljer möbler och inredning på nätet. Företaget grundades 2009 i Örebro och har i dag 120 anställda. Våra möbler tillverkas i Sverige och Polen, och alla varor som beställs på webbplatsen levereras inom fem arbetsdagar. Under det senaste året har antalet kunder ökat kraftigt, och därför behöver vi förstärka vår kundtjänst.
+
+          Vi söker nu en kundtjänstmedarbetare på heltid. Du kommer att svara på frågor från kunder via telefon, chatt och mejl. Arbetet sker på vårt kontor i Örebro, men en dag i veckan kan du arbeta hemifrån. I arbetet ingår också att ta hand om klagomål och returer. Du blir en del av ett team på åtta personer, och du får en grundlig introduktion under de första veckorna.
+
+          Vi söker dig som har minst ett års erfarenhet av kundservice, talar och skriver svenska och engelska obehindrat och tycker om att lösa problem. Det är meriterande om du kan ett tredje språk, till exempel tyska eller nederländska.
+
+          Tjänsten är en tillsvidareanställning med sex månaders provanställning. Vi erbjuder flexibla arbetstider och betalar halva ditt gymkort. Kontoret ligger bara fem minuters promenad från centralstationen. Lön enligt överenskommelse. Intervjuer hålls löpande, så skicka din ansökan så snart som möjligt, dock senast den 15 maj. Ansökan skickas via vår webbplats. Frågor om tjänsten besvaras av rekryteringsansvarig Petra Lind.
+        items:
+          - { id: mtu8, type: mc, prompt: "Vad säljer Lindhem?", options: ["möbler och inredning", "kläder och skor", "resor", "telefoner"], answer: 0 }
+          - { id: rpdg, type: mc, prompt: "Hur ofta kan man arbeta hemifrån?", options: ["en dag i veckan", "två dagar i veckan", "varje dag", "aldrig"], answer: 0 }
+          - { id: txtt, type: mc, prompt: "Vad är meriterande?", options: ["att kunna ett tredje språk", "att bo i Örebro", "att ha egen bil", "att ha jobbat på Lindhem förut"], answer: 0, tip: "Zoek het woord meriterande in de tekst." }
+          - { id: 7mf5, type: truefalse, statement: "Man måste ha minst ett års erfarenhet av kundservice.", answer: true }
+          - { id: hyhv, type: truefalse, statement: "Tjänsten är på deltid.", answer: false, tip: "Lees de tweede alinea nog eens.", correction: { answers: ["{Tjänsten|Den|Jobbet} är på heltid.", "Det är en heltidstjänst."] } }
+          - { id: waue, type: truefalse, statement: "Man ska vänta till den 15 maj med att skicka sin ansökan.", answer: false, tip: "Wanneer worden de gesprekken gehouden?", correction: { answers: ["{Man ska|Man bör|Man kan} skicka {sin ansökan|ansökan|den} {så snart [som ]möjligt|direkt|nu}[, dock senast den 15 maj].", "{Du ska|Du bör|Du kan} skicka {din ansökan|ansökan|den} {så snart [som ]möjligt|direkt|nu}[, dock senast den 15 maj].", "{Man ska skicka sin|Du ska skicka din} ansökan senast den 15 maj.", "{Man|Du} behöver inte vänta[ till den 15 maj]."] } }
+          - { id: cg3k, type: truefalse, statement: "Lindhems möbler tillverkas bara i Sverige.", answer: false, tip: "Lees de eerste alinea nog eens.", correction: { answers: ["{Möblerna|De|Lindhems möbler} tillverkas [både ]i Sverige och [i ]Polen.", "{Möblerna|De|Lindhems möbler} tillverkas inte bara i Sverige.", "{Möblerna|De|Lindhems möbler} tillverkas också i Polen."] } }
+          - { id: 6bhn, type: mc, prompt: "Wat betekent *Lön enligt överenskommelse*?", options: ["Het salaris wordt in overleg bepaald.", "Het salaris staat vast in de cao.", "Er is geen salaris.", "Het salaris is voor iedereen gelijk."], answer: 0 }
+          - { id: qrmd, type: mc, prompt: "Wat is een *tillsvidareanställning*?", options: ["een vaste aanstelling", "een tijdelijk contract", "een stage", "een oproepcontract"], answer: 0, tip: "tills vidare = tot nader order, dus zonder einddatum." }
+          - id: j2wt
+            type: multi
+            topic: passiv-s
+            prompt: "Welke werkwoorden in de tekst staan in de lijdende vorm?"
+            options: ["grundades", "hålls", "skickas", "besvaras", "söker", "sker"]
+            answers: [0, 1, 2, 3]
+            tip: "sker (gebeurt) eindigt op -r: dat is gewoon presens van ske."
+
+      - id: makkelijk-1
+        title: "Makkelijk lezen: Ett nytt jobb"
+        instruction: Een korte tekst met woorden die je al kent. Lees hem vlot door en kies rätt of fel.
+        topic: woordenschat
+        kind: makkelijk
+        textTitle: "Ett nytt jobb"
+        text: |
+          Linda har fått ett nytt jobb på ett kafé i Göteborg. Kaféet öppnas klockan sju varje morgon, och Linda börjar halv sju. Först bakas bullarna, sedan görs smörgåsarna. På förmiddagen kommer många kunder, och då måste alla jobba snabbt. Chefen, som heter Amir, är lugn och snäll. Lönen betalas ut den 25:e varje månad. Linda har en provanställning på sex månader. Om allt går bra får hon sedan en tillsvidareanställning. Hon trivs redan bra.
+        items:
+          - { id: 57z2, type: truefalse, statement: "Kaféet öppnas klockan sju.", answer: true }
+          - { id: 5kqd, type: truefalse, statement: "Linda har en tillsvidareanställning.", answer: false }
+          - { id: 294g, type: truefalse, statement: "Chefen heter Amir.", answer: true }
+
+      - id: makkelijk-2
+        title: "Makkelijk lezen: Ett tack efter intervjun"
+        instruction: Een korte tekst met woorden die je al kent. Lees hem vlot door en kies rätt of fel.
+        topic: woordenschat
+        kind: makkelijk
+        textTitle: "Ett tack efter intervjun"
+        text: |
+          Hej Petra! Tack för intervjun i måndags. Jag tyckte att det var ett bra samtal. Jag fick veta mycket om tjänsten och om företaget, som jag tycker är intressant. Ni frågade om jag kan börja i juni. Det kan jag gärna. Mina papper har redan skickats via er webbplats, men jag bifogar mitt cv en gång till. Jag ser fram emot att höra från er. Med vänliga hälsningar, Daan Visser
+        items:
+          - { id: 3arx, type: truefalse, statement: "Intervjun var i måndags.", answer: true }
+          - { id: m78q, type: truefalse, statement: "Daan kan inte börja i juni.", answer: false }
+          - { id: hjmr, type: truefalse, statement: "Daan bifogar sitt cv.", answer: true }
+
+      - id: makkelijk-3
+        title: "Makkelijk lezen: Första dagen"
+        instruction: Een korte tekst met woorden die je al kent. Lees hem vlot door en beantwoord de vragen.
+        topic: woordenschat
+        kind: makkelijk
+        textTitle: "Första dagen"
+        text: |
+          Ali började på ett nytt jobb i en butik i måndags. Hans chef, som heter Karin, visade honom runt. Sedan fick han en tröja med företagets namn på. Alla i butiken har en sådan. Butiken öppnas klockan nio och stängs klockan sju. Personalen äter lunch i ett rum bakom butiken. Ali fick en kollega, Johan, som ska hjälpa honom den första veckan. På kvällen var Ali trött men nöjd.
+        items:
+          - { id: brrm, type: truefalse, statement: "Ali började i butiken i måndags.", answer: true }
+          - { id: hukz, type: mc, prompt: "Vem ska hjälpa Ali den första veckan?", options: ["Karin.", "Johan.", "Amir."], answer: 1 }
+          - { id: xyvt, type: truefalse, statement: "Butiken stängs klockan fem.", answer: false }
+
+      - id: makkelijk-4
+        title: "Makkelijk lezen: Schemat"
+        instruction: Een korte tekst met woorden die je al kent. Lees hem vlot door en beantwoord de vragen.
+        topic: woordenschat
+        kind: makkelijk
+        textTitle: "Schemat"
+        text: |
+          På sjukhuset där Sofia jobbar skickas schemat ut fyra veckor innan. Sofia jobbar ofta kväll, men nästa vecka har hon två dagpass. Om man vill byta ett pass, måste chefen säga ja. Sofia vill byta sitt pass på lördag, eftersom hennes syster fyller trettio. Hon frågar sin kollega Erik, som gärna vill byta. Chefen säger ja, och schemat ändras samma dag. Nu kan Sofia gå på festen.
+        items:
+          - { id: tw3s, type: truefalse, statement: "Schemat skickas ut en vecka innan.", answer: false }
+          - { id: j2jr, type: mc, prompt: "Varför vill Sofia byta pass?", options: ["Hon är sjuk.", "Hennes syster fyller år.", "Hon ska resa bort."], answer: 1 }
+          - { id: vs6q, type: truefalse, statement: "Erik vill gärna byta pass med Sofia.", answer: true }
+
+  - id: ord
+    title: Ord och fraser · woorden en uitdrukkingen
+    exercises:
+      - id: ord-uttryck
+        title: Uitdrukkingen op het werk
+        instruction: Koppel de uitdrukking aan de betekenis.
+        topic: woordenschat
+        items:
+          - id: x988
+            type: match
+            pairs:
+              - ["söka ett jobb", "solliciteren naar een baan"]
+              - ["gå på intervju", "op sollicitatiegesprek gaan"]
+              - ["jobba övertid", "overwerken"]
+              - ["vara sjukskriven", "ziek gemeld zijn"]
+              - ["säga upp sig", "ontslag nemen"]
+              - ["bli uppsagd", "ontslagen worden"]
+              - ["gå i pension", "met pensioen gaan"]
+          - id: t4ss
+            type: match
+            pairs:
+              - ["på heltid", "voltijds"]
+              - ["på deltid", "deeltijds"]
+              - ["en provanställning", "een proeftijd"]
+              - ["en arbetsgivare", "een werkgever"]
+              - ["meriterande", "een pré"]
+              - ["obehindrat", "vloeiend, zonder moeite"]
+
+      - id: ord-invullen
+        title: Het goede woord
+        instruction: Kies het woord dat past.
+        topic: woordenschat
+        shuffle: true
+        items:
+          - { id: bnh3, type: gap, text: "Hon har stor ___ av kundservice.", gaps: [{ answers: ["erfarenhet"], options: ["erfarenhet", "utbildning", "lön", "semester"] }] }
+          - { id: th5k, type: gap, text: "Vilken ___ har du? – Jag har läst ekonomi på universitetet.", gaps: [{ answers: ["utbildning"], options: ["erfarenhet", "utbildning", "lön", "semester"] }] }
+          - { id: 8rna, type: gap, text: "Hur hög är ___? – 32 000 kronor i månaden.", gaps: [{ answers: ["lönen"], options: ["lönen", "tjänsten", "chefen", "kravet"] }] }
+          - { id: tet8, type: gap, text: "Vi har ___ varje måndag klockan nio.", gaps: [{ answers: ["möte"], options: ["möte", "intervju", "kollega", "lön"] }] }
+          - { id: 84qq, type: gap, text: "Jag har jobbat här i fem år och jag ___ jättebra.", gaps: [{ answers: ["trivs"], options: ["trivs", "söker", "anställs", "slutar"], feedback: [{ match: "anställs", tip: "anställs = wordt aangenomen. Hier gaat het om je prettig voelen: trivs." }] }] }
+          - { id: nkcq, type: gap, text: "Företaget ska ___ tre nya säljare i höst.", gaps: [{ answers: ["anställa"], options: ["anställa", "arbeta", "trivas", "säga upp sig"], feedback: [{ match: "säga upp sig", tip: "säga upp sig = zelf ontslag nemen. Nieuwe verkopers in dienst nemen: anställa." }] }] }
+
+      - id: ord-jobbet-gap
+        title: "Woorden in een zin: op het werk"
+        instruction: Kies het woord dat past.
+        topic: woordenschat
+        shuffle: true
+        items:
+          - { id: 98pe, type: gap, text: "Min ___ betalar för en kurs i svenska, eftersom jag behöver svenska i jobbet.", gaps: [{ answers: ["arbetsgivare"], options: ["arbetsgivare", "sökande", "referens", "rast"], feedback: [{ match: "sökande", tip: "*en sökande* is een sollicitant. Wie je cursus betaalt: je *arbetsgivare* (werkgever)." }] }] }
+          - { id: awmg, type: gap, text: "Det finns många ___ i annonsen: man ska ha körkort, tala engelska och ha minst fem års erfarenhet.", gaps: [{ answers: ["krav"], options: ["krav", "avtal", "raster", "referenser"], feedback: [{ match: "avtal", tip: "*ett avtal* is een overeenkomst. Wat je moet hebben of kunnen: *krav* (eisen)." }] }] }
+          - { id: 3yth, type: gap, text: "Det viktigaste för mig är att ___ på jobbet och ha trevliga kollegor.", gaps: [{ answers: ["trivas"], options: ["trivas", "avsluta", "befordra", "rekrytera"], feedback: [{ match: "befordra", tip: "*befordra* is promotie geven. Het naar je zin hebben = *trivas*." }] }] }
+          - { id: dc39, type: gap, text: "Han tänker ___ och börja på ett annat företag i höst.", gaps: [{ answers: ["säga upp sig"], options: ["säga upp sig", "bli uppsagd", "hoppa in", "befordra"], feedback: [{ match: "bli uppsagd", tip: "*bli uppsagd* is ontslagen worden, en dat plan je niet. Zelf ontslag nemen = *säga upp sig*." }] }] }
+          - { id: z9dp, type: gap, text: "Företaget går dåligt, och Ali är rädd för att ___.", gaps: [{ answers: ["bli uppsagd"], options: ["bli uppsagd", "säga upp sig", "hoppa in", "samarbeta"], feedback: [{ match: "säga upp sig", tip: "*säga upp sig* is zelf ontslag nemen. Als het slecht gaat met het bedrijf, ben je bang om *uppsagd* (ontslagen) te worden." }] }] }
+          - { id: ne96, type: gap, text: "Vår ___ har ett stort kök där alla äter lunch tillsammans.", gaps: [{ answers: ["arbetsplats"], options: ["arbetsplats", "anställning", "arbetsuppgift", "bransch"], feedback: [{ match: "anställning", tip: "*en anställning* is een dienstverband. De plek waar je werkt: *arbetsplats*." }] }] }
+          - { id: gqha, type: gap, text: "Hon fick en fast ___ efter sex månader som vikarie.", gaps: [{ answers: ["anställning"], options: ["anställning", "arbetsplats", "praktik", "uppsägning"], feedback: [{ match: "praktik", tip: "*en praktik* is een stage. Een vaste baan = *en fast anställning*." }] }] }
+          - { id: ahpu, type: gap, text: "En av mina ___ är att svara på mejl från kunder.", gaps: [{ answers: ["arbetsuppgifter"], options: ["arbetsuppgifter", "raster", "referenser", "kompetenser"], feedback: [{ match: "kompetenser", tip: "*kompetenser* zijn bekwaamheden. Wat je moet doen op je werk: *arbetsuppgifter*." }] }] }
+          - { id: 6ztd, type: gap, text: "Som chef har man ett stort ___ för sina medarbetare.", gaps: [{ answers: ["ansvar"], options: ["ansvar", "avtal", "krav", "yrkesliv"], feedback: [{ match: "krav", tip: "*ett krav* is een eis. Verantwoordelijkheid = *ansvar*." }] }] }
+          - { id: hyeg, type: gap, text: "Vi tar en kort ___ klockan tio och dricker kaffe.", gaps: [{ answers: ["rast"], options: ["rast", "praktik", "bransch", "anställning"], feedback: [{ match: "praktik", tip: "*en praktik* is een stage. Een korte pauze = *en rast*." }] }] }
+          - { id: 7yag, type: gap, text: "Under sitt långa ___ har hon jobbat på fem olika sjukhus.", gaps: [{ answers: ["yrkesliv"], options: ["yrkesliv", "avtal", "ansvar", "krav"], feedback: [{ match: "ansvar", tip: "*ansvar* is verantwoordelijkheid. Je hele loopbaan = *yrkesliv*." }] }] }
+          - { id: kjvv, type: gap, text: "Han ___ för ekonomin på företaget, så alla fakturor går till honom.", gaps: [{ answers: ["ansvarar"], options: ["ansvarar", "samarbetar", "rekryterar", "befordrar"], feedback: [{ match: "samarbetar", tip: "*samarbeta* is samenwerken. Verantwoordelijk zijn voor = *ansvara för*." }] }] }
+          - { id: z4mn, type: gap, text: "Hon ___ kundkontakterna, medan jag tar hand om ekonomin.", gaps: [{ answers: ["sköter"], options: ["sköter", "rekryterar", "befordrar", "trivs"], feedback: [{ match: "rekryterar", tip: "*rekrytera* is personeel werven. Iets regelen of beheren = *sköta*." }] }] }
+
+      - id: ord-rattigheter-gap
+        title: "Woorden in een zin: rechten en regels"
+        instruction: Kies het woord dat past.
+        topic: woordenschat
+        shuffle: true
+        items:
+          - { id: 2djf, type: gap, text: "Om man är med i en ___, kan man få hjälp vid problem med chefen.", gaps: [{ answers: ["fackförening"], options: ["fackförening", "bransch", "praktik", "anställning"], feedback: [{ match: "bransch", tip: "*en bransch* is een sector. Een vakbond = *en fackförening*." }] }] }
+          - { id: 6b8y, type: gap, text: "Reglerna om lön och semester står i ___, som gäller för hela branschen.", gaps: [{ answers: ["kollektivavtalet"], options: ["kollektivavtalet", "yrkeslivet", "ansvaret", "kravet"], feedback: [{ match: "kravet", tip: "*ett krav* is een eis. Afspraken over loon en vakantie voor een hele sector: *kollektivavtalet* (de cao)." }] }] }
+          - { id: xb4c, type: gap, text: "Företaget måste spara pengar, så hon fick sin ___ i februari och slutar i maj.", gaps: [{ answers: ["uppsägning"], options: ["uppsägning", "löneförhöjning", "anställning", "föräldraledighet"], feedback: [{ match: "löneförhöjning", tip: "*en löneförhöjning* is een loonsverhoging. Het bedrijf moet bezuinigen, dus ze krijgt haar ontslag: *uppsägning*." }] }] }
+          - { id: ruzy, type: gap, text: "Efter tre år utan ___ bad han chefen om mer pengar.", gaps: [{ answers: ["löneförhöjning"], options: ["löneförhöjning", "uppsägning", "föräldraledighet", "rast"], feedback: [{ match: "uppsägning", tip: "*en uppsägning* is een ontslag. Meer geld = *en löneförhöjning*." }] }] }
+          - { id: uya7, type: gap, text: "I Sverige har både mamman och pappan rätt till ___ när de får barn.", gaps: [{ answers: ["föräldraledighet"], options: ["föräldraledighet", "löneförhöjning", "uppsägning", "praktik"], feedback: [{ match: "löneförhöjning", tip: "*en löneförhöjning* is een loonsverhoging. Verlof als je een kind krijgt = *föräldraledighet*." }] }] }
+          - { id: kd93, type: gap, text: "Bra ljus, tysta rum och trevliga kollegor ger en bra ___.", gaps: [{ answers: ["arbetsmiljö"], options: ["arbetsmiljö", "arbetsuppgift", "anställning", "bransch"], feedback: [{ match: "arbetsuppgift", tip: "*en arbetsuppgift* is een taak. Licht, rust en collega's samen: *arbetsmiljö* (werkomgeving)." }] }] }
+          - { id: r2b6, type: gap, text: "Under utbildningen gör alla studenter tio veckors ___ på ett företag.", gaps: [{ answers: ["praktik"], options: ["praktik", "rast", "uppsägning", "föräldraledighet"], feedback: [{ match: "rast", tip: "*en rast* is een pauze. Tien weken meewerken tijdens je opleiding = *praktik* (stage)." }] }] }
+          - { id: s859, type: gap, text: "Vi skrev ett ___ om priset innan vi började jobba ihop.", gaps: [{ answers: ["avtal"], options: ["avtal", "ansvar", "krav", "yrkesliv"], feedback: [{ match: "krav", tip: "*ett krav* is een eis. Een afspraak op papier = *ett avtal*." }] }] }
+          - { id: b2h6, type: gap, text: "Jobbet är bara ___: det slutar när läraren som jobbar där kommer tillbaka från sin föräldraledighet.", gaps: [{ answers: ["tillfälligt"], options: ["tillfälligt", "flexibelt", "kunnigt", "ansvarsfullt"], feedback: [{ match: "flexibelt", tip: "*flexibel* is flexibel. Een baan die stopt = *tillfällig* (tijdelijk)." }] }] }
+          - { id: 944j, type: gap, text: "Han är ___ sedan i våras och söker nytt jobb varje dag.", gaps: [{ answers: ["arbetslös"], options: ["arbetslös", "flexibel", "kunnig", "stressig"], feedback: [{ match: "kunnig", tip: "*kunnig* is deskundig. Zonder werk = *arbetslös*." }] }] }
+          - { id: d3mn, type: gap, text: "Min chef är väldigt ___: jag får börja och sluta när jag vill.", gaps: [{ answers: ["flexibel"], options: ["flexibel", "stressig", "arbetslös", "tillfällig"], feedback: [{ match: "stressig", tip: "*stressig* is hectisch. Wie je laat kiezen, is *flexibel*." }] }] }
+          - { id: 658g, type: gap, text: "Det är ett ___ jobb, för man fattar viktiga beslut varje dag.", gaps: [{ answers: ["ansvarsfullt"], options: ["ansvarsfullt", "arbetslöst", "kunnigt", "flexibelt"], feedback: [{ match: "kunnigt", tip: "*kunnig* zeg je van een persoon (deskundig). Een baan met grote beslissingen is *ansvarsfull*." }] }] }
+          - { id: w34d, type: gap, text: "Före jul är det väldigt ___ i butiken, och vi hinner knappt äta lunch.", gaps: [{ answers: ["stressigt"], options: ["stressigt", "flexibelt", "kunnigt", "tillfälligt"], feedback: [{ match: "flexibelt", tip: "*flexibel* is flexibel. Geen tijd om te eten = *stressigt* (hectisch)." }] }] }
+
+      - id: ord-karriar-gap
+        title: "Woorden in een zin: personeel en loopbaan"
+        instruction: Kies het woord dat past.
+        topic: woordenschat
+        shuffle: true
+        items:
+          - { id: 7g6d, type: gap, text: "Det finns över hundra ___ till jobbet, så det tar tid att läsa alla ansökningar.", gaps: [{ answers: ["sökande"], options: ["sökande", "arbetsgivare", "branscher", "referenser"], feedback: [{ match: "arbetsgivare", tip: "*en arbetsgivare* is een werkgever. Wie solliciteert: *en sökande* (meervoud ook *sökande*)." }] }] }
+          - { id: 9kbr, type: gap, text: "Kan du ge mig namnet på en tidigare chef som kan vara ___?", gaps: [{ answers: ["referens"], options: ["referens", "sökande", "arbetsgivare", "kompetens"], feedback: [{ match: "sökande", tip: "*en sökande* is een sollicitant. Iemand die iets goeds over je kan zeggen: *en referens*." }] }] }
+          - { id: gqwc, type: gap, text: "Företaget växer och ska ___ tio nya ingenjörer i år.", gaps: [{ answers: ["rekrytera"], options: ["rekrytera", "befordra", "avsluta", "utföra"], feedback: [{ match: "befordra", tip: "*befordra* is promotie geven (aan wie er al werkt). Nieuwe mensen aannemen = *rekrytera*." }] }] }
+          - { id: mwem, type: gap, text: "I vårt team ___ alla, och ingen jobbar ensam.", gaps: [{ answers: ["samarbetar"], options: ["samarbetar", "sköter", "ansvarar", "utför"], feedback: [{ match: "ansvarar", tip: "*ansvara för* is verantwoordelijk zijn voor iets. Samenwerken = *samarbeta*." }] }] }
+          - { id: n3pa, type: gap, text: "Kan du ___ för mig på fredag? Jag måste gå till tandläkaren.", gaps: [{ answers: ["hoppa in"], options: ["hoppa in", "säga upp sig", "avsluta", "befordra"], feedback: [{ match: "säga upp sig", tip: "*säga upp sig* is ontslag nemen. Voor iemand invallen = *hoppa in*." }] }] }
+          - { id: h8gn, type: gap, text: "Vi måste ___ projektet före sommaren.", gaps: [{ answers: ["avsluta"], options: ["avsluta", "rekrytera", "trivas", "hoppa in"], feedback: [{ match: "rekrytera", tip: "*rekrytera* is personeel werven. Iets afronden = *avsluta*." }] }] }
+          - { id: 8scx, type: gap, text: "Elektrikern ___ arbetet snabbt och noggrant.", gaps: [{ answers: ["utförde"], options: ["utförde", "rekryterade", "befordrade", "trivdes"], feedback: [{ match: "rekryterade", tip: "*rekrytera* is personeel werven. Werk uitvoeren = *utföra*." }] }] }
+          - { id: n4tu, type: gap, text: "Hon är väldigt ___ inom IT och hjälper alla med datorerna.", gaps: [{ answers: ["kunnig"], options: ["kunnig", "arbetslös", "tillfällig", "stressig"], feedback: [{ match: "tillfällig", tip: "*tillfällig* is tijdelijk. Iemand die er veel van weet, is *kunnig*." }] }] }
+          - { id: qtsd, type: gap, text: "Han har jobbat i samma ___ i tjugo år: hotell och restauranger.", gaps: [{ answers: ["bransch"], options: ["bransch", "rast", "praktik", "anställning"], feedback: [{ match: "anställning", tip: "*en anställning* is een dienstverband. Een hele sector, zoals hotels en restaurants: *en bransch*." }] }] }
+          - { id: twsx, type: gap, text: "Vilka ___ behöver man för det här jobbet? Man måste kunna både programmera och leda ett team.", gaps: [{ answers: ["kompetenser"], options: ["kompetenser", "raster", "branscher", "uppsägningar"], feedback: [{ match: "branscher", tip: "*branscher* zijn sectoren. Wat je moet kunnen: *kompetenser*." }] }] }
+          - { id: jxkd, type: gap, text: "Efter två år blev hon ___ till chef för hela avdelningen.", gaps: [{ answers: ["befordrad"], options: ["befordrad", "uppsagd", "arbetslös", "avslutad"], feedback: [{ match: "uppsagd", tip: "*bli uppsagd* is ontslagen worden. Chef worden = *bli befordrad* (promotie krijgen)." }] }] }
+
+  - id: passiv
+    title: "Grammatik: de lijdende vorm"
+    exercises:
+      - id: ontdek-passiv-s
+        title: Ontdek de regel – de lijdende vorm met -s
+        instruction: Bekijk de voorbeelden en ontdek zelf de regel. Pas hem daarna toe. De uitleg staat ook op de kaart.
+        topic: passiv-s
+        items:
+          - id: bks7
+            type: steps
+            steps:
+              - { type: mc, prompt: "Kijk: *Man målar huset. → Huset målas.* *Man serverar kaffe klockan tio. → Kaffe serveras klockan tio.* Wat valt op?", options: ["Het lijdend voorwerp wordt het onderwerp, en het werkwoord krijgt -s.", "Het werkwoord krijgt -de, het onderwerp blijft hetzelfde.", "Er komt altijd av + persoon achter."], answer: 0, tip: "*huset* en *kaffe* staan nu vooraan als onderwerp, en *målar* wordt *målas*." }
+              - { type: gap, text: "Man städar kontoret varje dag. → Kontoret ___ varje dag.", gaps: [{ answers: ["städas"], feedback: [{ match: "städar", tip: "Dat is de actieve vorm. Het kantoor doet niets zelf: städar wordt städas." }, { match: "städades", tip: "Dat is de verleden tijd. De zin staat in de presens: städas." }] }] }
+          - id: ycyy
+            type: steps
+            steps:
+              - { type: mc, prompt: "Kijk: *köper → köps*, *bygger → byggs*, maar *läser → läses*. Wanneer wordt het -es?", options: ["Als de stam al op een s eindigt.", "Bij lange werkwoorden.", "In de verleden tijd."], answer: 0, tip: "läs- eindigt al op een s: dan schrijf je -es, läses." }
+              - { type: gap, text: "Man läser alla ansökningar noga. → Alla ansökningar ___ noga.", gaps: [{ answers: ["läses"], feedback: [{ match: "läss", retry: true, tip: "Dat hoor je soms in spreektaal, maar in geschreven Zweeds is het läses: de stam eindigt al op s." }, { match: "läsas", tip: "läsas is de infinitief (na bijvoorbeeld måste). Presens: läses." }] }] }
+
+      - id: passiv-of-niet
+        title: Lijdend of niet?
+        instruction: Is het werkwoord op **-s** een lijdende vorm, of een werkwoord dat altijd op -s eindigt?
+        topic: passiv-s
+        items:
+          - id: hp2f
+            type: sort
+            prompt: "Deel de zinnen in."
+            categories: ["lijdende vorm", "altijd op -s"]
+            items:
+              - { text: "Dörren **stängs** automatiskt.", cat: 0 }
+              - { text: "Jag **hoppas** att du mår bra.", cat: 1, tip: "hoppas (hopen) eindigt altijd op -s; er wordt niets met iemand gedaan." }
+              - { text: "Det **finns** kaffe i köket.", cat: 1, tip: "finnas (er zijn) eindigt altijd op -s." }
+              - { text: "Rapporten **skrevs** av två forskare.", cat: 0 }
+              - { text: "Vi **ses** i morgon!", cat: 1, tip: "ses = elkaar zien. Dat is wederkerig, niet lijdend." }
+              - { text: "Bilen **tvättas** varje lördag.", cat: 0 }
+              - { text: "Hon **trivs** på sitt nya jobb.", cat: 1, tip: "trivas = het naar je zin hebben; altijd op -s." }
+              - { text: "Lönen **betalas** ut i slutet av månaden.", cat: 0 }
+
+      - id: passiv-presens
+        title: Lijdende vorm – presens
+        instruction: Vul de lijdende vorm in de **presens** in.
+        topic: passiv-s
+        shuffle: true
+        items:
+          - { id: ek4w, type: gap, text: "Kaffe ___ (servera) varje morgon klockan nio.", gaps: [{ answers: ["serveras"], feedback: [{ match: "serverar", tip: "Dat is de actieve vorm. De koffie doet niets zelf: gebruik de -s-vorm." }, { match: "serverades", tip: "Dat is de verleden tijd. Varje morgon vraagt om de presens." }] }] }
+          - { id: yjaq, type: gap, text: "Ansökan ___ (skicka) till Petra Lind.", gaps: [{ answers: ["skickas"], feedback: [{ match: "skickar", tip: "Dat is de actieve vorm. De sollicitatie wordt verstuurd: skickas." }] }] }
+          - { id: 2gzy, type: gap, text: "På kontoret ___ (tala) både svenska och engelska.", gaps: [{ answers: ["talas"] }] }
+          - { id: ryww, type: gap, text: "Mötet ___ (hålla) i konferensrummet.", gaps: [{ answers: ["hålls"], feedback: [{ match: ["hållas", "hålles"], tip: "hålla → håller: haal -er weg en zet er -s achter: hålls." }, { match: "håller", tip: "Dat is de actieve vorm: hålls." }] }] }
+          - { id: je52, type: gap, text: "Lönen ___ (betala) ut den 25:e varje månad.", gaps: [{ answers: ["betalas"] }] }
+          - { id: x23z, type: gap, text: "Tidningen ___ (läsa) av många.", gaps: [{ answers: ["läses"], feedback: [{ match: ["läss", "läsas"], tip: "De stam eindigt al op s: dan wordt het -es: läses." }] }] }
+          - { id: f3ut, type: gap, text: "Alla nya medarbetare ___ (visa) runt den första dagen.", gaps: [{ answers: ["visas"] }] }
+          - { id: 2gcf, type: gap, text: "Beslutet ___ (fatta) av chefen.", gaps: [{ answers: ["fattas"] }] }
+
+      - id: passiv-preteritum
+        title: Lijdende vorm – verleden tijd
+        instruction: Vul de lijdende vorm in de **preteritum** in.
+        topic: passiv-s
+        shuffle: true
+        items:
+          - { id: my5c, type: gap, text: "Huset ___ (bygga) 1925.", gaps: [{ answers: ["byggdes"], feedback: [{ match: "byggs", tip: "Dat is de presens. 1925 is verleden: byggde + s." }, { match: "byggades", tip: "bygga is een -er-werkwoord: byggde → byggdes." }] }] }
+          - { id: f6qf, type: gap, text: "Tjänsten ___ (annonsera) i mars.", gaps: [{ answers: ["annonserades"] }] }
+          - { id: 57vu, type: gap, text: "Hon ___ (anställa) förra året.", gaps: [{ answers: ["anställdes"], feedback: [{ match: "anställde", tip: "Dat is actief: zij nam iemand aan. Hier wordt zij aangenomen: anställdes." }] }] }
+          - { id: wxgs, type: gap, text: "Boken ___ (skriva) av en känd författare.", gaps: [{ answers: ["skrevs"], feedback: [{ match: ["skrivades", "skrivdes"], tip: "skriva is sterk: skrev. Met -s: skrevs." }] }] }
+          - { id: tzsf, type: gap, text: "Mejlet ___ (skicka) i går kväll.", gaps: [{ answers: ["skickades"] }] }
+          - { id: 9xcf, type: gap, text: "Företaget ___ (köpa) av en tysk koncern.", gaps: [{ answers: ["köptes"], feedback: [{ match: "köpades", tip: "köpa → köpte (k, p, s, t: -te). Met -s: köptes." }] }] }
+          - { id: vbp5, type: gap, text: "Min cykel ___ (stjäla) utanför jobbet.", gaps: [{ answers: ["stals"], feedback: [{ match: ["stjäldes", "stjälades"], tip: "stjäla is sterk: stal. Met -s: stals." }] }] }
+          - { id: xuqk, type: gap, text: "Mötet ___ (ställa in) på grund av sjukdom.", hint: "ställa in = afgelasten. Het partikel blijft achter het werkwoord staan.", gaps: [{ answers: ["ställdes in", "inställdes"], feedback: [{ match: "ställdes", tip: "Vergeet het partikel niet: ställdes in." }] }] }
+
+      - id: passiv-omvormen
+        title: Van actief naar lijdend
+        instruction: Schrijf de zin in de lijdende vorm met **-s**. Noem wie het doet alleen als dat in de zin staat (met *av*).
+        topic: passiv-s
+        items:
+          - { id: wdka, type: transform, prompt: "Chefen leder mötet.", answers: ["Mötet leds av chefen."], feedback: [{ match: "Mötet ledes av chefen.", tip: "leda → leder: haal -er weg en zet -s erachter: leds." }] }
+          - { id: 72rj, type: transform, prompt: "Många läser tidningen.", answers: ["Tidningen läses av många."] }
+          - { id: yvu8, type: transform, prompt: "Man öppnar butiken klockan tio.", answers: ["Butiken öppnas klockan tio.", "Klockan tio öppnas butiken."], feedback: [{ contains: "av man", tip: "Man is onbepaald: dat laat je in de lijdende vorm weg." }] }
+          - { id: n5se, type: transform, prompt: "Någon stal min cykel i går.", answers: ["Min cykel stals {i går|igår}.", "{I går|Igår} stals min cykel."], feedback: [{ contains: "blev stulen", tip: "Dat is ook goed Zweeds (bli-passief, volgend hoofdstuk). Gebruik hier de -s-vorm: stals." }, { contains: "av någon", tip: "Någon (iemand) is onbepaald: laat het weg." }] }
+          - { id: 52mq, type: transform, prompt: "Företaget anställde tre nya ingenjörer.", answers: ["Tre nya ingenjörer anställdes[ av företaget]."] }
+          - { id: n2dh, type: transform, prompt: "Man har renoverat kontoret.", answers: ["Kontoret har renoverats."], feedback: [{ match: "Kontoret renoverades.", tip: "Goed bedacht, maar houd de voltooide tijd aan: har + supinum + s." }] }
+          - { id: 9w4f, type: transform, prompt: "Man måste skicka ansökan före fredag.", answers: ["Ansökan måste skickas före fredag.", "Före fredag måste ansökan skickas."], feedback: [{ contains: "måste skickar", tip: "Na een modaal werkwoord komt de infinitief: skicka + s = skickas." }] }
+          - { id: 4sj3, type: transform, prompt: "Man städar kontoret varje kväll.", answers: ["Kontoret städas varje kväll.", "Varje kväll städas kontoret."], feedback: [{ contains: "av man", tip: "Man is onbepaald: dat laat je in de lijdende vorm weg." }] }
+
+      - id: passiv-vertalen
+        title: Vertaal met de lijdende vorm
+        instruction: Vertaal naar het Zweeds. Gebruik de lijdende vorm met **-s**.
+        topic: passiv-s
+        shuffle: true
+        items:
+          - { id: dyfm, type: translate, prompt: "In de eerste week worden alle nieuwe medewerkers door de baas op kantoor rondgeleid.", answers: ["Alla {nya medarbetare|nyanställda} visas runt {på kontoret av chefen|av chefen på kontoret} {under den första veckan|under första veckan|den första veckan|första veckan}.", "{Under den första veckan|Under första veckan|Den första veckan|Första veckan} visas alla {nya medarbetare|nyanställda} runt {på kontoret av chefen|av chefen på kontoret}."], feedback: [{ contains: "visar runt", tip: "De medewerkers doen niets zelf: ze worden rondgeleid, visas runt." }] }
+          - { id: 9nme, type: translate, prompt: "Het kantoor in Örebro werd in 2009 gebouwd en is vorig jaar helemaal gerenoveerd.", answers: ["Kontoret i Örebro byggdes [år ]2009 och {renoverades helt|renoverades helt och hållet|totalrenoverades} {förra året|i fjol}.", "Kontoret i Örebro byggdes [år ]2009 och {förra året|i fjol} {renoverades det helt|renoverades det helt och hållet|totalrenoverades det}."], feedback: [{ contains: "byggades", tip: "bygga is een -er-werkwoord: byggde → byggdes." }, { contains: ["har renoverats", "har det renoverats"], tip: "Met een afgesloten tijdstip in het verleden (förra året) gebruik je de preteritum: renoverades." }, { contains: "renoverade", tip: "Het kantoor renoveert niet zelf: renoverades." }] }
+          - { id: b3vr, type: translate, prompt: "Alle sollicitaties moeten uiterlijk 15 mei via onze website worden verstuurd.", answers: ["Alla ansökningar {måste|ska} skickas[ in] {via vår webbplats senast [den ]15 maj|senast [den ]15 maj via vår webbplats|via vår hemsida senast [den ]15 maj|senast [den ]15 maj via vår hemsida}.", "Senast [den ]15 maj {måste|ska} alla ansökningar skickas[ in] via vår {webbplats|hemsida}."], feedback: [{ contains: ["måste skickar", "ska skickar"], tip: "Na een modaal werkwoord komt de infinitief, hier met -s: skickas." }, { contains: ["måste skickades", "ska skickades"], tip: "Na måste komt een infinitief: skickas." }] }
+          - { id: kywm, type: translate, prompt: "Vragen over de functie worden beantwoord door Petra Lind, niet door de baas zelf.", answers: ["Frågor om {tjänsten|jobbet} besvaras av Petra Lind, inte [av ]chefen själv.", "Frågor om {tjänsten|jobbet} besvaras inte av chefen själv utan av Petra Lind."], feedback: [{ contains: "besvarar", tip: "De vragen doen niets zelf: ze worden beantwoord, besvaras." }, { contains: "frågor för tjänsten", tip: "Vragen over = frågor om." }] }
+          - { id: kjat, type: translate, prompt: "Alle producten die op de website besteld worden, worden binnen vijf werkdagen geleverd.", answers: ["Alla {varor|produkter} som beställs {på webbplatsen|på hemsidan|via webbplatsen|via hemsidan} levereras inom fem arbetsdagar."], feedback: [{ contains: "som beställer", tip: "De producten bestellen niet zelf: som beställs." }, { contains: "levererar", tip: "De producten leveren niet zelf: levereras." }] }
+          - { id: nj9a, type: translate, prompt: "Mijn cv is al verstuurd, maar het is nog niet door de baas gelezen.", answers: ["Mitt cv har redan skickats, men det har inte lästs av chefen {än|ännu}.", "Mitt cv har redan skickats, men det har {än|ännu} inte lästs av chefen.", "Mitt cv har redan skickats, men det har inte lästs {än|ännu} av chefen."], feedback: [{ contains: ["har läses", "har lästes", "har läst av"], tip: "Voltooide tijd in de lijdende vorm: har + supinum + s, har lästs." }, { contains: ["chefen har inte läst", "chefen har ännu inte läst", "chefen har än inte läst"], tip: "Goed Zweeds, maar gebruik hier de lijdende vorm: det har inte lästs av chefen." }, { contains: ["har skickat men", "har redan skickat"], tip: "Het cv verstuurt niet zelf: har skickats." }] }
+          - { id: fdp4, type: translate, prompt: "De vergadering van maandag is afgelast omdat de baas ziek is.", answers: ["{Mötet på måndag|Måndagens möte|Måndagsmötet} {har ställts in|har inställts|ställdes in} {eftersom|för att|då} chefen är sjuk."], feedback: [{ contains: ["har ställt in", "ställde in"], tip: "De vergadering wordt afgelast, ze doet niets zelf: har ställts in." }, { contains: "har ställts av", tip: "Afgelasten = ställa in, als lijdende vorm har ställts in." }] }
+          - { id: 3qwu, type: translate, prompt: "Het meubelbedrijf werd vorig jaar door een Zweedse familie uit Örebro gekocht.", answers: ["{Möbelföretaget|Företaget} köptes av en svensk familj från Örebro {förra året|i fjol}.", "{Möbelföretaget|Företaget} köptes {förra året|i fjol} av en svensk familj från Örebro.", "{Förra året|I fjol} köptes {möbelföretaget|företaget} av en svensk familj från Örebro."], feedback: [{ contains: "köpades", tip: "köpa → köpte (k, p, s, t: -te). Met -s: köptes." }, { contains: "familj ur örebro", tip: "Uit (een plaats) = från." }] }
+          - { id: zz8a, type: translate, prompt: "Op kantoor worden zowel Zweeds als Engels gesproken, maar de meeste vergaderingen worden in het Zweeds gehouden.", answers: ["På kontoret {talas|pratas} [det ]både svenska och engelska, men de flesta {mötena|möten} hålls på svenska.", "Det {talas|pratas} både svenska och engelska på kontoret, men de flesta {mötena|möten} hålls på svenska.", "Både svenska och engelska {talas|pratas} på kontoret, men de flesta {mötena|möten} hålls på svenska."], feedback: [{ contains: ["talar man", "pratar man", "man talar", "man pratar"], tip: "Goed Zweeds, maar gebruik hier de lijdende vorm: på kontoret talas både svenska och engelska." }, { contains: ["hållas", "hålles", "håller"], tip: "hålla → håller: haal -er weg en zet -s erachter: hålls." }, { contains: "i svenska", tip: "In het Zweeds (een taal) = på svenska." }] }
+
+  - id: som
+    title: "Grammatik: zinnen met som"
+    exercises:
+      - id: som-combineren
+        title: Twee zinnen worden één
+        instruction: Maak van twee zinnen één zin met **som**.
+        topic: relativ-som
+        items:
+          - { id: msmn, type: transform, prompt: "Jag har en kollega. Hon kommer från Chile.", answers: ["Jag har en kollega som kommer från Chile."] }
+          - { id: gghb, type: transform, prompt: "Vi söker en person. Personen talar tyska.", answers: ["Vi söker en person som talar tyska."], feedback: [{ contains: "som personen", tip: "som vervangt het onderwerp: laat personen weg." }] }
+          - { id: 4xcd, type: transform, prompt: "Det är ett företag. Det säljer möbler.", answers: ["Det är ett företag som säljer möbler."], feedback: [{ contains: "som det", tip: "som vervangt det: laat det weg." }] }
+          - { id: gusj, type: transform, prompt: "Jag läste annonsen. Du skickade den till mig.", answers: ["Jag läste annonsen [som ]du skickade till mig."], feedback: [{ contains: "skickade den", tip: "som vervangt den: laat den weg." }] }
+          - { id: g3hu, type: transform, prompt: "Hon har en chef. Chefen lyssnar inte på henne.", answers: ["Hon har en chef som inte lyssnar på henne."], feedback: [{ contains: "som lyssnar inte", tip: "In een bijzin staat inte vóór het werkwoord: som inte lyssnar." }] }
+          - { id: p6jm, type: transform, prompt: "Det är kontoret. Jag jobbar på kontoret.", answers: ["Det är kontoret [som ]jag jobbar på.", "Det är kontoret där jag jobbar."], feedback: [{ contains: "på kontoret", tip: "Herhaal kontoret niet. Het voorzetsel blijft achteraan: … som jag jobbar på." }] }
+          - { id: qjbk, type: transform, prompt: "Jag ringde till kunden. Han hade skickat ett klagomål.", answers: ["Jag ringde [till ]kunden som [hade ]skickat ett klagomål."] }
+          - { id: 47he, type: transform, prompt: "Vi har en ny chef. Alla tycker om henne.", answers: ["Vi har en ny chef som alla tycker om."], feedback: [{ contains: "om henne", tip: "som vervangt henne: laat henne weg. Het voorzetsel om blijft achteraan." }] }
+
+      - id: som-weglaten
+        title: Mag som weg?
+        instruction: Mag **som** in deze zin weg, of moet het blijven?
+        topic: relativ-som
+        items:
+          - id: hwsu
+            type: sort
+            categories: ["som mag weg", "som moet blijven"]
+            items:
+              - { text: "Boken (som) jag läser är spännande.", cat: 0 }
+              - { text: "Mannen (som) bor bredvid oss är polis.", cat: 1, tip: "som is hier het onderwerp (wie woont er?): het moet blijven." }
+              - { text: "Jobbet (som) hon fick är på heltid.", cat: 0 }
+              - { text: "En kollega (som) inte dricker kaffe.", cat: 1, tip: "Na som komt geen onderwerp: som is zelf het onderwerp." }
+              - { text: "Mejlet (som) du skickade kom fram.", cat: 0 }
+              - { text: "Företaget (som) grundades 2009 har 120 anställda.", cat: 1, tip: "som is het onderwerp van grundades: het moet blijven." }
+
+      - id: som-zinsbouw
+        title: Bijzinnen met som bouwen
+        instruction: Zet de woorden in de goede volgorde.
+        topic: relativ-som
+        shuffle: true
+        items:
+          - { id: 7s2c, type: order, start: "Jag har en kollega", tokens: ["som", "aldrig", "kommer", "i tid"], answers: ["Jag har en kollega som aldrig kommer i tid."] }
+          - { id: 977g, type: order, start: "Det är ett jobb", tokens: ["som", "jag", "verkligen", "vill", "ha"], answers: ["Det är ett jobb som jag verkligen vill ha."] }
+          - { id: r2h5, type: order, start: "Hon sökte en tjänst", tokens: ["som", "inte", "krävde", "erfarenhet"], answers: ["Hon sökte en tjänst som inte krävde erfarenhet."] }
+          - { id: bhey, type: order, start: "Det är kollegan", tokens: ["som", "jag", "delar", "rum", "med"], answers: ["Det är kollegan som jag delar rum med."] }
+          - { id: 7z5t, type: order, start: "Det här är rapporten", tokens: ["som", "chefen", "inte", "har", "läst"], answers: ["Det här är rapporten som chefen inte har läst."] }
+          - { id: ry7d, type: order, start: "Vi söker någon", tokens: ["som", "kan", "börja", "direkt"], answers: ["Vi söker någon som kan börja direkt."] }
+          - { id: z2wt, type: order, start: "Han fick ett jobb", tokens: ["som", "han", "alltid", "har", "drömt om"], answers: ["Han fick ett jobb som han alltid har drömt om."] }
+          - { id: jxba, type: order, start: "Hon är den enda", tokens: ["som", "aldrig", "är", "sjuk"], answers: ["Hon är den enda som aldrig är sjuk."] }
+          - { id: w6yr, type: order, start: "Vi söker en medarbetare", tokens: ["som", "har", "minst", "ett", "års", "erfarenhet", "av", "kundservice"], answers: ["Vi söker en medarbetare som har minst ett års erfarenhet av kundservice."] }
+          - { id: 3yk9, type: order, start: "Jag fick ett mejl från en kund", tokens: ["som", "inte", "var", "nöjd", "med", "sin", "beställning"], answers: ["Jag fick ett mejl från en kund som inte var nöjd med sin beställning."] }
+
+      - id: som-vertalen
+        title: Vertaal met som
+        instruction: Vertaal naar het Zweeds. Gebruik een bijzin met **som**.
+        topic: relativ-som
+        shuffle: true
+        items:
+          - { id: g3hr, type: translate, prompt: "Ik zoek een baan die niet te ver van mijn huis ligt.", answers: ["Jag {söker|letar efter} ett {jobb|arbete} som inte ligger för långt {från mitt hem|från mitt hus|hemifrån|från där jag bor}."], feedback: [{ contains: "som ligger inte", tip: "In een bijzin staat inte vóór het werkwoord: som inte ligger." }, { contains: ["jobb att", "arbete att", "jobb det", "arbete det"], tip: "die/dat (betrekkelijk) = som." }] }
+          - { id: hn9d, type: translate, prompt: "De collega met wie ik een kamer deel, werkt al tien jaar bij het bedrijf.", answers: ["Kollegan [som ]jag delar {rum|ett rum|kontor} med har [redan ]{jobbat|arbetat} {på|hos} företaget i tio år.", "Kollegan [som ]jag delar {rum|ett rum|kontor} med har [redan ]{jobbat|arbetat} i tio år {på|hos} företaget."], feedback: [{ contains: ["med vem", "med som"], tip: "Het voorzetsel blijft achteraan: kollegan som jag delar rum med." }, { contains: "med vilken", tip: "Dat is correct, maar stijf. Gewoner: kollegan som jag delar rum med (voorzetsel achteraan)." }, { contains: ["med jobbar", "med arbetar"], tip: "Iets wat al tien jaar duurt en nog doorgaat: perfectum, har jobbat … i tio år." }, { contains: "sedan tio år", tip: "Hoe lang iets al duurt: i tio år." }] }
+          - { id: ee2d, type: translate, prompt: "Het is een bedrijf dat meubels verkoopt aan klanten in heel Europa.", answers: ["Det är ett företag som säljer möbler till kunder {i|över} hela Europa."], feedback: [{ contains: ["företag att", "företag det", "företag vilket"], tip: "dat (betrekkelijk) = som." }, { contains: "i heel europa", tip: "Heel Europa = hela Europa." }] }
+          - { id: 2f6u, type: translate, prompt: "Ze heeft een baas die nooit luistert als iemand een nieuw idee heeft.", answers: ["Hon har en chef som aldrig lyssnar {när|om} någon har en ny idé."], feedback: [{ contains: "som lyssnar aldrig", tip: "In een bijzin staat aldrig vóór het werkwoord: som aldrig lyssnar." }, { contains: ["ett nytt idé", "ett ny idé", "en nytt idé"], tip: "idé is een en-woord: en ny idé." }] }
+          - { id: c7kw, type: translate, prompt: "De mail die je gisteren naar de klant stuurde, is nooit aangekomen.", answers: ["{Mejlet|Mailet} [som ]du skickade {till kunden i går|i går till kunden} {kom aldrig fram|har aldrig kommit fram}."], feedback: [{ contains: "skickade det", tip: "som vervangt het voorwerp al: laat det weg." }] }
+          - { id: 5wrd, type: translate, prompt: "Wij zoeken iemand die Zweeds en Engels spreekt en graag problemen oplost.", answers: ["Vi söker någon som {talar|pratar} svenska och engelska och [som ]{gärna löser problem|tycker om att lösa problem|gillar att lösa problem}."], feedback: [{ contains: "som löser gärna", tip: "In een bijzin staat gärna vóór het werkwoord: som gärna löser problem." }] }
+          - { id: taq3, type: translate, prompt: "Het kantoor waar ik werk ligt maar vijf minuten lopen van het station.", answers: ["Kontoret [som ]jag {jobbar|arbetar} på ligger bara fem minuters {promenad|gång} från {stationen|centralstationen}.", "Kontoret där jag {jobbar|arbetar} ligger bara fem minuters {promenad|gång} från {stationen|centralstationen}.", "Kontoret [som ]jag {jobbar|arbetar} på ligger bara fem minuter {till fots|att gå} från {stationen|centralstationen}.", "Kontoret där jag {jobbar|arbetar} ligger bara fem minuter {till fots|att gå} från {stationen|centralstationen}."], feedback: [{ contains: ["på det ligger", "på kontoret ligger"], tip: "Herhaal kontoret niet: kontoret som jag jobbar på." }] }
+          - { id: gjn9, type: translate, prompt: "De klant die gisteren belde, wil zijn geld terug voor de lamp die hij bestelde.", answers: ["Kunden som ringde i går vill ha {tillbaka pengarna|pengarna tillbaka|tillbaka sina pengar|sina pengar tillbaka} för lampan [som ]han {beställde|hade beställt}."], feedback: [{ contains: ["beställde den", "beställt den"], tip: "som vervangt het voorwerp al: laat den weg." }, { contains: "hans pengar", tip: "Het geld hoort bij het onderwerp kunden: sina pengar (of gewoon pengarna)." }] }
+
+      - id: langere-zinnen
+        title: "Vertaal: langere zinnen"
+        instruction: Vertaal de hele zin. Let op de woordvolgorde in de bijzin en na een woord vooraan.
+        items:
+          - { id: g7ch, type: translate, topic: passiv-s, prompt: "Alle sollicitaties die na eind mei binnenkomen, worden helaas niet behandeld.", answers: ["Alla ansökningar som kommer in efter den sista maj behandlas tyvärr inte.", "{Alla|De} ansökningar som {kommer in|inkommer} efter [den ]sista maj behandlas tyvärr inte[ av oss].", "{Alla|De} ansökningar som {kommer in|inkommer} efter slutet av maj behandlas tyvärr inte[ av oss]."], feedback: [{ contains: "behandlar", tip: "Ze worden behandeld: passief met -s (behandlas)." }] }
+          - { id: nktq, type: translate, topic: relativ-som, prompt: "We zoeken een nauwkeurige medewerker die zelfstandig kan werken en die ervaring heeft met verkoop.", answers: ["Vi söker en noggrann medarbetare som kan arbeta självständigt och som har erfarenhet av försäljning.", "Vi söker en noggrann medarbetare som kan {arbeta|jobba} självständigt och [som ]har erfarenhet {av|inom} försäljning."], feedback: [{ contains: "som han kan", tip: "Som is zelf het onderwerp: som kan …" }] }
+          - { id: 2yyv, type: translate, topic: passiv-s, prompt: "Het salaris wordt de vijfentwintigste van elke maand uitbetaald en de vakantie wordt samen met je leidinggevende gepland.", answers: ["Lönen betalas ut den tjugofemte varje månad och semestern planeras tillsammans med din chef.", "Lönen {betalas ut|utbetalas} den {tjugofemte|25:e} {varje|i varje} månad[,] och semestern planeras tillsammans med din chef."], feedback: [{ contains: "betalar ut", tip: "Wordt uitbetaald: passief met -s (betalas ut)." }] }
+
+  - id: zoek-de-fout
+    title: Zoek de fout
+    exercises:
+      - id: zoek-de-fout
+        title: Zoek de fout
+        instruction: Klik op het woord dat niet klopt en verbeter de zin.
+        topic: passiv-s
+        shuffle: true
+        items:
+          - { id: 265z, type: findError, topic: relativ-som, sentence: "Jag har en kollega som pratar inte svenska.", wrong: [5, 6], answers: ["Jag har en kollega som inte pratar svenska."], tip: "Let op de plaats van inte in een bijzin." }
+          - { id: g7hh, type: findError, sentence: "Mötet hålls i går klockan tre.", wrong: [1], answers: ["Mötet hölls {i går|igår} klockan tre."], tip: "Wanneer was de vergadering?" }
+          - { id: ecd2, type: findError, sentence: "Ansökan måste skickar före fredag.", wrong: [2], answers: ["Ansökan måste skickas före fredag."], tip: "Na måste komt een infinitief, hier in de lijdende vorm." }
+          - { id: qt8n, type: findError, sentence: "Huset byggs år 1925.", wrong: [1], answers: ["Huset byggdes år 1925."], tip: "Kijk naar het jaartal." }
+          - { id: ywge, type: findError, topic: relativ-som, sentence: "Jobbet som jag sökte det var på heltid.", wrong: [4], answers: ["Jobbet [som ]jag sökte var på heltid."], tip: "Jobbet is al het onderwerp van de hoofdzin: herhaal het niet met det." }
+          - { id: 3f99, type: findError, sentence: "Bonusen betalar ut i december till alla som har jobbat på företaget hela året.", wrong: [1], answers: ["Bonusen betalas ut i december till alla som har jobbat på företaget hela året."], tip: "Betaalt de bonus zelf iets uit?" }
+          - { id: p67u, type: findError, sentence: "Annonsen läss av många, men vi har bara fått tre ansökningar.", wrong: [1], answers: ["Annonsen läses av många, men vi har bara fått tre ansökningar."], tip: "De stam van läsa eindigt al op een s." }
+          - { id: dt2w, type: findError, topic: relativ-som, sentence: "Vi har fått en ny chef som alla på kontoret tycker mycket om henne.", wrong: [13], answers: ["Vi har fått en ny chef som alla på kontoret tycker mycket om."], tip: "som verwijst al naar de chef: herhaal het voorwerp niet." }
+          - { id: cdh9, type: findError, topic: relativ-som, sentence: "Han jobbar på ett företag som betalar aldrig ut lönen i tid.", wrong: [6, 7], answers: ["Han jobbar på ett företag som aldrig betalar ut lönen i tid."], tip: "Let op de plaats van aldrig in een bijzin." }
+
+  - id: lyssna
+    title: Lyssna · luisteren
+    intro: Deze oefeningen gebruiken de voorleesfunctie van je browser. Werkt het niet? Kijk bij „Luisteren instellen”.
+    exercises:
+      - id: lyssna-forsta-dagen
+        title: "Luisteren: de eerste werkdag"
+        instruction: Luister naar Sanne. Is de bewering **rätt** of **fel**? Lukt het niet, dan kun je de tekst laten zien.
+        topic: relativ-som
+        listen: true
+        textTitle: Första dagen på jobbet
+        text: |
+          Hej! Jag heter Sanne och jag kommer från Utrecht. I måndags var min första dag som sjuksköterska på vårdcentralen i Västerås. Jag var ganska nervös, men alla var väldigt trevliga.
+
+          Först visade min chef Ulla mig runt. Sedan fick jag träffa kollegorna som jobbar i samma team. Vi fikade tillsammans klockan tio, och det gör man nästan varje dag här.
+
+          Det som var svårast var alla förkortningar som används i journalerna. Men jag fick en lista av en kollega som också har flyttat hit från ett annat land. Efter lunch fick jag följa med en läkare som träffade patienter. Jag trivs redan jättebra!
+        items:
+          - { id: vrvq, type: truefalse, statement: "Sanne jobbar som läkare.", answer: false, correction: { answers: ["{Sanne|Hon} jobbar som sjuksköterska."] } }
+          - { id: kfyk, type: truefalse, statement: "Hennes chef visade henne runt.", answer: true }
+          - { id: 7rm5, type: truefalse, statement: "De fikar nästan varje dag klockan tio.", answer: true }
+          - { id: t8fe, type: truefalse, statement: "Sanne tyckte att förkortningarna var lätta.", answer: false, correction: { answers: ["{Sanne|Hon} tyckte att förkortningarna var svåra.", "Förkortningarna var {svårast|det svåraste}."] } }
+          - { id: yrrh, type: truefalse, statement: "En kollega gav henne en lista.", answer: true }
+
+      - id: lyssna-vorm
+        title: Welke vorm hoor je?
+        instruction: Luister en kies de vorm die je hoort.
+        topic: passiv-s
+        shuffle: true
+        items:
+          - { id: he8b, type: listen, say: "Huset byggdes för hundra år sedan.", prompt: "Welk werkwoord hoor je?", options: ["byggdes", "byggs", "bygger"], answer: 0 }
+          - { id: ra9u, type: listen, say: "Fönstren tvättas varje vår.", prompt: "Welk werkwoord hoor je?", options: ["tvättas", "tvättades", "tvättar"], answer: 0 }
+          - { id: p2ah, type: listen, say: "Frågor besvaras av Petra.", prompt: "Welk werkwoord hoor je?", options: ["besvaras", "besvarades", "besvarar"], answer: 0 }
+          - { id: tjxe, type: listen, say: "Mötet ställdes in i går.", prompt: "Welk werkwoord hoor je?", options: ["ställdes in", "ställs in", "ställer in"], answer: 0 }
+
+      - id: lyssna-dictee
+        title: Dictee
+        instruction: Luister en maak de zin die je hoort.
+        topic: passiv-s
+        shuffle: true
+        items:
+          - { id: eeyh, type: listen, say: "Ansökan skickas via vår webbplats." }
+          - { id: xaf8, type: listen, say: "Jag har en kollega som kommer från Chile." }
+          - { id: ysf5, type: listen, say: "Tjänsten är på heltid." }
+          - { id: nsxv, type: listen, say: "Intervjuer hålls löpande." }
+          - { id: a5he, type: listen, say: "Mötet ställdes in på grund av sjukdom." }
+
+  - id: praktiskt
+    title: Praktiskt · het sollicitatiegesprek
+    intro: "Doel van dit hoofdstuk: een vacature begrijpen en over je werk vertellen."
+    exercises:
+      - id: intervju-dialog
+        title: Het gesprek
+        instruction: Zet het sollicitatiegesprek in de goede volgorde.
+        topic: woordenschat
+        items:
+          - id: 8pb4
+            type: dialogue
+            lines:
+              - "Rekryteraren: Välkommen! Berätta lite om dig själv."
+              - "Lotte: Tack. Jag heter Lotte och jag har jobbat med kundservice i fyra år."
+              - "Rekryteraren: Varför söker du just den här tjänsten?"
+              - "Lotte: Jag tycker om att lösa problem, och jag vill arbeta på ett företag som växer."
+              - "Rekryteraren: Vad är dina starka sidor?"
+              - "Lotte: Jag är lugn och noggrann, och jag är bra på att lyssna."
+              - "Rekryteraren: Har du några frågor till oss?"
+              - "Lotte: Ja, när kan jag få besked?"
+
+      - id: intervju-reageren
+        title: Wat zeg je?
+        instruction: Kies wat je zegt.
+        topic: woordenschat
+        shuffle: true
+        items:
+          - { id: cr7v, type: mc, prompt: "Je wilt weten wanneer je hoort of je de baan krijgt.", options: ["När kan jag få besked?", "När får jag lön?", "Vem är du?", "Varför ringer ni?"], answer: 0 }
+          - { id: 2j5k, type: mc, prompt: "Je wilt weten hoe de werktijden eruitzien.", options: ["Hur ser arbetstiderna ut?", "Hur ser du ut?", "Hur dags är det?", "Hur länge har du jobbat här?"], answer: 0 }
+          - { id: 49qb, type: mc, prompt: "Aan het eind bedank je voor het gesprek.", options: ["Tack för att jag fick komma hit.", "Tack för maten.", "Tack för senast.", "Varsågod."], answer: 0, optionTips: [null, "Dat zeg je na het eten.", "Dat zeg je de volgende keer dat je iemand ziet: bedankt voor de vorige keer.", "Dat zeg je als je iemand iets geeft."] }
+          - { id: zfw7, type: mc, prompt: "Ze vragen naar je zwakke punten. Wat is een goed antwoord?", options: ["Ibland är jag för noggrann, men jag har lärt mig att prioritera.", "Jag har inga svaga sidor.", "Jag gillar inte att jobba.", "Det vet jag inte."], answer: 0 }
+
+      - id: wat-zeg-je-zelf
+        title: Wat zeg je? (zelf)
+        instruction: Zeg het nu zelf in het Zweeds. Er is vaak meer dan één goed antwoord.
+        kind: situatie
+        items:
+          - { id: pauj, type: translate, topic: formell-mail, prompt: "Begin een mail waarin je reageert op de vacature voor verkoper.", answers: ["Jag skriver {angående|med anledning av} tjänsten som säljare.", "Jag {söker|ansöker om|vill söka|vill ansöka om} tjänsten som säljare."] }
+          - { id: t3gt, type: translate, topic: formell-mail, prompt: "Sluit je mail beleefd af.", answers: ["[Med ]vänliga hälsningar.", "[Med ]vänlig hälsning.", "Hälsningar."] }
+          - { id: 6emk, type: translate, topic: relativ-som, prompt: "Vertel dat je een collega hebt die uit Chili komt.", answers: ["Jag har en kollega som {kommer|är} från Chile."], feedback: [{ contains: ["som han kommer", "som hon kommer", "som hen kommer", "som han är", "som hon är", "som hen är"], tip: "Som is zelf het onderwerp: som kommer från Chile." }, { match: "Jag har en kollega från Chile", tip: "Goed Zweeds, maar oefen hier de bijzin: en kollega som kommer från Chile." }] }
+          - { id: k27b, type: translate, topic: passiv-s, prompt: "Zeg dat de sollicitaties uiterlijk vrijdag verstuurd moeten worden.", answers: ["Ansökningarna {måste|ska} skickas[ in] senast [på ]fredag.", "Senast [på ]fredag {måste|ska} ansökningarna skickas[ in].", "Ansökningarna måste vara inskickade senast [på ]fredag."], feedback: [{ contains: "måste skickar", tip: "Na måste: de infinitief met -s (skickas)." }] }
+          - { id: 49mf, type: translate, topic: relativ-som, prompt: "Je chef vraagt wie Sara is. Zeg dat zij de collega is die de nieuwe klanten helpt.", answers: ["{Hon|Sara} är {kollegan|den kollega|den kollegan} som {hjälper|tar hand om} de nya kunderna.", "Det är {hon|Sara} som {hjälper|tar hand om} de nya kunderna."], feedback: [{ contains: ["kollegan vem", "kollegan vilken", "kollega vem"], tip: "Na een zelfstandig naamwoord gebruik je som: kollegan som hjälper." }] }
+          - { id: dws6, type: translate, topic: passiv-s, prompt: "Je vertelt een vriend over je werk. Zeg dat de winkel elke dag om negen uur geopend wordt.", answers: ["{Butiken|Affären} öppnas {klockan|kl.} {nio|9} varje dag.", "{Butiken|Affären} öppnas varje dag {klockan|kl.} {nio|9}.", "Varje dag öppnas {butiken|affären} {klockan|kl.} {nio|9}."], feedback: [{ contains: ["blir öppnad", "blir öppnat", "öppnar"], retry: true, tip: "Goed Zweeds, maar oefen hier de lijdende vorm met -s: butiken öppnas." }] }
+          - { id: f2wr, type: translate, topic: formell-mail, prompt: "Je schrijft een sollicitatiemail. Zeg dat je de vacature op Arbetsförmedlingen hebt gezien.", answers: ["Jag {såg|har sett|hittade|har hittat} {annonsen|platsannonsen|er annons|er platsannons|tjänsten|den lediga tjänsten|jobbannonsen} på Arbetsförmedlingen{s webbplats|}."] }
+          - { id: x4dk, type: translate, topic: formell-mail, prompt: "Je sluit een formele mail af. Zeg dat je uitkijkt naar hun antwoord.", answers: ["{Jag|Vi} ser fram emot {ert svar|ditt svar|att höra från er|att höra från dig|att höra av er|att höra av dig|att få ert svar}."], feedback: [{ contains: "ser framåt", tip: "Uitkijken naar = se fram emot." }] }
+
+  - id: skriva
+    title: Skriva · schrijven
+    intro: "Schrijfdoel: een korte sollicitatiemail."
+    exercises:
+      - id: skriva-formeel
+        title: Formeel of informeel?
+        instruction: Past de zin in een sollicitatiemail, of alleen in een berichtje aan een vriend?
+        topic: formell-mail
+        items:
+          - id: ypws
+            type: sort
+            categories: ["sollicitatiemail", "berichtje aan een vriend"]
+            items:
+              - { text: "Med vänliga hälsningar", cat: 0 }
+              - { text: "Kram!", cat: 1 }
+              - { text: "Jag skriver angående tjänsten som kundtjänstmedarbetare.", cat: 0 }
+              - { text: "Tjena! Läget?", cat: 1 }
+              - { text: "Jag ser fram emot att höra från er.", cat: 0 }
+              - { text: "Hörs!", cat: 1 }
+              - { text: "Jag bifogar mitt cv.", cat: 0 }
+              - { text: "Hej Petra,", cat: 0, tip: "In Zweden begin je ook een formele mail gewoon met Hej + voornaam." }
+
+      - id: skriva-mail-zinnen
+        title: Zinnen voor je mail
+        instruction: Kies het woord dat past.
+        topic: formell-mail
+        items:
+          - { id: mz7z, type: gap, text: "Jag vill ___ om tjänsten som kundtjänstmedarbetare.", gaps: [{ answers: ["ansöka"], options: ["ansöka", "söka", "leta"], feedback: [{ match: "söka", tip: "Een baan: söka tjänsten (zonder om) of ansöka om tjänsten. söka om gebruik je bij bijv. een vergunning of toelage (söka om bidrag), of in de betekenis opnieuw solliciteren." }] }] }
+          - { id: c3fe, type: gap, text: "Jag har arbetat med kundservice ___ fyra år.", gaps: [{ answers: ["i"], options: ["i", "för", "på", "sedan"], feedback: [{ match: "för", tip: "för fyra år sedan = vier jaar geleden. Voor hoe lang iets duurt: i fyra år." }] }] }
+          - { id: mmxb, type: gap, text: "Jag är intresserad ___ att arbeta hos er.", gaps: [{ answers: ["av"], options: ["av", "för", "på", "i"], tip: "intresserad av = geïnteresseerd in." }] }
+          - { id: zmju, type: gap, text: "Jag ___ mitt cv och mitt personliga brev.", gaps: [{ answers: ["bifogar"], options: ["bifogar", "bifogas", "bifogades"], feedback: [{ match: ["bifogas", "bifogades"], tip: "Dat is de lijdende vorm. Jij voegt het toe: jag bifogar." }] }] }
+          - { id: bmgg, type: gap, text: "Jag ser fram emot ___ höra från er.", gaps: [{ answers: ["att"], options: ["att", "för", "om", "till"] }] }
+          - { id: r6mv, type: gap, text: "Tack ___ att du läser min ansökan.", gaps: [{ answers: ["för"], options: ["för", "att", "om", "till"] }] }
+
+      - id: skriva-ansokan
+        title: Schrijf je sollicitatiemail
+        instruction: "Bouw eerst je sollicitatiemail aan Lindhem AB op in vier stappen die de app nakijkt. Daarna schrijf je de hele mail, als je wilt."
+        topic: formell-mail
+        items:
+          - { id: 2ksd, type: mc, prompt: "Je schrijft aan Petra Lind over de vacature. Welke zin past direct na de aanhef?", options: ["Jag skriver angående tjänsten som kundtjänstmedarbetare.", "Tja, jag vill gärna ha jobbet hos er!", "Jag skriver för att jag har tråkigt på mitt jobb."], answer: 0, tip: "Een formele mail begint zakelijk en zegt waarover hij gaat: Jag skriver angående …" }
+          - { id: dfrk, type: order, topic: relativ-som, prompt: "Vertel over je ervaring. Maak de zin af met een bijzin met som.", start: "Jag har arbetat i fyra år på ett företag", tokens: ["som", "säljer", "cyklar"], answers: ["Jag har arbetat i fyra år på ett företag som säljer cyklar."] }
+          - { id: 6y2r, type: translate, topic: relativ-som, prompt: "Ik ben vooral geïnteresseerd in een bedrijf dat groeit.", answers: ["Jag är {särskilt|speciellt|framför allt|framförallt|främst|i synnerhet|mest} intresserad av [att arbeta på ]ett företag som växer."], feedback: [{ contains: "intresserad i", tip: "geïnteresseerd in = intresserad av." }, { contains: "företag att", tip: "dat (betrekkelijk) = som: ett företag som växer." }] }
+          - { id: 79d3, type: gap, prompt: "Kies het goede woord voor de afsluiting.", text: "Med ___ hälsningar, Lotte de Vries", gaps: [{ answers: ["vänliga"], options: ["vänliga", "vänlig", "vänligt"], tip: "hälsningar is meervoud: Med vänliga hälsningar." }] }
+          - id: gd3d
+            type: free
+            prompt: "Schrijf een mail aan Petra Lind (80–120 woorden). Zeg op welke functie je solliciteert, wat je ervaring is en waarom je de baan wilt. Gebruik minstens één zin met **som**, en sluit netjes af."
+            minWords: 70
+            require:
+              - { any: ["hej", "bästa"], label: "Je begint met een aanhef (Hej Petra, …)" }
+              - { any: ["angående", "ansöka", "söker"], label: "Je zegt waarvoor je schrijft (angående / ansöka om …)" }
+              - { any: ["erfarenhet", "arbetat", "jobbat"], label: "Je vertelt over je ervaring" }
+              - { any: ["som"], label: "Je gebruikt een bijzin met som" }
+              - { any: ["hälsningar"], label: "Je sluit af met (Med) vänliga hälsningar" }
+            model: "Hej Petra! Jag skriver angående tjänsten som kundtjänstmedarbetare. Jag såg annonsen på er webbplats. Jag har arbetat med kundservice i fyra år på ett företag som säljer cyklar. Där svarade jag på frågor från kunder via telefon och chatt. Jag talar svenska, engelska och nederländska. Jag tycker om att lösa problem och jag är lugn och noggrann. Jag är särskilt intresserad av att arbeta på ett företag som växer. Jag bifogar mitt cv och ser fram emot att höra från er. Med vänliga hälsningar, Lotte de Vries"
+
+vocab:
+  - { sv: "en arbetsgivare", nl: "een werkgever", def: "arbetsgivaren", pl: "arbetsgivare", plDef: "arbetsgivarna", ex: "Min **arbetsgivare** betalar för kursen i svenska.", exNl: "Mijn werkgever betaalt de cursus Zweeds." }
+  - { sv: "en tjänst", nl: "een functie, een betrekking", def: "tjänsten", pl: "tjänster", plDef: "tjänsterna", ex: "Hon sökte **tjänsten** som projektledare i Lund.", exNl: "Ze solliciteerde naar de functie van projectleider in Lund." }
+  - { sv: "en lön", nl: "een salaris, een loon", def: "lönen", pl: "löner", plDef: "lönerna", ex: "**Lönen** betalas ut den 25:e varje månad.", exNl: "Het salaris wordt de 25e van elke maand uitbetaald." }
+  - { sv: "en erfarenhet", nl: "een ervaring", def: "erfarenheten", pl: "erfarenheter", plDef: "erfarenheterna", ex: "Hon har tio års **erfarenhet** av kundservice.", exNl: "Ze heeft tien jaar ervaring met klantenservice." }
+  - { sv: "en utbildning", nl: "een opleiding", def: "utbildningen", pl: "utbildningar", plDef: "utbildningarna", ex: "Vilken **utbildning** har du för det här jobbet?", exNl: "Welke opleiding heb je voor deze baan?" }
+  - { sv: "en intervju", nl: "een sollicitatiegesprek, een interview", def: "intervjun", pl: "intervjuer", plDef: "intervjuerna", ex: "Jag är kallad till **intervju** på torsdag.", exNl: "Ik ben donderdag uitgenodigd voor een sollicitatiegesprek." }
+  - { sv: "ett krav", nl: "een eis", def: "kravet", pl: "krav", plDef: "kraven", ex: "Körkort är ett **krav** för den här tjänsten.", exNl: "Een rijbewijs is een eis voor deze functie." }
+  - { sv: "en kollega", nl: "een collega", def: "kollegan", pl: ["kollegor", "kolleger"], plDef: ["kollegorna", "kollegerna"], ex: "Mina **{kollegor|kolleger}** fikar varje dag klockan tre.", exNl: "Mijn collega's drinken elke dag om drie uur koffie." }
+  - { sv: "en chef", nl: "een leidinggevende, een baas", def: "chefen", pl: "chefer", plDef: "cheferna", ex: "Jag måste fråga min **chef** om ledigt.", exNl: "Ik moet mijn leidinggevende om vrij vragen." }
+  - { sv: "ett företag", nl: "een bedrijf", def: "företaget", pl: "företag", plDef: "företagen", ex: "Hon jobbar på ett litet **företag** i Örebro.", exNl: "Ze werkt bij een klein bedrijf in Örebro." }
+  - { sv: "ett möte", nl: "een vergadering", def: "mötet", pl: "möten", plDef: "mötena", ex: "**Mötet** ställdes in på grund av sjukdom.", exNl: "De vergadering werd afgelast wegens ziekte." }
+  - { sv: "en ansökan", nl: "een sollicitatie, een aanvraag", pl: "ansökningar", plDef: "ansökningarna", ex: "Vi har fått över hundra **ansökningar** till tjänsten.", exNl: "We hebben meer dan honderd sollicitaties voor de functie gekregen." }
+  - { sv: "en provanställning", nl: "een proeftijd", def: "provanställningen", pl: "provanställningar", plDef: "provanställningarna", ex: "Först har jag sex månaders **provanställning**.", exNl: "Eerst heb ik zes maanden proeftijd." }
+  - { sv: "en tillsvidareanställning", nl: "een vaste aanstelling", def: "tillsvidareanställningen", pl: "tillsvidareanställningar", plDef: "tillsvidareanställningarna", ex: "Efter ett år fick hon en **tillsvidareanställning**.", exNl: "Na een jaar kreeg ze een vaste aanstelling." }
+  - { sv: "att anställa", nl: "aannemen, in dienst nemen", ex: "Företaget **anställde** tre nya säljare i höstas.", exNl: "Het bedrijf nam afgelopen herfst drie nieuwe verkopers aan." }
+  - { sv: "att söka", nl: "solliciteren, zoeken", ex: "Jag har **sökt** fem jobb den här månaden.", exNl: "Ik heb deze maand op vijf banen gesolliciteerd." }
+  - { sv: "att trivas", nl: "het naar je zin hebben", ex: "Jag **trivs** jättebra med mina nya kollegor.", exNl: "Ik heb het erg naar mijn zin met mijn nieuwe collega's." }
+  - { sv: "att säga upp sig", nl: "ontslag nemen", ex: "Han **{sa|sade} upp sig** för att han ville plugga.", exNl: "Hij nam ontslag omdat hij wilde studeren." }
+  - { sv: "meriterande", nl: "een pré", ex: "Det är **meriterande** om du talar finska.", exNl: "Het is een pré als je Fins spreekt." }
+  - { sv: "noggrann", nl: "nauwkeurig, zorgvuldig", ex: "Hon är väldigt **noggrann** med alla detaljer.", exNl: "Ze is erg nauwkeurig met alle details." }
+  - { sv: "en arbetsplats", nl: "een werkplek", def: "arbetsplatsen", pl: "arbetsplatser", ex: "Det är förbjudet att röka på **arbetsplatsen**.", exNl: "Het is verboden om op de werkplek te roken." }
+  - { sv: "en arbetstid", nl: "een werktijd", def: "arbetstiden", pl: "arbetstider", ex: "Hur ser **arbetstiderna** ut på det nya jobbet?", exNl: "Hoe zien de werktijden eruit bij de nieuwe baan?" }
+  - { sv: "en anställning", nl: "een dienstverband, een baan", def: "anställningen", pl: "anställningar", ex: "Hon har en fast **anställning** på kommunen.", exNl: "Ze heeft een vast dienstverband bij de gemeente." }
+  - { sv: "en arbetsuppgift", nl: "een taak (op het werk)", def: "arbetsuppgiften", pl: "arbetsuppgifter", ex: "Vilka **arbetsuppgifter** har du på ditt nya jobb?", exNl: "Welke taken heb je in je nieuwe baan?" }
+  - { sv: "ett ansvar", nl: "een verantwoordelijkheid", def: "ansvaret", mass: true, ex: "Hon har **ansvaret** för alla beställningar.", exNl: "Zij heeft de verantwoordelijkheid voor alle bestellingen." }
+  - { sv: "en referens", nl: "een referentie", def: "referensen", pl: "referenser", ex: "Kan du ge oss namn på två **referenser**?", exNl: "Kun je ons de namen van twee referenties geven?" }
+  - { sv: "en medarbetare", nl: "een medewerker", def: "medarbetaren", pl: "medarbetare", ex: "Alla nya **medarbetare** får en introduktion den första dagen.", exNl: "Alle nieuwe medewerkers krijgen de eerste dag een introductie." }
+  - { sv: "en fackförening", nl: "een vakbond", def: "fackföreningen", pl: "fackföreningar", alt: ["ett fack"], ex: "Är du med i någon **fackförening**?", exNl: "Ben je lid van een vakbond?" }
+  - { sv: "ett kollektivavtal", nl: "een cao (collectieve arbeidsovereenkomst)", def: "kollektivavtalet", pl: "kollektivavtal", ex: "Företaget har **kollektivavtal**, så lönen är bra.", exNl: "Het bedrijf heeft een cao, dus het salaris is goed." }
+  - { sv: "en uppsägning", nl: "een ontslag, een opzegging", def: "uppsägningen", pl: "uppsägningar", ex: "Efter **uppsägningen** fick han lön i tre månader till.", exNl: "Na het ontslag kreeg hij nog drie maanden salaris." }
+  - { sv: "en löneförhöjning", nl: "een loonsverhoging", def: "löneförhöjningen", pl: "löneförhöjningar", ex: "Jag tänker be om en **löneförhöjning** i år.", exNl: "Ik ben van plan dit jaar om een loonsverhoging te vragen." }
+  - { sv: "en föräldraledighet", nl: "het ouderschapsverlof", def: "föräldraledigheten", mass: true, ex: "Han tar sex månaders **föräldraledighet** i vår.", exNl: "Hij neemt dit voorjaar zes maanden ouderschapsverlof." }
+  - { sv: "en arbetsmiljö", nl: "een werkomgeving, de arbeidsomstandigheden", def: "arbetsmiljön", pl: "arbetsmiljöer", ex: "Vi jobbar hela tiden med att förbättra **arbetsmiljön**.", exNl: "We werken voortdurend aan het verbeteren van de werkomgeving." }
+  - { sv: "en praktik", nl: "een stage", def: "praktiken", pl: "praktiker", ex: "Hon gör sin **praktik** på en bank i Stockholm.", exNl: "Ze loopt haar stage bij een bank in Stockholm." }
+  - { sv: "att jobba övertid", nl: "overwerken", alt: ["att arbeta övertid"], ex: "Jag fick **jobba övertid** hela förra veckan.", exNl: "Ik moest de hele vorige week overwerken." }
+  - { sv: "att gå i pension", nl: "met pensioen gaan", ex: "Min pappa **gick i pension** förra året.", exNl: "Mijn vader ging vorig jaar met pensioen." }
+  - { sv: "att bli uppsagd", nl: "ontslagen worden", ex: "Trettio personer **blev uppsagda** när fabriken stängde.", exNl: "Dertig mensen werden ontslagen toen de fabriek sloot." }
+  - { sv: "att rekrytera", nl: "werven (personeel), rekruteren", ex: "Vi behöver **rekrytera** fler sjuksköterskor till hösten.", exNl: "We moeten voor het najaar meer verpleegkundigen werven." }
+  - { sv: "att ta itu med", nl: "aanpakken", ex: "Chefen lovade att **ta itu med** problemet direkt.", exNl: "De baas beloofde het probleem meteen aan te pakken." }
+  - { sv: "att samarbeta", nl: "samenwerken", ex: "Vi **samarbetar** mycket med andra avdelningar.", exNl: "We werken veel samen met andere afdelingen." }
+  - { sv: "att ansvara för", nl: "verantwoordelijk zijn voor", ex: "Hon **ansvarar för** kontakten med kunderna.", exNl: "Zij is verantwoordelijk voor het contact met de klanten." }
+  - { sv: "att sköta", nl: "regelen, zorgen voor, beheren", ex: "Han **sköter** all ekonomi på företaget.", exNl: "Hij regelt alle financiën bij het bedrijf." }
+  - { sv: "att jobba hemifrån", nl: "thuiswerken", alt: ["att arbeta hemifrån"], ex: "Jag **jobbar hemifrån** på fredagar.", exNl: "Op vrijdag werk ik thuis." }
+  - { sv: "att gå ner i tid", nl: "minder gaan werken", ex: "Hon vill **gå ner i tid** och jobba 75 procent.", exNl: "Ze wil minder gaan werken: 75 procent." }
+  - { sv: "att ta ledigt", nl: "vrij nemen", ex: "Jag **tar ledigt** på fredag för att flytta.", exNl: "Ik neem vrijdag vrij om te verhuizen." }
+  - { sv: "att hoppa in", nl: "invallen", ex: "Kan du **hoppa in** för Sara i morgon?", exNl: "Kun je morgen voor Sara invallen?" }
+  - { sv: "att höra av sig", nl: "van zich laten horen, contact opnemen", ex: "Vi **hör av oss** så snart vi har bestämt oss.", exNl: "We laten van ons horen zodra we een besluit hebben genomen." }
+  - { sv: "att ställa in", nl: "afgelasten", ex: "De fick **ställa in** konferensen på grund av snöovädret.", exNl: "Ze moesten de conferentie afgelasten vanwege de sneeuwstorm." }
+  - { sv: "på heltid", nl: "voltijds, fulltime", ex: "Tjänsten är **på heltid** och börjar i augusti.", exNl: "De functie is voltijds en begint in augustus." }
+  - { sv: "på deltid", nl: "deeltijds, parttime", ex: "Hon jobbar **på deltid** eftersom hon har små barn.", exNl: "Ze werkt deeltijds omdat ze kleine kinderen heeft." }
+  - { sv: "arbetslös", nl: "werkloos", ex: "Han var **arbetslös** i ett halvår innan han fick jobbet.", exNl: "Hij was een halfjaar werkloos voordat hij de baan kreeg." }
+  - { sv: "tillfällig", nl: "tijdelijk", ex: "Jag har en **tillfällig** anställning till och med juni.", exNl: "Ik heb een tijdelijke aanstelling tot en met juni." }
+  - { sv: "flexibel", nl: "flexibel", ex: "Vi har **flexibla** arbetstider på kontoret.", exNl: "We hebben flexibele werktijden op kantoor." }
+  - { sv: "ansvarsfull", nl: "verantwoordelijk (van een taak of functie)", ex: "Det är ett **ansvarsfullt** jobb med mycket stress.", exNl: "Het is een verantwoordelijke baan met veel stress." }
+  - { sv: "självständig", nl: "zelfstandig", ex: "Hon är väldigt **självständig** i sitt arbete.", exNl: "Ze is erg zelfstandig in haar werk." }
+  - { sv: "obehindrat", nl: "vloeiend, zonder moeite", ex: "Du talar och skriver svenska **obehindrat**.", exNl: "Je spreekt en schrijft vloeiend Zweeds." }
+  - { sv: "angående", nl: "betreffende, in verband met", ex: "Jag ringer **angående** tjänsten som säljare.", exNl: "Ik bel in verband met de functie van verkoper." }
+  - { sv: "enligt överenskommelse", nl: "in overleg", ex: "I annonsen står det att lönen är **enligt överenskommelse**.", exNl: "In de advertentie staat dat het salaris in overleg is." }
+  - { sv: "löpande", nl: "doorlopend", ex: "Vi går igenom ansökningarna **löpande**, så vänta inte med att söka.", exNl: "We bekijken de sollicitaties doorlopend, dus wacht niet met solliciteren." }
+  - { sv: "stressig", nl: "hectisch, stressig", ex: "Det är alltid lite **stressigt** innan semestern.", exNl: "Het is altijd een beetje hectisch vóór de vakantie." }
+  - { sv: "en sökande", nl: "een sollicitant", def: "sökanden", pl: "sökande", plDef: "sökandena", ex: "Det fanns trettio **sökande** till tjänsten.", exNl: "Er waren dertig sollicitanten voor de baan." }
+  - { sv: "en rast", nl: "een pauze", def: "rasten", pl: "raster", plDef: "rasterna", ex: "Vi tar en **rast** klockan tio.", exNl: "We nemen om tien uur pauze." }
+  - { sv: "ett yrkesliv", nl: "een loopbaan, het werkende leven", def: "yrkeslivet", mass: true, ex: "Han har haft ett långt **yrkesliv**.", exNl: "Hij heeft een lange loopbaan gehad." }
+  - { sv: "att ansöka", nl: "solliciteren, aanvragen", ex: "Hon **ansökte** om tjänsten i går.", exNl: "Ze solliciteerde gisteren naar de baan." }
+  - { sv: "att tjäna", nl: "verdienen", ex: "Hur mycket **tjänar** man som lärare?", exNl: "Hoeveel verdien je als leraar?" }
+  - { sv: "att avsluta", nl: "afsluiten, beëindigen", ex: "Vi **avslutar** mötet klockan tre.", exNl: "We sluiten de vergadering om drie uur af." }
+  - { sv: "att utföra", nl: "uitvoeren", ex: "Han **utför** sina uppgifter noggrant.", exNl: "Hij voert zijn taken nauwkeurig uit." }
+  - { sv: "kunnig", nl: "deskundig, bekwaam", ex: "Hon är mycket **kunnig** inom ekonomi.", exNl: "Ze is erg deskundig op het gebied van economie." }
+  - { sv: "en bransch", nl: "een branche, sector", def: "branschen", pl: "branscher", plDef: "branscherna", ex: "Hon har jobbat i **branschen** i tio år.", exNl: "Ze werkt al tien jaar in de branche." }
+  - { sv: "en kompetens", nl: "een competentie, bekwaamheid", def: "kompetensen", pl: "kompetenser", plDef: "kompetenserna", ex: "Vilka **kompetenser** behövs för tjänsten?", exNl: "Welke competenties zijn nodig voor de baan?" }
+  - { sv: "ett avtal", nl: "een overeenkomst, contract", def: "avtalet", pl: "avtal", plDef: "avtalen", ex: "Vi skrev under **avtalet** i går.", exNl: "We hebben gisteren de overeenkomst getekend." }
+  - { sv: "en arbetsdag", nl: "een werkdag", def: "arbetsdagen", pl: "arbetsdagar", plDef: "arbetsdagarna", ex: "Min **arbetsdag** börjar klockan åtta.", exNl: "Mijn werkdag begint om acht uur." }
+  - { sv: "att befordra", nl: "promotie geven, bevorderen", ex: "Hon **befordrades** till chef förra året.", exNl: "Ze werd vorig jaar tot leidinggevende bevorderd." }
+  - { sv: "erfaren", nl: "ervaren", ex: "Vi söker en **erfaren** säljare.", exNl: "We zoeken een ervaren verkoper." }

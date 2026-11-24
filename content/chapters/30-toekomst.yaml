@@ -1,0 +1,520 @@
+chapter: 30
+# Kan-doen-uitspraken: de app vinkt ze zelf af als de vragen over deze onderwerpen
+# grotendeels in doos 3 of hoger staan (src/progress.js, canDoStatus).
+canDo:
+  - { text: "Ik kan verwachtingen uitspreken en de voltooid toekomende tijd gebruiken", topics: [framtid-b2] }
+  - { text: "Ik kan de grammatica van B2 ook door elkaar toepassen", topics: [nominalisering, trender, particip-konstruktion, nominalfras, utbrytning, argumentation, register, idiom, bisats-adverb, fundament] }
+
+grammar:
+  - id: framtid-b2
+    title: Verwachtingen en voltooide toekomst
+    summary: "*Om tio år **kommer** vi **att ha flyttat**.* (voltooid toekomend) · *Det **lär** bli regn.* (zal wel) · *Priserna **väntas** stiga. Befolkningen **beräknas** öka.* (verwacht wordt dat)"
+    body: |
+      ### Voltooide toekomst
+      Iets wat in de toekomst al **afgerond** zal zijn: **kommer att ha + supinum**.
+
+      - *Om tio år **kommer** jag **att ha flyttat** tillbaka.* – Over tien jaar zal ik terugverhuisd zijn.
+      - *När du kommer hem **kommer** jag **att ha lagat** mat.*
+
+      ### Verwachtingen
+      | vorm | betekenis | voorbeeld |
+      |---|---|---|
+      | **lär** + infinitief | zal wel (verwachting) | *Det **lär** bli kallt i helgen.* |
+      | **lär** + infinitief | schijnt, naar verluidt | *Han **lär** vara mycket rik.* |
+      | **ska** + infinitief | naar verluidt, volgens de verwachting | *Det **ska** bli kallt i helgen, enligt SMHI.* |
+      | **torde** + infinitief | zal waarschijnlijk (formeel) | *Kostnaden **torde** bli hög.* |
+      | **väntas** + infinitief | wordt verwacht | *Priserna **väntas** stiga.* |
+      | **beräknas** + infinitief | wordt berekend/geschat | *Befolkningen **beräknas** öka.* |
+      | **förväntas** + infinitief | wordt verwacht | *Efterfrågan **förväntas** öka.* |
+      | **kan komma att** + infinitief | zou kunnen gaan | *Reglerna **kan komma att** ändras.* |
+
+      De vormen op **-s** (*väntas, beräknas, förväntas*) zijn lijdend: wie verwacht, wordt niet gezegd. Dat is typisch voor nieuws en rapporten. Vergelijk: *Man väntar sig att priserna stiger.* → *Priserna **väntas stiga**.*
+
+sections:
+  - id: lasa
+    title: Läsa · lezen
+    exercises:
+      - id: lasa-2050
+        title: "Lezen: Zweden in 2050"
+        instruction: Lees de tekst en beantwoord de vragen.
+        topic: woordenschat
+        textTitle: Hur ser Sverige ut år 2050?
+        text: |
+          Ingen kan veta exakt hur framtiden blir, men det finns trender som framtidsforskare följer noga. Befolkningen väntas bli allt äldre, eftersom vi lever längre och föder färre barn. Det kommer att ställa nya krav på vården och äldreomsorgen, och fler kommer sannolikt att behöva jobba längre upp i åldern.
+
+          Enligt befolkningsprognoserna beräknas medellivslängden fortsätta att öka, och antalet personer över 80 år väntas stiga kraftigt fram till 2050. Det betyder att varje person i arbetsför ålder kommer att behöva försörja fler äldre än i dag. Samtidigt förväntas allt fler flytta till storstäderna, medan många mindre orter kan komma att förlora både invånare och service som skolor, butiker och vårdcentraler.
+
+          Arbetslivet lär också förändras. Många rutinuppgifter beräknas tas över av datorer, medan nya yrken som vi i dag inte ens kan föreställa oss kommer att växa fram. Distansarbete, som var ovanligt före 2020, kommer troligen att vara en självklarhet.
+
+          För den enskilda människan innebär det att utbildning inte längre blir något man gör en gång i livet. Den som börjar arbeta i dag lär behöva byta yrke flera gånger, och förmågan att lära sig nytt torde bli viktigare än någon enskild examen. Redan nu erbjuder många arbetsgivare kurser för sina anställda, och den trenden väntas fortsätta.
+
+          Klimatet är kanske den största frågan. Om vi lyckas, kommer de flesta bilar och lastbilar att ha gått över till el långt före 2050. Om vi misslyckas, kan extremväder komma att bli allt vanligare även i Sverige.
+
+          Utvecklingen går redan snabbt. Elbilar, som för bara tio år sedan var ganska ovanliga, säljs i dag i stora mängder, och flera stora industriprojekt för fossilfri produktion planeras i norra Sverige. När fabrikerna står klara, kommer de att ha skapat tusentals nya jobb, åtminstone om allt går enligt planen.
+
+          Alla är dock inte lika säkra på vad som väntar. Kritiker påpekar att prognoser ofta har slagit fel. På 1960-talet trodde många att vi år 2000 skulle ha flygande bilar och åka på semester till månen, men nästan ingen förutsåg att alla skulle bära runt på en liten dator i fickan. Det visar hur svårt det är att förutsäga vilka förändringar som verkligen kommer att få betydelse.
+
+          – Framtiden är inte något som bara händer oss, säger en framtidsforskare. Det är något vi skapar tillsammans, genom de beslut vi fattar i dag.
+        items:
+          - { id: xw3e, type: mc, prompt: "Varför blir befolkningen äldre?", options: ["Vi lever längre och föder färre barn.", "Många unga flyttar utomlands.", "Fler barn föds.", "Det står inte i texten."], answer: 0 }
+          - { id: 74es, type: mc, prompt: "Vad kommer sannolikt att hända på arbetsmarknaden?", options: ["Datorer tar över rutinuppgifter och nya yrken växer fram.", "Alla yrken försvinner.", "Ingenting förändras.", "Alla får jobba hemifrån."], answer: 0 }
+          - { id: dgk8, type: truefalse, statement: "Distansarbete var vanligt före 2020.", answer: false, correction: { answers: ["Distansarbete var ovanligt före 2020."] } }
+          - { id: je6j, type: mc, prompt: "Vad händer om vi lyckas med klimatet?", options: ["De flesta fordon kommer att ha gått över till el.", "Extremväder blir vanligare.", "Alla slutar köra bil.", "Bensin blir billigare."], answer: 0 }
+          - { id: zk2s, type: mc, prompt: "Vad menar framtidsforskaren?", options: ["Vi skapar framtiden själva genom våra beslut.", "Framtiden är redan bestämd.", "Man kan inte göra något åt framtiden.", "Forskare vet exakt hur framtiden blir."], answer: 0 }
+          - id: b6pz
+            type: multi
+            prompt: "Welke vormen in de tekst drukken een verwachting uit?"
+            options: ["väntas", "lär", "beräknas", "kommer troligen att", "följer", "lever"]
+            answers: [0, 1, 2, 3]
+          - { id: swef, type: mc, prompt: "Vad kan hända med många mindre orter?", options: ["De kan förlora invånare och service.", "De väntas växa snabbare än storstäderna.", "De kommer att få fler skolor och vårdcentraler.", "Det står inte i texten."], answer: 0 }
+          - { id: d2kt, type: truefalse, statement: "Enligt texten räcker det att utbilda sig en gång i livet.", answer: false, tip: "Lees de alinea over opleiding nog eens.", correction: { answers: ["Det räcker inte[ att utbilda sig en gång i livet].", "Utbildning blir inte längre något man gör en gång i livet.", "{Man|Den som börjar arbeta i dag|Många} lär behöva byta yrke flera gånger.", "{Man|Vi} {måste|behöver} {fortsätta [att ]lära sig|lära sig nytt} hela livet."] } }
+          - { id: th5b, type: mc, prompt: "Vad antyder orden *åtminstone om allt går enligt planen*?", options: ["Att det inte är säkert att alla nya jobb verkligen skapas.", "Att fabrikerna redan är färdiga.", "Att jobben redan finns i dag.", "Att ingen vill arbeta i norra Sverige."], answer: 0 }
+          - { id: teky, type: mc, prompt: "Varför nämner texten flygande bilar och semester på månen?", options: ["För att visa att prognoser kan slå fel.", "För att flygande bilar väntas bli vanliga år 2050.", "För att 1960-talet var en bra tid för framtidsforskning.", "För att kritikerna vill bygga flygande bilar."], answer: 0, tip: "Wat wil de schrijver met dit voorbeeld uit de jaren zestig laten zien?" }
+
+      - id: makkelijk-1
+        title: "Makkelijk lezen: Om tjugo år"
+        instruction: Een korte tekst met woorden die je al kent. Lees hem vlot door en kies rätt of fel.
+        topic: woordenschat
+        kind: makkelijk
+        textTitle: "Om tjugo år"
+        text: |
+          Hur kommer vi att leva om tjugo år? Många tror att vi kommer att jobba mer hemifrån och resa mindre. Elbilar blir nog vanligare, och kanske kör bilarna själva. Förhoppningsvis blir städerna grönare. Men ingen vet säkert, och framtiden är svår att veta något om. Forskare påpekar att många förutsägelser från förr har visat sig vara fel. På sjuttiotalet trodde många att vi skulle ha flygande bilar i dag. Därför ska man inte tro på allt som sägs om framtiden. Det enda säkra är att mycket kommer att förändras.
+        items:
+          - { id: a2vq, type: truefalse, statement: "Många tror att vi kommer att resa mer.", answer: false }
+          - { id: h8qf, type: truefalse, statement: "Det är svårt att veta hur framtiden blir.", answer: true }
+
+      - id: makkelijk-2
+        title: "Makkelijk lezen: Robotar i vården"
+        instruction: Een korte tekst met woorden die je al kent. Lees hem vlot door en kies rätt of fel.
+        topic: woordenschat
+        kind: makkelijk
+        textTitle: "Robotar i vården"
+        text: |
+          På ett äldreboende i Västerås testas robotar som hjälper personalen. Robotarna delar ut mat och påminner de äldre om att ta sina mediciner. Personalen får då mer tid att prata med de boende. Många var skeptiska i början, men nu är de flesta positiva. Robotarna kan dock inte ersätta människor. De kan inte trösta någon som är ledsen eller förstå vad en äldre person behöver. Det är fortfarande personalen som har ansvaret. Kommunen ska utvärdera försöket efter ett år och bestämma om fler boenden ska få robotar.
+        items:
+          - { id: sdgc, type: truefalse, statement: "Robotarna ersätter all personal.", answer: false }
+          - { id: 8mj3, type: truefalse, statement: "Personalen får mer tid att prata med de boende.", answer: true }
+
+      - id: makkelijk-3
+        title: "Makkelijk lezen: Bussen utan förare"
+        instruction: Een korte tekst met woorden die je al kent. Lees hem vlot door en beantwoord de vragen.
+        topic: woordenschat
+        kind: makkelijk
+        textTitle: "Bussen utan förare"
+        text: |
+          I en mindre stad i Sverige testas just nu en buss som kör själv, utan förare. Den kör en kort väg mellan stationen och sjukhuset. Bussen har plats för tolv personer och kör ganska långsamt. Än så länge finns det alltid en person ombord som kan ta över om något händer. Enligt kommunen kommer försöket att pågå i ett år. Om det går bra kan fler sådana bussar börja köra i staden. Många resenärer är positiva, men några tycker att det känns konstigt att ingen sitter och kör.
+        items:
+          - { id: hhw8, type: truefalse, statement: "Bussen har plats för tjugo personer.", answer: false }
+          - { id: qr5m, type: mc, prompt: "Hur länge ska försöket pågå?", options: ["En månad.", "Ett år.", "Fem år."], answer: 1 }
+          - { id: tr7s, type: truefalse, statement: "Det finns alltid en person ombord.", answer: true }
+
+      - id: makkelijk-4
+        title: "Makkelijk lezen: Att bo i framtiden"
+        instruction: Een korte tekst met woorden die je al kent. Lees hem vlot door en beantwoord de vragen.
+        topic: woordenschat
+        kind: makkelijk
+        textTitle: "Att bo i framtiden"
+        text: |
+          Hur ser bostäderna ut om trettio år? Enligt en ny rapport kommer fler människor att bo i städerna, och lägenheterna kommer att bli mindre. Däremot väntas de gemensamma utrymmena bli fler, till exempel tvättstugor, kök och arbetsrum som delas av alla grannar. Husen kommer sannolikt att byggas mer i trä, eftersom det är bättre för klimatet. Enligt rapporten kommer också fler äldre att bo tillsammans med andra i så kallade seniorboenden. Om rapporten har rätt, får vi se om trettio år.
+        items:
+          - { id: dbg5, type: mc, prompt: "Vad kommer husen sannolikt att byggas av?", options: ["Betong.", "Trä.", "Glas."], answer: 1 }
+          - { id: 2e4j, type: truefalse, statement: "Lägenheterna kommer att bli större.", answer: false }
+          - { id: kq6p, type: truefalse, statement: "Fler människor väntas bo i städerna.", answer: true }
+
+  - id: ord
+    title: Ord och fraser · woorden en uitdrukkingen
+    exercises:
+      - id: ord-toekomst
+        title: De toekomst
+        instruction: Koppel het woord aan de betekenis.
+        topic: woordenschat
+        items:
+          - id: 6z4j
+            type: match
+            pairs:
+              - ["en framtidsforskare", "een toekomstonderzoeker"]
+              - ["äldreomsorg", "ouderenzorg"]
+              - ["ett yrke", "een beroep"]
+              - ["en självklarhet", "een vanzelfsprekendheid"]
+              - ["föreställa sig", "zich voorstellen"]
+              - ["växa fram", "ontstaan, opkomen"]
+          - id: ya3k
+            type: match
+            pairs:
+              - ["lyckas", "slagen"]
+              - ["misslyckas", "mislukken"]
+              - ["extremväder", "extreem weer"]
+              - ["gå över till", "overstappen op"]
+              - ["upp i åldern", "op latere leeftijd"]
+              - ["fatta ett beslut", "een besluit nemen"]
+
+  - id: framtid
+    title: "Grammatik: verwachtingen"
+    exercises:
+      - id: framtid-b2-invullen
+        title: Voltooide toekomst
+        instruction: Vul de voltooide toekomst in (**kommer att ha** + supinum).
+        topic: framtid-b2
+        shuffle: true
+        items:
+          - { id: seq2, type: gap, text: "Om tio år ___ jag ___ (flytta) tillbaka till Nederländerna.", gaps: [{ answers: ["kommer"] }, { answers: ["att ha flyttat"], feedback: [{ match: "att flytta", tip: "Het is dan al gebeurd: att ha flyttat." }] }] }
+          - { id: 5szn, type: gap, text: "När du kommer hem, ___ jag redan ___ (laga) mat.", gaps: [{ answers: ["kommer"] }, { answers: ["att ha lagat"] }] }
+          - { id: 3cyt, type: gap, text: "År 2040 ___ de flesta bilar ___ (gå) över till el.", gaps: [{ answers: ["kommer"] }, { answers: ["att ha gått"], feedback: [{ match: "att ha gåtts", tip: "Supinum van gå: gått." }] }] }
+          - { id: zfgn, type: gap, text: "Innan sommaren ___ vi ___ (måla) huset.", gaps: [{ answers: ["kommer"] }, { answers: ["att ha målat"], feedback: [{ match: "att måla", tip: "Het is dan al gebeurd: att ha målat." }] }] }
+          - { id: mjgf, type: gap, text: "Om ett år ___ hon ___ (ta) examen.", gaps: [{ answers: ["kommer"] }, { answers: ["att ha tagit"], feedback: [{ match: "att ha tagat", tip: "ta is sterk: tagit." }] }] }
+          - { id: c66z, type: gap, text: "När filmen börjar ___ vi redan ___ (äta).", gaps: [{ answers: ["kommer"] }, { answers: ["att ha ätit"], feedback: [{ match: "att ha ätat", tip: "äta is sterk: ätit." }] }] }
+          - { id: utmh, type: gap, text: "År 2050 ___ havsnivån ___ (stiga) flera decimeter.", gaps: [{ answers: ["kommer"] }, { answers: ["att ha stigit"], feedback: [{ match: "att ha stigat", tip: "stiga is sterk: stigit." }] }] }
+          - { id: 7xnv, type: gap, text: "Till jul ___ jag ___ (läsa) alla böckerna.", gaps: [{ answers: ["kommer"] }, { answers: ["att ha läst"] }] }
+
+      - id: framtid-b2-kiezen
+        title: Het goede woord
+        instruction: Kies wat past.
+        topic: framtid-b2
+        shuffle: true
+        items:
+          - { id: gq7v, type: gap, text: "Det ___ bli kallt i helgen, enligt prognosen.", gaps: [{ answers: ["lär"], options: ["lär", "tänker", "vill"], shuffle: false, tip: "Zal wel (verwachting): lär." }] }
+          - { id: hbeb, type: gap, text: "Priserna ___ stiga under nästa år.", gaps: [{ answers: ["väntas"], options: ["väntas", "väntar", "vänta"], shuffle: false, feedback: [{ match: "väntar", tip: "De prijzen wachten niet zelf: lijdend, väntas." }] }] }
+          - { id: jdaf, type: gap, text: "Befolkningen ___ öka med två procent.", gaps: [{ answers: ["beräknas"], options: ["beräknas", "beräknar", "räknar"], shuffle: false }] }
+          - { id: hkg5, type: gap, text: "Reglerna kan ___ att ändras.", gaps: [{ answers: ["komma"], options: ["komma", "kommer", "kommit"], shuffle: false, tip: "kan komma att = zou kunnen gaan." }] }
+          - { id: n4kf, type: gap, text: "Projektet ___ vara klart i maj.", gaps: [{ answers: ["beräknas"], options: ["beräknas", "beräknar", "tänker"], shuffle: false }] }
+          - { id: t2kr, type: gap, text: "Det ___ bli svårt att hitta bostad i framtiden.", gaps: [{ answers: ["lär"], options: ["lär", "vill", "tänker"], shuffle: false, tip: "Zal wel (verwachting): lär." }] }
+          - { id: qu9c, type: gap, text: "Fler ___ att jobba hemifrån.", gaps: [{ answers: ["kommer"], options: ["kommer", "lär", "väntas"], shuffle: false, tip: "Alleen kommer heeft att nodig: kommer att jobba." }] }
+          - { id: pbwg, type: gap, text: "Skatterna kan ___ att höjas.", gaps: [{ answers: ["komma"], options: ["komma", "kommer", "kommit"], shuffle: false, tip: "kan komma att = zou kunnen gaan." }] }
+
+      - id: framtid-b2-omvormen
+        title: Formeel verwachten
+        instruction: Herschrijf de zin met **väntas**, **beräknas** of **förväntas**.
+        topic: framtid-b2
+        items:
+          - { id: tjc3, type: transform, prompt: "Man väntar sig att priserna stiger.", answers: ["Priserna {väntas|förväntas} stiga."], feedback: [{ contains: "väntas att", tip: "Zonder att: Priserna väntas stiga." }, { contains: "väntas stiger", tip: "Na väntas: infinitief, stiga." }] }
+          - { id: 94k3, type: transform, prompt: "Man beräknar att befolkningen ökar.", answers: ["Befolkningen beräknas öka."], feedback: [{ contains: "beräknas ökar", tip: "Na beräknas: infinitief, öka." }] }
+          - { id: 4vch, type: transform, prompt: "Man förväntar sig att efterfrågan ökar.", answers: ["Efterfrågan förväntas öka.", "Efterfrågan väntas öka."] }
+          - { id: zdx9, type: transform, prompt: "Man tror att arbetslösheten sjunker.", task: "Begin met: Arbetslösheten väntas …", answers: ["Arbetslösheten väntas sjunka."] }
+          - { id: 82s6, type: transform, prompt: "Man väntar sig att räntan sjunker.", answers: ["Räntan {väntas|förväntas} sjunka."], feedback: [{ contains: "väntas sjunker", tip: "Na väntas: infinitief, sjunka." }] }
+          - { id: vw4m, type: transform, prompt: "Man beräknar att kostnaden blir två miljoner.", answers: ["Kostnaden beräknas bli två miljoner."], feedback: [{ contains: "beräknas blir", tip: "Na beräknas: infinitief, bli." }] }
+          - { id: 4uyh, type: transform, prompt: "Man förväntar sig att fler flyttar till städerna.", answers: ["Fler {förväntas|väntas} flytta till städerna."] }
+          - { id: 7hq6, type: transform, prompt: "Man tror att bygget är klart 2030.", task: "Begin met: Bygget väntas …", answers: ["Bygget väntas vara klart [år ]2030."], feedback: [{ contains: "väntas är", tip: "Na väntas: infinitief, vara." }] }
+
+      - id: framtid-b2-vertalen
+        title: Verwachtingen vertalen
+        instruction: Vertaal de zin. Gebruik de vormen van dit hoofdstuk (kommer att ha, väntas, beräknas, lär, kan komma att).
+        topic: framtid-b2
+        shuffle: true
+        items:
+          - { id: gagf, type: translate, prompt: "Wanneer het nieuwe ziekenhuis klaar is, zullen de kosten waarschijnlijk meer dan verdubbeld zijn.", answers: ["När det nya sjukhuset {är klart|är färdigt|står klart|blir klart} kommer kostnaderna {sannolikt|troligen|förmodligen|antagligen} att ha mer än {fördubblats|dubblerats}.", "När det nya sjukhuset {är klart|är färdigt|står klart|blir klart} {lär|torde} kostnaderna ha mer än {fördubblats|dubblerats}.", "Kostnaderna kommer {sannolikt|troligen|förmodligen|antagligen} att ha mer än {fördubblats|dubblerats} när det nya sjukhuset {är klart|är färdigt|står klart|blir klart}."], feedback: [{ contains: ["klart kostnaderna", "färdigt kostnaderna"], tip: "De bijzin met när telt als plaats 1: daarna komt meteen het werkwoord (… kommer kostnaderna …)." }, { contains: "att har", tip: "Na att komt de infinitief: att ha fördubblats." }] }
+          - { id: b2rx, type: translate, prompt: "Volgens de prognose wordt verwacht dat het aantal gepensioneerden de komende tien jaar sterk zal stijgen.", answers: ["Enligt prognosen {väntas|förväntas|beräknas} antalet pensionärer {öka|stiga} {kraftigt|starkt} [under ]{de närmaste tio åren|de kommande tio åren|de tio närmaste åren|de tio kommande åren}.", "Antalet pensionärer {väntas|förväntas|beräknas} {öka|stiga} {kraftigt|starkt} [under ]{de närmaste tio åren|de kommande tio åren|de tio närmaste åren|de tio kommande åren} enligt prognosen."], feedback: [{ contains: ["väntas att", "beräknas att"], tip: "Na väntas, förväntas en beräknas volgt de infinitief zonder att: antalet pensionärer väntas öka." }, { contains: "prognosen antalet", tip: "Na Enligt prognosen vooraan komt het werkwoord op plaats 2: Enligt prognosen väntas antalet …" }] }
+          - { id: fxth, type: translate, prompt: "Volgens de krant wordt verwacht dat de nieuwe spoorlijn tussen Stockholm en Göteborg pas in 2040 klaar is.", answers: ["Enligt tidningen {väntas|förväntas|beräknas} den nya {järnvägen|järnvägslinjen|järnvägsförbindelsen} mellan Stockholm och Göteborg {bli|vara} {klar|färdig} först [år ]2040.", "Den nya {järnvägen|järnvägslinjen|järnvägsförbindelsen} mellan Stockholm och Göteborg {väntas|förväntas|beräknas} {bli|vara} {klar|färdig} först [år ]2040 enligt tidningen.", "Enligt tidningen {väntas|förväntas|beräknas} den nya {järnvägen|järnvägslinjen|järnvägsförbindelsen} mellan Stockholm och Göteborg inte {bli|vara} {klar|färdig} förrän [år ]2040."], feedback: [{ contains: ["väntas att", "beräknas att"], tip: "Na väntas, förväntas en beräknas volgt de infinitief zonder att." }, { contains: "tidningen den nya", tip: "Na Enligt tidningen vooraan komt het werkwoord op plaats 2: Enligt tidningen väntas den nya järnvägen …" }] }
+          - { id: xszv, type: translate, prompt: "Als alles volgens plan verloopt, zullen we tegen de zomer alle ramen in het huis vervangen hebben.", answers: ["Om allt går {enligt planen|som planerat|enligt plan} kommer vi att ha {bytt|bytt ut|ersatt} alla {fönster|fönstren} i huset {till|före|innan} sommaren.", "Om allt går {enligt planen|som planerat|enligt plan} kommer vi {till|före|innan} sommaren att ha {bytt|bytt ut|ersatt} alla {fönster|fönstren} i huset.", "{Till|Före|Innan} sommaren kommer vi att ha {bytt|bytt ut|ersatt} alla {fönster|fönstren} i huset om allt går {enligt planen|som planerat|enligt plan}."], feedback: [{ contains: ["planen vi", "plan vi", "planerat vi"], tip: "De bijzin met om telt als plaats 1: daarna komt meteen het werkwoord (… kommer vi att ha bytt …)." }, { contains: "att har", tip: "Na att komt de infinitief: att ha bytt." }] }
+          - { id: q6d2, type: translate, prompt: "Over tien jaar zullen veel van de huidige beroepen waarschijnlijk door computers overgenomen zijn.", answers: ["Om tio år kommer många av {dagens yrken|de nuvarande yrkena} {sannolikt|troligen|förmodligen|antagligen} att ha {tagits över|övertagits|blivit övertagna} av datorer.", "Många av {dagens yrken|de nuvarande yrkena} kommer {sannolikt|troligen|förmodligen|antagligen} att ha {tagits över|övertagits|blivit övertagna} av datorer om tio år.", "Om tio år lär många av {dagens yrken|de nuvarande yrkena} ha {tagits över|övertagits|blivit övertagna} av datorer."], feedback: [{ contains: "tio år många", tip: "Na Om tio år vooraan komt het werkwoord op plaats 2: Om tio år kommer många …" }, { contains: "att har", tip: "Na att komt de infinitief: att ha tagits över." }] }
+          - { id: umxv, type: translate, prompt: "Het is moeilijk te voorspellen welke uitvindingen echt belangrijk zullen worden voor ons dagelijks leven.", answers: ["Det är svårt att {förutsäga|förutse|säga} vilka uppfinningar som verkligen {kommer att bli|blir} viktiga {för|i} {vår vardag|vårt vardagsliv|vårt dagliga liv}."], feedback: [{ contains: "som kommer verkligen", tip: "Na vilka … som volgt een bijzin: verkligen staat vóór het werkwoord (som verkligen kommer att bli)." }, { contains: ["uppfinningar verkligen", "uppfinningar kommer"], tip: "Is het vraagwoord (vilka uppfinningar) het onderwerp van de bijzin, dan komt er som achter: vilka uppfinningar som …" }] }
+          - { id: q4ff, type: translate, prompt: "Volgens deskundigen zouden de regels voor thuiswerken de komende jaren kunnen veranderen.", answers: ["Enligt {experter|experterna|sakkunniga} kan reglerna för {distansarbete|att arbeta hemifrån|att jobba hemifrån|att arbeta hemma|att jobba hemma} komma att {ändras|förändras} {under de kommande|de kommande|under de närmaste|de närmaste} åren.", "Reglerna för {distansarbete|att arbeta hemifrån|att jobba hemifrån|att arbeta hemma|att jobba hemma} kan komma att {ändras|förändras} {under de kommande|de kommande|under de närmaste|de närmaste} åren enligt {experter|experterna|sakkunniga}.", "Enligt {experter|experterna|sakkunniga} skulle reglerna för {distansarbete|att arbeta hemifrån|att jobba hemifrån|att arbeta hemma|att jobba hemma} kunna {ändras|förändras} {under de kommande|de kommande|under de närmaste|de närmaste} åren."], feedback: [{ contains: "kan komma ändras", tip: "kan komma att + infinitief: kan komma att ändras." }, { contains: ["experter reglerna", "experterna reglerna", "sakkunniga reglerna"], tip: "Na Enligt experter vooraan komt het werkwoord op plaats 2: Enligt experter kan reglerna …" }] }
+          - { id: a7nd, type: translate, prompt: "Het lijkt redelijk om aan te nemen dat in de toekomst meer mensen thuis zullen werken.", answers: ["Det {verkar|förefaller} rimligt att anta att fler [människor ]kommer [att ]{arbeta|jobba} {hemifrån|hemma} i framtiden.", "Det {verkar|förefaller} rimligt att anta att fler [människor ]i framtiden kommer [att ]{arbeta|jobba} {hemifrån|hemma}."], feedback: [{ contains: "rimlig att", tip: "Na det verkar: de t-vorm, rimligt." }, { contains: ["att arbetar", "att jobbar"], tip: "Na kommer att: de infinitief (arbeta)." }] }
+          - { id: gx8w, type: translate, prompt: "Er zijn goede redenen om te geloven dat de stroomprijzen de komende jaren zullen stijgen.", answers: ["Det finns {goda|starka} skäl att tro att {elpriserna|priserna på el|elpriset} kommer [att ]{stiga|öka} [under ]{de kommande|de närmaste} åren.", "Det finns {goda|starka} skäl att tro att {elpriserna|priserna på el|elpriset} [under ]{de kommande|de närmaste} åren kommer [att ]{stiga|öka}."], feedback: [{ contains: ["goda skäl finns", "starka skäl finns"], tip: "Nieuw, onbepaald onderwerp: begin met det (Det finns goda skäl …)." }, { contains: ["att stiger", "att ökar"], tip: "Na kommer att: de infinitief (stiga)." }] }
+
+      - id: framtid-b2-lange-zinnen
+        title: Lange zinnen over de toekomst
+        instruction: Zet de woorden in de goede volgorde.
+        topic: framtid-b2
+        shuffle: true
+        items:
+          - { id: gh2k, type: order, start: "När du kommer tillbaka från din resa", tokens: ["kommer", "vi", "förhoppningsvis", "att", "ha", "målat", "om", "hela", "köket"], answers: ["När du kommer tillbaka från din resa kommer vi förhoppningsvis att ha målat om hela köket."], feedback: [{ contains: "resa vi", tip: "De bijzin met när telt als plaats 1: daarna komt meteen het werkwoord (… kommer vi …)." }] }
+          - { id: jug2, type: order, start: "Experterna tror att", tokens: ["priserna", "inte", "kommer", "att", "sjunka", "förrän", "räntan", "har", "sänkts", "igen"], answers: ["Experterna tror att priserna inte kommer att sjunka förrän räntan har sänkts igen."], feedback: [{ contains: "priserna kommer inte", tip: "In de bijzin (na att) staat inte vóór het werkwoord: att priserna inte kommer att sjunka." }] }
+          - { id: 998z, type: order, start: "Enligt den nya prognosen", tokens: ["beräknas", "befolkningen", "i Stockholm", "öka", "med en halv miljon", "fram till år 2050"], answers: ["Enligt den nya prognosen beräknas befolkningen i Stockholm öka med en halv miljon fram till år 2050.", "Enligt den nya prognosen beräknas befolkningen i Stockholm öka fram till år 2050 med en halv miljon."], feedback: [{ contains: "prognosen befolkningen", tip: "Na het zinsdeel vooraan komt het werkwoord op plaats 2: Enligt den nya prognosen beräknas befolkningen …" }] }
+          - { id: zbpe, type: order, start: "Om ingenting görs", tokens: ["kan", "bristen", "på", "vatten", "komma", "att", "bli", "ett", "allvarligt", "problem", "även", "i", "Sverige"], answers: ["Om ingenting görs kan bristen på vatten komma att bli ett allvarligt problem även i Sverige.", "Om ingenting görs kan bristen på vatten även i Sverige komma att bli ett allvarligt problem."], feedback: [{ contains: "görs bristen", tip: "De bijzin met om telt als plaats 1: daarna komt meteen het werkwoord (… kan bristen på vatten …)." }] }
+          - { id: 3mcy, type: order, start: "Hon räknar med att", tokens: ["hon", "redan", "kommer", "att", "ha", "tagit", "examen", "när", "systern", "börjar", "på", "universitetet"], answers: ["Hon räknar med att hon redan kommer att ha tagit examen när systern börjar på universitetet.", "Hon räknar med att hon kommer att ha tagit examen redan när systern börjar på universitetet.", "Hon räknar med att när systern börjar på universitetet kommer hon redan att ha tagit examen.", "Hon räknar med att när systern börjar på universitetet hon redan kommer att ha tagit examen."], feedback: [{ contains: "hon kommer redan", tip: "In de bijzin (na att) staat redan vóór het werkwoord: att hon redan kommer att ha tagit examen." }] }
+          - { id: b294, type: order, start: "Det är osannolikt att", tokens: ["robotar", "någonsin", "kommer", "att", "ersätta", "lärarna", "i", "den", "svenska", "skolan"], answers: ["Det är osannolikt att robotar någonsin kommer att ersätta lärarna i den svenska skolan."], feedback: [{ contains: "kommer någonsin", tip: "In de bijzin (na att) staat någonsin vóór het werkwoord: att robotar någonsin kommer att …" }] }
+
+      - id: framtid-b2-kiezen-lang
+        title: Verwachtingen in het nieuws
+        instruction: Vul in of kies wat past.
+        topic: framtid-b2
+        shuffle: true
+        items:
+          - { id: h5bw, type: gap, text: "Enligt SMHI ___ det bli både kallare och blåsigare än normalt under resten av veckan.", gaps: [{ answers: ["ska"], options: ["ska", "tänker", "vill"], shuffle: false, tip: "Ska + infinitief kan ook betekenen: volgens de verwachting, naar verluidt. Het weer heeft geen plannen of wensen (tänker, vill)." }] }
+          - { id: endu, type: gap, text: "Den nya bron ___ kosta minst fem miljarder kronor, vilket är dubbelt så mycket som planerat.", gaps: [{ answers: ["beräknas"], options: ["beräknas", "beräknar", "räknar"], shuffle: false, feedback: [{ match: "beräknar", tip: "De brug rekent niet zelf: lijdend, beräknas." }] }] }
+          - { id: p9c4, type: gap, text: "Om tjugo år ___ de flesta svenska hushåll ___ (skaffa) en elbil, åtminstone enligt de senaste prognoserna.", hint: "kommer att ha + supinum", gaps: [{ answers: ["kommer"] }, { answers: ["att ha skaffat"], feedback: [{ match: "att skaffa", tip: "Het is dan al gebeurd: att ha skaffat." }, { match: "att ha skaffad", tip: "Na ha: het supinum, skaffat." }] }] }
+          - { id: 7xp3, type: gap, text: "Kostnaderna för den nya tunnelbanan ___ bli betydligt högre än politikerna räknade med från början.", gaps: [{ answers: ["torde"], options: ["torde", "tänker", "brukar"], shuffle: false, tip: "Torde + infinitief = zal waarschijnlijk (formeel)." }] }
+          - { id: dbq8, type: gap, text: "Eftersom räntan ___ sjunka nästa år, väntar många med att köpa en ny bostad.", gaps: [{ answers: ["väntas"], options: ["väntas", "väntar", "vänta"], shuffle: false, feedback: [{ match: "väntar", tip: "De rente wacht niet zelf: lijdend, väntas (er wordt verwacht dat …)." }] }] }
+
+      - id: framtid-b2-herschrijven
+        title: Lange zinnen herschrijven
+        instruction: Herschrijf de zin zoals gevraagd.
+        topic: framtid-b2
+        items:
+          - { id: fch6, type: transform, prompt: "Man räknar med att antalet elbilar på de svenska vägarna fördubblas under de kommande fem åren.", task: "Herschrijf met **beräknas**.", answers: ["Antalet elbilar på de svenska vägarna beräknas {fördubblas|dubbleras} under de kommande fem åren."], feedback: [{ contains: "beräknas att", tip: "Na beräknas volgt de infinitief zonder att." }, { match: "Antalet elbilar på de svenska vägarna beräknas fördubbla under de kommande fem åren.", tip: "Het aantal verdubbelt zelf (zonder lijdend voorwerp): fördubblas." }] }
+          - { id: 7pg9, type: transform, prompt: "Vi har betalat av hela lånet på huset innan barnen flyttar hemifrån.", task: "Zet de zin in de voltooide toekomst (**kommer att ha** + supinum).", answers: ["Vi kommer att ha betalat av hela lånet på huset innan barnen flyttar hemifrån."], feedback: [{ contains: "att har", tip: "Na att komt de infinitief: att ha betalat." }, { contains: "kommer att betala", tip: "Het is dan al gebeurd: kommer att ha betalat av." }] }
+          - { id: f6ng, type: transform, prompt: "Forskarna tror att havsnivån längs den svenska västkusten stiger med flera decimeter före slutet av seklet.", task: "Herschrijf met **väntas**: Havsnivån …", answers: ["Havsnivån längs den svenska västkusten {väntas|förväntas} stiga med flera decimeter före slutet av seklet."], feedback: [{ contains: ["väntas stiger", "väntas att"], tip: "Na väntas volgt de infinitief zonder att: väntas stiga." }] }
+          - { id: 4b8m, type: transform, topic: bisats-adverb, prompt: "Företaget kommer inte längre att kunna konkurrera med de stora utländska bolagen.", task: "Ekonomerna varnar för att …", answers: ["Ekonomerna varnar för att företaget inte längre kommer att kunna konkurrera med de stora utländska bolagen."], feedback: [{ contains: "kommer inte", tip: "In de bijzin (na att) staan inte en längre vóór het werkwoord: att företaget inte längre kommer att kunna …" }] }
+
+      - id: langere-zinnen
+        title: "Vertaal: langere zinnen"
+        instruction: Vertaal de hele zin. Let op de woordvolgorde in de bijzin en na een woord vooraan.
+        items:
+          - { id: qhsf, type: translate, topic: framtid-b2, prompt: "Steeds meer onderzoekers denken dat robots binnenkort veel eenvoudige taken in de zorg zullen overnemen.", answers: ["Allt fler forskare tror att robotar inom kort kommer att ta över många enkla arbetsuppgifter i vården.", "{Allt fler|Fler och fler} forskare tror [att ]robotar {inom kort|snart} kommer [att ]ta över många enkla {arbetsuppgifter|uppgifter} i vården."], feedback: [{ contains: "kommer att tar", tip: "Na kommer att: de infinitief (ta)." }] }
+          - { id: g9s9, type: translate, topic: framtid-b2, prompt: "Vroeg of laat moeten we ons aanpassen aan een warmer klimaat, wat de politici ook besluiten.", answers: ["Förr eller senare måste vi anpassa oss till ett varmare klimat, oavsett vad politikerna bestämmer.", "Förr eller senare måste vi anpassa oss {till|efter} ett varmare klimat, oavsett vad politikerna {bestämmer|beslutar}.", "Förr eller senare måste vi anpassa oss {till|efter} ett varmare klimat, vad politikerna än {bestämmer|beslutar}."], feedback: [{ contains: "Förr eller senare vi måste", tip: "Na förr eller senare vooraan: werkwoord eerst (måste vi)." }] }
+          - { id: 7zxt, type: translate, topic: framtid-b2, prompt: "Een verbod op benzineauto's zal waarschijnlijk niet genoeg zijn om de uitstoot te verminderen.", answers: ["Ett förbud mot bensinbilar kommer {troligen|sannolikt|förmodligen|antagligen} inte att räcka för att minska utsläppen.", "Ett förbud mot bensinbilar {lär|torde} inte räcka för att minska utsläppen."], feedback: [{ contains: "förbud på", tip: "Een verbod op: förbud mot." }, { contains: ["kommer inte troligen", "kommer inte sannolikt", "kommer inte förmodligen", "kommer inte antagligen"], tip: "troligen staat vóór inte: kommer troligen inte att räcka." }, { contains: "att räcker", tip: "Na att: de infinitief (räcka)." }] }
+          - { id: 47sc, type: translate, topic: framtid-b2, prompt: "Het voorstel klinkt overtuigend, maar de kosten zullen waarschijnlijk veel hoger worden dan verwacht.", answers: ["Förslaget låter övertygande, men kostnaderna kommer {troligen|sannolikt|förmodligen|antagligen} att bli {mycket|betydligt|långt} högre än {väntat|förväntat|beräknat}.", "Förslaget låter övertygande, men kostnaderna {lär|torde} bli {mycket|betydligt|långt} högre än {väntat|förväntat|beräknat}."], feedback: [{ contains: "att blir", tip: "Na att: de infinitief (bli)." }, { contains: "högre som", tip: "Na een vergrotende trap: än." }] }
+
+  - id: zoek-de-fout
+    title: Zoek de fout
+    exercises:
+      - id: zoek-de-fout
+        title: Zoek de fout
+        instruction: Klik op het woord dat niet klopt en verbeter de zin.
+        topic: framtid-b2
+        shuffle: true
+        items:
+          - { id: grsc, type: findError, sentence: "Priserna väntas att stiga.", wrong: [2], answers: ["Priserna {väntas|förväntas} stiga."], tip: "Na väntas komt geen att." }
+          - { id: n85z, type: findError, sentence: "Befolkningen beräknar öka.", wrong: [1], answers: ["Befolkningen beräknas öka."], tip: "De bevolking rekent niet zelf." }
+          - { id: 8rqr, type: findError, sentence: "Om tio år kommer jag att har flyttat.", wrong: [6], answers: ["Om tio år kommer jag att ha flyttat."], tip: "Na att: infinitief." }
+          - { id: tn2j, type: findError, sentence: "Det tänker bli kallt i helgen.", wrong: [1], answers: ["Det {lär|kommer att|ska} bli kallt i helgen."], tip: "Het weer heeft geen plannen." }
+          - { id: sdm2, type: findError, topic: bisats-adverb, sentence: "Jag tror att det blir inte lätt.", wrong: [4, 5], answers: ["Jag tror att det inte blir lätt."], tip: "Bijzinvolgorde." }
+          - { id: pfu8, type: findError, sentence: "Enligt den senaste prognosen väntas arbetslösheten att sjunka något under nästa år.", wrong: [6], answers: ["Enligt den senaste prognosen {väntas|förväntas} arbetslösheten sjunka något under nästa år."], tip: "Na väntas komt geen att." }
+          - { id: u9tb, type: findError, sentence: "Om fem år kommer vi att har byggt färdigt det nya huset ute på landet.", wrong: [6], answers: ["Om fem år kommer vi att ha byggt färdigt det nya huset ute på landet."], tip: "Na att: infinitief." }
+          - { id: x8rj, type: findError, topic: bisats-adverb, sentence: "Många tror att datorer kommer aldrig att kunna ersätta en riktigt bra lärare.", wrong: [4, 5], answers: ["Många tror att datorer aldrig kommer att kunna ersätta en riktigt bra lärare."], tip: "Bijzinvolgorde: aldrig vóór het werkwoord." }
+          - { id: ftdx, type: findError, sentence: "Den nya idrottshallen beräknar vara klar först år 2030, enligt kommunens senaste besked.", wrong: [3], answers: ["Den nya idrottshallen {beräknas|väntas|förväntas} {vara|bli} klar först år 2030, enligt kommunens senaste besked."], tip: "De sporthal rekent niet zelf." }
+          - { id: 6yxd, type: findError, sentence: "Det lär att bli allt svårare att hitta en bostad, eftersom priserna väntas stiga ytterligare.", wrong: [2], answers: ["Det lär bli allt svårare att hitta en bostad, eftersom priserna väntas stiga ytterligare.", "Det kommer att bli allt svårare att hitta en bostad, eftersom priserna väntas stiga ytterligare."], tip: "Na lär komt geen att." }
+
+  - id: lyssna
+    title: Lyssna · luisteren
+    exercises:
+      - id: lyssna-framtid
+        title: "Luisteren: een toekomstonderzoeker"
+        instruction: Luister naar het fragment. Is de bewering **rätt** of **fel**?
+        topic: framtid-b2
+        listen: true
+        textTitle: Ett samtal om framtiden
+        text: |
+          Många frågar mig vilka jobb som kommer att finnas om tjugo år. Ärligt talat vet ingen det. Men vi vet att förmågan att lära sig nytt kommer att bli allt viktigare.
+
+          Den som har lärt sig ett nytt språk som vuxen, till exempel svenska, har redan visat att den kan anpassa sig. Det är en egenskap som arbetsgivare lär värdera högt i framtiden.
+
+          Mitt råd är därför enkelt: sluta aldrig att lära dig. Om tio år kommer du att ha glömt det mesta du läser i dag, men du kommer att ha kvar förmågan att lära.
+        items:
+          - { id: d584, type: truefalse, statement: "Forskaren vet exakt vilka jobb som kommer att finnas.", answer: false, correction: { answers: ["Ingen vet det.", "{Forskaren|Hon|Han} vet inte[ det]."] } }
+          - { id: h874, type: truefalse, statement: "Förmågan att lära sig nytt blir allt viktigare.", answer: true }
+          - { id: 2z55, type: truefalse, statement: "Att lära sig ett språk som vuxen visar att man kan anpassa sig.", answer: true }
+          - { id: uqvv, type: truefalse, statement: "Forskaren råder oss att sluta lära oss när vi är vuxna.", answer: false, correction: { answers: ["{Forskaren|Hon|Han} råder oss att aldrig sluta lära oss.", "Sluta aldrig att lära dig."] } }
+
+      - id: lyssna-dictee
+        title: Dictee
+        instruction: Luister en maak de zin die je hoort.
+        topic: framtid-b2
+        shuffle: true
+        items:
+          - { id: 55gu, type: listen, say: "Priserna väntas stiga nästa år." }
+          - { id: cbrv, type: listen, say: "Om tio år kommer jag att ha flyttat." }
+          - { id: kw5b, type: listen, say: "Det lär bli kallt i helgen." }
+          - { id: 3tqq, type: listen, say: "Framtiden är något vi skapar tillsammans." }
+
+  - id: praktiskt
+    title: Praktiskt · plannen en verwachtingen
+    exercises:
+      - id: wat-zeg-je
+        title: Wat zeg je?
+        instruction: Kies wat past.
+        topic: framtid-b2
+        shuffle: true
+        items:
+          - { id: tdwe, type: mc, prompt: "Je vertelt over een vast plan.", options: ["Nästa år ska jag börja plugga igen.", "Nästa år lär jag börja plugga igen.", "Nästa år väntas jag börja plugga igen.", "Nästa år beräknas jag plugga."], answer: 0 }
+          - { id: 7grk, type: mc, prompt: "Je doet een voorzichtige voorspelling.", options: ["Det kommer nog att bli svårt, men vi får se.", "Det har blivit svårt.", "Det tänker bli svårt.", "Det blev svårt i morgon."], answer: 0 }
+          - { id: 25k7, type: mc, prompt: "Je vraagt naar iemands plannen.", options: ["Vad har du för planer inför framtiden?", "Vad lär du i framtiden?", "Vad väntas du?", "Vad beräknas du göra?"], answer: 0 }
+          - { id: mask, type: mc, prompt: "Je zegt wat je hoopt.", options: ["Jag hoppas att jag har ett jobb som jag trivs med.", "Jag hoppar att jag har ett jobb.", "Jag hoppas jag trivs jobbet.", "Jag hoppas att jag trivs ett jobb."], answer: 0 }
+
+      - id: wat-zeg-je-zelf
+        title: Wat zeg je? (zelf)
+        instruction: Zeg het nu zelf in het Zweeds. Er is vaak meer dan één goed antwoord.
+        kind: situatie
+        items:
+          - { id: 2x48, type: translate, topic: framtid-b2, prompt: "Zeg dat je denkt dat er meer robots komen.", answers: ["Jag tror [att ]det kommer [att ]{bli|finnas} fler robotar."] }
+          - { id: 29bj, type: translate, topic: framtid-b2, prompt: "Zeg dat je hopelijk over een jaar Zweeds spreekt.", answers: ["Förhoppningsvis {pratar|talar} jag svenska om ett år.", "Om ett år {pratar|talar} jag förhoppningsvis svenska.", "Förhoppningsvis kan jag [prata ]svenska om ett år."] }
+          - { id: pqg8, type: translate, topic: framtid-b2, prompt: "Zeg dat de stad naar verwachting zal groeien.", answers: ["Staden {väntas|förväntas} växa."] }
+          - { id: hpcj, type: translate, topic: framtid-b2, prompt: "Zeg dat je het eerlijk gezegd niet weet.", answers: ["Ärligt talat vet jag inte.", "Jag vet ärligt talat inte.", "Jag vet inte[ det], ärligt talat."], feedback: [{ contains: "Ärligt talat jag vet", tip: "Na ärligt talat komt eerst het werkwoord: ärligt talat vet jag inte." }] }
+
+  - id: skriva
+    title: Skriva · schrijven
+    intro: "Schrijfdoel: een toekomstvisie."
+    exercises:
+      - id: skriva-betoog
+        title: Betoog in stappen
+        instruction: "Bouw een betoog op in vier delen: tes, argumenten, motargument met bemötande en slutsats. De app kijkt elke stap na. Daarna schrijf je het hele betoog, als je wilt."
+        topic: argumentation
+        items:
+          - id: ssqe
+            type: steps
+            topic: argumentation
+            steps:
+              - { type: mc, prompt: "**Tes.** Welke zin is een goede tes (een standpunt)?", options: ["Robotar borde få en större roll i äldreomsorgen.", "Antalet pensionärer i Sverige väntas öka de närmaste åren.", "Min mormor fick besök av en robot på sitt boende förra veckan."], answer: 0, tip: "Een tes is een standpunt waarover je van mening kunt verschillen, geen verwachting die je meldt en geen eigen ervaring." }
+              - { type: order, topic: framtid-b2, prompt: "**Tes.** Ik ben ervan overtuigd dat robots het personeel niet zullen vervangen, maar helpen. Let op de plaats van *inte* in de bijzin.", start: "Jag är övertygad om att", tokens: ["robotar", "inte", "kommer", "att", "ersätta", "personalen", "utan", "hjälpa", "den"], answers: ["Jag är övertygad om att robotar inte kommer att ersätta personalen utan hjälpa den."], feedback: [{ contains: "robotar kommer inte", tip: "Na om att volgt een bijzin: inte staat vóór het werkwoord (robotar inte kommer att)." }] }
+          - id: aasu
+            type: steps
+            topic: argumentation
+            steps:
+              - { type: gap, topic: framtid-b2, prompt: "**Argument 1.** Je doet een voorspelling. Kies het woord dat past.", text: "För det första ___ antalet äldre att öka kraftigt de närmaste åren.", gaps: [{ answers: ["kommer"], options: ["kommer", "ska", "lär"], tip: "Een voorspelling met att: kommer att öka. Ska en lär staan zonder att." }] }
+              - { type: gap, prompt: "**Argument 2.** Kies het signaalwoord.", text: "___ kan robotar ta över tunga lyft, så att personalen orkar mer.", gaps: [{ answers: ["Dessutom"], options: ["Dessutom", "Å andra sidan", "Kort sagt"], tip: "Nog een argument erbij: dessutom (bovendien). Kort sagt hoort bij de slutsats." }] }
+              - { type: order, topic: framtid-b2, prompt: "**Argument 3.** Maak de bijzin met *eftersom* af.", start: "Vi måste planera redan nu,", tokens: ["eftersom", "det", "väntas", "bli", "brist", "på", "personal", "inom", "vården"], answers: ["Vi måste planera redan nu, eftersom det väntas bli brist på personal inom vården."], feedback: [{ contains: "eftersom väntas det", tip: "Na eftersom volgt een bijzin, zonder inversie: eftersom det väntas …" }] }
+          - id: ngg3
+            type: steps
+            topic: argumentation
+            steps:
+              - { type: mc, prompt: "**Motargument.** Welke zin geeft weer wat de andere kant vindt?", options: ["Vissa hävdar att äldre människor behöver mänsklig kontakt, inte maskiner.", "Dessutom kan robotar ta över tunga lyft.", "Sammanfattningsvis anser jag att robotar är en bra lösning."], answer: 0, tip: "Een motargument is wat anderen vinden: Vissa hävdar att … of Kritiker menar att …" }
+              - { type: order, prompt: "**Bemötande.** Geef eerst toe, zet er dan iets tegenover.", start: "Visserligen kan en robot aldrig ersätta en människa,", tokens: ["men", "den", "kan", "frigöra", "tid", "för", "samtal"], answers: ["Visserligen kan en robot aldrig ersätta en människa, men den kan frigöra tid för samtal."] }
+              - { type: gap, topic: framtid-b2, prompt: "**Bemötande.** Kies het woord dat past.", text: "___ tekniken kostar mycket i början, kommer den att löna sig på sikt.", gaps: [{ answers: ["Trots att"], options: ["Trots att", "Eftersom", "Därför"], tip: "Hoewel het in het begin veel kost: trots att. Eftersom geeft een reden, en na därför zou het werkwoord direct volgen." }] }
+          - id: hapw
+            type: steps
+            topic: argumentation
+            steps:
+              - { type: translate, topic: framtid-b2, prompt: "**Slutsats.** Vertaal: Over tien jaar zullen robots een vanzelfsprekend (självklar) deel van de zorg zijn.", answers: ["Om tio år kommer robotar [att ]{vara|utgöra} en självklar del {av|i} {vården|omsorgen|äldreomsorgen}.", "Robotar kommer [att ]{vara|utgöra} en självklar del {av|i} {vården|omsorgen|äldreomsorgen} om tio år.", "Om tio år {är|blir} robotar en självklar del {av|i} {vården|omsorgen|äldreomsorgen}."], feedback: [{ contains: "om tio år robotar", tip: "Na Om tio år vooraan komt eerst het werkwoord: Om tio år kommer robotar …" }] }
+              - { type: gap, prompt: "**Slutsats.** Je sluit af. Kies het signaalwoord.", text: "___ anser jag att robotar kan göra äldreomsorgen både bättre och mer mänsklig.", gaps: [{ answers: ["Sammanfattningsvis"], options: ["Sammanfattningsvis", "Visserligen", "Dessutom"], tip: "Een slutsats begin je met sammanfattningsvis. Dessutom voegt nog een argument toe, visserligen geeft iets toe." }] }
+          - id: nw2m
+            type: free
+            prompt: "Schrijf nu het hele betoog (100–150 woorden) over de stelling *Robotar borde få en större roll i äldreomsorgen*, of kies zelf een stelling over de toekomst (bijvoorbeeld: *Alla borde få jobba fyra dagar i veckan*). Gebruik de vier delen: tes, twee of drie argumenten, een motargument met bemötande en een slutsats, en minstens één voorspelling met *kommer att* of *väntas*."
+            minWords: 90
+            require:
+              - { any: ["anser", "tycker", "övertygad", "borde"], label: "Je geeft je tes" }
+              - { any: ["för det första", "dessutom", "eftersom"], label: "Je ordent je argumenten (för det första, dessutom, eftersom)" }
+              - { any: ["visserligen", "trots att", "å andra sidan", "det stämmer att"], label: "Je bemöter een motargument (visserligen … men, trots att)" }
+              - { any: ["sammanfattningsvis", "därför", "kort sagt"], label: "Je sluit af met een slutsats" }
+              - { any: ["kommer att", "väntas", "beräknas"], label: "Je doet een voorspelling (kommer att, väntas)" }
+            model: "Robotar borde få en större roll i äldreomsorgen. Jag är övertygad om att robotar inte kommer att ersätta personalen utan hjälpa den. För det första kommer antalet äldre att öka kraftigt de närmaste åren. Vi måste planera redan nu, eftersom det väntas bli brist på personal inom vården. Dessutom kan robotar ta över tunga lyft, så att personalen orkar mer. Vissa hävdar att äldre människor behöver mänsklig kontakt, inte maskiner. Visserligen kan en robot aldrig ersätta en människa, men den kan frigöra tid för samtal. Trots att tekniken kostar mycket i början, kommer den att löna sig på sikt. Om tio år kommer robotar att vara en självklar del av vården. Sammanfattningsvis anser jag att robotar kan göra äldreomsorgen både bättre och mer mänsklig."
+
+      - id: skriva-framtid
+        title: Jouw toekomst
+        instruction: "Bouw eerst je toekomstvisie op in vijf stappen die de app nakijkt. Daarna schrijf je de hele tekst, als je wilt."
+        topic: framtid-b2
+        items:
+          - { id: vs3n, type: mc, prompt: "Kies de beste openingszin.", options: ["Om tio år kommer mycket att ha förändrats.", "Om tio år mycket kommer att ha förändrats.", "Om tio år kommer mycket att har förändrats."], answer: 0, tip: "Na Om tio år komt het werkwoord op plaats 2, en na att komt de infinitief: att ha förändrats." }
+          - { id: wkte, type: gap, prompt: "Je vertelt over een besluit dat je al hebt genomen. Kies het woord dat past.", text: "Jag ___ fortsätta att bo i Sverige, det har jag bestämt.", gaps: [{ answers: ["ska"], options: ["ska", "lär", "väntas"], tip: "Een plan of besluit: ska. Lär en väntas gaan over verwachtingen." }] }
+          - { id: ejhm, type: gap, prompt: "Je noemt een verwachting van anderen. Kies het woord dat past.", text: "Elbilar ___ bli helt vanliga.", gaps: [{ answers: ["väntas"], options: ["väntas", "vill", "tänker"], tip: "Er wordt verwacht dat …: väntas. Vill en tänker gaan over wat mensen willen of van plan zijn." }] }
+          - { id: aymn, type: translate, prompt: "Dan zal ik hier vijftien jaar gewoond hebben.", answers: ["Då kommer jag [att ]ha bott här [i ]femton år.", "Då har jag bott här [i ]femton år."], feedback: [{ contains: "då jag", tip: "Na då vooraan komt het werkwoord op plaats 2: Då kommer jag …" }] }
+          - { id: qh8t, type: order, prompt: "Maak de zin af. Let op de woordvolgorde na de om-zin.", start: "Om vi är beredda att lära oss nya saker,", tokens: ["kommer", "det", "att", "finnas", "nya", "möjligheter"], answers: ["Om vi är beredda att lära oss nya saker, kommer det att finnas nya möjligheter."] }
+          - id: 3fa2
+            type: free
+            prompt: "Hoe ziet jouw leven (of de wereld) er over tien jaar uit? Schrijf 150–200 woorden. Gebruik *ska* (plannen), *kommer att* (voorspellingen), *kommer att ha* + supinum, een voorwaarde met *om*, en minstens één van *lär, väntas, beräknas*. Sluit af met een conclusie."
+            minWords: 140
+            require:
+              - { any: ["ska"], label: "Je noemt een plan (ska)" }
+              - { any: ["kommer att"], label: "Je doet een voorspelling (kommer att)" }
+              - { any: ["kommer att ha", "kommer jag att ha", "kommer vi att ha"], label: "Je gebruikt kommer att ha + supinum" }
+              - { any: ["om"], label: "Je gebruikt een voorwaarde met om" }
+              - { any: ["lär", "väntas", "beräknas", "förväntas"], label: "Je gebruikt lär, väntas of beräknas" }
+            model: "Om tio år kommer mycket att ha förändrats, både i världen och i mitt eget liv. Jag ska fortsätta att bo i Sverige, men jag hoppas att jag har flyttat till en mindre stad, närmare naturen. Då kommer jag att ha bott här i femton år, och jag kommer förhoppningsvis att tala svenska nästan lika bra som nederländska. På jobbet lär datorerna ha tagit över många av de tråkiga uppgifterna. Det kan låta skrämmande, men om vi är beredda att lära oss nya saker, kommer det att finnas nya möjligheter. Klimatet är det jag oroar mig mest för. Elbilar väntas bli helt vanliga, men det räcker inte. Vi måste också ändra hur vi reser och vad vi äter. Sammanfattningsvis tror jag att framtiden blir varken bättre eller sämre av sig själv. Det är vi som bestämmer."
+
+  - id: herhaling
+    title: Herhaling B1 en B2
+    intro: Een gemengde herhaling van alle hoofdstukken, als opwarmer voor de herhaling van de B2-grammatica.
+    exercises:
+      - id: herhaling-alles
+        title: Alles door elkaar
+        instruction: Gemengde vragen uit hoofdstuk 13 tot en met 30.
+        shuffle: true
+        items:
+          - { id: jxsg, type: gap, topic: passiv-bli, text: "Uppsatsen blev ___ (godkänna).", gaps: [{ answers: ["godkänd"] }] }
+          - { id: 7z2n, type: translate, topic: partikelverb, prompt: "Ik herkende hem niet.", answers: ["Jag kände inte igen honom."] }
+          - { id: absm, type: gap, topic: deponens, text: "Hon ___ (trivas) bra på sitt förra jobb.", gaps: [{ answers: ["trivdes"] }] }
+          - { id: 8b8m, type: gap, topic: prep-verb, text: "Vi väntar ___ svar.", gaps: [{ answers: ["på"] }] }
+          - { id: cf3n, type: transform, topic: villkor, prompt: "Om jag har tid, kommer jag.", task: "Maak het denkbeeldig.", answers: ["Om jag hade tid[,] skulle jag komma.", "Hade jag tid[,] skulle jag komma."] }
+          - { id: ddqa, type: gap, topic: indirekt-fraga, text: "Berätta ___ hände!", gaps: [{ answers: ["vad som"], options: ["vad som", "vad", "vem"], shuffle: false }] }
+          - { id: 6z2m, type: gap, topic: nagon-ingen, text: "Jag har inte hört ___.", gaps: [{ answers: ["något", "någonting"] }] }
+          - { id: bx8u, type: gap, topic: jamforelse, text: "Ju äldre man blir, ___ klokare blir man.", gaps: [{ answers: ["desto", "ju"] }] }
+          - { id: 5z5k, type: gap, topic: nominalisering, text: "utveckla → ___", gaps: [{ answers: ["en utveckling"] }] }
+          - { id: n2e8, type: transform, topic: utbrytning, prompt: "**Klimatet** är den största frågan.", answers: ["Det är klimatet som är den största frågan."] }
+          - { id: 2hp8, type: mc, topic: framtid-b2, prompt: "Wat betekent *Priserna väntas stiga nästa år*?", options: ["Men verwacht dat de prijzen volgend jaar stijgen.", "De prijzen wachten tot volgend jaar.", "De prijzen zijn vorig jaar gestegen."], answer: 0, tip: "väntas = wordt verwacht (lijdende vorm, vgl. man väntar sig att …): men verwacht dat de prijzen stijgen." }
+
+  - id: eindtoets
+    title: Herhaling B2-grammatica
+    intro: "Twintig vragen over de grammatica van B2 (hoofdstuk 25–30), met een paar vragen uit B1. Heb je er 16 of meer in één keer goed, dan beheers je de grammatica van B2 goed. Voor B2 als geheel tellen ook lezen, luisteren, spreken en schrijven; die meet deze herhaling niet."
+    exercises:
+      - id: eindtoets-b2
+        title: Herhaling B2-grammatica
+        instruction: Gemengde vragen over de grammatica van B2.
+        items:
+          - { id: vr87, type: gap, topic: nominalisering, text: "Priserna ökade kraftigt. → Det skedde en ___ ökning av priserna.", gaps: [{ answers: ["kraftig"] }] }
+          - { id: pdhn, type: gap, topic: nominalisering, text: "en ökning ___ försäljningen", gaps: [{ answers: ["av"], options: ["av", "med", "till"], shuffle: false }] }
+          - { id: 55jd, type: gap, topic: trender, text: "Räntan steg från 2 till 3 procent, alltså med en ___.", gaps: [{ answers: ["procentenhet"], options: ["procent", "procentenhet"], shuffle: false }] }
+          - { id: kgn2, type: mc, topic: trender, prompt: "Wat betekent *knappt hälften*?", options: ["iets minder dan de helft", "iets meer dan de helft", "precies de helft", "bijna niets"], answer: 0 }
+          - { id: 8rha, type: transform, topic: particip-konstruktion, prompt: "metoden som forskarna utvecklade", task: "Begin met: den av forskarna …", answers: ["den av forskarna utvecklade metoden"] }
+          - { id: dm4q, type: gap, topic: particip-konstruktion, text: "ett snabbt ___ (växa) problem", gaps: [{ answers: ["växande"] }] }
+          - { id: q35e, type: mc, topic: nominalfras, prompt: "Welke formulering is voorzichtig?", options: ["Resultaten tyder på att …", "Studien bevisar att …", "Det är helt klart att …", "Alla vet att …"], answer: 0 }
+          - { id: 9v37, type: transform, topic: utbrytning, prompt: "**Min syster** hittade vraket.", answers: ["Det var min syster som hittade vraket."] }
+          - { id: 9dh6, type: gap, topic: argumentation, text: "Det är inte ett straff, ___ en möjlighet.", gaps: [{ answers: ["utan"], options: ["utan", "men", "eller"], shuffle: false }] }
+          - { id: saha, type: gap, topic: argumentation, text: "___ kan det låta dyrt, men det lönar sig.", gaps: [{ answers: ["Visserligen"], options: ["Visserligen", "Därför", "Slutligen"], shuffle: false }] }
+          - { id: ye37, type: gap, topic: register, text: "Jag såg ___ på stationen.", gaps: [{ answers: ["dem"], options: ["de", "dem"], shuffle: false }] }
+          - { id: xdfb, type: mc, topic: idiom, prompt: "*Det är ingen ko på isen* betekent:", options: ["Er is geen haast.", "Het is glad buiten.", "Er is een probleem.", "Het is te koud."], answer: 0 }
+          - { id: wjfk, type: gap, topic: register, text: "Vi har ___ din ansökan. (formeel)", gaps: [{ answers: ["erhållit"], options: ["erhållit", "fått tag på", "kollat"], shuffle: false }] }
+          - { id: bgrg, type: transform, topic: bisats-adverb, prompt: "Han kom inte heller.", task: "Hon sa att …", answers: ["Hon sa att han inte heller kom."] }
+          - { id: zbuf, type: transform, topic: fundament, prompt: "Många turister finns på museet.", answers: ["Det finns många turister på museet."] }
+          - { id: yrse, type: gap, topic: bisats-adverb, text: "Vasa ___ (segla) bara 1 300 meter när det sjönk.", gaps: [{ answers: ["hade seglat"] }] }
+          - { id: n2s3, type: transform, topic: framtid-b2, prompt: "Man väntar sig att priserna stiger.", answers: ["Priserna {väntas|förväntas} stiga."] }
+          - { id: abx5, type: gap, topic: framtid-b2, text: "Om tio år kommer jag ___ flyttat.", gaps: [{ answers: ["att ha"] }] }
+          - { id: 65mx, type: transform, topic: subjunktioner-b1, prompt: "Det regnade. Vi gick ut ändå. (trots att)", answers: ["Trots att det regnade[,] gick vi ut.", "Vi gick ut[,] trots att det regnade."] }
+          - { id: 6yth, type: gap, topic: bestamd-utan-artikel, text: "Vi ses nästa ___.", gaps: [{ answers: ["vecka"], options: ["vecka", "veckan"], shuffle: false }] }
+
+vocab:
+  - { sv: "en framtid", nl: "de toekomst", def: "framtiden", ex: "Ingen vet hur **framtiden** kommer att se ut.", exNl: "Niemand weet hoe de toekomst eruit zal zien." }
+  - { sv: "en trend", nl: "een trend", def: "trenden", pl: "trender", plDef: "trenderna", ex: "**Trenden** är tydlig: allt fler jobbar hemifrån.", exNl: "De trend is duidelijk: steeds meer mensen werken vanuit huis." }
+  - { sv: "en befolkning", nl: "de bevolking", def: "befolkningen", ex: "**Befolkningen** beräknas öka till elva miljoner.", exNl: "De bevolking zal naar schatting groeien tot elf miljoen." }
+  - { sv: "en prognos", nl: "een prognose, een verwachting", def: "prognosen", pl: "prognoser", plDef: "prognoserna", ex: "Enligt den senaste **prognosen** kommer arbetslösheten att minska.", exNl: "Volgens de laatste prognose zal de werkloosheid dalen." }
+  - { sv: "ett yrke", nl: "een beroep", def: "yrket", pl: "yrken", plDef: "yrkena", ex: "Vilka **yrken** kommer att försvinna i framtiden?", exNl: "Welke beroepen zullen in de toekomst verdwijnen?" }
+  - { sv: "en förmåga", nl: "een vermogen, een vaardigheid", def: "förmågan", pl: "förmågor", plDef: "förmågorna", ex: "**Förmågan** att samarbeta blir allt viktigare.", exNl: "Het vermogen om samen te werken wordt steeds belangrijker." }
+  - { sv: "en egenskap", nl: "een eigenschap", def: "egenskapen", pl: "egenskaper", plDef: "egenskaperna", ex: "Nyfikenhet är en viktig **egenskap** hos en forskare.", exNl: "Nieuwsgierigheid is een belangrijke eigenschap van een onderzoeker." }
+  - { sv: "äldreomsorg", nl: "ouderenzorg", ex: "Behovet av personal inom **äldreomsorgen** ökar snabbt.", exNl: "De behoefte aan personeel in de ouderenzorg groeit snel." }
+  - { sv: "ett krav", nl: "een eis", def: "kravet", pl: "krav", plDef: "kraven", ex: "**Kraven** på digital kompetens ökar i nästan alla yrken.", exNl: "De eisen op het gebied van digitale vaardigheden nemen in bijna alle beroepen toe." }
+  - { sv: "en självklarhet", nl: "een vanzelfsprekendheid", def: "självklarheten", pl: "självklarheter", plDef: "självklarheterna", ex: "Att jobba hemifrån är i dag en **självklarhet** för många.", exNl: "Thuiswerken is tegenwoordig voor velen een vanzelfsprekendheid." }
+  - { sv: "att förvänta sig", nl: "verwachten", ex: "Jag hade inte **förväntat mig** så många svar.", exNl: "Ik had niet zoveel antwoorden verwacht." }
+  - { sv: "att beräkna", nl: "berekenen", ex: "Kostnaden **beräknas** till två miljarder kronor.", exNl: "De kosten worden berekend op twee miljard kronen." }
+  - { sv: "att anpassa sig", nl: "zich aanpassen", ex: "Vi måste **anpassa oss** till ett varmare klimat.", exNl: "We moeten ons aanpassen aan een warmer klimaat." }
+  - { sv: "att föreställa sig", nl: "zich voorstellen", ex: "Kan du **föreställa dig** ett liv utan internet?", exNl: "Kun jij je een leven zonder internet voorstellen?" }
+  - { sv: "att skapa", nl: "creëren, scheppen", ex: "Den nya tekniken kommer att **skapa** många nya jobb.", exNl: "De nieuwe technologie zal veel nieuwe banen creëren." }
+  - { sv: "att misslyckas", nl: "mislukken", ex: "Projektet **misslyckades** på grund av för lite pengar.", exNl: "Het project mislukte door te weinig geld." }
+  - { sv: "att värdera", nl: "waarderen", ex: "Vilka egenskaper kommer arbetsgivare att **värdera** högst?", exNl: "Welke eigenschappen zullen werkgevers het hoogst waarderen?" }
+  - { sv: "sannolikt", nl: "waarschijnlijk", ex: "Priserna kommer **sannolikt** att stiga ännu mer.", exNl: "De prijzen zullen waarschijnlijk nog meer stijgen." }
+  - { sv: "förhoppningsvis", nl: "hopelijk", ex: "**Förhoppningsvis** har vi löst problemet till dess.", exNl: "Hopelijk hebben we het probleem tegen die tijd opgelost." }
+  - { sv: "ärligt talat", nl: "eerlijk gezegd", ex: "**Ärligt talat** vet jag inte vad jag vill bli.", exNl: "Eerlijk gezegd weet ik niet wat ik wil worden." }
+  - { sv: "en utmaning", nl: "een uitdaging", def: "utmaningen", pl: "utmaningar", plDef: "utmaningarna", ex: "Klimatet är vår tids största **utmaning**.", exNl: "Het klimaat is de grootste uitdaging van onze tijd." }
+  - { sv: "en vision", nl: "een visie, een toekomstbeeld", def: "visionen", pl: "visioner", plDef: "visionerna", ex: "Regeringen har en **vision** om ett fossilfritt Sverige.", exNl: "De regering heeft een visie op een fossielvrij Zweden." }
+  - { sv: "ett scenario", nl: "een scenario", def: "scenariot", pl: ["scenarier", "scenarion"], plDef: ["scenarierna", "scenariona"], ex: "I det värsta **scenariot** stiger havsnivån med en meter.", exNl: "In het ergste scenario stijgt de zeespiegel met een meter." }
+  - { sv: "en robot", nl: "een robot", def: "roboten", pl: "robotar", plDef: "robotarna", ex: "I framtiden tar **robotar** kanske hand om de äldre.", exNl: "In de toekomst zorgen robots misschien voor de ouderen." }
+  - { sv: "en automatisering", nl: "de automatisering", def: "automatiseringen", mass: true, ex: "**Automatiseringen** gör att många enkla jobb försvinner.", exNl: "Door de automatisering verdwijnen veel eenvoudige banen." }
+  - { sv: "en digitalisering", nl: "de digitalisering", def: "digitaliseringen", mass: true, ex: "**Digitaliseringen** har förändrat hur vi arbetar.", exNl: "De digitalisering heeft veranderd hoe we werken." }
+  - { sv: "en medellivslängd", nl: "de gemiddelde levensverwachting", def: "medellivslängden", mass: true, ex: "**Medellivslängden** i Sverige har ökat kraftigt under de senaste hundra åren.", exNl: "De gemiddelde levensverwachting in Zweden is de afgelopen honderd jaar sterk gestegen." }
+  - { sv: "en pensionär", nl: "een gepensioneerde", def: "pensionären", pl: "pensionärer", plDef: "pensionärerna", ex: "Antalet **pensionärer** kommer att öka kraftigt.", exNl: "Het aantal gepensioneerden zal sterk toenemen." }
+  - { sv: "ett mål", nl: "een doel", def: "målet", pl: "mål", plDef: "målen", ex: "Mitt **mål** är att jobba som sjuksköterska om fem år.", exNl: "Mijn doel is om over vijf jaar als verpleegkundige te werken." }
+  - { sv: "en ovisshet", nl: "de onzekerheid", def: "ovissheten", mass: true, ex: "**Ovissheten** om framtiden gör många unga oroliga.", exNl: "De onzekerheid over de toekomst maakt veel jongeren ongerust." }
+  - { sv: "en innovation", nl: "een innovatie", def: "innovationen", pl: "innovationer", plDef: "innovationerna", ex: "Sverige är känt för sina många **innovationer**.", exNl: "Zweden staat bekend om zijn vele innovaties." }
+  - { sv: "en uppfinning", nl: "een uitvinding", def: "uppfinningen", pl: "uppfinningar", plDef: "uppfinningarna", ex: "Det moderna trepunktsbältet är en känd svensk **uppfinning**.", exNl: "De moderne driepuntsgordel is een bekende Zweedse uitvinding." }
+  - { sv: "en livsstil", nl: "een levensstijl", def: "livsstilen", pl: "livsstilar", plDef: "livsstilarna", ex: "Vi måste ändra vår **livsstil** för klimatets skull.", exNl: "We moeten onze levensstijl veranderen omwille van het klimaat." }
+  - { sv: "ett vägval", nl: "een richtingkeuze, een belangrijke keuze", def: "vägvalet", pl: "vägval", plDef: "vägvalen", ex: "Efter gymnasiet står många inför ett svårt **vägval**.", exNl: "Na de middelbare school staan velen voor een moeilijke richtingkeuze." }
+  - { sv: "ett hot", nl: "een bedreiging, een dreiging", def: "hotet", pl: "hot", plDef: "hoten", ex: "Klimatförändringarna är ett allvarligt **hot** mot framtiden.", exNl: "De klimaatverandering is een ernstige bedreiging voor de toekomst." }
+  - { sv: "en förutsägelse", nl: "een voorspelling", def: "förutsägelsen", pl: "förutsägelser", plDef: "förutsägelserna", ex: "Hans **förutsägelse** om internet visade sig stämma.", exNl: "Zijn voorspelling over het internet bleek te kloppen." }
+  - { sv: "att förutsäga", nl: "voorspellen", ex: "Ingen kan **förutsäga** exakt vad som kommer att hända.", exNl: "Niemand kan precies voorspellen wat er zal gebeuren." }
+  - { sv: "att ersätta", nl: "vervangen", ex: "Kommer robotar att **ersätta** lärarna i framtiden?", exNl: "Zullen robots in de toekomst de leraren vervangen?" }
+  - { sv: "att planera", nl: "plannen", ex: "Vi **planerar** att flytta utomlands om några år.", exNl: "We plannen over een paar jaar naar het buitenland te verhuizen." }
+  - { sv: "att se fram emot", nl: "uitkijken naar", ex: "Vi **ser fram emot** att flytta till landet.", exNl: "We kijken ernaar uit om naar het platteland te verhuizen." }
+  - { sv: "att bli av", nl: "doorgaan (van plannen)", ex: "Jag tror inte att resan **blir av** i år.", exNl: "Ik denk niet dat de reis dit jaar doorgaat." }
+  - { sv: "att utvecklas", nl: "zich ontwikkelen", ex: "Tekniken **utvecklas** snabbare än någonsin.", exNl: "De technologie ontwikkelt zich sneller dan ooit." }
+  - { sv: "att sträva efter", nl: "streven naar", ex: "Vi **strävar efter** ett mer hållbart samhälle.", exNl: "We streven naar een duurzamere samenleving." }
+  - { sv: "att förverkliga", nl: "verwezenlijken, waarmaken", ex: "Hon vill **förverkliga** sin dröm om att bli läkare.", exNl: "Ze wil haar droom om arts te worden waarmaken." }
+  - { sv: "att ta tillvara", nl: "benutten, gebruikmaken van", ex: "Vi måste **ta tillvara** de äldres erfarenhet.", exNl: "We moeten de ervaring van ouderen benutten." }
+  - { sv: "att stå inför", nl: "staan voor (een uitdaging, een keuze)", ex: "Vi **står inför** stora utmaningar de närmaste åren.", exNl: "We staan de komende jaren voor grote uitdagingen." }
+  - { sv: "osäker", nl: "onzeker", ex: "Framtiden känns **osäker** för många unga.", exNl: "De toekomst voelt voor veel jongeren onzeker." }
+  - { sv: "oundviklig", nl: "onvermijdelijk", ex: "Vissa förändringar i samhället är **oundvikliga**.", exNl: "Sommige veranderingen in de samenleving zijn onvermijdelijk." }
+  - { sv: "framtida", nl: "toekomstig", ex: "Vi måste tänka på **framtida** generationer.", exNl: "We moeten aan toekomstige generaties denken." }
+  - { sv: "långsiktig", nl: "voor de lange termijn, langetermijn-", ex: "Vi behöver en **långsiktig** plan för energiförsörjningen.", exNl: "We hebben een plan voor de lange termijn nodig voor de energievoorziening." }
+  - { sv: "på sikt", nl: "op termijn", ex: "**På sikt** kommer investeringen att löna sig.", exNl: "Op termijn zal de investering de moeite lonen." }
+  - { sv: "allt fler", nl: "steeds meer (in aantal)", ex: "**Allt fler** jobbar hemifrån flera dagar i veckan.", exNl: "Steeds meer mensen werken een paar dagen per week thuis." }
+  - { sv: "inom kort", nl: "binnenkort, binnen afzienbare tijd", ex: "Ett beslut i frågan väntas **inom kort**, enligt regeringen.", exNl: "Volgens de regering wordt binnenkort een besluit in deze kwestie verwacht." }
+  - { sv: "i längden", nl: "op den duur", ex: "**I längden** fungerar det inte att jobba så mycket.", exNl: "Op den duur werkt het niet om zoveel te werken." }
+  - { sv: "förr eller senare", nl: "vroeg of laat", ex: "**Förr eller senare** måste vi fatta ett beslut.", exNl: "Vroeg of laat moeten we een besluit nemen." }
+  - { sv: "hittills", nl: "tot nu toe", ex: "**Hittills** har allt gått enligt planen.", exNl: "Tot nu toe is alles volgens plan verlopen." }
+  - { sv: "optimistisk", nl: "optimistisch", ex: "Hon är **optimistisk** inför framtiden trots allt.", exNl: "Ze is ondanks alles optimistisch over de toekomst." }
+  - { sv: "pessimistisk", nl: "pessimistisch", ex: "Många unga är **pessimistiska** inför klimatets framtid.", exNl: "Veel jongeren zijn pessimistisch over de toekomst van het klimaat." }
+  - { sv: "en teknik", nl: "een techniek, technologie", def: "tekniken", pl: "tekniker", plDef: "teknikerna", ex: "Ny **teknik** förändrar arbetslivet.", exNl: "Nieuwe technologie verandert het werkende leven." }
+  - { sv: "en risk", nl: "een risico", def: "risken", pl: "risker", plDef: "riskerna", ex: "Det finns också **risker** med AI.", exNl: "Er zijn ook risico's met AI." }
+  - { sv: "en generation", nl: "een generatie", def: "generationen", pl: "generationer", plDef: "generationerna", ex: "Nästa **generation** kommer att leva längre.", exNl: "De volgende generatie zal langer leven." }
+  - { sv: "ett klimatmål", nl: "een klimaatdoel", def: "klimatmålet", pl: "klimatmål", plDef: "klimatmålen", ex: "Sverige vill nå sina **klimatmål** till 2045.", exNl: "Zweden wil zijn klimaatdoelen in 2045 halen." }
+  - { sv: "att utveckla", nl: "ontwikkelen", ex: "Företaget **utvecklar** nya robotar.", exNl: "Het bedrijf ontwikkelt nieuwe robots." }
+  - { sv: "digital", nl: "digitaal", ex: "Allt fler tjänster blir **digitala**.", exNl: "Steeds meer diensten worden digitaal." }
+  - { sv: "en klimatförändring", nl: "een klimaatverandering", def: "klimatförändringen", pl: "klimatförändringar", plDef: "klimatförändringarna", ex: "**Klimatförändringarna** påverkar oss alla.", exNl: "De klimaatveranderingen raken ons allemaal." }
+  - { sv: "att automatisera", nl: "automatiseren", ex: "Många jobb kommer att **automatiseras**.", exNl: "Veel banen zullen worden geautomatiseerd." }
+  - { sv: "smart", nl: "slim", ex: "Vi får allt fler **smarta** prylar hemma.", exNl: "We krijgen steeds meer slimme apparaten in huis." }

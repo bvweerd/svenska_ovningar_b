@@ -1,0 +1,552 @@
+chapter: 27
+# Kan-doen-uitspraken: de app vinkt ze zelf af als de vragen over deze onderwerpen
+# grotendeels in doos 3 of hoger staan (src/progress.js, canDoStatus).
+canDo:
+  - { text: "Ik kan nadruk leggen met det är … som", topics: [utbrytning] }
+  - { text: "Ik kan een betoog opbouwen met standpunt, argumenten en tegenargument", topics: [argumentation] }
+
+grammar:
+  - id: utbrytning
+    title: "Nadruk: det är … som"
+    summary: "Met ***det är/var X som*** leg je nadruk op X: *Det är **mobilerna** som är problemet.* *Det var **i Göteborg** (som) vi träffades.* In het *som*-deel: bijzinvolgorde (*som **inte** vill*)."
+    body: |
+      Wil je één zinsdeel benadrukken, dan zet je het tussen **det är / det var** en **som**. In het Nederlands: *het is … die/dat*.
+
+      | gewone zin | met nadruk |
+      |---|---|
+      | *Min bror ringde.* | *Det var **min bror** som ringde.* |
+      | *Mobilerna är problemet.* | *Det är **mobilerna** som är problemet.* |
+      | *Vi träffades i Göteborg.* | *Det var **i Göteborg** (som) vi träffades.* |
+      | *Jag vill ha kaffe.* | *Det är **kaffe** (som) jag vill ha.* |
+
+      - **det är** voor nu; bij een afgerond voorval meestal **det var**. *Det är* + verleden tijd komt ook voor: *Det är min bror som ringde.*
+      - *som* mag weg als het benadrukte deel **niet** het onderwerp is (net als in hoofdstuk 13).
+      - Het *som*-deel is een bijzin: ***inte** vóór het werkwoord*: *Det är eleverna som **inte vill** ha ett förbud.*
+
+      ### In vragen
+      In vragen is deze constructie heel gewoon:
+
+      - *Vem **är det som** ringer?* – Wie belt er?
+      - *Vad **var det som** hände?* – Wat is er gebeurd?
+      - *Är det **du som** har skrivit det här?* – Heb jij dit geschreven?
+
+      En voor contrast: *Det är inte eleverna som är problemet, **utan** mobilerna.*
+
+  - id: argumentation
+    title: Een betoog opbouwen
+    summary: "**Tes** (standpunt) → **argument** (*för det första, för det andra*) → **motargument** (*Kritiker menar att …*) → **bemötande** (*Visserligen …, men …*) → **slutsats** (*Därför anser jag att …*)."
+    body: |
+      Een Zweedse *debattartikel* of *insändare* heeft meestal deze opbouw:
+
+      | deel | functie | zinnen |
+      |---|---|---|
+      | **tes** | je standpunt, meteen aan het begin | *Jag anser att …* · *X borde …* |
+      | **argument** | redenen voor je standpunt | *För det första …* · *För det andra …* · *Dessutom …* · *Slutligen …* |
+      | **motargument** | wat de andere kant zegt | *Kritiker menar att …* · *Vissa hävdar att …* · *Man kan invända att …* |
+      | **bemötande** | waarom dat niet klopt | *Visserligen …, men …* · *Det argumentet håller inte, eftersom …* · *Det stämmer att …, men …* |
+      | **slutsats** | herhaal je standpunt | *Därför anser jag att …* · *Sammanfattningsvis …* · *Kort sagt …* |
+
+      In een gesprek:
+      - *Får jag avbryta?* – Mag ik even onderbreken?
+      - *Låt mig tala till punkt.* – Laat me even uitpraten.
+      - *Det är en bra poäng, men …*
+
+sections:
+  - id: lasa
+    title: Läsa · lezen
+    exercises:
+      - id: lasa-mobil
+        title: "Lezen: een opiniestuk"
+        instruction: Lees het opiniestuk en beantwoord de vragen.
+        topic: argumentation
+        textTitle: Mobilen hör inte hemma i klassrummet
+        text: |
+          *Karin Sjöberg, lärare på en högstadieskola*
+
+          Det är inte eleverna som är problemet, det är mobilerna. Efter tjugo år som lärare har jag sett hur koncentrationen i klassrummet har försämrats. För det första är det omöjligt att konkurrera med sociala medier. Varje gång en mobil plingar tappar hela klassen fokus. För det andra påverkas rasterna: i stället för att prata och leka sitter eleverna tysta med var sin skärm.
+
+          För det tredje handlar det om elevernas hälsa. Många av mina elever berättar att de ligger vakna med mobilen långt efter midnatt och att de är trötta redan på första lektionen. Forskningen pekar åt samma håll: den som sover för lite har svårare att lära sig nytt. Det är alltså inte lärarna som har hittat på problemet, utan eleverna själva som beskriver det. Skolan kan inte bestämma vad som händer hemma på kvällarna, men den kan se till att skoldagen blir en paus från skärmen.
+
+          Kritiker menar att mobilen är ett viktigt verktyg för lärande och att ett förbud är omodernt. Visserligen kan mobilen användas i undervisningen, men skolan har redan datorer för det. Andra hävdar att föräldrar måste kunna nå sina barn. Det argumentet håller inte: skolan har en telefon, och i en nödsituation når man barnen den vägen.
+
+          Man kan också invända att eleverna måste lära sig att själva ta ansvar för sin mobilanvändning. Det stämmer att självdisciplin är viktigt, men det är orimligt att kräva att fjortonåringar ska stå emot appar som är byggda för att fånga deras uppmärksamhet. De flesta vuxna klarar ju inte ens det själva.
+
+          Förra hösten testade vi ett förbud i två av skolans åttondeklasser. Eleverna lämnade in sina mobiler till mentorn varje morgon och fick tillbaka dem efter sista lektionen. Resultatet överraskade många av oss. Efter bara några veckor var det lugnare på lektionerna, och fler elever deltog i diskussionerna. Det var eleverna själva som märkte skillnaden först: flera av dem berättade att de kände sig mindre stressade. Även vi lärare märkte skillnaden, eftersom lektionerna inte längre avbröts av mobiler som plingade. En del föräldrar var skeptiska i början, men i dag är det föräldrarna som frågar varför hela skolan inte har infört samma regler.
+
+          Därför anser jag att mobilerna ska samlas in när skoldagen börjar och lämnas tillbaka när den slutar. Det är inte ett straff, utan en möjlighet för eleverna att vara närvarande. Kort sagt: det är dags att resten av skolan följer efter.
+        items:
+          - { id: ywcb, type: mc, prompt: "Vad är Karins tes?", options: ["Mobilerna ska samlas in under skoldagen.", "Eleverna är problemet.", "Skolan behöver fler datorer.", "Föräldrar ska kunna ringa sina barn."], answer: 0 }
+          - { id: fv96, type: mc, prompt: "Vad är hennes första argument?", options: ["Det går inte att konkurrera med sociala medier.", "Mobiler är dyra.", "Eleverna fuskar på proven.", "Föräldrarna vill ha ett förbud."], answer: 0 }
+          - { id: ksht, type: truefalse, statement: "Enligt Karin pratar eleverna mer med varandra på rasterna nu.", answer: false, correction: { answers: ["{Eleverna|De} sitter tysta med var sin skärm[ på rasterna]."] } }
+          - { id: 39xc, type: mc, prompt: "Hur bemöter Karin argumentet att föräldrar måste nå sina barn?", options: ["Skolan har en telefon som föräldrarna kan ringa.", "Föräldrar behöver inte nå sina barn.", "Barnen kan använda datorerna.", "Hon håller med."], answer: 0 }
+          - { id: b363, type: mc, prompt: "Wat betekent *Det argumentet håller inte*?", options: ["Dat argument klopt niet.", "Dat argument houdt nooit op.", "Dat argument houd ik.", "Dat argument is te lang."], answer: 0 }
+          - { id: 6nq7, type: mc, prompt: "Wat betekent *med var sin skärm*?", options: ["ieder met een eigen scherm", "met hun scherm uit", "met één scherm samen", "zonder scherm"], answer: 0 }
+          - { id: z68g, type: truefalse, statement: "Förra hösten testades förbudet i hela skolan.", answer: false, correction: { answers: ["{Förbudet|Det} testades [bara ]i två[ av skolans] åttondeklasser.", "{Förbudet|Det} testades inte i hela skolan[, bara i två {klasser|åttondeklasser}]."] } }
+          - { id: aqgq, type: multi, prompt: "Vad hände under testet i åttondeklasserna? (Meerdere antwoorden zijn goed.)", options: ["Det blev lugnare på lektionerna.", "Fler elever deltog i diskussionerna.", "Flera elever kände sig mindre stressade.", "Eleverna fick bättre betyg.", "Alla föräldrar protesterade mot förbudet.", "Lärarna började använda mobilerna i undervisningen."], answers: [0, 1, 2] }
+          - { id: 778r, type: mc, prompt: "Varför skriver Karin att de flesta vuxna inte ens klarar det själva?", options: ["För att visa att det är orimligt att kräva så mycket självdisciplin av fjortonåringar.", "För att hon vill att även vuxna ska lämna in sina mobiler.", "För att hon tycker att föräldrarna är dåliga förebilder.", "För att hon håller med om invändningen."], answer: 0, tip: "Het staat in het bemötande: ze zwakt de invändning af." }
+          - { id: rkaj, type: mc, prompt: "Vilken funktion har stycket om testet i åttondeklasserna i Karins text?", options: ["Det ger belägg för hennes tes.", "Det är ett motargument.", "Det är hennes slutsats.", "Det visar att förbudet inte fungerade."], answer: 0, tip: "Ze laat met het resultaat zien dat haar standpunt klopt." }
+
+      - id: makkelijk-1
+        title: "Makkelijk lezen: Skoluniform"
+        instruction: Een korte tekst met woorden die je al kent. Lees hem vlot door en kies rätt of fel.
+        topic: woordenschat
+        kind: makkelijk
+        textTitle: "Skoluniform"
+        text: |
+          Ska elever ha skoluniform? Det är en fråga som ofta diskuteras. De som är för menar att det minskar stressen kring kläder. Kritiker invänder att det är eleverna själva som ska få bestämma. Det är också en fråga om pengar: vem ska betala? Kort sagt finns det argument för och emot. I Sverige är det ovanligt, men i många andra länder är det självklart. Några svenska skolor har ändå provat. Resultaten är blandade: en del elever tycker om det, medan andra vill bestämma själva.
+        items:
+          - { id: z3gs, type: truefalse, statement: "Kritikerna vill att eleverna själva bestämmer.", answer: true }
+          - { id: daek, type: truefalse, statement: "Alla är överens om skoluniformer.", answer: false }
+
+      - id: makkelijk-2
+        title: "Makkelijk lezen: Inga bilar i centrum"
+        instruction: Een korte tekst met woorden die je al kent. Lees hem vlot door en kies rätt of fel.
+        topic: woordenschat
+        kind: makkelijk
+        textTitle: "Inga bilar i centrum"
+        text: |
+          I Lund diskuteras om bilar ska förbjudas i centrum. Det är framför allt de som har butiker där som är oroliga. De hävdar att det kommer färre kunder. Kommunen bemöter kritiken med att fler går och cyklar när det inte finns några bilar, och att det gynnar butikerna. Dessutom menar kommunen att luften blir renare och att det blir tystare. I andra städer som har infört ett sådant förbud har antalet besökare faktiskt ökat. De som har butiker tror ändå inte på det, och debatten fortsätter i tidningen. Politikerna ska bestämma i vår.
+        items:
+          - { id: cku7, type: truefalse, statement: "De som har butiker är oroliga.", answer: true }
+          - { id: ftdd, type: truefalse, statement: "Kommunen håller med dem som har butiker.", answer: false }
+
+      - id: makkelijk-3
+        title: "Makkelijk lezen: Läxor eller inte?"
+        instruction: Een korte tekst met woorden die je al kent. Lees hem vlot door en beantwoord de vragen.
+        topic: woordenschat
+        kind: makkelijk
+        textTitle: "Läxor eller inte?"
+        text: |
+          På Elins skola diskuterar lärarna om eleverna ska få läxor. Å ena sidan menar några lärare att läxor hjälper eleverna att repetera. Å andra sidan har inte alla elever lugn och ro hemma. Det är just de eleverna som får svårast med läxorna. Rektorn föreslår därför läxhjälp i skolan efter lektionerna. Där kan alla elever göra sina läxor med hjälp av en lärare. För det första blir det mer rättvist, och för det andra får eleverna hjälp direkt. Förslaget ska prövas under ett år.
+        items:
+          - { id: m4ty, type: truefalse, statement: "Alla lärare är emot läxor.", answer: false }
+          - { id: p8j8, type: mc, prompt: "Vad föreslår rektorn?", options: ["Inga läxor alls.", "Läxhjälp i skolan.", "Fler läxor."], answer: 1 }
+          - { id: mjt5, type: truefalse, statement: "Förslaget ska prövas under ett år.", answer: true }
+
+      - id: makkelijk-4
+        title: "Makkelijk lezen: Sommartiden"
+        instruction: Een korte tekst met woorden die je al kent. Lees hem vlot door en beantwoord de vragen.
+        topic: woordenschat
+        kind: makkelijk
+        textTitle: "Sommartiden"
+        text: |
+          Varje vår ställs klockan fram en timme, och varje höst ställs den tillbaka. Många vill att det ska upphöra. Det är framför allt sömnen som påverkas, menar de. För det första sover många sämre i några dagar efter bytet. För det andra kan det bli fler olyckor i trafiken. Andra tycker att det är skönt med ljusa kvällar på sommaren. EU har diskuterat frågan i flera år, men ännu har inget slutligt beslut fattats. Det är alltså fortfarande oklart om klockan kommer att ställas om i framtiden.
+        items:
+          - { id: smjt, type: mc, prompt: "Vad menar de som vill sluta ställa om klockan?", options: ["Att sömnen påverkas.", "Att kvällarna blir för ljusa.", "Att det kostar för mycket."], answer: 0 }
+          - { id: ft2y, type: truefalse, statement: "EU har bestämt att klockan inte ska ställas om längre.", answer: false }
+          - { id: v4c6, type: truefalse, statement: "Klockan ställs fram på våren.", answer: true }
+
+      - id: opbouw-sorteren
+        title: De opbouw van het betoog
+        instruction: Welk deel van het betoog is deze zin?
+        topic: argumentation
+        items:
+          - id: mcxv
+            type: sort
+            categories: ["tes", "argument", "motargument", "bemötande"]
+            items:
+              - { text: "Mobilerna ska samlas in när skoldagen börjar.", cat: 0 }
+              - { text: "För det första är det omöjligt att konkurrera med sociala medier.", cat: 1 }
+              - { text: "Kritiker menar att ett förbud är omodernt.", cat: 2 }
+              - { text: "Visserligen kan mobilen användas i undervisningen, men skolan har redan datorer.", cat: 3 }
+              - { text: "För det andra påverkas rasterna.", cat: 1 }
+              - { text: "Andra hävdar att föräldrar måste kunna nå sina barn.", cat: 2 }
+              - { text: "Det argumentet håller inte: skolan har en telefon.", cat: 3 }
+
+  - id: ord
+    title: Ord och fraser · woorden en uitdrukkingen
+    exercises:
+      - id: ord-debat
+        title: Debatteren
+        instruction: Koppel het woord aan de betekenis.
+        topic: argumentation
+        items:
+          - id: zkk2
+            type: match
+            pairs:
+              - ["hävda", "beweren"]
+              - ["invända", "tegenwerpen"]
+              - ["bemöta", "weerleggen, reageren op"]
+              - ["ett förbud", "een verbod"]
+              - ["en kritiker", "een criticus"]
+              - ["ett verktyg", "een instrument, hulpmiddel"]
+          - id: gr85
+            type: match
+            pairs:
+              - ["för det första", "ten eerste"]
+              - ["slutligen", "ten slotte"]
+              - ["kort sagt", "kortom"]
+              - ["med andra ord", "met andere woorden"]
+              - ["tala till punkt", "uitpraten"]
+              - ["avbryta", "onderbreken"]
+
+  - id: utbrytning
+    title: "Grammatik: det är … som"
+    exercises:
+      - id: utbrytning-omvormen
+        title: Leg de nadruk
+        instruction: Leg nadruk op het **vetgedrukte** deel met *det är/var … som*.
+        topic: utbrytning
+        items:
+          - { id: 24ek, type: transform, prompt: "**Min bror** ringde i går.", answers: ["Det {var|är} min bror som ringde {i går|igår}."] }
+          - { id: 4mbg, type: transform, prompt: "**Mobilerna** är problemet.", answers: ["Det är mobilerna som är problemet."] }
+          - { id: 3bd8, type: transform, prompt: "Vi träffades **i Göteborg**.", answers: ["Det var i Göteborg [som ]vi träffades."], feedback: [{ contains: "som träffades vi", tip: "Na som: bijzinvolgorde, som vi träffades." }] }
+          - { id: uvpj, type: transform, prompt: "Jag vill ha **kaffe**.", answers: ["Det är kaffe [som ]jag vill ha."] }
+          - { id: 58be, type: transform, prompt: "**Eleverna** vill inte ha ett förbud.", answers: ["Det är eleverna som inte vill ha [ett ]förbud."], feedback: [{ contains: "som vill inte", tip: "Het som-deel is een bijzin: som inte vill." }] }
+          - { id: mmwb, type: transform, prompt: "**Regeringen** fattar beslutet.", answers: ["Det är regeringen som fattar beslutet."] }
+          - { id: tvq7, type: transform, prompt: "Jag glömde **nyckeln**.", answers: ["Det var nyckeln [som ]jag glömde."], feedback: [{ contains: "som glömde jag", tip: "Na som: bijzinvolgorde, som jag glömde." }] }
+          - { id: hwkf, type: transform, prompt: "**Fleur** har bakat tårtan.", answers: ["Det är Fleur som har bakat tårtan.", "Det var Fleur som {har bakat|bakade} tårtan."] }
+
+      - id: utbrytning-vragen
+        title: Vragen met nadruk
+        instruction: Vertaal naar het Zweeds met *är/var det som*.
+        topic: utbrytning
+        items:
+          - { id: w6nv, type: translate, prompt: "Wie belt er?", answers: ["Vem är det som ringer?"], feedback: [{ match: "Vem ringer?", tip: "Ook goed Zweeds, maar oefen hier: Vem är det som ringer?" }] }
+          - { id: ffk6, type: translate, prompt: "Wat is er gebeurd?", answers: ["Vad var det som hände?", "Vad är det som har hänt?"], feedback: [{ match: ["Vad hände?", "Vad har hänt?"], tip: "Ook goed, maar oefen hier: Vad var det som hände?" }] }
+          - { id: 6zf6, type: translate, prompt: "Heb jij dit geschreven?", answers: ["{Är|Var} det du som {har skrivit|skrev} det här?"], feedback: [{ match: "Har du skrivit det här?", tip: "Ook goed, maar oefen hier met nadruk: Är det du som har skrivit det här?" }] }
+          - { id: 7j7v, type: translate, prompt: "Wie heeft dit gedaan?", answers: ["Vem {är|var} det som {har gjort|gjorde} {det här|detta}?"], feedback: [{ match: ["Vem har gjort det här?", "Vem gjorde det här?"], tip: "Ook goed Zweeds, maar oefen hier: Vem är det som har gjort det här?" }] }
+          - { id: e3yy, type: translate, prompt: "Wat wil je eigenlijk?", answers: ["Vad är det [som ]du vill[ egentligen]?", "Vad är det egentligen [som ]du vill?"], feedback: [{ match: ["Vad vill du egentligen?", "Vad vill du?"], tip: "Ook goed Zweeds, maar oefen hier: Vad är det du vill?" }] }
+          - { id: sxyu, type: translate, prompt: "Wie heeft er gewonnen?", answers: ["Vem {var det som vann|är det som har vunnit}?"], feedback: [{ match: ["Vem vann?", "Vem har vunnit?"], tip: "Ook goed Zweeds, maar oefen hier: Vem var det som vann?" }] }
+          - { id: gm6n, type: translate, prompt: "Was het je broer die belde?", answers: ["Var det din bror som ringde?"], feedback: [{ contains: "som ringde din bror", tip: "Eerst de nadruk (det din bror), daarna som + de rest." }] }
+          - { id: nv4g, type: translate, prompt: "Wanneer begint de les eigenlijk?", answers: ["När är det [som ]lektionen börjar[ egentligen]?", "När är det egentligen [som ]lektionen börjar?"], feedback: [{ match: ["När börjar lektionen egentligen?", "När börjar lektionen?"], tip: "Ook goed Zweeds, maar oefen hier: När är det som lektionen börjar?" }] }
+
+      - id: utbrytning-lange-zinnen
+        title: Nadruk in een lange zin
+        instruction: Leg nadruk op het **vetgedrukte** deel met *det är/var … som*. De rest van de zin blijft hetzelfde.
+        topic: utbrytning
+        items:
+          - { id: 635z, type: transform, prompt: "Rektorn bestämde **efter en lång diskussion med elevrådet** att förbudet skulle testas.", answers: ["Det var efter en lång diskussion med elevrådet [som ]rektorn bestämde att förbudet skulle testas."], feedback: [{ contains: "som bestämde rektorn", tip: "Na som: bijzinvolgorde, eerst het onderwerp: som rektorn bestämde." }, { contains: "elevrådet bestämde rektorn", tip: "Na het benadrukte deel volgt (som +) bijzinvolgorde: … elevrådet (som) rektorn bestämde." }] }
+          - { id: 9trz, type: transform, prompt: "**Eleverna själva** märkte först att det blev lugnare på lektionerna.", answers: ["Det {var|är} eleverna själva som först märkte att det blev lugnare på lektionerna.", "Det {var|är} eleverna själva som märkte först att det blev lugnare på lektionerna."] }
+          - { id: r4fj, type: transform, prompt: "**Många elever** vill inte lämna ifrån sig mobilen under skoldagen.", answers: ["Det är många elever som inte vill lämna ifrån sig mobilen under skoldagen."], feedback: [{ contains: "som vill inte", tip: "Het som-deel is een bijzin: inte vóór het werkwoord (som inte vill)." }] }
+
+      - id: utbrytning-vertalen
+        title: Vertalen met nadruk
+        instruction: Vertaal naar het Zweeds. Gebruik *det är/var … som* voor het deel met nadruk.
+        topic: utbrytning
+        items:
+          - { id: vhsw, type: translate, prompt: "Het zijn niet de leraren, maar de leerlingen zelf die het meest last hebben van de mobieltjes in de klas.", answers: ["Det är inte lärarna[,] utan eleverna själva[,] som {störs|besväras|påverkas} mest av {mobilerna|mobiltelefonerna|telefonerna} {i klassrummet|i klassen}.", "Det är eleverna själva, inte lärarna, som {störs|besväras|påverkas} mest av {mobilerna|mobiltelefonerna|telefonerna} {i klassrummet|i klassen}.", "Det är inte lärarna som {störs|besväras|påverkas} mest av {mobilerna|mobiltelefonerna|telefonerna} {i klassrummet|i klassen}, utan eleverna själva."], feedback: [{ contains: "inte lärarna men", tip: "Na een ontkenning (niet X, maar Y) gebruik je utan, niet men." }] }
+          - { id: 4h4b, type: translate, prompt: "Pas na de test begrepen de ouders hoe groot het probleem eigenlijk was. (Begin met: Het was pas na de test dat …)", answers: ["Det var först efter {testet|försöket} [som ]föräldrarna {förstod|insåg|begrep} hur stort problemet egentligen var.", "Det var inte förrän efter {testet|försöket} [som ]föräldrarna {förstod|insåg|begrep} hur stort problemet egentligen var."], feedback: [{ contains: "som förstod föräldrarna", tip: "Na som: bijzinvolgorde, eerst het onderwerp (som föräldrarna förstod)." }, { contains: "hur stort var problemet", tip: "Een indirecte vraag is een bijzin: hur stort problemet egentligen var." }, { contains: "hur stort problemet var egentligen", tip: "In de bijzin staat egentligen vóór het werkwoord: hur stort problemet egentligen var." }] }
+          - { id: h59y, type: translate, prompt: "Wie is het eigenlijk die beslist welke regels er op school gelden?", answers: ["Vem är det egentligen som {bestämmer|beslutar} vilka regler som gäller {i|på} skolan?", "Vem är det som egentligen {bestämmer|beslutar} vilka regler som gäller {i|på} skolan?"], feedback: [{ contains: "vilka regler gäller", tip: "vilka regler is hier het onderwerp van de bijzin: dan heb je som nodig (vilka regler som gäller)." }] }
+          - { id: u5qj, type: translate, prompt: "Het zijn juist de volwassenen die goede rolmodellen (förebilder) voor hun kinderen moeten zijn.", answers: ["Det är {just|precis} [de ]vuxna som {måste|ska|bör} vara {bra|goda} förebilder {för|åt} {sina barn|barnen}."], feedback: [{ contains: "deras barn", tip: "Het gaat om de eigen kinderen van het onderwerp (de vuxna): sina barn." }, { contains: "som vara", tip: "Vergeet het werkwoord måste niet: som måste vara." }] }
+          - { id: quj3, type: translate, prompt: "Was het echt de minister die beweerde dat het verbod te duur zou zijn?", answers: ["Var det verkligen ministern som {hävdade|påstod} att förbudet skulle {bli|vara} för dyrt?"], feedback: [{ match: "Var det verkligen ministern som {hävdade|påstod} att förbudet skulle {bli|vara} för dyr?", tip: "förbud is een ett-woord: för dyrt." }] }
+          - { id: rsxc, type: translate, prompt: "Het is niet het onderzoek zelf dat ik bekritiseer, maar de conclusie die de krant eruit trok.", answers: ["Det är inte {studien|undersökningen} {i sig|själv} [som ]jag kritiserar[,] utan {slutsatsen|den slutsats} [som ]tidningen drog [av den]."], feedback: [{ contains: "som kritiserar jag", tip: "Na som: bijzinvolgorde, eerst het onderwerp (som jag kritiserar)." }, { contains: "men slutsatsen", tip: "Na een ontkenning (niet X, maar Y) gebruik je utan, niet men." }] }
+
+      - id: utbrytning-ordenen
+        title: Zinnen met nadruk bouwen
+        instruction: Zet de woorden in de goede volgorde.
+        topic: utbrytning
+        items:
+          - { id: 3cf7, type: order, start: "Det var", tokens: ["på", "föräldramötet", "i", "september", "som", "rektorn", "berättade", "om", "förbudet", "för", "första", "gången"], answers: ["Det var på föräldramötet i september som rektorn berättade om förbudet för första gången.", "Det var på föräldramötet i september som rektorn för första gången berättade om förbudet.", "Det var på föräldramötet i september som rektorn berättade för första gången om förbudet.", "Det var i september på föräldramötet som rektorn berättade om förbudet för första gången.", "Det var i september på föräldramötet som rektorn för första gången berättade om förbudet.", "Det var i september på föräldramötet som rektorn berättade för första gången om förbudet."], feedback: [{ contains: "som berättade rektorn", tip: "Na som: bijzinvolgorde, eerst het onderwerp (som rektorn berättade)." }] }
+          - { id: u67k, type: order, start: "Det är inte", tokens: ["mobilen", "i", "sig", "som", "är", "problemet", "utan", "hur", "den", "används", "i", "skolan"], answers: ["Det är inte mobilen i sig som är problemet, utan hur den används i skolan.", "Det är inte mobilen i sig utan hur den används i skolan som är problemet."], feedback: [{ contains: "hur används den", tip: "Na hur volgt hier een bijzin, zonder inversie: hur den används." }] }
+          - { id: n6q9, type: order, start: "Vad", tokens: ["är", "det", "egentligen", "som", "gör", "att", "så", "många", "elever", "inte", "kan", "släppa", "mobilen"], answers: ["Vad är det egentligen som gör att så många elever inte kan släppa mobilen?", "Vad är det som egentligen gör att så många elever inte kan släppa mobilen?"], feedback: [{ contains: "elever kan inte", tip: "Na att volgt een bijzin: inte vóór het werkwoord (att så många elever inte kan)." }] }
+
+      - id: utbrytning-lang-kiezen
+        title: Kies de goede vorm
+        instruction: Kies wat past.
+        topic: utbrytning
+        shuffle: true
+        items:
+          - { id: 6ehy, type: gap, text: "Det var inte rektorn ___ tog initiativet till förbudet, utan en grupp lärare på skolan.", gaps: [{ answers: ["som"], options: ["som", "att", "vem"], shuffle: false, feedback: [{ match: "att", tip: "Nadruk leg je met det är/var … som, niet met att." }] }] }
+          - { id: 723k, type: gap, text: "Vem ___ föreslog att mobilerna skulle samlas in redan när skoldagen började?", gaps: [{ answers: ["var det som"], options: ["var det som", "det var som", "som var det"], shuffle: false, feedback: [{ match: "det var som", tip: "In een vraag komt het werkwoord direct na het vraagwoord: Vem var det som …?" }] }] }
+
+  - id: argument
+    title: "Grammatik: argumenteren"
+    exercises:
+      - id: argument-kiezen
+        title: Verbindingen in een betoog
+        instruction: Kies het woord dat past.
+        topic: argumentation
+        shuffle: true
+        items:
+          - { id: crmr, type: gap, text: "___ är det omöjligt att konkurrera med sociala medier.", gaps: [{ answers: ["För det första"], options: ["För det första", "Slutligen", "Däremot"], shuffle: false }] }
+          - { id: h63n, type: gap, text: "___ kan mobilen användas i undervisningen, men skolan har redan datorer.", gaps: [{ answers: ["Visserligen"], options: ["Visserligen", "Därför", "Slutligen"], shuffle: false }] }
+          - { id: 22fb, type: gap, text: "Kritiker ___ att ett förbud är omodernt.", gaps: [{ answers: ["menar"], options: ["menar", "betyder", "säger om"], shuffle: false, feedback: [{ match: "betyder", tip: "betyda = betekenen. Een mening hebben: mena." }] }] }
+          - { id: gavx, type: gap, text: "Det argumentet ___ inte.", gaps: [{ answers: ["håller"], options: ["håller", "stannar", "går"], shuffle: false }] }
+          - { id: xkt6, type: gap, text: "___ anser jag att mobilerna ska samlas in.", gaps: [{ answers: ["Därför"], options: ["Därför", "Visserligen", "För det första"], shuffle: false }] }
+          - { id: puxx, type: gap, text: "Det är inte ett straff, ___ en möjlighet.", gaps: [{ answers: ["utan"], options: ["utan", "men", "eller"], shuffle: false, feedback: [{ match: "men", tip: "Na een ontkenning (inte X, maar Y): utan." }] }] }
+          - { id: 5twa, type: gap, text: "___ vill jag säga att frågan berör alla.", gaps: [{ answers: ["Slutligen"], options: ["Slutligen", "Visserligen", "Däremot"], shuffle: false }] }
+          - { id: 5ftg, type: gap, text: "Jag ___ att vi behöver nya regler.", gaps: [{ answers: ["anser"], options: ["anser", "betyder", "tycker om"], shuffle: false, feedback: [{ match: "tycker om", tip: "tycka om = houden van. Een mening geven: anser (of tycker, zonder om)." }] }] }
+          - { id: caka, type: gap, text: "Det argumentet håller inte, ___ föräldrarna alltid kan nå sina barn via skolans telefon.", gaps: [{ answers: ["eftersom"], options: ["eftersom", "därför", "utan"], shuffle: false, feedback: [{ match: "därför", tip: "Je geeft de reden: eftersom. Na därför zou het werkwoord direct volgen (därför kan föräldrarna)." }] }] }
+
+      - id: argument-ordenen
+        title: Een bemötande bouwen
+        instruction: Zet de woorden in de goede volgorde.
+        topic: argumentation
+        items:
+          - { id: ndb2, type: order, start: "Visserligen", tokens: ["kan", "mobilen", "vara", "ett", "bra", "verktyg", "men", "den", "stör", "samtidigt", "koncentrationen", "hos", "många", "elever"], answers: ["Visserligen kan mobilen vara ett bra verktyg, men den stör samtidigt koncentrationen hos många elever.", "Visserligen kan mobilen vara ett bra verktyg, men samtidigt stör den koncentrationen hos många elever."], feedback: [{ contains: "visserligen mobilen kan", tip: "Visserligen vooraan is een zinsdeel: daarna komt meteen het werkwoord (Visserligen kan mobilen …)." }, { contains: "men samtidigt den stör", tip: "Na men samtidigt vooraan in de hoofdzin: eerst het werkwoord (samtidigt stör den)." }] }
+          - { id: bu97, type: order, start: "Det argumentet håller inte,", tokens: ["eftersom", "det", "inte", "finns", "några", "belägg", "för", "att", "förbudet", "skadar", "eleverna"], answers: ["Det argumentet håller inte, eftersom det inte finns några belägg för att förbudet skadar eleverna."], feedback: [{ contains: "det finns inte några", tip: "Na eftersom volgt een bijzin: inte vóór het werkwoord (eftersom det inte finns)." }] }
+
+      - id: argument-omvormen
+        title: Betoogzinnen schrijven
+        instruction: Herschrijf of vertaal de zin zoals de opdracht vraagt.
+        topic: argumentation
+        items:
+          - { id: vnwg, type: transform, task: "Maak er een bemötande van: begin met *Visserligen* en verbind met *men*.", prompt: "Ett förbud kräver mycket av lärarna. Resultaten från testet är ändå mycket positiva.", answers: ["Visserligen kräver ett förbud mycket av lärarna, men resultaten från testet är[ ändå] mycket positiva.", "Visserligen kräver ett förbud mycket av lärarna, men ändå är resultaten från testet mycket positiva."], feedback: [{ contains: "visserligen ett förbud kräver", tip: "Visserligen vooraan is een zinsdeel: daarna komt meteen het werkwoord (Visserligen kräver ett förbud …)." }] }
+          - { id: eyr9, type: transform, task: "Maak er een slutsats van: begin met *Därför anser jag att*.", prompt: "Alla skolor i kommunen borde samla in elevernas mobiler varje morgon.", answers: ["Därför anser jag att alla skolor i kommunen {borde|bör} samla in elevernas mobiler varje morgon."], feedback: [{ contains: "därför jag anser", tip: "Na därför vooraan komt eerst het werkwoord: Därför anser jag …" }] }
+          - { id: bbj4, type: translate, prompt: "Vertaal: Ten eerste kunnen de leerlingen zich beter concentreren wanneer de mobieltjes niet in het klaslokaal zijn.", answers: ["För det första kan eleverna koncentrera sig bättre {när|om} mobilerna inte {finns|är} i klassrummet.", "För det första kan eleverna bättre koncentrera sig {när|om} mobilerna inte {finns|är} i klassrummet."], feedback: [{ contains: "för det första eleverna", tip: "För det första is een zinsdeel: daarna komt meteen het werkwoord (För det första kan eleverna …)." }, { contains: ["mobilerna finns inte", "mobilerna är inte"], tip: "Na när volgt een bijzin: inte vóór het werkwoord (när mobilerna inte finns)." }] }
+
+      - id: langere-zinnen
+        title: "Vertaal: langere zinnen"
+        instruction: Vertaal de hele zin. Let op de woordvolgorde in de bijzin en na een woord vooraan.
+        items:
+          - { id: n3yu, type: translate, topic: utbrytning, prompt: "Het is niet de prijs die het probleem is, maar dat er te weinig plaatsen zijn voor alle leerlingen.", answers: ["Det är inte priset som är problemet, utan att det finns för få platser för alla elever.", "Det är inte priset som är problemet, utan att det finns för få platser för alla {elever|eleverna}."], feedback: [{ contains: "priset som problemet är", tip: "Na som (onderwerp): meteen het werkwoord (som är problemet)." }] }
+          - { id: 5xuh, type: translate, topic: argumentation, prompt: "Critici beweren dat een verbod de vrijheid van de leerlingen zou beperken, maar ik vind dat de voordelen aanzienlijk groter zijn.", answers: ["Kritikerna hävdar att ett förbud skulle minska elevernas frihet, men jag menar att fördelarna är betydligt större.", "{Kritikerna|Kritiker} hävdar att ett förbud skulle {minska|begränsa} elevernas frihet, men jag {menar|anser|tycker} att fördelarna är {betydligt|mycket} större."], feedback: [{ contains: "skulle minskar", tip: "Na skulle: de infinitief (minska)." }] }
+          - { id: 8vdj, type: translate, topic: argumentation, prompt: "Enerzijds is de mobiel een belangrijk hulpmiddel op school, anderzijds verstoort hij vaak de lessen.", answers: ["Å ena sidan är mobilen ett viktigt verktyg i skolan, å andra sidan stör den ofta undervisningen.", "Å ena sidan är mobilen ett viktigt verktyg i skolan, å andra sidan stör den ofta {undervisningen|lektionerna}."], feedback: [{ contains: "å andra sidan den stör", tip: "Na å andra sidan vooraan: werkwoord eerst (stör den)." }] }
+          - { id: 39t7, type: translate, topic: utbrytning, prompt: "Pas toen de leerlingenraad protesteerde, begon de rector eindelijk serieus naar de argumenten van de leerlingen te luisteren.", answers: ["Det var först när elevrådet protesterade som rektorn äntligen började lyssna på elevernas argument på allvar.", "Det var först när elevrådet protesterade som rektorn äntligen började lyssna på allvar på elevernas argument.", "Först när elevrådet protesterade började rektorn äntligen [att ]lyssna på elevernas argument på allvar."], feedback: [{ contains: "som började rektorn", tip: "Na som: onderwerp, dan werkwoord (som rektorn började)." }] }
+          - { id: v3ae, type: translate, topic: argumentation, prompt: "Samenvattend vind ik dat een verbod niet de juiste weg is om het probleem op te lossen.", answers: ["Sammanfattningsvis anser jag att ett förbud inte är rätt väg att gå för att lösa problemet.", "Sammanfattningsvis {anser|tycker|menar} jag att ett förbud inte är {rätt väg att gå för att lösa problemet|rätt sätt att lösa problemet|det rätta sättet att lösa problemet}."], feedback: [{ contains: "Sammanfattningsvis jag anser", tip: "Na sammanfattningsvis vooraan: werkwoord eerst (anser jag)." }] }
+          - { id: zz9v, type: translate, topic: argumentation, prompt: "Het onderzoek laat een duidelijk verband zien tussen mobielgebruik en slechtere cijfers, maar de methode is bekritiseerd.", answers: ["{Studien|Undersökningen} visar ett tydligt samband mellan {mobilanvändning|mobilanvändningen|användningen av mobilen} och sämre betyg, men metoden har {kritiserats|blivit kritiserad}."], feedback: [{ contains: "en tydlig samband", tip: "samband is een ett-woord: ett tydligt samband." }, { contains: "metoden har kritiserat", tip: "De methode bekritiseert niet zelf: lijdend, metoden har kritiserats." }] }
+
+  - id: zoek-de-fout
+    title: Zoek de fout
+    exercises:
+      - id: zoek-de-fout
+        title: Zoek de fout
+        instruction: Klik op het woord dat niet klopt en verbeter de zin.
+        topic: utbrytning
+        shuffle: true
+        items:
+          - { id: q5aa, type: findError, sentence: "Det är eleverna som vill inte ha förbud.", wrong: [4, 5], answers: ["Det är eleverna som inte vill ha [ett ]förbud."], tip: "Het som-deel is een bijzin." }
+          - { id: f2xv, type: findError, sentence: "Det var min bror som ringer i går.", wrong: [5], answers: ["Det {var|är} min bror som ringde {i går|igår}."], tip: "Kijk naar de tijd." }
+          - { id: cb6y, type: findError, sentence: "Vem är det som ringer du?", wrong: [5], answers: ["Vem är det som ringer?"], tip: "Er staat een woord te veel." }
+          - { id: dcqu, type: findError, topic: argumentation, sentence: "Det är inte ett straff men en möjlighet.", wrong: [5], answers: ["Det är inte ett straff utan en möjlighet."], tip: "Na een ontkenning: niet men." }
+          - { id: q472, type: findError, topic: argumentation, sentence: "Kritiker betyder att förbudet är omodernt.", wrong: [1], answers: ["Kritiker menar att förbudet är omodernt.", "Kritiker hävdar att förbudet är omodernt."], tip: "Welk werkwoord betekent een mening hebben?" }
+          - { id: jrd7, type: findError, sentence: "Det var under förra läsåret som började skolan samla in elevernas mobiler varje morgon.", wrong: [6, 7], answers: ["Det var under förra läsåret [som ]skolan började samla in elevernas mobiler varje morgon."], tip: "Na som: bijzinvolgorde, eerst het onderwerp en dan het werkwoord." }
+          - { id: sdd9, type: findError, sentence: "Många föräldrar hävdar att det är skolan som har inte gjort tillräckligt för att lösa problemet.", wrong: [8, 9], answers: ["Många föräldrar hävdar att det är skolan som inte har gjort tillräckligt för att lösa problemet."], tip: "Het som-deel is een bijzin: waar staat inte?" }
+          - { id: eg5u, type: findError, topic: argumentation, sentence: "För det andra eleverna sover sämre när de har mobilen bredvid sig i sängen.", wrong: [3, 4], answers: ["För det andra sover eleverna sämre när de har mobilen bredvid sig i sängen."], tip: "För det andra staat vooraan: waar komt dan het werkwoord?" }
+          - { id: cw3u, type: findError, topic: argumentation, sentence: "Visserligen kan mobilen vara ett verktyg, utan skolan har redan datorer för det ändamålet.", wrong: [6], answers: ["Visserligen kan mobilen vara ett verktyg, men skolan har redan datorer för det ändamålet."], tip: "Bij visserligen hoort men; utan gebruik je alleen na een ontkenning." }
+
+  - id: lyssna
+    title: Lyssna · luisteren
+    exercises:
+      - id: lyssna-debatt
+        title: "Luisteren: een debat samengevat"
+        instruction: Luister naar de samenvatting van het debat. Is de bewering **rätt** of **fel**?
+        topic: argumentation
+        listen: true
+        textTitle: Kvällens debatt
+        text: |
+          I kvällens debatt möttes läraren Karin Sjöberg och elevrådets ordförande Amir Hassan. Frågan var om mobiler ska förbjudas i skolan.
+
+          Karin menade att det är mobilerna som stör koncentrationen, och att eleverna mår bättre utan dem. Amir höll inte med. Han hävdade att eleverna själva borde få vara med och bestämma reglerna. Visserligen kan mobilen störa, sa han, men ett totalförbud lär inte eleverna att ta ansvar.
+
+          Båda var dock överens om en sak: det är vuxna som måste vara bra förebilder.
+        items:
+          - { id: tyz4, type: truefalse, statement: "Amir är elevrådets ordförande.", answer: true }
+          - { id: 8e8p, type: truefalse, statement: "Amir höll med Karin.", answer: false, correction: { answers: ["{Amir|Han} höll inte med {Karin|henne}.", "{Amir|Han} höll inte med."] } }
+          - { id: sj68, type: truefalse, statement: "Amir vill att eleverna ska vara med och bestämma reglerna.", answer: true }
+          - { id: h4vv, type: truefalse, statement: "De var överens om att det är eleverna som måste vara förebilder.", answer: false, correction: { answers: ["Det är vuxna som måste vara [bra ]förebilder."] } }
+
+      - id: lyssna-dictee
+        title: Dictee
+        instruction: Luister en maak de zin die je hoort.
+        topic: utbrytning
+        shuffle: true
+        items:
+          - { id: 67t4, type: listen, say: "Det är inte eleverna som är problemet." }
+          - { id: btzv, type: listen, say: "Vem var det som ringde?" }
+          - { id: gp4z, type: listen, say: "Det argumentet håller inte." }
+          - { id: j7w5, type: listen, say: "Visserligen kan mobilen störa, men ett förbud är fel." }
+
+  - id: praktiskt
+    title: Praktiskt · argumenteren in een gesprek
+    exercises:
+      - id: dialoog-debatt
+        title: Een discussie in de klas
+        instruction: Zet de discussie in de goede volgorde.
+        topic: argumentation
+        items:
+          - id: ewxn
+            type: dialogue
+            lines:
+              - "Läraren: Ska vi ha kortare sommarlov? Vad tycker ni?"
+              - "Sofia: Jag är för. Det är under sommaren som många glömmer det de har lärt sig."
+              - "Erik: Får jag avbryta? Det är också då man vilar och hinner jobba extra."
+              - "Sofia: Låt mig tala till punkt. Jag menar inte att vi ska ta bort lovet, bara förkorta det."
+              - "Erik: Okej, det är en bra poäng. Men hur lång tid tänker du dig?"
+              - "Sofia: Kanske sex veckor i stället för tio."
+
+      - id: wat-zeg-je
+        title: Wat zeg je?
+        instruction: Kies wat je zegt.
+        topic: argumentation
+        shuffle: true
+        items:
+          - { id: n4rd, type: mc, prompt: "Je wilt iemand beleefd onderbreken.", options: ["Får jag avbryta?", "Var tyst nu!", "Sluta prata!", "Du har fel, punkt."], answer: 0 }
+          - { id: 49qz, type: mc, prompt: "Je wilt uitpraten.", options: ["Låt mig tala till punkt.", "Låt mig avbryta.", "Låt mig hålla med.", "Låt mig sluta."], answer: 0 }
+          - { id: abaf, type: mc, prompt: "Je geeft iets toe, maar houdt je standpunt.", options: ["Det är en bra poäng, men jag tycker ändå att …", "Du har helt rätt, jag ger upp.", "Det där är dumt.", "Jag vet inte."], answer: 0 }
+
+      - id: wat-zeg-je-zelf
+        title: Wat zeg je? (zelf)
+        instruction: Zeg het nu zelf in het Zweeds. Er is vaak meer dan één goed antwoord.
+        kind: situatie
+        items:
+          - { id: tp5s, type: translate, topic: utbrytning, prompt: "Benadruk: het is de prijs die het probleem is.", answers: ["Det är priset som är problemet."] }
+          - { id: mqp8, type: translate, topic: argumentation, prompt: "Reageer: ik begrijp wat je bedoelt, maar ik ben het niet met je eens.", answers: ["Jag förstår {vad|hur} du menar, men jag håller inte med[ dig][ om det]."] }
+          - { id: aan3, type: translate, topic: utbrytning, prompt: "Zeg dat het je broer was die belde (niet jij).", answers: ["Det var min bror som ringde[, inte jag]."], feedback: [{ contains: "som han ringde", tip: "Som is het onderwerp: som ringde." }] }
+          - { id: 3x4f, type: translate, topic: argumentation, prompt: "Rond je betoog af: kort gezegd moeten we meer in scholen investeren.", answers: ["Kort sagt måste vi satsa mer på {skolan|skolorna}.", "Kort sagt måste vi investera mer i {skolan|skolorna}."], feedback: [{ contains: "Kort sagt vi måste", tip: "Na kort sagt komt eerst het werkwoord: kort sagt måste vi." }] }
+
+  - id: skriva
+    title: Skriva · schrijven
+    intro: "Schrijfdoel: een betoog."
+    exercises:
+      - id: skriva-betoog
+        title: Betoog in stappen
+        instruction: "Bouw een betoog op in vier delen: tes, argumenten, motargument met bemötande en slutsats. De app kijkt elke stap na. Je eigen betoog schrijf je daarna in de volgende oefening."
+        topic: argumentation
+        items:
+          - id: y7c5
+            type: steps
+            topic: argumentation
+            steps:
+              - { type: mc, prompt: "**Tes.** Welke zin is een goede tes (een standpunt)?", options: ["Alla gymnasieelever borde göra minst två veckors praktik på en arbetsplats.", "Många gymnasieelever har ett sommarjobb i en butik eller på ett kafé.", "Min dotter gjorde praktik på ett sjukhus förra året."], answer: 0, tip: "Een tes is een standpunt waarover je van mening kunt verschillen, geen feit en geen eigen ervaring." }
+              - { type: transform, topic: utbrytning, task: "**Tes.** Leg de nadruk op *skolan* met det är … som.", prompt: "Skolan måste ge eleverna kontakt med arbetslivet.", answers: ["Det är skolan som måste ge eleverna kontakt med arbetslivet."], feedback: [{ contains: "det är skolan att", tip: "Nadruk leg je met det är … som, niet met att." }] }
+          - id: cqzm
+            type: steps
+            topic: argumentation
+            steps:
+              - { type: order, prompt: "**Argument 1.** Begin met *För det första*. Let op de woordvolgorde.", start: "För det första", tokens: ["får", "eleverna", "en", "tydligare", "bild", "av", "hur", "arbetslivet", "ser", "ut"], answers: ["För det första får eleverna en tydligare bild av hur arbetslivet ser ut."], feedback: [{ contains: "för det första eleverna får", tip: "För det första is een zinsdeel: daarna komt meteen het werkwoord (För det första får eleverna …)." }, { contains: "hur ser arbetslivet ut", tip: "Na hur volgt hier een bijzin, zonder inversie: hur arbetslivet ser ut." }] }
+              - { type: gap, prompt: "**Argument 2.** Kies het signaalwoord.", text: "___ blir det lättare för eleverna att välja rätt utbildning efter gymnasiet.", gaps: [{ answers: ["För det andra"], options: ["För det andra", "Visserligen", "Kort sagt"], tip: "Je tweede argument kondig je aan met för det andra. Visserligen hoort bij het bemötande, kort sagt bij de slutsats." }] }
+              - { type: gap, topic: sambandsord, prompt: "**Argument 3.** Kies het signaalwoord.", text: "___ vill många arbetsgivare gärna anställa unga som redan har lite erfarenhet.", gaps: [{ answers: ["Dessutom"], options: ["Dessutom", "Kort sagt", "Visserligen"], tip: "Nog een argument erbij: dessutom (bovendien)." }] }
+          - id: 42tv
+            type: steps
+            topic: argumentation
+            steps:
+              - { type: mc, prompt: "**Motargument.** Welke zin geeft weer wat de andere kant vindt?", options: ["Kritiker menar att det är svårt att hitta praktikplatser åt alla elever.", "För det andra blir det lättare att välja rätt utbildning.", "Därför anser jag att alla elever borde göra praktik."], answer: 0, tip: "Een motargument is wat anderen vinden: Kritiker menar att … of Vissa hävdar att …" }
+              - { type: order, prompt: "**Bemötande.** Geef eerst toe, zet er dan iets tegenover.", start: "Visserligen kräver det mycket planering,", tokens: ["men", "många", "företag", "vill", "gärna", "ta", "emot", "praktikanter"], answers: ["Visserligen kräver det mycket planering, men många företag vill gärna ta emot praktikanter."] }
+              - { type: gap, prompt: "**Bemötande.** Kies het woord dat past.", text: "Det argumentet håller inte, ___ kommunen redan i dag har kontakt med många arbetsgivare.", gaps: [{ answers: ["eftersom"], options: ["eftersom", "därför", "men"], tip: "Je geeft de reden waarom het argument niet klopt: eftersom. Na därför zou het werkwoord direct volgen (därför har kommunen)." }] }
+          - id: aqng
+            type: steps
+            topic: argumentation
+            steps:
+              - { type: gap, prompt: "**Slutsats.** Je vat kort samen. Kies het signaalwoord.", text: "___ ger praktik eleverna erfarenheter som ingen lärobok kan ge dem.", gaps: [{ answers: ["Kort sagt"], options: ["Kort sagt", "Kritiker menar att", "För det andra"], tip: "Kort sagt (kortom) vat samen. Na Kritiker menar att zou geen inversie volgen, en för det andra is een nieuw argument." }] }
+              - { type: translate, prompt: "**Slutsats.** Vertaal: Daarom vind ik dat alle gymnasiasten (gymnasieelever) stage moeten lopen (göra praktik).", answers: ["Därför {anser|tycker|menar} jag att alla gymnasieelever {borde|bör|ska|måste} göra praktik.", "Jag {anser|tycker|menar} därför att alla gymnasieelever {borde|bör|ska|måste} göra praktik."], feedback: [{ contains: "därför jag", tip: "Na därför vooraan komt eerst het werkwoord: Därför anser jag …" }] }
+
+      - id: skriva-debattartikel
+        title: Schrijf een opiniestuk
+        instruction: "Bouw eerst je debattartikel op in vijf stappen die de app nakijkt. Daarna schrijf je het hele betoog, als je wilt."
+        topic: argumentation
+        items:
+          - { id: m69g, type: mc, prompt: "Kies de beste tes (je standpunt).", options: ["Jag anser att kollektivtrafiken i våra städer borde vara gratis.", "Kollektivtrafik är bussar, tåg och spårvagnar.", "Jag åker ibland buss till jobbet."], answer: 0, tip: "Een tes is een standpunt waarover je van mening kunt verschillen, geen feit of ervaring." }
+          - { id: dncy, type: gap, topic: utbrytning, prompt: "Kies het woord dat past.", text: "Det är bilarna ___ står för en stor del av utsläppen i staden.", gaps: [{ answers: ["som"], options: ["som", "att", "vilka"], tip: "Nadruk met det är … som." }] }
+          - { id: yytk, type: order, prompt: "Weerleg het motargument: geef toe, en zet er dan iets tegenover.", start: "Visserligen kostar det pengar,", tokens: ["men", "samhället", "sparar", "pengar", "på", "färre", "olyckor"], answers: ["Visserligen kostar det pengar, men samhället sparar pengar på färre olyckor."] }
+          - { id: fkvy, type: transform, topic: utbrytning, task: "Leg de nadruk op kostnaden met det är … som.", prompt: "Kostnaden är inte det stora problemet.", answers: ["Det är inte kostnaden som är det stora problemet."], feedback: [{ contains: "det är kostnaden inte", tip: "inte staat direct na det är: Det är inte kostnaden som …" }] }
+          - { id: 833q, type: gap, prompt: "Je sluit af. Kies het signaalwoord.", text: "___ anser jag att vi borde testa gratis kollektivtrafik.", gaps: [{ answers: ["Därför"], options: ["Därför", "Visserligen", "För det första"], tip: "Een conclusie trek je met därför (daarom) of sammanfattningsvis." }] }
+          - id: n8x3
+            type: free
+            prompt: "Kies een stelling, bijvoorbeeld *Mobiler borde förbjudas i skolan*, *Kollektivtrafiken borde vara gratis* of *Alla borde lära sig svenska innan de får medborgarskap*. Schrijf een betoog van 150–200 woorden met tes, twee argumenten, een motargument met bemötande en een slutsats. Gebruik minstens één keer *det är … som*."
+            minWords: 140
+            require:
+              - { any: ["anser", "tycker", "menar"], label: "Je geeft je standpunt (tes)" }
+              - { any: ["för det första", "för det andra", "dessutom", "slutligen"], label: "Je ordent je argumenten" }
+              - { any: ["kritiker", "vissa", "andra hävdar", "invända", "motståndare"], label: "Je noemt een motargument" }
+              - { any: ["visserligen", "håller inte", "stämmer att"], label: "Je weerlegt het motargument" }
+              - { any: ["därför", "sammanfattningsvis", "kort sagt"], label: "Je sluit af met een conclusie" }
+              - { any: ["det är", "det var"], label: "Je gebruikt det är … som" }
+            model: "Jag anser att kollektivtrafiken i våra städer borde vara gratis. För det första är det bilarna som står för en stor del av utsläppen i staden. Om bussar och spårvagnar vore gratis skulle fler lämna bilen hemma. För det andra skulle gratis kollektivtrafik göra det lättare för personer med låga inkomster att ta sig till jobb och skola. Kritiker menar att det skulle bli för dyrt för kommunerna. Visserligen kostar det pengar, men biljettintäkterna täcker redan i dag bara en del av kostnaderna. Dessutom sparar samhället pengar på färre olyckor och kortare köer. Andra hävdar att bussarna skulle bli överfulla. Det argumentet håller inte, eftersom man kan sätta in fler avgångar. Det är alltså inte kostnaden som är det stora problemet, utan bristen på politisk vilja. Därför anser jag att vi borde testa gratis kollektivtrafik i några städer under ett par år."
+
+  - id: herhaling
+    title: Herhaling
+    exercises:
+      - id: herhaling-b2-27
+        title: Door elkaar
+        instruction: Gemengde vragen.
+        shuffle: true
+        items:
+          - { id: b88p, type: gap, topic: villkor, text: "Om mobilerna ___ (förbjuda), skulle eleverna koncentrera sig bättre.", gaps: [{ answers: ["förbjöds", "blev förbjudna", "skulle förbjudas"] }] }
+          - { id: an5g, type: gap, topic: subjunktioner-b1, text: "___ mobilen kan vara användbar, stör den ofta.", gaps: [{ answers: ["Även om", "Trots att"], options: ["Även om", "Trots att", "Innan"], shuffle: false }] }
+          - { id: dzwm, type: gap, topic: nominalisering, text: "förbjuda → ___", gaps: [{ answers: ["ett förbud"] }] }
+          - { id: 3cnd, type: gap, topic: particip-konstruktion, text: "den av regeringen ___ (föreslå) lagen", gaps: [{ answers: ["föreslagna"] }] }
+          - { id: pchr, type: gap, topic: asikt, text: "Jag håller inte med ___ det.", gaps: [{ answers: ["om"], options: ["om", "på", "för"], shuffle: false }] }
+          - { id: wru8, type: transform, topic: utbrytning, prompt: "**Föräldrarna** bestämmer.", answers: ["Det är föräldrarna som bestämmer."] }
+          - { id: ps3m, type: gap, topic: utbrytning, text: "Det är skolan ___ måste ta ansvar för problemet.", gaps: [{ answers: ["som"] }] }
+          - { id: z3dv, type: gap, topic: argumentation, text: "För det ___ stör mobilerna undervisningen.", gaps: [{ answers: ["första"] }] }
+          - { id: vv7z, type: gap, topic: particip-konstruktion, text: "Den av eleverna ___ (skriva) debattartikeln publicerades i lokaltidningen.", gaps: [{ answers: ["skrivna"] }] }
+          - { id: 6n67, type: gap, topic: subjunktioner-b1, text: "___ många elever har protesterat, vill rektorn inte ändra reglerna.", gaps: [{ answers: ["Trots att"], options: ["Trots att", "Eftersom", "Så att"], shuffle: false }] }
+          - { id: rj8w, type: mc, topic: nominalfras, prompt: "Wat is de kern van deze naamwoordgroep: *en ny rapport från Folkhälsomyndigheten om ungas sömnvanor*?", options: ["rapport", "Folkhälsomyndigheten", "sömnvanor"], answer: 0, tip: "De kern staat vooraan, na het lidwoord en het bijvoeglijk naamwoord: en ny rapport. De rest zegt waar hij vandaan komt en waarover hij gaat." }
+
+      - id: herhaling-woorden
+        title: Woorden van eerder
+        instruction: Kies het woord dat past. Deze woorden komen uit eerdere hoofdstukken.
+        topic: woordenschat
+        shuffle: true
+        items:
+          - { id: 6kq3, type: gap, text: "Alla ___ i studien fick sova i ett laboratorium i två nätter.", gaps: [{ answers: ["deltagare"], options: ["deltagare", "hypoteser", "tidskrifter", "faktorer"], feedback: [{ match: "faktorer", tip: "*faktor* betekent „een factor”. Lees de zin nog eens: wat past hier?" }] }] }
+          - { id: 4t23, type: gap, text: "Forskarna jämförde resultaten med en ___ som inte fick någon behandling.", gaps: [{ answers: ["kontrollgrupp"], options: ["kontrollgrupp", "avhandling", "tidskrift", "hypotes"], feedback: [{ match: "avhandling", tip: "*avhandling* betekent „een proefschrift”. Lees de zin nog eens: wat past hier?" }] }] }
+          - { id: awjt, type: gap, text: "Studien har vissa ___, till exempel att urvalet var litet.", gaps: [{ answers: ["begränsningar"], options: ["begränsningar", "förklaringar", "mätningar", "effekter"], feedback: [{ match: "förklaringar", tip: "*förklaring* betekent „een verklaring”. Lees de zin nog eens: wat past hier?" }] }] }
+          - { id: j2ym, type: gap, text: "En kort ___ efter lunch kan förbättra minnet.", gaps: [{ answers: ["tupplur"], options: ["tupplur", "avhandling", "hypotes", "mätning"], feedback: [{ match: "mätning", tip: "*mätning* betekent „een meting”. Lees de zin nog eens: wat past hier?" }] }] }
+          - { id: h4b7, type: gap, text: "Hon försvarade sin ___ om sömn och minne vid Uppsala universitet.", gaps: [{ answers: ["avhandling"], options: ["avhandling", "kontrollgrupp", "tupplur", "orsak"], feedback: [{ match: "orsak", tip: "*orsak* betekent „een oorzaak”. Lees de zin nog eens: wat past hier?" }] }] }
+          - { id: xzsr, type: gap, text: "Det är oklart ___ resultatet är signifikant.", gaps: [{ answers: ["huruvida"], options: ["huruvida", "följaktligen", "därmed", "slutligen"], feedback: [{ match: "följaktligen", tip: "*följaktligen* betekent „bijgevolg, dientengevolge”. Lees de zin nog eens: wat past hier?" }] }] }
+          - { id: 3qa5, type: gap, text: "Forskarna ___ från hypotesen att sömnen är en avgörande faktor.", gaps: [{ answers: ["utgick"], options: ["utgick", "mätte", "betonade", "analyserade"], feedback: [{ match: "mätte", tip: "*mäta* betekent „meten”. Lees de zin nog eens: wat past hier?" }] }] }
+
+vocab:
+  - { sv: "en debatt", nl: "een debat", def: "debatten", pl: "debatter", plDef: "debatterna", ex: "Efter programmet blev det en het **debatt** i sociala medier.", exNl: "Na het programma ontstond er een fel debat op sociale media." }
+  - { sv: "en debattartikel", nl: "een opiniestuk", def: "debattartikeln", pl: "debattartiklar", plDef: "debattartiklarna", ex: "Hon skrev en **debattartikel** om skolans mobilförbud.", exNl: "Ze schreef een opiniestuk over het mobielverbod van de school." }
+  - { sv: "en tes", nl: "een stelling, een standpunt", def: "tesen", pl: "teser", plDef: "teserna", ex: "Börja texten med att presentera din **tes** tydligt.", exNl: "Begin de tekst met het duidelijk presenteren van je stelling." }
+  - { sv: "ett argument", nl: "een argument", def: "argumentet", pl: "argument", plDef: "argumenten", ex: "Det **argumentet** håller inte, enligt min mening.", exNl: "Dat argument houdt geen stand, naar mijn mening." }
+  - { sv: "ett motargument", nl: "een tegenargument", def: "motargumentet", pl: "motargument", plDef: "motargumenten", ex: "En bra debattör bemöter alltid **motargumenten**.", exNl: "Een goede debater gaat altijd in op de tegenargumenten." }
+  - { sv: "ett förbud", nl: "een verbod", def: "förbudet", pl: "förbud", plDef: "förbuden", ex: "Regeringen vill införa ett **förbud** mot mobiler i skolan.", exNl: "De regering wil een verbod op mobieltjes op school invoeren." }
+  - { sv: "en kritiker", nl: "een criticus", def: "kritikern", pl: "kritiker", plDef: "kritikerna", ex: "**Kritikerna** menar att förslaget är omodernt.", exNl: "De critici vinden dat het voorstel ouderwets is." }
+  - { sv: "ett verktyg", nl: "een instrument, een hulpmiddel", def: "verktyget", pl: "verktyg", plDef: "verktygen", ex: "Mobilen kan vara ett viktigt **verktyg** i undervisningen.", exNl: "De mobiel kan een belangrijk hulpmiddel zijn in het onderwijs." }
+  - { sv: "ett straff", nl: "een straf", def: "straffet", pl: "straff", plDef: "straffen", ex: "Att lämna in mobilen är inte ett **straff** för eleverna.", exNl: "Je mobiel inleveren is geen straf voor de leerlingen." }
+  - { sv: "en förebild", nl: "een voorbeeld, een rolmodel", def: "förebilden", pl: "förebilder", plDef: "förebilderna", ex: "Vuxna borde vara bättre **förebilder** för barnen.", exNl: "Volwassenen zouden betere rolmodellen moeten zijn voor de kinderen." }
+  - { sv: "ett elevråd", nl: "een leerlingenraad", def: "elevrådet", pl: "elevråd", plDef: "elevråden", ex: "**Elevrådet** har samlat in namn mot förbudet.", exNl: "De leerlingenraad heeft handtekeningen verzameld tegen het verbod." }
+  - { sv: "att hävda", nl: "beweren", ex: "Andra **hävdar** att föräldrar måste kunna nå sina barn.", exNl: "Anderen beweren dat ouders hun kinderen moeten kunnen bereiken." }
+  - { sv: "att invända", nl: "tegenwerpen", ex: "Någon **invände** att förbudet är svårt att kontrollera.", exNl: "Iemand wierp tegen dat het verbod moeilijk te controleren is." }
+  - { sv: "att bemöta", nl: "reageren op, ingaan op", ex: "Hur **bemöter** du det argumentet i din text?", exNl: "Hoe ga je in je tekst in op dat argument?" }
+  - { sv: "att avbryta", nl: "onderbreken", ex: "Snälla, **avbryt** mig inte när jag pratar!", exNl: "Onderbreek me alsjeblieft niet als ik praat!" }
+  - { sv: "att förbjuda", nl: "verbieden", ex: "Skolan har **förbjudit** mobiler under lektionerna.", exNl: "De school heeft mobieltjes tijdens de lessen verboden." }
+  - { sv: "överens", nl: "het eens", ex: "Vi är inte **överens** om hur problemet ska lösas.", exNl: "We zijn het niet eens over hoe het probleem opgelost moet worden." }
+  - { sv: "närvarande", nl: "aanwezig", ex: "Utan mobilen är eleverna mer **närvarande** på lektionerna.", exNl: "Zonder mobiel zijn de leerlingen meer aanwezig tijdens de lessen." }
+  - { sv: "slutligen", nl: "ten slotte", ex: "**Slutligen** vill jag tacka alla som har deltagit i debatten.", exNl: "Ten slotte wil ik iedereen bedanken die aan het debat heeft deelgenomen." }
+  - { sv: "kort sagt", nl: "kortom", ex: "**Kort sagt** är förbudet både dyrt och onödigt.", exNl: "Kortom, het verbod is zowel duur als onnodig." }
+  - { sv: "en ståndpunkt", nl: "een standpunt", def: "ståndpunkten", pl: "ståndpunkter", plDef: "ståndpunkterna", ex: "Partiet har en tydlig **ståndpunkt** i frågan.", exNl: "De partij heeft een duidelijk standpunt in deze kwestie." }
+  - { sv: "en motpart", nl: "een tegenpartij", def: "motparten", pl: "motparter", plDef: "motparterna", ex: "Lyssna noga på vad din **motpart** säger.", exNl: "Luister goed naar wat je tegenpartij zegt." }
+  - { sv: "en debattör", nl: "een debater", def: "debattören", pl: "debattörer", plDef: "debattörerna", ex: "Hon är en skicklig **debattör** som sällan tappar tråden.", exNl: "Ze is een vaardige debater die zelden de draad kwijtraakt." }
+  - { sv: "en replik", nl: "een repliek, een weerwoord", def: "repliken", pl: "repliker", plDef: "replikerna", ex: "Ministern fick två minuter för sin **replik**.", exNl: "De minister kreeg twee minuten voor zijn repliek." }
+  - { sv: "ett inlägg", nl: "een bijdrage (in een debat), een post", def: "inlägget", pl: "inlägg", plDef: "inläggen", ex: "Hans **inlägg** i debatten var kort men träffande.", exNl: "Zijn bijdrage aan het debat was kort maar raak." }
+  - { sv: "ett påstående", nl: "een bewering", def: "påståendet", pl: "påståenden", plDef: "påståendena", ex: "Det **påståendet** saknar stöd i forskningen.", exNl: "Die bewering wordt niet door onderzoek ondersteund." }
+  - { sv: "ett belägg", nl: "een bewijs (onderbouwing)", def: "belägget", pl: "belägg", plDef: "beläggen", ex: "Finns det några **belägg** för det du säger?", exNl: "Zijn er bewijzen voor wat je zegt?" }
+  - { sv: "en invändning", nl: "een bezwaar, een tegenwerping", def: "invändningen", pl: "invändningar", plDef: "invändningarna", ex: "Har någon några **invändningar** mot förslaget?", exNl: "Heeft iemand bezwaren tegen het voorstel?" }
+  - { sv: "en omröstning", nl: "een stemming", def: "omröstningen", pl: "omröstningar", plDef: "omröstningarna", ex: "Efter debatten blev det en **omröstning** i elevrådet.", exNl: "Na het debat volgde er een stemming in de leerlingenraad." }
+  - { sv: "en debattledare", nl: "een gespreksleider (bij een debat)", def: "debattledaren", pl: "debattledare", plDef: "debattledarna", ex: "**Debattledaren** gav ordet till nästa talare.", exNl: "De gespreksleider gaf het woord aan de volgende spreker." }
+  - { sv: "en talare", nl: "een spreker", def: "talaren", pl: "talare", plDef: "talarna", ex: "Varje **talare** får tre minuter på sig.", exNl: "Iedere spreker krijgt drie minuten." }
+  - { sv: "en fördom", nl: "een vooroordeel", def: "fördomen", pl: "fördomar", plDef: "fördomarna", ex: "Debatten byggde mest på **fördomar**, inte på fakta.", exNl: "Het debat was vooral gebaseerd op vooroordelen, niet op feiten." }
+  - { sv: "en generalisering", nl: "een generalisatie, een veralgemening", def: "generaliseringen", pl: "generaliseringar", plDef: "generaliseringarna", ex: "Att alla tonåringar är beroende är en grov **generalisering**.", exNl: "Dat alle tieners verslaafd zijn, is een grove generalisatie." }
+  - { sv: "ett motstånd", nl: "verzet, weerstand", def: "motståndet", mass: true, ex: "Förslaget mötte starkt **motstånd** från föräldrarna.", exNl: "Het voorstel stuitte op sterk verzet van de ouders." }
+  - { sv: "en härskarteknik", nl: "een machtstechniek (om iemand klein te krijgen)", def: "härskartekniken", pl: "härskartekniker", plDef: "härskarteknikerna", ex: "Att förlöjliga motparten är en vanlig **härskarteknik**.", exNl: "Het belachelijk maken van de tegenpartij is een veelgebruikte machtstechniek." }
+  - { sv: "att argumentera för", nl: "argumenteren voor, pleiten voor", ex: "Hon **argumenterade för** ett totalt förbud mot mobiler.", exNl: "Ze pleitte voor een totaalverbod op mobieltjes." }
+  - { sv: "att ifrågasätta", nl: "in twijfel trekken", ex: "Journalisten **ifrågasatte** ministerns siffror.", exNl: "De journalist trok de cijfers van de minister in twijfel." }
+  - { sv: "att övertyga", nl: "overtuigen", ex: "Du har inte **övertygat** mig än.", exNl: "Je hebt me nog niet overtuigd." }
+  - { sv: "att ta ställning", nl: "een standpunt innemen", ex: "Partiet vägrar att **ta ställning** i frågan.", exNl: "De partij weigert een standpunt in te nemen in deze kwestie." }
+  - { sv: "att ge med sig", nl: "toegeven, inbinden", ex: "Han vägrar att **ge med sig**, trots alla argument.", exNl: "Hij weigert toe te geven, ondanks alle argumenten." }
+  - { sv: "att stå fast vid", nl: "vasthouden aan, blijven bij", ex: "Jag **står fast vid** min åsikt, vad du än säger.", exNl: "Ik houd vast aan mijn mening, wat je ook zegt." }
+  - { sv: "att ta upp", nl: "aankaarten, ter sprake brengen", ex: "Jag vill **ta upp** en sak till innan vi slutar.", exNl: "Ik wil nog één punt aankaarten voordat we stoppen." }
+  - { sv: "att lyfta fram", nl: "naar voren brengen, benadrukken", ex: "Hon **lyfte fram** flera starka argument i sitt tal.", exNl: "Ze bracht in haar toespraak verschillende sterke argumenten naar voren." }
+  - { sv: "att gå med på", nl: "akkoord gaan met, instemmen met", ex: "Rektorn har **gått med på** att testa förbudet.", exNl: "De rector is akkoord gegaan met het uitproberen van het verbod." }
+  - { sv: "att tala till punkt", nl: "uitpraten", ex: "Låt mig **tala till punkt**, tack.", exNl: "Laat me alsjeblieft uitpraten." }
+  - { sv: "att förlöjliga", nl: "belachelijk maken", ex: "Man ska aldrig **förlöjliga** sin motpart i en debatt.", exNl: "Je moet je tegenpartij in een debat nooit belachelijk maken." }
+  - { sv: "att framföra", nl: "uiten (kritiek, een mening)", ex: "Flera föräldrar har **framfört** kritik mot förbudet.", exNl: "Verschillende ouders hebben kritiek geuit op het verbod." }
+  - { sv: "att motivera", nl: "onderbouwen, motiveren", ex: "Du måste **motivera** din åsikt med fakta.", exNl: "Je moet je mening met feiten onderbouwen." }
+  - { sv: "att vara emot", nl: "tegen zijn", ex: "Många elever och föräldrar **är emot** förbudet.", exNl: "Veel leerlingen en ouders zijn tegen het verbod." }
+  - { sv: "för det första", nl: "ten eerste", ex: "**För det första** är förbudet svårt att kontrollera.", exNl: "Ten eerste is het verbod moeilijk te controleren." }
+  - { sv: "för det andra", nl: "ten tweede", ex: "**För det andra** påverkas rasterna negativt.", exNl: "Ten tweede worden de pauzes negatief beïnvloed." }
+  - { sv: "med andra ord", nl: "met andere woorden", ex: "**Med andra ord** håller argumentet inte.", exNl: "Met andere woorden: het argument houdt geen stand." }
+  - { sv: "å ena sidan", nl: "aan de ene kant", ex: "**Å ena sidan** är mobilen ett bra verktyg.", exNl: "Aan de ene kant is de mobiel een goed hulpmiddel." }
+  - { sv: "å andra sidan", nl: "aan de andere kant", ex: "**Å andra sidan** stör den koncentrationen i klassrummet.", exNl: "Aan de andere kant verstoort hij de concentratie in de klas." }
+  - { sv: "enligt min mening", nl: "naar mijn mening", ex: "**Enligt min mening** borde beslutet fattas av eleverna.", exNl: "Naar mijn mening zou de beslissing door de leerlingen genomen moeten worden." }
+  - { sv: "tvärtom", nl: "integendeel", ex: "Förbudet är inget straff för eleverna, **tvärtom**.", exNl: "Het verbod is geen straf voor de leerlingen, integendeel." }
+  - { sv: "övertygande", nl: "overtuigend", ex: "Hon höll ett mycket **övertygande** tal på mötet.", exNl: "Ze hield een zeer overtuigende toespraak op de vergadering." }
+  - { sv: "saklig", nl: "zakelijk, objectief", ex: "Försök att hålla en **saklig** ton i debatten.", exNl: "Probeer een zakelijke toon aan te houden in het debat." }
+  - { sv: "orimlig", nl: "onredelijk", ex: "Många tycker att kravet på eleverna är helt **orimligt**.", exNl: "Velen vinden de eis aan de leerlingen volkomen onredelijk." }
+  - { sv: "befogad", nl: "terecht, gerechtvaardigd", ex: "Kritiken mot förslaget är helt **befogad**.", exNl: "De kritiek op het voorstel is volkomen terecht." }
+  - { sv: "ensidig", nl: "eenzijdig", ex: "Artikeln ger en väldigt **ensidig** bild av problemet.", exNl: "Het artikel geeft een erg eenzijdig beeld van het probleem." }
+  - { sv: "däremot", nl: "daarentegen", ex: "Eleverna gillar förslaget. Föräldrarna är **däremot** skeptiska.", exNl: "De leerlingen vinden het voorstel goed. De ouders zijn daarentegen sceptisch." }
+  - { sv: "en publik", nl: "een publiek", def: "publiken", pl: "publiker", plDef: "publikerna", ex: "**Publiken** applåderade efter debatten.", exNl: "Het publiek applaudisseerde na het debat." }
+  - { sv: "att hålla med om", nl: "het eens zijn met", ex: "Jag **håller med om** det.", exNl: "Daar ben ik het mee eens." }
+  - { sv: "rimlig", nl: "redelijk", ex: "Förslaget verkar **rimligt**.", exNl: "Het voorstel lijkt redelijk." }
+  - { sv: "ett skäl", nl: "een reden", def: "skälet", pl: "skäl", plDef: "skälen", ex: "Det finns flera **skäl** att säga nej.", exNl: "Er zijn meerdere redenen om nee te zeggen." }
+  - { sv: "att kritisera", nl: "bekritiseren", ex: "Förslaget har **kritiserats** hårt.", exNl: "Het voorstel is hard bekritiseerd." }
+  - { sv: "att försvara", nl: "verdedigen", ex: "Hon **försvarade** sin åsikt.", exNl: "Ze verdedigde haar mening." }
+  - { sv: "att erkänna", nl: "toegeven, erkennen", ex: "Jag måste **erkänna** att du har rätt.", exNl: "Ik moet toegeven dat je gelijk hebt." }
+  - { sv: "kontroversiell", nl: "omstreden", ex: "Frågan är mycket **kontroversiell**.", exNl: "De kwestie is zeer omstreden." }

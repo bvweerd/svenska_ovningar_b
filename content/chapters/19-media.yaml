@@ -1,0 +1,531 @@
+chapter: 19
+# Kan-doen-uitspraken: de app vinkt ze zelf af als de vragen over deze onderwerpen
+# grotendeels in doos 3 of hoger staan (src/progress.js, canDoStatus).
+canDo:
+  - { text: "Ik kan navertellen wat iemand zei, met de goede tijd", topics: [indirekt-tal-b1] }
+  - { text: "Ik kan een vraag indirect stellen of doorgeven", topics: [indirekt-fraga] }
+
+grammar:
+  - id: indirekt-tal-b1
+    title: Indirecte rede met tijdsverschuiving
+    summary: "Na *sa att* schuift de tijd een stap terug: *är → var*, *har köpt → hade köpt*, *ska → skulle*, *kan → kunde*. Bijzinvolgorde: *Hon sa att hon **inte var** trött.*"
+    body: |
+      Vertel je na wat iemand gezegd heeft (*sa att, berättade att, skrev att*), dan schuift de tijd een stap terug, net als in het Nederlands:
+
+      | direct | indirect |
+      |---|---|
+      | *”Jag **är** trött.”* | *Hon sa att hon **var** trött.* |
+      | *”Jag **har köpt** en bil.”* | *Han sa att han **hade köpt** en bil.* |
+      | *”Jag **köpte** en bil.”* | *Han sa att han **hade köpt** (of: **köpte**) en bil.* |
+      | *”Vi **ska** åka.”* | *De sa att de **skulle** åka.* |
+      | *”Det **kommer att** regna.”* | *De sa att det **skulle** regna.* |
+      | *”Jag **kan** inte.”* | *Hon sa att hon inte **kunde**.* |
+
+      Is iets nog steeds waar, dan mag de presens blijven: *Hon sa att hon **bor** i Malmö.*
+
+      ### Ook veranderen
+      - **voornaamwoorden**: *jag → hon/han*, *vi → de*
+      - **tijdswoorden**, als je het later vertelt: *i dag → den dagen*, *i går → dagen innan*, *i morgon → dagen efter*
+      - **woordvolgorde**: het is een bijzin, dus *inte* vóór het werkwoord: *Han sa att han **inte kunde** komma.*
+
+      In nieuwsberichten zie je ook **enligt** (volgens): ***Enligt** polisen skadades ingen.*
+
+  - id: indirekt-fraga
+    title: Indirecte vragen en vem som
+    summary: "Ja/nee-vraag: **om**: *Hon frågade **om** jag ville komma.* Vraagwoord: *Jag undrar **varför** han **inte** kom.* Is het vraagwoord het onderwerp, dan **som**: *Jag vet inte **vem som** ringde.*"
+    body: |
+      Een vraag in een bijzin (na *fråga, undra, veta, berätta* …) heeft **bijzinvolgorde**: onderwerp – (inte) – werkwoord.
+
+      | directe vraag | indirect |
+      |---|---|
+      | *Kommer du?* | *Hon frågade **om** jag kom.* |
+      | *Var bor du?* | *Han frågade **var jag bodde**.* |
+      | *Varför kom du inte?* | *Chefen undrade **varför jag inte** hade kommit.* |
+
+      Een ja/nee-vraag krijgt **om** (of): *Vet du **om** butiken är öppen?*
+
+      ### vem som, vad som, vilka som
+      Is het vraagwoord zelf het **onderwerp** van de bijzin, dan komt er **som** achter:
+
+      - *Vem ringde?* → *Jag vet inte **vem som** ringde.*
+      - *Vad hände?* → *Berätta **vad som** hände!*
+      - *Vilka kommer?* → *Vet du **vilka som** kommer?*
+
+      Is het vraagwoord het **lijdend voorwerp**, dan komt er geen *som*:
+
+      - *Vem ringde du?* → *Jag vet inte **vem du** ringde.*
+
+      Test: staat er na het vraagwoord al een onderwerp (*du, hon, Erik* …)? Dan geen *som*.
+
+sections:
+  - id: lasa
+    title: Läsa · lezen
+    exercises:
+      - id: lasa-alg
+        title: "Lezen: een eland in de stad"
+        instruction: Lees het nieuwsbericht en beantwoord de vragen.
+        topic: woordenschat
+        textTitle: Älg på villovägar i centrala Uppsala
+        text: |
+          En älg orsakade stor uppståndelse i centrala Uppsala i tisdags morse. Älgen sågs först vid järnvägsstationen strax efter klockan sex. Sedan gick den lugnt genom stadsparken och vidare ner mot Fyrisån.
+
+          – Jag trodde inte mina ögon, säger Karin Lund, som var på väg till jobbet. Den stod bara där och åt av buskarna utanför min port.
+
+          Polisen spärrade av flera gator, och trafiken stod still i nästan en timme. Ingen människa skadades.
+
+          Många som såg älgen filmade den med sina mobiler, och snart spreds filmerna i sociala medier. En av dem som filmade var Omar Hassan, som kör buss i Uppsala.
+
+          – Jag fick stanna bussen mitt på gatan. Passagerarna frågade vad som hade hänt, och när jag pekade på älgen började alla skratta, berättar han.
+
+          – Älgen var troligen ung och hade gått vilse, säger polisens presstalesperson Anders Berg. Till slut lyckades vi leda den ut ur staden mot skogen.
+
+          Enligt Berg är det inte ovanligt att älgar kommer in i städer på våren, när de unga djuren lämnar sina mödrar. Polisen vill ändå påminna om att en älg kan bli farlig om den känner sig stressad. Man ska hålla avstånd och inte försöka ta bilder på nära håll. Den som ser en älg i staden kan ringa polisen på 114 14. Är någon i fara ska man ringa 112.
+
+          Senare samma dag sågs älgen i ett skogsområde norr om staden. Enligt polisen mådde den bra.
+        items:
+          - { id: dwrr, type: mc, prompt: "Var sågs älgen först?", options: ["vid järnvägsstationen", "i stadsparken", "vid Fyrisån", "i skogen"], answer: 0 }
+          - { id: qcwm, type: truefalse, statement: "Älgen sågs på kvällen.", answer: false, correction: { answers: ["{Älgen|Den} sågs [på morgonen ]strax efter klockan sex[ på morgonen].", "{Älgen|Den} sågs på morgonen."] } }
+          - { id: 68ht, type: mc, prompt: "Vad gjorde älgen utanför Karin Lunds port?", options: ["Den åt av buskarna.", "Den sov.", "Den sprang in i huset.", "Den skadade en bil."], answer: 0 }
+          - { id: hbdf, type: truefalse, statement: "En person skadades.", answer: false, correction: { answers: ["Ingen [människa ]skadades."] } }
+          - { id: rcwa, type: mc, prompt: "Varför kom älgen in i staden, enligt polisen?", options: ["Den var ung och hade gått vilse.", "Den letade efter mat.", "Den var sjuk.", "Någon hade jagat den."], answer: 0 }
+          - { id: b7rs, type: mc, prompt: "När kommer älgar ofta in i städer?", options: ["på våren", "på vintern", "på natten", "på hösten"], answer: 0 }
+          - { id: wf7p, type: mc, prompt: "Wat betekent *spärrade av flera gator*?", options: ["sloot meerdere straten af", "maakte meerdere straten schoon", "reed door meerdere straten", "zocht in meerdere straten"], answer: 0 }
+          - { id: 43pp, type: mc, prompt: "Vad gjorde många som såg älgen?", options: ["De filmade den med sina mobiler.", "De ringde polisen.", "De gav den mat.", "De sprang hem."], answer: 0 }
+          - { id: a4aa, type: truefalse, statement: "Passagerarna på bussen blev rädda.", answer: false, correction: { answers: ["{Passagerarna|De|Alla} började skratta.", "{Passagerarna|De} skrattade."] } }
+          - { id: cufb, type: mc, prompt: "Vad bör man göra om man ser en älg i staden, enligt polisen?", options: ["hålla avstånd och ringa polisen på 114 14", "ta bilder på nära håll", "försöka leda den till skogen", "ringa tidningen"], answer: 0 }
+
+      - id: makkelijk-1
+        title: "Makkelijk lezen: Nyheten"
+        instruction: Een korte tekst met woorden die je al kent. Lees hem vlot door en kies rätt of fel.
+        topic: woordenschat
+        kind: makkelijk
+        textTitle: "Nyheten"
+        text: |
+          I morse läste Bas en nyhet i tidningen. Där stod det att en buss hade kört av vägen nära Västerås. Enligt polisen skadades ingen allvarligt. Bussföraren berättade att det hade snöat mycket. Journalisten frågade om bussen hade haft vinterdäck, men det visste ingen. Polisen stängde av vägen i tre timmar. Många fick vänta länge i bilen. Nu ska kommunen undersöka om något måste göras med vägen.
+        items:
+          - { id: 4wsy, type: truefalse, statement: "Flera personer skadades allvarligt.", answer: false }
+          - { id: 738w, type: truefalse, statement: "Föraren sa att det hade snöat mycket.", answer: true }
+
+      - id: makkelijk-2
+        title: "Makkelijk lezen: Den godaste soppan"
+        instruction: Een korte tekst met woorden die je al kent. Lees hem vlot door en kies rätt of fel.
+        topic: woordenschat
+        kind: makkelijk
+        textTitle: "Den godaste soppan"
+        text: |
+          I fredags lagade eleverna i skolan soppa. Alla undrade vems soppa som var godast. Tre lärare smakade tolv olika soppor. Till slut sa de att Elin hade gjort den godaste soppan. Tidningen skrev en kort artikel om dagen. Elin berättade att hon hade lagat soppan med sin mormor många gånger. Hon fick en bok om mat som pris. Nästa år vill hon vara med igen.
+        items:
+          - { id: u6fz, type: truefalse, statement: "Lärarna smakade tolv soppor.", answer: true }
+          - { id: jevf, type: truefalse, statement: "Elins soppa var den godaste.", answer: true }
+
+      - id: makkelijk-3
+        title: "Makkelijk lezen: Podden"
+        instruction: Een korte tekst met woorden die je al kent. Lees hem vlot door en beantwoord de vragen.
+        topic: woordenschat
+        kind: makkelijk
+        textTitle: "Podden"
+        text: |
+          Klara lyssnar på en podd om mat varje morgon på väg till jobbet. I dagens avsnitt berättade journalisten att svenskarna dricker mer kaffe än de flesta andra i världen. Klara undrade om det verkligen stämde, så hon sökte på internet på lunchrasten. Där stod det att finländarna dricker mest. Klara berättade det för sina kollegor och frågade hur många koppar de drack varje dag. De flesta sa att de drack tre eller fyra.
+        items:
+          - { id: 4mk8, type: truefalse, statement: "Klara lyssnar på podden på kvällen.", answer: false }
+          - { id: 2fjy, type: mc, prompt: "Vilka dricker mest kaffe i världen enligt texten?", options: ["Finländarna.", "Italienarna.", "Amerikanerna."], answer: 0 }
+          - { id: aee7, type: truefalse, statement: "De flesta kollegorna dricker tre eller fyra koppar om dagen.", answer: true }
+
+      - id: makkelijk-4
+        title: "Makkelijk lezen: Intervjun"
+        instruction: Een korte tekst met woorden die je al kent. Lees hem vlot door en beantwoord de vragen.
+        topic: woordenschat
+        kind: makkelijk
+        textTitle: "Intervjun"
+        text: |
+          En journalist från tidningen ringde Bengt i går. Hon frågade om han ville bli intervjuad om sin kör. Bengt har sjungit i kören i fyrtio år. Han sa att han gärna ville. Journalisten frågade varför han tyckte om att sjunga. Bengt svarade att sången gjorde honom glad och lugn, och att kören var som en familj för honom. Artikeln kommer i tidningen på lördag.
+        items:
+          - { id: 5fsp, type: mc, prompt: "Hur länge har Bengt sjungit i kören?", options: ["I fyra år.", "I fjorton år.", "I fyrtio år."], answer: 2 }
+          - { id: egnt, type: truefalse, statement: "Bengt ville inte bli intervjuad.", answer: false }
+          - { id: 2p5w, type: truefalse, statement: "Artikeln kommer på lördag.", answer: true }
+
+  - id: ord
+    title: Ord och fraser · woorden en uitdrukkingen
+    exercises:
+      - id: ord-media
+        title: Media
+        instruction: Koppel het woord aan de betekenis.
+        topic: woordenschat
+        items:
+          - id: gak2
+            type: match
+            pairs:
+              - ["en rubrik", "een kop (boven een artikel)"]
+              - ["en nyhet", "een nieuwsbericht"]
+              - ["en ledare", "een hoofdredactioneel commentaar"]
+              - ["en insändare", "een ingezonden brief"]
+              - ["ett reportage", "een reportage"]
+              - ["en källa", "een bron"]
+          - id: dgq4
+            type: match
+            pairs:
+              - ["enligt", "volgens"]
+              - ["orsaka", "veroorzaken"]
+              - ["skadas", "gewond raken"]
+              - ["en presstalesperson", "een woordvoerder"]
+              - ["prenumerera på", "een abonnement hebben op"]
+              - ["sprida", "verspreiden"]
+
+      - id: fakta-asikt
+        title: Feit of mening?
+        instruction: Is het een feit of een mening?
+        topic: woordenschat
+        items:
+          - id: khy6
+            type: sort
+            categories: ["feit", "mening"]
+            items:
+              - { text: "Älgen sågs vid stationen klockan sex.", cat: 0 }
+              - { text: "Det var det roligaste som hänt i Uppsala på länge.", cat: 1 }
+              - { text: "Trafiken stod still i nästan en timme.", cat: 0 }
+              - { text: "Polisen borde ha agerat snabbare.", cat: 1 }
+              - { text: "Ingen människa skadades.", cat: 0 }
+              - { text: "Älgar är de vackraste djuren i Sverige.", cat: 1 }
+
+      - id: ord-nyheter-gora
+        title: "Woorden in een zin: nieuws maken"
+        instruction: Kies het woord dat past.
+        topic: woordenschat
+        shuffle: true
+        items:
+          - { id: np5z, type: gap, text: "Polisen söker ___ till händelsen vid stationen i går kväll.", gaps: [{ answers: ["vittnen"], options: ["vittnen", "tittare", "följare", "källor"], feedback: [{ match: "tittare", tip: "Tittare kijken tv. Wie iets gezien heeft, is ett vittne (een getuige)." }] }] }
+          - { id: mafa, type: gap, text: "En bra journalist kontrollerar alltid sina ___ innan hon skriver om något.", gaps: [{ answers: ["källor"], options: ["källor", "rubriker", "annonser", "kommentarer"] }] }
+          - { id: 6gzp, type: gap, text: "Journalisten ___ tre personer som hade sett branden och citerade dem i artikeln.", gaps: [{ answers: ["intervjuade"], options: ["intervjuade", "förnekade", "uppdaterade", "sände"] }] }
+          - { id: smh4, type: gap, text: "Innan en artikel publiceras, ___ redaktionen alla uppgifter.", gaps: [{ answers: ["faktagranskar"], options: ["faktagranskar", "förnekar", "påstår", "sprider"] }] }
+          - { id: qc68, type: gap, text: "I dagens ___ skriver tidningen att kommunen måste lägga mer pengar på skolan.", gaps: [{ answers: ["ledare"], options: ["ledare", "insändare", "rubrik", "annons"] }] }
+          - { id: 7yx8, type: gap, text: "Tidningen ___ att politikern hade ljugit om pengarna.", gaps: [{ answers: ["avslöjade"], options: ["avslöjade", "uppdaterade", "intervjuade", "citerade"] }] }
+          - { id: m2w4, type: gap, text: "Tidningen påstår att ministern har ljugit, men hon ___ det.", gaps: [{ answers: ["förnekar"], options: ["förnekar", "avslöjar", "citerar", "sprider"], feedback: [{ match: "avslöjar", tip: "Avslöjar = onthult. Maar ze is het niet eens met de krant: att förneka = ontkennen." }] }] }
+          - { id: 279v, type: gap, text: "En journalist ska vara opartisk och ___ dem som har makt.", gaps: [{ answers: ["granska"], options: ["granska", "sända", "sprida", "uppdatera"] }] }
+          - { id: 6f7u, type: gap, text: "Räddningstjänsten ___ till branden mitt i natten, och SVT rapporterade direkt från platsen.", gaps: [{ answers: ["ryckte ut"], options: ["ryckte ut", "lade ut", "spärrade av", "läste upp"] }] }
+          - { id: qche, type: gap, text: "Orsaken till branden är fortfarande ___, och det finns ännu ingen officiell förklaring.", gaps: [{ answers: ["okänd"], options: ["okänd", "aktuell", "pålitlig", "opartisk"] }] }
+          - { id: gu3x, type: gap, text: "Artikeln ___ hela tiden, eftersom det tydligen kommer nya uppgifter om olyckan varje timme.", gaps: [{ answers: ["uppdateras"], options: ["uppdateras", "citeras", "förnekas", "avslöjas"] }] }
+          - { id: uspd, type: gap, text: "Det är viktigt att ingen ___ när polisen leder ut älgen ur staden.", gaps: [{ answers: ["skadas"], options: ["skadas", "orsakas", "sänds", "sprids"] }] }
+
+      - id: ord-nyheter-folja
+        title: "Woorden in een zin: nieuws volgen"
+        instruction: Kies het woord dat past.
+        topic: woordenschat
+        shuffle: true
+        items:
+          - { id: 4jf2, type: gap, text: "Vi ___ på en dagstidning, men barnen läser bara nyhetsflödet i mobilen.", gaps: [{ answers: ["prenumererar"], options: ["prenumererar", "rapporterar", "granskar", "intervjuar"] }] }
+          - { id: 6jkd, type: gap, text: "Hon sa upp sin ___ när tidningen blev för dyr.", gaps: [{ answers: ["prenumeration"], options: ["prenumeration", "kommentar", "rubrik", "sändning"] }] }
+          - { id: we78, type: gap, text: "Under ___ i går kväll visades ett inslag om skogsbränderna i Norrland.", gaps: [{ answers: ["sändningen"], options: ["sändningen", "kanalen", "rubriken", "källan"], feedback: [{ match: "kanalen", tip: "Under … i går kväll gaat over een moment: sändningen (de uitzending). Kanalen = de zender." }] }] }
+          - { id: dy5j, type: gap, text: "Programmet på den nya ___ hade nästan en miljon tittare.", gaps: [{ answers: ["kanalen"], options: ["kanalen", "podden", "ledaren", "tittaren"] }] }
+          - { id: yv5k, type: gap, text: "Jag lyssnar på en ___ om historia när jag cyklar till jobbet.", gaps: [{ answers: ["podd"], options: ["podd", "kanal", "annons", "ledare"] }] }
+          - { id: bt37, type: gap, text: "Hon har över 10 000 ___ på Instagram och lägger ut en ny bild varje dag.", gaps: [{ answers: ["följare"], options: ["följare", "tittare", "vittnen", "källor"], feedback: [{ match: "tittare", tip: "Op Instagram heb je följare (volgers); tittare kijken tv." }] }] }
+          - { id: 3se4, type: gap, text: "Det går ett ___ om att skolan ska stänga, men ingen vet om det stämmer.", gaps: [{ answers: ["rykte"], options: ["rykte", "inslag", "reportage", "vittne"] }] }
+          - { id: tbgw, type: gap, text: "Det är framför allt ___ som skriver om kändisar, ofta med stora rubriker.", gaps: [{ answers: ["kvällstidningarna"], options: ["kvällstidningarna", "redaktionerna", "prenumerationerna", "kanalerna"] }] }
+          - { id: 4y6n, type: gap, text: "Många delar ___ nyheter utan att veta om det. Därför behöver vi pålitliga källor.", gaps: [{ answers: ["falska"], options: ["falska", "aktuella", "objektiva", "officiella"] }] }
+          - { id: tz5n, type: gap, text: "Artikeln om älgen fick över tusen ___ på nätet, så redaktören bestämde att tidningen skulle skriva en ny artikel dagen efter.", gaps: [{ answers: ["kommentarer"], options: ["kommentarer", "annonser", "rubriker", "följare"], feedback: [{ match: "följare", tip: "Een artikel heeft geen volgers; lezers schrijven kommentarer (reacties)." }] }] }
+          - { id: dtz6, type: gap, text: "Tidningen tjänar mest pengar på ___, inte på prenumerationer.", gaps: [{ answers: ["annonser"], options: ["annonser", "kommentarer", "rykten", "inslag"] }] }
+          - { id: r3mj, type: gap, text: "I helgen sände SVT ett ___ om unga som flyttar från små byar till Stockholm.", gaps: [{ answers: ["reportage"], options: ["reportage", "rykte", "vittne", "nyhetsflöde"], feedback: [{ match: "nyhetsflöde", tip: "SVT zendt een programma uit: ett reportage. Ett nyhetsflöde is je nieuwsfeed." }] }] }
+          - { id: 2c7p, type: gap, text: "Nyhetsprogrammet tar upp ___ frågor varje vecka och ska alltid vara objektivt.", gaps: [{ answers: ["aktuella"], options: ["aktuella", "falska", "okända", "pålitliga"] }] }
+
+  - id: indirekt-tal
+    title: "Grammatik: indirecte rede"
+    exercises:
+      - id: indirekt-omvormen
+        title: Wat zei hij?
+        instruction: Schrijf de zin als indirecte rede. Laat de tijd een stap terugschuiven.
+        topic: indirekt-tal-b1
+        items:
+          - { id: xcjm, type: transform, prompt: "Anna: ”Jag är trött.”", task: "Anna sa att …", answers: ["Anna {sa|sade} att hon var trött."], feedback: [{ match: "Anna sa att hon är trött.", tip: "Schuif de tijd terug: är → var." }] }
+          - { id: n9vk, type: transform, prompt: "Erik: ”Jag har köpt en ny bil.”", task: "Erik sa att …", answers: ["Erik sa att han [hade ]köpt en ny bil."], feedback: [{ match: "Erik sa att han har köpt en ny bil.", tip: "har köpt → hade köpt." }] }
+          - { id: g2vw, type: transform, prompt: "Läraren: ”Ni ska läsa kapitel tre.”", task: "Läraren sa att vi …", answers: ["Läraren {sa|sade} att {vi|de|eleverna} skulle läsa kapitel {tre|3}."], feedback: [{ contains: "att vi ska", tip: "ska → skulle." }] }
+          - { id: pw9c, type: transform, prompt: "Mamma: ”Jag kan inte komma i morgon.”", task: "Mamma sa att …", answers: ["Mamma sa att hon inte kunde komma {dagen efter|nästa dag|dagen därpå|följande dag|i morgon|imorgon}."], feedback: [{ contains: "kunde inte", tip: "Het is een bijzin: inte vóór het werkwoord, inte kunde." }, { contains: "att hon inte kan", tip: "kan → kunde." }] }
+          - { id: t5mb, type: transform, prompt: "Polisen: ”Ingen har skadats.”", task: "Polisen sa att …", answers: ["Polisen sa att ingen hade skadats.", "Polisen sa att ingen skadades."] }
+          - { id: tjnr, type: transform, prompt: "Meteorologen: ”Det kommer att snöa i helgen.”", task: "Meteorologen sa att …", answers: ["Meteorologen {sa|sade} att det skulle snöa i helgen."], feedback: [{ contains: "kommer att", tip: "kommer att → skulle." }] }
+          - { id: frth, type: transform, prompt: "Nils: ”Jag tycker inte om fisk.”", task: "Nils sa att …", answers: ["Nils {sa|sade} att han inte tyckte om fisk."], feedback: [{ contains: "tyckte inte om", tip: "In de bijzin staat inte vóór het werkwoord: att han inte tyckte om." }, { contains: "tycker", tip: "Schuif de tijd terug: tycker → tyckte." }] }
+          - { id: xbxg, type: transform, prompt: "Ingrid: ”Vi har aldrig varit i Lappland.”", task: "Ingrid sa att …", answers: ["Ingrid sa att de aldrig [hade ]varit i Lappland."], feedback: [{ contains: "att vi", tip: "Ingrid praat over haar gezin: vi wordt de." }, { contains: "hade aldrig", tip: "In de bijzin staat aldrig vóór het werkwoord: de aldrig hade varit." }] }
+          - { id: m2ux, type: transform, prompt: "Karin: ”Jag har aldrig sett en älg så nära förut.”", task: "Karin berättade att …", answers: ["Karin berättade att hon aldrig [hade ]sett en älg så nära förut."], feedback: [{ contains: "hade aldrig sett", tip: "In de bijzin staat aldrig vóór het werkwoord: att hon aldrig hade sett." }, { contains: "aldrig har sett", tip: "Schuif de tijd terug: har sett → hade sett." }, { contains: "att jag", tip: "Karin vertelt over zichzelf: jag wordt hon." }] }
+          - { id: jrnw, type: transform, prompt: "Polisen: ”Vi kommer att hålla gatorna {stängda|avstängda} i en timme till.”", task: "Polisen sa att …", answers: ["Polisen {sa|sade} att {de|polisen} skulle hålla gatorna stängda {i en timme till|en timme till}."], feedback: [{ contains: "kommer att", tip: "kommer att → skulle." }, { contains: "att vi", tip: "Vertel je na wat de politie zei, dan wordt vi de." }] }
+          - { id: 9xgz, type: transform, prompt: "Chefredaktören: ”Vi har fått över tusen mejl om älgen.”", task: "Chefredaktören sa att …", answers: ["Chefredaktören sa att de hade fått över tusen {mejl|mail} om älgen."], feedback: [{ contains: "har fått", tip: "Schuif de tijd terug: har fått → hade fått." }, { contains: "att vi", tip: "Vertel je het na, dan wordt vi de." }] }
+          - { id: bxpa, type: transform, prompt: "Omar: ”Jag kan inte köra vidare förrän älgen har gått.”", task: "Omar sa att …", answers: ["Omar sa att han inte kunde köra vidare förrän älgen [hade ]gått."], feedback: [{ contains: "kunde inte", tip: "In de bijzin staat inte vóór het werkwoord: att han inte kunde." }, { contains: "inte kan", tip: "Schuif de tijd terug: kan → kunde." }, { contains: "älgen har gått", tip: "Schuif ook hier de tijd terug: har gått → hade gått." }] }
+          - { id: um9k, type: transform, prompt: "Ministern: ”Jag tänker inte avgå, eftersom jag inte har gjort något fel.”", task: "Ministern sa att …", answers: ["Ministern sa att {hon inte tänkte avgå[,] eftersom hon|han inte tänkte avgå[,] eftersom han} inte hade gjort något fel."], feedback: [{ contains: "tänkte inte", tip: "In de bijzin staat inte vóór het werkwoord: att hon inte tänkte avgå." }, { contains: "hade inte gjort", tip: "Ook na eftersom is het een bijzin: eftersom hon inte hade gjort." }, { contains: ["inte har gjort", "inte tänker"], tip: "Schuif de tijd terug: tänker → tänkte, har gjort → hade gjort." }] }
+
+      - id: indirekt-vragen
+        title: Wat vroeg ze?
+        instruction: Schrijf de vraag als indirecte vraag.
+        topic: indirekt-fraga
+        items:
+          - { id: 99yx, type: transform, prompt: "”Kommer du på festen?” frågade Lisa.", task: "Lisa frågade …", answers: ["Lisa frågade om jag {kom|skulle komma} på festen."], feedback: [{ contains: "frågade kom", tip: "Een ja/nee-vraag krijgt om: frågade om jag kom." }, { contains: "om kom jag", tip: "Bijzinvolgorde: om jag kom." }] }
+          - { id: 9m5u, type: transform, prompt: "”Var bor du?” frågade han.", task: "Han frågade …", answers: ["Han frågade var jag {bodde|bor}."], feedback: [{ contains: "var bodde jag", tip: "Bijzinvolgorde: eerst het onderwerp, var jag bodde." }, { contains: "var bor jag", tip: "Bijzinvolgorde: eerst het onderwerp, var jag bor (of var jag bodde)." }] }
+          - { id: gfws, type: transform, prompt: "”Varför kom du inte?” frågade chefen.", task: "Chefen frågade …", answers: ["Chefen frågade varför jag inte {hade kommit|kom}."], feedback: [{ contains: "jag kom inte", tip: "In de bijzin staat inte vóór het werkwoord: varför jag inte kom." }, { contains: "jag hade inte", tip: "In de bijzin staat inte vóór het werkwoord: varför jag inte hade kommit." }] }
+          - { id: ecab, type: transform, prompt: "”Vem ringde?” frågade hon.", task: "Hon frågade …", answers: ["Hon frågade vem som {hade ringt|ringde}."], feedback: [{ contains: "vem ringde", tip: "vem is het onderwerp: vem som ringde." }, { contains: "vem hade ringt", tip: "vem is het onderwerp: vem som hade ringt." }] }
+          - { id: qkvt, type: transform, prompt: "”Hur mår du?” frågade läkaren.", task: "Läkaren frågade …", answers: ["Läkaren frågade hur jag {mådde|mår}."], feedback: [{ contains: "hur mådde jag", tip: "Bijzinvolgorde: eerst het onderwerp, hur jag mådde." }, { contains: "hur mår jag", tip: "Bijzinvolgorde: eerst het onderwerp, hur jag mår (of hur jag mådde)." }] }
+          - { id: gx92, type: transform, prompt: "”Har du sett min nyckel?” frågade Bram.", task: "Bram frågade …", answers: ["Bram frågade [mig ]om jag [hade ]sett hans nyckel."], feedback: [{ contains: "min nyckel", tip: "Het is Brams sleutel: hans nyckel." }, { contains: "sin nyckel", tip: "In de bijzin is jag het onderwerp, dus geen sin: hans nyckel." }] }
+          - { id: dunt, type: transform, prompt: "”När börjar filmen?” undrade Wilma.", task: "Wilma undrade …", answers: ["Wilma undrade när filmen {började|skulle börja}."], feedback: [{ contains: "när började filmen", tip: "Bijzinvolgorde: eerst het onderwerp, när filmen började." }] }
+          - { id: 55we, type: transform, prompt: "”Vad heter din syster?” frågade Olle.", task: "Olle frågade …", answers: ["Olle frågade vad min syster {hette|heter}."], feedback: [{ contains: "vad hette", tip: "Bijzinvolgorde: eerst het onderwerp, vad min syster hette." }, { contains: "din syster", tip: "Olle vraagt naar jouw zus; vanuit jou gezien: min syster." }] }
+          - { id: 9gz2, type: transform, prompt: "”Varför har ni inte spärrat av gatan?” frågade en journalist.", task: "Journalisten frågade polisen …", answers: ["Journalisten frågade polisen varför de inte [hade ]spärrat av gatan."], feedback: [{ contains: "varför ni", tip: "Vertel je het na, dan wordt ni (de politie) de." }, { contains: "hade inte spärrat", tip: "In de bijzin staat inte vóór het werkwoord: varför de inte hade spärrat." }, { contains: "varför hade de", tip: "Bijzinvolgorde: eerst het onderwerp, varför de inte hade spärrat." }] }
+          - { id: wwwy, type: transform, prompt: "”Vet du om älgen har skadat någon?” frågade Tom.", task: "Tom frågade om jag …", answers: ["Tom frågade om jag visste om älgen {hade|har} skadat någon."], feedback: [{ contains: "om har älgen", tip: "Bijzinvolgorde: eerst het onderwerp, om älgen hade skadat." }, { contains: "om jag vet", tip: "Schuif de tijd terug: vet → visste." }] }
+          - { id: yfp2, type: transform, prompt: "”Vem var det som filmade älgen först?” undrade reportern.", task: "Reportern undrade …", answers: ["Reportern undrade {vem som|vem det var som} {hade filmat|filmade} älgen först."], feedback: [{ contains: ["vem hade filmat", "vem filmade"], tip: "vem is het onderwerp: vem som hade filmat." }, { contains: "vem var det", tip: "Bijzinvolgorde: vem det var som …" }] }
+
+      - id: vem-som
+        title: Vem som of vem?
+        instruction: Kies wat past.
+        topic: indirekt-fraga
+        shuffle: true
+        items:
+          - { id: fjtu, type: gap, text: "Jag vet inte ___ har ringt.", gaps: [{ answers: ["vem som"], options: ["vem som", "vem", "vad som", "vad"], shuffle: false, feedback: [{ match: "vem", tip: "vem is hier het onderwerp (wie heeft gebeld?): vem som." }] }] }
+          - { id: m8nf, type: gap, text: "Berätta ___ hände!", gaps: [{ answers: ["vad som"], options: ["vem som", "vem", "vad som", "vad"], shuffle: false, feedback: [{ match: "vad", tip: "vad is het onderwerp (wat gebeurde er?): vad som." }] }] }
+          - { id: mnd2, type: gap, text: "Vet du ___ hon träffade i går?", gaps: [{ answers: ["vem"], options: ["vem som", "vem", "vad som", "vad"], shuffle: false, feedback: [{ match: "vem som", tip: "hon is het onderwerp; vem is lijdend voorwerp: geen som." }] }] }
+          - { id: 96yx, type: gap, text: "Jag undrar ___ du tänker göra i sommar.", gaps: [{ answers: ["vad"], options: ["vem som", "vem", "vad som", "vad"], shuffle: false, feedback: [{ match: "vad som", tip: "du is het onderwerp: geen som." }] }] }
+          - { id: nta3, type: gap, text: "Ingen vet ___ orsakade branden – kanske spisen?", gaps: [{ answers: ["vad som"], options: ["vem som", "vem", "vad som", "vad"], shuffle: false, feedback: [{ match: "vad", tip: "vad is het onderwerp (wat veroorzaakte de brand?): vad som." }] }] }
+          - { id: 5ywz, type: gap, text: "Kan du säga ___ jag ska ringa?", gaps: [{ answers: ["vem"], options: ["vem som", "vem", "vad som", "vad"], shuffle: false }] }
+          - { id: fj9g, type: gap, text: "Jag vet inte ___ du pratar om.", gaps: [{ answers: ["vem", "vad"], options: ["vem som", "vem", "vad som", "vad"], shuffle: false, feedback: [{ match: ["vem som", "vad som"], tip: "du is het onderwerp: geen som." }] }] }
+          - { id: gc96, type: gap, text: "Säg ___ du vill ha till middag!", gaps: [{ answers: ["vad"], options: ["vem som", "vem", "vad som", "vad"], shuffle: false, feedback: [{ match: "vad som", tip: "du is het onderwerp: geen som." }] }] }
+          - { id: kmc5, type: gap, text: "Ingen på tidningen vet ännu ___ skrev den anonyma insändaren i lördags.", gaps: [{ answers: ["vem som"], options: ["vem som", "vem", "vad som", "vad"], shuffle: false, feedback: [{ match: "vem", tip: "vem is hier het onderwerp (wie schreef de brief?): vem som." }] }] }
+          - { id: fe7w, type: gap, text: "Kan du berätta för mig ___ du gjorde när du kom till stationen?", gaps: [{ answers: ["vad"], options: ["vem som", "vem", "vad som", "vad"], shuffle: false, feedback: [{ match: "vad som", tip: "du is het onderwerp: geen som." }] }] }
+          - { id: ytvm, type: gap, text: "Mamma ringde och undrade ___ jag tänkte göra i sommar när skolan slutar.", gaps: [{ answers: ["vad"], options: ["vem som", "vem", "vad som", "vad"], shuffle: false, feedback: [{ match: "vad som", tip: "jag is het onderwerp: geen som." }] }] }
+
+      - id: indirekt-zinsbouw
+        title: Bijzinnen bouwen
+        instruction: Zet de woorden in de goede volgorde.
+        topic: indirekt-fraga
+        shuffle: true
+        items:
+          - { id: nk3m, type: order, start: "Jag undrar", tokens: ["varför", "han", "inte", "svarar"], answers: ["Jag undrar varför han inte svarar."] }
+          - { id: zmj8, type: order, start: "Hon frågade", tokens: ["om", "jag", "ville", "följa med"], answers: ["Hon frågade om jag ville följa med."] }
+          - { id: ts7g, type: order, start: "Han sa att", tokens: ["han", "aldrig", "hade", "varit", "i Kiruna"], answers: ["Han sa att han aldrig hade varit i Kiruna."] }
+          - { id: vxuw, type: order, start: "Vet du", tokens: ["vilka", "som", "kommer", "i kväll"], answers: ["Vet du vilka som kommer i kväll?"] }
+          - { id: yyck, type: order, start: "Kan du säga", tokens: ["när", "nästa", "buss", "går"], answers: ["Kan du säga när nästa buss går?"] }
+          - { id: qhyw, type: order, start: "Jag vet inte", tokens: ["vad", "som", "hände"], answers: ["Jag vet inte vad som hände."] }
+          - { id: 3u8z, type: order, start: "Hon undrade", tokens: ["om", "vi", "redan", "hade", "ätit"], answers: ["Hon undrade om vi redan hade ätit."] }
+          - { id: cnuc, type: order, start: "Han frågade", tokens: ["vem", "som", "hade", "skrivit", "artikeln"], answers: ["Han frågade vem som hade skrivit artikeln."] }
+          - { id: 2w3d, type: order, start: "Passagerarna frågade", tokens: ["vad", "som", "hade", "hänt", "och", "varför", "bussen", "stod", "still"], answers: ["Passagerarna frågade vad som hade hänt och varför bussen stod still.", "Passagerarna frågade varför bussen stod still och vad som hade hänt."] }
+          - { id: qf7q, type: order, start: "Polisen ville veta", tokens: ["om", "någon", "hade", "sett", "älgen", "innan", "den", "kom", "till", "stationen"], answers: ["Polisen ville veta om någon hade sett älgen innan den kom till stationen."] }
+
+      - id: langere-zinnen
+        title: "Vertaal: langere zinnen"
+        instruction: Vertaal de hele zin. Let op de woordvolgorde in de bijzin en na een woord vooraan.
+        items:
+          - { id: w2fq, type: translate, topic: indirekt-tal-b1, prompt: "De politie zei dat het ongeluk 's nachts was gebeurd en dat niemand ernstig gewond was geraakt.", answers: ["Polisen sa att olyckan hade hänt på natten och att ingen hade skadats allvarligt.", "Polisen sa att olyckan hade {hänt|skett} {på|under} natten och att ingen hade {skadats allvarligt|blivit allvarligt skadad|blivit skadad allvarligt}."], feedback: [{ contains: "att olyckan har hänt", tip: "Na sa schuift de tijd mee: hade hänt." }] }
+          - { id: s9hz, type: translate, topic: indirekt-fraga, prompt: "De journalist vroeg of de bus winterbanden had gehad, maar daar kon geen van de passagiers antwoord op geven.", answers: ["Journalisten frågade om bussen hade haft vinterdäck, men det kunde ingen av passagerarna svara på.", "Journalisten frågade om bussen hade haft vinterdäck, men ingen av passagerarna kunde svara på det."], feedback: [{ contains: "frågade om hade bussen", tip: "In een indirecte vraag: onderwerp, dan werkwoord (om bussen hade)." }] }
+          - { id: kx5g, type: translate, topic: indirekt-fraga, prompt: "Ik weet niet waarom de krant gisteren niets over de brand in het centrum schreef.", answers: ["Jag vet inte varför tidningen inte skrev något om branden i centrum i går.", "Jag vet inte varför tidningen inte skrev {något|någonting} om branden i centrum {i går|igår}.", "Jag vet inte varför tidningen {i går|igår} inte skrev {något|någonting} om branden i centrum."], feedback: [{ contains: "varför skrev tidningen", tip: "Indirecte vraag: onderwerp, dan werkwoord (varför tidningen inte skrev)." }] }
+          - { id: qb82, type: translate, topic: indirekt-fraga, prompt: "Kun je me vertellen waar het ongeluk gebeurde en hoeveel personen er gewond raakten?", answers: ["Kan du berätta för mig var olyckan hände och hur många personer som skadades?", "{Kan|Kunde} du berätta [för mig ]var olyckan {hände|skedde} och hur många [personer ]som {skadades|blev skadade}?"], feedback: [{ contains: "var hände olyckan", tip: "In een indirecte vraag: onderwerp, dan werkwoord (var olyckan hände)." }] }
+
+  - id: zoek-de-fout
+    title: Zoek de fout
+    exercises:
+      - id: zoek-de-fout
+        title: Zoek de fout
+        instruction: Klik op het woord dat niet klopt en verbeter de zin.
+        topic: indirekt-fraga
+        shuffle: true
+        items:
+          - { id: jvx9, type: findError, sentence: "Jag vet inte vem ringde.", wrong: [3, 4], answers: ["Jag vet inte vem som ringde."], tip: "vem is hier het onderwerp." }
+          - { id: tx9m, type: findError, sentence: "Hon frågade var bodde jag.", wrong: [3, 4], answers: ["Hon frågade var jag bodde."], tip: "Bijzinvolgorde." }
+          - { id: mv2r, type: findError, topic: indirekt-tal-b1, sentence: "Han sa att han kunde inte komma.", wrong: [4, 5], answers: ["Han sa att han inte kunde komma."], tip: "Waar staat inte in een bijzin?" }
+          - { id: gfvj, type: findError, sentence: "Jag undrar att du vill följa med.", wrong: [2], answers: ["Jag undrar om du vill följa med."], tip: "Een ja/nee-vraag in een bijzin." }
+          - { id: qqpy, type: findError, topic: indirekt-tal-b1, sentence: "Det sa i tidningen att det skulle snöa.", wrong: [1], answers: ["Det stod i tidningen att det skulle snöa."], tip: "Wat zeg je over een tekst in de krant?" }
+          - { id: bpf8, type: findError, sentence: "Journalisten frågade ministern varför hon hade inte svarat på mejlet.", wrong: [5, 6], answers: ["Journalisten frågade ministern varför hon inte hade svarat på {mejlet|mailet}."], tip: "Waar staat inte in een bijzin?" }
+          - { id: zdcp, type: findError, topic: indirekt-tal-b1, sentence: "Hon sa att hon ska ringa tillbaka så snart hon hade tid.", wrong: [4], answers: ["Hon sa att hon skulle ringa tillbaka så snart hon hade tid."], tip: "Na sa att schuift de tijd een stap terug." }
+
+  - id: lyssna
+    title: Lyssna · luisteren
+    exercises:
+      - id: lyssna-nyheter
+        title: "Luisteren: het nieuws"
+        instruction: Luister naar het nieuwsbericht. Is de bewering **rätt** of **fel**?
+        topic: indirekt-tal-b1
+        listen: true
+        textTitle: Nyheterna
+        text: |
+          Här är nyheterna. Kraftigt snöfall i norra Sverige har lett till stora problem i trafiken. Flera tåg mellan Umeå och Luleå är inställda, och på E4:an har flera lastbilar kört av vägen. Ingen har skadats allvarligt.
+
+          Enligt meteorologerna kommer det att fortsätta snöa under natten, men i morgon förmiddag väntas vädret bli bättre. Trafikverket uppmanar alla att undvika onödiga resor.
+
+          Och så sporten: Sverige vann mot Norge med tre–ett i ishockey i går kväll.
+        items:
+          - { id: b56t, type: truefalse, statement: "Det har snöat mycket i södra Sverige.", answer: false, correction: { answers: ["Det har snöat mycket i norra Sverige.", "Snöfallet är i norra Sverige."] } }
+          - { id: jtu8, type: truefalse, statement: "Flera tåg mellan Umeå och Luleå är inställda.", answer: true }
+          - { id: ecup, type: truefalse, statement: "Flera personer skadades allvarligt.", answer: false, correction: { answers: ["Ingen har skadats allvarligt.", "Ingen skadades allvarligt."] } }
+          - { id: tnjs, type: truefalse, statement: "Vädret väntas bli bättre i morgon förmiddag.", answer: true }
+          - { id: ssf5, type: truefalse, statement: "Norge vann matchen.", answer: false, correction: { answers: ["Sverige vann[ matchen].", "Sverige vann mot Norge[ med {tre–ett|3–1}]."] } }
+
+      - id: lyssna-dictee
+        title: Dictee
+        instruction: Luister en maak de zin die je hoort.
+        topic: indirekt-fraga
+        shuffle: true
+        items:
+          - { id: u38t, type: listen, say: "Hon sa att hon inte kunde komma." }
+          - { id: vymy, type: listen, say: "Jag vet inte vem som ringde." }
+          - { id: 7a2x, type: listen, say: "Enligt polisen skadades ingen." }
+          - { id: m9s9, type: listen, say: "Han frågade om jag ville följa med." }
+
+  - id: praktiskt
+    title: Praktiskt · nieuws navertellen
+    exercises:
+      - id: dialoog-nyhet
+        title: Heb je het gehoord?
+        instruction: Zet het gesprek in de goede volgorde.
+        topic: indirekt-tal-b1
+        items:
+          - id: rcyw
+            type: dialogue
+            lines:
+              - "Maja: Har du hört om älgen i Uppsala?"
+              - "Tom: Nej, vad hände?"
+              - "Maja: Det stod i tidningen att en älg gick rakt genom centrum i tisdags."
+              - "Tom: På riktigt? Skadades någon?"
+              - "Maja: Nej, enligt polisen skadades ingen. Men trafiken stod still i en timme."
+              - "Tom: Vad hände med älgen sedan?"
+              - "Maja: Polisen sa att de hade lett den tillbaka till skogen."
+
+      - id: wat-zeg-je
+        title: Wat zeg je?
+        instruction: Kies wat past.
+        topic: indirekt-tal-b1
+        shuffle: true
+        items:
+          - { id: bsc8, type: mc, prompt: "Je begint over een nieuwtje.", options: ["Har du hört att …?", "Har du sagt att …?", "Har du frågat att …?", "Har du läst om att du …?"], answer: 0 }
+          - { id: t3un, type: mc, prompt: "Je noemt je bron.", options: ["Det stod i tidningen att …", "Det sa i tidningen att …", "Det skrev i tidningen att …", "Tidningen stod att …"], answer: 0, tip: "In het Zweeds: det stod i tidningen (het stond in de krant)." }
+          - { id: e2ts, type: mc, prompt: "Je twijfelt of het nieuws klopt.", options: ["Är det verkligen sant? Vad är källan?", "Det är sant eftersom jag läste det.", "Alla nyheter är falska.", "Jag vet inte vem som är sant."], answer: 0 }
+
+      - id: wat-zeg-je-zelf
+        title: Wat zeg je? (zelf)
+        instruction: Zeg het nu zelf in het Zweeds. Er is vaak meer dan één goed antwoord.
+        kind: situatie
+        items:
+          - { id: 8f9p, type: translate, topic: indirekt-tal-b1, prompt: "Je collega vraagt wat de chef zei. Zeg dat ze zei dat de vergadering wordt verschoven.", answers: ["{Hon|Chefen} {sa|sade} att mötet {skulle flyttas|skulle skjutas upp|flyttas|skjuts upp|har flyttats}."], feedback: [{ contains: "att mötet ska", tip: "Na sa schuift de tijd mee: ska → skulle." }] }
+          - { id: fe85, type: translate, topic: indirekt-fraga, prompt: "Vraag beleefd of iemand weet waar het station is.", answers: ["[Ursäkta, ]vet {du|ni} var stationen {ligger|är}?"], feedback: [{ contains: "var ligger stationen", tip: "In een indirecte vraag: onderwerp, dan werkwoord (var stationen ligger)." }] }
+          - { id: y53c, type: translate, topic: indirekt-fraga, prompt: "Zeg dat je niet weet wie er gewonnen heeft.", answers: ["Jag vet inte vem som {vann|har vunnit}."], feedback: [{ contains: "vem vann", tip: "Is vem het onderwerp in een indirecte vraag, dan komt er som bij: vem som vann." }] }
+          - { id: uvtj, type: translate, topic: indirekt-tal-b1, prompt: "Vertel dat in de krant stond dat de weg is afgesloten.", answers: ["Det stod i tidningen att vägen {är|var} avstängd.", "Tidningen skrev att vägen {är|var} avstängd.", "I tidningen stod det att vägen {är|var} avstängd."] }
+          - { id: 49xd, type: translate, topic: woordenschat, prompt: "Een vriend wil een spannend bericht meteen delen. Zeg dat hij het niet moet verspreiden voordat hij weet of het klopt.", answers: ["{Sprid|Dela} inte {det|nyheten|den|den här nyheten|meddelandet}[ vidare] {innan|förrän} du vet om {det|den} stämmer[!]", "{Sprid|Dela} {det|den} inte[ vidare] {innan|förrän} du vet om {det|den} stämmer[!]", "Du {ska|borde|bör} inte {sprida|dela} {det|den|nyheten|meddelandet}[ vidare] {innan|förrän} du vet om {det|den} stämmer[!]"], feedback: [{ contains: ["inte sprid", "inte dela"], tip: "Bij een gebiedende wijs staat inte ná het werkwoord: Sprid inte …" }] }
+          - { id: avj2, type: translate, topic: woordenschat, prompt: "Je wandelt met een vriendin. Zeg dat je in dit bos makkelijk verdwaalt.", answers: ["Det är lätt att gå vilse i {den här skogen|skogen här|skogen}.", "{Man|Du} {går lätt|kan lätt gå} vilse i {den här skogen|skogen här|skogen}.", "I {den här skogen|skogen här} {går man lätt|går du lätt|kan man lätt gå|kan du lätt gå} vilse.", "I {den här skogen|skogen här} är det lätt att gå vilse."] }
+          - { id: a4u6, type: translate, topic: woordenschat, prompt: "Je leest een nieuwsbericht. Zeg dat je de kop misleidend vindt.", answers: ["Jag tycker [att ]{rubriken|den här rubriken} är vilseledande.", "{Rubriken|Den här rubriken} är vilseledande[, tycker jag]."], feedback: [{ contains: "vilseledande är", tip: "Na tycker att blijft de woordvolgorde gewoon: rubriken är vilseledande (het werkwoord niet aan het eind zoals in het Nederlands)." }, { contains: ["tycker att rubriken vilseledande", "tycker rubriken vilseledande"], tip: "Vergeet het werkwoord niet: rubriken är vilseledande." }] }
+
+  - id: skriva
+    title: Skriva · schrijven
+    intro: "Schrijfdoel: een samenvatting."
+    exercises:
+      - id: skriva-sammanfattning
+        title: Vat het nieuws samen
+        instruction: "Bouw eerst je samenvatting op in vier stappen die de app nakijkt. Daarna schrijf je de hele samenvatting, als je wilt."
+        topic: indirekt-tal-b1
+        items:
+          - { id: enrs, type: mc, prompt: "Welke zin is een goede eerste zin van je samenvatting?", options: ["I tisdags gick en ung älg rakt genom centrala Uppsala.", "Jag tycker att älgar är väldigt fina djur.", "Det här är en text som jag har läst om en älg."], answer: 0, tip: "Een samenvatting begint met wat er gebeurde, waar en wanneer, zonder je eigen mening." }
+          - { id: yfgh, type: order, topic: indirekt-tal-b1, prompt: "De politie zei: „Älgen har troligen gått vilse.” Vertel het verder.", start: "Polisen sa att", tokens: ["älgen", "troligen", "hade", "gått", "vilse"], answers: ["Polisen sa att älgen troligen hade gått vilse."] }
+          - { id: 58st, type: translate, prompt: "Volgens de politie is dat niet ongewoon.", answers: ["Enligt polisen är {det|detta} {inte ovanligt|inget ovanligt|inte något ovanligt}.", "{Det|Detta} är {inte ovanligt|inget ovanligt|inte något ovanligt}[,] enligt polisen."], feedback: [{ contains: "polisen det är", tip: "Enligt polisen staat vooraan, dus het werkwoord komt op plaats 2: Enligt polisen är det …" }] }
+          - { id: zb7b, type: gap, topic: indirekt-fraga, prompt: "Kies het goede woord.", text: "Polisen vet inte ___ såg älgen först.", gaps: [{ answers: ["vem som"], options: ["vem som", "vem", "vilken"], tip: "Is het vraagwoord het onderwerp van de indirecte vraag, dan komt er som achter: vem som såg …" }] }
+          - id: 78ks
+            type: free
+            prompt: "Vat het bericht *Älg på villovägar i centrala Uppsala* samen in 50–80 woorden, in je eigen woorden. Vertel wat er gebeurde, waar en wanneer, en wat de politie zei. Gebruik **enligt** en minstens één keer **sa att**."
+            minWords: 45
+            require:
+              - { any: ["älg", "älgen"], label: "Je noemt de eland" }
+              - { any: ["uppsala"], label: "Je noemt waar het gebeurde" }
+              - { any: ["enligt"], label: "Je gebruikt enligt" }
+              - { any: ["sa att", "berättade att"], label: "Je gebruikt sa att of berättade att" }
+              - { any: ["polisen"], label: "Je vertelt wat de politie zei of deed" }
+            model: "I tisdags morse gick en ung älg rakt genom centrala Uppsala. Den sågs först vid järnvägsstationen och gick sedan genom stadsparken. Polisen spärrade av flera gator, och trafiken stod still i nästan en timme. Ingen skadades. Polisens presstalesperson sa att älgen troligen hade gått vilse. Enligt polisen är det inte ovanligt att unga älgar kommer in i städer på våren."
+
+  - id: herhaling
+    title: Herhaling
+    exercises:
+      - id: herhaling-13-19
+        title: Hoofdstuk 13 tot en met 19 door elkaar
+        instruction: Gemengde vragen.
+        shuffle: true
+        items:
+          - { id: kg9t, type: gap, topic: passiv-s, text: "Älgen ___ (se) först vid stationen.", gaps: [{ answers: ["sågs"], feedback: [{ match: ["sedes", "såg"], tip: "se → såg; lijdend: sågs." }] }] }
+          - { id: hwhq, type: gap, topic: dar-dit-vars, text: "Det var skogen ___ polisen ledde älgen.", gaps: [{ answers: ["dit"], options: ["där", "dit", "vars"], shuffle: false, tip: "leda naar een plek (beweging): dit." }] }
+          - { id: r3q9, type: gap, topic: framtid, text: "Det ___ att bli varmare i morgon.", gaps: [{ answers: ["kommer"], options: ["kommer", "ska", "tänker"], shuffle: false }] }
+          - { id: cb9h, type: gap, topic: villkor, text: "Om jag ___ (se) en älg, skulle jag bli rädd.", gaps: [{ answers: ["såg"] }] }
+          - { id: m3m6, type: gap, topic: prep-verb, text: "Jag är inte intresserad ___ sport.", gaps: [{ answers: ["av"] }] }
+          - { id: pmdy, type: transform, topic: indirekt-tal-b1, prompt: "Karin: ”Jag är rädd.”", task: "Karin sa att …", answers: ["Karin sa att hon var rädd."] }
+          - { id: z3j5, type: transform, topic: indirekt-tal-b1, prompt: "Sara: ”Jag kan inte komma på mötet.”", task: "Sara sa att …", answers: ["Sara sa att hon inte kunde komma på mötet."], feedback: [{ match: "Sara sa att hon kunde inte komma på mötet.", tip: "In de bijzin staat inte vóór het werkwoord: att hon inte kunde." }] }
+          - { id: c36d, type: gap, topic: indirekt-fraga, text: "Journalisten frågade ___ ministern tänkte avgå.", gaps: [{ answers: ["om"], options: ["om", "att", "som"], shuffle: false }] }
+          - { id: 2hvs, type: gap, topic: villkor, text: "Om tidningen ___ (vara) gratis, skulle fler människor läsa den.", gaps: [{ answers: ["var"] }] }
+          - { id: qakw, type: gap, topic: passiv-s, text: "Nyheten ___ (sända) på alla kanaler i går kväll.", gaps: [{ answers: ["sändes"] }] }
+          - { id: ytjm, type: gap, topic: myndighetssprak, text: "Ansökan ska ha kommit in ___ den 31 mars. (uiterlijk)", gaps: [{ answers: ["senast"], feedback: [{ match: ["sist", "senaste"], tip: "Uiterlijk (een deadline) is in de taal van instanties: senast." }] }] }
+
+      - id: herhaling-woorden
+        title: Woorden van eerder
+        instruction: Kies het woord dat past. Deze woorden komen uit eerdere hoofdstukken.
+        topic: woordenschat
+        shuffle: true
+        items:
+          - { id: sgm7, type: gap, text: "De har varit ___ i tre år och ska gifta sig i sommar.", gaps: [{ answers: ["förlovade"], options: ["förlovade", "svartsjuka", "besvikna", "kluvna"], feedback: [{ match: "svartsjuka", tip: "*svartsjuk* betekent „jaloers”. Lees de zin nog eens: wat past hier?" }] }] }
+          - { id: c7wp, type: gap, text: "Efter ett stort gräl bad han om ___, och sedan kom de överens om en kompromiss.", gaps: [{ answers: ["ursäkt"], options: ["ursäkt", "förtroende", "vänskap", "skilsmässa"], feedback: [{ match: "förtroende", tip: "*förtroende* betekent „het vertrouwen”. Lees de zin nog eens: wat past hier?" }] }] }
+          - { id: eqrw, type: gap, text: "Min svåger och min svägerska är mycket ___ och lyssnar alltid.", gaps: [{ answers: ["förstående"], options: ["förstående", "avundsjuka", "förlovade", "kluvna"], feedback: [{ match: "avundsjuka", tip: "*avundsjuk* betekent „jaloers (op iets van een ander)”. Lees de zin nog eens: wat past hier?" }] }] }
+          - { id: m5cf, type: gap, text: "Han ___ sin bästa vän, och nu är förtroendet borta.", gaps: [{ answers: ["svek"], options: ["svek", "stöttade", "uppfostrade", "önskade"], feedback: [{ match: "stöttade", tip: "*stötta* betekent „steunen”. Lees de zin nog eens: wat past hier?" }] }] }
+          - { id: 24rc, type: gap, text: "Min styvpappa ___ mig när jag var liten, och vi har en bra relation.", gaps: [{ answers: ["uppfostrade"], options: ["uppfostrade", "svek", "grälade", "önskade"], feedback: [{ match: "grälade", tip: "*gräla* betekent „ruziemaken”. Lees de zin nog eens: wat past hier?" }] }] }
+          - { id: 5uzk, type: gap, text: "Hon blev ___ när hennes särbo glömde hennes födelsedag.", gaps: [{ answers: ["besviken"], options: ["besviken", "förlovad", "trogen", "ömsesidig"], feedback: [{ match: "trogen", tip: "*trogen* betekent „trouw”. Lees de zin nog eens: wat past hier?" }] }] }
+
+vocab:
+  - { sv: "en nyhet", nl: "een nieuwsbericht, een nieuwtje", def: "nyheten", pl: "nyheter", plDef: "nyheterna", ex: "Har du hört **nyheten**? Simon och Ella har förlovat sig.", exNl: "Heb je het nieuwtje gehoord? Simon en Ella hebben zich verloofd." }
+  - { sv: "en tidning", nl: "een krant", def: "tidningen", pl: "tidningar", plDef: "tidningarna", ex: "Det stod en artikel om älgen i **tidningen**.", exNl: "Er stond een artikel over de eland in de krant." }
+  - { sv: "en artikel", nl: "een artikel", def: "artikeln", pl: "artiklar", plDef: "artiklarna", ex: "Hon skrev en lång **artikel** om bostadsbristen.", exNl: "Ze schreef een lang artikel over de woningnood." }
+  - { sv: "en rubrik", nl: "een kop", def: "rubriken", pl: "rubriker", plDef: "rubrikerna", ex: "**Rubriken** lockade många läsare.", exNl: "De kop trok veel lezers." }
+  - { sv: "en källa", nl: "een bron", def: "källan", pl: "källor", plDef: "källorna", ex: "En journalist måste alltid kontrollera sina **källor**.", exNl: "Een journalist moet altijd zijn bronnen controleren." }
+  - { sv: "en insändare", nl: "een ingezonden brief", def: "insändaren", pl: "insändare", plDef: "insändarna", ex: "Han skrev en arg **insändare** om de nya parkeringsavgifterna.", exNl: "Hij schreef een boze ingezonden brief over de nieuwe parkeertarieven." }
+  - { sv: "en journalist", nl: "een journalist", def: "journalisten", pl: "journalister", plDef: "journalisterna", ex: "**Journalisten** frågade vad som hade hänt.", exNl: "De journalist vroeg wat er was gebeurd." }
+  - { sv: "en olycka", nl: "een ongeluk", def: "olyckan", pl: "olyckor", plDef: "olyckorna", ex: "Två personer skadades i **olyckan** på E4:an.", exNl: "Bij het ongeluk op de E4 raakten twee mensen gewond." }
+  - { sv: "en brand", nl: "een brand", def: "branden", pl: "bränder", plDef: "bränderna", ex: "**Branden** började i ett kök på tredje våningen.", exNl: "De brand begon in een keuken op de derde verdieping." }
+  - { sv: "en älg", nl: "een eland", def: "älgen", pl: "älgar", plDef: "älgarna", ex: "**Älgen** gick lugnt genom stadsparken.", exNl: "De eland liep rustig door het stadspark." }
+  - { sv: "ett snöfall", nl: "een sneeuwval", def: "snöfallet", pl: "snöfall", plDef: "snöfallen", ex: "Det kraftiga **snöfallet** stoppade tågtrafiken.", exNl: "De zware sneeuwval legde het treinverkeer stil." }
+  - { sv: "(stor) uppståndelse", nl: "(grote) opschudding", ex: "Älgen orsakade **stor uppståndelse** i centrum.", exNl: "De eland veroorzaakte grote opschudding in het centrum." }
+  - { sv: "att orsaka", nl: "veroorzaken", ex: "Olyckan **orsakade** långa köer.", exNl: "Het ongeluk veroorzaakte lange files." }
+  - { sv: "att skadas", nl: "gewond raken", ex: "Ingen människa **skadades** vid branden.", exNl: "Bij de brand raakte niemand gewond." }
+  - { sv: "att spärra av", nl: "afsluiten (een weg)", ex: "Polisen **spärrade av** flera gator.", exNl: "De politie sloot meerdere straten af." }
+  - { sv: "att gå vilse", nl: "verdwalen", ex: "Älgen hade troligen **gått vilse**.", exNl: "De eland was waarschijnlijk verdwaald." }
+  - { sv: "att undra", nl: "zich afvragen", ex: "Jag **undrar** vem som skrev artikeln.", exNl: "Ik vraag me af wie het artikel schreef." }
+  - { sv: "att sprida", nl: "verspreiden", ex: "Falska nyheter **sprids** snabbt på nätet.", exNl: "Nepnieuws wordt snel verspreid op internet." }
+  - { sv: "enligt", nl: "volgens", ex: "**Enligt** polisen var älgen ung.", exNl: "Volgens de politie was de eland jong." }
+  - { sv: "troligen", nl: "waarschijnlijk", ex: "Tåget blir **troligen** en timme försenat.", exNl: "De trein heeft waarschijnlijk een uur vertraging." }
+  - { sv: "en ledare", nl: "een hoofdredactioneel commentaar, een leider", def: "ledaren", pl: "ledare", ex: "I dagens **ledare** kritiserar tidningen regeringen.", exNl: "In het hoofdredactioneel commentaar van vandaag bekritiseert de krant de regering." }
+  - { sv: "ett reportage", nl: "een reportage", def: "reportaget", pl: "reportage", ex: "Hon gjorde ett **reportage** om livet i en liten by i Norrland.", exNl: "Ze maakte een reportage over het leven in een klein dorp in Norrland." }
+  - { sv: "en presstalesperson", nl: "een woordvoerder", def: "presstalespersonen", pl: "presstalespersoner", alt: ["en talesperson"], ex: "Enligt polisens **{presstalesperson|talesperson}** skadades ingen.", exNl: "Volgens de woordvoerder van de politie raakte niemand gewond." }
+  - { sv: "en redaktion", nl: "een redactie", def: "redaktionen", pl: "redaktioner", ex: "Hela **redaktionen** arbetade sent den kvällen.", exNl: "De hele redactie werkte die avond tot laat." }
+  - { sv: "en redaktör", nl: "een redacteur", def: "redaktören", pl: "redaktörer", ex: "**Redaktören** bestämmer vilka artiklar som publiceras.", exNl: "De redacteur bepaalt welke artikelen er gepubliceerd worden." }
+  - { sv: "en kvällstidning", nl: "een boulevardkrant (avondkrant)", def: "kvällstidningen", pl: "kvällstidningar", ex: "**Kvällstidningarna** skriver mycket om kändisar.", exNl: "De boulevardkranten schrijven veel over beroemdheden." }
+  - { sv: "en prenumeration", nl: "een abonnement", def: "prenumerationen", pl: "prenumerationer", ex: "Jag har sagt upp min **prenumeration** på tidningen.", exNl: "Ik heb mijn abonnement op de krant opgezegd." }
+  - { sv: "en annons", nl: "een advertentie", def: "annonsen", pl: "annonser", ex: "Tidningen tjänar mest pengar på **annonser**.", exNl: "De krant verdient het meeste geld aan advertenties." }
+  - { sv: "ett inslag", nl: "een item (in een uitzending)", def: "inslaget", pl: "inslag", ex: "Kvällens första **inslag** handlade om skogsbränderna.", exNl: "Het eerste item van vanavond ging over de bosbranden." }
+  - { sv: "en sändning", nl: "een uitzending", def: "sändningen", pl: "sändningar", ex: "**Sändningen** avbröts på grund av tekniska problem.", exNl: "De uitzending werd onderbroken door technische problemen." }
+  - { sv: "en tittare", nl: "een kijker", def: "tittaren", pl: "tittare", ex: "Programmet hade över en miljon **tittare**.", exNl: "Het programma had meer dan een miljoen kijkers." }
+  - { sv: "en podd", nl: "een podcast", def: "podden", pl: "poddar", alt: ["en podcast"], ex: "Jag lyssnar på en **{podd|podcast}** om historia när jag tränar.", exNl: "Ik luister naar een podcast over geschiedenis als ik sport." }
+  - { sv: "en följare", nl: "een volger (op sociale media)", def: "följaren", pl: "följare", ex: "Hon har över hundratusen **följare** på Instagram.", exNl: "Ze heeft meer dan honderdduizend volgers op Instagram." }
+  - { sv: "ett rykte", nl: "een gerucht, een reputatie", def: "ryktet", pl: "rykten", ex: "Det går ett **rykte** om att fabriken ska stänga.", exNl: "Er gaat een gerucht dat de fabriek gaat sluiten." }
+  - { sv: "ett vittne", nl: "een getuige", def: "vittnet", pl: "vittnen", ex: "Flera **vittnen** såg bilen köra mot rött.", exNl: "Meerdere getuigen zagen de auto door rood rijden." }
+  - { sv: "en händelse", nl: "een gebeurtenis, een voorval", def: "händelsen", pl: "händelser", ex: "Polisen utreder **händelsen**.", exNl: "De politie onderzoekt het voorval." }
+  - { sv: "ett nyhetsflöde", nl: "een nieuwsfeed", def: "nyhetsflödet", pl: "nyhetsflöden", ex: "Jag scrollar igenom mitt **nyhetsflöde** varje morgon.", exNl: "Ik scroll elke ochtend door mijn nieuwsfeed." }
+  - { sv: "att prenumerera på", nl: "een abonnement hebben op, geabonneerd zijn op", ex: "Vi **prenumererar på** två dagstidningar.", exNl: "We hebben een abonnement op twee dagbladen." }
+  - { sv: "att rapportera", nl: "verslag doen, berichten", ex: "SVT **rapporterade** direkt från platsen.", exNl: "SVT deed rechtstreeks verslag vanaf de plek." }
+  - { sv: "att intervjua", nl: "interviewen", ex: "Journalisten **intervjuade** flera vittnen.", exNl: "De journalist interviewde meerdere getuigen." }
+  - { sv: "att sända", nl: "uitzenden", ex: "Matchen **sänds** på tv i kväll.", exNl: "De wedstrijd wordt vanavond op tv uitgezonden." }
+  - { sv: "att påstå", nl: "beweren", ex: "Han **påstod** att han inte hade sett något.", exNl: "Hij beweerde dat hij niets had gezien." }
+  - { sv: "att avslöja", nl: "onthullen, ontmaskeren", ex: "Tidningen **avslöjade** att politikern hade ljugit.", exNl: "De krant onthulde dat de politicus had gelogen." }
+  - { sv: "att förneka", nl: "ontkennen", ex: "Ministern **förnekar** att hon visste om saken.", exNl: "De minister ontkent dat ze van de zaak wist." }
+  - { sv: "att granska", nl: "kritisch onderzoeken, doorlichten", ex: "Journalister ska **granska** dem som har makt.", exNl: "Journalisten moeten de mensen met macht kritisch onderzoeken." }
+  - { sv: "att lägga ut", nl: "online zetten, posten", ex: "Hon **{lade ut|la ut}** en bild på älgen på Instagram.", exNl: "Ze zette een foto van de eland op Instagram." }
+  - { sv: "att faktagranska", nl: "factchecken", ex: "Redaktionen **faktagranskar** alla uppgifter innan de publiceras.", exNl: "De redactie factcheckt alle gegevens voordat ze gepubliceerd worden." }
+  - { sv: "att stämma", nl: "kloppen (juist zijn)", ex: "Det som stod i artikeln **stämde** inte.", exNl: "Wat er in het artikel stond, klopte niet." }
+  - { sv: "att hålla koll på", nl: "in de gaten houden, bijhouden", ex: "Jag försöker **hålla koll på** vad som händer i världen.", exNl: "Ik probeer in de gaten te houden wat er in de wereld gebeurt." }
+  - { sv: "att rycka ut", nl: "uitrukken", ex: "Räddningstjänsten **ryckte ut** till branden mitt i natten.", exNl: "De brandweer rukte midden in de nacht uit naar de brand." }
+  - { sv: "aktuell", nl: "actueel", ex: "Programmet tar upp **aktuella** frågor varje vecka.", exNl: "Het programma behandelt elke week actuele kwesties." }
+  - { sv: "opartisk", nl: "onpartijdig", ex: "En journalist bör vara **opartisk**.", exNl: "Een journalist hoort onpartijdig te zijn." }
+  - { sv: "pålitlig", nl: "betrouwbaar", ex: "Wikipedia är inte alltid en **pålitlig** källa.", exNl: "Wikipedia is niet altijd een betrouwbare bron." }
+  - { sv: "anonym", nl: "anoniem", ex: "Källan vill vara **anonym**.", exNl: "De bron wil anoniem blijven." }
+  - { sv: "falsk", nl: "vals, nep", ex: "Många delar **falska** nyheter utan att veta om det.", exNl: "Veel mensen delen valse nieuwsberichten zonder het te weten." }
+  - { sv: "enligt uppgift", nl: "naar verluidt", ex: "**Enligt uppgift** ska butiken stänga i mars.", exNl: "Naar verluidt gaat de winkel in maart dicht." }
+  - { sv: "i tisdags", nl: "afgelopen dinsdag", ex: "Älgen sågs i Uppsala **i tisdags**.", exNl: "De eland werd afgelopen dinsdag in Uppsala gezien." }
+  - { sv: "strax", nl: "vlak (voor of na), zo meteen", ex: "Olyckan hände **strax** efter klockan sex.", exNl: "Het ongeluk gebeurde vlak na zessen." }
+  - { sv: "tydligen", nl: "blijkbaar", ex: "Det var **tydligen** en ung älg.", exNl: "Het was blijkbaar een jonge eland." }
+  - { sv: "i direktsändning", nl: "live (op radio of tv)", alt: ["live"], ex: "Presskonferensen visades **{i direktsändning|live}**.", exNl: "De persconferentie werd live uitgezonden." }
+  - { sv: "vilseledande", nl: "misleidend", ex: "Rubriken var **vilseledande**.", exNl: "De kop was misleidend." }
+  - { sv: "en kommentar", nl: "een reactie, commentaar", def: "kommentaren", pl: "kommentarer", plDef: "kommentarerna", ex: "Artikeln fick hundra **kommentarer**.", exNl: "Het artikel kreeg honderd reacties." }
+  - { sv: "att läsa upp", nl: "voorlezen", ex: "Läraren **läste upp** namnen.", exNl: "De leraar las de namen voor." }
+  - { sv: "okänd", nl: "onbekend", ex: "Orsaken till branden är fortfarande **okänd**.", exNl: "De oorzaak van de brand is nog onbekend." }
+  - { sv: "en kanal", nl: "een kanaal, zender", def: "kanalen", pl: "kanaler", plDef: "kanalerna", ex: "Vilken **kanal** visar nyheterna?", exNl: "Welke zender laat het nieuws zien?" }
+  - { sv: "att citera", nl: "citeren", ex: "Journalisten **citerade** ministern.", exNl: "De journalist citeerde de minister." }
+  - { sv: "att uppdatera", nl: "bijwerken", ex: "Artikeln **uppdateras** hela tiden.", exNl: "Het artikel wordt steeds bijgewerkt." }
+  - { sv: "objektiv", nl: "objectief", ex: "Nyheterna ska vara **objektiva**.", exNl: "Het nieuws moet objectief zijn." }
+  - { sv: "officiell", nl: "officieel", ex: "Det finns ännu ingen **officiell** förklaring.", exNl: "Er is nog geen officiële verklaring." }
