@@ -5,7 +5,7 @@ import { reportConfigured, feedbackButton } from '../components/report.js';
 import { installSection } from '../components/pwa.js';
 import { analyticsConfigured } from '../../platform/analytics.js';
 import { crumbs } from '../shared.js';
-import { KOFI_URL } from '../components/support.js';
+import { KOFI_URL, MONTHLY_TEXT } from '../components/support.js';
 
 export function viewAbout() {
   document.title = 'Over · Svenska övningar';
@@ -67,6 +67,7 @@ export function viewAbout() {
     h('p', {}, 'Deze site is gratis en zonder reclame, en dat blijft zo. Heb je er iets aan en wil je iets terugdoen? Een kleine bijdrage via Ko-fi helpt om de site te onderhouden en uit te breiden.'),
     h('div', { class: 'actions' },
       h('a', { class: 'btn primary', href: KOFI_URL, target: '_blank', rel: 'noopener' }, 'Steun via Ko-fi ☕')),
+    h('p', { class: 'muted' }, MONTHLY_TEXT),
     h('p', { class: 'muted version' },`Versie ${import.meta.env.APP_VERSION ?? 'onbekend'}`),
   );
 }
