@@ -68,6 +68,17 @@ export function reviewedToday(state, now = Date.now()) {
   return n;
 }
 
+/**
+ * Zet vandaag bij de dagen met het dagdoel gehaald (goalDays, voor de prestaties), zodra er vandaag
+ * DAILY_GOAL herhaalvragen gemaakt zijn. Ongewijzigde toestand als dat al zo is of nog niet gehaald.
+ */
+export function withGoalDay(state, now = Date.now()) {
+  const t = today(0, now);
+  const list = state.goalDays ?? [];
+  if (list.includes(t) || reviewedToday(state, now) < DAILY_GOAL) return state;
+  return { ...state, goalDays: [...list, t].slice(-400) };
+}
+
 /** Hoeveel herhaalvragen er vandaag nog op het dagdoel staan (hooguit wat er klaarstaat). */
 export const reviewLeft = (state, dueCount, now = Date.now()) => Math.max(0, Math.min(dueCount, DAILY_GOAL - reviewedToday(state, now)));
 

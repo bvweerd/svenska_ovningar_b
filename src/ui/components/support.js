@@ -7,6 +7,9 @@ import { chapterDone } from '../../app/course-progress.js';
 
 export const KOFI_URL = 'https://ko-fi.com/bvweerd';
 
+/** Een maandelijkse bijdrage kan alleen via het vinkje bij Ko-fi (geen link die dat vooraf aanzet). */
+export const MONTHLY_TEXT = 'Je kunt ook maandelijks bijdragen: vink bij Ko-fi „Make this monthly” aan. Zo\'n vaste bijdrage houdt de site beschikbaar.';
+
 /**
  * Vraag om steun, onder de uitslag van de oefening waarmee een hoofdstuk af is: de eerste keer vanaf
  * 3 afgeronde hoofdstukken, nog één keer vanaf 10 als de vraag toen is overgeslagen. Na „Nee, dank je”
@@ -37,6 +40,7 @@ export function supportAsk(ch) {
         answered('nee');
         box.remove();
       } }, 'Nee, dank je')),
+    h('p', { class: 'muted' }, MONTHLY_TEXT),
   );
   return box;
 }

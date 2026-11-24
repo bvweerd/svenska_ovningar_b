@@ -7,6 +7,7 @@
 //   srs:   { "<vraagsleutel>": { box, due, h } }      (Leitner-dozen, zie srs.js)
 //   last:  { href, title, at },
 //   days:  ['JJJJ-MM-DD', …]                          (oefendagen, voor de reeks)
+//   goalDays: ['JJJJ-MM-DD', …]                       (dagen waarop het dagdoel van de herhaling gehaald is)
 //   tests, games: { id: { best, last, at, perTopic? } }
 //   prefs: { … }                                      (instellingen en meldingen die al getoond zijn)
 //   cards: { "<hoofdstuk>/<sv|nl>/<Zweeds woord>": 'known'|'unknown' }   (flitskaarten, per richting)
@@ -30,7 +31,7 @@ import { answerPart, isGradable } from '../items/index.js';
 
 export const VERSION = 2;
 
-export const empty = () => ({ v: VERSION, items: {}, ex: {}, last: null, srs: {}, days: [], tests: {}, games: {}, prefs: {}, cards: {}, dictee: {}, t: {}, badges: {} });
+export const empty = () => ({ v: VERSION, items: {}, ex: {}, last: null, srs: {}, days: [], goalDays: [], tests: {}, games: {}, prefs: {}, cards: {}, dictee: {}, t: {}, badges: {} });
 
 /** Vult ontbrekende onderdelen aan (oudere of gedeeltelijke voortgang). */
 export const normalize = (s) => ({ ...empty(), ...s });
@@ -102,7 +103,8 @@ export function parseProgress(input) {
   if (!isObj(data) || data.v !== VERSION || !isObj(data.items) || !isObj(data.ex)
     || !optional(data.srs) || !optional(data.tests) || !optional(data.games) || !optional(data.prefs)
     || !optional(data.cards) || !optional(data.dictee) || !optional(data.t) || !optional(data.badges)
-    || (data.days !== undefined && !Array.isArray(data.days))) {
+    || (data.days !== undefined && !Array.isArray(data.days))
+    || (data.goalDays !== undefined && !Array.isArray(data.goalDays))) {
     throw new Error('Dit is geen geldig voortgangsbestand.');
   }
   return normalize(data);
