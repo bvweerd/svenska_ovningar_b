@@ -250,7 +250,7 @@ sections:
             type: steps
             steps:
               - { type: mc, prompt: "We hebben geen auto, dus we fietsen naar het inzamelpunt. Welke vorm?", options: ["ingen / inget / inga kan hier", "het moet inte … någon / något / några zijn", "någon / något / några (geen ontkenning)"], answer: 0, shuffle: false, tip: "har is één werkwoord in een hoofdzin: ingen staat op de plek van inte. Vi har ingen bil (inte någon bil kan ook)." }
-              - { type: translate, prompt: "Vertaal: We hebben geen auto, dus we fietsen naar het inzamelpunt.", answers: ["Vi har {ingen|inte någon} bil, {så vi cyklar|så cyklar vi|därför cyklar vi} till {återvinningsstationen|återvinningscentralen}."], feedback: [{ contains: "inte en bil", tip: "Geen + en-woord: ingen bil (of inte någon bil)." }, { contains: "inget bil", tip: "bil is een en-woord: ingen bil." }] }
+              - { type: translate, prompt: "Vertaal: We hebben geen auto, dus we fietsen naar het inzamelpunt.", answers: ["Vi har {ingen|inte någon} bil, {så vi cyklar|så cyklar vi|därför cyklar vi} till {återvinningsstationen|återvinningscentralen}."], feedback: [{ contains: "inte en bil", retry: true, tip: "Dat kan als tegenstelling (*inte en bil, utan två*), maar gewoon „geen auto” is *ingen bil* (of *inte någon bil*). Probeer het nog eens." }, { contains: "inget bil", tip: "bil is een en-woord: ingen bil." }] }
           - id: zurr
             type: steps
             steps:
