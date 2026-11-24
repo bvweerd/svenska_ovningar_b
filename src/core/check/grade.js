@@ -71,6 +71,9 @@ export function gradeText(input, spec, ctx = {}) {
         : 'Dat is goed Zweeds, maar de opdracht is anders: begin de zin met de tijdsbepaling, net als in het Nederlands. Let dan op de inversie.';
       return { correct: false, retry: true, kind: 'order', tip };
     }
+    if (moved.mid) {
+      return { correct: false, retry: true, kind: 'order', tip: `Dat kan, maar gewoner is de tijd helemaal achteraan: eerst *${moved.final}*, dan *${moved.time}* (… ${moved.final} ${moved.time}).` };
+    }
     return { correct: true, moved: true, note: `Het voorbeeldantwoord zet de tijdsbepaling op een andere plek: „${moved.source.replace(/\s+/g, ' ').trim()}”` };
   }
   // Bij een keuzelijst is een vaste tip zinvoller dan een spellingsdiagnose.

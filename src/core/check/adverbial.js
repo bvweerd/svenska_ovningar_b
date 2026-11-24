@@ -188,8 +188,10 @@ const hasClauseBreak = (text) => /[,;:]/.test(text.replace(/[\s.!?;:,]+$/u, ''))
  *   achteraan → vooraan:  S V R A  →  A V S R   (fronted: true)
  * Het antwoord mag leestekens bevatten (een komma binnen de zin = geen verplaatsing). opts: zie normalize.
  */
-// Bijwoorden die achteraan blijven staan; een tijdsbepaling mag er ook vóór („lagar middag på kvällen tillsammans”).
-const FINAL = new Set(['tillsammans', 'hemma', 'ute', 'inne', 'själv', 'själva', 'ensam', 'igen', 'också']);
+// Bijwoorden van wijze of plaats die gewoonlijk vóór de tijd staan („lagar middag tillsammans på kvällen”).
+// Zet de leerling de tijd ervóór („på kvällen tillsammans”), dan is dat minder gangbaar: geen fout, wel een
+// tip met de gewone volgorde (mid: true; zie gradeText). Niet bij „också”: daar verandert de betekenis.
+const FINAL = new Set(['tillsammans', 'hemma', 'ute', 'inne', 'själv', 'själva', 'ensam', 'igen']);
 const beforeFinal = (R, A) => (R.length >= 2 && FINAL.has(R.at(-1)) ? [...R.slice(0, -1), ...A, R.at(-1)] : null);
 
 export function movedAdverbialOrders(answer, opts) {
@@ -200,9 +202,9 @@ export function movedAdverbialOrders(answer, opts) {
   const names = new Set(String(answer).split(/\s+/).filter((t) => /^\p{Lu}/u.test(t)).map((t) => normalize(t)));
   const out = new Map();
   if (w.length < 3) return [];
-  const add = (words, fronted) => {
+  const add = (words, fronted, mid = null) => {
     const text = words.join(' ');
-    if (text !== n && !out.has(text)) out.set(text, { text, fronted });
+    if (text !== n && !out.has(text)) out.set(text, { text, fronted, ...(mid && { mid: true, ...mid }) });
   };
   for (let a = 1; a <= MAX_ADVERBIAL; a++) {
     for (let s = 1; s <= MAX_SUBJECT; s++) {
@@ -217,7 +219,7 @@ export function movedAdverbialOrders(answer, opts) {
         if (isTimeAdverbial(A) && plainVerb(V) && plainSubject(S, names) && !cutGenitive && simpleRest(R, V, A)) {
           add([...S, V, ...R, ...A], false);
           const mid = beforeFinal(R, A);
-          if (mid) add([...S, V, ...mid], false);
+          if (mid) add([...S, V, ...mid], false, { final: R.at(-1), time: A.join(' ') });
         }
       }
       // Achteraan → vooraan
@@ -229,7 +231,7 @@ export function movedAdverbialOrders(answer, opts) {
         if (isTimeAdverbial(A) && plainVerb(V) && plainSubject(S, names) && simpleRest(R, V, A)) {
           add([...A, V, ...S, ...R], true);
           const mid = beforeFinal(R, A);
-          if (mid) add([...S, V, ...mid], false);
+          if (mid) add([...S, V, ...mid], false, { final: R.at(-1), time: A.join(' ') });
         }
       }
     }
