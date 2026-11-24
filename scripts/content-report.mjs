@@ -67,11 +67,11 @@ export function swedishOf(item) {
 
 const vocabText = (v) => [v.sv, v.def, v.pl, v.plDef, v.ex].filter(Boolean).join(' ');
 
-/** Zweedse tekst van een hoofdstuk: woordenlijst, teksten en vragen (zonder herhaling, zonder teksten in `skip`). */
-function chapterCorpus(ch, skip = new Set()) {
+/** Zweedse tekst van een hoofdstuk: woordenlijst, teksten en vragen (zonder herhaling, tenzij `review`; zonder teksten in `skip`). */
+function chapterCorpus(ch, skip = new Set(), { review = false } = {}) {
   const parts = (ch.vocab ?? []).map(vocabText);
   for (const s of ch.sections ?? []) {
-    if (REVIEW.has(s.id)) continue;
+    if (!review && REVIEW.has(s.id)) continue;
     for (const ex of s.exercises ?? []) {
       if (skip.has(ex)) continue;
       if (ex.text) parts.push(ex.text);
@@ -135,7 +135,8 @@ export function analyse(chapters, before = []) {
   const known = new Set(lower(tokens(before.map((ch) => chapterCorpus(ch)).join(' '))));
   // Namen: woorden die nergens met een kleine letter voorkomen (Linda, Uppsala), ook aan het begin van een zin.
   const lowerSeen = new Set(tokens([...before, ...chapters].map((ch) => chapterCorpus(ch)).join(' ')).filter((t) => t[0] === t[0].toLowerCase()));
-  const later = chapters.map((ch, i) => new Set(lower(tokens(chapters.slice(i + 1).map((c) => chapterCorpus(c)).join(' ')))));
+  // Later terug: ook in de herhaling van een later hoofdstuk zie je het woord weer.
+  const later = chapters.map((ch, i) => new Set(lower(tokens(chapters.slice(i + 1).map((c) => chapterCorpus(c, new Set(), { review: true })).join(' ')))));
   // Grammaticakaart → hoofdstuk waar hij staat (beide sites).
   const cardChapter = new Map();
   for (const ch of [...before, ...chapters]) for (const g of ch.grammar ?? []) cardChapter.set(g.id, ch.chapter);
@@ -192,6 +193,7 @@ export function analyse(chapters, before = []) {
       produce: produce.length, feedback: produce.filter((q) => hasFeedback(q.item)).length,
       translate: translate.length, narrow: narrow.length,
       vocab: vocab.length, recur: recur.length, onlyList: onlyList.map((v) => v.sv),
+      noRecur: vocab.filter((v) => !recur.includes(v)).map((v) => v.sv),
       coverage, cards, forward, canDo,
     });
     for (const t of tokens(chapterCorpus(ch))) known.add(t.toLowerCase());
