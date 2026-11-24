@@ -414,7 +414,7 @@ sections:
           - { id: mpn7, type: translate, topic: trender, prompt: "Zeg dat de verkoop met tien procent gestegen is.", answers: ["Försäljningen har {ökat|stigit|gått upp} med tio procent.", "Försäljningen {ökade|steg|gick upp} med tio procent."], feedback: [{ contains: "ökat på", tip: "Met een percentage: öka med." }] }
           - { id: kge6, type: translate, topic: trender, prompt: "In een vergadering: zeg dat de kosten sterk gedaald zijn.", answers: ["Kostnaderna har {minskat|sjunkit|gått ner} kraftigt.", "Kostnaderna {minskade|sjönk|gick ner} kraftigt."] }
           - { id: nuau, type: translate, topic: trender, prompt: "Zeg dat de winst kleiner was dan vorig jaar.", answers: ["Vinsten {var|blev} {mindre|lägre} än {förra året|i fjol}."] }
-          - { id: qggg, type: translate, topic: nominalisering, prompt: "Schrijf in een verslag: de invoering van het nieuwe systeem duurde lang.", answers: ["Införandet av det nya systemet tog lång tid."], feedback: [{ contains: ["införandet med", "införandet för"], tip: "Wát wordt ingevoerd: av. Införandet av det nya systemet." }, { contains: "systemet varade", tip: "Voor hoe lang iets duurt: tog lång tid." }] }
+          - { id: qggg, type: translate, topic: nominalisering, prompt: "Schrijf in een verslag: de invoering van het nieuwe systeem duurde lang.", answers: ["Införandet av det nya systemet {tog lång tid|tog länge|drog ut på tiden}."], feedback: [{ contains: "att införa", retry: true, tip: "Goed Zweeds, maar oefen hier de nominalisering: maak van *införa* een zelfstandig naamwoord (införandet av …)." }, { contains: ["införandet med", "införandet för"], tip: "Wát wordt ingevoerd: av. Införandet av det nya systemet." }, { contains: "systemet varade", tip: "Voor hoe lang iets duurt: tog lång tid." }] }
 
   - id: skriva
     title: Skriva · schrijven
@@ -501,6 +501,20 @@ sections:
           - { id: f9n7, type: gap, topic: subjunktioner-b1, text: "___ priserna steg, köpte folk lika mycket som förut.", gaps: [{ answers: ["Trots att"], options: ["Trots att", "Eftersom", "Så att"], shuffle: false }] }
           - { id: ny5w, type: gap, topic: asikt, text: "Jag ___ att distansarbete passar de flesta som arbetar på kontor.", gaps: [{ answers: ["anser"], options: ["anser", "undrar", "frågar"], shuffle: false }] }
           - { id: zmzq, type: gap, topic: partikelverb-2, text: "Vi hann inte ___ tåget, så vi fick vänta en timme på nästa.", gaps: [{ answers: ["med"], options: ["med", "av", "fram"], shuffle: false, feedback: [{ match: ["av", "fram"], tip: "Iets halen (op tijd zijn voor) = hinna med." }] }] }
+
+      - id: herhaling-woorden
+        title: Woorden van eerder
+        instruction: Kies het woord dat past. Deze woorden komen uit eerdere hoofdstukken.
+        topic: woordenschat
+        shuffle: true
+        items:
+          - { id: m9cu, type: gap, text: "Alla medborgare över 18 år får ___ i valet.", gaps: [{ answers: ["rösta"], options: ["rösta", "stödja", "demonstrera", "bidra"], feedback: [{ match: "demonstrera", tip: "*demonstrera* betekent „demonstreren”. Lees de zin nog eens: wat past hier?" }] }] }
+          - { id: pnad, type: gap, text: "Hon är ___ och driver ett eget litet kafé.", gaps: [{ answers: ["företagare"], options: ["företagare", "statsminister", "minoritet", "välfärd"], feedback: [{ match: "statsminister", tip: "*statsminister* betekent „een minister-president, een premier”. Lees de zin nog eens: wat past hier?" }] }] }
+          - { id: 8stv, type: gap, text: "___ i riksdagen röstade för en ny lag om yttrandefrihet.", gaps: [{ answers: ["Majoriteten"], options: ["Majoriteten", "Välfärden", "Integrationen", "Diskrimineringen"], feedback: [{ match: "Välfärden", tip: "*välfärd* betekent „de sociale voorzieningen, de verzorgingsstaat”. Lees de zin nog eens: wat past hier?" }] }] }
+          - { id: 3a4e, type: gap, text: "Arbetet i föreningen är ___: ingen får betalt.", gaps: [{ answers: ["frivilligt"], options: ["frivilligt", "jämlikt", "orättvist", "rättvist"], feedback: [{ match: "jämlikt", tip: "*jämlik* betekent „gelijk (met gelijke rechten en kansen)”. Lees de zin nog eens: wat past hier?" }] }] }
+          - { id: cnzk, type: gap, text: "Det är ___ att vissa grupper har svårare att få jobb. Det är diskriminering.", gaps: [{ answers: ["orättvist"], options: ["orättvist", "frivilligt", "jämlikt", "rättvist"], feedback: [{ match: "frivilligt", tip: "*frivillig* betekent „vrijwillig”. Lees de zin nog eens: wat past hier?" }] }] }
+          - { id: kmug, type: gap, text: "Det råder stor ___ i Stockholm, så många bor i andra hand.", gaps: [{ answers: ["bostadsbrist"], options: ["bostadsbrist", "välfärd", "jämställdhet", "majoritet"], feedback: [{ match: "välfärd", tip: "*välfärd* betekent „de sociale voorzieningen, de verzorgingsstaat”. Lees de zin nog eens: wat past hier?" }] }] }
+          - { id: z85x, type: gap, text: "Varje medborgare har både rättigheter och ___.", gaps: [{ answers: ["skyldigheter"], options: ["skyldigheter", "majoriteter", "folkomröstningar", "minoriteter"], feedback: [{ match: "minoriteter", tip: "*minoritet* betekent „een minderheid”. Lees de zin nog eens: wat past hier?" }] }] }
 
 vocab:
   - { sv: "en ökning", nl: "een stijging, een toename", def: "ökningen", pl: "ökningar", plDef: "ökningarna", ex: "Under pandemin skedde en kraftig **ökning** av e-handeln.", exNl: "Tijdens de pandemie was er een sterke toename van de online handel." }

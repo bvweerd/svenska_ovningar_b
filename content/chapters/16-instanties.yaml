@@ -66,7 +66,7 @@ sections:
       - id: lasa-personnummer
         title: "Lezen: het persoonsnummer"
         instruction: Lees de tekst en beantwoord de vragen.
-        topic: deponens
+        topic: woordenschat
         textTitle: Personnumret
         text: |
           Det första man lär sig när man flyttar till Sverige är att nästan allt hänger på personnumret. Utan personnummer är det svårt att öppna ett bankkonto, skaffa ett mobilabonnemang eller boka en tid hos tandläkaren.
@@ -474,6 +474,20 @@ sections:
           - { id: dw4u, type: gap, topic: myndighetssprak, text: "___ kontakta oss om du har frågor om ditt beslut.", gaps: [{ answers: ["Vänligen"], options: ["Vänligen", "Typ", "Tja"], shuffle: false }] }
           - { id: wjve, type: transform, topic: relativ-som, task: "Maak er één zin van met som.", prompt: "Jag har fått ett brev. Det kom från Migrationsverket.", answers: ["Jag har fått ett brev som kom från Migrationsverket."] }
           - { id: 29nn, type: gap, topic: partikelverb, text: "Du måste ___ blanketten innan du skickar den.", gaps: [{ answers: ["fylla i"], options: ["fylla i", "ta upp", "stänga av"], shuffle: false }] }
+
+      - id: herhaling-woorden
+        title: Woorden van eerder
+        instruction: Kies het woord dat past. Deze woorden komen uit eerdere hoofdstukken.
+        topic: woordenschat
+        shuffle: true
+        items:
+          - { id: azmw, type: gap, text: "Vår ___ höjde hyran, och nu klagar alla hyresgäster.", gaps: [{ answers: ["hyresvärd"], options: ["hyresvärd", "fastighetsskötare", "hyresgäst", "felanmälan"], feedback: [{ match: "fastighetsskötare", tip: "*fastighetsskötare* betekent „een huismeester, een conciërge”. Lees de zin nog eens: wat past hier?" }] }] }
+          - { id: qw5v, type: gap, text: "Elementet i sovrummet är kallt, så jag gör en ___ till fastighetsskötaren.", gaps: [{ answers: ["felanmälan"], options: ["felanmälan", "deposition", "hyreshöjning", "uppsägningstid"], feedback: [{ match: "deposition", tip: "*deposition* betekent „een borg, een waarborgsom”. Lees de zin nog eens: wat past hier?" }] }] }
+          - { id: abjg, type: gap, text: "Väggarna i källaren är blöta och det luktar mögel: det är ___ där nere.", gaps: [{ answers: ["fuktigt"], options: ["fuktigt", "rymligt", "möblerat", "centralt"], feedback: [{ match: "rymligt", tip: "*rymlig* betekent „ruim”. Lees de zin nog eens: wat past hier?" }] }] }
+          - { id: c52e, type: gap, text: "Vi är ___ med tre barn i en tvåa, men vi står i bostadskön.", gaps: [{ answers: ["trångbodda"], options: ["trångbodda", "lyhörda", "rymliga", "möblerade"], feedback: [{ match: "rymliga", tip: "*rymlig* betekent „ruim”. Lees de zin nog eens: wat past hier?" }] }] }
+          - { id: fvc6, type: gap, text: "Kan du ___ värmen? Det är dragigt i trapphuset.", gaps: [{ answers: ["skruva upp"], options: ["skruva upp", "skruva ner", "plocka upp", "måla om"], feedback: [{ match: "skruva ner", tip: "*skruva ner* betekent „zachter zetten, lager zetten (muziek, verwarming)”. Lees de zin nog eens: wat past hier?" }] }] }
+          - { id: 8hn5, type: gap, text: "När vi flyttade ut fick vi tillbaka vår ___, eftersom lägenheten inte var sliten.", gaps: [{ answers: ["deposition"], options: ["deposition", "hyreshöjning", "felanmälan", "grannsämja"], feedback: [{ match: "hyreshöjning", tip: "*hyreshöjning* betekent „een huurverhoging”. Lees de zin nog eens: wat past hier?" }] }] }
+          - { id: aekt, type: gap, text: "Lägenheten är liten, så vi har ställt flyttkartongerna i ___ i källaren.", gaps: [{ answers: ["förrådet"], options: ["förrådet", "avloppet", "oväsendet", "hyreskontraktet"], feedback: [{ match: "avloppet", tip: "*avlopp* betekent „een afvoer, een riool”. Lees de zin nog eens: wat past hier?" }] }] }
 
 vocab:
   - { sv: "ett personnummer", nl: "een persoonsnummer (BSN)", def: "personnumret", pl: "personnummer", plDef: "personnumren", ex: "Utan **personnummer** är det svårt att öppna ett bankkonto.", exNl: "Zonder persoonsnummer is het moeilijk om een bankrekening te openen." }

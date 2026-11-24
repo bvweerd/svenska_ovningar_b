@@ -64,7 +64,7 @@ sections:
       - id: lasa-knat
         title: "Lezen: een pijnlijke knie"
         instruction: Lees de tekst en beantwoord de vragen.
-        topic: framtid
+        topic: woordenschat
         textTitle: Ont i knät
         text: |
           Ruud har sprungit varje morgon i två år. Men en dag i oktober fick han plötsligt ont i knät. Först trodde han att det inte var något farligt, men efter några dagar var det fortfarande svullet.
@@ -189,21 +189,21 @@ sections:
         topic: woordenschat
         shuffle: true
         items:
-          - { id: xfds, type: gap, text: "Läkaren ___ ett recept på antibiotika, för jag hade en infektion i halsen.", gaps: [{ answers: ["skrev ut"], options: ["skrev ut", "opererade", "botade", "stukade"], feedback: [{ match: "botade", tip: "*botade* betekent „genezen (iemand of een ziekte)”. Lees de zin nog eens: wat past hier?" }] }] }
+          - { id: xfds, type: gap, text: "Läkaren ___ ett recept på antibiotika, för jag hade en infektion i halsen.", gaps: [{ answers: ["skrev ut"], options: ["skrev ut", "opererade", "botade", "stukade"], feedback: [{ match: "botade", tip: "*bota* betekent „genezen (iemand of een ziekte)”. Lees de zin nog eens: wat past hier?" }] }] }
           - { id: 4mhd, type: gap, text: "Jag fick en ___ till en specialist, men först tog de ett blodprov.", gaps: [{ answers: ["remiss"], options: ["remiss", "egenavgift", "vaccination", "plåster"], feedback: [{ match: "egenavgift", tip: "*egenavgift* betekent „een eigen bijdrage”. Lees de zin nog eens: wat past hier?" }] }] }
           - { id: w4a3, type: gap, text: "Foten är ___ och öm, så jag tror att jag har stukat den.", gaps: [{ answers: ["svullen"], options: ["svullen", "smittsam", "kronisk", "receptfri"], feedback: [{ match: "smittsam", tip: "*smittsam* betekent „besmettelijk”. Lees de zin nog eens: wat past hier?" }] }] }
-          - { id: skzb, type: gap, text: "Mina föräldrar ___ verkligen om mig när jag var sjuk.", gaps: [{ answers: ["brydde sig"], options: ["brydde sig", "kräktes", "återhämtade sig", "led"], feedback: [{ match: "återhämtade sig", tip: "*återhämtade sig* betekent „herstellen, bijkomen”. Lees de zin nog eens: wat past hier?" }] }] }
-          - { id: 35ce, type: gap, text: "Om det är allvarligt ska du åka till ___ på sjukhuset.", gaps: [{ answers: ["akutmottagningen"], options: ["akutmottagningen", "remissen", "sömnen", "hälsan"], feedback: [{ match: "remissen", tip: "*remissen* betekent „een verwijzing”. Lees de zin nog eens: wat past hier?" }] }] }
+          - { id: skzb, type: gap, text: "Mina föräldrar ___ verkligen om mig när jag var sjuk.", gaps: [{ answers: ["brydde sig"], options: ["brydde sig", "kräktes", "återhämtade sig", "led"], feedback: [{ match: "återhämtade sig", tip: "*återhämta sig* betekent „herstellen, bijkomen”. Lees de zin nog eens: wat past hier?" }] }] }
+          - { id: 35ce, type: gap, text: "Om det är allvarligt ska du åka till ___ på sjukhuset.", gaps: [{ answers: ["akutmottagningen"], options: ["akutmottagningen", "remissen", "sömnen", "hälsan"], feedback: [{ match: "remissen", tip: "*remiss* betekent „een verwijzing”. Lees de zin nog eens: wat past hier?" }] }] }
           - { id: mb6y, type: gap, text: "Feber och huvudvärk är vanliga ___ på influensa, och den är mycket smittsam.", gaps: [{ answers: ["symtom"], options: ["symtom", "utslag", "plåster", "recept"], feedback: [{ match: "utslag", tip: "*utslag* betekent „uitslag (op de huid)”. Lees de zin nog eens: wat past hier?" }] }] }
-          - { id: gaze, type: gap, text: "Innan resan ska jag vaccinera mig. ___ kostar 500 kronor.", gaps: [{ answers: ["Vaccinationen"], options: ["Vaccinationen", "Remissen", "Infektionen", "Sömnen"], feedback: [{ match: "Remissen", tip: "*Remissen* betekent „een verwijzing”. Lees de zin nog eens: wat past hier?" }] }] }
+          - { id: gaze, type: gap, text: "Innan resan ska jag vaccinera mig. ___ kostar 500 kronor.", gaps: [{ answers: ["Vaccinationen"], options: ["Vaccinationen", "Remissen", "Infektionen", "Sömnen"], feedback: [{ match: "Remissen", tip: "*remiss* betekent „een verwijzing”. Lees de zin nog eens: wat past hier?" }] }] }
           - { id: wabw, type: gap, text: "Barnet fick röda ___ på armarna efter att ha ätit jordgubbar.", gaps: [{ answers: ["utslag"], options: ["utslag", "plåster", "blodprov", "recept"], feedback: [{ match: "plåster", tip: "*plåster* betekent „een pleister”. Lees de zin nog eens: wat past hier?" }] }] }
           - { id: hybx, type: gap, text: "Besöket kostar 200 kronor i ___, och medicinen är receptfri.", gaps: [{ answers: ["egenavgift"], options: ["egenavgift", "remiss", "vaccination", "infektion"], feedback: [{ match: "remiss", tip: "*remiss* betekent „een verwijzing”. Lees de zin nog eens: wat past hier?" }] }] }
           - { id: 5u67, type: gap, text: "Sätt ett ___ på såret, så läker det snabbare.", gaps: [{ answers: ["plåster"], options: ["plåster", "recept", "blodprov", "utslag"], feedback: [{ match: "recept", tip: "*recept* betekent „een recept (van de arts)”. Lees de zin nog eens: wat past hier?" }] }] }
           - { id: bu4z, type: gap, text: "Efter att läkaren hade opererat knät tog det tre veckor att ___.", gaps: [{ answers: ["återhämta sig"], options: ["återhämta sig", "kräkas", "bry sig om", "vaccinera sig"], feedback: [{ match: "kräkas", tip: "*kräkas* betekent „overgeven”. Lees de zin nog eens: wat past hier?" }] }] }
-          - { id: b2pd, type: gap, text: "Nils hade magsjuka och ___ hela natten.", gaps: [{ answers: ["kräktes"], options: ["kräktes", "botade", "stukade", "opererade"], feedback: [{ match: "botade", tip: "*botade* betekent „genezen (iemand of een ziekte)”. Lees de zin nog eens: wat past hier?" }] }] }
-          - { id: 4t6s, type: gap, text: "Min pappa ___ av en kronisk sjukdom och har svårt att gå i trappor.", gaps: [{ answers: ["lider"], options: ["lider", "botar", "kräks", "stukar"], feedback: [{ match: "botar", tip: "*botar* betekent „genezen (iemand of een ziekte)”. Lees de zin nog eens: wat past hier?" }] }] }
+          - { id: b2pd, type: gap, text: "Nils hade magsjuka och ___ hela natten.", gaps: [{ answers: ["kräktes"], options: ["kräktes", "botade", "stukade", "opererade"], feedback: [{ match: "botade", tip: "*bota* betekent „genezen (iemand of een ziekte)”. Lees de zin nog eens: wat past hier?" }] }] }
+          - { id: 4t6s, type: gap, text: "Min pappa ___ av en kronisk sjukdom och har svårt att gå i trappor.", gaps: [{ answers: ["lider"], options: ["lider", "botar", "kräks", "stukar"], feedback: [{ match: "botar", tip: "*bota* betekent „genezen (iemand of een ziekte)”. Lees de zin nog eens: wat past hier?" }] }] }
           - { id: y47r, type: gap, text: "Det finns ingen medicin som kan ___ sjukdomen helt.", gaps: [{ answers: ["bota"], options: ["bota", "stuka", "operera", "kräkas"], feedback: [{ match: "stuka", tip: "*stuka* betekent „verstuiken”. Lees de zin nog eens: wat past hier?" }] }] }
-          - { id: m7z5, type: gap, text: "Många är ___ av sina mobiler och får för lite sömn.", gaps: [{ answers: ["beroende"], options: ["beroende", "smittsamma", "stela", "svullna"], feedback: [{ match: "smittsamma", tip: "*smittsamma* betekent „besmettelijk”. Lees de zin nog eens: wat past hier?" }] }] }
+          - { id: m7z5, type: gap, text: "Många är ___ av sina mobiler och får för lite sömn.", gaps: [{ answers: ["beroende"], options: ["beroende", "smittsamma", "stela", "svullna"], feedback: [{ match: "smittsamma", tip: "*smittsam* betekent „besmettelijk”. Lees de zin nog eens: wat past hier?" }] }] }
           - { id: edbr, type: gap, text: "Efter träningen är jag ___ i benen, men träning är bra för hälsan.", gaps: [{ answers: ["stel"], options: ["stel", "receptfri", "smittsam", "kronisk"], feedback: [{ match: "receptfri", tip: "*receptfri* betekent „zonder recept verkrijgbaar”. Lees de zin nog eens: wat past hier?" }] }] }
 
   - id: framtid
@@ -244,6 +244,20 @@ sections:
               - { text: "Operationen **kommer att** ta två timmar.", cat: 1 }
               - { text: "Jag **tänker** börja träna igen.", cat: 0 }
               - { text: "Du **kommer att** älska den här staden.", cat: 1 }
+
+      - id: framtid-omvormen
+        title: Plan, besluit of voorspelling
+        instruction: Herschrijf de zin met het woord tussen haakjes. Let op de infinitief erna.
+        topic: framtid
+        items:
+          - { id: 959v, type: transform, prompt: "Det regnar i morgon. (kommer att)", answers: ["Det kommer att regna {i morgon|imorgon}."], feedback: [{ contains: "kommer regna", retry: true, tip: "In spreektaal hoor je dat vaak, maar in geschreven Zweeds: kommer att regna." }, { contains: "kommer att regnar", tip: "Na kommer att komt de infinitief: regna." }] }
+          - { id: m6vv, type: transform, prompt: "Jag ringer vårdcentralen efter lunch. (ska)", answers: ["Jag ska ringa vårdcentralen efter lunch."], feedback: [{ contains: "ska ringer", tip: "Na ska komt de infinitief: ringa." }, { contains: "ska att", tip: "Na ska komt geen att." }] }
+          - { id: bkmw, type: transform, prompt: "Jag slutar röka. (tänker)", answers: ["Jag tänker sluta röka."], feedback: [{ contains: "tänker att", tip: "Na tänker (van plan zijn) komt de infinitief zonder att." }, { contains: "tänker slutar", tip: "Na tänker komt de infinitief: sluta." }] }
+          - { id: peg5, type: transform, prompt: "Du mår bättre om några dagar. (kommer att)", answers: ["Du kommer att må bättre om några dagar."], feedback: [{ contains: "kommer må", retry: true, tip: "In spreektaal hoor je dat vaak, maar in geschreven Zweeds: kommer att må." }, { contains: "kommer att mår", tip: "Na kommer att komt de infinitief: må." }] }
+          - { id: eucv, type: transform, prompt: "Vi träffar läkaren klockan tre. (ska)", answers: ["Vi ska träffa läkaren klockan tre."], feedback: [{ contains: "ska träffar", tip: "Na ska komt de infinitief: träffa." }] }
+          - { id: gteh, type: transform, prompt: "Hon börjar träna på gym. (tänker)", answers: ["Hon tänker börja träna på gym."], feedback: [{ contains: "tänker att", tip: "Na tänker (van plan zijn) komt de infinitief zonder att." }, { contains: "tänker börjar", tip: "Na tänker komt de infinitief: börja." }] }
+          - { id: h7cy, type: transform, prompt: "Kön till vårdcentralen blir lång i vinter. (kommer att)", answers: ["Kön till vårdcentralen kommer att bli lång i vinter."], feedback: [{ contains: "kommer bli", retry: true, tip: "In spreektaal hoor je dat vaak, maar in geschreven Zweeds: kommer att bli." }, { contains: "kommer att blir", tip: "Na kommer att komt de infinitief: bli." }] }
+          - { id: shs7, type: transform, prompt: "Jag opererar knät i maj. (ska)", answers: ["Jag ska operera knät i maj."], feedback: [{ contains: "ska opererar", tip: "Na ska komt de infinitief: operera." }] }
 
       - id: framtid-vertalen
         title: Vertaal
@@ -587,6 +601,20 @@ sections:
           - { id: 8hb6, type: gap, topic: prep-verb, text: "Jag har ont i ryggen och väntar ___ att läkaren ska ringa.", gaps: [{ answers: ["på"] }] }
           - { id: gt3c, type: gap, topic: deponens, text: "Han ___ (lyckas) till slut få en tid hos tandläkaren.", gaps: [{ answers: ["lyckades"] }] }
           - { id: 29hr, type: transform, topic: passiv-bli, task: "Maak er een lijdende zin van met bli.", prompt: "Doktorn undersökte patienten noga.", answers: ["Patienten blev {noga undersökt|undersökt noga}[ av doktorn]."] }
+
+      - id: herhaling-woorden
+        title: Woorden van eerder
+        instruction: Kies het woord dat past. Deze woorden komen uit eerdere hoofdstukken.
+        topic: woordenschat
+        shuffle: true
+        items:
+          - { id: pbj3, type: gap, text: "Fyll i ___ och skriv ditt personnummer längst upp.", gaps: [{ answers: ["blanketten"], options: ["blanketten", "legitimationen", "underskriften", "bankkontot"], feedback: [{ match: "legitimationen", tip: "*legitimation* betekent „een legitimatie, een identiteitsbewijs”. Lees de zin nog eens: wat past hier?" }] }] }
+          - { id: xa53, type: gap, text: "Ta med en giltig ___ när du hämtar ut paketet.", gaps: [{ answers: ["legitimation"], options: ["legitimation", "underskrift", "deklaration", "försäkring"], feedback: [{ match: "underskrift", tip: "*underskrift* betekent „een handtekening”. Lees de zin nog eens: wat past hier?" }] }] }
+          - { id: jtav, type: gap, text: "Jag fick ett ___ från läkaren på att jag har varit sjuk.", gaps: [{ answers: ["intyg"], options: ["intyg", "bidrag", "personnummer", "bankkonto"], feedback: [{ match: "bidrag", tip: "*bidrag* betekent „een toelage, een uitkering”. Lees de zin nog eens: wat past hier?" }] }] }
+          - { id: jpvz, type: gap, text: "Handläggaren ___ min ansökan, så nu ska jag överklaga beslutet.", gaps: [{ answers: ["avslog"], options: ["avslog", "beviljade", "godkände", "kompletterade"], feedback: [{ match: "beviljade", tip: "*bevilja* betekent „toekennen, verlenen”. Lees de zin nog eens: wat past hier?" }] }] }
+          - { id: k5rq, type: gap, text: "Min ansökan var ofullständig, så jag måste ___ den med fler handlingar.", gaps: [{ answers: ["komplettera"], options: ["komplettera", "registrera", "avslå", "överklaga"], feedback: [{ match: "registrera", tip: "*registrera* betekent „registreren”. Lees de zin nog eens: wat past hier?" }] }] }
+          - { id: eeyn, type: gap, text: "Du behöver inte komma till kontoret, för du kan boka tid ___.", gaps: [{ answers: ["digitalt"], options: ["digitalt", "personligen", "ofullständigt", "respektive"], feedback: [{ match: "personligen", tip: "*personligen* betekent „persoonlijk, in eigen persoon”. Lees de zin nog eens: wat past hier?" }] }] }
+          - { id: 67xk, type: gap, text: "Jag har fått ___ och får nu stanna i Sverige i två år.", gaps: [{ answers: ["uppehållstillstånd"], options: ["uppehållstillstånd", "folkbokföring", "försäkring", "fullmakt"], feedback: [{ match: "folkbokföring", tip: "*folkbokföring* betekent „de inschrijving in de bevolkingsadministratie”. Lees de zin nog eens: wat past hier?" }] }] }
 
 vocab:
   - { sv: "en vårdcentral", nl: "een huisartsenpraktijk, een gezondheidscentrum", def: "vårdcentralen", pl: "vårdcentraler", plDef: "vårdcentralerna", ex: "Ring **vårdcentralen** om febern inte går ner.", exNl: "Bel de huisartsenpraktijk als de koorts niet daalt." }

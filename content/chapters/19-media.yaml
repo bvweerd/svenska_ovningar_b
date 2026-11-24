@@ -64,7 +64,7 @@ sections:
       - id: lasa-alg
         title: "Lezen: een eland in de stad"
         instruction: Lees het nieuwsbericht en beantwoord de vragen.
-        topic: indirekt-tal-b1
+        topic: woordenschat
         textTitle: Älg på villovägar i centrala Uppsala
         text: |
           En älg orsakade stor uppståndelse i centrala Uppsala i tisdags morse. Älgen sågs först vid järnvägsstationen strax efter klockan sex. Sedan gick den lugnt genom stadsparken och vidare ner mot Fyrisån.
@@ -234,16 +234,16 @@ sections:
         instruction: Schrijf de zin als indirecte rede. Laat de tijd een stap terugschuiven.
         topic: indirekt-tal-b1
         items:
-          - { id: xcjm, type: transform, prompt: "Anna: ”Jag är trött.”", task: "Anna sa att …", answers: ["Anna sa att hon var trött."], feedback: [{ match: "Anna sa att hon är trött.", tip: "Schuif de tijd terug: är → var." }] }
+          - { id: xcjm, type: transform, prompt: "Anna: ”Jag är trött.”", task: "Anna sa att …", answers: ["Anna {sa|sade} att hon var trött."], feedback: [{ match: "Anna sa att hon är trött.", tip: "Schuif de tijd terug: är → var." }] }
           - { id: n9vk, type: transform, prompt: "Erik: ”Jag har köpt en ny bil.”", task: "Erik sa att …", answers: ["Erik sa att han [hade ]köpt en ny bil."], feedback: [{ match: "Erik sa att han har köpt en ny bil.", tip: "har köpt → hade köpt." }] }
-          - { id: g2vw, type: transform, prompt: "Läraren: ”Ni ska läsa kapitel tre.”", task: "Läraren sa att vi …", answers: ["Läraren sa att vi skulle läsa kapitel tre."], feedback: [{ contains: "att vi ska", tip: "ska → skulle." }] }
+          - { id: g2vw, type: transform, prompt: "Läraren: ”Ni ska läsa kapitel tre.”", task: "Läraren sa att vi …", answers: ["Läraren {sa|sade} att {vi|de|eleverna} skulle läsa kapitel {tre|3}."], feedback: [{ contains: "att vi ska", tip: "ska → skulle." }] }
           - { id: pw9c, type: transform, prompt: "Mamma: ”Jag kan inte komma i morgon.”", task: "Mamma sa att …", answers: ["Mamma sa att hon inte kunde komma {dagen efter|nästa dag|dagen därpå|följande dag|i morgon|imorgon}."], feedback: [{ contains: "kunde inte", tip: "Het is een bijzin: inte vóór het werkwoord, inte kunde." }, { contains: "att hon inte kan", tip: "kan → kunde." }] }
           - { id: t5mb, type: transform, prompt: "Polisen: ”Ingen har skadats.”", task: "Polisen sa att …", answers: ["Polisen sa att ingen hade skadats.", "Polisen sa att ingen skadades."] }
-          - { id: tjnr, type: transform, prompt: "Meteorologen: ”Det kommer att snöa i helgen.”", task: "Meteorologen sa att …", answers: ["Meteorologen sa att det skulle snöa i helgen."], feedback: [{ contains: "kommer att", tip: "kommer att → skulle." }] }
-          - { id: frth, type: transform, prompt: "Nils: ”Jag tycker inte om fisk.”", task: "Nils sa att …", answers: ["Nils sa att han inte tyckte om fisk."], feedback: [{ contains: "tyckte inte om", tip: "In de bijzin staat inte vóór het werkwoord: att han inte tyckte om." }, { contains: "tycker", tip: "Schuif de tijd terug: tycker → tyckte." }] }
+          - { id: tjnr, type: transform, prompt: "Meteorologen: ”Det kommer att snöa i helgen.”", task: "Meteorologen sa att …", answers: ["Meteorologen {sa|sade} att det skulle snöa i helgen."], feedback: [{ contains: "kommer att", tip: "kommer att → skulle." }] }
+          - { id: frth, type: transform, prompt: "Nils: ”Jag tycker inte om fisk.”", task: "Nils sa att …", answers: ["Nils {sa|sade} att han inte tyckte om fisk."], feedback: [{ contains: "tyckte inte om", tip: "In de bijzin staat inte vóór het werkwoord: att han inte tyckte om." }, { contains: "tycker", tip: "Schuif de tijd terug: tycker → tyckte." }] }
           - { id: xbxg, type: transform, prompt: "Ingrid: ”Vi har aldrig varit i Lappland.”", task: "Ingrid sa att …", answers: ["Ingrid sa att de aldrig [hade ]varit i Lappland."], feedback: [{ contains: "att vi", tip: "Ingrid praat over haar gezin: vi wordt de." }, { contains: "hade aldrig", tip: "In de bijzin staat aldrig vóór het werkwoord: de aldrig hade varit." }] }
           - { id: m2ux, type: transform, prompt: "Karin: ”Jag har aldrig sett en älg så nära förut.”", task: "Karin berättade att …", answers: ["Karin berättade att hon aldrig [hade ]sett en älg så nära förut."], feedback: [{ contains: "hade aldrig sett", tip: "In de bijzin staat aldrig vóór het werkwoord: att hon aldrig hade sett." }, { contains: "aldrig har sett", tip: "Schuif de tijd terug: har sett → hade sett." }, { contains: "att jag", tip: "Karin vertelt over zichzelf: jag wordt hon." }] }
-          - { id: jrnw, type: transform, prompt: "Polisen: ”Vi kommer att hålla gatorna stängda i en timme till.”", task: "Polisen sa att …", answers: ["Polisen sa att de skulle hålla gatorna stängda i en timme till."], feedback: [{ contains: "kommer att", tip: "kommer att → skulle." }, { contains: "att vi", tip: "Vertel je na wat de politie zei, dan wordt vi de." }] }
+          - { id: jrnw, type: transform, prompt: "Polisen: ”Vi kommer att hålla gatorna {stängda|avstängda} i en timme till.”", task: "Polisen sa att …", answers: ["Polisen {sa|sade} att {de|polisen} skulle hålla gatorna stängda {i en timme till|en timme till}."], feedback: [{ contains: "kommer att", tip: "kommer att → skulle." }, { contains: "att vi", tip: "Vertel je na wat de politie zei, dan wordt vi de." }] }
           - { id: 9xgz, type: transform, prompt: "Chefredaktören: ”Vi har fått över tusen mejl om älgen.”", task: "Chefredaktören sa att …", answers: ["Chefredaktören sa att de hade fått över tusen {mejl|mail} om älgen."], feedback: [{ contains: "har fått", tip: "Schuif de tijd terug: har fått → hade fått." }, { contains: "att vi", tip: "Vertel je het na, dan wordt vi de." }] }
           - { id: bxpa, type: transform, prompt: "Omar: ”Jag kan inte köra vidare förrän älgen har gått.”", task: "Omar sa att …", answers: ["Omar sa att han inte kunde köra vidare förrän älgen [hade ]gått."], feedback: [{ contains: "kunde inte", tip: "In de bijzin staat inte vóór het werkwoord: att han inte kunde." }, { contains: "inte kan", tip: "Schuif de tijd terug: kan → kunde." }, { contains: "älgen har gått", tip: "Schuif ook hier de tijd terug: har gått → hade gått." }] }
           - { id: um9k, type: transform, prompt: "Ministern: ”Jag tänker inte avgå, eftersom jag inte har gjort något fel.”", task: "Ministern sa att …", answers: ["Ministern sa att {hon inte tänkte avgå[,] eftersom hon|han inte tänkte avgå[,] eftersom han} inte hade gjort något fel."], feedback: [{ contains: "tänkte inte", tip: "In de bijzin staat inte vóór het werkwoord: att hon inte tänkte avgå." }, { contains: "hade inte gjort", tip: "Ook na eftersom is het een bijzin: eftersom hon inte hade gjort." }, { contains: ["inte har gjort", "inte tänker"], tip: "Schuif de tijd terug: tänker → tänkte, har gjort → hade gjort." }] }
@@ -445,6 +445,19 @@ sections:
           - { id: 2hvs, type: gap, topic: villkor, text: "Om tidningen ___ (vara) gratis, skulle fler människor läsa den.", gaps: [{ answers: ["var"] }] }
           - { id: qakw, type: gap, topic: passiv-s, text: "Nyheten ___ (sända) på alla kanaler i går kväll.", gaps: [{ answers: ["sändes"] }] }
           - { id: ytjm, type: gap, topic: myndighetssprak, text: "Ansökan ska ha kommit in ___ den 31 mars. (uiterlijk)", gaps: [{ answers: ["senast"], feedback: [{ match: ["sist", "senaste"], tip: "Uiterlijk (een deadline) is in de taal van instanties: senast." }] }] }
+
+      - id: herhaling-woorden
+        title: Woorden van eerder
+        instruction: Kies het woord dat past. Deze woorden komen uit eerdere hoofdstukken.
+        topic: woordenschat
+        shuffle: true
+        items:
+          - { id: sgm7, type: gap, text: "De har varit ___ i tre år och ska gifta sig i sommar.", gaps: [{ answers: ["förlovade"], options: ["förlovade", "svartsjuka", "besvikna", "kluvna"], feedback: [{ match: "svartsjuka", tip: "*svartsjuk* betekent „jaloers”. Lees de zin nog eens: wat past hier?" }] }] }
+          - { id: c7wp, type: gap, text: "Efter ett stort gräl bad han om ___, och sedan kom de överens om en kompromiss.", gaps: [{ answers: ["ursäkt"], options: ["ursäkt", "förtroende", "vänskap", "skilsmässa"], feedback: [{ match: "förtroende", tip: "*förtroende* betekent „het vertrouwen”. Lees de zin nog eens: wat past hier?" }] }] }
+          - { id: eqrw, type: gap, text: "Min svåger och min svägerska är mycket ___ och lyssnar alltid.", gaps: [{ answers: ["förstående"], options: ["förstående", "avundsjuka", "förlovade", "kluvna"], feedback: [{ match: "avundsjuka", tip: "*avundsjuk* betekent „jaloers (op iets van een ander)”. Lees de zin nog eens: wat past hier?" }] }] }
+          - { id: m5cf, type: gap, text: "Han ___ sin bästa vän, och nu är förtroendet borta.", gaps: [{ answers: ["svek"], options: ["svek", "stöttade", "uppfostrade", "önskade"], feedback: [{ match: "stöttade", tip: "*stötta* betekent „steunen”. Lees de zin nog eens: wat past hier?" }] }] }
+          - { id: 24rc, type: gap, text: "Min styvpappa ___ mig när jag var liten, och vi har en bra relation.", gaps: [{ answers: ["uppfostrade"], options: ["uppfostrade", "svek", "grälade", "önskade"], feedback: [{ match: "grälade", tip: "*gräla* betekent „ruziemaken”. Lees de zin nog eens: wat past hier?" }] }] }
+          - { id: 5uzk, type: gap, text: "Hon blev ___ när hennes särbo glömde hennes födelsedag.", gaps: [{ answers: ["besviken"], options: ["besviken", "förlovad", "trogen", "ömsesidig"], feedback: [{ match: "trogen", tip: "*trogen* betekent „trouw”. Lees de zin nog eens: wat past hier?" }] }] }
 
 vocab:
   - { sv: "en nyhet", nl: "een nieuwsbericht, een nieuwtje", def: "nyheten", pl: "nyheter", plDef: "nyheterna", ex: "Har du hört **nyheten**? Simon och Ella har förlovat sig.", exNl: "Heb je het nieuwtje gehoord? Simon en Ella hebben zich verloofd." }

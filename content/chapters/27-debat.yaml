@@ -465,6 +465,20 @@ sections:
           - { id: 6n67, type: gap, topic: subjunktioner-b1, text: "___ många elever har protesterat, vill rektorn inte ändra reglerna.", gaps: [{ answers: ["Trots att"], options: ["Trots att", "Eftersom", "Så att"], shuffle: false }] }
           - { id: rj8w, type: mc, topic: nominalfras, prompt: "Wat is de kern van deze naamwoordgroep: *en ny rapport från Folkhälsomyndigheten om ungas sömnvanor*?", options: ["rapport", "Folkhälsomyndigheten", "sömnvanor"], answer: 0, tip: "De kern staat vooraan, na het lidwoord en het bijvoeglijk naamwoord: en ny rapport. De rest zegt waar hij vandaan komt en waarover hij gaat." }
 
+      - id: herhaling-woorden
+        title: Woorden van eerder
+        instruction: Kies het woord dat past. Deze woorden komen uit eerdere hoofdstukken.
+        topic: woordenschat
+        shuffle: true
+        items:
+          - { id: 6kq3, type: gap, text: "Alla ___ i studien fick sova i ett laboratorium i två nätter.", gaps: [{ answers: ["deltagare"], options: ["deltagare", "hypoteser", "tidskrifter", "faktorer"], feedback: [{ match: "faktorer", tip: "*faktor* betekent „een factor”. Lees de zin nog eens: wat past hier?" }] }] }
+          - { id: 4t23, type: gap, text: "Forskarna jämförde resultaten med en ___ som inte fick någon behandling.", gaps: [{ answers: ["kontrollgrupp"], options: ["kontrollgrupp", "avhandling", "tidskrift", "hypotes"], feedback: [{ match: "avhandling", tip: "*avhandling* betekent „een proefschrift”. Lees de zin nog eens: wat past hier?" }] }] }
+          - { id: awjt, type: gap, text: "Studien har vissa ___, till exempel att urvalet var litet.", gaps: [{ answers: ["begränsningar"], options: ["begränsningar", "förklaringar", "mätningar", "effekter"], feedback: [{ match: "förklaringar", tip: "*förklaring* betekent „een verklaring”. Lees de zin nog eens: wat past hier?" }] }] }
+          - { id: j2ym, type: gap, text: "En kort ___ efter lunch kan förbättra minnet.", gaps: [{ answers: ["tupplur"], options: ["tupplur", "avhandling", "hypotes", "mätning"], feedback: [{ match: "mätning", tip: "*mätning* betekent „een meting”. Lees de zin nog eens: wat past hier?" }] }] }
+          - { id: h4b7, type: gap, text: "Hon försvarade sin ___ om sömn och minne vid Uppsala universitet.", gaps: [{ answers: ["avhandling"], options: ["avhandling", "kontrollgrupp", "tupplur", "orsak"], feedback: [{ match: "orsak", tip: "*orsak* betekent „een oorzaak”. Lees de zin nog eens: wat past hier?" }] }] }
+          - { id: xzsr, type: gap, text: "Det är oklart ___ resultatet är signifikant.", gaps: [{ answers: ["huruvida"], options: ["huruvida", "följaktligen", "därmed", "slutligen"], feedback: [{ match: "följaktligen", tip: "*följaktligen* betekent „bijgevolg, dientengevolge”. Lees de zin nog eens: wat past hier?" }] }] }
+          - { id: 3qa5, type: gap, text: "Forskarna ___ från hypotesen att sömnen är en avgörande faktor.", gaps: [{ answers: ["utgick"], options: ["utgick", "mätte", "betonade", "analyserade"], feedback: [{ match: "mätte", tip: "*mäta* betekent „meten”. Lees de zin nog eens: wat past hier?" }] }] }
+
 vocab:
   - { sv: "en debatt", nl: "een debat", def: "debatten", pl: "debatter", plDef: "debatterna", ex: "Efter programmet blev det en het **debatt** i sociala medier.", exNl: "Na het programma ontstond er een fel debat op sociale media." }
   - { sv: "en debattartikel", nl: "een opiniestuk", def: "debattartikeln", pl: "debattartiklar", plDef: "debattartiklarna", ex: "Hon skrev en **debattartikel** om skolans mobilförbud.", exNl: "Ze schreef een opiniestuk over het mobielverbod van de school." }

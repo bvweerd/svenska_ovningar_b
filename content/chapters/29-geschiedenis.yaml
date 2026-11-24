@@ -60,7 +60,7 @@ sections:
       - id: lasa-vasa
         title: "Lezen: de Vasa"
         instruction: Lees de tekst en beantwoord de vragen.
-        topic: fundament
+        topic: woordenschat
         textTitle: Vasa – skeppet som sjönk på jungfruresan
         text: |
           Den 10 augusti 1628 samlades tusentals stockholmare vid stranden. Det nya krigsskeppet Vasa, som kung Gustav II Adolf hade beställt några år tidigare, skulle för första gången segla ut. Kungen var själv inte på plats, eftersom han befann sig i krig i Polen.
@@ -302,7 +302,7 @@ sections:
           - { id: zuvv, type: transform, prompt: "Något konstigt hände i går.", answers: ["Det hände något konstigt {i går|igår}."], feedback: [{ contains: "Det något konstigt hände", tip: "Na det komt eerst het werkwoord: det hände något konstigt …" }] }
           - { id: 7bh9, type: transform, prompt: "Ett fel finns i texten.", answers: ["Det finns ett fel i texten."] }
           - { id: k926, type: transform, prompt: "Många människor bor i Stockholm.", answers: ["Det bor många människor i Stockholm."], feedback: [{ contains: "Det många människor bor", tip: "Na det komt eerst het werkwoord: det bor många människor …" }] }
-          - { id: edzt, type: transform, prompt: "Ett tåg går klockan nio.", answers: ["Det går ett tåg klockan nio."], feedback: [{ contains: "Det ett tåg går", tip: "Na det komt eerst het werkwoord: det går ett tåg …" }] }
+          - { id: edzt, type: transform, prompt: "Ett tåg går klockan nio.", answers: ["Det går ett tåg {klockan|kl.} {nio|9}."], feedback: [{ contains: "Det ett tåg går", tip: "Na det komt eerst het werkwoord: det går ett tåg …" }] }
 
       - id: fundament-zinsbouw
         title: Tijd vooraan
@@ -337,7 +337,7 @@ sections:
         topic: fundament
         items:
           - { id: jthn, type: transform, prompt: "Några okända föremål från skeppet ligger kanske fortfarande kvar i leran på botten.", task: "Begin met **det**.", answers: ["Det {ligger kanske fortfarande|kanske ligger fortfarande|kanske fortfarande ligger} några okända föremål från skeppet kvar i leran på botten.", "Det {ligger kanske fortfarande|kanske ligger fortfarande|kanske fortfarande ligger} kvar några okända föremål från skeppet i leran på botten."] }
-          - { id: jrwe, type: transform, prompt: "Skeppet bärgades efter mer än trehundra år på botten av Stockholms hamn år 1961.", task: "Begin met *År 1961*.", answers: ["År 1961 bärgades skeppet efter mer än trehundra år på botten av Stockholms hamn."], feedback: [{ contains: "1961 skeppet", tip: "Na År 1961 vooraan komt het werkwoord op plaats 2: År 1961 bärgades skeppet …" }] }
+          - { id: jrwe, type: transform, prompt: "Skeppet bärgades efter mer än trehundra år på botten av Stockholms hamn år 1961.", task: "Begin met *År 1961*.", answers: ["År 1961 bärgades skeppet efter {mer än|över} {trehundra|300} år på botten av Stockholms hamn."], feedback: [{ contains: "1961 skeppet", tip: "Na År 1961 vooraan komt het werkwoord op plaats 2: År 1961 bärgades skeppet …" }] }
           - { id: dc4m, type: transform, prompt: "Man har upptäckt många nya detaljer om livet ombord under de senaste åren.", task: "Begin met *Under de senaste åren*.", answers: ["Under de senaste åren har man upptäckt många nya detaljer om livet ombord."], feedback: [{ contains: "åren man", tip: "Na de tijdsbepaling vooraan komt het werkwoord op plaats 2: Under de senaste åren har man …" }] }
           - { id: j62u, type: transform, topic: bisats-adverb, prompt: "Kungen ville inte vänta längre, så ingen på varvet vågade stoppa det farliga projektet.", task: "Begin met *Eftersom*.", answers: ["Eftersom kungen inte {längre ville vänta|ville vänta längre} vågade ingen på varvet stoppa det farliga projektet."], feedback: [{ contains: "ville inte", tip: "In de bijzin (na eftersom) staat inte vóór het werkwoord: eftersom kungen inte längre ville vänta." }, { contains: "ingen på varvet vågade", tip: "De bijzin met eftersom telt als plaats 1: daarna komt meteen het werkwoord (… vågade ingen på varvet …)." }] }
 

@@ -381,7 +381,7 @@ sections:
           - { id: gusj, type: transform, prompt: "Jag läste annonsen. Du skickade den till mig.", answers: ["Jag läste annonsen [som ]du skickade till mig."], feedback: [{ contains: "skickade den", tip: "som vervangt den: laat den weg." }] }
           - { id: g3hu, type: transform, prompt: "Hon har en chef. Chefen lyssnar inte på henne.", answers: ["Hon har en chef som inte lyssnar på henne."], feedback: [{ contains: "som lyssnar inte", tip: "In een bijzin staat inte vóór het werkwoord: som inte lyssnar." }] }
           - { id: p6jm, type: transform, prompt: "Det är kontoret. Jag jobbar på kontoret.", answers: ["Det är kontoret [som ]jag jobbar på.", "Det är kontoret där jag jobbar."], feedback: [{ contains: "på kontoret", tip: "Herhaal kontoret niet. Het voorzetsel blijft achteraan: … som jag jobbar på." }] }
-          - { id: qjbk, type: transform, prompt: "Jag ringde till kunden. Han hade skickat ett klagomål.", answers: ["Jag ringde till kunden som hade skickat ett klagomål."] }
+          - { id: qjbk, type: transform, prompt: "Jag ringde till kunden. Han hade skickat ett klagomål.", answers: ["Jag ringde [till ]kunden som [hade ]skickat ett klagomål."] }
           - { id: 47he, type: transform, prompt: "Vi har en ny chef. Alla tycker om henne.", answers: ["Vi har en ny chef som alla tycker om."], feedback: [{ contains: "om henne", tip: "som vervangt henne: laat henne weg. Het voorzetsel om blijft achteraan." }] }
 
       - id: som-weglaten

@@ -69,7 +69,7 @@ sections:
       - id: lasa-fraga-frida
         title: "Lezen: vraag het Frida"
         instruction: Lees de brief en het antwoord. Beantwoord de vragen.
-        topic: rad-onskan
+        topic: woordenschat
         textTitle: Fråga Frida
         text: |
           **Hej Frida!** Jag och min sambo Erik har bott tillsammans i Stockholm i fem år. Nu har Erik fått ett jobberbjudande i Luleå, där han växte upp, och han vill gärna flytta tillbaka. Men jag trivs i Stockholm. Här har jag mitt jobb, mina vänner och min kör. Om vi flyttade skulle jag inte känna någon. Samtidigt vet jag att Erik har längtat hem länge. Hans föräldrar börjar bli gamla, och han skulle vilja bo närmare dem. I helgen grälade vi om det för första gången på länge. Jag önskar att jag kunde vara lika glad som han är. Vad ska jag göra? *Kluven i Stockholm*
@@ -450,6 +450,19 @@ sections:
           - { id: 3v2z, type: gap, topic: rad-onskan, text: "Du ___ prata med henne innan det är för sent.", gaps: [{ answers: ["borde"], options: ["borde", "kommer", "tänker"], shuffle: false }] }
           - { id: jjnk, type: gap, topic: framtid, text: "Vi ___ gifta oss i juni, det har vi redan bestämt.", gaps: [{ answers: ["ska"], options: ["ska", "kommer att"], shuffle: false }] }
           - { id: y8ty, type: gap, topic: prep-verb, text: "Hon har varit kär ___ sin bästa vän i flera år.", gaps: [{ answers: ["i"] }] }
+
+      - id: herhaling-woorden
+        title: Woorden van eerder
+        instruction: Kies het woord dat past. Deze woorden komen uit eerdere hoofdstukken.
+        topic: woordenschat
+        shuffle: true
+        items:
+          - { id: 4m6s, type: gap, text: "Jag har feber och en ___, så jag stannar hemma från jobbet.", gaps: [{ answers: ["förkylning"], options: ["förkylning", "remiss", "spruta", "biverkning"], feedback: [{ match: "remiss", tip: "*remiss* betekent „een verwijzing”. Lees de zin nog eens: wat past hier?" }] }] }
+          - { id: gas9, type: gap, text: "Efter sprutan blev jag ___ och mådde illa.", gaps: [{ answers: ["yr"], options: ["yr", "kronisk", "receptfri", "smittsam"], feedback: [{ match: "receptfri", tip: "*receptfri* betekent „zonder recept verkrijgbaar”. Lees de zin nog eens: wat past hier?" }] }] }
+          - { id: kp58, type: gap, text: "Fysioterapeuten säger att mitt knä är ___ efter operationen.", gaps: [{ answers: ["stelt"], options: ["stelt", "smittsamt", "receptfritt", "akut"], feedback: [{ match: "smittsamt", tip: "*smittsam* betekent „besmettelijk”. Lees de zin nog eens: wat past hier?" }] }] }
+          - { id: s62t, type: gap, text: "Hämta läkemedlet på apoteket och läs om ___ på lappen.", gaps: [{ answers: ["biverkningarna"], options: ["biverkningarna", "remisserna", "sprutorna", "plåstren"], feedback: [{ match: "remisserna", tip: "*remiss* betekent „een verwijzing”. Lees de zin nog eens: wat past hier?" }] }] }
+          - { id: vvah, type: gap, text: "Hon ___ i väntrummet och fick åka till akuten.", gaps: [{ answers: ["svimmade"], options: ["svimmade", "stukade", "vaccinerade", "opererade"], feedback: [{ match: "stukade", tip: "*stuka* betekent „verstuiken”. Lees de zin nog eens: wat past hier?" }] }] }
+          - { id: sntw, type: gap, text: "Jag fick en ___ på två veckor, eftersom smärtan i ryggen var så stark.", gaps: [{ answers: ["sjukskrivning"], options: ["sjukskrivning", "vaccination", "egenavgift", "infektion"], feedback: [{ match: "egenavgift", tip: "*egenavgift* betekent „een eigen bijdrage”. Lees de zin nog eens: wat past hier?" }] }] }
 
 vocab:
   - { sv: "en sambo", nl: "een samenwonende partner", def: "sambon", pl: "sambor", plDef: "samborna", ex: "Jag och min **sambo** har bott tillsammans i fem år.", exNl: "Mijn samenwonende partner en ik wonen al vijf jaar samen." }

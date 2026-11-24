@@ -73,7 +73,7 @@ sections:
       - id: lasa-nattag
         title: "Lezen: met de nachttrein naar Lapland"
         instruction: Lees de blog en beantwoord de vragen.
-        topic: sambandsord
+        topic: woordenschat
         textTitle: En resa som inte gick som planerat
         text: |
           Förra sommaren bestämde jag och min kompis Joyce oss för att åka nattåg från Stockholm till Abisko för att vandra. Vi bokade biljetterna två månader i förväg och packade ner allt vi behövde: tält, sovsäckar och mat för en vecka.
@@ -191,18 +191,18 @@ sections:
           - { id: gqee, type: gap, text: "Tåget var fullbokat, så vi fick ingen ___.", gaps: [{ answers: ["sittplats"], options: ["sittplats", "ankomst", "sevärdhet", "tull"], feedback: [{ match: "ankomst", tip: "*ankomst* betekent „een aankomst”. Lees de zin nog eens: wat past hier?" }] }] }
           - { id: dnpe, type: gap, text: "Rom är ett populärt ___ med många ___.", gaps: [{ answers: ["resmål"], options: ["resmål", "boende", "tull", "gräns"], feedback: [{ match: "boende", tip: "*boende* betekent „een accommodatie, een verblijf”. Lees de zin nog eens: wat past hier?" }] }, { answers: ["sevärdheter"], options: ["sevärdheter", "tullar", "ankomster", "tullar"] }] }
           - { id: 3j8y, type: gap, text: "Det finns en direkt ___ med tåg mellan Stockholm och Oslo.", gaps: [{ answers: ["förbindelse"], options: ["förbindelse", "sevärdhet", "tull", "ankomst"], feedback: [{ match: "ankomst", tip: "*ankomst* betekent „een aankomst”. Lees de zin nog eens: wat past hier?" }] }] }
-          - { id: qq4p, type: gap, text: "Tåget var försenat, så vi missade ___ till bussen.", gaps: [{ answers: ["anslutningen"], options: ["anslutningen", "ankomsten", "gränsen", "tullen"], feedback: [{ match: "ankomsten", tip: "*ankomsten* betekent „een aankomst”. Lees de zin nog eens: wat past hier?" }] }] }
+          - { id: qq4p, type: gap, text: "Tåget var försenat, så vi missade ___ till bussen.", gaps: [{ answers: ["anslutningen"], options: ["anslutningen", "ankomsten", "gränsen", "tullen"], feedback: [{ match: "ankomsten", tip: "*ankomst* betekent „een aankomst”. Lees de zin nog eens: wat past hier?" }] }] }
           - { id: p2fk, type: gap, text: "Vi köpte en ___ till Kreta, med flyg och hotell i samma paket.", gaps: [{ answers: ["charterresa"], options: ["charterresa", "reseförsäkring", "returbiljett", "sevärdhet"], feedback: [{ match: "reseförsäkring", tip: "*reseförsäkring* betekent „een reisverzekering”. Lees de zin nog eens: wat past hier?" }] }] }
           - { id: 3r4a, type: gap, text: "Innan man reser utomlands är det bra att ha en ___.", gaps: [{ answers: ["reseförsäkring"], options: ["reseförsäkring", "charterresa", "sittplats", "kupé"], feedback: [{ match: "charterresa", tip: "*charterresa* betekent „een pakketreis”. Lees de zin nog eens: wat past hier?" }] }] }
           - { id: ufqh, type: gap, text: "Vi hittade ett billigt ___ nära stranden och ___ där på vägen hem.", gaps: [{ answers: ["boende"], options: ["boende", "resmål", "tull", "gräns"], feedback: [{ match: "resmål", tip: "*resmål* betekent „een reisbestemming”. Lees de zin nog eens: wat past hier?" }] }, { answers: ["övernattade"], options: ["övernattade", "köade", "utforskade", "körde om"] }] }
           - { id: b7dt, type: gap, text: "Det är förbjudet att ___ på höger sida.", gaps: [{ answers: ["köra om"], options: ["köra om", "köa", "hämta upp", "utforska"], feedback: [{ match: "köa", tip: "*köa* betekent „in de rij staan”. Lees de zin nog eens: wat past hier?" }] }] }
-          - { id: b8mj, type: gap, text: "Svenskar ___ i lugn och ro i affären.", gaps: [{ answers: ["köar"], options: ["köar", "kör om", "hämtar upp", "utforskar"], feedback: [{ match: "kör om", tip: "*kör om* betekent „inhalen (in het verkeer)”. Lees de zin nog eens: wat past hier?" }] }] }
+          - { id: b8mj, type: gap, text: "Svenskar ___ i lugn och ro i affären.", gaps: [{ answers: ["köar"], options: ["köar", "kör om", "hämtar upp", "utforskar"], feedback: [{ match: "kör om", tip: "*köra om* betekent „inhalen (in het verkeer)”. Lees de zin nog eens: wat past hier?" }] }] }
           - { id: y5sg, type: gap, text: "Kan du ___ oss på stationen klockan sju?", gaps: [{ answers: ["hämta upp"], options: ["hämta upp", "köra om", "köa", "utforska"], feedback: [{ match: "köra om", tip: "*köra om* betekent „inhalen (in het verkeer)”. Lees de zin nog eens: wat past hier?" }] }] }
           - { id: 3sej, type: gap, text: "Vi hyrde cyklar för att ___ ön.", gaps: [{ answers: ["utforska"], options: ["utforska", "övernatta", "köa", "köra om"], feedback: [{ match: "övernatta", tip: "*övernatta* betekent „overnachten”. Lees de zin nog eens: wat past hier?" }] }] }
           - { id: wyy3, type: gap, text: "Tåget är inställt. Vi måste ___ ta bussen.", gaps: [{ answers: ["alltså"], options: ["alltså", "trots", "så att", "på grund av"], feedback: [{ match: "trots", tip: "*trots* betekent „ondanks”. Lees de zin nog eens: wat past hier?" }] }] }
           - { id: vxxv, type: gap, text: "Stolen i första klass var mycket ___.", gaps: [{ answers: ["bekväm"], options: ["bekväm", "fullbokad", "försenad", "utomlands"], feedback: [{ match: "fullbokad", tip: "*fullbokad* betekent „volgeboekt”. Lees de zin nog eens: wat past hier?" }] }] }
           - { id: j4e2, type: gap, text: "Visby är en populär ___ för svenska familjer.", gaps: [{ answers: ["semesterort"], options: ["semesterort", "tull", "gräns", "kupé"], feedback: [{ match: "tull", tip: "*tull* betekent „de douane; invoerheffing”. Lees de zin nog eens: wat past hier?" }] }] }
-          - { id: 5fgp, type: gap, text: "När vi kom till ___ mellan Sverige och Norge stoppade ___ oss.", gaps: [{ answers: ["gränsen"], options: ["gränsen", "tullen", "kupén", "ankomsten"], feedback: [{ match: "tullen", tip: "*tullen* betekent „de douane; invoerheffing”. Lees de zin nog eens: wat past hier?" }] }, { answers: ["tullen"], options: ["tullen", "gränsen", "kupén", "vagnen"] }] }
+          - { id: 5fgp, type: gap, text: "När vi kom till ___ mellan Sverige och Norge stoppade ___ oss.", gaps: [{ answers: ["gränsen"], options: ["gränsen", "tullen", "kupén", "ankomsten"], feedback: [{ match: "tullen", tip: "*tull* betekent „de douane; invoerheffing”. Lees de zin nog eens: wat past hier?" }] }, { answers: ["tullen"], options: ["tullen", "gränsen", "kupén", "vagnen"] }] }
           - { id: dcsn, type: gap, text: "Glöm inte att köpa en ___, annars blir hemresan dyr.", gaps: [{ answers: ["returbiljett"], options: ["returbiljett", "sevärdhet", "sittplats", "sovvagn"], feedback: [{ match: "sevärdhet", tip: "*sevärdhet* betekent „een bezienswaardigheid”. Lees de zin nog eens: wat past hier?" }] }] }
 
   - id: partikel
@@ -641,6 +641,21 @@ sections:
           - { id: quzd, type: gap, topic: bestamd-utan-artikel, text: "Vi var ute och reste hela ___ (vecka).", gaps: [{ answers: ["veckan"] }] }
           - { id: 4c6b, type: transform, topic: passiv-s, task: "Maak er een lijdende zin van met -s.", prompt: "Man ställde in flyget på grund av stormen.", answers: ["Flyget {ställdes in|inställdes} på grund av stormen."] }
           - { id: vfap, type: gap, topic: rad-onskan, text: "Jag önskar att jag ___ mer tid för mina vänner. (ha – ik wou dat ik meer tijd had)", gaps: [{ answers: ["hade"], feedback: [{ match: ["har", "ha"], tip: "Een wens die niet uitkomt: önskar att + verleden tijd, hade." }] }] }
+
+      - id: herhaling-woorden
+        title: Woorden van eerder
+        instruction: Kies het woord dat past. Deze woorden komen uit eerdere hoofdstukken.
+        topic: woordenschat
+        shuffle: true
+        items:
+          - { id: knga, type: gap, text: "På midsommar dansar vi runt ___ och äter sill.", gaps: [{ answers: ["midsommarstången"], options: ["midsommarstången", "studentmössan", "gudstjänsten", "begravningen"], feedback: [{ match: "gudstjänsten", tip: "*gudstjänst* betekent „een kerkdienst”. Lees de zin nog eens: wat past hier?" }] }] }
+          - { id: 96ur, type: gap, text: "På fettisdagen äter många semlor, och på våffeldagen äter man ___.", gaps: [{ answers: ["våfflor"], options: ["våfflor", "sill", "snapsar", "surströmming"], feedback: [{ match: "sill", tip: "*sill* betekent „een haring”. Lees de zin nog eens: wat past hier?" }] }] }
+          - { id: qwtx, type: gap, text: "Julen är ett gammalt ___ som har sitt ursprung i en hednisk fest.", gaps: [{ answers: ["firande"], options: ["firande", "dop", "skämt", "bageri"], feedback: [{ match: "skämt", tip: "*skämt* betekent „een grap”. Lees de zin nog eens: wat past hier?" }] }] }
+          - { id: mjdf, type: gap, text: "Efter gudstjänsten sjöng vi en traditionell ___.", gaps: [{ answers: ["sång"], options: ["sång", "snaps", "sed", "helgdag"], feedback: [{ match: "snaps", tip: "*snaps* betekent „een borrel (glaasje sterkedrank)”. Lees de zin nog eens: wat past hier?" }] }] }
+          - { id: uanu, type: gap, text: "På Valborg ___ man stora eldar och sjunger in våren.", gaps: [{ answers: ["tänder"], options: ["tänder", "släcker", "hyllar", "klär ut"], feedback: [{ match: "släcker", tip: "*släcka* betekent „uitdoen (licht), blussen”. Lees de zin nog eens: wat past hier?" }] }] }
+          - { id: rgz2, type: gap, text: "Vilken ___ tycker du bäst om, våren eller hösten?", gaps: [{ answers: ["årstid"], options: ["årstid", "helgdag", "namnsdag", "ceremoni"], feedback: [{ match: "helgdag", tip: "*helgdag* betekent „een vrije feestdag”. Lees de zin nog eens: wat past hier?" }] }] }
+          - { id: 52fp, type: gap, text: "Begravningen var mycket ___, och efteråt bjöd familjen på kaffe.", gaps: [{ answers: ["högtidlig"], options: ["högtidlig", "festlig", "hednisk", "årlig"], feedback: [{ match: "festlig", tip: "*festlig* betekent „feestelijk”. Lees de zin nog eens: wat past hier?" }] }] }
+          - { id: 94b8, type: gap, text: "Han berättade ett roligt ___ på sin namnsdag.", gaps: [{ answers: ["skämt"], options: ["skämt", "ursprung", "dop", "firande"], feedback: [{ match: "ursprung", tip: "*ursprung* betekent „een oorsprong, een herkomst”. Lees de zin nog eens: wat past hier?" }] }] }
 
 vocab:
   - { sv: "ett nattåg", nl: "een nachttrein", def: "nattåget", pl: "nattåg", plDef: "nattågen", ex: "Vi tog **nattåget** från Stockholm till Abisko.", exNl: "We namen de nachttrein van Stockholm naar Abisko." }

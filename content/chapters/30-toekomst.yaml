@@ -37,7 +37,7 @@ sections:
       - id: lasa-2050
         title: "Lezen: Zweden in 2050"
         instruction: Lees de tekst en beantwoord de vragen.
-        topic: framtid-b2
+        topic: woordenschat
         textTitle: Hur ser Sverige ut år 2050?
         text: |
           Ingen kan veta exakt hur framtiden blir, men det finns trender som framtidsforskare följer noga. Befolkningen väntas bli allt äldre, eftersom vi lever längre och föder färre barn. Det kommer att ställa nya krav på vården och äldreomsorgen, och fler kommer sannolikt att behöva jobba längre upp i åldern.

@@ -279,11 +279,11 @@ sections:
         instruction: Herschrijf de zin. Begin zoals aangegeven.
         topic: particip-konstruktion
         items:
-          - { id: 4gts, type: transform, prompt: "Studien som publicerades nyligen visar att regelbunden motion kan förbättra minnet hos äldre personer.", task: "Pak in. Begin met: Den nyligen …", answers: ["Den nyligen publicerade studien visar att regelbunden motion kan förbättra minnet hos äldre personer."], feedback: [{ contains: "nyligen publicerad studien", tip: "Na den: publicerade." }] }
+          - { id: 4gts, type: transform, prompt: "Studien som publicerades nyligen visar att regelbunden motion kan förbättra minnet hos äldre personer.", task: "Pak in. Begin met: Den nyligen …", answers: ["Den nyligen publicerade studien visar att regelbunden motion kan förbättra {minnet hos äldre personer|äldre personers minne}."], feedback: [{ contains: "nyligen publicerad studien", tip: "Na den: publicerade." }] }
           - { id: u983, type: transform, prompt: "Patienterna som deltog i försöket fick svara på frågor om sin sömn varje morgon.", task: "Pak in. Begin met: De i försöket …", answers: ["De i försöket deltagande patienterna fick svara på frågor om sin sömn varje morgon."], feedback: [{ contains: ["deltande", "deltagna", "deltagade"], tip: "Tegenwoordig deelwoord van delta (deltaga): deltagande." }] }
           - { id: 7cgp, type: transform, prompt: "Den av forskarna utvecklade metoden används i dag på flera sjukhus i Sverige.", task: "Pak uit. Begin met: Metoden som …", answers: ["Metoden som forskarna {utvecklade|har utvecklat} används i dag på flera sjukhus i Sverige.", "Metoden som {utvecklades|har utvecklats} av forskarna används i dag på flera sjukhus i Sverige."] }
           - { id: t4bd, type: transform, prompt: "Det snabbt växande intresset för sömnforskning har lett till många nya studier de senaste åren.", task: "Pak uit. Begin met: Intresset för sömnforskning, som …", answers: ["Intresset för sömnforskning, som {växer snabbt|snabbt växer}, har lett till många nya studier [under ]de senaste åren."] }
-          - { id: subd, type: transform, topic: nominalfras, prompt: "Slutsatsen som forskarna drog var att sömnen sannolikt spelar en avgörande roll för långtidsminnet.", task: "Gebruik een genitief. Begin met: Forskarnas …", answers: ["Forskarnas slutsats var att sömnen sannolikt spelar en avgörande roll för långtidsminnet."], feedback: [{ contains: "forskarnas slutsatsen", tip: "Na een genitief volgt de onbepaalde vorm: forskarnas slutsats." }] }
+          - { id: subd, type: transform, topic: nominalfras, prompt: "Slutsatsen som forskarna drog var att sömnen sannolikt spelar en avgörande roll för långtidsminnet.", task: "Gebruik een genitief. Begin met: Forskarnas …", answers: ["Forskarnas slutsats var att sömnen sannolikt spelar en avgörande roll för långtidsminnet."], feedback: [{ contains: "av forskarna dragna", retry: true, tip: "Goed Zweeds, maar gebruik hier een genitief: Forskarnas slutsats …" }, { contains: "forskarnas slutsatsen", tip: "Na een genitief volgt de onbepaalde vorm: forskarnas slutsats." }] }
 
       - id: particip-invullen
         title: Deelwoorden in lange zinnen
@@ -474,6 +474,20 @@ sections:
           - { id: y2te, type: gap, topic: trender, text: "Antalet deltagare ___ (fördubblas) mellan 2010 och 2020.", gaps: [{ answers: ["fördubblades"] }] }
           - { id: xpd8, type: gap, topic: indirekt-fraga, text: "Forskarna undersökte ___ sömnen påverkar minnet hos äldre.", gaps: [{ answers: ["hur"], options: ["hur", "vad", "som"], shuffle: false }] }
           - { id: nahq, type: gap, topic: ordbildning, text: "Det är inte möjligt. Det är ___.", gaps: [{ answers: ["omöjligt"], feedback: [{ match: ["omöjlig", "inte möjligt"], tip: "Maak het tegenovergestelde met o-, en na det är: -t (omöjligt)." }] }] }
+
+      - id: herhaling-woorden
+        title: Woorden van eerder
+        instruction: Kies het woord dat past. Deze woorden komen uit eerdere hoofdstukken.
+        topic: woordenschat
+        shuffle: true
+        items:
+          - { id: k2t3, type: gap, text: "Försäljningen ökade med drygt tio procent under första ___.", gaps: [{ answers: ["kvartalet"], options: ["kvartalet", "andelen", "nivån", "inflationen"], feedback: [{ match: "andelen", tip: "*andel* betekent „een aandeel”. Lees de zin nog eens: wat past hier?" }] }] }
+          - { id: p8bs, type: gap, text: "Företaget gick med ___ förra året, men i år gick det med vinst.", gaps: [{ answers: ["förlust"], options: ["förlust", "intäkt", "omsättning", "tillväxt"], feedback: [{ match: "intäkt", tip: "*intäkt* betekent „een opbrengst, een inkomst”. Lees de zin nog eens: wat past hier?" }] }] }
+          - { id: s2ax, type: gap, text: "Arbetslösheten har ___ på tio år och ligger nu på fyra procent.", gaps: [{ answers: ["halverats"], options: ["halverats", "uppgått", "försvårats", "jämförts"], feedback: [{ match: "uppgått", tip: "*uppgå till* betekent „bedragen”. Lees de zin nog eens: wat past hier?" }] }] }
+          - { id: 3jwq, type: gap, text: "Kostnaderna ___ till fem miljoner kronor, vilket var knappt hälften av intäkterna.", gaps: [{ answers: ["uppgick"], options: ["uppgick", "försvårades", "jämfördes", "investerades"], feedback: [{ match: "jämfördes", tip: "*jämföra* betekent „vergelijken”. Lees de zin nog eens: wat past hier?" }] }] }
+          - { id: spnm, type: gap, text: "___ med förra året är arbetslösheten nästan oförändrad.", gaps: [{ answers: ["Jämfört"], options: ["Jämfört", "Främst", "Gradvis", "Stadigt"], feedback: [{ match: "Främst", tip: "*Främst* betekent „voornamelijk, vooral”. Lees de zin nog eens: wat past hier?" }] }] }
+          - { id: gac6, type: gap, text: "Sveriges ___ består främst av maskiner, bilar och trä.", gaps: [{ answers: ["export"], options: ["export", "lågkonjunktur", "budget", "aktie"], feedback: [{ match: "budget", tip: "*budget* betekent „een budget, begroting”. Lees de zin nog eens: wat past hier?" }] }] }
+          - { id: stad, type: gap, text: "Under en ___ minskar tillväxten och många förlorar jobbet.", gaps: [{ answers: ["lågkonjunktur"], options: ["lågkonjunktur", "omsättning", "marknad", "ökning"], feedback: [{ match: "ökning", tip: "*ökning* betekent „een stijging, een toename”. Lees de zin nog eens: wat past hier?" }] }] }
 
 vocab:
   - { sv: "en studie", nl: "een studie, een onderzoek", def: "studien", pl: "studier", plDef: "studierna", ex: "En ny **studie** visar att motion förbättrar minnet.", exNl: "Een nieuwe studie laat zien dat beweging het geheugen verbetert." }

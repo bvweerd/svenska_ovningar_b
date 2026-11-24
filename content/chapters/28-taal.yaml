@@ -65,7 +65,7 @@ sections:
       - id: lasa-svenska
         title: "Lezen: welk Zweeds spreek jij?"
         instruction: Lees de tekst en beantwoord de vragen.
-        topic: register
+        topic: woordenschat
         textTitle: Vilken svenska talar du?
         text: |
           Svenska låter inte likadant överallt. En person från Malmö och en person från Luleå kan ha svårt att förstå varandras dialekter, och i Finland har omkring fem procent av befolkningen svenska som modersmål. I Skåne uttalar många r-ljudet långt bak i munnen, ungefär som på danska, och i norra Sverige har språket en helt annan melodi. Finlandssvenskan har några egna ord, men de flesta svenskar förstår den utan problem.
@@ -484,6 +484,19 @@ sections:
           - { id: g5fg, type: gap, topic: idiom, text: "Det är ingen ___ på isen, vi har gott om tid.", gaps: [{ answers: ["ko"] }] }
           - { id: apk2, type: transform, topic: utbrytning, task: "Leg de nadruk op het vetgedrukte deel, met det är … som.", prompt: "**Ungdomarna** förändrar språket snabbast.", answers: ["Det är ungdomarna som förändrar språket snabbast."] }
           - { id: 4xaz, type: gap, topic: nominalisering, text: "förändra → en ___", gaps: [{ answers: ["förändring"] }] }
+
+      - id: herhaling-woorden
+        title: Woorden van eerder
+        instruction: Kies het woord dat past. Deze woorden komen uit eerdere hoofdstukken.
+        topic: woordenschat
+        shuffle: true
+        items:
+          - { id: 7s23, type: gap, text: "I sin debattartikel driver hon ___ att skoldagen ska bli kortare.", gaps: [{ answers: ["tesen"], options: ["tesen", "repliken", "publiken", "motparten"], feedback: [{ match: "repliken", tip: "*replik* betekent „een repliek, een weerwoord”. Lees de zin nog eens: wat past hier?" }] }] }
+          - { id: vs7r, type: gap, text: "Debattledaren bad honom att inte ___ sin motpart.", gaps: [{ answers: ["avbryta"], options: ["avbryta", "motivera", "försvara", "invända"], feedback: [{ match: "motivera", tip: "*motivera* betekent „onderbouwen, motiveren”. Lees de zin nog eens: wat past hier?" }] }] }
+          - { id: pw7v, type: gap, text: "Hans påstående saknar ___, så det är svårt att ta det på allvar.", gaps: [{ answers: ["belägg"], options: ["belägg", "inlägg", "publik", "ståndpunkt"], feedback: [{ match: "inlägg", tip: "*inlägg* betekent „een bijdrage (in een debat), een post”. Lees de zin nog eens: wat past hier?" }] }] }
+          - { id: gsyp, type: gap, text: "Å ena sidan är förslaget dyrt, å ___ sidan kan det spara pengar på sikt.", gaps: [{ answers: ["andra"], options: ["andra", "ena", "samma", "hela"] }] }
+          - { id: fbtb, type: gap, text: "Argumenten måste vara ___, inte ensidiga eller orimliga.", gaps: [{ answers: ["sakliga"], options: ["sakliga", "kontroversiella", "närvarande", "ensidiga"], feedback: [{ match: "kontroversiella", tip: "*kontroversiell* betekent „omstreden”. Lees de zin nog eens: wat past hier?" }] }] }
+          - { id: 52d3, type: gap, text: "Elevrådet ___ beslutet om mobilförbud och krävde en omröstning.", gaps: [{ answers: ["ifrågasatte"], options: ["ifrågasatte", "motiverade", "avbröt", "invände"], feedback: [{ match: "motiverade", tip: "*motivera* betekent „onderbouwen, motiveren”. Lees de zin nog eens: wat past hier?" }] }] }
 
 vocab:
   - { sv: "en dialekt", nl: "een dialect", def: "dialekten", pl: "dialekter", plDef: "dialekterna", ex: "Min mormor talar en bred skånsk **dialekt**.", exNl: "Mijn oma spreekt een breed dialect uit Skåne." }
