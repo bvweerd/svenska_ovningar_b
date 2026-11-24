@@ -66,6 +66,51 @@ export function misspelled(words) {
   return new Set(r.stdout.split('\n').filter(Boolean));
 }
 
+/** Basisvorm per woord volgens hunspell (`-s`); woorden die het woordenboek niet kent, ontbreken. */
+export function stems(words) {
+  const uniq = [...new Set(words)];
+  const out = new Map();
+  if (!uniq.length) return out;
+  const r = spawnSync('hunspell', ['-d', 'sv_SE', '-s', '-i', 'utf-8'], {
+    input: `${uniq.join('\n')}\n`, encoding: 'utf8', maxBuffer: 1 << 26, env: { ...process.env, LC_ALL: 'C.UTF-8' },
+  });
+  if (r.status !== 0) throw new Error(`hunspell faalde: ${r.stderr || r.error}`);
+  for (const line of r.stdout.split('\n')) {
+    const [w, stem] = line.trim().split(/\s+/);
+    if (w && stem && !out.has(w)) out.set(w, stem);
+  }
+  return out;
+}
+
+/**
+ * Verschillende woorden (basisvormen) in de stof per hoofdstuk: [{ chapter, nieuw, totaal }], cumulatief.
+ * Telt kleine-letterwoorden die het woordenboek kent (dus geen namen en geen woorden uit stavning.txt).
+ */
+export function lemmaCounts(chapters, stem = stems) {
+  const lemmaFirst = lemmaChapters(chapters, stem);
+  let totaal = 0;
+  return chapters.map((ch) => {
+    const nieuw = [...lemmaFirst.values()].filter((c) => c === ch.chapter).length;
+    totaal += nieuw;
+    return { chapter: ch.chapter, nieuw, totaal };
+  });
+}
+
+/** Map basisvorm → eerste hoofdstuk waarin hij in de stof staat (zie lemmaCounts). */
+export function lemmaChapters(chapters, stem = stems) {
+  const first = new Map();
+  for (const ch of chapters) for (const [, t] of swedishTexts(ch)) {
+    for (const w of t.match(WORD) ?? []) for (const p of w.toLowerCase().split('-')) if (p && !/\d/.test(p) && !first.has(p)) first.set(p, ch.chapter);
+  }
+  const s = stem([...first.keys()]);
+  const lemmaFirst = new Map();
+  for (const [w, c] of first) {
+    const l = s.get(w);
+    if (l && !(lemmaFirst.get(l) <= c)) lemmaFirst.set(l, c);
+  }
+  return lemmaFirst;
+}
+
 /** Lijst met goedgekeurde woorden (kleine letters); regels met # zijn commentaar. */
 export function loadAllowed(file = path.join(root, 'content', 'stavning.txt')) {
   if (!fs.existsSync(file)) return new Set();
