@@ -3,7 +3,7 @@
 import { isGradable } from '../items/index.js';
 import { shuffle } from '../content/build.js';
 import { answerHash, exKey, itemId, itemKey, itemRecord, gradable } from './schema.js';
-import { nextSrs, withDay } from './srs.js';
+import { nextSrs, withDay, withGoalDay } from './srs.js';
 
 /**
  * @param opts.outside  true als de vraag buiten de oefening zelf gemaakt is (toets, mix, herhaling)
@@ -17,12 +17,13 @@ export function recordItem(state, ch, ex, idx, status, { outside = false, review
   const srs = state.srs ?? {};
   const prev = srs[key]?.h === h ? srs[key] : null;
   const next = nextSrs(prev, status, now);
-  return {
+  const out = {
     ...state,
     items: { ...state.items, [key]: { s: status, at: now, h, ...(outside ? { x: 1 } : {}), ...(review ? { r: 1 } : {}), ...(status === 'wrong' && share > 0 ? { p: Math.round(share * 100) / 100 } : {}) } },
     srs: next ? { ...srs, [key]: { ...next, h } } : srs,
     days: withDay(state.days, now),
   };
+  return review ? withGoalDay(out, now) : out;
 }
 
 /** De vraagnummers (idx) van de lopende ronde: alle vragen, of de gekozen deelverzameling (pick). */

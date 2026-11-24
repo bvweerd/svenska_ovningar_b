@@ -45,12 +45,20 @@ is, start in doos 2 (over twee dagen terug). **Jouw statistieken** (`#/statistie
 voortgang per hoofdstuk en de lastigste onderwerpen zien.
 
 **Prestaties** (`#/prestaties`, `src/core/rewards/badges.js`): badges die de app zelf uitreikt op basis van
-wat hij nakijkt: afgeronde oefeningen en hoofdstukken, kan-doen-doelen, vragen in doos 4+, toetsen ≥ 80%,
-oefendagen (in totaal, niet op rij), dictee en snelle rondes. Flitskaarten (losse woordjes) tellen niet mee.
-Een behaalde badge blijft staan en synchroniseert mee. De badge-id's zijn vast: niet veranderen.
+wat hij nakijkt: afgeronde oefeningen en hoofdstukken (ook alle hoofdstukken van de site), kan-doen-doelen,
+vragen in doos 4+, hoofdstukken met ≥ 90% van de vragen in doos 4+ (`CHAPTER_MASTERY`), toetsen ≥ 80%,
+oefendagen en dagen met het dagdoel van de herhaling gehaald (`goalDays`; in totaal, niet op rij), dictee,
+de snelle rondes (samen en per spel) en per strand: makkelijke teksten, luisteroefeningen, „Wat zeg je?”,
+schrijfopdrachten en doeltaken. Een oefening die de plaatsingstoets heeft overgeslagen, telt voor een strand
+niet mee. Een niveau dat een site niet kan halen (te weinig oefeningen van die soort, zoals doeltaken op de
+B-site) verschijnt niet. Flitskaarten (losse woordjes) tellen niet mee. Een behaalde badge blijft staan en
+synchroniseert mee; nieuwe badges die je met oude voortgang al haalt, komen er stil bij. De badge-id's zijn
+vast: niet veranderen. De pagina deelt de badges in per strand.
 Elke groep heeft een Zweeds plaatje (`src/ui/components/badge-icon.js`, inline SVG): dalahäst, midsommarstång,
-rood huisje, eland, studentmössa, Tre Kronor, fika, nyckelharpa en Vasaloppet-ski's. De rand toont het niveau
-(brons, zilver, goud; blauw-geel bij een losse badge en een vlagrand bij het vierde niveau).
+rood huisje, eland, studentmössa, Tre Kronor, fika, nyckelharpa, Vasaloppet-ski's, boek, näverlur,
+tekstballon, runensteen, trätoffel, köttbullar met lingon, kräfta, vikingschip, falukorv en hembränt met
+snapsglas. De rand toont het niveau (brons, zilver, goud; blauw-geel bij een losse badge en een vlagrand bij
+het vierde niveau).
 
 **Hint**: bij vragen waar je iets typt geeft de knop Hint het begin van het antwoord (of een eigen `help`
 in de vraag). Met hint telt een vraag als goed na hulp, niet als in één keer goed.

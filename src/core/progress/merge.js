@@ -22,7 +22,7 @@ const exTime = (r) => r?.at ?? Math.max(r?.completedAt ?? 0, r?.runStart ?? 0);
  * Voegt twee voortgangen samen zonder iets kwijt te raken. a is dit apparaat, b de andere kant.
  * - Per vraag telt de laatst gemaakte poging; de Leitner-doos hoort bij die poging.
  * - Per oefening, toets en spel: de nieuwste ronde, met de hoogste beste score van beide.
- * - Flitskaarten en dictee: het nieuwste oordeel. Oefendagen: allebei.
+ * - Flitskaarten en dictee: het nieuwste oordeel. Oefendagen en dagen met het dagdoel: allebei.
  * - Instellingen (stem, invoer, enz.) horen bij het apparaat: die van a blijven staan, b vult alleen aan.
  * - Badges: allebei, met het vroegste tijdstip.
  */
@@ -57,6 +57,7 @@ export function mergeStates(a, b, now = Date.now()) {
     // Een tijdstip ver in de toekomst (klok van een apparaat loopt voor) zou altijd winnen: dan telt dat niet.
     last: a.last && b.last ? newest(a.last, b.last, (r) => (atOf(r) > now + 3600000 ? 0 : atOf(r))) : a.last ?? b.last ?? null,
     days: [...new Set([...(a.days ?? []), ...(b.days ?? [])])].sort().slice(-400),
+    goalDays: [...new Set([...(a.goalDays ?? []), ...(b.goalDays ?? [])])].sort().slice(-400),
     prefs,
     cards: mergeMap(a.cards, b.cards, byStamp('c/')),
     dictee: mergeMap(a.dictee, b.dictee, byStamp('d/')),

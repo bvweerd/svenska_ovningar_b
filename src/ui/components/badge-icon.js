@@ -111,6 +111,106 @@ const MOTIFS = {
 <path d="M22 13 L42 51 M42 13 L22 51" stroke="#5A5F6A" stroke-width="1.6" stroke-linecap="round"/>
 <circle cx="40" cy="47" r="2.4" fill="none" stroke="#5A5F6A" stroke-width="1.2"/><circle cx="24" cy="47" r="2.4" fill="none" stroke="#5A5F6A" stroke-width="1.2"/>
 ${ski(28)}${ski(-28)}`,
+  // Makkelijke teksten lezen: open boek met blauw-gele bladwijzer
+  lezen: `
+<path d="M32 24 Q23 19 11 21 L11 47 Q23 45 32 50 Q41 45 53 47 L53 21 Q41 19 32 24 Z" fill="${FALU}"/>
+<path d="M32 23 Q24 18 13.5 19.5 L13.5 44.5 Q24 43 32 47.5 Z" fill="${WHITE}" stroke="#9AA1AD" stroke-width="0.7"/>
+<path d="M32 23 Q40 18 50.5 19.5 L50.5 44.5 Q40 43 32 47.5 Z" fill="${WHITE}" stroke="#9AA1AD" stroke-width="0.7"/>
+<path d="M17 25 Q23 24 28.5 26.5 M17 29.5 Q23 28.5 28.5 31 M17 34 Q23 33 28.5 35.5 M17 38.5 Q22 37.5 26 39.5 M35.5 26.5 Q41 24 47 25 M35.5 31 Q41 28.5 47 29.5" fill="none" stroke="#9AA1AD" stroke-width="1" stroke-linecap="round"/>
+<path d="M39 21.5 L39 41 L41.5 38.5 L44 41 L44 20.6 Z" fill="${BLUE}"/><rect x="39" y="30" width="5" height="1.8" fill="${YELLOW}"/>`,
+
+  // Luisteren: näverlur (herdershoorn van berkenbast) met geluidsgolven
+  luisteren: `
+<g transform="translate(31 35) scale(0.84) translate(-32 -32)">
+<g transform="rotate(-28 32 32)">
+<path d="M11 30.8 L42 28 Q47 27 51 24.5 L51 39.5 Q47 37 42 36 L11 33.2 Z" fill="#EFE4CC" stroke="#8A6A3A" stroke-width="0.8" stroke-linejoin="round"/>
+<g fill="#5A3A1E"><rect x="18" y="30.2" width="1.6" height="3.6"/><rect x="27" y="29.5" width="1.8" height="5"/><rect x="36" y="28.6" width="2" height="6.8"/><rect x="45.5" y="26.4" width="1.6" height="11.2"/></g>
+<rect x="9" y="30.4" width="3" height="3.2" rx="0.8" fill="#5A3A1E"/>
+</g>
+<path d="M47 11 q4 3 3.5 8 M50.5 8 q6 5 4.5 13" fill="none" stroke="${BLUE}" stroke-width="1.6" stroke-linecap="round"/>
+<path d="M44 14 q2.5 2 2.2 5" fill="none" stroke="${YELLOW}" stroke-width="1.6" stroke-linecap="round"/></g>`,
+
+  // Wat zeg je?: tekstballonnen
+  zeggen: `
+<path d="M14 17 H44 Q48 17 48 21 V33 Q48 37 44 37 H27 L19 44 L21 37 H14 Q10 37 10 33 V21 Q10 17 14 17 Z" fill="${BLUE}"/>
+<text x="29" y="31.5" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="12" font-weight="700" fill="${WHITE}">Hej!</text>
+<path d="M38 36 H50 Q53 36 53 39 V45 Q53 48 50 48 H48 L49.5 52 L44 48 H38 Q35 48 35 45 V39 Q35 36 38 36 Z" fill="${YELLOW}" stroke="#B88A00" stroke-width="0.8"/>
+<circle cx="40" cy="42" r="1.2" fill="${INK}"/><circle cx="44" cy="42" r="1.2" fill="${INK}"/><circle cx="48" cy="42" r="1.2" fill="${INK}"/>`,
+
+  // Schrijven: runensteen met slingerende runenband
+  schrijven: `
+<ellipse cx="32" cy="50" rx="15" ry="2.8" fill="#7CB342"/>
+<path d="M21 50 Q18 31 22.5 19 Q32 9 41.5 19 Q46 31 43 50 Z" fill="#9AA0A8" stroke="#666C75" stroke-width="0.8"/>
+<path d="M25.5 49 Q23 31 26.5 21.5 Q32 14 37.5 21.5 Q41 31 38.5 49" fill="none" stroke="${FALU}" stroke-width="3.2" stroke-linecap="round"/>
+<path d="M25.2 44 l1.4 -2 M24.8 38 l1.6 1 M24.9 32 l1.4 -1.5 M25.8 26 l1.6 1.2 M29 19.5 l0.8 1.8 M34.2 19.2 l-0.6 1.9 M37.4 23.5 l1.6 -0.8 M38.6 29 l1.4 1.2 M39.2 35 l1.2 -1.4 M39.2 41 l1.4 1 M38.8 46 l1.4 -1.2" stroke="${WHITE}" stroke-width="0.8" stroke-linecap="round"/>
+<path d="M30.5 26 V40 M30.5 30 L34 27 M30.5 34 L34 31 M34.5 33 V43 M34.5 36 L31.5 39" fill="none" stroke="${INK}" stroke-width="1.2" stroke-linecap="round"/>`,
+
+  // Doeltaken: trätoffel (houten klomp met leren kap)
+  taak: `
+<path d="M10 40 L54 40 L54 43 Q54 47 50 47 L14 47 Q10 47 10 43 Z" fill="${WOOD}" stroke="#7A4A1E" stroke-width="0.8"/>
+<path d="M22 40 Q21 25 35 24.5 Q48 25 52 37 L52 40 Z" fill="${FALU}" stroke="#6E181B" stroke-width="0.8"/>
+<path d="M22 40 Q22 33 28 31" fill="none" stroke="#6E181B" stroke-width="1"/>
+<g fill="${YELLOW}"><circle cx="24" cy="38.5" r="0.9"/><circle cx="24.3" cy="33" r="0.9"/><circle cx="27" cy="28" r="0.9"/><circle cx="32" cy="25.6" r="0.9"/><circle cx="38" cy="25.6" r="0.9"/><circle cx="43.5" cy="27.6" r="0.9"/><circle cx="48" cy="31.5" r="0.9"/><circle cx="51" cy="36.5" r="0.9"/></g>
+<path d="M38 33 l1.5 -2.5 l1.5 2.5 l-1.5 2.5 Z M34.5 34 h3 M41 34 h3" fill="${WHITE}" stroke="${WHITE}" stroke-width="0.8" stroke-linejoin="round"/>`,
+
+  // Dagdoel herhaling: köttbullar met lingon
+  dagdoel: `
+<ellipse cx="32" cy="38" rx="21" ry="10.5" fill="${WHITE}" stroke="#9AA1AD" stroke-width="0.8"/>
+<ellipse cx="32" cy="38" rx="15" ry="7" fill="none" stroke="${BLUE}" stroke-width="0.8"/>
+<g fill="#7A4A26" stroke="#4E2C14" stroke-width="0.6">
+<circle cx="24" cy="35.5" r="4.6"/><circle cx="33" cy="33" r="4.6"/><circle cx="28.5" cy="40.5" r="4.6"/><circle cx="37.5" cy="39.5" r="4.6"/></g>
+<g fill="#B47A4A"><circle cx="22.6" cy="34" r="1.3"/><circle cx="31.6" cy="31.5" r="1.3"/><circle cx="27.1" cy="39" r="1.3"/><circle cx="36.1" cy="38" r="1.3"/></g>
+<g fill="#C62828" stroke="#7F1414" stroke-width="0.4"><circle cx="45" cy="36" r="1.6"/><circle cx="47.5" cy="38.5" r="1.6"/><circle cx="44.5" cy="39.5" r="1.6"/><circle cx="47.5" cy="35" r="1.4"/><circle cx="46" cy="41.8" r="1.4"/></g>
+<path d="M43 33 q2 -4 6 -3.5 q-2 3.5 -6 3.5 Z" fill="${GREEN}"/>
+<path d="M20 22 q-2 -3 0 -6 M27 22 q-2 -3 0 -6 M34 21 q-2 -3 0 -6" fill="none" stroke="#9AA1AD" stroke-width="1.1" stroke-linecap="round"/>`,
+
+  // Hoofdstuk beheerst: kräfta
+  hoofdstukbeheerst: `
+<g transform="translate(32 34.5) scale(0.76) translate(-32 -32)">
+<g fill="#C62828" stroke="#7F1414" stroke-width="0.7" stroke-linejoin="round">
+<path d="M28.5 25 Q24 22 22 18 L20 15" fill="none" stroke-width="2"/><path d="M35.5 25 Q40 22 42 18 L44 15" fill="none" stroke-width="2"/>
+<path d="M20 15 Q13 15 13 9.5 Q16 12 19 11.5 Q17 9 18.5 6.5 Q23 9 22.5 13.5 Z"/>
+<path d="M44 15 Q51 15 51 9.5 Q48 12 45 11.5 Q47 9 45.5 6.5 Q41 9 41.5 13.5 Z"/>
+<ellipse cx="32" cy="28" rx="5.6" ry="8"/>
+<rect x="27.6" y="35" width="8.8" height="3.4" rx="1.4"/><rect x="28" y="38.2" width="8" height="3.2" rx="1.4"/><rect x="28.5" y="41.2" width="7" height="3" rx="1.3"/>
+<path d="M32 43.5 L26 50 Q32 52 38 50 Z"/></g>
+<path d="M27 29 L21 31 M27 32 L21.5 35 M27.4 35 L23 39 M37 29 L43 31 M37 32 L42.5 35 M36.6 35 L41 39" stroke="#7F1414" stroke-width="1.1" stroke-linecap="round"/>
+<path d="M30 21 Q26 14 22 11 M34 21 Q38 14 42 11" fill="none" stroke="#7F1414" stroke-width="0.6"/>
+<circle cx="30" cy="23" r="0.9" fill="${INK}"/><circle cx="34" cy="23" r="0.9" fill="${INK}"/>
+<path d="M50 44 q2 -4 1 -8 M50 44 q-3 -2 -4 -5 M50 44 q3 -1 4 -4" fill="none" stroke="${GREEN}" stroke-width="0.9" stroke-linecap="round"/></g>`,
+
+  // Vlot herhalen: vikingschip
+  vlot: `
+<path d="M10 48 q3 -2 6 0 t6 0 t6 0 t6 0 t6 0 t6 0 t6 0" fill="none" stroke="${BLUE}" stroke-width="1.6" stroke-linecap="round"/>
+<path d="M12 36 Q14 45 32 45 Q50 45 52 36 Q32 40 12 36 Z" fill="${WOOD}" stroke="#7A4A1E" stroke-width="0.8"/>
+<path d="M13 37 Q9 29 12.5 24.5 Q15.5 22 17 25.5 L14.5 26" fill="none" stroke="#7A4A1E" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M51 37 Q55 30 52 26" fill="none" stroke="#7A4A1E" stroke-width="2.4" stroke-linecap="round"/>
+<rect x="31.2" y="12" width="1.6" height="26" fill="#5A3412"/>
+<rect x="21" y="14" width="22" height="18" fill="${WHITE}" stroke="#9AA1AD" stroke-width="0.6"/>
+<g fill="${FALU}"><rect x="21" y="14" width="4.4" height="18"/><rect x="29.8" y="14" width="4.4" height="18"/><rect x="38.6" y="14" width="4.4" height="18"/></g>
+<g stroke="#7A4A1E" stroke-width="0.5"><circle cx="18" cy="39" r="2" fill="${YELLOW}"/><circle cx="23.5" cy="40.3" r="2" fill="${BLUE}"/><circle cx="29" cy="41" r="2" fill="${YELLOW}"/><circle cx="35" cy="41" r="2" fill="${BLUE}"/><circle cx="40.5" cy="40.3" r="2" fill="${YELLOW}"/><circle cx="46" cy="39" r="2" fill="${BLUE}"/></g>`,
+
+  // En of ett?: falukorv
+  'en-ett': `
+<path d="M17 43 A15.5 15.5 0 1 1 47 43" fill="none" stroke="#7E2A1C" stroke-width="10.5" stroke-linecap="round"/>
+<path d="M17 43 A15.5 15.5 0 1 1 47 43" fill="none" stroke="#B5452F" stroke-width="8.5" stroke-linecap="round"/>
+<path d="M19.5 37 A13 13 0 0 1 32 22.5" fill="none" stroke="#D9735C" stroke-width="2" stroke-linecap="round"/>
+<path d="M22 31 q3 -3 1 -6 q4 -1 3 -5 M36 20 q3 3 7 1 q0 4 3 6" fill="none" stroke="${YELLOW}" stroke-width="1.5" stroke-linecap="round"/>
+<rect x="14" y="44.5" width="6" height="3.2" rx="0.8" fill="#9AA1AD"/><rect x="44" y="44.5" width="6" height="3.2" rx="0.8" fill="#9AA1AD"/>
+<ellipse cx="32" cy="46.5" rx="5.5" ry="4" fill="#E9A493" stroke="#7E2A1C" stroke-width="1.2"/>
+<g fill="#F6D2C8"><circle cx="30.5" cy="45.5" r="0.7"/><circle cx="33.6" cy="47.4" r="0.7"/><circle cx="31.5" cy="48.2" r="0.6"/></g>`,
+
+  // Alle hoofdstukken af: hembränt en een snapsglas (skål!)
+  alles: `
+<path d="M20 22 h7 v4 Q32 29 32 34 V48 Q32 51 29 51 H18 Q15 51 15 48 V34 Q15 29 20 26 Z" fill="#DDEFF7" stroke="#7FA7BF" stroke-width="0.9"/>
+<path d="M15.6 36 H31.4 V48 Q31.4 50.4 29 50.4 H18 Q15.6 50.4 15.6 48 Z" fill="#F4FAFD"/>
+<rect x="19.5" y="16" width="8" height="6.5" rx="1" fill="#B5793A" stroke="#7A4A1E" stroke-width="0.7"/>
+<rect x="17.5" y="38" width="12" height="8.5" fill="${WHITE}" stroke="#9AA1AD" stroke-width="0.6" transform="rotate(-4 23.5 42)"/>
+<path d="M19 41 h8 M19.5 43.8 h6" stroke="${BLUE}" stroke-width="1" stroke-linecap="round" transform="rotate(-4 23.5 42)"/>
+<path d="M38 32 H49 L47 46 Q46.5 48 43.5 48 Q40.5 48 40 46 Z" fill="#DDEFF7" stroke="#7FA7BF" stroke-width="0.9"/>
+<path d="M38.6 36 H48.4 L46.9 45.7 Q46.4 47.4 43.5 47.4 Q40.6 47.4 40.1 45.7 Z" fill="#F4FAFD"/>
+<rect x="41.5" y="48" width="4" height="2.4" fill="#7FA7BF"/>
+<g stroke="${YELLOW}" stroke-width="1.5" stroke-linecap="round"><path d="M43.5 21 v5 M37 24 l2.5 3.5 M50 24 l-2.5 3.5"/></g>`,
 };
 
 /** Rand per niveau: [buitenrand, binnenrand]. */

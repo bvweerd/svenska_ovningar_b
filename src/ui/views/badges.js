@@ -26,30 +26,45 @@ export function badgeSummary() {
   return { earned: list.filter((b) => b.earned).length, total: list.length };
 }
 
+// Indeling van de pagina: per strand (lezen en luisteren, zeggen en schrijven, herhalen, vlot) en de rest.
+const SECTIONS = [
+  { title: 'Oefeningen en hoofdstukken', groups: ['oefening', 'hoofdstuk', 'alles', 'doelen', 'toets', 'foutloos'] },
+  { title: 'Lezen en luisteren', groups: ['lezen', 'luisteren', 'dictee'] },
+  { title: 'Zeggen en schrijven', groups: ['zeggen', 'schrijven', 'taak'] },
+  { title: 'Herhalen en onthouden', groups: ['beheerst', 'hoofdstukbeheerst', 'dagdoel', 'dagen'] },
+  { title: 'Vlot', groups: ['snel', 'vlot', 'en-ett'] },
+];
+
 export function viewBadges() {
   document.title = 'Prestaties · Svenska övningar';
   const list = badges();
   const earned = list.filter((b) => b.earned);
-  // Per groep alleen de eerstvolgende die nog niet behaald is: geen muur van grijze badges.
-  const next = [];
+  // Per groep de behaalde en alleen de eerstvolgende die nog niet behaald is: geen muur van grijze badges.
+  const shown = [];
   const seen = new Set();
   for (const b of list) {
-    if (b.earned || seen.has(b.group)) continue;
-    seen.add(b.group);
-    next.push(b);
+    if (b.earned) shown.push(b);
+    else if (!seen.has(b.group)) {
+      seen.add(b.group);
+      shown.push(b);
+    }
   }
+  const placed = new Set(SECTIONS.flatMap((x) => x.groups));
+  const sections = [...SECTIONS, { title: 'Overig', groups: [...new Set(list.map((b) => b.group))].filter((g) => !placed.has(g)) }]
+    .map(({ title, groups }) => {
+      // Behaald eerst, daarna wat je nog kunt halen; binnen elk deel in de volgorde van de groepen.
+      const mine = shown.filter((b) => groups.includes(b.group));
+      const order = (b) => (b.earned ? 0 : 1000) + groups.indexOf(b.group);
+      return { title, cards: mine.sort((x, y) => order(x) - order(y)) };
+    })
+    .filter((x) => x.cards.length);
   return h('div', {},
     crumbs({ label: 'Start', href: '#/' }, { label: 'Voortgang', href: '#/voortgang' }, { label: 'Prestaties' }),
     h('header', { class: 'page-head' },
       h('h1', {}, 'Prestaties'),
       h('p', { class: 'lead' }, `Je hebt ${earned.length} van de ${list.length} prestaties behaald.`),
-      h('p', { class: 'muted' }, 'Prestaties komen vanzelf: de app houdt bij wat je goed doet. Ze gaan vooral over wat je beheerst, niet over hoe vaak je klikt. Een gemiste dag kost je niets.')),
-    earned.length
-      ? h('section', { class: 'block' }, h('h2', {}, 'Behaald'), h('ul', { class: 'badge-grid' }, earned.map(badgeCard)))
-      : null,
-    next.length
-      ? h('section', { class: 'block' }, h('h2', {}, 'Volgende'), h('ul', { class: 'badge-grid' }, next.map(badgeCard)))
-      : null,
+      h('p', { class: 'muted' }, 'Prestaties komen vanzelf: de app houdt bij wat je goed doet. Ze gaan vooral over wat je beheerst en over alle kanten van de taal: lezen, luisteren, zeggen, schrijven en herhalen. Een gemiste dag kost je niets.')),
+    sections.map(({ title, cards }) => h('section', { class: 'block' }, h('h2', {}, title), h('ul', { class: 'badge-grid' }, cards.map(badgeCard)))),
   );
 }
 

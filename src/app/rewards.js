@@ -16,7 +16,7 @@ export function initBadges({ onAward = () => {} } = {}) {
   // Alleen deze delen van de voortgang tellen voor een badge. De pure functies laten ongewijzigde delen
   // hetzelfde object, dus „niets veranderd” is een vergelijking van verwijzingen (niet bij elke
   // instelling of „verder waar je was” alle hoofdstukken doorrekenen).
-  const SLICES = ['items', 'srs', 'ex', 'tests', 'games', 'days', 'dictee', 'badges'];
+  const SLICES = ['items', 'srs', 'ex', 'tests', 'games', 'days', 'goalDays', 'dictee', 'badges'];
   let seen = null;
   const award = (state, announce) => {
     if (seen && SLICES.every((k) => state[k] === seen[k])) return;
