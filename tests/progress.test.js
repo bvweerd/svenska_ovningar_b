@@ -400,6 +400,18 @@ describe('deelpunten bij vragen met meer vakjes (issue #6)', () => {
   });
 });
 
+describe('deelpunten bij een vraag in stappen met een bekeken stap (issue #32)', () => {
+  it('bewaart het deel ook bij de status bekeken', async () => {
+    const R = await import('../src/core/progress/record.js');
+    const { empty } = await import('../src/core/progress/schema.js');
+    const ex = { id: 't', items: [{ id: 'a', type: 'steps', steps: [{ type: 'translate', prompt: 'x', answers: ['y'] }, { type: 'translate', prompt: 'x', answers: ['z'] }] }] };
+    let s = R.startRun(empty(), 2, ex, null, 1);
+    s = R.recordItem(s, 2, ex, 0, 'revealed', { share: 0.5, now: 2 });
+    expect(s.items['2/t/a']).toMatchObject({ s: 'revealed', p: 0.5 });
+    expect(R.completeRun(s, 2, ex, 3).score).toBe(0.5);
+  });
+});
+
 describe('dagdoel herhaling (afgeleid uit de antwoorden)', () => {
   it('telt alleen herhaalantwoorden van vandaag', async () => {
     const R = await import('../src/core/progress/record.js');
