@@ -8,8 +8,8 @@ import { nextSrs, withDay, withGoalDay } from './srs.js';
 /**
  * @param opts.outside  true als de vraag buiten de oefening zelf gemaakt is (toets, mix, herhaling)
  * @param opts.review   true als de vraag in de dagelijkse herhaling gemaakt is (r: 1, telt voor het dagdoel)
- * @param opts.share    bij een vraag met meer vakjes die niet in één keer goed was: het deel dat bij de
- *                      eerste poging goed was (0–1). Telt naar rato mee in de score (p).
+ * @param opts.share    bij een vraag met meer vakjes of stappen die niet in één keer goed was: het deel dat bij de
+ *                      eerste poging goed was (0–1), ook als een stap bekeken is. Telt naar rato mee in de score (p).
  */
 export function recordItem(state, ch, ex, idx, status, { outside = false, review = false, share, now = Date.now() } = {}) {
   const key = itemKey(ch, ex, idx);
@@ -19,7 +19,7 @@ export function recordItem(state, ch, ex, idx, status, { outside = false, review
   const next = nextSrs(prev, status, now);
   const out = {
     ...state,
-    items: { ...state.items, [key]: { s: status, at: now, h, ...(outside ? { x: 1 } : {}), ...(review ? { r: 1 } : {}), ...(status === 'wrong' && share > 0 ? { p: Math.round(share * 100) / 100 } : {}) } },
+    items: { ...state.items, [key]: { s: status, at: now, h, ...(outside ? { x: 1 } : {}), ...(review ? { r: 1 } : {}), ...((status === 'wrong' || status === 'revealed') && share > 0 ? { p: Math.round(share * 100) / 100 } : {}) } },
     srs: next ? { ...srs, [key]: { ...next, h } } : srs,
     days: withDay(state.days, now),
   };

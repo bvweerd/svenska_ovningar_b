@@ -147,6 +147,9 @@ export function exerciseRunner(items, { onFinish, offset = { done: 0, good: 0, t
           card.offerNext(label, () => go({ tapped: true }));
           afterPause(go, ms + 200);
         };
+        // Antwoord net getoond: even laten staan. (Een vraag in stappen die je na een bekeken stap zelf
+        // goed afmaakte, telt wel als bekeken, maar gaat gewoon door.)
+        const shown = r.revealed && !r.answered;
         if (finished === items.length) {
           summary.hidden = false;
           summary.replaceChildren(...onFinish(good, done, missed).filter(Boolean));
@@ -154,17 +157,17 @@ export function exerciseRunner(items, { onFinish, offset = { done: 0, good: 0, t
             summary.scrollIntoView({ behavior: 'smooth', block: 'center' });
             summary.querySelector('.btn.primary')?.focus({ preventScroll: true });
           };
-          advance('Naar de uitslag ↓', toSummary, r.revealed ? 1200 : 600);
+          advance('Naar de uitslag ↓', toSummary, shown ? 1200 : 600);
           return;
         }
         // Na een goed antwoord door naar de volgende open vraag.
-        if (r.revealed && !advanceAfterReveal) return;
+        if (shown && !advanceAfterReveal) return;
         const pos = cards.indexOf(card);
         const next = cards.slice(pos + 1).find((c) => !c.isFinished()) ?? cards.find((c) => !c.isFinished());
         if (!next) return;
         // Getypt op een telefoon: de cursor meteen in het volgende tekstveld, nog tijdens de tik of Enter,
         // zodat het toetsenbord open blijft (iOS opent het alleen vanuit een tik). Daarna schuift de pagina mee.
-        if (touch && auto && r.typed && !r.revealed && next.takeKeyboard()) {
+        if (touch && auto && r.typed && !shown && next.takeKeyboard()) {
           // Met het toetsenbord open is de vaste balk bovenaan uit beeld: dan niet scrollIntoView (die laat
           // ruimte voor die balk en zet de kop van de vraag buiten beeld), maar de vraag passend in beeld zetten.
           setTimeout(() => {
@@ -174,7 +177,7 @@ export function exerciseRunner(items, { onFinish, offset = { done: 0, good: 0, t
           }, 700);
           return;
         }
-        advance('Volgende vraag ↓', ({ tapped = false } = {}) => next.focusFirst({ keyboard: tapped }), r.revealed ? 1500 : 600);
+        advance('Volgende vraag ↓', ({ tapped = false } = {}) => next.focusFirst({ keyboard: tapped }), shown ? 1500 : 600);
       }, label);
       cards.push(card);
       return card;

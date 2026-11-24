@@ -11,7 +11,7 @@ const GENERIC_WRONG = 'Nog niet goed.';
 /**
  * @param item    de vraag
  * @param ctx     { topic, findTopic(topic) → {card, href}, ref?: { ch, ex, idx } (voor foutmeldingen) }
- * @param onDone  callback({ firstTry: boolean, revealed: boolean, neutral: boolean })
+ * @param onDone  callback({ firstTry, revealed, neutral, typed, share, answered })
  */
 export function itemCard(item, ctx, number, onDone, label) {
   const topic = item.topic ?? ctx.topic;
@@ -68,8 +68,11 @@ export function itemCard(item, ctx, number, onDone, label) {
   // mee in de score van de oefening, zodat één fout in een tabel niet 0% geeft.
   let share;
   let finished = false;
+  // Vraag in stappen: het antwoord van een stap bekeken, daarna verder. De vraag telt dan als bekeken.
+  let stepRevealed = false;
 
-  const finish = (revealed) => {
+  // answered: afgerond met een goed antwoord (ook als eerder een stap bekeken is), niet met „Toon antwoord”.
+  const finish = (revealed, answered = !revealed) => {
     finished = true;
     fieldWatcher.disconnect();
     // Stond de cursor in een tekstveld van deze vraag (toetsenbord open)? Dan mag het volgende veld hem overnemen.
@@ -85,11 +88,16 @@ export function itemCard(item, ctx, number, onDone, label) {
     const say = spokenText(item);
     const btn = say ? speakButton(say, { label: 'Beluister de zin', className: 'after' }) : null;
     if (btn) feedback.append(h('p', { class: 'listen-after speech-extra' }, btn, h('span', { class: 'muted', lang: 'sv' }, say)));
-    onDone({ firstTry: !hadError && !revealed, revealed, neutral, typed, share: revealed ? undefined : share });
+    // Vraag in stappen: het deel van de stappen dat in één keer goed was, ook als je een stap bekeek.
+    const part = r.share ? r.share() : revealed ? undefined : share;
+    onDone({ firstTry: !hadError && !revealed, revealed, neutral, typed, share: part, answered });
   };
 
+  // Vraag in stappen: de regel en de knop horen bij de stap die nu loopt.
+  const current = () => r.currentStep?.() ?? item;
   const rule = () => {
-    const found = topic && ctx.findTopic?.(topic);
+    const t = current().topic ?? topic;
+    const found = t && ctx.findTopic?.(t);
     if (!found) return null;
     return h('p', { class: 'rule' },
       h('strong', {}, 'Regel: '), h('span', { html: inline(found.card.summary) }), ' ',
@@ -123,13 +131,16 @@ export function itemCard(item, ctx, number, onDone, label) {
     if (res.correct && res.advance) {
       attempts = 0;
       revealBtn.hidden = true;
-      checkBtn.hidden = false; // de volgende stap (typen, tegels) heeft de knop wel nodig
+      // Volgende stap die zichzelf nakijkt (kiezen): geen knop. Typen, tegels of een verbeterzin: wel.
+      checkBtn.hidden = res.newStep ? selfChecking(current()) : false;
       show('good', h('p', {}, 'Goed! Nu de volgende stap.'));
       return;
     }
     if (res.correct) {
-      show('good', h('p', {}, hadError ? 'Goed zo, nu klopt het!' : 'Goed!'), res.note ? h('p', { class: 'muted' }, res.note) : null, explain());
-      finish(false);
+      show('good', h('p', {}, hadError ? 'Goed zo, nu klopt het!' : 'Goed!'), res.note ? h('p', { class: 'muted' }, res.note) : null,
+        stepRevealed ? h('p', { class: 'muted' }, 'Je hebt het antwoord van een stap bekeken; deze vraag komt terug in de herhaling.') : null,
+        explain());
+      finish(stepRevealed, true);
       return;
     }
 
@@ -160,6 +171,7 @@ export function itemCard(item, ctx, number, onDone, label) {
   skipBtn?.addEventListener('click', () => ctx.onSkip(card));
   hintBtn?.addEventListener('click', () => {
     hadError = true;
+    r.noteHelp?.();
     hintBtn.hidden = true;
     hintBox.replaceChildren(h('strong', {}, 'Hint: '), h('span', { html: inline(hint) }), ' ',
       h('span', { class: 'muted small' }, 'Met hint telt deze vraag als goed na hulp; hij komt in de herhaling terug.'));
@@ -241,6 +253,21 @@ export function itemCard(item, ctx, number, onDone, label) {
     actions.append(btn);
   };
   revealBtn.addEventListener('click', () => {
+    // Vraag in stappen: alleen deze stap tonen; de volgende stappen doe je zelf.
+    if (!neutral && r.revealStep) {
+      stepRevealed = true;
+      const stepRule = rule(); // de regel van de stap die je bekijkt, niet van de volgende
+      if (r.revealStep()) {
+        attempts = 0;
+        revealBtn.hidden = true;
+        checkBtn.hidden = selfChecking(current());
+        show('info', h('p', {}, 'Dit is het goede antwoord van deze stap. Doe de volgende stap zelf.'), stepRule);
+        return;
+      }
+      show('info', h('p', {}, 'Dit is het goede antwoord. Doe de oefening later nog eens om het te herhalen.'), stepRule, explain());
+      finish(true);
+      return;
+    }
     r.reveal();
     if (neutral) return finishNeutral();
     show('info', h('p', {}, 'Dit is het goede antwoord. Doe de oefening later nog eens om het te herhalen.'), rule(), explain());

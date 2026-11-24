@@ -190,6 +190,83 @@ describe('vraagkaart: nakijken, tips, hint en het antwoord tonen', () => {
     });
   }
 
+  it('stappen: „Toon antwoord” toont alleen die stap; de rest doe je zelf, met deelpunten (issue #32)', () => {
+    const tr = (answer) => ({ type: 'translate', prompt: 'x', answers: [answer] });
+    const item = { id: 'st', type: 'steps', steps: [tr('Jag heter Fleur.'), tr('Jag sjunger ofta.'), tr('Jag bor i Lund.')] };
+    const c = card(item);
+    const step = () => [...c.el.querySelectorAll('.step')].at(-1);
+    const say = (text) => {
+      preferTyping(step());
+      type(step().querySelector('input[type="text"]:not(:disabled), textarea:not(:disabled)'), text);
+      c.btn('Controleer').click();
+    };
+    say('Jag heter Fleur.');
+    for (let i = 0; i < 3; i++) say('xyz qqq');
+    c.btn('Toon antwoord').click();
+    // Stap 2 ingevuld, stap 3 staat open en is nog leeg.
+    expect(c.el.querySelectorAll('.step').length).toBe(3);
+    expect(c.done.length).toBe(0);
+    expect(c.btn('Toon antwoord')).toBeUndefined();
+    expect(c.feedback().textContent).toContain('volgende stap');
+    say('Jag bor i Lund.');
+    expect(c.done[0]).toMatchObject({ firstTry: false, revealed: true, answered: true });
+    expect(c.done[0].share).toBeCloseTo(2 / 3);
+    expect(c.el.classList.contains('is-revealed')).toBe(true);
+  });
+
+  it('stappen: de regel hoort bij de stap, geen Controleer bij een keuzestap', () => {
+    const found = [];
+    const item = { id: 'st', type: 'steps', topic: 'a', steps: [
+      { type: 'translate', topic: 'b', prompt: 'x', answers: ['Jag heter Fleur.'] },
+      { type: 'mc', prompt: 'x', options: ['ja', 'nej'], answer: 0 },
+    ] };
+    const c = card(item, { findTopic: (t) => { found.push(t); return { card: { summary: t }, href: '#' }; } });
+    preferTyping(c.el);
+    for (let i = 0; i < 3; i++) {
+      type(c.el.querySelector('input[type="text"]:not(:disabled), textarea:not(:disabled)'), 'xyz qqq');
+      c.btn('Controleer').click();
+    }
+    c.btn('Toon antwoord').click();
+    expect(found.at(-1)).toBe('b');
+    expect(c.btn('Controleer')).toBeUndefined();
+  });
+
+  it('stappen: een fout in één stap kost alleen die stap', () => {
+    const tr = (answer) => ({ type: 'translate', prompt: 'x', answers: [answer] });
+    const item = { id: 'st', type: 'steps', steps: [tr('Jag heter Fleur.'), tr('Jag sjunger ofta.')] };
+    const c = card(item);
+    const step = () => [...c.el.querySelectorAll('.step')].at(-1);
+    const say = (text) => {
+      preferTyping(step());
+      type(step().querySelector('input[type="text"]:not(:disabled), textarea:not(:disabled)'), text);
+      c.btn('Controleer').click();
+    };
+    say('xyz qqq');
+    say('Jag heter Fleur.');
+    say('Jag sjunger ofta.');
+    expect(c.done[0]).toMatchObject({ firstTry: false, revealed: false, share: 0.5 });
+  });
+
+  it('stappen: een vrije schrijfstap telt niet mee in de deelpunten', () => {
+    const item = { id: 'st', type: 'steps', steps: [
+      { type: 'translate', prompt: 'x', answers: ['Jag heter Fleur.'] },
+      { type: 'translate', prompt: 'x', answers: ['Jag sjunger ofta.'] },
+      { type: 'free', prompt: 'Skriv.', model: 'Jag heter Fleur och jag sjunger ofta.' },
+    ] };
+    const c = card(item);
+    const step = () => [...c.el.querySelectorAll('.step')].at(-1);
+    const say = (text) => {
+      preferTyping(step());
+      type(step().querySelector('input[type="text"]:not(:disabled), textarea:not(:disabled)'), text);
+      c.btn(c.btn('Controleer') ? 'Controleer' : 'Klaar').click();
+    };
+    say('xyz qqq');
+    say('Jag heter Fleur.');
+    say('Jag sjunger ofta.');
+    say('Jag heter Fleur. Jag sjunger ofta hemma.');
+    expect(c.done[0]).toMatchObject({ firstTry: false, share: 0.5 });
+  });
+
   it('hint: telt niet als in één keer goed', () => {
     const item = course[1].exercises.flatMap((e) => e.items).find((it) => it.type === 'translate');
     const c = card(item);
