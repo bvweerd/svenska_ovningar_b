@@ -60,8 +60,11 @@ tekstballon, runensteen, trätoffel, köttbullar met lingon, kräfta, vikingschi
 snapsglas. De rand toont het niveau (brons, zilver, goud; blauw-geel bij een losse badge en een vlagrand bij
 het vierde niveau).
 
-**Hint**: bij vragen waar je iets typt geeft de knop Hint het begin van het antwoord (of een eigen `help`
-in de vraag). Met hint telt een vraag als goed na hulp, niet als in één keer goed.
+**Hint**: bij vragen waar je iets typt noemt de knop Hint de regel of de denkstap, niet het antwoord. Volgorde:
+`help` in de vraag, `help` op de oefening, wat het vraagtype zelf geeft (bij vertalen het eerste woord of de
+beginletters van een woordje), en anders de `hint` van de grammaticakaart van het topic. Invullen en zinsbouw met
+vast begin geven zelf geen hint: beginletters herhaalden het grondwoord of verklapten juist de lastige vorm. Met
+hint telt een vraag als goed na hulp, niet als in één keer goed.
 
 **Hand-outs** (`#/k/<hoofdstuk>/g/<kaart>/print`, of `#/k/<hoofdstuk>/print` voor alle kaarten): elke
 grammaticakaart als A4 om op te hangen, met de kernregel groot in een kader en de uitleg in twee kolommen.

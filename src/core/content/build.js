@@ -1,6 +1,8 @@
 // Zet ruwe hoofdstukinhoud (YAML) om naar het model dat de site gebruikt,
 // inclusief automatisch gegenereerde woordenschatoefeningen.
 import { normalize, variants } from '../check/normalize.js';
+import { firstLetters } from '../items/text.js';
+import { hintFor, selfChecking, isGradable } from '../items/index.js';
 
 /** Eenvoudige, voorspelbare pseudo-random generator (zodat builds en tests stabiel zijn). */
 export function rng(seed) {
@@ -31,8 +33,17 @@ const bare = (sv) => sv.replace(/^(en|ett|att) /, '');
 export const VOCAB_ROUND = 10;
 
 export const list = (x) => [].concat(x ?? []);
+
+const words = (t) => normalize(t).split(/\s+/);
+const lettersHelp = (answer) => `Het woord ${firstLetters([answer])}.`;
+
+// Terugval als de site geen meervoudkaart met `hint` heeft (anders geldt die, zie vocabExercises).
+const PLURAL_HELP = 'Vuistregels: en-woord op -a → **-or**, veel en-woorden → **-ar**, klemtoon achteraan of een leenwoord → **-er**, '
+  + 'ett-woord op een klinker → **-n**, ett-woord op een medeklinker → **geen uitgang**. Sommige woorden veranderen van klinker.';
+
 /** Eerste betekenis zonder lidwoord en toelichting: "een klok, een horloge" → "klok". */
-const firstSense = (nl) => nlBare(nl.replace(/\s*\([^)]*\)/g, '').split(',')[0].trim());
+// Een toelichting vast aan een woord valt weg zonder de woorden aan elkaar te plakken: "een (telefoon)gesprek" → "gesprek".
+const firstSense = (nl) => nlBare(nl.replace(/\([^)]*\)(?=\S)/g, '').replace(/\s*\([^)]*\)/g, '').split(',')[0].trim());
 const BOLD = /\*\*([^*]+)\*\*/g;
 
 /**
@@ -55,7 +66,7 @@ export function exampleGap(ex) {
  * @param nounTopic    onderwerp voor de en/ett-oefening: "substantiv" als de cursus daar een
  *                     uitlegkaart voor heeft (A1–A2), anders "woordenschat". Zo ook pluralTopic.
  */
-export function vocabExercises(vocab, chapterNo, { nounTopic = 'woordenschat', pluralTopic = 'woordenschat', pluralFrom = 0 } = {}) {
+export function vocabExercises(vocab, chapterNo, { nounTopic = 'woordenschat', pluralTopic = 'woordenschat', pluralFrom = 0, cardHints = new Map() } = {}) {
   if (!vocab?.length) return [];
   const rand = rng(chapterNo * 7919 + vocab.length);
   const exercises = [];
@@ -155,6 +166,8 @@ export function vocabExercises(vocab, chapterNo, { nounTopic = 'woordenschat', p
       generated: true,
       shuffle: true,
       roundSize: VOCAB_ROUND,
+      // Regelhint: de vuistregels, niet de beginletters (die herhaalden het enkelvoud).
+      help: cardHints.get('plural') ?? PLURAL_HELP,
       items: plurals.map((v) => {
         const pl = list(v.pl);
         const feedback = [];
@@ -196,7 +209,9 @@ export function vocabExercises(vocab, chapterNo, { nounTopic = 'woordenschat', p
           type: 'gap',
           prompt: v.exNl,
           text: gap.text,
-          help: `Het woord is „${base}” (${firstSense(v.nl)}).${same ? '' : ' Welke vorm hoort in deze zin?'}`,
+          // Verbuigt het woord, dan is het grondwoord een hint (de vorm blijft het werk); zo niet, dan
+          // zou het grondwoord het hele antwoord zijn: dan alleen de beginletters.
+          help: same || variants([gap.answer]).some((a) => words(base).includes(a)) ? lettersHelp(gap.answer) : `Het woord is „${base}” (${firstSense(v.nl)}). Welke vorm hoort in deze zin?`,
           gaps: [{ answers: [gap.answer], ...(feedback.length ? { feedback } : {}) }],
         };
       }),
@@ -205,9 +220,26 @@ export function vocabExercises(vocab, chapterNo, { nounTopic = 'woordenschat', p
   return exercises;
 }
 
+/**
+ * Regelhints voor vragen waar je iets typt: een eigen `help` gaat voor, dan een `help` op oefeningniveau.
+ * Geeft het vraagtype zelf geen hint (invullen, zinsbouw met vast begin), dan de `hint` van de
+ * grammaticakaart van het topic. Bij keuzevragen geen hint.
+ */
+const CARD_HINT_TYPES = new Set(['gap', 'order']);
+
+function withHelp(ex, cardHints = new Map()) {
+  const help = (it) => {
+    if (it.help || selfChecking(it) || !isGradable(it)) return it.help;
+    if (ex.help) return ex.help;
+    // De kaarthint (een regel over vorm of woordvolgorde) past alleen bij invullen en zinsbouw.
+    return CARD_HINT_TYPES.has(it.type) && !hintFor(it) ? cardHints.get(it.topic ?? ex.topic) : undefined;
+  };
+  return { ...ex, items: (ex.items ?? []).map((it) => { const h = help(it); return h && h !== it.help ? { ...it, help: h } : it; }) };
+}
+
 export function buildChapter(raw, opts = {}) {
-  const sections = (raw.sections ?? []).map((s) => ({ ...s, exercises: [...(s.exercises ?? [])] }));
-  const generated = vocabExercises(raw.vocab, raw.chapter, opts);
+  const sections = (raw.sections ?? []).map((s) => ({ ...s, exercises: (s.exercises ?? []).map((ex) => withHelp(ex, opts.cardHints)) }));
+  const generated = vocabExercises(raw.vocab, raw.chapter, opts).map((ex) => withHelp(ex, opts.cardHints));
   if (generated.length) {
     // De eerste woordenoefening („Wat betekent het?”) komt vooraan: de woorden heb je nodig in de
     // oefeningen. Op de B-site aan het begin van „Ord och fraser”, anders in een eigen onderdeel.
@@ -233,7 +265,8 @@ export function buildCourse(index, rawChapters) {
   const nounTopic = hasCard('substantiv') ? 'substantiv' : 'woordenschat';
   const pluralTopic = hasCard('plural') ? 'plural' : 'woordenschat';
   const pluralFrom = rawChapters.find((c) => c.grammar?.some((g) => g.id === 'plural'))?.chapter ?? 0;
-  const byNo = new Map(rawChapters.map((c) => [c.chapter, buildChapter(c, { nounTopic, pluralTopic, pluralFrom })]));
+  const cardHints = new Map(rawChapters.flatMap((c) => (c.grammar ?? []).filter((g) => g.hint).map((g) => [g.id, g.hint])));
+  const byNo = new Map(rawChapters.map((c) => [c.chapter, buildChapter(c, { nounTopic, pluralTopic, pluralFrom, cardHints })]));
   return index.chapters.map((meta) => ({
     ...meta,
     ...(byNo.get(meta.chapter) ?? {}),
