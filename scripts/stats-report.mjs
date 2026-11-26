@@ -66,7 +66,7 @@ const prefix = PATH_PREFIX.replace(/^\//, '');
 const own = (p) => {
   const q = p.replace(/^\//, '');
   if (prefix) return q.startsWith(`${prefix}/`) ? q.slice(prefix.length + 1) : null;
-  return /^(vraag|oefening|werkwoord|toets|spel|luisteren|melding)\//.test(q) ? q : null;
+  return /^(vraag|oefening|werkwoord|toets|spel|luisteren|melding|nieuw)\//.test(q) ? q : null;
 };
 
 const hits = (await allHits()).filter((h) => h.event).map((h) => ({ path: own(h.path), count: h.count })).filter((h) => h.path);
@@ -101,6 +101,13 @@ const table = (title, map, label) => {
 
 const sum = (map) => [...map.values()].reduce((s, r) => s + total(r), 0);
 console.log(`GoatCounter ${GOATCOUNTER_CODE}${prefix ? ` (pad ${prefix}/)` : ''}${START ? ` vanaf ${START}` : ''}: ${sum(perQ)} antwoorden op ${perQ.size} vragen.`);
+const fresh = hits.filter((h) => h.path.startsWith('nieuw/'));
+if (fresh.length) {
+  const n = (h) => h.count;
+  const existing = fresh.filter((h) => h.path === 'nieuw/al-bezig').reduce((t, h) => t + n(h), 0);
+  const months = fresh.filter((h) => h.path !== 'nieuw/al-bezig').sort((a, b) => a.path.localeCompare(b.path));
+  console.log(`Browsers (één keer geteld, niet per persoon): ${existing + months.reduce((t, h) => t + n(h), 0)}, waarvan ${existing} al bezig toen de telling begon; nieuw per maand: ${months.map((h) => `${h.path.slice(6)} ${n(h)}`).join(', ') || 'nog geen'}.`);
+}
 table('Moeilijkste oefeningen', perEx, () => '');
 table('Moeilijkste vragen', perQ, (k) => questions.get(k));
 

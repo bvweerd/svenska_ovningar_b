@@ -4,6 +4,7 @@ import { GOATCOUNTER_CODE, PATH_PREFIX } from '../config.js';
 import { read, write } from './storage.js';
 
 const OPT_OUT_KEY = 'svensk-ovningar:analytics-opt-out';
+const COUNTED_KEY = 'svensk-ovningar:analytics-counted';
 let loaded = false;
 const queue = [];
 
@@ -54,6 +55,19 @@ export function trackPage(path, title) {
 /** Event, bijvoorbeeld "vraag/1/presens-invullen/3/fout". */
 export function trackEvent(path, title) {
   push({ path: `${PATH_PREFIX}/${path}`, title, event: true });
+}
+
+/**
+ * Eén keer per browser, zodat het dashboard laat zien hoeveel verschillende browsers de site gebruiken,
+ * zonder dat er een id wordt opgeslagen of verstuurd: nieuw/<jjjj-mm> voor een nieuwe browser,
+ * nieuw/al-bezig voor een browser die de site al gebruikte voordat er zo geteld werd.
+ * Alleen als het onthouden lukt, anders zou elk bezoek als nieuw tellen. Geeft het verstuurde pad of null.
+ */
+export function trackFirstVisit(alreadyUsed, now = new Date()) {
+  if (!active() || read(COUNTED_KEY) || !write(COUNTED_KEY, '1')) return null;
+  const path = alreadyUsed ? 'nieuw/al-bezig' : `nieuw/${now.toISOString().slice(0, 7)}`;
+  trackEvent(path);
+  return path;
 }
 
 /** Korte omschrijving van een vraag voor in het dashboard. */
