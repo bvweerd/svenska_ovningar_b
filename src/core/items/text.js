@@ -10,12 +10,24 @@ export function firstWords(answers) {
   return ws.length > 1 ? `Het antwoord begint met „${ws[0]} …”.` : null;
 }
 
-/** Hint voor één woord: de eerste letter(s). */
-export function firstLetters(answers) {
+/** Hint bij een woord of woordgroep met lidwoord of „att” (en hosta, att klä på sig): de eerste letters van het woord zelf. */
+export function wordHint(answers) {
   const w = displayAnswer(answers);
+  if (!w || !(/^(en|ett|att) \S/.test(w) || !/\s/.test(w))) return null;
+  const rest = w.replace(/^(en|ett|att) /, '');
+  return `${/\s/.test(rest) ? 'Het antwoord' : 'Het Zweedse woord'} ${firstLetters(answers)}.`;
+}
+
+/**
+ * Beginletters van een woord, als „begint met „x…””. Een lidwoord of „att” ervoor slaan we over (dat
+ * verklapt en/ett). Een woord van 1–2 letters zou met de beginletter al verklapt zijn: dan alleen de lengte.
+ */
+export function firstLetters(answers) {
+  const w = displayAnswer(answers).replace(/^(en|ett|att) (?=\S)/, '');
   if (!w) return null;
-  const n = w.length > 6 ? 2 : 1;
-  return `${w.slice(0, n)}…`;
+  const word = w.split(/\s+/)[0];
+  if (word.length <= 2 && !/\s/.test(w)) return `heeft ${word.length === 1 ? 'één letter' : 'twee letters'}`;
+  return `begint met „${w.slice(0, w.length > 6 ? 2 : 1)}…”`;
 }
 
 export const gap = {
@@ -34,11 +46,9 @@ export const gap = {
     });
   },
   answerPart: (item) => ['gap', (item.gaps ?? []).map((g) => g.answers)],
-  hint(item) {
-    const open = (item.gaps ?? []).filter((g) => !g.options);
-    if (!open.length) return null;
-    return `Begint met: ${open.map((g) => `„${firstLetters(g.answers)}”`).join(', ')}`;
-  },
+  // Geen automatische hint met beginletters: bij een grondwoord tussen haakjes herhaalde die het
+  // grondwoord of verklapte hij juist de lastige vorm (äta → å…), bij een kleine keuze het antwoord.
+  // Een invuloefening krijgt een regelhint (`help`, ook op oefeningniveau).
   spoken(item) {
     if (/→|___.*:/.test(item.text) || item.noSpeak) return null;
     const parts = cutLabel(item.text).split('___');
@@ -56,7 +66,7 @@ export const translate = {
     if (!item.prompt || !item.answers?.length) err('translate heeft prompt en antwoorden nodig');
   },
   spoken: answersSpoken,
-  hint: (item) => firstWords(item.answers) ?? (item.answers?.length ? `Begint met: „${firstLetters(item.answers)}”` : null),
+  hint: (item) => wordHint(item.answers) ?? firstWords(item.answers),
 };
 
 export const transform = {

@@ -40,7 +40,7 @@ grammar:
 
   - id: sambandsord
     title: Verbindingswoorden
-    summary: "**och, men, så, för, eller** verbinden zinnen zonder inversie: *…, så vi missade bussen.* Bijwoorden als **därför, dessutom, däremot, ändå, sedan** veroorzaken **inversie** vooraan: ***Därför** missade vi bussen.*"
+    summary: "**och, men, för, eller** verbinden zinnen zonder inversie; na **så** (= dus) mag allebei: *…, så vi missade bussen* of *…, så missade vi bussen*. Bijwoorden als **därför, dessutom, däremot, ändå, sedan** veroorzaken **inversie** vooraan: ***Därför** missade vi bussen.*"
     body: |
       Met verbindingswoorden maak je van losse zinnen een lopende tekst.
 
@@ -53,11 +53,11 @@ grammar:
       | volgorde | *först, sedan, efter det, till slut* |
 
       ### Woordvolgorde
-      **Nevenschikkende voegwoorden** (*och, men, så, för, eller*) staan tussen twee hoofdzinnen. Daarna gewone volgorde:
+      **Nevenschikkende voegwoorden** (*och, men, så, för, eller*) staan tussen twee hoofdzinnen. Daarna gewone volgorde (na *så* mag ook inversie):
 
       - *Tåget var sent, **så vi missade** bussen.*
 
-      In spreektaal hoor je ook *så missade vi* (dan werkt *så* als bijwoord, 'toen'). In geschreven tekst is *så vi missade* de norm.
+      Na *så* hoor en lees je ook vaak inversie: *så missade vi*. Dat is ook goed; in formele tekst is *så vi missade* het gewoonst.
 
       **Bijwoorden** (*därför, dessutom, däremot, ändå, sedan, alltså, till slut*) zijn een zinsdeel. Staan ze vooraan, dan volgt **inversie** (V2):
 
@@ -269,11 +269,10 @@ sections:
           - id: emfg
             type: translate
             prompt: "Onze vlucht is geannuleerd, dus we moeten de kaartjes omboeken."
-            answers: ["Vårt flyg {är inställt|har ställts in|ställdes in|blev inställt|har blivit inställt}, så vi måste boka om biljetterna."]
+            answers: ["Vårt flyg {är inställt|har ställts in|ställdes in|blev inställt|har blivit inställt}, så {vi måste|måste vi} boka om biljetterna."]
             feedback:
               - { contains: "är inställd ", tip: "*flyg* is een ett-woord: *vårt flyg är inställt*." }
               - { contains: "är ställt in", tip: "Als deelwoord komt het partikel vooraan: *inställt*." }
-              - { contains: "så måste vi", tip: "Na het voegwoord *så* (= dus) geen inversie: *så vi måste*." }
           - id: eqw7
             type: translate
             prompt: "Waar moeten we uitstappen als we naar het hotel willen?"
@@ -305,14 +304,14 @@ sections:
         items:
           - id: xswn
             type: sort
-            categories: ["inversie: Därför kom vi …", "geen inversie: … så vi kom"]
+            categories: ["inversie: Därför kom vi …", "geen inversie: … men vi kom"]
             items:
               - { text: "därför", cat: 0 }
               - { text: "och", cat: 1 }
               - { text: "dessutom", cat: 0 }
               - { text: "men", cat: 1 }
               - { text: "ändå", cat: 0 }
-              - { text: "så (= dus)", cat: 1 }
+              - { text: "för (= want)", cat: 1 }
               - { text: "sedan", cat: 0 }
               - { text: "eller", cat: 1 }
 
@@ -339,7 +338,7 @@ sections:
         items:
           - { id: vwdq, type: order, start: "Därför", tokens: ["kom", "vi", "fram", "sent"], answers: ["Därför kom vi fram sent."] }
           - { id: peev, type: order, start: "Dessutom", tokens: ["hade", "vi", "missat", "bussen"], answers: ["Dessutom hade vi missat bussen."] }
-          - { id: 7jtb, type: order, start: "Tåget var sent, så", tokens: ["vi", "missade", "bussen"], answers: ["Tåget var sent, så vi missade bussen."] }
+          - { id: 7jtb, type: order, start: "Tåget var sent, så", tokens: ["vi", "missade", "bussen"], answers: ["Tåget var sent, så vi missade bussen.", "Tåget var sent, så missade vi bussen."] }
           - { id: xdqr, type: order, start: "Till slut", tokens: ["kom", "vi", "fram", "till Abisko"], answers: ["Till slut kom vi fram till Abisko."] }
           - { id: 4u9b, type: order, start: "Vi kom sent eftersom", tokens: ["tåget", "inte", "gick", "i tid"], answers: ["Vi kom sent eftersom tåget inte gick i tid."] }
           - { id: e9cj, type: order, start: "Däremot", tokens: ["var", "hotellet", "billigt"], answers: ["Däremot var hotellet billigt."] }
@@ -362,9 +361,8 @@ sections:
           - id: r79y
             type: translate
             prompt: "Het vliegtuig was vertraagd, dus we hebben de laatste bus naar het hotel gemist."
-            answers: ["{Flyget|Planet} {var|blev} försenat, så vi {missade|har missat} {den sista bussen|sista bussen} till hotellet."]
+            answers: ["{Flyget|Planet} {var|blev} försenat, så {vi missade|vi har missat|missade vi|har vi missat} {den sista bussen|sista bussen} till hotellet."]
             feedback:
-              - { contains: "så missade vi", tip: "Na het voegwoord *så* (= dus) geen inversie: *så vi missade*." }
               - { contains: "var försenad", tip: "*flyg* is een ett-woord: *flyget var försenat*." }
           - id: 7gua
             type: translate
@@ -411,10 +409,10 @@ sections:
         title: "Vertaal: langere zinnen"
         instruction: Vertaal de hele zin. Let op de woordvolgorde in de bijzin en na een woord vooraan.
         items:
-          - { id: hc7n, type: translate, topic: sambandsord, prompt: "De trein had vertraging door een seinstoring, dus we haalden de overstap in Stockholm niet.", answers: ["Tåget var försenat på grund av ett signalfel, så vi hann inte med bytet i Stockholm.", "Tåget var försenat på grund av ett signalfel, {så vi hann inte med|så vi missade|och därför hann vi inte med|därför hann vi inte med|och därför missade vi|därför missade vi} bytet i Stockholm."], feedback: [{ contains: "därför vi hann", tip: "Na därför: werkwoord eerst (därför hann vi)." }] }
+          - { id: hc7n, type: translate, topic: sambandsord, prompt: "De trein had vertraging door een seinstoring, dus we haalden de overstap in Stockholm niet.", answers: ["Tåget var försenat på grund av ett signalfel, så {vi hann inte med|hann vi inte med} bytet i Stockholm.", "Tåget var försenat på grund av ett signalfel, {så vi hann inte med|så vi missade|så hann vi inte med|så missade vi|och därför hann vi inte med|därför hann vi inte med|och därför missade vi|därför missade vi} bytet i Stockholm."], feedback: [{ contains: "därför vi hann", tip: "Na därför: werkwoord eerst (därför hann vi)." }] }
           - { id: dbyt, type: translate, topic: partikelverb-2, prompt: "We stapten bij de verkeerde halte uit en moesten bijna twee kilometer teruglopen naar het hotel.", answers: ["Vi steg av vid fel hållplats och fick gå nästan två kilometer tillbaka till hotellet.", "Vi {steg|klev|gick} av vid fel hållplats och {fick|måste|var tvungna att} gå {nästan två kilometer tillbaka|tillbaka nästan två kilometer} till hotellet."], feedback: [{ contains: "steg ut vid", tip: "Bij bus en trein zeg je meestal stiga av." }] }
           - { id: 9pkm, type: translate, topic: sambandsord, prompt: "Het regende de hele week, maar we wandelden toch elke dag omdat het uitzicht fantastisch was.", answers: ["Det regnade hela veckan, men vi vandrade ändå varje dag eftersom utsikten var fantastisk.", "Det regnade hela veckan, men vi {vandrade|promenerade} {ändå varje dag|varje dag ändå} {eftersom|för att} utsikten var fantastisk."], feedback: [{ contains: "eftersom var utsikten", tip: "In een bijzin: onderwerp, dan werkwoord (eftersom utsikten var)." }] }
-          - { id: cb7a, type: translate, topic: sambandsord, prompt: "Bovendien was het hotel volgeboekt, dus we moesten die nacht in een klein tentje bij het meer slapen.", answers: ["Dessutom var hotellet fullbokat, så vi fick sova i ett litet tält vid sjön den natten.", "Dessutom var hotellet fullbokat, så vi {fick|måste} sova i ett litet tält vid sjön den natten."], feedback: [{ contains: "Dessutom hotellet var", tip: "Na dessutom vooraan: werkwoord eerst (dessutom var hotellet)." }] }
+          - { id: cb7a, type: translate, topic: sambandsord, prompt: "Bovendien was het hotel volgeboekt, dus we moesten die nacht in een klein tentje bij het meer slapen.", answers: ["Dessutom var hotellet fullbokat, så {vi fick|fick vi} sova i ett litet tält vid sjön den natten.", "Dessutom var hotellet fullbokat, så {vi fick|vi måste|fick vi|måste vi} sova i ett litet tält vid sjön den natten."], feedback: [{ contains: "Dessutom hotellet var", tip: "Na dessutom vooraan: werkwoord eerst (dessutom var hotellet)." }] }
 
   - id: zoek-de-fout
     title: Zoek de fout
@@ -429,7 +427,7 @@ sections:
           - { id: kx95, type: findError, sentence: "Dessutom hotellet var dyrt.", wrong: [1, 2], answers: ["Dessutom var hotellet dyrt."], tip: "Inversie na dessutom." }
           - { id: gf78, type: findError, topic: partikelverb-2, sentence: "Flyget är ställt in.", wrong: [2, 3], answers: ["Flyget är inställt."], tip: "Bij een deelwoord komt het partikel vooraan." }
           - { id: ahuu, type: findError, topic: partikelverb-2, sentence: "Ta med sig passet!", wrong: [2], answers: ["Ta med dig passet!"], tip: "Tegen wie praat je?" }
-          - { id: butj, type: findError, sentence: "Tåget var sent, så missade vi bussen.", wrong: [4, 5], answers: ["Tåget var sent, så vi missade bussen."], tip: "Na het voegwoord så (= dus): geen inversie. In spreektaal hoor je ook så missade vi, maar schrijf så vi missade." }
+          - { id: butj, type: findError, sentence: "Tåget var sent, och därför vi missade bussen.", wrong: [5, 6], answers: ["Tåget var sent, och därför missade vi bussen."], tip: "därför is een bijwoord: daarna komt het werkwoord direct (därför missade vi). Na så (= dus) mogen allebei." }
 
   - id: lyssna
     title: Lyssna · luisteren
@@ -588,12 +586,12 @@ sections:
         items:
           - { id: t3yr, type: translate, topic: partikelverb-2, prompt: "Zeg dat je de trein niet hebt gehaald.", answers: ["Jag {hann inte med|missade} tåget.", "Jag har missat tåget.", "Jag hann inte till tåget."] }
           - { id: qrxs, type: translate, topic: partikelverb-2, prompt: "Vraag waar je moet uitstappen.", answers: ["Var {ska|måste} jag {stiga|kliva|gå} av?"] }
-          - { id: duwx, type: translate, topic: sambandsord, prompt: "Zeg dat de trein vertraging had en dat je daarom te laat bent.", answers: ["Tåget var försenat, så jag {är sen|kommer för sent}.", "Tåget var försenat, [och ]därför {är jag sen|kommer jag för sent}.", "Tåget var försenat. Därför {är jag sen|kommer jag för sent}.", "Jag {är sen|kommer för sent} eftersom tåget var försenat."], feedback: [{ contains: "därför jag är", tip: "Na därför komt het werkwoord eerst: därför är jag sen." }] }
+          - { id: duwx, type: translate, topic: sambandsord, prompt: "Zeg dat de trein vertraging had en dat je daarom te laat bent.", answers: ["Tåget var försenat, så {jag är sen|jag kommer för sent|är jag sen|kommer jag för sent}.", "Tåget var försenat, [och ]därför {är jag sen|kommer jag för sent}.", "Tåget var försenat. Därför {är jag sen|kommer jag för sent}.", "Jag {är sen|kommer för sent} eftersom tåget var försenat."], feedback: [{ contains: "därför jag är", tip: "Na därför komt het werkwoord eerst: därför är jag sen." }] }
           - { id: ra25, type: translate, topic: sambandsord, prompt: "Zeg dat het regende, maar dat jullie toch gingen wandelen.", answers: ["Det regnade, men vi {gick på promenad|gick en promenad|tog en promenad|gick ut och gick|vandrade|promenerade} ändå."] }
           - { id: 8qbn, type: translate, topic: partikelverb-2, prompt: "Je zit met een vriend in de bus. Zeg: hier moeten we uitstappen.", answers: ["Här {ska|måste} vi {stiga|gå|kliva} av.", "Vi {ska|måste} {stiga|gå|kliva} av här.", "Det är här vi {ska|måste} {stiga|gå|kliva} av.", "Här {går|stiger|kliver} vi av.", "Vi {går|stiger|kliver} av här."], feedback: [{ contains: ["stiga ut", "gå ut", "kliva ut"], tip: "Uitstappen = stiga av (of gå av)." }] }
           - { id: juxy, type: translate, topic: sambandsord, prompt: "Vertel over je reis: eerst namen jullie de trein naar Stockholm, daarna de boot naar Finland.", answers: ["Först tog vi tåget till Stockholm[,] {och |}{sedan|sen|därefter|efter det} {tog vi |}{båten|färjan} till Finland.", "Först åkte vi tåg till Stockholm[,] {och |}{sedan|sen|därefter|efter det} {åkte vi |}{båt|färja} till Finland."], feedback: [{ contains: ["sedan vi tog", "sen vi tog", "sedan vi åkte", "sen vi åkte"], tip: "sedan is een bijwoord: daarna komt het werkwoord direct, sedan tog vi." }] }
           - { id: e36j, type: translate, topic: partikelverb-2, prompt: "Je belt het hotel. Zeg dat je pas om tien uur 's avonds aankomt.", answers: ["{Jag|Vi} {kommer fram|är framme} först {klockan|kl.} {tio på kvällen|22}.", "{Jag|Vi} {kommer inte fram|är inte framme} förrän {klockan|kl.} {tio på kvällen|22}."], feedback: [{ contains: "kommer an", tip: "Aankomen = komma fram." }, { contains: ["kommer först", "kommer inte förrän"], retry: true, tip: "Goed Zweeds, maar oefen hier het partikelwerkwoord: komma fram." }] }
-          - { id: 5nuh, type: translate, topic: sambandsord, prompt: "Zeg dat de vlucht werd geannuleerd en dat jullie daarom een nacht langer bleven.", answers: ["Flyget {ställdes in|blev inställt}[,] {så vi stannade|och därför stannade vi|därför stannade vi} {en natt till|en natt extra|en natt längre|en extra natt}.", "Vi stannade {en natt till|en natt extra|en natt längre|en extra natt} eftersom flyget {ställdes in|blev inställt}."], feedback: [{ contains: "därför vi stannade", tip: "därför is een bijwoord: daarna komt het werkwoord direct, därför stannade vi." }, { contains: "flyget blev inställd", tip: "flyg is een ett-woord: inställt." }] }
+          - { id: 5nuh, type: translate, topic: sambandsord, prompt: "Zeg dat de vlucht werd geannuleerd en dat jullie daarom een nacht langer bleven.", answers: ["Flyget {ställdes in|blev inställt}[,] {så vi stannade|så stannade vi|och därför stannade vi|därför stannade vi} {en natt till|en natt extra|en natt längre|en extra natt}.", "Vi stannade {en natt till|en natt extra|en natt längre|en extra natt} eftersom flyget {ställdes in|blev inställt}."], feedback: [{ contains: "därför vi stannade", tip: "därför is een bijwoord: daarna komt het werkwoord direct, därför stannade vi." }, { contains: "flyget blev inställd", tip: "flyg is een ett-woord: inställt." }] }
 
   - id: skriva
     title: Skriva · schrijven

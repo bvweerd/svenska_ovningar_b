@@ -9,7 +9,7 @@ import { usePrefs } from './platform/speech.js';
 import { initPwa, isStandalone } from './platform/pwa.js';
 import { writeFailed } from './platform/storage.js';
 import { toast } from './ui/components/toast.js';
-import { initAnalytics, trackPage } from './platform/analytics.js';
+import { initAnalytics, trackPage, trackFirstVisit } from './platform/analytics.js';
 import { knownWords } from './core/content/known-words.js';
 import { setKnownWords } from './ui/items/tiles.js';
 import { reportSpeechStatus } from './ui/views/listen.js';
@@ -34,6 +34,8 @@ migrateToIds(course);
 const updateMenu = createMenu(course);
 initAnalytics();
 initPwa({ onUpdate: showUpdate });
+// Vóór countVisit: wie al eerder kwam, telt als bestaande browser.
+trackFirstVisit((getPref('visits', 0) ?? 0) > 0);
 countVisit();
 reportSpeechStatus();
 // Geïnstalleerde app: de terugknop gaat naar de bovenliggende pagina (zie nav.js).

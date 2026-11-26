@@ -12,6 +12,7 @@ import { expand, normalize } from '../src/core/check/normalize.js';
 import { LINE, words } from '../scripts/difficulty-report.mjs';
 import { answerTiles, isSentence, setKnownWords, tileStart } from '../src/ui/items/tiles.js';
 import { knownWords } from '../src/core/content/known-words.js';
+import { hintFor } from '../src/core/items/index.js';
 
 const root = path.resolve(import.meta.dirname, '..', 'content');
 const index = yaml.load(fs.readFileSync(path.join(root, 'index.yaml'), 'utf8'));
@@ -45,6 +46,26 @@ it('sorteren: elke categorie wordt gebruikt', () => {
   for (const ch of course) for (const ex of ch.exercises) for (const item of ex.items.filter((i) => i.type === 'sort')) {
     item.categories.forEach((_, c) => expect(item.items.some((x) => x.cat === c), `${ex.id}: categorie ${c}`).toBe(true));
   }
+});
+
+it('een hint verklapt het antwoord niet (behalve wat al in de vraag staat)', () => {
+  // Zweedse woorden in een hint staan cursief, vet of tussen „”; de rest is Nederlands.
+  const wordsOf = (t) => new Set(normalize(t ?? '').split(/[^\p{L}]+/u).filter(Boolean));
+  const swedish = (h) => (h.match(/\*[^*]+\*|„[^”]*”/g) ?? []).join(' ').replace(/[*„”]/g, ' ');
+  const bad = [];
+  for (const ch of course) for (const ex of ch.exercises) for (const item of allItems(ex)) {
+    const hint = hintFor(item);
+    if (!hint) continue;
+    const answers = item.type === 'gap' ? item.gaps.filter((g) => !g.options).flatMap((g) => g.answers)
+      : item.type === 'translate' ? item.answers : [];
+    const inHint = wordsOf(swedish(hint));
+    const shown = wordsOf(`${item.text ?? ''} ${item.prompt ?? ''}`);
+    for (const a of answers.flatMap((x) => expand(x))) {
+      const w = normalize(a);
+      if (!/\s/.test(w) && inHint.has(w) && !shown.has(w)) bad.push(`hoofdstuk ${ch.chapter} / ${ex.id} / ${item.id}: de hint bevat het antwoord „${a}”`);
+    }
+  }
+  expect(bad).toEqual([]);
 });
 
 it('elk bestand hoort bij een hoofdstuk uit index.yaml', () => {

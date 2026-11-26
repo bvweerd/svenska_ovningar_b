@@ -32,13 +32,9 @@ export const order = {
   validate(item, err) {
     if (!item.tokens?.length || !item.answers?.length) err('order heeft tokens en antwoorden nodig');
   },
-  hint(item) {
-    if (!item.start) return firstWords(item.answers);
-    // Het vaste begin (start) staat al in beeld: geef het eerste woord daarna, zolang dat niet de
-    // hele rest van de zin verklapt.
-    const rest = displayAnswer(item.answers).split(/\s+/).filter(Boolean).slice(item.start.split(/\s+/).filter(Boolean).length);
-    return rest.length > 2 ? `Na „${item.start}” komt „${rest[0]} …”.` : null;
-  },
+  // Met een vast begin (start) geen hint met het volgende woord: dat verklapte de inversie, precies wat
+  // zinsbouw oefent. Een regelhint kan als `help` (ook op oefeningniveau).
+  hint: (item) => (item.start ? null : firstWords(item.answers)),
   spoken: (item) => (item.answers?.length ? displayAnswer(item.answers) : null),
 };
 
